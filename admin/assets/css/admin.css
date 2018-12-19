@@ -1,0 +1,591 @@
+/**
+ *=============================================================
+ * Exclusive Addons Elementor Admin Settings Page Styles
+ *=============================================================
+ */
+
+/* General Style */
+
+.exad-settings-wrap {
+	padding: 15px;
+}
+.exad-header-bar {
+	height: auto;
+	padding: 10px;
+	background: #fff;
+	border: 1px solid rgba( 0,0,0,0.1 );
+	-webkit-display: flex;
+	display: flex;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.exad-settings-wrap .exad-header-left {
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+.exad-header-bar .exad-admin-logo-inline {
+	width: 32px;
+	box-shadow: 1px 0 0 0 rgba(0,0,0,0.1);
+	padding: 10px 10px 5px;
+	margin-right: 10px;
+}
+.exad-header-bar .exad-admin-logo-inline img{
+	width: 100%;
+}
+.exad-header-bar .title {
+	font-size: 24px;
+	color: #444;
+	font-weight: 600;
+	margin: 0px;
+	line-height: 1;
+}
+
+.exad-header-left,
+.exad-header-right {
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+}
+.exad-header-right {
+	text-align: right;
+}
+.exad-settings-tabs {
+	padding-top: 15px;
+}
+
+.exad-settings-tab h4 {
+	font-size: 22px;
+}
+
+.exad-settings-tab p {
+	font-size: 14px;
+}
+
+.exad-settings-tabs ul {
+	width: 100%;
+	height: auto;
+	margin: 25px 0px 20px 0px;
+}
+.exad-settings-tabs ul li {
+	display: inline-block;
+}
+.exad-settings-tabs ul li a {
+	padding: 20px 30px;
+	background: #ffffff7a;
+	color: #646464;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-radius: 2px 2px 0 0;
+	margin-right: 2px;
+}
+.exad-settings-tabs ul li a:focus {
+	outline: none;
+	box-shadow: none;
+}
+.exad-settings-tabs ul li a img {
+	width: 20px;
+	margin: 0 5px -3px 0;
+}
+.exad-settings-tab {
+	background: #fff;
+	padding: 15px 25px;
+	margin-top: -8px;
+	border-top: none;
+	position: relative;
+	box-shadow: 0px 7px 11px 0px #e0e0e0;
+	-webkit-box-shadow: 0px 7px 11px 0px #e0e0e0;
+}
+.exad-settings-tabs ul li.ui-tabs-active a {
+	background: #fff;
+	outline: none;
+	box-shadow: none;
+	color: #343434;
+}
+p.exad-el-title {
+	font-size: 15px;
+	font-weight: 600;
+	color: #333;
+	margin: .5em;
+}
+.exad-settings-tab p.exad-elements-control-notice {
+	color: #42418e;
+	font-size: 16px;
+	border: 1px solid #42418e;
+	padding: 10px;
+	text-align: center;
+	display: block;
+}
+.exad-form-control {
+	width: 100%;
+}
+textarea.exad-form-control {
+	padding: 15px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #5d5d5d;
+}
+.row {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: flex-start;
+	padding: 15px 0px;
+}
+.col-full {
+	width: 100%;
+	height: auto;
+}
+.col-half {
+	width: 49%;
+	height: auto;
+}
+.col-one-third {
+	width: 32%;
+	height: auto;
+}
+/* Checkbox Style */
+
+.exad-checkbox-container {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+.exad-checkbox {
+	min-width: 250px;
+	font-size: 24px;
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	margin: 10px;
+}
+.exad-checkbox input[type=checkbox] {
+  visibility: hidden;
+  display: none;
+}
+.exad-checkbox label {
+  width: 2em;
+  height: 1em;
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+.exad-checkbox label:before {
+  content: '';
+  position: absolute;
+  width: 2em;
+  height: 1em;
+  left: 0.1em;
+  transition: background 0.1s 0.1s ease;
+  background: #CBCFD0;
+  border-radius: 50px;
+}
+.exad-checkbox label:after {
+  content: '';
+  position: absolute;
+  width: .8em;
+  height: .8em;
+  border-radius: 100%;
+  left: .2em;
+  top: .1em;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 5px #fcfff4 inset;
+  background: #CBCFD0;
+  z-index: 2;
+  animation: switch-off .3s ease-out;
+}
+.exad-checkbox input[type=checkbox]:checked + label:before {
+  background: #7E86F9;
+  box-shadow: inset 0px 1px 1px rgba(84, 152, 140, 0.5);
+}
+.exad-checkbox input[type=checkbox]:checked + label:after {
+  left: 1.2em;
+  background: #7E86F9;
+  animation: switch-on .3s ease-out;
+}
+
+@keyframes switch-on {
+  50% {
+    transform: scaleX(1.3);
+  }
+}
+
+@keyframes switch-off {
+  50% {
+    transform: scaleX(1.3);
+  }
+}
+/* Eael Tab Toggles */
+.exad-settings-tab {
+	display: none;
+}
+.exad-settings-tab.active {
+	display: block;
+}
+.exad-tabs li a.active {
+	background-color: #fff;
+	border-top: 2px solid #7448F6;
+	border-radius: 0;
+	box-shadow: 0px 7px 11px 0px #e0e0e0;
+	-webkit-box-shadow: 0px 7px 11px 0px #e0e0e0;
+}
+/* Footer Style */
+
+.exad-settings-footer {
+	padding: 20px 25px 15px 25px;
+	background: #fff;
+	margin-top: 10px;
+	border: 1px solid rgba( 0,0,0,0.1 );
+}
+.exad-settings-footer .submit {
+	padding: 0px;
+}
+.exad-settings-footer p.submit {
+	margin-top: 0px;
+}
+
+.exad-settings-tab img {
+	max-width: 100%;
+}
+.button.exad-btn {
+	background-color: #0099CC;
+	color: #fff;
+	padding: 6px 20px;
+	border: none;
+	box-shadow: none;
+	font-size: 14px;
+	height: auto;
+	text-transform: uppercase;
+	text-shadow: none;
+	letter-spacing: .05em;
+}
+
+.button.exad-btn:hover, .button.exad-btn:focus {
+	background-color: #1E96F1;
+	color: #fff;
+}
+
+.exad-save-btn-wrap {
+	margin: 30px 0 20px;
+}
+
+.exad-save-btn-wrap .exad-btn {
+	background-color: #3CCD94;
+	color: #fff;
+	padding: 10px 20px
+}
+.exad-save-btn-wrap .exad-btn:hover, .exad-save-btn-wrap .exad-btn:focus {
+	background-color: #02CC7B;
+	color: #fff;
+}
+
+.exad-btn.exad-demo-btn {
+	background-color: #42418e;
+	color: #fff;
+}
+.exad-btn.exad-demo-btn:hover, .exad-btn.exad-demo-btn:focus {
+	background-color: #FF0188;
+	color: #fff;
+}
+
+
+.exad-btn.exad-license-btn {
+	background-color: #0dc9c3;
+}
+.exad-btn.exad-license-btn:hover, .exad-btn.exad-license-btn:focus {
+	background-color: #08d1ca;
+}
+.exad-btn.exad-demo-btn, .exad-btn.exad-license-btn, .exad-btn.exad-review-btn {
+	padding: 10px;
+	display: block;
+	max-width: 250px;
+	margin-bottom: 15px;
+	text-align: center;
+	font-size: 13px;
+}
+#exad-spinner {
+	width: 18px;
+	display: inline-block;
+	float: left;
+	margin: 3px 5px 0 0;
+
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 1.2s;
+	-webkit-animation-name: rotate;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+
+	-moz-transition-property: -moz-transform;
+	-moz-animation-name: rotate; 
+	-moz-animation-duration: 1.2s; 
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+
+	transition-property: transform;
+	animation-name: rotate; 
+	animation-duration: 1.2s; 
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+}
+
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+.premium-elements-title {
+	margin: 50px 0 30px;
+}
+
+.premium-elements-title img {
+	width: 75px;
+	float: left;
+}
+
+.premium-elements-title .section-title {
+	color: #157EFB;
+	margin: 35px 5px 0;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 20px;
+	border-bottom: 6px double #157EFB;
+	padding-bottom: 10px;
+	display: inline-block;
+}
+
+.go-premium .exad-btn.exad-license-btn {
+	margin-top: 30px;
+}
+
+.go-premium img {
+	width: 100%;
+	max-width: 400px;
+	display: block;
+	float: right;
+}
+.exad-notice {
+	background-color: #F7F6D4;
+	padding: 10px 15px;
+	border-radius: 5px;
+	box-shadow: 0 0 15px 0 rgba(0,0,0, .15);
+	max-width: 90%;
+	color: #9A7223;
+}
+
+.exad-notice h5 {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.essential-addons-community-link {
+	background-color: #475A96;
+	margin: 15px 0;
+	display: inline-block;
+	border-radius: 3px;
+}
+
+.essential-addons-community-link:hover {
+	background-color: #3351b2;
+}
+
+.essential-addons-community-link a {
+	color: #fff;
+	text-decoration: none;
+	padding: 15px 20px;
+	font-size: 1.4em;
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+/* Header Button */
+.exad-header-bar .exad-btn {
+	background-color: #3CCD94;
+}
+.exad-header-bar .exad-btn:hover, .exad-header-bar .exad-btn:focus {
+	background-color: #02CC7B;
+}
+.exad-save-btn-wrap .exad-btn.save-now,
+.exad-header-bar .exad-btn.save-now,
+.exad-fb-feed-btn.save-now {
+	background: #E74C3C;
+}
+.exad-save-btn-wrap .exad-btn.save-now:hover,
+.exad-header-bar .exad-btn.save-now:hover,
+.exad-fb-feed-btn.save-now:hover {
+	background: #ff5544;
+}
+
+/* Admin Blocks */
+
+.exad-admin-general-wrapper {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-content: center;
+}
+.exad-admin-general-wrapper .exad-admin-general-inner {
+	max-width: 70em;
+	height: auto;
+	flex: 1 1 70%;
+}
+.exad-admin-general-wrapper .exad-sidebar {
+	flex: 1 1 200px;
+	padding: 20px;
+}
+.exad-admin-block-wrapper {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	margin: -10px;
+}
+.exad-admin-block-wrapper .exad-admin-block {
+	background-color: #fff;
+	flex: 1 1 auto;
+	min-width: 250px;
+	width: 300px;
+	margin: 10px 10px 25px 10px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.exad-admin-block-large,
+.exad-sidebar-widget {
+	background: #fff;
+	margin-bottom: 25px;
+	padding: 1em;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.exad-admin-block-wrapper .exad-admin-block.exad-admin-block-banner {
+	padding: 8px;
+}
+.exad-admin-block-header {
+	max-height: 4em;
+	overflow: hidden;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	background-color: #fff;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+.exad-admin-block-header-icon {
+	width: 42px;
+	box-shadow: 1px 0 0 0 rgba(0,0,0,0.1);
+	padding: 10px;
+}
+.exad-admin-block-header-icon svg {
+	width: 80%;
+	display: block;
+	margin: 0 auto;
+}
+.exad-admin-block-review .exad-admin-block-header-icon svg {
+	width: 100%;
+}
+.exad-admin-block-support .exad-admin-block-header-icon {
+	width: 30px;
+}
+.exad-settings-tab .exad-admin-title {
+	margin: 1em 0;
+	padding: 0 1.26582em;
+	font-size: 1.185em;
+	font-weight: 600;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.exad-admin-block-content {
+	overflow: hidden;
+	position: relative;
+	padding: 1em 1.5em 1.5em;
+	background-color: #fff;
+}
+.exad-preview-img {
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+	object-fit: cover;
+	transition: all .3s;
+}
+.exad-preview-img:hover{
+	opacity: .9;
+}
+
+.exad-admin-sidebar {
+	flex: 1 1 200px;
+	padding: 20px;
+}
+.exad-sidebar-block {
+	margin: calc(10% + 1.5em) auto;
+}
+.exad-sidebar-block .exad-admin-sidebar-logo {
+	max-width: 150px;
+	display: block;
+	margin: 0 auto;
+}
+.exad-sidebar-block .exad-admin-sidebar-logo > img, .exad-sidebar-block .exad-admin-sidebar-logo > svg {
+	width: 100%;
+	display: block;
+	margin: 10px auto;
+}
+.exad-admin-sidebar-cta a {
+	font-size: 1em;
+	color: rgba(35,40,45,0.45);
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: .065em;
+	text-align: center;
+	margin: 20px auto;
+	display: block;
+	border: 1px solid rgba(35,40,45,0.185);
+	border-radius: 4px;
+	padding: 15px;
+	width: 200px;
+	outline: none;
+	box-shadow: none;
+	transition: all .3s;
+}
+
+.exad-admin-sidebar-cta a:hover {
+	color: #23282d;
+	box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.715);
+}
+
+/* Facebook Settings CSS */
+
+#social-networks input {
+	padding: 10px;
+}
+#exadFBbtn, #exadFBbtnOwnApp {
+	cursor: pointer;
+	display: none;
+	/* color: red; */
+
+}
+
+.page-list-with-access > ul {
+	list-style: none;
+}
+.page-list-with-access > ul > li {
+	display: block;
+	cursor: pointer;
+	padding: 5px 0px;
+}
+.exad-fb-own-app-settings {
+	display: none;
+}
+.exad-fb-own-app-settings.exad-active, #exadFBbtn.exad-active, #exadFBbtnOwnApp.exad-active {
+	display: block;
+}
