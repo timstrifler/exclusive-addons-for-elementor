@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="42px" viewBox="0 0 41 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Plus, Add, Inset, Append, Circle, Attach</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="-0.000285712245%" y1="8461.68954%" x2="99.9998571%" y2="8461.68954%" id="linearGradient-1">
+            <stop stop-color="#8CCC44" offset="0%"></stop>
+            <stop stop-color="#5CB450" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Setting-main-Page--Copy" transform="translate(-297.000000, -175.000000)">
+            <g id="Plus,-Add,-Inset,-Append,-Circle,-Attach" transform="translate(297.000000, 175.000000)">
+                <g id="svg3771">
+                    <g id="layer1" transform="translate(0.000000, 0.637800)">
+                        <g id="g4069">
+                            <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="41" height="41" rx="8"></rect>
+                            <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" opacity="0.517764137" x="8" y="16" width="25" height="9" rx="4.5"></rect>
+                            <circle id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="20.5" cy="20.5" r="4.5"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

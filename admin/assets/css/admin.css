@@ -119,17 +119,18 @@
 }
 
 p.exad-el-title {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: #333;
     margin: .5em;
 }
 
 p.exad-el-title-small {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    color: #333;
-    margin: .5em;
+    color: #999898;
+    font-weight: 100;
+    margin: -6px 0px .5em .5em;
 }
 
 .exad-settings-tab p.exad-elements-control-notice {
@@ -162,6 +163,12 @@ textarea.exad-form-control {
     padding: 15px 0px;
 }
 
+.col-full-1 {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px dashed #979797;
+}
+
 .col-full {
     width: 100%;
     height: auto;
@@ -183,9 +190,11 @@ textarea.exad-form-control {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .exad-checkbox {
+    position: relative;
     min-width: 260px;
     font-size: 24px;
     flex: 0 0 auto;
@@ -198,7 +207,9 @@ textarea.exad-form-control {
 }
 
 .exad-checkbox-label {
-    margin-left: 70px;
+    position: absolute;
+    top: 40%;
+    right: 10%;
 }
 
 /*checkbox-hober-effect*/
@@ -473,14 +484,17 @@ textarea.exad-form-control {
 }
 
 .premium-elements-title .section-title {
-    color: #157EFB;
-    margin: 35px 5px 0;
+    color: #3F3F3F;
+    margin: 18px 0 0px 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 20px;
-    border-bottom: 6px double #157EFB;
-    padding-bottom: 10px;
     display: inline-block;
+}
+
+.section-title-p-tag {
+    margin: 5px 0 0 95px;
+    color: #989898;
 }
 
 .go-premium .exad-btn.exad-license-btn {
@@ -561,7 +575,12 @@ textarea.exad-form-control {
 }
 
 .exad-admin-general-wrapper .exad-admin-general-inner {
+    /*
     max-width: 70em;
+    height: auto;
+    flex: 1 1 70%;
+*/
+    max-width: 65%;
     height: auto;
     flex: 1 1 70%;
 }
@@ -571,20 +590,26 @@ textarea.exad-form-control {
     padding: 20px;
 }
 
+.exad-admin-block-banner {
+    border-bottom: 1px dotted #949494;
+}
+
 .exad-admin-block-wrapper {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin: -10px;
 }
 
 .exad-admin-block-wrapper .exad-admin-block {
+
     background-color: #fff;
-    flex: 1 1 auto;
+    /*    flex: 1 1 auto;*/
     min-width: 250px;
-    width: 300px;
-    margin: 10px 10px 25px 10px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    width: 47%;
+    /*    margin: 10px 10px 25px 10px;*/
+    /*    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);*/
+
+
 }
 
 .exad-admin-block-large,
@@ -596,44 +621,97 @@ textarea.exad-form-control {
 }
 
 .exad-admin-block-wrapper .exad-admin-block.exad-admin-block-banner {
-    padding: 8px;
+    /*    padding: 8px;*/
 }
 
 .exad-admin-block-header {
-    max-height: 4em;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-    display: flex;
     align-content: center;
     align-items: center;
+    padding: 0 64px;
+    margin-bottom: 25px;
 }
 
-.exad-admin-block-header-icon {
+.exad-admin-block-banner > .exad-admin-block-header-icon {
+    /*
     width: 42px;
     box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
     padding: 10px;
+*/
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: linear-gradient(90deg, #FC6A28 0%, #F94045 100%);
+    border-radius: 4px;
+}
+
+.exad-admin-block-docs > .exad-admin-block-header-icon {
+    /*
+    width: 42px;
+    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
+    padding: 10px;
+*/
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: linear-gradient(90deg, #85BF49 0%, #56AC4D 100%);
+    border-radius: 4px;
+}
+
+.exad-admin-block-contribution > .exad-admin-block-header-icon {
+    /*
+    width: 42px;
+    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
+    padding: 10px;
+*/
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: linear-gradient(90deg, rgba(117, 224, 250, 1) 0%, rgba(44, 158, 186, 1) 100%);
+    border-radius: 4px;
+}
+
+.exad-admin-block-support > .exad-admin-block-header-icon {
+    /*
+    width: 42px;
+    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
+    padding: 10px;
+*/
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: linear-gradient(90deg, #FF8047 0%, #F94045 100%);
+    border-radius: 4px;
 }
 
 .exad-admin-block-header-icon svg {
     width: 80%;
     display: block;
-    margin: 0 auto;
+    margin: 13px auto;
+}
+
+.exad-admin-block-header p {
+    color: #949494;
+    font-size: 15px;
+    margin-bottom: 65px;
 }
 
 .exad-admin-block-review .exad-admin-block-header-icon svg {
     width: 100%;
 }
 
-.exad-admin-block-support .exad-admin-block-header-icon {
-    width: 30px;
-}
 
 .exad-settings-tab .exad-admin-title {
+    /*
     margin: 1em 0;
-    padding: 0 1.26582em;
     font-size: 1.185em;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+*/
+    margin: 0;
+    font-size: 20px;
+    color: #3F3F3F;
     font-weight: 600;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -652,6 +730,43 @@ textarea.exad-form-control {
     vertical-align: middle;
     object-fit: cover;
     transition: all .3s;
+}
+
+/*button style*/
+.exad-admin-block-header-button {
+    font-size: 15px;
+    padding: 12px 44px;
+    background: #2DD9D1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.exad-admin-block-docs-button {
+    font-size: 15px;
+    padding: 12px 44px;
+    background: #FF719D;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.exad-admin-block-contribution-button {
+    font-size: 15px;
+    padding: 12px 44px;
+    background: #FF719D;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.exad-admin-block-support-button {
+    font-size: 15px;
+    padding: 12px 44px;
+    background: #2DD9D1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
 }
 
 /*exad-admin-block-banner-content*/
@@ -736,6 +851,28 @@ textarea.exad-form-control {
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.715);
 }
 
+.exad-admin-block-banner {
+    border-bottom: 1px dashed rgba(151, 151, 151, 0.4);
+
+    border-right: 1px dashed rgba(151, 151, 151, 0.4);
+    padding: 15px;
+}
+
+.exad-admin-block-docs {
+    border-bottom: 1px dashed rgba(151, 151, 151, 0.4);
+    padding: 15px;
+}
+
+.exad-admin-block-contribution {
+    padding: 30px 15px;
+    border-right: 1px dashed rgba(151, 151, 151, 0.4);
+}
+
+
+.exad-admin-block-support {
+    padding: 30px 15px;
+}
+
 /* Facebook Settings CSS */
 
 #social-networks input {
@@ -768,4 +905,10 @@ textarea.exad-form-control {
 #exadFBbtn.exad-active,
 #exadFBbtnOwnApp.exad-active {
     display: block;
+}
+
+@media (max-width:726px) {
+    .premium-elements-title .section-title {
+        font-size: 15px;
+    }
 }
