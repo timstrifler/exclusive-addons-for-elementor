@@ -575,14 +575,9 @@ textarea.exad-form-control {
 }
 
 .exad-admin-general-wrapper .exad-admin-general-inner {
-    /*
     max-width: 70em;
     height: auto;
-    flex: 1 1 70%;
-*/
-    max-width: 65%;
-    height: auto;
-    flex: 1 1 70%;
+    flex: 1 1 auto;
 }
 
 .exad-admin-general-wrapper .exad-sidebar {
@@ -601,13 +596,11 @@ textarea.exad-form-control {
 }
 
 .exad-admin-block-wrapper .exad-admin-block {
-
+    padding: 20px;
     background-color: #fff;
-    /*    flex: 1 1 auto;*/
+    flex: 1 1 auto;
     min-width: 250px;
-    width: 47%;
-    /*    margin: 10px 10px 25px 10px;*/
-    /*    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);*/
+    width: 400px;
 
 
 }
@@ -855,22 +848,19 @@ textarea.exad-form-control {
     border-bottom: 1px dashed rgba(151, 151, 151, 0.4);
 
     border-right: 1px dashed rgba(151, 151, 151, 0.4);
-    padding: 15px;
 }
 
 .exad-admin-block-docs {
     border-bottom: 1px dashed rgba(151, 151, 151, 0.4);
-    padding: 15px;
 }
 
 .exad-admin-block-contribution {
-    padding: 30px 15px;
     border-right: 1px dashed rgba(151, 151, 151, 0.4);
 }
 
 
 .exad-admin-block-support {
-    padding: 30px 15px;
+    
 }
 
 /* Facebook Settings CSS */
