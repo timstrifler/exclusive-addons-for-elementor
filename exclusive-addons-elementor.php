@@ -118,7 +118,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
          *
          */
         public function includes() {
-            require_once EXAD_PATH . 'admin/settings.php';
+            require_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
 
 
@@ -210,6 +210,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
         public function exad_add_elements() {
             
         	require_once EXAD_ELEMENTS . 'team-member/team-member.php';
+            require_once EXAD_ELEMENTS . 'team-carousel/team-carousel.php';
             require_once EXAD_ELEMENTS . 'countdown-timer/countdown-timer.php';
             
         }
