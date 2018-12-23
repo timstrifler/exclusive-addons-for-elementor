@@ -34,7 +34,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'exad-uikit' ];
+		return [ 'jquery-slick' ];
 	}
 
 	protected function _register_controls() {
@@ -345,14 +345,12 @@ class Exad_Team_Carousel extends Widget_Base {
 	
 
 	protected function render_script() {
-		
 		?>
 		<script>
 			jQuery(document).ready(function($) {
 			    "use strict";
 
 			    // Team Carousel Two
-
 			    $('.exad-team-carousel-basic').slick({
 			     	infinite: true,
 			     	slidesToShow: 3,
@@ -360,7 +358,6 @@ class Exad_Team_Carousel extends Widget_Base {
 			      	arrows: false,
 			      	dots: true
 			    });
-
 			    
 			});
 		</script>
@@ -392,7 +389,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	                	<span class="exad-team-member<?php echo $team_preset; ?>-designation"><?php echo $member['exad_team_carousel_designation']; ?></span>
 	                	<?php if ( ! empty( $settings['exad_team_carousel_enable_social_profiles'] ) ): ?>
 						<ul class="list-inline exad-team-member<?php echo $team_preset; ?>-social">
-							<?php foreach ( $team['exad_team_carousel_social_profile_links'] as $item ) : ?>
+							<?php foreach ( $settings['exad_team_carousel_social_profile_links'] as $item ) : ?>
 								<?php if ( ! empty( $item['social'] ) ) : ?>
 									<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
 									<li>
