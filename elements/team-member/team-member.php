@@ -209,7 +209,7 @@ class Exad_Team_Member extends Widget_Base {
 				'options' => [
 					'-basic' => esc_html__( 'Basic', 'exclusive-addons' ),
 					'-circle' => esc_html__( 'Circle Gradient', 'exclusive-addons' ),
-					'-social-left-hover' => esc_html__( 'Social Left on Hover', 'exclusive-addons' ),
+					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons' ),
 					'-rounded' => esc_html__( 'Rounded', 'exclusive-addons' ),
 					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons' ),
 				],

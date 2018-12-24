@@ -111,17 +111,18 @@
   transition: .3s ease;
 }
 
-.exad-team-member-social-left-hover {
+.exad-team-member-social-left {
   text-align: center;
+  position: relative;
 }
 
-.exad-team-member-social-left-hover-thumb {
+.exad-team-member-social-left-thumb {
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
 }
 
-.exad-team-member-social-left-hover-thumb::before {
+.exad-team-member-social-left-thumb::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -131,17 +132,17 @@
   z-index: -1;
 }
 
-.exad-team-member-social-left-hover-thumb img {
+.exad-team-member-social-left-thumb img {
   width: 100%;
 }
 
-.exad-team-member-social-left-hover-name {
+.exad-team-member-social-left-name {
   font-size: 22px;
   font-family: "Roboto", sans-serif;
   margin-bottom: 0;
 }
 
-.exad-team-member-social-left-hover-social {
+.exad-team-member-social-left-social {
   list-style: none;
   position: absolute;
   z-index: 2;
@@ -151,7 +152,7 @@
   border-radius: 4px;
   box-shadow: 0px 13px 17px 0px rgba(0, 0, 0, 0.16);
   transition: .3s ease;
-  top: 25%;
+  top: 15%;
   opacity: 0;
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
@@ -160,7 +161,7 @@
           transform-origin: center center;
 }
 
-.exad-team-member-social-left-hover-social li a {
+.exad-team-member-social-left-social li a {
   display: inline-block;
   width: 45px;
   height: 45px;
@@ -170,26 +171,26 @@
   transition: .3s ease;
 }
 
-.exad-team-member-social-left-hover-social li a i {
+.exad-team-member-social-left-social li a i {
   line-height: 45px;
 }
 
-.exad-team-member-social-left-hover-social li a:hover {
+.exad-team-member-social-left-social li a:hover {
   color: #fff;
   background: #ff6d55;
   border-color: #ff6d55;
 }
 
-.exad-team-member-social-left-hover-social li:not(:last-child) {
+.exad-team-member-social-left-social li:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.exad-team-member-social-left-hover:hover .exad-team-member-social-left-hover-thumb::before {
+.exad-team-member-social-left:hover .exad-team-member-social-left-thumb::before {
   -webkit-transform: translate(-20px, -20px);
           transform: translate(-20px, -20px);
 }
 
-.exad-team-member-social-left-hover:hover .exad-team-member-social-left-hover-social {
+.exad-team-member-social-left:hover .exad-team-member-social-left-social {
   left: 30px;
   -webkit-transform: scale(1);
           transform: scale(1);
@@ -553,6 +554,9 @@
   color: #fff;
 }
 
+
+/* Style for Team Carousel */
+
 .exad-team-carousel-circle {
   margin: 0 -15px;
 }
@@ -574,6 +578,12 @@
 
 .exad-team-carousel-circle-arrow {
   margin-top: 75px;
+  padding: 0;
+  list-style: none;
+}
+
+.exad-team-carousel-circle-arrow li {
+  display: inline-block;
 }
 
 .exad-team-carousel-circle-arrow-prev, .exad-team-carousel-circle-arrow-next {
@@ -609,17 +619,17 @@
   outline: 0;
 }
 
-.exad-team-carousel-social-left-hover {
+.exad-team-carousel-social-left {
   margin: 0 -15px;
 }
 
-.exad-team-carousel-social-left-hover-title {
+.exad-team-carousel-social-left-title {
   font-weight: bold;
   margin-bottom: 50px;
   position: relative;
 }
 
-.exad-team-carousel-social-left-hover-title::before {
+.exad-team-carousel-social-left-title::before {
   content: '';
   position: absolute;
   width: 145px;
@@ -631,26 +641,155 @@
   bottom: -25px;
 }
 
-.exad-team-carousel-social-left-hover-inner {
+.exad-team-carousel-social-left-inner {
   margin: 0 15px;
   outline: 0;
 }
 
-.exad-team-carousel-social-left-hover .slick-dots {
+.exad-team-carousel-social-left .slick-dots {
   bottom: -55px;
 }
 
-.exad-team-carousel-social-left-hover .slick-dots li button:before {
+.exad-team-carousel-social-left .slick-dots li button:before {
   transition: .3s ease;
   font-size: 12px;
 }
 
-.exad-team-carousel-social-left-hover .slick-dots li button:hover:before {
+.exad-team-carousel-social-left .slick-dots li button:hover:before {
   color: #f35029;
 }
 
-.exad-team-carousel-social-left-hover .slick-dots li.slick-active button:before {
+.exad-team-carousel-social-left .slick-dots li.slick-active button:before {
   color: #f35029;
 }
 
-/*# sourceMappingURL=maps/style.css.map */
+.exad-team-carousel-content-hover {
+  margin: 0 -15px;
+}
+
+.exad-team-carousel-content-hover-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.exad-team-carousel-content-hover-subtitle {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.exad-team-carousel-content-hover-subtitle::before {
+  position: absolute;
+  content: '';
+  width: 75px;
+  height: 3px;
+  background: #132c47;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: -25px;
+}
+
+.exad-team-carousel-content-hover-inner {
+  margin: 0 15px;
+}
+
+.exad-team-carousel-content-hover .slick-track {
+  display: flex;
+  align-items: flex-end;
+}
+
+.exad-team-carousel-content-hover-prev, .exad-team-carousel-content-hover-next {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  background: #b8bfc7;
+  color: #fff;
+  display: block;
+  border-radius: 50%;
+  z-index: 2;
+  cursor: pointer;
+  transition: .3s ease;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-team-carousel-content-hover-prev i, .exad-team-carousel-content-hover-next i {
+  line-height: 60px;
+}
+
+.exad-team-carousel-content-hover-prev:hover, .exad-team-carousel-content-hover-next:hover {
+  background: #132c47;
+}
+
+.exad-team-carousel-content-hover-prev {
+  left: -70px;
+}
+
+.exad-team-carousel-content-hover-next {
+  right: -70px;
+}
+
+/* Slick Theme Styles */
+
+.slick-dots {
+    position: absolute;
+    bottom: -25px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+}
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    opacity: .25;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: black;
+}
+.exad-team-carousel-social-left .slick-dots li.slick-active button:before {
+  color: #f35029;
+}
+
+.exad-team-carousel-social-left .slick-dots li button:before {
+    transition: .3s ease;
+    font-size: 12px;
+}
