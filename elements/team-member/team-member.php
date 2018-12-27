@@ -241,6 +241,7 @@ class Exad_Team_Member extends Widget_Base {
 			]
 		);
 		$this->end_controls_section();
+		
 		/*
 		* Team Member Image Styling
 		*/

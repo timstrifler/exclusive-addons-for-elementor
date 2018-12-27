@@ -34,7 +34,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'jquery-slick', 'slick-theme' ];
+		return [ 'jquery-slick' ];
 	}
 
 	protected function _register_controls() {
@@ -98,6 +98,101 @@ class Exad_Team_Carousel extends Widget_Base {
 				'default' => esc_html__( 'Add team member details here', 'exclusive-addons-elementor' ),
 			]
 		);
+
+		$team_repeater->add_control(
+			'exad_team_carousel_enable_social_profiles',
+			[
+				'label' => esc_html__( 'Display Social Profiles?', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+			]
+		);
+
+		$team_repeater->add_control(
+			'exad_team_carousel_facebook_link',
+			[
+				'label' => __( 'Facebook URL', 'plugin-domain' ),
+				'type' => Controls_Manager::URL,
+				'condition' => [
+					'exad_team_carousel_enable_social_profiles!' => '',
+				],
+				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'label_block' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+				],
+			]
+		);
+
+		$team_repeater->add_control(
+			'exad_team_carousel_twitter_link',
+			[
+				'label' => __( 'Twitter URL', 'plugin-domain' ),
+				'type' => Controls_Manager::URL,
+				'condition' => [
+					'exad_team_carousel_enable_social_profiles!' => '',
+				],
+				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'label_block' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+				],
+			]
+		);
+
+		$team_repeater->add_control(
+			'exad_team_carousel_instagram_link',
+			[
+				'label' => __( 'Instagram URL', 'plugin-domain' ),
+				'type' => Controls_Manager::URL,
+				'condition' => [
+					'exad_team_carousel_enable_social_profiles!' => '',
+				],
+				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'label_block' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+				],
+			]
+		);
+
+		$team_repeater->add_control(
+			'exad_team_carousel_linkedin_link',
+			[
+				'label' => __( 'Linkedin URL', 'plugin-domain' ),
+				'type' => Controls_Manager::URL,
+				'condition' => [
+					'exad_team_carousel_enable_social_profiles!' => '',
+				],
+				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'label_block' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+				],
+			]
+		);
+
+		$team_repeater->add_control(
+			'exad_team_carousel_dribbble_link',
+			[
+				'label' => __( 'Dribbble URL', 'plugin-domain' ),
+				'type' => Controls_Manager::URL,
+				'condition' => [
+					'exad_team_carousel_enable_social_profiles!' => '',
+				],
+				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'label_block' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+				],
+			]
+		);
+
 		
 		$this->add_control(
 			'team_carousel_repeater',
@@ -130,118 +225,9 @@ class Exad_Team_Carousel extends Widget_Base {
 			'slides_per_column',
 			[
 				'type'      => Controls_Manager::SELECT,
-				'label'     => esc_html__( 'Slides Per Column', 'exclusive-addons-elementor' ),
+				'label'     => esc_html__( 'Members Per Column', 'exclusive-addons-elementor' ),
 				'options'   => $slides_per_view,
 				'default'   => '1',
-				'condition' => [
-					'skin' => 'carousel',
-				]
-			]
-		);
-
-
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'exad_team_carousel_social',
-			[
-				'label' => esc_html__( 'Social Profiles', 'exclusive-addons-elementor' ),
-			]
-		);
-
-		$this->add_control(
-			'exad_team_carousel_enable_social_profiles',
-			[
-				'label' => esc_html__( 'Display Social Profiles?', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-			]
-		);
-		
-		
-		$this->add_control(
-			'exad_team_carousel_social_profile_links',
-			[
-				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::REPEATER,
-				'condition' => [
-					'exad_team_carousel_enable_social_profiles!' => '',
-				],
-				'default' => [
-					[
-						'social' => 'fa fa-facebook',
-					],
-					[
-						'social' => 'fa fa-twitter',
-					],
-					[
-						'social' => 'fa fa-google-plus',
-					],
-					[
-						'social' => 'fa fa-linkedin',
-					],
-				],
-				'fields' => [
-					[
-						'name' => 'social',
-						'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::ICON,
-						'label_block' => true,
-						'default' => 'fa fa-wordpress',
-						'include' => [
-							'fa fa-apple',
-							'fa fa-behance',
-							'fa fa-bitbucket',
-							'fa fa-codepen',
-							'fa fa-delicious',
-							'fa fa-digg',
-							'fa fa-dribbble',
-							'fa fa-envelope',
-							'fa fa-facebook',
-							'fa fa-flickr',
-							'fa fa-foursquare',
-							'fa fa-github',
-							'fa fa-google-plus',
-							'fa fa-houzz',
-							'fa fa-instagram',
-							'fa fa-jsfiddle',
-							'fa fa-linkedin',
-							'fa fa-medium',
-							'fa fa-pinterest',
-							'fa fa-product-hunt',
-							'fa fa-reddit',
-							'fa fa-shopping-cart',
-							'fa fa-slideshare',
-							'fa fa-snapchat',
-							'fa fa-soundcloud',
-							'fa fa-spotify',
-							'fa fa-stack-overflow',
-							'fa fa-tripadvisor',
-							'fa fa-tumblr',
-							'fa fa-twitch',
-							'fa fa-twitter',
-							'fa fa-vimeo',
-							'fa fa-vk',
-							'fa fa-whatsapp',
-							'fa fa-wordpress',
-							'fa fa-xing',
-							'fa fa-yelp',
-							'fa fa-youtube',
-						],
-					],
-					[
-						'name' => 'link',
-						'label' => esc_html__( 'Link', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::URL,
-						'label_block' => true,
-						'default' => [
-							'url' => '',
-							'is_external' => 'true',
-						],
-						'placeholder' => esc_html__( 'Place URL here', 'exclusive-addons-elementor' ),
-					],
-				],
-				'title_field' => '<i class="{{ social }}"></i> {{{ social.replace( \'fa fa-\', \'\' ).replace( \'-\', \' \' ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}',
 			]
 		);
 
@@ -270,6 +256,53 @@ class Exad_Team_Carousel extends Widget_Base {
 					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
 					'-rounded' => esc_html__( 'Rounded', 'exclusive-addons-elementor' ),
 					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_team_carousel_avatar_bg',
+			[
+				'label' => esc_html__( 'Avatar Background Color', 'exclusive-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => 'rgba(255,255,255,0.8)',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-circle-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_team_carousel_preset' => '-circle',
+				],
+			]
+		);
+
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_team_members_image_border',
+				'label' => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img',
+			]
+		);
+		$this->add_control(
+			'exad_team_carousel_image_rounded',
+			[
+				'label' => esc_html__( 'Rounded Avatar?', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'return_value' => 'circled',
+				'default' => 'circled',
+			]
+		);
+		$this->add_control(
+			'exad_team_carousel_image_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+				],
+				'condition' => [
+					'exad_team_members_image_rounded!' => '-circled',
 				],
 			]
 		);
@@ -351,11 +384,14 @@ class Exad_Team_Carousel extends Widget_Base {
 
 			    // Team Carousel Two
 			    $(".exad-team-carousel<?php echo $settings['exad_team_carousel_preset']; ?>").slick({
+			    	autoplay: true,
 			     	infinite: true,
-			     	slidesToShow: 3,
+			     	slidesToShow: <?php echo $settings['team_carousel_per_view']; ?>,
 			     	slidesToScroll: 3,
 			      	arrows: false,
-			      	dots: true
+			      	dots: true,
+			      	//prevArrow: "<div class='exad-team-carousel-four-prev'><i class='fa fa-angle-left'></i></div>",
+      				//nextArrow: "<div class='exad-team-carousel-four-next'><i class='fa fa-angle-right'></i></div>"
 			    });
 			    
 			});
@@ -368,7 +404,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		
-		$team_carousel_classes = $this->get_settings_for_display('exad_team_members_image_rounded');
+		$team_carousel_classes = $this->get_settings_for_display('exad_team_carousel_image_rounded');
 		$team_preset = $settings['exad_team_carousel_preset'];
 	?>	
 		<div class="exad-team-carousel<?php echo $team_preset; ?>">
@@ -382,23 +418,64 @@ class Exad_Team_Carousel extends Widget_Base {
 				<div class="exad-team-carousel<?php echo $team_preset; ?>-inner">
 	            	<div class="exad-team-member<?php echo $team_preset; ?>">
 	                	<div class="exad-team-member<?php echo $team_preset; ?>-thumb">
-	                  		<img src="<?php echo esc_url($team_carousel_image_url);?>" alt="team-image">
+	                		<?php if( $team_preset == '-circle' ) : ?>
+							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+							</svg>
+							<?php endif; ?>
+	                  		<img src="<?php echo esc_url($team_carousel_image_url);?>" class="<?php echo $team_carousel_classes; ?>" alt="team-image">
 	                	</div>
-	                	<h2 class="exad-team-member<?php echo $team_preset; ?>-name"><?php echo $member['exad_team_carousel_name']; ?></h2>
-	                	<span class="exad-team-member<?php echo $team_preset; ?>-designation"><?php echo $member['exad_team_carousel_designation']; ?></span>
-	                	<?php if ( ! empty( $settings['exad_team_carousel_enable_social_profiles'] ) ): ?>
-						<ul class="list-inline exad-team-member<?php echo $team_preset; ?>-social">
-							<?php foreach ( $settings['exad_team_carousel_social_profile_links'] as $item ) : ?>
-								<?php if ( ! empty( $item['social'] ) ) : ?>
-									<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
+	                	<div class="exad-team-member<?php echo $team_preset; ?>-content">
+		                	<h2 class="exad-team-member<?php echo $team_preset; ?>-name"><?php echo $member['exad_team_carousel_name']; ?></h2>
+		                	<span class="exad-team-member<?php echo $team_preset; ?>-designation"><?php echo $member['exad_team_carousel_designation']; ?></span>
+		                	<?php if ( ! empty( $member['exad_team_carousel_enable_social_profiles'] ) ): ?>
+							<ul class="list-inline exad-team-member<?php echo $team_preset; ?>-social">
+								
+								<?php if ( ! empty( $member['exad_team_carousel_facebook_link']['url'] ) ) : ?>
+									<?php $target = $member['exad_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
 									<li>
-										<a href="<?php echo esc_attr( $item['link']['url'] ); ?>"<?php echo $target; ?>><i class="<?php echo esc_attr($item['social'] ); ?>"></i></a>
+										<a href="<?php echo esc_url( $member['exad_team_carousel_facebook_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-facebook"></i></a>
 									</li>
 								<?php endif; ?>
-							<?php endforeach; ?>
-						</ul>
-					<?php endif; ?>
-	              </div>
+
+								<?php if ( ! empty( $member['exad_team_carousel_twitter_link']['url'] ) ) : ?>
+									<?php $target = $member['exad_team_carousel_twitter_link']['is_external'] ? ' target="_blank"' : ''; ?>
+									<li>
+										<a href="<?php echo esc_url( $member['exad_team_carousel_twitter_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-twitter"></i></a>
+									</li>
+								<?php endif; ?>
+
+								<?php if ( ! empty( $member['exad_team_carousel_instagram_link']['url'] ) ) : ?>
+									<?php $target = $member['exad_team_carousel_instagram_link']['is_external'] ? ' target="_blank"' : ''; ?>
+									<li>
+										<a href="<?php echo esc_url( $member['exad_team_carousel_instagram_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-instagram"></i></a>
+									</li>
+								<?php endif; ?>
+
+								<?php if ( ! empty( $member['exad_team_carousel_linkedin_link']['url'] ) ) : ?>
+									<?php $target = $member['exad_team_carousel_linkedin_link']['is_external'] ? ' target="_blank"' : ''; ?>
+									<li>
+										<a href="<?php echo esc_url( $member['exad_team_carousel_linkedin_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-linkedin"></i></a>
+									</li>
+								<?php endif; ?>
+
+								<?php if ( ! empty( $member['exad_team_carousel_dribbble_link']['url'] ) ) : ?>
+									<?php $target = $member['exad_team_carousel_dribbble_link']['is_external'] ? ' target="_blank"' : ''; ?>
+									<li>
+										<a href="<?php echo esc_url( $member['exad_team_carousel_dribbble_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-dribbble"></i></a>
+									</li>
+								<?php endif; ?>
+								
+							</ul>
+							<?php endif; ?>
+						</div>
+	              	</div>
 	          	</div>
       		<?php endforeach; ?>
 		</div>	
