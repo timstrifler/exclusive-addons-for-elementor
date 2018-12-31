@@ -136,6 +136,12 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             add_action( 'elementor/widgets/widgets_registered', array( $this, 'exad_add_elements' ) );
             // Plugin Loaded Action
             add_action( 'plugins_loaded', array( $this, 'exad_element_pack_load_plugin' ) );
+
+            add_action( 'wp_footer', array($this, 'test_function') );
+        }
+
+        public function test_function() {
+            
         }
 
         /**
@@ -208,9 +214,11 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
         *
         */
         public function exad_add_elements() {
-            
+
         	require_once EXAD_ELEMENTS . 'team-member/team-member.php';
             require_once EXAD_ELEMENTS . 'team-carousel/team-carousel.php';
+            require_once EXAD_ELEMENTS . 'progress-bar/progress-bar.php';
+            require_once EXAD_ELEMENTS . 'card/card.php';
             require_once EXAD_ELEMENTS . 'countdown-timer/countdown-timer.php';
             
         }

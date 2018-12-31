@@ -254,7 +254,6 @@ class Exad_Team_Carousel extends Widget_Base {
 					'-basic' => esc_html__( 'Basic', 'exclusive-addons-elementor' ),
 					'-circle' => esc_html__( 'Circle Gradient', 'exclusive-addons-elementor' ),
 					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
-					'-rounded' => esc_html__( 'Rounded', 'exclusive-addons-elementor' ),
 					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
 				],
 			]
@@ -291,6 +290,9 @@ class Exad_Team_Carousel extends Widget_Base {
 				'type' => Controls_Manager::SWITCHER,
 				'return_value' => 'circled',
 				'default' => 'circled',
+				'condition' => [
+					'exad_team_carousel_preset' => '-circle',
+				],
 			]
 		);
 		$this->add_control(
@@ -384,14 +386,14 @@ class Exad_Team_Carousel extends Widget_Base {
 
 			    // Team Carousel Two
 			    $(".exad-team-carousel<?php echo $settings['exad_team_carousel_preset']; ?>").slick({
-			    	autoplay: true,
+			    	autoplay: false,
 			     	infinite: true,
 			     	slidesToShow: <?php echo $settings['team_carousel_per_view']; ?>,
 			     	slidesToScroll: 3,
+			      	//dots: true,
 			      	arrows: false,
-			      	dots: true,
-			      	//prevArrow: "<div class='exad-team-carousel-four-prev'><i class='fa fa-angle-left'></i></div>",
-      				//nextArrow: "<div class='exad-team-carousel-four-next'><i class='fa fa-angle-right'></i></div>"
+			      	prevArrow: "<div class='exad-team-carousel-content-hover-prev'><i class='fa fa-angle-left'></i></div>",
+      				nextArrow: "<div class='exad-team-carousel-content-hover-next'><i class='fa fa-angle-right'></i></div>"
 			    });
 			    
 			});

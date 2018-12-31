@@ -1,14 +1,14 @@
 <?php
 namespace Elementor;
 
-class Exad_Team_Member extends Widget_Base {
+class Exad_Card extends Widget_Base {
 	
 	//use ElementsCommonFunctions;
 	public function get_name() {
-		return 'exad-team-member';
+		return 'exad-card';
 	}
 	public function get_title() {
-		return esc_html__( 'DC Team Member', 'exclusive-addons' );
+		return esc_html__( 'DC Card', 'exclusive-addons' );
 	}
 	public function get_icon() {
 		return 'fa fa-user-circle';
@@ -252,31 +252,7 @@ class Exad_Team_Member extends Widget_Base {
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
-		/*$this->add_responsive_control(
-			'exad_team_members_image_width',
-			[
-				'label' => esc_html__( 'Image Width', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 100,
-					'unit' => '%',
-				],
-				'range' => [
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-					'px' => [
-						'min' => 0,
-						'max' => 1000,
-					],
-				],
-				'size_units' => [ '%', 'px' ],
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'width:{{SIZE}}{{UNIT}};',
-				],
-			]
-		); */
+		
 		$this->add_responsive_control(
 			'exad_team_members_image_margin',
 			[
@@ -355,47 +331,30 @@ class Exad_Team_Member extends Widget_Base {
 		$team_member_classes = $this->get_settings_for_display('exad_team_members_image_rounded');
 	
 		?>
-		<div id="exad-team-member-<?php echo esc_attr($this->get_id()); ?>" class="exad-team-item <?php echo $team_member_classes; ?>">
-			<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>">
-				<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-thumb rounded">
-					<?php if( $settings['exad_team_members_preset'] == '-circle' ) : ?>
-					<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-						<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-					</svg>
-					<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-						<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-					</svg>
-					<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-						<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-					</svg>
-					<?php endif; ?>
-					
-						<img src="<?php echo esc_url($team_member_image_url); ?>" class="<?php echo $team_member_classes; ?>" alt="<?php echo $settings['exad_team_member_name'];?>">
-					
-				</div>
-				<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-content">
-					<h2 class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-name"><?php echo $settings['exad_team_member_name']; ?></h2>
-					<span class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-designation"><?php echo $settings['exad_team_member_designation']; ?></span>
-					<p class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-about">
-						<?php echo $settings['exad_team_member_description']; ?>
-					</p>
-					<?php if ( ! empty( $settings['exad_team_member_enable_social_profiles'] ) ): ?>
-						<ul class="list-inline exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-social">
-							<?php foreach ( $settings['exad_team_member_social_profile_links'] as $item ) : ?>
-							<?php if ( ! empty( $item['social'] ) ) : ?>
-							<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
-							<li>
-								<a href="<?php echo esc_attr( $item['link']['url'] ); ?>"<?php echo $target; ?>><i class="<?php echo esc_attr($item['social'] ); ?>"></i></a>
-							</li>
-							<?php endif; ?>
-							<?php endforeach; ?>
-						</ul>
-					<?php endif; ?>
-				</div>
-			</div>
-		</div>
+
+		<div id="exad-card-<?php echo esc_attr($this->get_id()); ?>" class="card exad-card-style-1-card-5">
+            <div class="exad-card-style-3-content">
+                <div class="exad-card-style-3-content-image">
+                    <img src="<?php echo $team_member_image_url; ?>" alt="Card Style">
+                </div>
+                <div class="exad-card-style-3-content-image-text">
+                    <p>Consulting</p>
+                    <h5>Some Title Here</h5>
+                </div>
+                <div class="exad-card-style-3-content-image-button">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="19px" height="10px">
+                            <path fill-rule="evenodd" fill="rgb(10, 23, 36)" d="M12.000,-0.003 L12.000,3.999 L-0.000,3.999 L-0.000,5.999 L12.000,5.999 L12.000,9.997 L19.000,4.999 L12.000,-0.003 Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+		
 	<?php
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Team_Member() );
+Plugin::instance()->widgets_manager->register_widget_type( new Exad_Card() );
