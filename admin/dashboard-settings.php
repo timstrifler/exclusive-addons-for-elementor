@@ -129,8 +129,9 @@ class Exad_Admin_Settings {
             <div class="exad-header-right">
                 <button type="submit" class="button exad-btn js-exad-settings-save">
                     <?php _e('Save settings', 'exclusive-addons-elementor'); ?></button>
+
             </div>
-            <div class="exad-save-notification">Working</div>
+            
         </div>
         <div class="exad-settings-tabs">
             <ul class="exad-tabs">
