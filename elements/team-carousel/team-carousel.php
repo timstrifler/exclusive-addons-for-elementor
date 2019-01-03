@@ -1,17 +1,6 @@
 <?php
 namespace Elementor;
 
-/*use Elementor\Widget_Base;
-use Elementor\Controls_Manager;
-use Elementor\Embed;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Text_Shadow;
-use Elementor\Group_Control_Typography;
-use Elementor\Repeater;
-use Elementor\Scheme_Typography;
-use Elementor\Utils; 
-use Elementor\Repeater;*/
-
 class Exad_Team_Carousel extends Widget_Base {
 
 	private $lightbox_slide_index;
@@ -374,42 +363,27 @@ class Exad_Team_Carousel extends Widget_Base {
 
 	}
 
-	
-
-	protected function render_script() {
-		$settings = $this->get_settings_for_display();
-
-		?>
-		<script>
-			jQuery(document).ready(function($) {
-			    "use strict";
-
-			    // Team Carousel Two
-			    $(".exad-team-carousel<?php echo $settings['exad_team_carousel_preset']; ?>").slick({
-			    	autoplay: false,
-			     	infinite: true,
-			     	slidesToShow: <?php echo $settings['team_carousel_per_view']; ?>,
-			     	slidesToScroll: 3,
-			      	//dots: true,
-			      	arrows: false,
-			      	prevArrow: "<div class='exad-team-carousel-content-hover-prev'><i class='fa fa-angle-left'></i></div>",
-      				nextArrow: "<div class='exad-team-carousel-content-hover-next'><i class='fa fa-angle-right'></i></div>"
-			    });
-			    
-			});
-		</script>
-		<?php 
-	}
-
-	
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		
 		$team_carousel_classes = $this->get_settings_for_display('exad_team_carousel_image_rounded');
 		$team_preset = $settings['exad_team_carousel_preset'];
+
+		$this->add_render_attribute( 
+				'exad-team-carousel', 
+				[ 
+					'class' => [ 'exad-team-carousel-wrapper', 'exad-team-carousel' . $team_preset ],
+					'id' => 'exad-team-carousel-' . esc_attr($this->get_id()),
+					'data-team-carousel-id' => esc_attr($this->get_id()),
+					'data-team-preset' => $team_preset,
+				]
+			);
+
+
+		
 	?>	
-		<div class="exad-team-carousel<?php echo $team_preset; ?>">
+		<div <?php echo $this->get_render_attribute_string( 'exad-team-carousel' ); ?> >
 			<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) : 
 
 			$team_carousel_image = $member['exad_team_carousel_image'];
@@ -421,17 +395,17 @@ class Exad_Team_Carousel extends Widget_Base {
 	            	<div class="exad-team-member<?php echo $team_preset; ?>">
 	                	<div class="exad-team-member<?php echo $team_preset; ?>-thumb">
 	                		<?php if( $team_preset == '-circle' ) : ?>
-							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-							</svg>
-							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-							</svg>
-							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-							</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+								</svg>
 							<?php endif; ?>
-	                  		<img src="<?php echo esc_url($team_carousel_image_url);?>" class="<?php echo $team_carousel_classes; ?>" alt="team-image">
+	                  		<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="<?php echo $team_carousel_classes; ?>" alt="team-image">
 	                	</div>
 	                	<div class="exad-team-member<?php echo $team_preset; ?>-content">
 		                	<h2 class="exad-team-member<?php echo $team_preset; ?>-name"><?php echo $member['exad_team_carousel_name']; ?></h2>
@@ -482,7 +456,6 @@ class Exad_Team_Carousel extends Widget_Base {
       		<?php endforeach; ?>
 		</div>	
 	<?php	
-	$this->render_script();	
 	}
 }
 

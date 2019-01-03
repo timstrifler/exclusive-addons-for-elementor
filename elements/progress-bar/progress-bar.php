@@ -669,7 +669,7 @@ class Exad_Progress_Bar extends Widget_Base {
 	
 		?>
 		<div id="exad-progress-bar-<?php echo esc_attr($this->get_id()); ?>" class="exad-progerss-bar-style-1-content-box">
-            <div class="exad-progerss-bar-style-1-content-box-text">
+            <div class="exad-progerss-bar-style-1-text">
                 <h6><?php echo $settings['exad_progress_bar_title']; ?></h6>
                 <p class="progress-value">
                 	<?php if( $settings['exad_progress_bar_show_count'] === 'yes' ) : ?>
