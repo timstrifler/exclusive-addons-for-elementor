@@ -136,7 +136,19 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             add_action( 'elementor/widgets/widgets_registered', array( $this, 'exad_add_elements' ) );
             // Plugin Loaded Action
             add_action( 'plugins_loaded', array( $this, 'exad_element_pack_load_plugin' ) );
+            // Add Body Class 
+            add_filter( 'body_class', array( $this, 'exad_add_body_classes' ) );
 
+        }
+
+        /*
+        *
+        * Add Body Class exclusive-addons-elmentor
+        */
+        public function exad_add_body_classes( $classes ) {
+            $classes[] = 'exclusive-addons-elementor';
+
+            return $classes;
         }
 
         

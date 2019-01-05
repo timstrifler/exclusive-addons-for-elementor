@@ -371,10 +371,10 @@ class Exad_Team_Member extends Widget_Base {
 					<?php endif; ?>
 					<img src="<?php echo esc_url($team_member_image_url); ?>" class="<?php echo $team_member_classes; ?>" alt="<?php echo $settings['exad_team_member_name'];?>">
 				</div>
-				<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-content">
-					<h2 class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-name"><?php echo $settings['exad_team_member_name']; ?></h2>
-					<span class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-designation"><?php echo $settings['exad_team_member_designation']; ?></span>
-					<p class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-about">
+				<div class="exad-team-member-content">
+					<h2 class="exad-team-member-name"><?php echo $settings['exad_team_member_name']; ?></h2>
+					<span class="exad-team-member-designation"><?php echo $settings['exad_team_member_designation']; ?></span>
+					<p class="exad-team-member-about">
 						<?php echo $settings['exad_team_member_description']; ?>
 					</p>
 					<?php if ( ! empty( $settings['exad_team_member_enable_social_profiles'] ) ): ?>
