@@ -3,7 +3,53 @@
   font-smoothing: antialiased;
 }
 
+/* Team Member Basic Start */
 
+.exad-team-member-basic {
+  background: #fff;
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
+}
+
+.exad-team-member-basic .exad-team-member-thumb img {
+  width: 100%;
+}
+
+.exad-team-member-basic .exad-team-member-content {
+  padding: 25px 20px;
+}
+
+.exad-team-member-basic .exad-team-member-name, .exad-team-member-basic .exad-team-member-designation, .exad-team-member-basic .exad-team-member-about {
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-team-member-basic .exad-team-member-about {
+  margin-bottom: 25px;
+}
+
+.exad-team-member-basic .exad-team-member-social {
+  margin-bottom: 0;
+}
+.exad-team-member-basic .exad-team-member-social li, .exad-team-member-rounded .exad-team-member-social li, .exad-team-member-content-hover .exad-team-member-social li {
+  display: inline-block;
+}
+
+.exad-team-member-basic .exad-team-member-social li a {
+  color: #8a8d91;
+  display: block;
+  transition: .3s ease;
+}
+
+.exad-team-member-basic .exad-team-member-social li a:hover {
+  color: #132c47;
+}
+
+.exad-team-member-basic .exad-team-member-social li:not(:last-child) {
+  margin-right: 15px;
+}
+/* Basic End */
+
+
+/* Team Member Circle Gradient Start */
 .exad-team-member-circle {
   padding: 70px 40px 30px;
   box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
@@ -12,7 +58,7 @@
   border-radius: 5px;
 }
 
-.exad-team-member-circle-thumb {
+.exad-team-member-circle .exad-team-member-thumb {
   position: relative;
   z-index: 1;
   width: 122px;
@@ -21,7 +67,7 @@
   margin-bottom: 45px;
 }
 
-.elementor .exad-team-member-circle-thumb img {
+.elementor .exad-team-member-circle .exad-team-member-thumb img {
   position: absolute;
   width: 100px;
   height: 100px;
@@ -31,37 +77,37 @@
   transform: translate(-50%, -50%);
 }
 
-.exad-team-member-circle-thumb svg {
+.exad-team-member-circle .exad-team-member-thumb svg {
   position: absolute;
   width: 123px;
   height: 123px;
   z-index: -1;
 }
 
-.exad-team-member-circle-thumb svg:first-child {
+.exad-team-member-circle .exad-team-member-thumb svg:first-child {
   left: 7px;
   bottom: 7px;
 }
 
-.exad-team-member-circle-thumb svg:nth-child(2) {
+.exad-team-member-circle .exad-team-member-thumb svg:nth-child(2) {
   top: 7px;
   left: 7px;
 }
 
-.exad-team-member-circle-thumb svg:nth-child(3) {
+.exad-team-member-circle .exad-team-member-thumb svg:nth-child(3) {
   right: 4px;
   top: 0;
 }
 
-.exad-team-member-circle-thumb svg.violate {
+.exad-team-member-circle .exad-team-member-thumb svg.violate {
   fill: #826EFF;
 }
 
-.exad-team-member-circle-thumb svg.orange {
+.exad-team-member-circle .exad-team-member-thumb svg.orange {
   fill: #FF6A47;
 }
 
-.exad-team-member-circle-thumb svg.cyan {
+.exad-team-member-circle .exad-team-member-thumb svg.cyan {
   fill: #3AD8F4;
 }
 
@@ -89,47 +135,50 @@
   margin: 10px auto;
 }
 
-.exad-team-member-circle-about {
+.exad-team-member-circle .exad-team-member-about {
   margin-bottom: 40px;
-  font-size: 16px;
-  color: #8a8d91;
 }
 
-.exad-team-member-circle-social {
+.exad-team-member-circle .exad-team-member-social {
   padding-left: 0;
 }
 
-.exad-team-member-circle-social li {
+.exad-team-member-circle .exad-team-member-social li {
   display: inline-block;
 }
 
-.exad-team-member-circle-social li:not(:last-child) {
+.exad-team-member-circle .exad-team-member-social li:not(:last-child) {
     margin-right: 2px;
 }
 
-.exad-team-member-circle-social li a {
+.exad-team-member-circle .exad-team-member-social li a {
   padding: 0 10px;
   color: #a4a7aa;
 }
 
-.exad-team-member-circle-social li a:hover {
+.exad-team-member-circle .exad-team-member-social li a:hover {
   color: #8a8d91;
   transition: .3s ease;
 }
+/* Team Member Circle End */
+
+
+
+/* Team Member Social Left Start */
 
 .exad-team-member-social-left {
   text-align: center;
   position: relative;
 }
 
-.exad-team-member-social-left-thumb {
+.exad-team-member-social-left .exad-team-member-thumb {
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
 }
 
 
-.exad-team-member-social-left-thumb img {
+.exad-team-member-social-left .exad-team-member-thumb img {
   width: 100%;
 }
 
@@ -144,7 +193,7 @@
   color: #8a8d91;
 }
 
-.exad-team-member-social-left-social {
+.exad-team-member-social-left .exad-team-member-social {
   list-style: none;
   position: absolute;
   z-index: 2;
@@ -163,7 +212,7 @@
           transform-origin: center center;
 }
 
-.exad-team-member-social-left-social li a {
+.exad-team-member-social-left .exad-team-member-social li a {
   display: inline-block;
   width: 45px;
   height: 45px;
@@ -173,58 +222,54 @@
   transition: .3s ease;
 }
 
-.exad-team-member-social-left-social li a i {
+.exad-team-member-social-left .exad-team-member-social li a i {
   line-height: 45px;
 }
 
-.exad-team-member-social-left-social li a:hover {
+.exad-team-member-social-left .exad-team-member-social li a:hover {
   color: #fff;
   border-color: transparent;
 }
 
-.exad-team-member-social-left-social li:not(:last-child) {
+.exad-team-member-social-left .exad-team-member-social li:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.exad-team-member-social-left:hover .exad-team-member-social-left-thumb::before {
+.exad-team-member-social-left:hover .exad-team-member-social-left .exad-team-member-thumb::before {
   -webkit-transform: translate(-20px, -20px);
           transform: translate(-20px, -20px);
 }
 
-.exad-team-member-social-left:hover .exad-team-member-social-left-social {
+.exad-team-member-social-left:hover .exad-team-member-social {
   left: 30px;
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
 }
+/* Social Left End */
+
+
+/* Team Member Rounded Start */
 
 .exad-team-member-rounded {
   text-align: center;
 }
 
-.exad-team-member-rounded-thumb {
+.exad-team-member-rounded .exad-team-member-thumb {
   margin-bottom: 30px;
 }
 
-.elementor .exad-team-member-rounded-thumb img {
+.elementor .exad-team-member-rounded .exad-team-member-thumb img {
   width: 100%;
   border-radius: 50%;
   box-shadow: 0px 16px 46px 0px rgba(19, 32, 58, 0.18);
 }
 
-.exad-team-member-rounded-name {
-  font-size: 22px;
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 5px;
+.exad-team-member-rounded .exad-team-member-about {
+  margin: 20px auto;
 }
 
-.exad-team-member-rounded-designation {
-  font-size: 15px;
-  display: inline-block;
-  margin-bottom: 25px;
-}
-
-.exad-team-member-rounded-social li a {
+.exad-team-member-rounded .exad-team-member-social li a {
   color: #fff;
   display: block;
   width: 40px;
@@ -235,70 +280,28 @@
   transition: .3s ease;
 }
 
-.exad-team-member-rounded-social li a i {
+.exad-team-member-rounded .exad-team-member-social li:not(:last-child) {
+    margin-right: 8px;
+}
+
+.exad-team-member-rounded .exad-team-member-social li a i {
   line-height: 40px;
 }
 
-.exad-team-member-rounded-social li a:hover {
+.exad-team-member-rounded .exad-team-member-social li a:hover {
   opacity: 1;
 }
+/* Rounded End */
 
-.exad-team-member-four {
-  position: relative;
-}
 
-.exad-team-member-four-thumb img {
-  width: 100%;
-}
 
-.exad-team-member-four-name, .exad-team-member-four-designation {
-  color: #fff;
-}
-
-.exad-team-member-four-designation, .exad-team-member-four-about {
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-team-member-four-name {
-  font-size: 22px;
-  margin-bottom: 0;
-}
-
-.exad-team-member-four-designation {
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.exad-team-member-four-about {
-  color: #caced4;
-  margin-bottom: 30px;
-}
-
-.exad-team-member-four-social li a {
-  display: block;
-  width: 40px;
-  height: 40px;
-  background: rgba(19, 44, 71, 0.4);
-  color: #fff;
-  border-radius: 50%;
-  transition: .3s ease;
-}
-
-.exad-team-member-four-social li a i {
-  line-height: 40px;
-  font-size: 14px;
-}
-
-.exad-team-member-four-social li a:hover {
-  color: #132c47;
-  background: #fff;
-}
+/* Team Member Content Hover Start */
 
 .exad-team-member-content-hover {
   position: relative;
 }
 
-.exad-team-member-content-hover-thumb img {
+.exad-team-member-content-hover .exad-team-member-thumb img {
   width: 100%;
 }
 
@@ -348,22 +351,22 @@
           transform: translateX(-50%);
 }
 
-.exad-team-member-content-hover-social {
+.exad-team-member-content-hover .exad-team-member-social {
   margin-bottom: 0;
 }
 
-.exad-team-member-content-hover-social li a {
+.exad-team-member-content-hover .exad-team-member-social li a {
   display: block;
   padding: 0 7px;
   color: #8a8d91;
   transition: .3s ease;
 }
 
-.exad-team-member-content-hover-social li a i {
+.exad-team-member-content-hover .exad-team-member-social li a i {
   font-size: 14px;
 }
 
-.exad-team-member-content-hover-social li a:hover {
+.exad-team-member-content-hover .exad-team-member-social li a:hover {
   color: #132c47;
 }
 
@@ -373,170 +376,9 @@
   -webkit-transform: scale(1);
           transform: scale(1);
 }
+/* Content Hover End */
 
-.exad-team-member-basic {
-  background: #fff;
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
-}
 
-.exad-team-member-basic-thumb img {
-  width: 100%;
-}
-
-.exad-team-member-basic-content {
-  padding: 25px 20px;
-}
-
-.exad-team-member-basic-name, .exad-team-member-basic-designation, .exad-team-member-basic-about {
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-team-member-basic-name {
-  font-size: 22px;
-  margin-bottom: 0;
-  font-weight: 700;
-}
-
-.exad-team-member-basic-designation {
-  font-size: 15px;
-  margin-bottom: 10px;
-  display: inline-block;
-}
-
-.exad-team-member-basic-about {
-  margin-bottom: 25px;
-}
-
-.exad-team-member-basic-social {
-  margin-bottom: 0;
-}
-.exad-team-member-basic-social li, .exad-team-member-rounded-social li, .exad-team-member-content-hover-social li {
-  display: inline-block;
-}
-
-.exad-team-member-basic-social li a {
-  color: #8a8d91;
-  display: block;
-  transition: .3s ease;
-}
-
-.exad-team-member-basic-social li a:hover {
-  color: #132c47;
-}
-
-.exad-team-member-basic-social li:not(:last-child) {
-  margin-right: 15px;
-}
-
-.exad-team-member-seven {
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
-  overflow: hidden;
-}
-
-.exad-team-member-seven-thumb img {
-  width: 100%;
-}
-
-.exad-team-member-seven-content {
-  background: #fff;
-  padding: 25px 20px;
-  position: relative;
-  transition: .3s ease;
-}
-
-.exad-team-member-seven-name {
-  font-size: 22px;
-  margin-bottom: 5px;
-}
-
-.exad-team-member-seven-designation {
-  font-size: 15px;
-}
-
-.exad-team-member-seven-share {
-  position: absolute;
-  right: 5%;
-  top: -25px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #3ad8f4;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0px 16px 46px 0px rgba(19, 32, 58, 0.25);
-}
-
-.exad-team-member-seven-share i {
-  line-height: 50px;
-}
-
-.exad-team-member-seven-social {
-  position: absolute;
-  bottom: 75px;
-  right: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.exad-team-member-seven-social li {
-  transition: .3s ease;
-  -webkit-transform: translateX(100px);
-          transform: translateX(100px);
-}
-
-.exad-team-member-seven-social li a {
-  display: block;
-  width: 50px;
-  height: 50px;
-  background: rgba(19, 44, 71, 0.5);
-  color: #fff;
-  border-radius: 50%;
-  transition: .3s ease;
-}
-
-.exad-team-member-seven-social li a:hover {
-  background: #fff;
-  color: #132c47;
-}
-
-.exad-team-member-seven-social li:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.exad-team-member-seven-social li:nth-child(1) {
-  transition-delay: 0.05s;
-}
-
-.exad-team-member-seven-social li:nth-child(2) {
-  transition-delay: 0.1s;
-}
-
-.exad-team-member-seven-social li:nth-child(3) {
-  transition-delay: 0.15s;
-}
-
-.exad-team-member-seven-social li:nth-child(4) {
-  transition-delay: 0.2s;
-}
-
-.exad-team-member-seven-social li:nth-child(5) {
-  transition-delay: 0.25s;
-}
-
-.exad-team-member-seven:hover .exad-team-member-seven-social li {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-}
-
-.exad-team-member-seven:hover .exad-team-member-seven-content {
-  background: #132c47;
-}
-
-.exad-team-member-seven:hover .exad-team-member-seven-name, .exad-team-member-seven:hover .exad-team-member-seven-designation {
-  color: #fff;
-}
 
 
 /* Style for Team Carousel */

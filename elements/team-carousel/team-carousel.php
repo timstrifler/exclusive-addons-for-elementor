@@ -15,7 +15,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'fa fa-user-circle';
+		return 'fa fa-user-friends';
 	}
 
 	public function get_categories() {
@@ -199,10 +199,10 @@ class Exad_Team_Carousel extends Widget_Base {
 		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
 
 		$this->add_responsive_control(
-			'team_carousel_per_view',
+			'exad_team_per_view',
 			[
 				'type'           => Controls_Manager::SELECT,
-				'label'          => esc_html__( 'Members Per Row', 'exclusive-addons-elementor' ),
+				'label'          => esc_html__( 'Members Each Row', 'exclusive-addons-elementor' ),
 				'options'        => $slides_per_view,
 				'default'        => '3',
 				'tablet_default' => '2',
@@ -211,10 +211,10 @@ class Exad_Team_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'slides_per_column',
+			'exad_team_slides_to_scroll',
 			[
 				'type'      => Controls_Manager::SELECT,
-				'label'     => esc_html__( 'Members Per Column', 'exclusive-addons-elementor' ),
+				'label'     => esc_html__( 'Members to Scroll', 'exclusive-addons-elementor' ),
 				'options'   => $slides_per_view,
 				'default'   => '1',
 			]
@@ -254,7 +254,7 @@ class Exad_Team_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => 'rgba(255,255,255,0.8)',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-circle-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-circle .exad-team-member-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_team_carousel_preset' => '-circle',
@@ -269,7 +269,7 @@ class Exad_Team_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ff6d55',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social-left-social li a:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_team_carousel_preset' => '-social-left',
@@ -335,19 +335,7 @@ class Exad_Team_Carousel extends Widget_Base {
 				],
 			]
 		);
-		$this->add_control(
-			'exad_team_carousel_image_border_radius',
-			[
-				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
-				],
-				'condition' => [
-					'exad_team_members_image_rounded!' => '-circled',
-				],
-			]
-		);
+		
 
 		$this->end_controls_section();
 
@@ -450,38 +438,38 @@ class Exad_Team_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'speed',
+			'exad_team_transition_duration',
 			[
 				'label'   => esc_html__( 'Transition Duration', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
-				'default' => 500,
+				'default' => 1000,
 			]
 		);
 
 		$this->add_control(
-			'autoplay',
+			'exad_team_autoplay',
 			[
 				'label'     => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'yes',
+				'default'   => 'no',
 				'separator' => 'before',
 			]
 		);
 
 		$this->add_control(
-			'autoplay_speed',
+			'exad_team_autoplay_speed',
 			[
 				'label'     => esc_html__( 'Autoplay Speed', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5000,
 				'condition' => [
-					'autoplay' => 'yes',
+					'exad_team_autoplay' => 'yes',
 				],
 			]
 		);
 
 		$this->add_control(
-			'loop',
+			'exad_team_loop',
 			[
 				'label'   => esc_html__( 'Infinite Loop', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SWITCHER,
@@ -490,13 +478,13 @@ class Exad_Team_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'pause_on_interaction',
+			'exad_team_pause',
 			[
 				'label'     => esc_html__( 'Pause on Interaction', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
-					'autoplay' => 'yes',
+					'exad_team_autoplay' => 'yes',
 				],
 			]
 		);
@@ -512,6 +500,17 @@ class Exad_Team_Carousel extends Widget_Base {
 		$team_carousel_classes = $this->get_settings_for_display('exad_team_carousel_image_rounded');
 		$team_preset = $settings['exad_team_carousel_preset'];
 		$carousel_nav = $settings['exad_team_carousel_nav'];
+		$carousel_settings_array = array(
+			"infinite" => ( $settings['exad_team_loop'] == 'yes' ) ? true : false,
+			"slidesToShow" => $settings['exad_team_per_view'],
+			"slidesToScroll" => $settings['exad_team_slides_to_scroll'],
+			"autoplay" => ( $settings['exad_team_autoplay'] == 'yes' ) ? true : false,
+			"autoplaySpeed" => ( $settings['exad_team_autoplay_speed'] == 'yes' ) ? true : false,
+		    "speed" => $settings['exad_team_transition_duration'],
+		    "pauseOnHover" => ( $settings['exad_team_pause'] == 'yes' ) ? true : false,
+		);
+
+		//$carousel_settings_json = wp_json_encode( $carousel_settings_array );
 
 		$this->add_render_attribute( 
 				'exad-team-carousel', 
@@ -521,13 +520,20 @@ class Exad_Team_Carousel extends Widget_Base {
 					'data-team-carousel-id' => esc_attr($this->get_id()),
 					'data-team-preset' => $team_preset,
 					'data-carousel-nav' => $carousel_nav,
+					'data-infinite' => ( $settings['exad_team_loop'] == 'yes' ) ? true : false,
+					'data-slidestoshow' => $settings['exad_team_per_view'],
+					'data-slidestoscroll' => $settings['exad_team_slides_to_scroll'],
+					'data-autoplay' => ( $settings['exad_team_autoplay'] == 'yes' ) ? true : false,
+					'data-autoplayspeed' => ( $settings['exad_team_autoplay_speed'] == 'yes' ) ? true : false,
+		    		'data-speed' => $settings['exad_team_transition_duration'],
+		    		'data-pauseonhover' => ( $settings['exad_team_pause'] == 'yes' ) ? true : false,
 				]
 			);
 
-
 		
 	?>	
-		<div <?php echo $this->get_render_attribute_string( 'exad-team-carousel' ); ?> >
+		<div <?php echo $this->get_render_attribute_string( 'exad-team-carousel' ); ?>>
+
 			<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) : 
 
 			$team_carousel_image = $member['exad_team_carousel_image'];
@@ -537,7 +543,7 @@ class Exad_Team_Carousel extends Widget_Base {
 				?>	
 				<div class="exad-team-carousel<?php echo $team_preset; ?>-inner">
 	            	<div class="exad-team-member<?php echo $team_preset; ?>">
-	                	<div class="exad-team-member<?php echo $team_preset; ?>-thumb">
+	                	<div class="exad-team-member-thumb">
 	                		<?php if( $team_preset == '-circle' ) : ?>
 								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
 									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
@@ -558,7 +564,7 @@ class Exad_Team_Carousel extends Widget_Base {
 			                	<?php echo $member['exad_team_carousel_description']; ?>
 			                </p>
 		                	<?php if ( ! empty( $member['exad_team_carousel_enable_social_profiles'] ) ): ?>
-							<ul class="list-inline exad-team-member<?php echo $team_preset; ?>-social">
+							<ul class="list-inline exad-team-member-social">
 								
 								<?php if ( ! empty( $member['exad_team_carousel_facebook_link']['url'] ) ) : ?>
 									<?php $target = $member['exad_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>

@@ -11,7 +11,7 @@ class Exad_Team_Member extends Widget_Base {
 		return esc_html__( 'DC Team Member', 'exclusive-addons' );
 	}
 	public function get_icon() {
-		return 'fa fa-user-circle';
+		return 'fa fa-users';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons' ];
@@ -304,9 +304,9 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'label' => esc_html__( 'Avatar Background Color', 'exclusive-addons' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => 'rgba(255,255,255,0.8)',
+				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-circle-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-circle .exad-team-member-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_team_members_preset' => '-circle',
@@ -357,7 +357,7 @@ class Exad_Team_Member extends Widget_Base {
 		?>
 		<div id="exad-team-member-<?php echo esc_attr($this->get_id()); ?>" class="exad-team-item <?php echo $team_member_classes; ?>">
 			<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>">
-				<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-thumb rounded">
+				<div class="exad-team-member-thumb">
 					<?php if( $settings['exad_team_members_preset'] == '-circle' ) : ?>
 					<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
 						<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
@@ -378,7 +378,7 @@ class Exad_Team_Member extends Widget_Base {
 						<?php echo $settings['exad_team_member_description']; ?>
 					</p>
 					<?php if ( ! empty( $settings['exad_team_member_enable_social_profiles'] ) ): ?>
-						<ul class="list-inline exad-team-member<?php echo $settings['exad_team_members_preset']; ?>-social">
+						<ul class="list-inline exad-team-member-social">
 							<?php foreach ( $settings['exad_team_member_social_profile_links'] as $item ) : ?>
 							<?php if ( ! empty( $item['social'] ) ) : ?>
 							<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>

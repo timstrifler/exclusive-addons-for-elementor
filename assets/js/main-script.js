@@ -7,13 +7,20 @@
 		var $teamCarouselWrapper = $scope.find('.exad-team-carousel-wrapper').eq(0),
 		$team_carousel_id = $teamCarouselWrapper.data("team-carousel-id"),
 		$team_preset = $teamCarouselWrapper.data("team-preset"),
-		$allow_dots = $teamCarouselWrapper.data("allow-dots"),
-		$carousel_nav = $teamCarouselWrapper.data("carousel-nav");
+		$carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
+		$infinite = $teamCarouselWrapper.data("infinite"),
+		$slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
+		$slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
+		$autoPlay = $teamCarouselWrapper.data("autoplay"),
+		$autoplaySpeed = $teamCarouselWrapper.data("autoplayspeed"),
+		$transitionSpeed = $teamCarouselWrapper.data("speed"),
+		$pauseOnHover = $teamCarouselWrapper.data("pauseOnHover");
 
 
 		// Team Carousel Two
 		jQuery(document).ready(function($) {
 			'use strict';
+
 			var teamCarousel = $("#exad-team-carousel-" + $team_carousel_id);
 
 			if ($carousel_nav == "arrows" ) {
@@ -25,14 +32,19 @@
 			}
 	
 			teamCarousel.slick({
-		    	autoplay: false,
-		     	infinite: true,
-		     	slidesToShow: 3,
-		     	slidesToScroll: 3,
+				infinite: $infinite,
+				slidesToShow : $slidesToShow,
+				slidesToScroll: $slidesToScroll,
+				autoplay: $autoPlay,
+				autoplaySpeed: $autoplaySpeed,
+				speed: $transitionSpeed,
+				pauseOnHover: $pauseOnHover,
 		      	dots: dots,
 		      	arrows: arrows,
 		      	prevArrow: "<div class='exad-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-				nextArrow: "<div class='exad-team-carousel-next'><i class='fa fa-angle-right'></i></div>"
+				nextArrow: "<div class='exad-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
+				lazyLoad: "ondemand",
+				swipe: true,
 		    });
 
 		});
