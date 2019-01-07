@@ -11,7 +11,7 @@ class Exad_Team_Member extends Widget_Base {
 		return esc_html__( 'DC Team Member', 'exclusive-addons' );
 	}
 	public function get_icon() {
-		return 'fa fa-users';
+		return 'eicon-person';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons' ];
@@ -23,14 +23,14 @@ class Exad_Team_Member extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_team_member_image',
 			[
-				'label' => esc_html__( 'Team Member Image', 'exclusive-addons' )
+				'label' => esc_html__( 'Member Image', 'exclusive-addons' )
 			]
 		);
 		
 		$this->add_control(
 			'exad_team_member_image',
 			[
-				'label' => __( 'Team Member Avatar', 'exclusive-addons' ),
+				'label' => __( 'Member Avatar', 'exclusive-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -54,7 +54,7 @@ class Exad_Team_Member extends Widget_Base {
 		$this->start_controls_section(
 			'exad_team_content',
 			[
-				'label' => esc_html__( 'Team Member Information', 'exclusive-addons' ),
+				'label' => esc_html__( 'Member Content', 'exclusive-addons' ),
 			]
 		);
 		
@@ -190,13 +190,15 @@ class Exad_Team_Member extends Widget_Base {
 			]
 		);
 		$this->end_controls_section();
+
+
 		/*
 		* Team Members Styling Section
 		*/
 		$this->start_controls_section(
 			'exad_section_team_members_styles_general',
 			[
-				'label' => esc_html__( 'Team Member Styles', 'exclusive-addons' ),
+				'label' => esc_html__( 'Member Styles', 'exclusive-addons' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -215,90 +217,7 @@ class Exad_Team_Member extends Widget_Base {
 				],
 			]
 		);
-		$this->add_control(
-			'exad_team_members_overlay_background',
-			[
-				'label' => esc_html__( 'Overlay Color', 'exclusive-addons' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => 'rgba(255,255,255,0.8)',
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-members-circle .exad-team-content' => 'background-color: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_team_members_preset' => '-basic',
-				],
-			]
-		);
-		$this->add_control(
-			'exad_team_members_background',
-			[
-				'label' => esc_html__( 'Content Background Color', 'exclusive-addons' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-item .exad-team-content' => 'background-color: {{VALUE}};',
-				],
-			]
-		);
-		$this->end_controls_section();
-		
-		/*
-		* Team Member Image Styling
-		*/
-		$this->start_controls_section(
-			'exad_section_team_members_image_styles',
-			[
-				'label' => esc_html__( 'Team Member Image Style', 'exclusive-addons-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE
-			]
-		);
-		/*$this->add_responsive_control(
-			'exad_team_members_image_width',
-			[
-				'label' => esc_html__( 'Image Width', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 100,
-					'unit' => '%',
-				],
-				'range' => [
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-					'px' => [
-						'min' => 0,
-						'max' => 1000,
-					],
-				],
-				'size_units' => [ '%', 'px' ],
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'width:{{SIZE}}{{UNIT}};',
-				],
-			]
-		); */
-		$this->add_responsive_control(
-			'exad_team_members_image_margin',
-			[
-				'label' => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-		$this->add_responsive_control(
-			'exad_team_members_image_padding',
-			[
-				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+
 		$this->add_control(
 			'exad_team_members_avatar_bg',
 			[
@@ -313,38 +232,195 @@ class Exad_Team_Member extends Widget_Base {
 				],
 			]
 		);
-		
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name' => 'exad_team_members_image_border',
-				'label' => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img',
-			]
-		);
+
 		$this->add_control(
 			'exad_team_members_image_rounded',
-			[
+ 			[
 				'label' => esc_html__( 'Rounded Avatar?', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
 				'return_value' => 'circled',
 				'default' => 'circled',
-			]
-		);
+ 			]
+ 		);
+
+		
+
+		$this->end_controls_section();
+
+
+		// Name, Designation , About Font Color and Typography
+
+		$this->start_controls_section(
+            'section_team_carousel_name',
+            [
+                'label' => __('Name', 'livemesh-el-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'exad_title_color',
+            [
+                'label' => __('Color', 'livemesh-el-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#000',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-team-member-name' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'selector' => '{{WRAPPER}} .exad-team-member-name',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_team_member_designation',
+            [
+                'label' => __('Designation', 'livemesh-el-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'exad_designation_color',
+            [
+                'label' => __('Color', 'livemesh-el-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#8a8d91',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-team-member-designation' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'designation_typography',
+                'selector' => '{{WRAPPER}} .exad-team-member-designation',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_team_carousel_description',
+            [
+                'label' => __('Description', 'livemesh-el-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'exad_description_color',
+            [
+                'label' => __('Color', 'livemesh-el-addons'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#8a8d91',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-team-member-about' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'exad_description_typography',
+                'selector' => '{{WRAPPER}} .exad-team-member-about',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'exad_team_member_social_section',
+            [
+                'label' => __('Social Style', 'livemesh-el-addons'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+		$this->start_controls_tabs( 'exad_team_members_social_icons_style_tabs' );
+
+		$this->start_controls_tab( 'exad_team_members_social_icon', [ 'label' => esc_html__( 'Normal', 'essential-addons-elementor' ) ] );
+
 		$this->add_control(
-			'exad_team_members_image_border_radius',
+			'exad_team_member_social_color_1',
 			[
-				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label' => esc_html__( 'Background Color', 'exclusive-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_members_image_rounded!' => '-circled',
+					'exad_team_members_preset' => '-social-left',
 				],
 			]
 		);
+
+		$this->add_control(
+			'exad_team_member_social_color_2',
+			[
+				'label' => esc_html__( 'Background Color', 'exclusive-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#272c44',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-rounded .exad-team-member-social li a' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_team_members_preset' => '-rounded',
+				],
+			]
+		);
+		
+		$this->end_controls_tab();
+
+		$this->start_controls_tab( 'exad_team_members_social_icon_hover', [ 'label' => esc_html__( 'Hover', 'essential-addons-elementor' ) ] );
+
+		$this->add_control(
+			'exad_team_member_social_hover_color_1',
+			[
+				'label' => esc_html__( 'Hover Color', 'exclusive-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ff6d55',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_team_members_preset' => '-social-left'
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_team_member_social_hover_color_2',
+			[
+				'label' => esc_html__( 'Hover Color', 'exclusive-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ff6d55',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-rounded .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_team_members_preset' => '-rounded'
+				],
+			]
+		);
+		
+		$this->end_controls_tab();
+		
+		$this->end_controls_tabs();
+
 		$this->end_controls_section();
+
 		
 	}
 	protected function render() {

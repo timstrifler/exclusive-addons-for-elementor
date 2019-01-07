@@ -18,10 +18,6 @@
   padding: 25px 20px;
 }
 
-.exad-team-member-basic .exad-team-member-name, .exad-team-member-basic .exad-team-member-designation, .exad-team-member-basic .exad-team-member-about {
-  font-family: "Poppins", sans-serif;
-}
-
 .exad-team-member-basic .exad-team-member-about {
   margin-bottom: 25px;
 }
@@ -176,7 +172,19 @@
   position: relative;
   z-index: 1;
 }
-
+.exad-team-member-social-left:hover .exad-team-member-thumb::before {
+    -webkit-transform: translate(-20px, -20px);
+    transform: translate(-20px, -20px);
+}
+.exad-team-member-social-left .exad-team-member-thumb::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f5f6fa;
+  transition: .3s ease;
+  z-index: -1;
+}
 
 .exad-team-member-social-left .exad-team-member-thumb img {
   width: 100%;
@@ -184,14 +192,11 @@
 
 .exad-team-member-name {
   font-size: 22px;
-  color: #000;
   font-family: "Roboto", sans-serif;
   margin-bottom: 0;
+  font-weight: 600;
 }
 
-.exad-team-carousel-content {
-  color: #8a8d91;
-}
 
 .exad-team-member-social-left .exad-team-member-social {
   list-style: none;
@@ -382,6 +387,10 @@
 
 
 /* Style for Team Carousel */
+
+.exad-team-carousel-content {
+  color: #8a8d91;
+}
 
 .exad-team-carousel-circle {
   margin: 0 -15px;
