@@ -72,7 +72,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
         public function __clone()
         {
             // Cloning instances of the class is forbidden
-            _doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'livemesh-el-addons' ), '1.0' );
+            _doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'exclusive-addons-elementor' ), '1.0' );
         }
         
         /**
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
         public function __wakeup()
         {
             // Unserializing instances of the class is forbidden
-            _doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'livemesh-el-addons' ), '1.0' );
+            _doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'exclusive-addons-elementor' ), '1.0' );
         }
 
         /**
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
          * Also loaded the language file from here
          */
         public function exad_element_pack_load_plugin() {
-            load_plugin_textdomain( 'exclusive-addons', false, basename( dirname( __FILE__ ) ) . '/languages' );
+            load_plugin_textdomain( 'exclusive-addons-elementor', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
             if ( ! did_action( 'elementor/loaded' ) ) {
                 add_action( 'admin_notices', array( $this, 'exad_element_pack_fail_load' ) );
@@ -185,9 +185,9 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
         public function exad_register_category( $elements_manager ) {
 
             $elements_manager->add_category(
-                'exclusive-addons',
+                'exclusive-addons-elementor',
                 [
-                    'title' => __( 'Exclusive Addons', 'exclusive-addons' ),
+                    'title' => __( 'Exclusive Addons', 'exclusive-addons-elementor' ),
                     'icon' => 'fa fa-plug',
                 ]
             );
@@ -208,13 +208,13 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             if ( $this->_is_elementor_installed() ) {
                 if ( ! current_user_can( 'activate_plugins' ) ) { return; }
                 $activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-                $admin_message = '<p>' . esc_html__( 'Opps! Exclusive Addons requires Elementor Plugin to be activated first.', 'exclusive-addons' ) . '</p>';
-                $admin_message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $activation_url, esc_html__( 'Activate Elementor Now', 'exclusive-addons' ) ) . '</p>';
+                $admin_message = '<p>' . esc_html__( 'Opps! Exclusive Addons requires Elementor Plugin to be activated first.', 'exclusive-addons-elementor' ) . '</p>';
+                $admin_message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $activation_url, esc_html__( 'Activate Elementor Now', 'exclusive-addons-elementor' ) ) . '</p>';
             } else {
                 if ( ! current_user_can( 'install_plugins' ) ) { return; }
                 $install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
-                $admin_message = '<p>' . esc_html__( 'Opps! Exclusive Addons not working because you need to install the Elementor plugin', 'exclusive-addons' ) . '</p>';
-                $admin_message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $install_url, esc_html__( 'Install Elementor Now', 'exclusive-addons' ) ) . '</p>';
+                $admin_message = '<p>' . esc_html__( 'Opps! Exclusive Addons not working because you need to install the Elementor plugin', 'exclusive-addons-elementor' ) . '</p>';
+                $admin_message .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $install_url, esc_html__( 'Install Elementor Now', 'exclusive-addons-elementor' ) ) . '</p>';
             }
 
             echo '<div class="error">' . $admin_message . '</div>';

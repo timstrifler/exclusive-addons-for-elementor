@@ -3,6 +3,27 @@
   font-smoothing: antialiased;
 }
 
+
+/* Team Global Styles */
+
+.exad-team-member-name {
+  font-size: 22px;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+.exad-team-member-content {
+  color: #8a8d91;
+}
+.exad-team-member-designation {
+  font-size: 15px;
+}
+.exad-team-member-about {
+  font-size: 15px;
+}
+
+
+
 /* Team Member Basic Start */
 
 .exad-team-member-basic {
@@ -190,13 +211,6 @@
   width: 100%;
 }
 
-.exad-team-member-name {
-  font-size: 22px;
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 0;
-  font-weight: 600;
-}
-
 
 .exad-team-member-social-left .exad-team-member-social {
   list-style: none;
@@ -324,24 +338,10 @@
   bottom: -10%;
 }
 
-.exad-team-member-content-hover-name, .exad-team-member-content-hover-designation {
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-team-member-content-hover-name {
-  font-size: 22px;
-  margin-bottom: 0;
-}
-
 .exad-team-member-content-hover .exad-team-member-designation {
-  font-size: 15px;
   display: block;
   margin-bottom: 30px;
   position: relative;
-}
-
-.exad-team-member-content {
-  color: #8a8d91;
 }
 
 .exad-team-member-content-hover .exad-team-member-designation::before {

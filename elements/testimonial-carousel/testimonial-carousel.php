@@ -93,7 +93,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$testimonial_repeater->add_control(
 			'exad_testimonial_enable_rating',
 			[
-				'label' => esc_html__( 'Display Rating?', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Display Rating?', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -103,15 +103,15 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$testimonial_repeater->add_control(
 		  'exad_testimonial_rating_number',
 		  [
-		     'label'       => __( 'Rating Number', 'essential-addons-elementor' ),
+		     'label'       => __( 'Rating Number', 'exclusive-addons-elementor' ),
 		     'type' => Controls_Manager::SELECT,
 		     'default' => 5,
 		     'options' => [
-		     	1 => __( '1', 'essential-addons-elementor' ),
-		     	2 => __( '2', 'essential-addons-elementor' ),
-		     	3 => __( '3', 'essential-addons-elementor' ),
-		     	4 => __( '4', 'essential-addons-elementor' ),
-		     	5 => __( '5', 'essential-addons-elementor' ),
+		     	1 => __( '1', 'exclusive-addons-elementor' ),
+		     	2 => __( '2', 'exclusive-addons-elementor' ),
+		     	3 => __( '3', 'exclusive-addons-elementor' ),
+		     	4 => __( '4', 'exclusive-addons-elementor' ),
+		     	5 => __( '5', 'exclusive-addons-elementor' ),
 		     ],
 			'condition' => [
 				'exad_testimonial_enable_rating' => 'yes',
@@ -162,7 +162,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_color_scheme',
 			[
-				'label' => esc_html__( 'Color Scheme', 'exclusive-addons' ),
+				'label' => esc_html__( 'Color Scheme', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#38dae8',
 				'selectors' => [
@@ -177,7 +177,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->start_controls_section(
             'section_testimonials_text',
             [
-                'label' => __('Author Testimonial', 'livemesh-el-addons'),
+                'label' => __('Author Testimonial', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -185,7 +185,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->add_control(
             'text_color',
             [
-                'label' => __('Color', 'livemesh-el-addons'),
+                'label' => __('Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#8a8d91',
                 'selectors' => [
@@ -207,7 +207,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->start_controls_section(
             'section_testimonials_author_name',
             [
-                'label' => __('Author Name', 'livemesh-el-addons'),
+                'label' => __('Author Name', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -216,16 +216,16 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->add_control(
             'title_tag',
             [
-                'label' => __('Title HTML Tag', 'livemesh-el-addons'),
+                'label' => __('Title HTML Tag', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
-                    'h1' => __('H1', 'livemesh-el-addons'),
-                    'h2' => __('H2', 'livemesh-el-addons'),
-                    'h3' => __('H3', 'livemesh-el-addons'),
-                    'h4' => __('H4', 'livemesh-el-addons'),
-                    'h5' => __('H5', 'livemesh-el-addons'),
-                    'h6' => __('H6', 'livemesh-el-addons'),
-                    'div' => __('div', 'livemesh-el-addons'),
+                    'h1' => __('H1', 'exclusive-addons-elementor'),
+                    'h2' => __('H2', 'exclusive-addons-elementor'),
+                    'h3' => __('H3', 'exclusive-addons-elementor'),
+                    'h4' => __('H4', 'exclusive-addons-elementor'),
+                    'h5' => __('H5', 'exclusive-addons-elementor'),
+                    'h6' => __('H6', 'exclusive-addons-elementor'),
+                    'div' => __('div', 'exclusive-addons-elementor'),
                 ],
                 'default' => 'h4',
             ]
@@ -234,7 +234,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->add_control(
             'exad_title_color',
             [
-                'label' => __('Color', 'livemesh-el-addons'),
+                'label' => __('Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000',
                 'selectors' => [
@@ -256,7 +256,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->start_controls_section(
             'section_testimonials_author_credentials',
             [
-                'label' => __('Author Designation', 'livemesh-el-addons'),
+                'label' => __('Author Designation', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -264,7 +264,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->add_control(
             'credential_color',
             [
-                'label' => __('Color', 'livemesh-el-addons'),
+                'label' => __('Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#8a8d91',
                 'selectors' => [
@@ -287,7 +287,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->start_controls_section(
             'section_quote_icon_styling',
             [
-                'label' => __('Quote Icon', 'livemesh-el-addons'),
+                'label' => __('Quote Icon', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -295,7 +295,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->add_control(
             'exad_quote_icon_size',
             [
-                'label' => __('Icon size in pixels', 'livemesh-el-addons'),
+                'label' => __('Icon size in pixels', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'em'],
                 'default' => [
@@ -317,7 +317,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         $this->add_control(
             'exad_quote_icon_color',
             [
-                'label' => __('Icon Color', 'livemesh-el-addons'),
+                'label' => __('Icon Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f3f3f4',
                 'selectors' => [
