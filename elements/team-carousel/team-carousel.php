@@ -15,7 +15,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'fas fa-users';
+		return 'fa fa-users';
 	}
 
 	public function get_categories() {

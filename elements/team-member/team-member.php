@@ -11,7 +11,7 @@ class Exad_Team_Member extends Widget_Base {
 		return esc_html__( 'DC Team Member', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'fas fa-user';
+		return 'fa fa-user';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
