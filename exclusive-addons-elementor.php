@@ -6,7 +6,7 @@
  * Version: 1.0.0
  * Author: DevsCred
  * Author URI: http://devscred.com
- * Text Domain: exclusive-addons
+ * Text Domain: exclusive-addons-elementor
  * Domain Path: /languages
  * License: GPL3
  */
