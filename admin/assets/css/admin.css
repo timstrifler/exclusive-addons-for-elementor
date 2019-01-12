@@ -54,6 +54,12 @@
     flex-grow: 1;
 }
 
+.settings-saved {
+    line-height: 36px;
+    color: #3fcd8e;
+    padding-right: 10px;
+}
+
 .exad-header-right {
     text-align: right;
 }

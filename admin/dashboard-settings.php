@@ -7,6 +7,8 @@ if( ! defined( 'ABSPATH' ) ) exit(); // Exit if accessed directly
 
 class Exad_Admin_Settings {
 
+    private $is_pro = false;
+
 	/**
 	 * Contains Default Component keys
 	 * @var array

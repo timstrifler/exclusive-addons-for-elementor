@@ -149,12 +149,11 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => '-one',
+				'default' => '-basic',
 				'options' => [
-					'-one' => esc_html__( 'Basic', 'exclusive-addons-elementor' ),
+					'-basic' => esc_html__( 'Basic', 'exclusive-addons-elementor' ),
 					'-circle' => esc_html__( 'Circle Gradient', 'exclusive-addons-elementor' ),
-					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
-					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
+					'-single' => esc_html__( 'Single Full Width', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -166,8 +165,8 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#38dae8',
 				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-carousel-one-ratings li.exad-testimonial-carousel-one-ratings-active i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-testimonial-carousel-one-prev:hover, .exad-testimonial-carousel-one-next:hover' => 'background-color: {{VALUE}}; box-shadow: 0px 19px 27px 0px {{VALUE}}40;',
+					'{{WRAPPER}} .exad-testimonial-carousel-ratings li.exad-testimonial-carousel-ratings-active i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-testimonial-carousel-prev:hover, .exad-testimonial-carousel-next:hover' => 'background-color: {{VALUE}}; box-shadow: 0px 19px 27px 0px {{VALUE}}40;',
 				]
 			]
 		);
@@ -189,7 +188,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#8a8d91',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-testimonial-carousel-one-quote' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .exad-testimonial-carousel-quote' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -198,7 +197,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'text_typography',
-                'selector' => '{{WRAPPER}} .exad-testimonial-carousel-one-quote',
+                'selector' => '{{WRAPPER}} .exad-testimonial-carousel-quote',
             ]
         );
 
@@ -238,7 +237,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#000',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-testimonial-carousel-one-name' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .exad-testimonial-carousel-name' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -247,7 +246,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .exad-testimonial-carousel-one-name',
+                'selector' => '{{WRAPPER}} .exad-testimonial-carousel-name',
             ]
         );
 
@@ -268,7 +267,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#8a8d91',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-testimonial-carousel-one-designation' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .exad-testimonial-carousel-designation' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -277,7 +276,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'credential_typography',
-                'selector' => '{{WRAPPER}} .exad-testimonial-carousel-one-designation',
+                'selector' => '{{WRAPPER}} .exad-testimonial-carousel-designation',
             ]
         );
 
@@ -309,7 +308,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
                     ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .exad-testimonial-carousel-one::before' => 'font-size: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-testimonial-carousel-basic::before' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
             ]
         );
@@ -321,7 +320,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#f3f3f4',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-testimonial-carousel-one::before' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .exad-testimonial-carousel-basic::before' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -391,7 +390,6 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 
 	}
 
-	
 
 	protected function render_script() {
 		$settings = $this->get_settings_for_display();
@@ -401,12 +399,13 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			jQuery(document).ready(function($) {
 			    "use strict";
 
-			    // Testimonial Carousel One
+			    // Testimonial Carousel Basic
 			    $('.exad-testimonial-carousel<?php echo $settings['exad_testimonial_carousel_preset']; ?>').slick({
 			    	infinite: true,
-			      	prevArrow: "<div class='exad-testimonial-carousel-one-prev'><i class='fa fa-angle-left'></i></div>",
-			      	nextArrow: "<div class='exad-testimonial-carousel-one-next'><i class='fa fa-angle-right'></i></div>",
-			      	dots: true,
+			      	prevArrow: "<div class='exad-testimonial-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+			      	nextArrow: "<div class='exad-testimonial-carousel-next'><i class='fa fa-angle-right'></i></div>",
+			      	dots: false,
+			      	//slidesToShow: 3,
 			      	customPaging: function (slider, i) {
 			        	var image = $(slider.$slides[i]).data('image');
 			        	return '<a><img src="'+ image +'"></a>';
@@ -418,7 +417,47 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		<?php 
 	}
 
-	
+	protected function render_testimonial_carousel_rating( $testimonial ) {
+		?>
+		<ul class="exad-testimonial-carousel-ratings">
+          
+        <?php 
+          	for( $i = 1; $i <= 5; $i++ ) {
+          		if( $testimonial['exad_testimonial_rating_number'] >= $i ) {
+          			$rating_active_class = 'class="exad-testimonial-carousel-ratings-active"';
+          		} else {
+          			$rating_active_class = '';
+          		}
+          		echo '<li ' . $rating_active_class . '><i class="fa fa-star"></i></li>';
+          	}
+        ?>
+          
+        </ul>
+
+    <?php    
+	}
+
+	protected function render_svg_for_circle() {
+	?>	
+		<svg xmlns="http://www.w3.org/2000/svg" class="violate">
+        	<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+      	</svg>
+      	<svg xmlns="http://www.w3.org/2000/svg" class="violate">
+        	<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+      	</svg>
+      	<svg xmlns="http://www.w3.org/2000/svg" class="violate">
+        	<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+      	</svg>
+	<?php
+	}
+
+	protected function render_testimonial_carousel_quote( $testimonial ) {
+	?>	
+		<div class="exad-testimonial-carousel-quote">
+          <?php echo $this->parse_text_editor($testimonial['exad_testimonial_carousel_description']); ?>
+        </div>
+	<?php
+	}
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
@@ -436,37 +475,53 @@ class Exad_Testimonial_Carousel extends Widget_Base {
         </svg>
 
 		<div class="exad-testimonial-carousel<?php echo $testimonial_preset; ?>">
+			<?php
 
-			<?php foreach ( $settings['testimonial_carousel_repeater'] as $testimonial ) : 
+			foreach ( $settings['testimonial_carousel_repeater'] as $testimonial ) : 
 
 			$testimonial_carousel_image = $testimonial['exad_testimonial_carousel_image'];
 			$testimonial_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $testimonial_carousel_image['id'], 'thumbnail', $testimonial );
+
 			if( empty( $testimonial_carousel_image_url ) ) : $testimonial_carousel_image_url = $testimonial_carousel_image['url']; else: $testimonial_carousel_image_url = $testimonial_carousel_image_url; endif;
 
-				?>	
 
-				<div class="exad-testimonial-carousel-one-inner" data-image="<?php echo esc_url( $testimonial_carousel_image_url ); ?>">
-	                <h5 class="exad-testimonial-carousel-one-name"><?php echo $testimonial['exad_testimonial_carousel_name']; ?></h5>
-	                <span class="exad-testimonial-carousel-one-designation"><?php echo $testimonial['exad_testimonial_carousel_designation']; ?></span>
-	                <div class="exad-testimonial-carousel-one-quote">
-	                  <?php echo $this->parse_text_editor($testimonial['exad_testimonial_carousel_description']); ?>
-	                </div>
-	                <ul class="exad-testimonial-carousel-one-ratings">
-	                  
-	                  <?php 
-	                  	for( $i = 1; $i <= 5; $i++ ) {
-	                  		if( $testimonial['exad_testimonial_rating_number'] >= $i ) {
-	                  			$rating_active_class = 'class="exad-testimonial-carousel-one-ratings-active"';
-	                  		} else {
-	                  			$rating_active_class = '';
-	                  		}
-	                  		echo '<li ' . $rating_active_class . '><i class="fa fa-star"></i></li>';
-	                  	}
-	                  ?>
-	                  
-	                </ul>
-	            </div>
-
+			?>	
+				<?php if ( $testimonial_preset == '-circle' ) { ?> 
+				<div class="exad-testimonial-carousel-inner">
+		            <div class="exad-testimonial-carousel-image">
+		              <?php $this->render_svg_for_circle(); ?>
+		              <img src="<?php echo esc_url( $testimonial_carousel_image_url ); ?>" class="circled" alt="<?php echo $testimonial['exad_testimonial_carousel_name']; ?>">
+		            </div>
+		            <?php $this->render_testimonial_carousel_rating( $testimonial ); ?>
+		            <?php $this->render_testimonial_carousel_quote( $testimonial ); ?>
+		            <h2 class="exad-testimonial-carousel-name"><?php echo $testimonial['exad_testimonial_carousel_name']; ?></h2>
+		            <span class="exad-testimonial-carousel-designation"><?php echo $testimonial['exad_testimonial_carousel_designation']; ?></span>
+		        </div>
+		        <?php } elseif( $testimonial_preset == '-single' ) { ?>
+		        	<div class="exad-testimonial-carousel-item">
+			            <div class="exad-testimonial-carousel-inner">
+			              <div class="exad-testimonial-carousel-inner-left">
+			                <h2 class="exad-testimonial-carousel-name"><?php echo $testimonial['exad_testimonial_carousel_name']; ?></h2>
+			                <span class="exad-testimonial-carousel-designation"><?php echo $testimonial['exad_testimonial_carousel_designation']; ?></span>
+			                <?php $this->render_testimonial_carousel_quote( $testimonial ); ?>
+			                <?php $this->render_testimonial_carousel_rating( $testimonial ); ?>
+			              </div>
+			              <div class="exad-testimonial-carousel-inner-right">
+			                <div class="exad-testimonial-carousel-image">
+			                  <img src="<?php echo esc_url( $testimonial_carousel_image_url ); ?>" class="circled" alt="<?php echo $testimonial['exad_testimonial_carousel_name']; ?>">
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+		    	<?php } else { ?>	                
+		            <div class="exad-testimonial-carousel-inner" data-image= <?php echo ( $testimonial_preset == '-basic' ) ? esc_url( $testimonial_carousel_image_url ) : ''; ?>>
+		            <h2 class="exad-testimonial-carousel-name"><?php echo $testimonial['exad_testimonial_carousel_name']; ?></h2>
+		            <span class="exad-testimonial-carousel-designation"><?php echo $testimonial['exad_testimonial_carousel_designation']; ?></span>
+		            <?php $this->render_testimonial_carousel_quote( $testimonial ); ?>
+		            <?php $this->render_testimonial_carousel_rating( $testimonial ); ?>
+		          </div>
+		            
+		        <?php } ?>    
       		<?php endforeach; ?>
 		</div>	
 	<?php	

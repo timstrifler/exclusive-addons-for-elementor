@@ -569,7 +569,6 @@ class Exad_Team_Carousel extends Widget_Base {
 		    "pauseOnHover" => ( $settings['exad_team_pause'] == 'yes' ) ? true : false,
 		);
 
-		//$carousel_settings_json = wp_json_encode( $carousel_settings_array );
 
 		$this->add_render_attribute( 
 				'exad-team-carousel', 
@@ -614,7 +613,7 @@ class Exad_Team_Carousel extends Widget_Base {
 									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
 								</svg>
 							<?php endif; ?>
-	                  		<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="team-image">
+	                  		<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo $member['exad_team_carousel_name']; ?>">
 	                	</div>
 	                	<div class="exad-team-member-content">
 		                	<h2 class="exad-team-member-name"><?php echo $member['exad_team_carousel_name']; ?></h2>
