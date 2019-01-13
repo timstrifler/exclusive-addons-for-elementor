@@ -557,36 +557,36 @@ class Exad_Team_Carousel extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		
 		$team_carousel_classes = $this->get_settings_for_display('exad_team_carousel_image_rounded');
-		$team_preset = $settings['exad_team_carousel_preset'];
-		$carousel_nav = $settings['exad_team_carousel_nav'];
-		$carousel_settings_array = array(
-			"infinite" => ( $settings['exad_team_loop'] == 'yes' ) ? true : false,
-			"slidesToShow" => $settings['exad_team_per_view'],
-			"slidesToScroll" => $settings['exad_team_slides_to_scroll'],
-			"autoplay" => ( $settings['exad_team_autoplay'] == 'yes' ) ? true : false,
-			"autoplaySpeed" => ( $settings['exad_team_autoplay_speed'] == 'yes' ) ? true : false,
-		    "speed" => $settings['exad_team_transition_duration'],
-		    "pauseOnHover" => ( $settings['exad_team_pause'] == 'yes' ) ? true : false,
-		);
+		$team_preset = $settings['exad_team_carousel_preset']; 
 
 
 		$this->add_render_attribute( 
-				'exad-team-carousel', 
-				[ 
-					'class' => [ 'exad-team-carousel-wrapper', 'exad-team-carousel' . $team_preset ],
-					'id' => 'exad-team-carousel-' . esc_attr($this->get_id()),
-					'data-team-carousel-id' => esc_attr($this->get_id()),
-					'data-team-preset' => $team_preset,
-					'data-carousel-nav' => $carousel_nav,
-					'data-infinite' => ( $settings['exad_team_loop'] == 'yes' ) ? true : false,
-					'data-slidestoshow' => $settings['exad_team_per_view'],
-					'data-slidestoscroll' => $settings['exad_team_slides_to_scroll'],
-					'data-autoplay' => ( $settings['exad_team_autoplay'] == 'yes' ) ? true : false,
-					'data-autoplayspeed' => ( $settings['exad_team_autoplay_speed'] == 'yes' ) ? true : false,
-		    		'data-speed' => $settings['exad_team_transition_duration'],
-		    		'data-pauseonhover' => ( $settings['exad_team_pause'] == 'yes' ) ? true : false,
-				]
-			);
+			'exad-team-carousel', 
+			[ 
+				'class' => [ 'exad-team-carousel-wrapper', 'exad-team-carousel' . $team_preset ],
+				'data-team-preset' => $team_preset,
+				'data-carousel-nav' => $settings['exad_team_carousel_nav'],
+				'data-slidestoshow' => $settings['exad_team_per_view'],
+				'data-slidestoscroll' => $settings['exad_team_slides_to_scroll'],
+	    		'data-speed' => $settings['exad_team_transition_duration'],
+			]
+		);
+
+		if ( $settings['exad_team_pause'] == 'yes' ) {
+            $this->add_render_attribute( 'exad-team-carousel', 'data-pauseonhover', "true");
+        }
+
+		if ( $settings['exad_team_autoplay_speed'] == 'yes' ) {
+            $this->add_render_attribute( 'exad-team-carousel', 'data-autoplayspeed', "true");
+        }
+
+		if ( $settings['exad_team_autoplay'] == 'yes' ) {
+            $this->add_render_attribute( 'exad-team-carousel', 'data-autoplay', "true");
+        }
+
+		if ( $settings['exad_team_loop'] == 'yes' ) {
+            $this->add_render_attribute( 'exad-team-carousel', 'data-loop', "true");
+        }
 
 		
 	?>	

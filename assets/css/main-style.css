@@ -3,6 +3,10 @@
   font-smoothing: antialiased;
 }
 
+/* Style for removing Twenty Nineteen Theme heading border */
+h1:not(.site-title):before, h2:before {
+  content: none;
+}
 
 /* Team Global Styles */
 

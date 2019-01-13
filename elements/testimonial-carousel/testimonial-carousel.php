@@ -86,7 +86,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'dynamic' => [
                     'active' => true,
                 ],
-				'default' => esc_html__( 'Add team member details here', 'exclusive-addons-elementor' ),
+				'default' => esc_html__( 'Add testimonial member details here', 'exclusive-addons-elementor' ),
 			]
 		);
 
@@ -128,6 +128,33 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'fields' => $testimonial_repeater->get_controls(),
 				'title_field' => '{{{ exad_testimonial_carousel_name }}}',
 				//'default' => $this->get_repeater_defaults(),
+			]
+		);
+
+		$slides_per_view = range( 1, 10 );
+		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
+
+		$this->add_responsive_control(
+			'exad_testimonial_per_view',
+			[
+				'type'           => Controls_Manager::SELECT,
+				'label'          => esc_html__( 'Testimonials On Row', 'exclusive-addons-elementor' ),
+				'label_block'    => true,
+				'options'        => $slides_per_view,
+				'default'        => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_slides_to_scroll',
+			[
+				'type'      => Controls_Manager::SELECT,
+				'label'     => esc_html__( 'Testimonials to Scroll', 'exclusive-addons-elementor' ),
+				'label_block'    => true,
+				'options'   => $slides_per_view,
+				'default'   => '1',
 			]
 		);
 
@@ -405,7 +432,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			      	prevArrow: "<div class='exad-testimonial-carousel-prev'><i class='fa fa-angle-left'></i></div>",
 			      	nextArrow: "<div class='exad-testimonial-carousel-next'><i class='fa fa-angle-right'></i></div>",
 			      	dots: false,
-			      	//slidesToShow: 3,
+			      	slidesToShow: 3,
 			      	customPaging: function (slider, i) {
 			        	var image = $(slider.$slides[i]).data('image');
 			        	return '<a><img src="'+ image +'"></a>';
@@ -473,8 +500,37 @@ class Exad_Testimonial_Carousel extends Widget_Base {
             	</clipPath>
           </defs>
         </svg>
+    <?php    
+        $this->add_render_attribute( 
+			'exad-testimonial-carousel', 
+			[ 
+				'class' => [ 'exad-testimonial-carousel-wrapper', 'exad-testimonial-carousel' . $testimonial_preset ],
+				'data-testimonial-preset' => $testimonial_preset,
+				'data-carousel-nav' => $settings['exad_testimonial_carousel_nav'],
+				'data-slidestoshow' => $settings['exad_testimonial_per_view'],
+				'data-slidestoscroll' => $settings['exad_testimonial_slides_to_scroll'],
+	    		'data-speed' => $settings['exad_testimonial_transition_duration'],
+			]
+		);
 
-		<div class="exad-testimonial-carousel<?php echo $testimonial_preset; ?>">
+		if ( $settings['exad_testimonial_pause'] == 'yes' ) {
+            $this->add_render_attribute( 'exad-testimonial-carousel', 'data-pauseonhover', "true");
+        }
+
+		if ( $settings['exad_testimonial_autoplay_speed'] == 'yes' ) {
+            $this->add_render_attribute( 'exad-testimonial-carousel', 'data-autoplayspeed', "true");
+        }
+
+		if ( $settings['exad_testimonial_autoplay'] == 'yes' ) {
+            $this->add_render_attribute( 'exad-testimonial-carousel', 'data-autoplay', "true");
+        }
+
+		if ( $settings['exad_testimonial_loop'] == 'yes' ) {
+            $this->add_render_attribute( 'exad-testimonial-carousel', 'data-loop', "true");
+        }
+        ?>
+
+		<div <?php echo $this->get_render_attribute_string( 'exad-testimonial-carousel' ); ?>>
 			<?php
 
 			foreach ( $settings['testimonial_carousel_repeater'] as $testimonial ) : 
@@ -524,8 +580,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		        <?php } ?>    
       		<?php endforeach; ?>
 		</div>	
-	<?php	
-	$this->render_script();	
+	<?php		
 	}
 }
 
