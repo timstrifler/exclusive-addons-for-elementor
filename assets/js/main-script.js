@@ -55,43 +55,30 @@
 		$testimonial_preset = $testimonialCarouselWrapper.data("testimonial-preset"),
 		//$carousel_nav = $testimonialCarouselWrapper.data("carousel-nav"),
 		$loop = ($testimonialCarouselWrapper.data("loop") !== undefined) ? $testimonialCarouselWrapper.data("loop") : false,
-		$slidesToShow = $testimonialCarouselWrapper.data("slidestoshow"),
-		$slidesToScroll = $testimonialCarouselWrapper.data("slidestoscroll"),
+		$slidesToShow = ($testimonialCarouselWrapper.data("slidestoshow") !== undefined) ? $testimonialCarouselWrapper.data("slidestoshow") : 1,
+		$slidesToScroll = ($testimonialCarouselWrapper.data("slidestoscroll") !== undefined) ? $testimonialCarouselWrapper.data("slidestoscroll") : 1,
 		$autoPlay = ($testimonialCarouselWrapper.data("autoplay") !== undefined) ? $testimonialCarouselWrapper.data("autoplay") : false,
 		$autoplaySpeed = ($testimonialCarouselWrapper.data("autoplayspeed") !== undefined) ? $testimonialCarouselWrapper.data("autoplayspeed") : false,
 		$transitionSpeed = $testimonialCarouselWrapper.data("speed"),
+		$dots = ($testimonialCarouselWrapper.data("carousel-dot") !== undefined) ? $testimonialCarouselWrapper.data("carousel-dot") : false,
 		$pauseOnHover = ($testimonialCarouselWrapper.data("pauseOnHover") !== undefined) ? $testimonialCarouselWrapper.data("pauseOnHover") : false;
 
 
-		// testimonial Carousel 
-
-		//var $testimonialCarousel = $("#exad-testimonial-carousel-" + $testimonial_carousel_id);
-
-		/*if ($carousel_nav == "arrows" ) {
-			var arrows = true;
-			var dots = false;
-		} else {
-			var arrows = false;
-			var dots = true;
-		}*/
-
 		$testimonialCarouselWrapper.slick({
 			infinite: $loop,
+			slidesToShow: $slidesToShow,
 			slidesToScroll: $slidesToScroll,
 			autoplay: $autoPlay,
 			autoplaySpeed: $autoplaySpeed,
 			speed: $transitionSpeed,
 			pauseOnHover: $pauseOnHover,
-	      	dots: dots,
+			dots: $dots,
 	      	prevArrow: "<div class='exad-testimonial-carousel-prev'><i class='fa fa-angle-left'></i></div>",
 	      	nextArrow: "<div class='exad-testimonial-carousel-next'><i class='fa fa-angle-right'></i></div>",
-	      	//dots: dots,
-	      	slidesToShow: slidesToShow,
 	      	customPaging: function (slider, i) {
 	        	var image = $(slider.$slides[i]).data('image');
 	        	return '<a><img src="'+ image +'"></a>';
 	      	},
-	      	//arrows: arrows,
 			rows: 0,
 			//lazyLoad: "ondemand",
 			//swipe: true,

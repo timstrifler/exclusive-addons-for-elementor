@@ -131,33 +131,6 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			]
 		);
 
-		$slides_per_view = range( 1, 10 );
-		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
-
-		$this->add_responsive_control(
-			'exad_testimonial_per_view',
-			[
-				'type'           => Controls_Manager::SELECT,
-				'label'          => esc_html__( 'Testimonials On Row', 'exclusive-addons-elementor' ),
-				'label_block'    => true,
-				'options'        => $slides_per_view,
-				'default'        => '3',
-				'tablet_default' => '2',
-				'mobile_default' => '1',
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_slides_to_scroll',
-			[
-				'type'      => Controls_Manager::SELECT,
-				'label'     => esc_html__( 'Testimonials to Scroll', 'exclusive-addons-elementor' ),
-				'label_block'    => true,
-				'options'   => $slides_per_view,
-				'default'   => '1',
-			]
-		);
-
 
 		$this->end_controls_section();
 
@@ -193,8 +166,23 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'default' => '#38dae8',
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-carousel-ratings li.exad-testimonial-carousel-ratings-active i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-testimonial-carousel-prev:hover, .exad-testimonial-carousel-next:hover' => 'background-color: {{VALUE}}; box-shadow: 0px 19px 27px 0px {{VALUE}}40;',
+					'{{WRAPPER}} .exad-testimonial-carousel-prev:hover, {{WRAPPER}} .exad-testimonial-carousel-next:hover' => 'background-color: {{VALUE}}; box-shadow: 0px 19px 27px 0px {{VALUE}}40;',
 				]
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_avatar_bg',
+			[
+				'label' => esc_html__( 'Avatar Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#826EFF',
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-carousel-circle .exad-testimonial-carousel-image svg.testimonial-avatar-bg' => 'fill: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_testimonial_carousel_preset' => '-circle',
+				],
 			]
 		);
 
@@ -337,6 +325,9 @@ class Exad_Testimonial_Carousel extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .exad-testimonial-carousel-basic::before' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
+                'condition' => [
+                	'exad_testimonial_carousel_preset' => '-basic',
+                ]
             ]
         );
 
@@ -349,20 +340,56 @@ class Exad_Testimonial_Carousel extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .exad-testimonial-carousel-basic::before' => 'color: {{VALUE}};',
                 ],
+                'condition' => [
+                	'exad_testimonial_carousel_preset' => '-basic',
+                ]
             ]
         );
 
         $this->end_controls_section();
 
 		$this->start_controls_section(
-			'section_additional_options',
+			'section_test_carousel_settings',
 			[
-				'label' => esc_html__( 'Additional Options', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Carousel Settings', 'exclusive-addons-elementor' ),
+			]
+		);
+
+		$slides_per_view = range( 1, 10 );
+		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
+
+		$this->add_responsive_control(
+			'exad_testimonial_per_view',
+			[
+				'type'           => Controls_Manager::SELECT,
+				'label'          => esc_html__( 'Testimonials On Row', 'exclusive-addons-elementor' ),
+				'label_block'    => true,
+				'options'        => $slides_per_view,
+				'default'        => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
+				'condition' => [
+					'exad_testimonial_carousel_preset' => '-circle',
+				],
 			]
 		);
 
 		$this->add_control(
-			'speed',
+			'exad_testimonial_slides_to_scroll',
+			[
+				'type'      => Controls_Manager::SELECT,
+				'label'     => esc_html__( 'Testimonials to Scroll', 'exclusive-addons-elementor' ),
+				'label_block'    => true,
+				'options'   => $slides_per_view,
+				'default'   => '1',
+				'condition' => [
+					'exad_testimonial_carousel_preset' => '-circle',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_transition_duration',
 			[
 				'label'   => esc_html__( 'Transition Duration', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
@@ -371,7 +398,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'autoplay',
+			'exad_testimonial_autoplay',
 			[
 				'label'     => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
@@ -381,19 +408,19 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'autoplay_speed',
+			'exad_testimonial_autoplay_speed',
 			[
 				'label'     => esc_html__( 'Autoplay Speed', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
 				'default'   => 5000,
 				'condition' => [
-					'autoplay' => 'yes',
+					'exad_testimonial_autoplay' => 'yes',
 				],
 			]
 		);
 
 		$this->add_control(
-			'loop',
+			'exad_testimonial_loop',
 			[
 				'label'   => esc_html__( 'Infinite Loop', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SWITCHER,
@@ -402,13 +429,13 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'pause_on_interaction',
+			'exad_testimonial_pause',
 			[
 				'label'     => esc_html__( 'Pause on Interaction', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
-					'autoplay' => 'yes',
+					'exad_testimonial_autoplay' => 'yes',
 				],
 			]
 		);
@@ -417,32 +444,6 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 
 	}
 
-
-	protected function render_script() {
-		$settings = $this->get_settings_for_display();
-
-		?>
-		<script>
-			jQuery(document).ready(function($) {
-			    "use strict";
-
-			    // Testimonial Carousel Basic
-			    $('.exad-testimonial-carousel<?php echo $settings['exad_testimonial_carousel_preset']; ?>').slick({
-			    	infinite: true,
-			      	prevArrow: "<div class='exad-testimonial-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-			      	nextArrow: "<div class='exad-testimonial-carousel-next'><i class='fa fa-angle-right'></i></div>",
-			      	dots: false,
-			      	slidesToShow: 3,
-			      	customPaging: function (slider, i) {
-			        	var image = $(slider.$slides[i]).data('image');
-			        	return '<a><img src="'+ image +'"></a>';
-			      	}
-			    });
-			    
-			});
-		</script>
-		<?php 
-	}
 
 	protected function render_testimonial_carousel_rating( $testimonial ) {
 		?>
@@ -466,13 +467,13 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 
 	protected function render_svg_for_circle() {
 	?>	
-		<svg xmlns="http://www.w3.org/2000/svg" class="violate">
+		<svg xmlns="http://www.w3.org/2000/svg" class="testimonial-avatar-bg">
         	<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
       	</svg>
-      	<svg xmlns="http://www.w3.org/2000/svg" class="violate">
+      	<svg xmlns="http://www.w3.org/2000/svg" class="testimonial-avatar-bg">
         	<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
       	</svg>
-      	<svg xmlns="http://www.w3.org/2000/svg" class="violate">
+      	<svg xmlns="http://www.w3.org/2000/svg" class="testimonial-avatar-bg">
         	<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
       	</svg>
 	<?php
@@ -491,44 +492,50 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		
 		$testimonial_carousel_classes = $this->get_settings_for_display('exad_testimonial_carousel_image_rounded');
 		$testimonial_preset = $settings['exad_testimonial_carousel_preset'];
-	?>	
-
-		<svg width="0" height="0">
-          	<defs>
-            	<clipPath id="mask_testimonial">
-              		<path d="M100.450,8.770 C127.510,20.597 112.050,83.754 92.321,99.399 C71.540,115.877 2.874,108.553 0.037,47.063 C-1.254,19.140 41.746,-16.889 100.450,8.770 Z"/>
-            	</clipPath>
-          </defs>
-        </svg>
-    <?php    
+    
         $this->add_render_attribute( 
 			'exad-testimonial-carousel', 
 			[ 
 				'class' => [ 'exad-testimonial-carousel-wrapper', 'exad-testimonial-carousel' . $testimonial_preset ],
 				'data-testimonial-preset' => $testimonial_preset,
-				'data-carousel-nav' => $settings['exad_testimonial_carousel_nav'],
-				'data-slidestoshow' => $settings['exad_testimonial_per_view'],
-				'data-slidestoscroll' => $settings['exad_testimonial_slides_to_scroll'],
+				
 	    		'data-speed' => $settings['exad_testimonial_transition_duration'],
 			]
 		);
+
+        if ( ( $testimonial_preset == '-circle' ) ) {
+        	$this->add_render_attribute( 'exad-testimonial-carousel', 'data-slidestoshow', $settings['exad_testimonial_per_view'] );
+        	$this->add_render_attribute( 'exad-testimonial-carousel', 'data-slidestoscroll', $settings['exad_testimonial_slides_to_scroll'] );
+        }
+
+        if ( ( $testimonial_preset == '-basic' ) ) {
+        	$this->add_render_attribute( 'exad-testimonial-carousel', 'data-carousel-dot', "true" );
+        } else {
+        	$this->add_render_attribute( 'exad-testimonial-carousel', 'data-carousel-dot', "false" );
+        }
 
 		if ( $settings['exad_testimonial_pause'] == 'yes' ) {
             $this->add_render_attribute( 'exad-testimonial-carousel', 'data-pauseonhover', "true");
         }
 
-		if ( $settings['exad_testimonial_autoplay_speed'] == 'yes' ) {
-            $this->add_render_attribute( 'exad-testimonial-carousel', 'data-autoplayspeed', "true");
-        }
 
 		if ( $settings['exad_testimonial_autoplay'] == 'yes' ) {
             $this->add_render_attribute( 'exad-testimonial-carousel', 'data-autoplay', "true");
+            $this->add_render_attribute( 'exad-testimonial-carousel', 'data-autoplayspeed', $settings['exad_testimonial_autoplay_speed'] );
         }
 
 		if ( $settings['exad_testimonial_loop'] == 'yes' ) {
             $this->add_render_attribute( 'exad-testimonial-carousel', 'data-loop', "true");
         }
         ?>
+
+        <svg width="0" height="0">
+          	<defs>
+            	<clipPath id="mask_testimonial">
+              		<path d="M100.450,8.770 C127.510,20.597 112.050,83.754 92.321,99.399 C71.540,115.877 2.874,108.553 0.037,47.063 C-1.254,19.140 41.746,-16.889 100.450,8.770 Z"/>
+            	</clipPath>
+          </defs>
+        </svg>
 
 		<div <?php echo $this->get_render_attribute_string( 'exad-testimonial-carousel' ); ?>>
 			<?php

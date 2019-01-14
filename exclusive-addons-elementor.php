@@ -231,6 +231,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             require_once EXAD_ELEMENTS . 'testimonial-carousel/testimonial-carousel.php';
             require_once EXAD_ELEMENTS . 'progress-bar/progress-bar.php';
             require_once EXAD_ELEMENTS . 'card/card.php';
+            require_once EXAD_ELEMENTS . 'pricing-table/pricing-table.php';
             require_once EXAD_ELEMENTS . 'countdown-timer/countdown-timer.php';
             
         }
