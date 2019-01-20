@@ -1,6 +1,8 @@
 <?php
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
+
 class Exad_Pricing_Table extends Widget_Base {
 	
 	//use ElementsCommonFunctions;
@@ -16,187 +18,266 @@ class Exad_Pricing_Table extends Widget_Base {
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
 	}
+
 	protected function _register_controls() {
-		/*
-		* Team Member Image
-		*/
-		$this->start_controls_section(
-			'exad_section_pricing_table_image',
-			[
-				'label' => esc_html__( 'Team Member Image', 'exclusive-addons-elementor' )
-			]
-		);
-		
-		$this->add_control(
-			'exad_pricing_table_image',
-			[
-				'label' => __( 'Team Member Avatar', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::MEDIA,
-				'default' => [
-					'url' => Utils::get_placeholder_image_src(),
-				],
-			]
-		);
-		$this->add_group_control(
-			Group_Control_Image_Size::get_type(),
-			[
-				'name' => 'thumbnail',
-				'default' => 'full',
-				'condition' => [
-					'exad_pricing_table_image[url]!' => '',
-				],
-			]
-		);
-		$this->end_controls_section();
+
+  		/**
+  		 * Pricing Table Settings
+  		 */
+  		$this->start_controls_section(
+  			'exad_section_pricing_table_settings',
+  			[
+  				'label' => esc_html__( 'Header', 'exclusive-addons-elementor' )
+  			]
+  		);
+
+
 		/**
-		* Team Member Content Section
-		*/
-		$this->start_controls_section(
-			'exad_team_content',
+		 * Condition: 'exad_pricing_table_style' => [ 'style-3', 'style-4' ], 'exad_pricing_table_featured' => 'yes'
+		 */
+
+  		$this->add_control(
+			'exad_pricing_table_title',
 			[
-				'label' => esc_html__( 'Team Member Information', 'exclusive-addons-elementor' ),
-			]
-		);
-		
-		$this->add_control(
-			'exad_pricing_table_name',
-			[
-				'label' => esc_html__( 'Name', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'John Doe', 'exclusive-addons-elementor' ),
+				'label_block' => false,
+				'default' => esc_html__( 'Standard', 'exclusive-addons-elementor' )
 			]
 		);
-		
+
+		/**
+		 * Condition: 'exad_pricing_table_style' => 'style-2'
+		 */
 		$this->add_control(
-			'exad_pricing_table_designation',
+			'exad_pricing_table_sub_title',
 			[
-				'label' => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Sub Title', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'My Designation', 'exclusive-addons-elementor' ),
+				'label_block' => false,
+				'default' => esc_html__( 'Tagline for Pricing', 'exclusive-addons-elementor' ),
 			]
 		);
-		
+
+		/**
+		 * Condition: 'exad_pricing_table_style' => 'style-2'
+		 */
 		$this->add_control(
-			'exad_pricing_table_description',
+			'exad_pricing_table_style_2_icon',
 			[
-				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Add team member details here', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::ICON,
+				'default' => 'fa fa-home',
 			]
 		);
-		$this->end_controls_section();
-		/*
-		* Team member Social profiles section
-		*/
-		
-		$this->start_controls_section(
-			'exad_section_pricing_table_social_profiles',
-			[
-				'label' => esc_html__( 'Social Profiles', 'exclusive-addons-elementor' )
-			]
-		);
+
 		$this->add_control(
-			'exad_pricing_table_enable_social_profiles',
+			'exad_pricing_table_featured',
 			[
-				'label' => esc_html__( 'Display Social Profiles?', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Featured?', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
+				'description' => __( 'Works with Style 3', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
 			]
 		);
-		
-		
+
+
+		/**
+		 * Condition: 'exad_pricing_table_featured_styles' => [ 'ribbon-2', 'ribbon-3' ], 'exad_pricing_table_featured' => 'yes'
+		 */
 		$this->add_control(
-			'exad_pricing_table_social_profile_links',
+			'exad_pricing_table_featured_tag_text',
+			[
+				'label' => esc_html__( 'Featured Text', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => false,
+				'default' => esc_html__( 'Featured', 'exclusive-addons-elementor' ),
+				'condition' => [
+					'exad_pricing_table_featured' => 'yes'
+				]
+			]
+		);
+
+  		$this->end_controls_section();
+
+
+  		/**
+  		 * Pricing Table Price
+  		 */
+  		$this->start_controls_section(
+  			'exad_section_pricing_table_price',
+  			[
+  				'label' => esc_html__( 'Price', 'exclusive-addons-elementor' )
+  			]
+  		);
+
+		$this->add_control(
+			'exad_pricing_table_price',
+			[
+				'label' => esc_html__( 'Price', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => false,
+				'default' => esc_html__( '50', 'exclusive-addons-elementor' )
+			]
+		);
+		$this->add_control(
+			'exad_pricing_table_onsale',
+			[
+				'label' => __( 'On Sale?', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'no',
+				'label_on' => __( 'Yes', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'No', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+			]
+		);
+		$this->add_control(
+			'exad_pricing_table_onsale_price',
+			[
+				'label' => esc_html__( 'Sale Price', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => false,
+				'default' => esc_html__( '40', 'exclusive-addons-elementor' ),
+				'condition' => [
+					'exad_pricing_table_onsale' => 'yes'
+				]
+			]
+		);
+  		$this->add_control(
+			'exad_pricing_table_price_cur',
+			[
+				'label' => esc_html__( 'Price Currency', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => false,
+				'default' => esc_html__( '$', 'exclusive-addons-elementor' ),
+			]
+		);
+
+
+		$this->add_control(
+			'exad_pricing_table_price_by',
+			[
+				'label' => esc_html__( 'Price By', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => false,
+				'default' => esc_html__( 'month', 'exclusive-addons-elementor' )
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_period_separator',
+			[
+				'label' => esc_html__( 'Separated By', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => false,
+				'default' => esc_html__( '/', 'exclusive-addons-elementor' )
+			]
+		);
+
+  		$this->end_controls_section();
+
+  		/**
+  		 * Pricing Table Feature
+  		 */
+  		$this->start_controls_section(
+  			'exad_section_pricing_table_feature',
+  			[
+  				'label' => esc_html__( 'Features', 'exclusive-addons-elementor' )
+  			]
+  		);
+
+  		$this->add_control(
+			'exad_pricing_table_items',
 			[
 				'type' => Controls_Manager::REPEATER,
-				'condition' => [
-					'exad_pricing_table_enable_social_profiles!' => '',
-				],
+				'seperator' => 'before',
 				'default' => [
-					[
-						'social' => 'fa fa-facebook',
-					],
-					[
-						'social' => 'fa fa-twitter',
-					],
-					[
-						'social' => 'fa fa-google-plus',
-					],
-					[
-						'social' => 'fa fa-linkedin',
-					],
+					[ 'exad_pricing_table_item' => 'Responsive Live' ],
+					[ 'exad_pricing_table_item' => 'Adaptive Bitrate' ],
+					[ 'exad_pricing_table_item' => 'Analytics' ],
+					[ 'exad_pricing_table_item' => 'Creative Layouts' ],
+					[ 'exad_pricing_table_item' => 'Free Support' ]
 				],
 				'fields' => [
 					[
-						'name' => 'social',
-						'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::ICON,
+						'name' => 'exad_pricing_table_item',
+						'label' => esc_html__( 'List Item', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::TEXT,
 						'label_block' => true,
-						'default' => 'fa fa-wordpress',
-						'include' => [
-							'fa fa-apple',
-							'fa fa-behance',
-							'fa fa-bitbucket',
-							'fa fa-codepen',
-							'fa fa-delicious',
-							'fa fa-digg',
-							'fa fa-dribbble',
-							'fa fa-envelope',
-							'fa fa-facebook',
-							'fa fa-flickr',
-							'fa fa-foursquare',
-							'fa fa-github',
-							'fa fa-google-plus',
-							'fa fa-houzz',
-							'fa fa-instagram',
-							'fa fa-jsfiddle',
-							'fa fa-linkedin',
-							'fa fa-medium',
-							'fa fa-pinterest',
-							'fa fa-product-hunt',
-							'fa fa-reddit',
-							'fa fa-shopping-cart',
-							'fa fa-slideshare',
-							'fa fa-snapchat',
-							'fa fa-soundcloud',
-							'fa fa-spotify',
-							'fa fa-stack-overflow',
-							'fa fa-tripadvisor',
-							'fa fa-tumblr',
-							'fa fa-twitch',
-							'fa fa-twitter',
-							'fa fa-vimeo',
-							'fa fa-vk',
-							'fa fa-whatsapp',
-							'fa fa-wordpress',
-							'fa fa-xing',
-							'fa fa-yelp',
-							'fa fa-youtube',
-						],
+						'default' => esc_html__( 'Pricing table list item', 'exclusive-addons-elementor' )
 					],
 					[
-						'name' => 'link',
-						'label' => esc_html__( 'Link', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::URL,
-						'label_block' => true,
-						'default' => [
-							'url' => '',
-							'is_external' => 'true',
-						],
-						'placeholder' => esc_html__( 'Place URL here', 'exclusive-addons-elementor' ),
+						'name' => 'exad_pricing_table_list_icon',
+						'label' => esc_html__( 'List Icon', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::ICON,
+						'label_block' => false,
+						'default' => 'fa fa-check',
 					],
-				],
-				'title_field' => '<i class="{{ social }}"></i> {{{ social.replace( \'fa fa-\', \'\' ).replace( \'-\', \' \' ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}',
+					[
+						'name'			=> 'exad_pricing_table_icon_mood',
+						'label'			=> esc_html__( 'Item Active?', 'exclusive-addons-elementor' ),
+						'type'			=> Controls_Manager::SWITCHER,
+						'return_value'	=> 'yes',
+						'default'		=> 'yes'
+					],
+				],	
+				'title_field' => '{{exad_pricing_table_item}}',
+			]	
+		);
+
+  		$this->end_controls_section();
+
+  		/**
+  		 * Pricing Table Footer
+  		 */
+  		$this->start_controls_section(
+  			'exad_section_pricing_table_button',
+  			[
+  				'label' => esc_html__( 'Button', 'exclusive-addons-elementor' )
+  			]
+  		);
+
+		$this->add_control(
+			'exad_pricing_table_btn',
+			[
+				'label' => esc_html__( 'Button Text', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+				'default' => esc_html__( 'Choose Plan', 'exclusive-addons-elementor' ),
 			]
 		);
-		$this->end_controls_section();
+
+		$this->add_control(
+			'exad_pricing_table_btn_link',
+			[
+				'label' => esc_html__( 'Button Link', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::URL,
+				'label_block' => true,
+				'default' => [
+        			'url' => '#',
+        			'is_external' => '',
+     			],
+     			'show_external' => true,
+			]
+		);
+
+  		$this->end_controls_section();
+
+  	
+		/**
+		 * -------------------------------------------
+		 * Tab Style (Pricing Table Style)
+		 * -------------------------------------------
+		 */
+
 		/*
-		* Team Members Styling Section
+		* Pricing Table Styling Section
 		*/
 		$this->start_controls_section(
 			'exad_section_pricing_tables_styles_general',
 			[
-				'label' => esc_html__( 'Team Member Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Styleset', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -207,164 +288,567 @@ class Exad_Pricing_Table extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => '-one',
 				'options' => [
-					'-one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+					'-one' => esc_html__( 'Default', 'exclusive-addons-elementor' ),
 					'-two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 					'-three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
 					'-six' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
+					// Going to change the name to four later (amendedment)
 				],
 			]
 		);
+
+
 		$this->add_control(
-			'exad_pricing_tables_overlay_background',
+			'exad_pricing_table_box_bg',
 			[
-				'label' => esc_html__( 'Overlay Color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Price Box Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => 'rgba(255,255,255,0.8)',
+				'description' => __( 'Only works with the default Style', 'exclusive-addons-elementor' ),
+				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-members-circle .exad-team-content' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing-table-one .exad-pricing-table-price svg' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_pricing_table_preset' => '-basic',
-				],
+					'exad_pricing_table_preset' => '-one'
+				]
 			]
 		);
+
 		$this->add_control(
-			'exad_pricing_tables_background',
+			'exad_pricing_table_two_top_line',
 			[
-				'label' => esc_html__( 'Content Background Color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Top Line Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'description' => __( 'Only works with the Style 2', 'exclusive-addons-elementor' ),
+				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-item .exad-team-content' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing-table-two' => 'border-top-color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_pricing_table_preset' => '-two'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_bg_color',
+			[
+				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#FFFFFF',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-wrapper' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
-		$this->end_controls_section();
+
 		
-		/*
-		* Team Member Image Styling
-		*/
+
+
+		$this->end_controls_section();
+
+		/**
+		 * -------------------------------------------
+		 * Style (Header)
+		 * -------------------------------------------
+		 */
 		$this->start_controls_section(
-			'exad_section_pricing_tables_image_styles',
+			'exad_section_pricing_table_header_style_settings',
 			[
-				'label' => esc_html__( 'Team Member Image Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Header', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
-		
+
+		$this->add_control(
+			'exad_pricing_table_title_heading',
+			[
+				'label' => esc_html__( 'Title Style', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_title_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#000000',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-title' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+             'name' => 'exad_pricing_table_title_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-title',
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_subtitle_heading',
+			[
+				'label' => esc_html__( 'Subtitle Style', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_subtitle_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-item .header .subtitle' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+             	'name' => 'exad_pricing_table_subtitle_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing-item .header .subtitle',
+			]
+
+		);
+
+		$this->end_controls_section();
+
+		/**
+		 * -------------------------------------------
+		 * Style (Pricing)
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'exad_section_pricing_table_title_style_settings',
+			[
+				'label' => esc_html__( 'Pricing', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_price_tag_onsale_heading',
+			[
+				'label' => esc_html__( 'Original Price', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' =>  'before'
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_pricing_onsale_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#999',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-price' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+            'name' => 'exad_pricing_table_price_tag_onsale_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing-item .muted-price',
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_price_tag_heading',
+			[
+				'label' => esc_html__( 'Sale Price', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' =>  'before'
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_pricing_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-item .price-tag' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+            'name' => 'exad_pricing_table_price_tag_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing-item .price-tag',
+			]
+		);
+
+
+		$this->add_control(
+			'exad_pricing_table_price_currency_heading',
+			[
+				'label' => esc_html__( 'Currency', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' =>  'before'
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_pricing_curr_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#00C853',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-item .price-tag .price-currency' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+            'name' => 'exad_pricing_table_price_cur_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing-item .price-currency',
+			]
+		);
+
 		$this->add_responsive_control(
-			'exad_pricing_tables_image_margin',
+			'exad_pricing_table_price_cur_margin',
 			[
 				'label' => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
+	 					'{{WRAPPER}} .exad-pricing-item .price-currency' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+	 			],
 			]
 		);
-		$this->add_responsive_control(
-			'exad_pricing_tables_image_padding',
-			[
-				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+
 		$this->add_control(
-			'exad_pricing_tables_avatar_bg',
+			'exad_pricing_table_pricing_period_heading',
 			[
-				'label' => esc_html__( 'Avatar Background Color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Pricing By', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before'
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_pricing_period_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => 'rgba(255,255,255,0.8)',
+				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-circle-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_pricing_table_preset' => '-circle',
+					'{{WRAPPER}} .exad-pricing-item .price-period' => 'color: {{VALUE}};',
 				],
 			]
 		);
-		
+
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
+			Group_Control_Typography::get_type(),
 			[
-				'name' => 'exad_pricing_tables_image_border',
-				'label' => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img',
+            'name' => 'exad_pricing_table_price_preiod_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing-item .price-period',
 			]
 		);
-		$this->add_control(
-			'exad_pricing_tables_image_rounded',
+
+		$this->end_controls_section();
+
+
+		/**
+		 * -------------------------------------------
+		 * Style (Feature List)
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'exad_section_pricing_table_style_featured_list_settings',
 			[
-				'label' => esc_html__( 'Rounded Avatar?', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'return_value' => 'circled',
-				'default' => 'circled',
+				'label' => esc_html__( 'Feature List', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
+
 		$this->add_control(
-			'exad_pricing_tables_image_border_radius',
+			'exad_pricing_table_list_item_color',
 			[
-				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#132c47',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-one .exad-team-member-one-thumb figure img' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+					'{{WRAPPER}} .exad-pricing-table-features li' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_list_disable_item_color',
+			[
+				'label' => esc_html__( 'Disable item color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#a6a9ad',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-features li.exad-pricing-table-features-disable' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+            'name' => 'exad_pricing_table_list_item_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-features li',
+			]
+		);
+
+		$this->end_controls_section();
+
+		/**
+		 * -------------------------------------------
+		 * Tab Style (Pricing Table Featured Tag Style)
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'exad_section_pricing_table_style_3_featured_tag_settings',
+			[
+				'label' => esc_html__( 'Featured Badge', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_pricing_table_featured' => 'yes'
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_style_1_featured_bar_color',
+			[
+				'label' => esc_html__( 'Line Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#00C853',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing.style-1 .exad-pricing-item.ribbon-1:before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing.style-2 .exad-pricing-item.ribbon-1:before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing.style-3 .exad-pricing-item.ribbon-1:before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing.style-4 .exad-pricing-item.ribbon-1:before' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_pricing_tables_image_rounded!' => '-circled',
+					'exad_pricing_table_featured' => 'yes'
 				],
 			]
 		);
+
+		$this->add_control(
+			'exad_pricing_table_featured_tag_font_size',
+			[
+				'label' => esc_html__( 'Font Size', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 11
+				],
+				'range' => [
+					'px' => [
+						'max' => 18,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-badge' => 'font-size: {{SIZE}}px;',
+				],
+				'condition' => [
+					'exad_pricing_table_featured' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_featured_tag_text_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-badge' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_pricing_table_featured' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_featured_tag_bg_color',
+			[
+				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-badge' => 'background-color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_pricing_table_featured' => 'yes',
+				],
+			]
+		);
+
 		$this->end_controls_section();
-		
+
+		/**
+		 * -------------------------------------------
+		 * Tab Style (Button Style)
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'exad_section_pricing_table_btn_style_settings',
+			[
+				'label' => esc_html__( 'Button', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+	         'name' => 'exad_pricing_table_btn_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing .exad-pricing-button',
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_cta_button_tabs' );
+
+			// Normal State Tab
+			$this->start_controls_tab( 'exad_pricing_table_btn_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_pricing_table_btn_normal_text_color',
+				[
+					'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#fff',
+					'selectors' => [
+						'{{WRAPPER}} .exad-pricing-table-action' => 'color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'exad_pricing_table_btn_normal_bg_color',
+				[
+					'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#00C853',
+					'selectors' => [
+						'{{WRAPPER}} .exad-pricing-table-action' => 'background: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'exad_pricing_table_btn_normal_border_color',
+				[
+					'label' => esc_html__( 'Border Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#00C853',
+					'selectors' => [
+						'{{WRAPPER}} .exad-pricing-table-action' => 'border-color: {{VALUE}};',
+					],
+				]
+
+			);
+
+			
+			$this->end_controls_tab();
+
+			// Hover State Tab
+			$this->start_controls_tab( 'exad_pricing_table_btn_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_pricing_table_btn_hover_text_color',
+				[
+					'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#00C853',
+					'selectors' => [
+						'{{WRAPPER}} .exad-pricing-table-action:hover' => 'color: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'exad_pricing_table_btn_hover_bg_color',
+				[
+					'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#FFFFFF',
+					'selectors' => [
+						'{{WRAPPER}} .exad-pricing-table-action:hover' => 'background: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'exad_pricing_table_btn_hover_border_color',
+				[
+					'label' => esc_html__( 'Border Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#00C853',
+					'selectors' => [
+						'{{WRAPPER}} .exad-pricing-table-action:hover' => 'border-color: {{VALUE}};',
+					],
+				]
+
+			);
+
+			$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();	
+
 	}
+
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$pricing_preset = $settings['exad_pricing_table_preset'];
-		$pricing_table_image = $this->get_settings_for_display( 'exad_pricing_table_image' );
-			$pricing_table_image_url = Group_Control_Image_Size::get_attachment_image_src( $pricing_table_image['id'], 'thumbnail', $settings );
-		if( empty( $pricing_table_image_url ) ) : $pricing_table_image_url = $pricing_table_image['url']; else: $pricing_table_image_url = $pricing_table_image_url; endif;
-		$pricing_table_classes = $this->get_settings_for_display('exad_pricing_tables_image_rounded');
 	
 		?>
 
-		<div class="exad-pricing-table<?php echo esc_attr( $pricing_preset ); ?> purple">
-          	<h4 class="exad-pricing-table-title">Standard Plan</h4>
-          	<div class="exad-pricing-table-price">
-          		<?php if ( $pricing_preset == '-one' ) : ?>
-		            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-		            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-		            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-		        <?php endif; ?>
-	            <p>$20<span>/mo</span></p>
-          	</div>
-          	<ul class="exad-pricing-table-features">
-            	<li>
-              		<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11"><path fill-rule="evenodd" d="M.799 4.489L0 5.328l5.107 5.67L14 .721l-.701-.719-8.192 6.493L.799 4.489z"/></svg>
-              		Responsive Live
-            	</li>
-            	<li>
-              		<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11"><path fill-rule="evenodd" d="M.799 4.489L0 5.328l5.107 5.67L14 .721l-.701-.719-8.192 6.493L.799 4.489z"/></svg>
-              		Adaptive Bitrate
-            	</li>
-            	<li>
-              		<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11"><path fill-rule="evenodd" d="M.799 4.489L0 5.328l5.107 5.67L14 .721l-.701-.719-8.192 6.493L.799 4.489z"/></svg>
-              		Analytics
-            	</li>
-            	<li class="exad-pricing-table-features-disable">
-              		<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11"><path fill-rule="evenodd" d="M.799 4.489L0 5.328l5.107 5.67L14 .721l-.701-.719-8.192 6.493L.799 4.489z"/></svg>
-              		Creative Layouts
-            	</li>
-            	<li class="exad-pricing-table-features-disable">
-              		<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11"><path fill-rule="evenodd" d="M.799 4.489L0 5.328l5.107 5.67L14 .721l-.701-.719-8.192 6.493L.799 4.489z"/></svg>
-              		Free Support
-            	</li>
-          	</ul>
-          	<a href="#" class="exad-pricing-table-action">Get Started</a>
+		<div class="exad-pricing-table-wrapper exad-pricing-table<?php echo esc_attr( $pricing_preset ); ?>">
+			<?php if ( $settings['exad_pricing_table_featured'] == 'yes' ) : ?>
+				<div class="exad-pricing-table-badge-wrapper">
+					<span class="exad-pricing-table-badge">
+	            		<?php echo $settings['exad_pricing_table_featured_tag_text'] ?>
+	          		</span>
+	          		<h4 class="exad-pricing-table-title"><?php echo $settings['exad_pricing_table_title']; ?></h4>
+		          	<div class="exad-pricing-table-price">
+		          		<?php if ( $pricing_preset === '-one' ) : ?>
+				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+				        <?php endif; ?>
+			            <p>
+			            <?php echo $settings['exad_pricing_table_price_cur'] ?><?php echo $settings['exad_pricing_table_price']; ?><span><?php echo $settings['exad_pricing_table_period_separator']; ?><?php echo $settings['exad_pricing_table_price_by']; ?></span>
+			        	</p>
+		          	</div>
+		          	<ul class="exad-pricing-table-features">
+		          		<?php foreach( $settings['exad_pricing_table_items'] as $item ) : ?>
+			            	<li class="<?php echo ( 'yes' !== $item['exad_pricing_table_icon_mood'] ) ? 'exad-pricing-table-features-disable' : ''; ?>">
+			              		<span class="exad-pricing-li-icon"><i class="<?php echo esc_attr( $item['exad_pricing_table_list_icon'] ); ?>"></i></span>
+			              		<?php echo $item['exad_pricing_table_item']; ?>
+			            	</li>
+		            	<?php endforeach; ?>
+		          	</ul>
+	          	</div>
+	        <?php endif; ?>
+          	<a href="<?php echo esc_url( $settings['exad_pricing_table_btn_link']['url'] ); ?>" class="exad-pricing-table-action"><?php echo $settings['exad_pricing_table_btn']; ?></a>
         </div>
 		
 	<?php

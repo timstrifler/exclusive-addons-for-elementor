@@ -1437,12 +1437,46 @@ h1:not(.site-title):before, h2:before {
 
 /* Pricing Table Start */
 
+ul.exad-pricing-table-features {
+  list-style: none;
+}
+.exad-pricing-table-price {
+  line-height: 0;
+}
+
+.exad-pricing-table-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #13c83a;
+  padding: 13px 50px;
+  width: 160px;
+    text-align: center;
+  -webkit-transform: rotate(45deg) translate(40px, -22px);
+          transform: rotate(45deg) translate(40px, -22px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-pricing-table-features li.exad-pricing-table-features-disable {
+  color: #a6a9ad;
+}
+
 .exad-pricing-table-one {
   background: #fff;
-  padding: 45px 30px;
   text-align: center;
   position: relative;
   margin-bottom: 50px;
+  -webkit-box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
+  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
+}
+.exad-pricing-table-one .exad-pricing-table-badge-wrapper, .exad-pricing-table-two .exad-pricing-table-badge-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 45px 30px;
 }
 
 .exad-pricing-table-one .exad-pricing-table-title {
@@ -1498,7 +1532,6 @@ h1:not(.site-title):before, h2:before {
 
 .exad-pricing-table-one .exad-pricing-table-features {
   padding-left: 0;
-  list-style: none;
   font-family: "Poppins", sans-serif;
   color: #132c47;
 }
@@ -1511,9 +1544,6 @@ h1:not(.site-title):before, h2:before {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.exad-pricing-table-one .exad-pricing-table-features .exad-pricing-table-features-disable {
-  color: #8a8d91;
-}
 
 .exad-pricing-table-one .exad-pricing-table-features .exad-pricing-table-features-disable svg {
   fill: #8a8d91 !important;
@@ -1531,6 +1561,8 @@ h1:not(.site-title):before, h2:before {
   font-family: "Poppins", sans-serif;
   padding: 20px 0;
   border-radius: 50px;
+  border-style: solid;
+  border-width: 1px;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -1605,7 +1637,8 @@ h1:not(.site-title):before, h2:before {
 
 .exad-pricing-table-two {
   border: 1px solid #e0e2e5;
-  padding: 45px 30px;
+  padding-bottom: 45px; 
+  padding-left: 30px;
   margin: 20px 0;
 }
 
@@ -1627,10 +1660,8 @@ h1:not(.site-title):before, h2:before {
 
 .exad-pricing-table-two .exad-pricing-table-price span {
   font-size: 20px;
-  color: #132c47;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
-  margin-left: -10px;
 }
 
 .exad-pricing-table-two .exad-pricing-table-features {
@@ -1665,8 +1696,9 @@ h1:not(.site-title):before, h2:before {
   margin-top: 50px;
 }
 
-.exad-pricing-table-two.purple {
-  border-top: 4px solid #826EFF;
+.exad-pricing-table-two {
+  border-top-style: solid;
+  border-top-width: 4px;
 }
 
 .exad-pricing-table-two.purple .exad-pricing-table-action {
@@ -1719,21 +1751,6 @@ h1:not(.site-title):before, h2:before {
   margin: 20px 0;
 }
 
-.exad-pricing-table-three .exad-pricing-table-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: linear-gradient(-90deg, #ff764c 0%, #ff2d59 100%);
-  padding: 13px 50px;
-  -webkit-transform: rotate(45deg) translate(40px, -22px);
-          transform: rotate(45deg) translate(40px, -22px);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-}
-
 .exad-pricing-table-three .exad-pricing-table-title {
   font-size: 20px;
   font-family: "Poppins", sans-serif;
@@ -1781,14 +1798,6 @@ h1:not(.site-title):before, h2:before {
 
 .exad-pricing-table-three .exad-pricing-table-features li svg {
   fill: #3ac772;
-}
-
-.exad-pricing-table-three .exad-pricing-table-features li.exad-pricing-table-feature-disable {
-  color: #a6a9ad;
-}
-
-.exad-pricing-table-three .exad-pricing-table-features li.exad-pricing-table-feature-disable svg {
-  fill: #a6a9ad;
 }
 
 .exad-pricing-table-three .exad-pricing-table-action {
@@ -1857,6 +1866,7 @@ h1:not(.site-title):before, h2:before {
   color: #132c47;
   font-weight: bold;
   font-family: "Poppins", sans-serif;
+  border-top: 1px dashed #724cff;
 }
 
 .exad-pricing-table-four .exad-pricing-table-description {
@@ -1885,20 +1895,15 @@ h1:not(.site-title):before, h2:before {
   fill: #3ac772;
 }
 
-.exad-pricing-table-four .exad-pricing-table-features li.exad-pricing-table-feature-disable {
-  color: #a6a9ad;
-}
-
-.exad-pricing-table-four .exad-pricing-table-features li.exad-pricing-table-feature-disable svg {
-  fill: #a6a9ad;
-}
 
 .exad-pricing-table-four .exad-pricing-table-action {
+  background: #724cff;
+  color: #fff;
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
   display: inline-block;
   font-family: "Poppins", sans-serif;
   padding: 15px 30px;
   text-transform: uppercase;
-  background: #3ac772;
   text-decoration: none;
   text-align: center;
   font-size: 16px;
@@ -1993,9 +1998,6 @@ h1:not(.site-title):before, h2:before {
   font-size: 15px;
 }
 
-.exad-pricing-table-five .exad-pricing-table-features li.exad-pricing-table-feature-disabled {
-  color: #8a8d91;
-}
 
 .exad-pricing-table-five .exad-pricing-table-action {
   color: #8a8d91;
@@ -2011,52 +2013,42 @@ h1:not(.site-title):before, h2:before {
 
 .exad-pricing-table-six {
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.102);
+  background-color: #FFF;
   text-align: center;
   padding: 45px 30px;
   position: relative;
   overflow: hidden;
-  margin: 20px 0;
+  margin: 20px 0 60px;
+  -webkit-box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
+  box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
 }
 
-.exad-pricing-table-six .exad-pricing-table-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #3ac772;
-  padding: 13px 50px;
-  -webkit-transform: rotate(40deg) translate(42px, -23px);
-          transform: rotate(40deg) translate(42px, -23px);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-}
+
 
 .exad-pricing-table-six .exad-pricing-table-title {
-  color: #fff;
+  color: #724cff;
   font-size: 30px;
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
 }
 
 .exad-pricing-table-six .exad-pricing-table-price {
-  color: #fff;
+  color: #724cff;
+  margin: 0;
   font-size: 100px;
   font-weight: 300;
   font-family: "Open Sans", sans-serif;
 }
 
 .exad-pricing-table-six .exad-pricing-table-features {
+  color: #132c47;
   padding-left: 0;
   padding-top: 30px;
   font-family: "Open Sans", sans-serif;
-  color: #fff;
   font-weight: 100;
   list-style: none;
   margin-bottom: 50px;
-  border-top: 1px dashed #fff;
+  border-top: 1px dashed #724cff;
 }
 
 .exad-pricing-table-six .exad-pricing-table-features li {
@@ -2069,11 +2061,13 @@ h1:not(.site-title):before, h2:before {
   font-family: "Open Sans", sans-serif;
   padding: 15px 30px;
   text-transform: uppercase;
-  background: transparent;
+  background: #724cff;
   text-decoration: none;
   text-align: center;
   font-size: 16px;
-  color: #fff;
+  color: #FFF;
+  -webkit-box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
   border: 1px solid #fff;
   transition: all .3s ease;
   border-radius: 4px;
@@ -2109,9 +2103,6 @@ h1:not(.site-title):before, h2:before {
   margin-bottom: 28px;
 }
 
-.exad-pricing-table-six.middle .exad-pricing-table-features li.exad-pricing-table-feature-disable {
-  color: #8a8d91;
-}
 
 .exad-pricing-table-six.middle .exad-pricing-table-action {
   background: #724cff;
@@ -2127,3 +2118,774 @@ h1:not(.site-title):before, h2:before {
 }
 
 /* Pricing Table End */
+
+
+/* Flip Box Start */
+
+.exad-flip-box.one {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+.exad-flip-box.one:hover .exad-flip-box-inner {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.exad-flip-box.one:hover .exad-flip-right-to-left {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.exad-flip-box.one:hover .exad-flip-top-to-bottom {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+.exad-flip-box.one:hover .exad-flip-bottom-to-top {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.exad-flip-box.one .exad-flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.exad-flip-box.one .exad-flip-box-inner .exad-flip-box-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-color: #6EB9F9;
+  border-radius: 5px;
+}
+
+.exad-flip-box.one .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image {
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-flip-box.one .exad-flip-box-inner .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-color: #6EB9F9;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  border-radius: 5px;
+  padding: 40px 25px;
+}
+
+.exad-flip-box.one .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-title {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.exad-flip-box.one .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
+  font-size: 14px;
+  color: #fff;
+  margin: 30px 0;
+}
+
+.exad-flip-box.one .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
+  padding: 10px 25px;
+  background: #534DB8;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all .5s ease;
+}
+
+.exad-flip-box.one .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action:hover {
+  background: transparent;
+  border: 1px solid #534DB8;
+}
+
+.exad-flip-box.one .exad-flip-box-inner.exad-flip-bottom-to-top .exad-flip-box-back {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.exad-flip-box.one .exad-flip-box-inner.exad-flip-top-to-bottom .exad-flip-box-back {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+.exad-flip-box.one.blue .exad-flip-box-front {
+  background: #8764f9;
+}
+
+.exad-flip-box.one.blue .exad-flip-box-back {
+  background: #8764f9;
+}
+
+.exad-flip-box.one.blue .exad-flip-box-back button:hover {
+  background: #8764f9;
+  border: 2px solid #534DB8;
+}
+
+.exad-flip-box.two {
+  border-radius: 5px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  background-color: transparent;
+}
+
+.exad-flip-box.two:hover .exad-flip-box-inner {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.exad-flip-box.two .exad-flip-box-inner {
+  position: relative;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-front {
+  position: absolute;
+  background-color: #f7f7f7;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 40px 25px;
+  border-radius: 5px;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-front span {
+  font-size: 30px;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-front span i {
+  color: #FFD15C;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-description {
+  font-size: 14px;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-Back {
+  background-color: #f7f7f7;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  padding: 40px 25px;
+  border-radius: 5px;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-title {
+  font-size: 18px;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-description {
+  font-size: 14px;
+  margin: 30px 0;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-action {
+  background: #FF6F2A;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+.exad-flip-box.two .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-action:hover {
+  background: #f7f7f7;
+  border: 1px solid #FF6F2A;
+  color: #FF6F2A;
+}
+
+.exad-flip-box.three {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  width: 100%;
+  height: 200px;
+  background-color: transparent;
+}
+
+.exad-flip-box.three:hover .exad-flip-box-inner {
+  -webkit-transform: rotate3d(1, 1, 0, 180deg);
+          transform: rotate3d(1, 1, 0, 180deg);
+}
+
+.exad-flip-box.three:hover .exad-flip-diagonal-left {
+  -webkit-transform: rotate3d(1, 1, 0, -180deg);
+          transform: rotate3d(1, 1, 0, -180deg);
+}
+
+.exad-flip-box.three .exad-flip-box-inner {
+  position: relative;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.exad-flip-box.three .exad-flip-box-inner .exad-flip-box-front {
+  position: absolute;
+  background-image: linear-gradient(-137deg, #ee81ff 0%, #2bc6ff 49%, #19fa83 100%);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px;
+}
+
+.exad-flip-box.three .exad-flip-box-inner .exad-flip-box-front span {
+  font-size: 30px;
+}
+
+.exad-flip-box.three .exad-flip-box-inner .exad-flip-box-front span i {
+  color: #ffffff;
+}
+
+.exad-flip-box.three .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.exad-flip-box.three .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-description {
+  color: #fff;
+  font-size: 18px;
+  margin: 0;
+}
+
+.exad-flip-box.three .exad-flip-box-inner .exad-flip-box-Back {
+  position: absolute;
+  background-image: linear-gradient(-137deg, #ee81ff 0%, #2bc6ff 49%, #19fa83 100%);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate3d(1, 1, 0, 180deg);
+          transform: rotate3d(1, 1, 0, 180deg);
+  border-radius: 5px;
+}
+
+.exad-flip-box.three .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-action {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.exad-flip-box.three .exad-flip-box-inner.exad-flip-diagonal-left .exad-flip-box-back {
+  -webkit-transform: rotate3d(1, 1, 0, -180deg);
+          transform: rotate3d(1, 1, 0, -180deg);
+}
+
+.exad-flip-box.three.light-gradient .exad-flip-box-front {
+  background-image: linear-gradient(38deg, #8a6ae8 0%, #ea63c7 100%);
+}
+
+.exad-flip-box.three.light-gradient .exad-flip-box-Back {
+  background-image: linear-gradient(38deg, #8a6ae8 0%, #ea63c7 100%);
+}
+
+.exad-flip-box.three.green-gradient .exad-flip-box-front {
+  background-image: linear-gradient(38deg, #0fcaff 0%, #12e7bd 100%);
+}
+
+.exad-flip-box.three.green-gradient .exad-flip-box-Back {
+  background-image: linear-gradient(38deg, #0fcaff 0%, #12e7bd 100%);
+}
+
+.exad-flip-box.four {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  background-color: transparent;
+}
+
+.exad-flip-box.four:hover .exad-flip-box-inner {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.exad-flip-box.four .exad-flip-box-inner {
+  position: relative;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 5px;
+  border: 2px dashed #e5e5e5;
+  padding: 50px;
+}
+
+.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
+  font-size: 20px;
+  margin: 25px 0;
+}
+
+.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-description {
+  font-size: 14px;
+  color: #817e7e;
+}
+
+.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-Back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-image: linear-gradient(38deg, #ff59c6 0%, #fbd35c 100%);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  padding: 60px 50px;
+  border-radius: 5px;
+}
+
+.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-title {
+  font-size: 20px;
+  color: #fff;
+}
+
+.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-description {
+  font-size: 14px;
+  color: #fff;
+  margin: 30px 0 65px 0;
+}
+
+.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-action {
+  font-size: 14px;
+  text-decoration: none;
+  background: #fff;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  color: #534DB8;
+  transition: all .4s ease;
+}
+
+.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-action:hover {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.exad-flip-box.five {
+  border-radius: 5px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  background-color: transparent;
+}
+
+.exad-flip-box.five:hover .exad-flip-box-inner .exad-flip-box-front {
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  z-index: 2;
+}
+
+.exad-flip-box.five:hover .exad-flip-box-inner .exad-flip-box-Back {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  z-index: 3;
+}
+
+.exad-flip-box.five .exad-flip-box-inner {
+  position: relative;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.exad-flip-box.five .exad-flip-box-inner .exad-flip-box-front {
+  position: absolute;
+  transition: all .8s ease;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  width: 100%;
+  height: 100%;
+}
+
+.exad-flip-box.five .exad-flip-box-inner .exad-flip-box-front img {
+  height: 100%;
+  width: 100%;
+}
+
+.exad-flip-box.five .exad-flip-box-inner .exad-flip-box-Back {
+  background-image: linear-gradient(to right top, #00adf1, #00b5e8, #00bad8, #00bfc4, #00c1ad, #2dc69e, #4dca8d, #6acd7a, #7fd467, #97d951, #b3dd36, #d2df02);
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  transition: all .8s ease;
+  padding: 45px 45px;
+}
+
+.exad-flip-box.five .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-title {
+  font-size: 24px;
+  color: #fff;
+}
+
+.exad-flip-box.five .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-description {
+  font-size: 14px;
+  color: #fff;
+  padding: 25px 0;
+}
+
+.exad-flip-box.five .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-action {
+  color: #fff;
+  text-decoration: none;
+  background: #fff;
+  color: #000000;
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: all .4s ease;
+}
+
+.exad-flip-box.five .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-action:hover {
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+.exad-flip-box.six {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  background-color: transparent;
+}
+
+.exad-flip-box.six:hover .exad-flip-box-inner {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.exad-flip-box.six .exad-flip-box-inner {
+  position: relative;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  text-align: center;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-front {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-front img {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #B26F56;
+  border-radius: 50%;
+  border: 3px solid #f0ecf9;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-Back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background: #F4455A;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+  padding: 70px 30px;
+  border-radius: 5px;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-name {
+  color: #fff;
+  font-size: 24px;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-description {
+  color: #fff;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-social {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-social li {
+  list-style: none;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-social li a {
+  float: left;
+  margin-right: 10px;
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #FCC8CE;
+  color: #F4455A;
+  border: 1px solid transparent;
+  transition: all .3s ease;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-social li a i {
+  line-height: 40px;
+}
+
+.exad-flip-box.six .exad-flip-box-inner .exad-flip-box-Back .exad-flip-box-back-social li a:hover {
+  background: #F4455A;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.exad-flip-box.six.magenta .exad-flip-box-front {
+  background: #31DAEE;
+}
+
+.exad-flip-box.six.conflower-blue .exad-flip-box-front {
+  background: #5197FF;
+}
+
+.exad-flip-box.six.purple .exad-flip-box-front {
+  background: #B758FA;
+}
+
+.exad-flip-box.six.fuchsis .exad-flip-box-front {
+  background: #4B8CED;
+}
+
+.exad-flip-box.seven {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  width: 100%;
+  height: 350px;
+  background-color: transparent;
+  margin: 20px 0;
+}
+
+.exad-flip-box.seven:hover .exad-flip-box-inner .exad-flip-box-front {
+  z-index: -1;
+}
+
+.exad-flip-box.seven:hover .exad-flip-box-inner .exad-flip-box-back {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  z-index: 10;
+}
+
+.exad-flip-box.seven .exad-flip-box-inner {
+  display: block;
+  position: relative;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.exad-flip-box.seven .exad-flip-box-inner .exad-flip-box-front {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 9;
+  height: 100%;
+  box-sizing: border-box;
+  background: #24AD87;
+  width: 100%;
+  transition: 400ms;
+}
+
+.exad-flip-box.seven .exad-flip-box-inner .exad-flip-box-back {
+  background: #00b5e8;
+  -webkit-transform: rotateX(270deg);
+          transform: rotateX(270deg);
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  max-width: 100%;
+  height: 100%;
+  top: 0;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  box-sizing: border-box;
+  transition: 400ms;
+  padding: 30px 30px;
+}
+
+.exad-flip-box.seven .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-title {
+  font-size: 20px;
+  color: #fff;
+}
+
+.exad-flip-box.seven .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
+  font-size: 14px;
+  color: #fff;
+  margin: 30px 0;
+}
+
+.exad-flip-box.seven .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
+  color: #000000;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 15px 30px;
+  background: #fff;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  transition: .4s;
+}
+
+.exad-flip-box.seven .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action:hover {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.exad-flip-box.eight {
+  -webkit-perspective: 2000px;
+          perspective: 2000px;
+  width: 100%;
+  height: 350px;
+  background-color: transparent;
+  margin: 20px 0;
+}
+
+.exad-flip-box.eight:hover .exad-flip-box-inner .exad-flip-box-front {
+  z-index: -1;
+}
+
+.exad-flip-box.eight:hover .exad-flip-box-inner .exad-flip-box-back {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  z-index: 10;
+}
+
+.exad-flip-box.eight .exad-flip-box-inner {
+  display: block;
+  position: relative;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.exad-flip-box.eight .exad-flip-box-inner .exad-flip-box-front {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 9;
+  height: 100%;
+  box-sizing: border-box;
+  background: #24AD87;
+  width: 100%;
+  transition: 400ms;
+}
+
+.exad-flip-box.eight .exad-flip-box-inner .exad-flip-box-back {
+  background: #00b5e8;
+  -webkit-transform: rotateX(-270deg);
+          transform: rotateX(-270deg);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  max-width: 100%;
+  height: 100%;
+  top: 0;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  box-sizing: border-box;
+  transition: 400ms;
+  padding: 30px 30px;
+}
+
+.exad-flip-box.eight .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-title {
+  font-size: 20px;
+  color: #fff;
+}
+
+.exad-flip-box.eight .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
+  font-size: 14px;
+  color: #fff;
+  margin: 30px 0;
+}
+
+.exad-flip-box.eight .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
+  color: #000000;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 15px 30px;
+  background: #fff;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  transition: .4s;
+}
+
+.exad-flip-box.eight .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action:hover {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* Flip Box End */

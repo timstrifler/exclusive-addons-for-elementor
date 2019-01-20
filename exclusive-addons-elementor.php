@@ -233,6 +233,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             require_once EXAD_ELEMENTS . 'card/card.php';
             require_once EXAD_ELEMENTS . 'pricing-table/pricing-table.php';
             require_once EXAD_ELEMENTS . 'countdown-timer/countdown-timer.php';
+            require_once EXAD_ELEMENTS . 'flipbox/flipbox.php';
             
         }
 
