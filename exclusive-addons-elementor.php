@@ -174,8 +174,12 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
         public function exad_enqueue_scripts() {
             //wp_enqueue_style( 'exad-bootstrap', EXAD_URL . 'assets/css/bootstrap.min.css' );
             wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
-
-            wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/main-script.js', array( 'jquery' ), 192882, true );
+            // Progress Bar Js
+            wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.min.js', array( 'jquery' ), 1.0, true );
+            // Waypoints js
+            wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
+            
+            wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/main-script.js', array( 'jquery' ), 1.0, true );
         }
 
         /**

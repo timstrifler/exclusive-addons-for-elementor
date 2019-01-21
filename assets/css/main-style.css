@@ -630,402 +630,419 @@ h1:not(.site-title):before, h2:before {
 }
 
 
-/* progress bar style 1 css style */
+/* Card Style Start */
 
-.exad-progerss-bar-style-1{
-    text-align: center;
+.exad-card {
+  font-family: "Roboto", sans-serif;
 }
-
-.exad-progerss-bar-style-1-content-box {
-    
-}
-
-.exad-progerss-bar-style-1-content-box-text h6{
-    float: left;
-}
-
-.exad-progerss-bar-style-1-content-box-text p{
-    text-align: right;
-}
-
-.exad-progerss-bar-bg-line-1{
-    height: 5px;
-    width: 100%;
-    background: #e5e5e5;
-}
-
-.exad-progerss-bar-fill-line-1{
-    width: 60%;
-    background: #f85959;
-    height: 100%;
-    animation: animate-positive 1.5s;
-}
-.exad-progerss-bar-style-1-content-box-bar-color-90{
-    width: 90%;
-    background: #f85959;
-    height: 5px;
-    animation: animate-positive 1.5s;
-}
-.exad-progerss-bar-style-1-content-box-bar-color-80{
-    width: 80%;
-    background: #f85959;
-    height: 5px;
-    animation: animate-positive 1.5s;
-}
-.exad-progerss-bar-style-1-content-box-bar-color-75{
-    width: 75%;
-    background: #f85959;
-    height: 5px;
-    animation: animate-positive 1.5s;
-}
-
-@keyframes animate-positive{
-    0% { width: 0%; }
-}
-
-
-/* card style 1 css style */
-.exad-card-style-1-header-text {
-    font-size: 40px;
-    font-family: 'Playfair Display', serif;
-    text-transform: uppercase;
-    color: #0a1724;
-    font-weight: 300;
-}
-
-.card.exad-card-style-1-card-1 {
-    border-radius: 15px;
-    border-color: rgb(229, 229, 229) !important;
-    transition: all .3s ease;
-}
-
-.card-img-top {
-    border-radius: 13px 13px 0 0;
-}
-
-.exad-card-style-1-card-1-body {
-    padding: 40px 0 0 30px;
-}
-
-.exad-card-style-1-card-1-body h5 {
-    border-right: 3px solid #d9d9d9;
-    font-size: 20px;
-    color: #0a1724;
-    font-family: 'Open Sans', sans-serif;
-    padding: 4px 0;
-}
-
-.card.exad-card-style-1-card-1:hover .exad-card-style-1-card-1-body>h5 {
-    border-right: 3px solid #ff4a4a;
-}
-
-.exad-card-style-1-card-1-body p {
+.exad-card-description {
+    font-size: 16px;
     color: #8a8d91;
+    margin: 0 auto;
+}
+.exad-card-tag {
     font-size: 15px;
-    line-height: 26px;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.exad-card-style-1-card-1-body a {
-    transform: translateY(25px);
-    background: rgb(255, 255, 255);
-    padding: 13px 32px;
-    border-radius: 25px;
-    border: none;
-    box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
-    -webkit-box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
-    -moz-box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
-    color: #0a1724;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.exad-card-style-1-card-1-body a:hover {
-    background: #ff4a4a;
-    font-family: 'Open Sans', sans-serif;
-}
-
-/* card style 4 css style */
-
-.exad-card-style-4-content-image {
-    position: relative;
-    transition: all .5s ease;
-    overflow: hidden;
-    padding: 0 26px 0 0;
-}
-
-.exad-card-style-4-content-image-text {
-    position: absolute;
-    left: 30px;
-    bottom: -270px;
-    transform: translateY(0);
-    transition: all 1s ease;
-}
-
-.exad-card-style-4-content-image img {
-    width: 100%;
-}
-
-.exad-card-style-4-content-image::before {
-    content: '';
-    width: 93%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(10, 23, 36, 0.3);
-    transition: all 1s ease;
-}
-
-.exad-card-style-4-content-image:hover::before {
-    background: rgba(10, 23, 36, 0.6);
-}
-
-.exad-card-style-4-content-image-text a {
-    padding: 2px 10px;
-    font-size: 15px;
-    color: #ffffff;
-    font-family: 'Open sans';
-    background-image: linear-gradient(to left, #4b6ff4, #6069f9, #7562fd, #8a59ff, #9f4cff);
-}
-
-.exad-card-style-4-content-image-text h5 {
-    color: #ffffff;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    font-size: 20px;
-    font-family: 'Open Sans';
-}
-
-.exad-card-style-4-content-image-text p {
-    color: #ffffff;
-    font-size: 15px;
-    line-height: 24px;
-    margin-bottom: 100px;
-}
-
-.exad-card-style-4-content-image-text button {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
-    border-radius: 50%;
-    padding: 14px 15px;
-    border: none;
-    margin-bottom: 50px;
-    cursor: pointer;
-    transition: all .5s ease;
-}
-
-.exad-card-style-4-content-image-text button:hover {
-    background-color: #ff4a4a;
-}
-
-.exad-card-style-4-content-image-text button:hover path {
-    fill: #ffffff;
-}
-
-.exad-card-style-4-content-image:hover .exad-card-style-4-content-image-text {
-    transform: translateY(-270px);
-}
-
-.exad-card-style-4-content-box {
-    position: absolute;
-    width: 82%;
-    height: 95%;
-    border-style: solid;
-    border-width: 7px;
-    border-color: transparent;
-    border-image: linear-gradient(to top, #4b6ff4, #6069f9, #7562fd, #8a59ff, #9f4cff);
-    border-image-slice: 1;
-    top: 50px;
-    left: 60px;
-}
-
-/* card style 5 css style */
-
-.exad-card-style-5-content {
-    overflow: hidden;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
-}
-
-.exad-card-style-5-content-image {
-    position: relative;
-}
-
-.exad-card-style-5-content-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(12,13,22,.6);
-    transition: all 1s ease;
-}
-
-.exad-card-style-5-content-image:hover::before {
-    background: linear-gradient(-45deg, rgba(75, 111, 244, 0.75), rgba(159, 76, 255, 0.8));
-}
-
-.exad-card-style-5-content-image-text {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 101%;
-    background: #ffffff;
-    transform: skew(0deg, 15deg) translate(-1px, 55px);
-    padding: 40px 0;
-}
-
-.exad-card-style-5-content-image-text-content {
-    float: left;
-    transform: skew(0deg, -15deg);
-}
-
-.exad-card-style-5-content-image-text-content p {
-    border-left: 4px solid #ff4a4a;
-    font-size: 15px;
-    padding: 0px 30px;
     color: #8a8d91;
+    margin: 0;
 }
 
-.exad-card-style-5-content-image-text-content h5 {
-    font-size: 20px;
-    margin-left: 30px;
+.exad-card.one {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e5e5e5;
+  border-radius: 4px;
+  background-color: white;
+  position: relative;
+  margin: 20px 0 30px;
 }
 
-.exad-card-style-5-content-image-text-button button {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
-    border-radius: 50%;
-    padding: 14px 15px;
-    border: none;
-    cursor: pointer;
-    transition: all .5s ease;
-    margin-left: 100px;
-    transition: all .5s ease;
+.exad-card.one .exad-card-thumb {
+  border-radius: 4px 4px 0 0;
 }
 
-.exad-card-style-5-content-image-text-button button:hover {
-    background-color: #ff4a4a;
+.exad-card.one .exad-card-thumb img {
+  width: 100%;
 }
 
-.exad-card-style-5-content-image-text-button button:hover path {
-    fill: #ffffff;
+.exad-card.one .exad-card-body {
+  padding: 30px 30px;
 }
 
-.exad-card-style-5-content-image-text-button {
-    transform: skew(0deg, -15deg)translate(-9px, -25px);
+.exad-card.one .exad-card-body .exad-card-title {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #132c47;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: all .4s ease;
 }
 
-.exad-card-style-5-content-box {
-    position: absolute;
-    height: 23px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    background: #ececed;
-    z-index: 0;
-    transform: skew(0deg, 18deg)translate(0px, -80px);
-    transition: all 1s ease;
+.exad-card.one .exad-card-body .exad-card-title::before {
+  position: absolute;
+  content: '';
+  height: 30px;
+  width: 3px;
+  top: 0;
+  left: -30px;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  background: #ff4a4a;
+  transition: all .2s ease;
 }
 
-.exad-card-style-5-content-image:hover .exad-card-style-5-content-box{
-    background: #d5cefd;
+.exad-card.one .exad-card-body .exad-card-title:hover::before {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
 }
 
-/* card style 3 css style */
-
-.exad-card-style-3-content-image {
-    position: relative;
-    width: 100%;
-    height: auto;
-    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
+.exad-card.one .exad-card-body .exad-card-description {
+  margin: 20px 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  color: #8a8d91;
 }
 
-.exad-card-style-3-content-image::after {
-    position: absolute;
-    content: '';
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
-
+.exad-card.one .exad-card-body .exad-card-action {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 118px;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
+  background: #fff;
+  font-family: "Roboto", sans-serif;
+  padding: 15px 35px;
+  border-radius: 4px;
+  transition: all .4s ease;
+  color: #132c47;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
-.exad-card-style-3-content-image img {
-    width: 100%;
-    height: 360px;
+.exad-card.one .exad-card-body .exad-card-action:hover {
+  background: #ff4a4a;
+  color: #fff;
 }
 
-.exad-card-style-3-content {
-    position: relative;
+.exad-card.two {
+  background-color: white;
+  box-shadow: 0px 15px 39px 0px rgba(9, 24, 33, 0.06);
+  border-radius: 4px;
+  position: relative;
+  margin: 20px 0;
 }
 
-.exad-card-style-3-content-image-text {
-    position: absolute;
-    left: 0;
-    bottom: 30px;
+.exad-card.two:hover .exad-card-body .exad-card-title {
+  margin-left: 30px;
 }
 
-.exad-card-style-3-content-image-text p {
-    color: #ff4a4a;
-    font-size: 15px;
-    line-height: 26px;
-    font-family: 'Open Sans', sans-serif;
-    margin-left: 60px;
-    position: relative;
+.exad-card.two:hover .exad-card-body .exad-card-title::before {
+  opacity: 1;
 }
 
-.exad-card-style-3-content-image-text p::before {
-    content: '';
-    width: 20px;
-    height: 2px;
-    background: #ff4a4a;
-    position: absolute;
-    top: 13px;
-    left: -30px;
+.exad-card.two .exad-card-thumb img {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
 }
 
-.exad-card-style-3-content-image-text h5 {
-    font-size: 20px;
-    color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
-    margin-left: 30px;
+.exad-card.two .exad-card-body {
+  padding: 30px 30px;
 }
 
-.exad-card-style-3-content-image-button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+.exad-card.two .exad-card-body .exad-card-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #132c47;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none;
+  transition: all .3s ease;
+  display: block;
 }
 
-.exad-card-style-3-content-image-button button {
-    transform: translate(-40px, 26px);
-    padding: 14px 15px;
-    border-radius: 50%;
-    border: 4px solid rgba(231, 231, 231, 0.15);
-    box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
-    transition: all .3s ease;
-    cursor: pointer;
+.exad-card.two .exad-card-body .exad-card-title::before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 20px;
+  background: #9059ff;
+  top: 14px;
+  left: -30px;
+  transition: all .3s ease;
+  opacity: 0;
 }
 
-.exad-card-style-3-content-image-button button:hover {
-    background: #ff4a4a;
-    border: 4px solid rgba(231, 231, 231, 0.8);
+.exad-card.two .exad-card-body .exad-card-tag {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  color: #8a8d91;
+  margin-bottom: 15px;
 }
 
-.exad-card-style-3-content-image-button button:hover path {
-    fill: #ffffff;
+.exad-card.two .exad-card-body .exad-card-action {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  text-align: center;
+  line-height: 52px;
+  width: 50px;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
+  background: #fff;
+  border-radius: 50%;
+  transition: all .4s ease;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  display: block;
 }
+
+.exad-card.two .exad-card-body .exad-card-action i {
+  color: #c6c6c6;
+  font-size: 22px;
+}
+
+.exad-card.two .exad-card-body .exad-card-action svg {
+  fill: #c6c6c6;
+}
+
+.exad-card.two .exad-card-body .exad-card-action:hover {
+  -webkit-transform: translate(-50%, 50%) scale(1.2);
+          transform: translate(-50%, 50%) scale(1.2);
+  background: #9059ff;
+}
+
+.exad-card.two .exad-card-body .exad-card-action:hover i {
+  color: #fff;
+}
+
+.exad-card.three {
+  position: relative;
+}
+
+.exad-card.three::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #ff4a4a;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  transition: all .2s ease;
+  z-index: 1;
+}
+
+.exad-card.three:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.exad-card.three:hover .exad-card-body .exad-card-tag {
+  margin-left: 30px;
+}
+
+.exad-card.three:hover .exad-card-body .exad-card-tag::before {
+  opacity: 1;
+}
+
+.exad-card.three .exad-card-thumb {
+  position: relative;
+}
+
+.exad-card.three .exad-card-thumb img {
+  width: 100%;
+}
+
+.exad-card.three .exad-card-thumb::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.exad-card.three .exad-card-body .exad-card-description {
+  position: absolute;
+  bottom: 95px;
+  left: 40px;
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-card.three .exad-card-body .exad-card-tag {
+  position: absolute;
+  bottom: 75px;
+  left: 40px;
+  color: #ff4a4a;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  transition: all .2s ease;
+}
+
+.exad-card.three .exad-card-body .exad-card-tag::before {
+  content: '';
+  height: 2px;
+  width: 20px;
+  background: #ff4a4a;
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  opacity: 0;
+}
+
+.exad-card.three .exad-card-body .exad-card-title {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+}
+
+.exad-card.three .exad-card-body .exad-card-action {
+  position: absolute;
+  bottom: 40px;
+  right: 25px;
+  background: rgba(95, 90, 84, 0.7);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  padding: 14px 48px;
+  border-radius: 25px;
+  transition: all .3s ease;
+  display: block;
+}
+
+.exad-card.three .exad-card-body .exad-card-action:hover {
+  background: #ff4a4a;
+}
+
+.exad-card.four {
+  position: relative;
+  box-shadow: 0px 50px 50px 0px rgba(0, 0, 0, 0.1);
+  margin: 0 20px;
+  z-index: 1;
+}
+
+.exad-card.four:hover .exad-card-body .exad-card-title {
+  margin-bottom: 30px;
+}
+
+.exad-card.four:hover .exad-card-body .exad-card-description {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+.exad-card.four:hover .exad-card-body .exad-card-action {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.exad-card.four:hover::before {
+  height: 100%;
+}
+
+.exad-card.four::before {
+  position: absolute;
+  content: '';
+  height: 90%;
+  width: 85%;
+  background: transparent;
+  border: 7px solid #dcdcdc;
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translate(40px, 40px);
+          transform: translate(40px, 40px);
+  z-index: -1;
+  transition: all .5s ease;
+}
+
+.exad-card.four .exad-card-thumb img {
+  width: 100%;
+}
+
+.exad-card.four .exad-card-body {
+  position: absolute;
+  bottom: 0;
+  bottom: 0;
+  left: 0;
+  padding: 40px 30px 30px 30px;
+}
+
+.exad-card.four .exad-card-body .exad-card-tag {
+  margin: 0;
+  font-size: 13px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  top: 0;
+  background: rgba(255, 255, 255, 0.3);
+  left: 30px;
+  padding: 3px 22px;
+  border-radius: 12px;
+}
+
+.exad-card.four .exad-card-body .exad-card-title {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  display: block;
+  margin-bottom: -190px;
+  transition: all .5s ease;
+}
+
+.exad-card.four .exad-card-body .exad-card-description {
+  margin: 30px 0;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  color: #fff;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  transition: all .4s ease;
+}
+
+.exad-card.four .exad-card-body .exad-card-action {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  text-decoration: none;
+  background: #ff4a4a;
+  border-radius: 25px;
+  padding: 16px 50px;
+  display: inline-block;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  transition: all .4s ease;
+}
+
+/* Card Style End */
+
 
 
 /* Testimonial Carousel Basic */
@@ -2889,3 +2906,271 @@ ul.exad-pricing-table-features {
 }
 
 /* Flip Box End */
+
+
+/* Progress Bar Start */
+
+.exad-single-progress-bar-wrapper {
+  margin-bottom: 30px;
+}
+
+.exad-single-progress-bar-wrapper.line-2 .exad-progress-bar-outer {
+  height: 9px;
+  border-radius: 4.5px;
+}
+
+.exad-single-progress-bar-wrapper.line-2 .exad-progress-bar-track {
+  background: #724cff;
+  background: linear-gradient(90deg, #724cff 1%, #9249ff 100%);
+}
+
+.exad-single-progress-bar-wrapper.three .exad-progress-bar-outer {
+  height: 19px;
+}
+
+.exad-single-progress-bar-wrapper.four {
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.exad-single-progress-bar-wrapper.four .exad-progress-content {
+  justify-content: center;
+}
+
+.exad-single-progress-bar-wrapper.four .exad-progress-bar-outer {
+  position: relative;
+  overflow: hidden !important;
+  height: 100%;
+  height: 297px;
+  margin-bottom: 25px;
+}
+
+.exad-single-progress-bar-wrapper.four .exad-progress-bar-track {
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0;
+}
+
+.exad-single-progress-bar-wrapper.four .exad-progress-count-container {
+  height: auto;
+  border-radius: unset;
+  background: transparent;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  font-size: 60px;
+  line-height: 1;
+  box-shadow: none;
+  font-weight: 300;
+}
+
+.exad-single-progress-bar-wrapper.four .exad-progress-title {
+  font-size: 18px;
+}
+
+.exad-single-progress-bar-wrapper.four .exad-progress-bar-bg > svg {
+  -webkit-transform: translateX(-50px);
+          transform: translateX(-50px);
+}
+
+.exad-progress-content {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.exad-progress-content .exad-progress-count-container {
+  color: #161c42;
+  font-size: 15px;
+}
+
+.exad-progress-content > p {
+  margin-bottom: 0px;
+}
+
+.exad-progress-bar-outer {
+  height: 5px;
+  background-color: #e5e5e5;
+  border-radius: 0px;
+  overflow: visible !important;
+}
+
+.exad-progress-bar-track {
+  background-color: #f85959;
+  overflow: visible !important;
+  height: 100%;
+  position: relative;
+  border-radius: inherit;
+  width: 0;
+}
+
+.exad-progress-bar-track .exad-progress-count-container {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  background: #ff704e;
+  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
+  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  right: -5px;
+  top: -20px;
+  margin-bottom: 0px;
+  z-index: 2;
+}
+
+.exad-progress-title {
+  color: #161c42;
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+
+.gradient-color-1 .exad-progress-bar-track {
+  background-color: #5a2dff;
+  background: linear-gradient(90deg, #5a2dff 1%, #a467ff 100%);
+}
+
+.gradient-color-2 .exad-progress-bar-track {
+  background-color: #ff8568;
+  background: linear-gradient(90deg, #ff8568 1%, #ff376b 100%);
+}
+
+.gradient-color-3 .exad-progress-bar-track {
+  background-color: #4cdfff;
+  background: linear-gradient(90deg, #4cdfff 1%, #4970ff 100%);
+}
+
+.progressbar-text {
+  color: #161c42 !important;
+  font-size: 36px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.progressbar-text::after {
+  content: "%";
+}
+
+.exad-circle-progress {
+  margin-bottom: 30px;
+}
+
+.exad-circle-progress > svg path {
+  stroke: #ededed;
+}
+
+.exad-circle-progress > svg path + path {
+  stroke: #42d9f4;
+}
+
+.exad-circle-progress.line-2 > svg path {
+  stroke: #274adb;
+}
+
+.exad-circle-progress.line-2.stroke-color-1 > svg path + path {
+  stroke: #4e74ff;
+}
+
+.exad-circle-progress.line-2.stroke-color-2 > svg path + path {
+  stroke: #42d9f4;
+}
+
+.exad-circle-progress.line-2.stroke-color-3 > svg path + path {
+  stroke: #fe6a6a;
+}
+
+.exad-circle-progress.line-2.stroke-color-4 > svg path + path {
+  stroke: #72e181;
+}
+
+.exad-single-circle-progress .exad-progress-title {
+  font-size: 18px;
+}
+
+.exad-single-circle-progress .exad-progress-content {
+  justify-content: center;
+}
+
+.exad-semicircle-progress-wrapper {
+  margin-bottom: 5px;
+}
+
+.exad-semicircle-progress {
+  margin-bottom: 5px;
+}
+
+.exad-semicircle-progress > svg path {
+  stroke: #eaedf2;
+}
+
+.exad-semicircle-progress > svg path + path {
+  stroke: #4e74ff;
+}
+
+.exad-semicircle-progress .progressbar-text {
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+}
+
+.stroke-color-1 > svg path + path {
+  stroke: #4e74ff;
+}
+
+.stroke-color-2 > svg path + path {
+  stroke: #42d9f4;
+}
+
+.stroke-color-3 > svg path + path {
+  stroke: #fe6a6a;
+}
+
+.stroke-color-4 > svg path + path {
+  stroke: #72e181;
+}
+
+.exad-progress-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exad-progress-info > p {
+  margin-bottom: 0;
+  color: #a7aab1;
+  font-size: 14px;
+}
+
+.exad-progress-bar-bg > svg path {
+  fill: rgba(130, 110, 255, 0.66);
+}
+
+.exad-progress-bar-bg > svg path {
+  fill: rgba(130, 110, 255, 0.66);
+}
+
+.exad-progress-bar-bg.fill-color-1 > svg path {
+  fill: rgba(130, 110, 255, 0.66);
+}
+
+.exad-progress-bar-bg.fill-color-2 > svg path {
+  fill: rgba(255, 106, 71, 0.66);
+}
+
+.exad-progress-bar-bg.fill-color-3 > svg path {
+  fill: rgba(66, 217, 244, 0.66);
+}
+
+@media (max-width: 991px) {
+  .exad-single-circle-progress {
+    margin-bottom: 30px;
+  }
+}
+
+/* Progress Bar End */

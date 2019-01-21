@@ -16,6 +16,11 @@ class Exad_Progress_Bar extends Widget_Base {
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
 	}
+
+	public function get_script_depends() {
+		return [ 'elementor-waypoints' ];
+	}
+
 	protected function _register_controls() {
 		/*-----------------------------------------------------------------------------------*/
 		/*  CONTENT TAB
@@ -32,20 +37,19 @@ class Exad_Progress_Bar extends Widget_Base {
 		);
 
 		$this->add_control(
-			'progress_bar_layout',
+			'exad_progress_bar_preset',
 			[
 				'label' => __('Layout', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'line' => __('Line', 'exclusive-addons-elementor'),
-					'line_rainbow' => __('Line Rainbow (Pro)', 'exclusive-addons-elementor'),
-					'circle' => __('Circle', 'exclusive-addons-elementor'),
-					'circle_fill' => __('Circle Fill (Pro)', 'exclusive-addons-elementor'),
-					'half_circle' => __('Half Circle', 'exclusive-addons-elementor'),
-					'half_circle_fill' => __('Half Circle Fill (Pro)', 'exclusive-addons-elementor'),
-					'box' => __('Box (Pro)', 'exclusive-addons-elementor'),
+					'line-1' => __('Line Style 1', 'exclusive-addons-elementor'),
+					'line-2' => __('Line Style 2 (Pro)', 'exclusive-addons-elementor'),
+					'circle' => __('Circle Style', 'exclusive-addons-elementor'),
+					'circle-fill' => __('Circle Fill Style', 'exclusive-addons-elementor'),
+					'circle-half' => __('Half Circle Style', 'exclusive-addons-elementor'),
+					'cylinder' => __('Cylinder Style', 'exclusive-addons-elementor'),
 				],
-				'default' => 'line',
+				'default' => 'line-1',
 			]
 		);
 
@@ -55,9 +59,6 @@ class Exad_Progress_Bar extends Widget_Base {
             [
                 'label' => esc_html__( 'Only available in pro version!', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::HEADING,
-                'condition' => [
-                    'progress_bar_layout' => ['line_rainbow', 'circle_fill', 'half_circle_fill', 'box'],
-                ]
             ]
         );
 
@@ -152,9 +153,6 @@ class Exad_Progress_Bar extends Widget_Base {
 				'label' => __('Prefix Label', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::TEXT,
 				'default' => __('Prefix', 'exclusive-addons-elementor'),
-				'condition' => [
-					'progress_bar_layout' => 'half_circle',
-				],
 				'separator' => 'before',
 			]
 		);
@@ -165,9 +163,6 @@ class Exad_Progress_Bar extends Widget_Base {
 				'label' => __('Postfix Label', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::TEXT,
 				'default' => __('Postfix', 'exclusive-addons-elementor'),
-				'condition' => [
-					'progress_bar_layout' => 'half_circle',
-				],
 				'separator' => 'before',
 			]
 		);
@@ -211,9 +206,6 @@ class Exad_Progress_Bar extends Widget_Base {
 			[
 				'label' => __('General', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'progress_bar_layout' => ['line', 'line_rainbow', 'circle_fill', 'half_circle_fill', 'box'],
-				],
 			]
 		);
 
@@ -321,9 +313,7 @@ class Exad_Progress_Bar extends Widget_Base {
 			[
 				'label' => __('Background', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'progress_bar_layout' => ['line', 'line_rainbow', 'circle_fill', 'half_circle_fill', 'box']
-				],
+				
 			]
 		);
 
@@ -370,9 +360,6 @@ class Exad_Progress_Bar extends Widget_Base {
 			[
 				'label' => __('Fill', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'progress_bar_layout' => ['line', 'line_rainbow', 'circle_fill', 'half_circle_fill', 'box']
-				],
 			]
 		);
 
@@ -439,9 +426,6 @@ class Exad_Progress_Bar extends Widget_Base {
             [
                 'label' => __('General', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    'progress_bar_layout' => ['circle', 'half_circle'],
-                ],
             ]
         );
 
@@ -566,9 +550,6 @@ class Exad_Progress_Bar extends Widget_Base {
                 'name' => 'progress_bar_circle_box_shadow',
                 'label' => __('Box Shadow', 'exclusive-addons-elementor'),
                 'selector' => '{{WRAPPER}} .eael-progressbar-circle-shadow',
-                'condition' => [
-                    'progress_bar_layout' => 'circle',
-                ],
                 'separator' => 'before',
             ]
         );
@@ -639,9 +620,6 @@ class Exad_Progress_Bar extends Widget_Base {
 				'label' => __('Prefix/Postfix', 'exclusive-addons-elementor'),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .eael-progressbar-half-circle-after span',
-				'condition' => [
-					'progress_bar_layout' => 'half_circle',
-				],
 			]
 		);
 
@@ -654,9 +632,6 @@ class Exad_Progress_Bar extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .eael-progressbar-half-circle-after' => 'color: {{VALUE}}',
 				],
-				'condition' => [
-					'progress_bar_layout' => 'half_circle',
-				],
 			]
 		);
 
@@ -668,19 +643,24 @@ class Exad_Progress_Bar extends Widget_Base {
 		
 	
 		?>
-		<div id="exad-progress-bar-<?php echo esc_attr($this->get_id()); ?>" class="exad-progerss-bar-style-1-content-box">
-            <div class="exad-progerss-bar-style-1-text">
-                <h6><?php echo $settings['exad_progress_bar_title']; ?></h6>
-                <p class="progress-value">
-                	<?php if( $settings['exad_progress_bar_show_count'] === 'yes' ) : ?>
-                	<span><?php echo $settings['exad_progress_bar_value']['size']; ?></span><?php echo $settings['exad_progress_bar_value']['unit']; ?>
-                	<?php endif; ?>
-                </p>
+
+		<div class="exad-single-progress-bar-wrapper" id="progress-style-one-1">
+            <div class="exad-progress-content">
+                <p class="exad-progress-title">Design</p>
+                <p class="exad-progress-count-container"><span class="number-percentage" data-value="60"
+                                data-animation-duration="3500">0</span>%</p>
             </div>
-            <div class="exad-progerss-bar-bg-line-1">
-                <div class="exad-progerss-bar-fill-line-1"></div>
-            </div>
-		</div>
+            <div class="exad-progress-bar-outer">
+                <div class="exad-progress-bar-track">
+                	<?php if ( 'line-2' == $settings['exad_progress_bar_preset'] ) : ?>
+                    <p class="exad-progress-count-container"><span class="number-percentage" data-value="60"
+                            data-animation-duration=3500>0</span>%</p>
+                    <?php endif; ?>        
+                </div>
+            </div><!-- .exad-progress-bar-outer END -->
+        </div><!-- .exad-single-progress-bar-wraper two END -->
+		
+		
 	<?php
 	}
 }
