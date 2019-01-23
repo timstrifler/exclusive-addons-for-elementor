@@ -160,8 +160,9 @@ class Exad_Card extends Widget_Base {
                 'type' => Controls_Manager::COLOR,
                 'default' => '#9059ff',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-card.two .exad-card-body .exad-card-action:hover, {{WRAPPER}} .exad-card.two .exad-card-body .exad-card-title::before, {{WRAPPER}} .exad-card.one .exad-card-body .exad-card-action:hover,
-                    {{WRAPPER}} .exad-card.one .exad-card-body .exad-card-title::before. {{WRAPPER}} .exad-card.three .exad-card-body .exad-card-action:hover' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .exad-card.two .exad-card-action:hover, {{WRAPPER}} .exad-card.two .exad-card-title::before, {{WRAPPER}} .exad-card.one .exad-card-action:hover,
+                    {{WRAPPER}} .exad-card.one .exad-card-title::before, {{WRAPPER}} .exad-card.three .exad-card-action:hover, {{WRAPPER}} .exad-card.three .exad-card-tag::before, {{WRAPPER}} .exad-card.three::before' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .exad-card.three .exad-card-body .exad-card-tag' => 'color: {{VALUE}};'
                 ],
             ]
         );

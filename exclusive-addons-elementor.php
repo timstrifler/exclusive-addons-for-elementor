@@ -106,6 +106,8 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
     			define( 'EXAD_PATH', plugin_dir_path( __FILE__ ) );
             if ( ! defined( 'EXAD_ELEMENTS' ) )
                 define( 'EXAD_ELEMENTS', plugin_dir_path( __FILE__ ) . 'elements/' );
+            if ( ! defined( 'EXAD_TEMPLATES' ) )
+                define( 'EXAD_TEMPLATES', plugin_dir_path( __FILE__ ) . 'includes/template-parts/' );
     		if ( ! defined( 'EXAD_URL' ) )
     		define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
     		if ( ! defined( 'EXAD_ASSETS_URL' ) )
@@ -119,6 +121,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
          */
         public function includes() {
             require_once EXAD_PATH . 'admin/dashboard-settings.php';
+            include_once EXAD_PATH . 'includes/helper-functions.php';
         }
 
 
@@ -238,6 +241,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             require_once EXAD_ELEMENTS . 'pricing-table/pricing-table.php';
             require_once EXAD_ELEMENTS . 'countdown-timer/countdown-timer.php';
             require_once EXAD_ELEMENTS . 'flipbox/flipbox.php';
+            require_once EXAD_ELEMENTS . 'post-timeline/post-timeline.php';
             
         }
 

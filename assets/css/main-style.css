@@ -880,7 +880,7 @@ h1:not(.site-title):before, h2:before {
 
 .exad-card.three .exad-card-body .exad-card-description {
   position: absolute;
-  bottom: 95px;
+  bottom: 105px;
   left: 40px;
   color: #fff;
   font-size: 15px;
@@ -889,7 +889,7 @@ h1:not(.site-title):before, h2:before {
 
 .exad-card.three .exad-card-body .exad-card-tag {
   position: absolute;
-  bottom: 75px;
+  bottom: 80px;
   left: 40px;
   color: #ff4a4a;
   font-family: "Open Sans", sans-serif;
@@ -3174,3 +3174,145 @@ ul.exad-pricing-table-features {
 }
 
 /* Progress Bar End */
+
+
+/* Post Timeline Start */
+
+.exad-post-timeline {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 35px;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item::before {
+  position: absolute;
+  content: '';
+  background: #e3e5e8;
+  width: 3px;
+  height: calc( 100% + 100px);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 0;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item:not(:last-child) {
+  margin-bottom: 100px;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item:last-child::before {
+  height: 100%;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 60px;
+  width: 60px;
+  background: #A282FF;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-icon i {
+  font-size: 24px;
+  line-height: 60px;
+  color: #D1C1FF;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-icon::before {
+  position: absolute;
+  content: '';
+  width: 60px;
+  height: 2px;
+  background: transparent;
+  border: 1px dashed #e3e3e3;
+  top: 30px;
+  left: -70px;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-icon::after {
+  position: absolute;
+  content: '';
+  width: 60px;
+  background: transparent;
+  border: 1px dashed #e3e3e3;
+  top: 30px;
+  right: -70px;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-content {
+  flex-basis: 35%;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
+  overflow: hidden;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-content img {
+  width: 100%;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-date {
+  background: #fff;
+  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
+  border-radius: 4px;
+  flex-basis: 20%;
+  padding: 15px 20px;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-date h4 {
+  font-size: 20px;
+  margin: 6px auto;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-date p {
+  font-size: 15px;
+  margin: 0;
+  color: #8a8d91;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-content-text {
+  padding: 25px 30px;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-content-text h4 {
+  font-size: 20px;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item .exad-post-timeline-content-text p {
+  color: #8a8d91;
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item:nth-child(odd) .exad-post-timeline-content {
+  position: relative;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item:nth-child(odd) .exad-post-timeline-date {
+  margin-left: 30%;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item:nth-child(even) .exad-post-timeline-content {
+  order: 2;
+  margin-left: 30%;
+}
+
+.exad-post-timeline.one .exad-post-timeline-item:nth-child(even) .exad-post-timeline-date {
+  order: 1;
+  margin-left: 15%;
+  text-align: right;
+}
+
+/* Post Timeline End */
