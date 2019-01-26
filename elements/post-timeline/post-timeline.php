@@ -25,13 +25,10 @@ class Exad_Post_Timeline extends Widget_Base {
 	protected function _register_controls() {
 
 		
-		//$this->query_controls();
-
-		
         $this->start_controls_section(
             'exad_section_post_timeline_filters',
             [
-                'label' => __( 'Query', 'essential-addons-elementor' ),
+                'label' => __( 'Settings', 'exclusive-addons-elementor' ),
             ]
         );
         
@@ -39,7 +36,7 @@ class Exad_Post_Timeline extends Widget_Base {
         $this->add_control(
             'exad_post_timeline_type',
             [
-                'label' => __( 'Post Type', 'essential-addons-elementor' ),
+                'label' => __( 'Post Type', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => exad_get_post_types(),
                 'default' => 'post',
@@ -48,22 +45,9 @@ class Exad_Post_Timeline extends Widget_Base {
         );
 
         $this->add_control(
-        	'exad_get_timeline_authors',
-        	[
-                'label' => __( 'Author', 'essential-addons-elementor' ),
-                'label_block' => true,
-                'type' => Controls_Manager::SELECT2,
-                'multiple' => true,
-                'default' => [],
-                'options' => exad_get_authors(),
-            ]
-        );
-        
-
-        $this->add_control(
             'exad_posts_per_page',
             [
-                'label' => __( 'Posts Per Page', 'essential-addons-elementor' ),
+                'label' => __( 'Posts Per Page', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => '4'
             ]
@@ -72,27 +56,52 @@ class Exad_Post_Timeline extends Widget_Base {
         $this->add_control(
             'exad_offset',
             [
-                'label' => __( 'Offset', 'essential-addons-elementor' ),
+                'label' => __( 'Offset', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => '0'
             ]
         );
 
-        /*$this->add_control(
-            'exad_orderby',
-            [
-                'label' => __( 'Order By', 'essential-addons-elementor' ),
-                'type' => Controls_Manager::SELECT,
-                'options' => exad_get_post_orderby_options(),
-                'default' => 'date',
-
+        $this->add_control(
+        	'exad_get_timeline_authors',
+        	[
+                'label' => __( 'Author', 'exclusive-addons-elementor' ),
+                'label_block' => true,
+                'type' => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'default' => [],
+                'options' => exad_get_authors(),
             ]
-        ); */
+        );
+
+        $this->add_control(
+        	'exad_get_timeline_categories',
+        	[
+                'label' => __( 'Categories', 'exclusive-addons-elementor' ),
+                'label_block' => true,
+                'type' => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'default' => [],
+                'options' => exad_get_all_categories(),
+            ]
+        );
+
+        $this->add_control(
+        	'exad_get_timeline_tags',
+        	[
+                'label' => __( 'Tags', 'exclusive-addons-elementor' ),
+                'label_block' => true,
+                'type' => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'default' => [],
+                'options' => exad_get_all_tags(),
+            ]
+        );
 
         $this->add_control(
             'exad_order',
             [
-                'label' => __( 'Order', 'essential-addons-elementor' ),
+                'label' => __( 'Order', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
                 'options' => [
                     'asc' => 'Ascending',
@@ -102,6 +111,25 @@ class Exad_Post_Timeline extends Widget_Base {
 
             ]
         );
+
+        $this->add_control(
+            'exad_timeline_excerpt_length',
+            [
+                'label' => __( 'Excerpt Words', 'essential-addons-elementor' ),
+                'type' => Controls_Manager::NUMBER,
+                'default' => '20',
+            ]
+        );
+
+        $this->add_control(
+			'exad_post_timeline_ignore_sticky',
+			[
+				'label' => esc_html__( 'Ignore Sticky?', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
 
         $this->end_controls_section();
 

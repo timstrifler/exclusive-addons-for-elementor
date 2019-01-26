@@ -1,42 +1,12 @@
 <?php
+
+
 /**
- * Get Post Data
- * @param  array $args
+ *
+ * Get list of Post Types
  * @return array
  */
-function exad_get_post_data( $args ) {
-    $defaults = array(
-        'posts_per_page'   => 5,
-        'offset'           => 0,
-        'category'         => '',
-        'category_name'    => '',
-        'orderby'          => 'date',
-        'order'            => 'DESC',
-        'include'          => '',
-        'exclude'          => '',
-        'meta_key'         => '',
-        'meta_value'       => '',
-        'post_type'        => 'post',
-        'post_mime_type'   => '',
-        'post_parent'      => '',
-        'author'	       => '',
-        'author_name'	   => '',
-        'post_status'      => 'publish',
-        'suppress_filters' => true,
-        'tag__in'          => '',
-        'post__not_in'     => '',
-    );
 
-    $atts = wp_parse_args( $args, $defaults );
-
-    return get_posts( $atts );
-}
-
-
-/*
-* Get list of Post Types
-* 
-*/
 function exad_get_post_types() {
     $post_type_args = array(
         'public'            => true,
@@ -50,6 +20,39 @@ function exad_get_post_types() {
     }
     return $post_lists;
 }
+
+/** 
+ *
+ * List all categories 
+ * @return array
+ */
+
+function exad_get_all_categories() {
+    $cat_array = array();
+    $categories = get_categories('orderby=name&hide_empty=0');
+    foreach ($categories as $category):
+        $cat_array[$category->term_id] = $category->name;
+    endforeach;
+
+    return $cat_array;
+}
+
+/** 
+ *
+ * List all Tags 
+ * @return array
+ */
+
+function exad_get_all_tags() {
+    $tag_array = array();
+    $tags = get_tags();
+    foreach ( $tags as $tag ) {
+        $tag_array[$tag->term_id] = $tag->name;
+    }
+
+    return $tag_array;
+} 
+
 
 /**
  * All Author with published post
@@ -77,6 +80,35 @@ function exad_get_authors() {
 }
 
 /**
+ *
+ * Post Excerpt based on ID and Excerpt Length
+ * @param  int $post_id
+ * @param  int $length
+ * @return string
+ *
+ */
+function exad_get_post_excerpt( $post_id, $length ){
+    $the_post = get_post($post_id);
+
+    $the_excerpt = '';
+    if ($the_post)
+    {
+        $the_excerpt = $the_post->post_excerpt ? $the_post->post_excerpt : $the_post->post_content;
+    }
+
+    $the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+    $words = explode(' ', $the_excerpt, intval( $length ) + 1);
+
+     if(count($words) > $length) :
+         array_pop($words);
+         array_push($words, '…');
+         $the_excerpt = implode(' ', $words);
+     endif;
+
+     return $the_excerpt;
+}
+
+/**
  * 
  * Return the Posts from Database
  *
@@ -86,15 +118,23 @@ function exad_get_authors() {
 
 function exad_get_posts( $settings ) {
 
-    $author_ids = implode( ", " , $settings['exad_get_timeline_authors'] );
+    $author_ids = implode( ", ", $settings['exad_get_timeline_authors'] );
+
+    $category_ids = implode( ", ", $settings['exad_get_timeline_categories'] );
+
+    if ( 'yes' === $settings['exad_post_timeline_ignore_sticky'] ) {
+        $exad_ignore_sticky = true;
+    } else {
+        $exad_ignore_sticky = false;
+    }
 
     $post_args = array(
             'post_type'        => $settings['exad_post_timeline_type'],
             'posts_per_page'   => $settings['exad_posts_per_page'],
             'offset'           => $settings['exad_offset'],
-            'category'         => '',
+            'cat'              => $category_ids,
             'category_name'    => '',
-            'ignore_sticky_posts' => true,
+            'ignore_sticky_posts' => $exad_ignore_sticky,
             'orderby'          => 'date',
             'order'            => $settings['exad_order'],
             'include'          => '',
@@ -107,7 +147,7 @@ function exad_get_posts( $settings ) {
             'author_name'      => '',
             'post_status'      => 'publish',
             'suppress_filters' => true,
-            'tag__in'          => '',
+            'tag__in'          => $settings['exad_get_timeline_tags'],
             'post__not_in'     => '',
         );
     
