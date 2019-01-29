@@ -21,6 +21,29 @@ function exad_get_post_types() {
     return $post_lists;
 }
 
+
+/**
+ * Retrive the list of Contact Form 7 Forms [ if plugin activated ]
+ */
+if ( function_exists( 'wpcf7' ) ) {
+    function exad_retrive_contact_form() {
+        $wpcf7_form_list = get_posts(array(
+            'post_type' => 'wpcf7_contact_form',
+            'showposts' => 999,
+        ));
+        $options = array();
+        $options[0] = esc_html__( 'Select a Form', 'essential-addons-elementor' );
+        if ( ! empty( $wpcf7_form_list ) && ! is_wp_error( $wpcf7_form_list ) ){
+            foreach ( $wpcf7_form_list as $post ) {
+                $options[ $post->ID ] = $post->post_title;
+            }
+        } else {
+            $options[0] = esc_html__( 'Create a Form First', 'essential-addons-elementor' );
+        }
+        return $options;
+    }
+}
+
 /** 
  *
  * List all categories 

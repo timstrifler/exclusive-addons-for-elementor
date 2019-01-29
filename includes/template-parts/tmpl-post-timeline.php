@@ -1,7 +1,9 @@
 <div class="exad-post-timeline-item">
     <span class="exad-post-timeline-icon"><i class="fa fa-bookmark"></i></span>
     <div class="exad-post-timeline-content">
-        <?php the_post_thumbnail(); ?>
+        <a href="<?php echo esc_url( get_permalink() ); ?>">
+            <?php the_post_thumbnail(); ?>
+        </a>    
         <div class="exad-post-timeline-content-text">
             <h4><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h4>
             <p><?php echo exad_get_post_excerpt( get_the_ID(), $settings['exad_timeline_excerpt_length'] ); ?></p>

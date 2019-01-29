@@ -19,7 +19,7 @@ class Exad_Flip_Box extends Widget_Base {
 		return 'eicon-flip-box';
 	}
 
-   public function get_categories() {
+   	public function get_categories() {
 		return [ 'essential-addons-elementor' ];
 	}
 
@@ -1057,22 +1057,28 @@ class Exad_Flip_Box extends Widget_Base {
 
 	?>
 
-	<div class="exad-flip-box one">
-		<div class="exad-flip-box-inner">
-			<div class="exad-flip-box-front">
-				<h5 class="exad-flip-box-back-title">Flip Box Front End</h5>
-				<p class="exad-flip-box-back-description">This is the flipbox front end</p>
-				<a href="#" class="exad-flip-box-back-action">Front read</a>
-			</div>
-			<div class="exad-flip-box-back">
-				<h5 class="exad-flip-box-back-title">Flip Box Back End</h5>
-				<p class="exad-flip-box-back-description">The copy warned the little blind text,that where it came from
-					it could have been rewritten a thousand times.
-				</p>
-				<a href="#" class="exad-flip-box-back-action">Back read</a>
-			</div>
-		</div>
-	</div>
+	<div class="exad-flip-box four">
+      	<div class="exad-flip-box-inner">
+        	<div class="exad-flip-box-front">
+          		<div class="exad-flip-box-front-image">
+	            	<i class="fa fa-tag"></i>
+        		</div>
+          		<h5 class="exad-flip-box-front-title">Flip Box Front End</h5>
+		        <p class="exad-flip-box-front-description">
+		            This is Front End Descriptio for Demo Purpose.
+		        </p>
+        	</div>
+	        <div class="exad-flip-box-back">
+	          	<i class="fa fa-tag"></i>
+	          	<h5 class="exad-flip-box-back-title">Flip Box Front End</h5>
+		        <p class="exad-flip-box-back-description">
+		            This is Back End Descriptio for Demo Purpose.
+		        </p>
+		        <a href="#" class="exad-flip-box-back-action">More Information</a>
+	        </div>
+      	</div>
+    </div>
+
 
 	<?php
 	}

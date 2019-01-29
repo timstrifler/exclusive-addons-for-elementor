@@ -138,101 +138,88 @@ class Exad_Post_Timeline extends Widget_Base {
         $this->start_controls_section(
             'exad_section_post_timeline_style',
             [
-                'label' => __( 'Timeline Style', 'exclusive-addons-elementor' ),
+                'label' => __( 'Timeline Styles', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
-			'exad_timeline_overlay_color',
+			'exad_timeline_post_bg_color',
 			[
-				'label' => __( 'Overlay Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Post Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'description' => __('Leave blank or Clear to use default gradient overlay', 'exclusive-addons-elementor'),
-				'default' => 'linear-gradient(45deg, #3f3f46 0%, #05abe0 100%) repeat scroll 0 0 rgba(0, 0, 0, 0)',
+				'default'=> '#FFFFFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post-inner' => 'background: {{VALUE}}',
+					'{{WRAPPER}} .exad-post-timeline-content' => 'background: {{VALUE}};',
+				]
+
+			]
+		);
+
+
+		$this->add_control(
+			'exad_timeline_date_bg_color',
+			[
+				'label' => __( 'Date Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#FFFFFF',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-date' => 'background: {{VALUE}};',
+				]
+
+			]
+		);
+		
+
+		
+		$this->add_control(
+			'exad_timeline_bullet_bg_color',
+			[
+				'label' => __( 'Bullet Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#A282FF',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-icon' => 'background: {{VALUE}};',
 				]
 
 			]
 		);
 
         $this->add_control(
-			'exad_timeline_bullet_color',
+			'exad_timeline_bullet_icon_color',
 			[
-				'label' => __( 'Timeline Bullet Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Bullet Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#9fa9af',
+				'default'=> '#D1C1FF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-bullet' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-timeline-icon i' => 'color: {{VALUE}};',
 				]
 
 			]
 		);
 
-        $this->add_control(
-			'exad_timeline_bullet_border_color',
-			[
-				'label' => __( 'Timeline Bullet Border Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#fff',
-				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-bullet' => 'border-color: {{VALUE}};',
-				]
-
-			]
-		);
 
         $this->add_control(
 			'exad_timeline_vertical_line_color',
 			[
-				'label' => __( 'Timeline Vertical Line Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Vertical Line Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> 'rgba(83, 85, 86, .2)',
+				'default'=> '#e3e5e8',
 				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post:after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-timeline-item::before' => 'background: {{VALUE}};',
 				]
 
 			]
 		);
 
-        $this->add_control(
-			'exad_timeline_border_color',
+		$this->add_control(
+			'exad_timeline_horizontal_sep_color',
 			[
-				'label' => __( 'Border & Arrow Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Horizontal Seprator Line Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#e5eaed',
+				'default'=> '#e3e5e8',
 				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post-inner' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-timeline-post-inner::after' => 'border-left-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-timeline-post:nth-child(2n) .exad-timeline-post-inner::after' => 'border-right-color: {{VALUE}};',
-				]
-
-			]
-		);
-
-        $this->add_control(
-			'exad_timeline_date_background_color',
-			[
-				'label' => __( 'Date Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> 'rgba(0, 0, 0, 0.7)',
-				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post time' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-timeline-post time::before' => 'border-bottom-color: {{VALUE}};',
-				]
-
-			]
-		);
-
-        $this->add_control(
-			'exad_timeline_date_color',
-			[
-				'label' => __( 'Date Text Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#fff',
-				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post time' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-timeline-icon::before, {{WRAPPER}} .exad-post-timeline-icon::after' => 'border: 1px dashed {{VALUE}};',
 				]
 
 			]
@@ -263,9 +250,9 @@ class Exad_Post_Timeline extends Widget_Base {
 			[
 				'label' => __( 'Title Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#fff',
+				'default'=> '#132c47',
 				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post-title h2' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-timeline-content-text h4 a' => 'color: {{VALUE}};',
 				]
 
 			]
@@ -291,7 +278,7 @@ class Exad_Post_Timeline extends Widget_Base {
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post-title h2' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-timeline-content-text h4' => 'text-align: {{VALUE}};',
 				]
 			]
 		);
@@ -302,7 +289,7 @@ class Exad_Post_Timeline extends Widget_Base {
 				'name' => 'exad_timeline_title_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .exad-timeline-post-title h2',
+				'selector' => '{{WRAPPER}} .exad-post-timeline-content-text h4 a',
 			]
 		);
 
@@ -320,9 +307,9 @@ class Exad_Post_Timeline extends Widget_Base {
 			[
 				'label' => __( 'Excerpt Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#ffffff',
+				'default'=> '#8a8d91',
 				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post-excerpt p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-timeline-content-text p' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -351,7 +338,7 @@ class Exad_Post_Timeline extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-timeline-post-excerpt p' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-timeline-content-text p' => 'text-align: {{VALUE}};',
 				],
 			]
 		);

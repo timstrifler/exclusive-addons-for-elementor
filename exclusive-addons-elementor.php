@@ -242,7 +242,8 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             require_once EXAD_ELEMENTS . 'countdown-timer/countdown-timer.php';
             require_once EXAD_ELEMENTS . 'flipbox/flipbox.php';
             require_once EXAD_ELEMENTS . 'post-timeline/post-timeline.php';
-            
+            require_once EXAD_ELEMENTS . 'infobox/infobox.php';
+            require_once EXAD_ELEMENTS . 'contact-form-7/contact-form-7.php';
         }
 
         /**
