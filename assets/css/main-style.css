@@ -2139,22 +2139,81 @@ ul.exad-pricing-table-features {
 
 /* Flip Box Start */
 
-.exad-flip-box.four {
+.exad-flip-box {
   -webkit-perspective: 1000px;
           perspective: 1000px;
   background-color: transparent;
 }
 
-.exad-flip-box.four:hover .exad-flip-box-front {
-  opacity: 0;
-}
-
-.exad-flip-box.four:hover .exad-flip-box-inner {
+.exad-flip-box:hover .left-to-right {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
-.exad-flip-box.four .exad-flip-box-inner {
+.exad-flip-box:hover .left-to-right .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .right-to-left {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.exad-flip-box:hover .right-to-left .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .top-to-bottom {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+.exad-flip-box:hover .top-to-bottom .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .bottom-to-top {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.exad-flip-box:hover .bottom-to-top .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .top-to-bottom-angle {
+  -webkit-transform: rotate3d(1, 1, 0, -180deg);
+          transform: rotate3d(1, 1, 0, -180deg);
+}
+
+.exad-flip-box:hover .top-to-bottom-angle .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .bottom-to-top-angle {
+  -webkit-transform: rotate3d(1, 1, 0, 180deg);
+          transform: rotate3d(1, 1, 0, 180deg);
+}
+
+.exad-flip-box:hover .bottom-to-top-angle .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .exad-flip-box-inner.fade-in-out .exad-flip-box-front {
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  z-index: 2;
+}
+
+.exad-flip-box:hover .exad-flip-box-inner.fade-in-out .exad-flip-box-back {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  z-index: 3;
+}
+
+.exad-flip-box .exad-flip-box-inner {
   position: relative;
   transition: -webkit-transform 0.8s;
   transition: transform 0.8s;
@@ -2166,16 +2225,14 @@ ul.exad-pricing-table-features {
   text-align: center;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front {
   border-radius: 5px;
-  border: 2px dashed #e5e5e5;
-  padding: 50px;
+  background: #F5F5F5;
+  padding: 30px 20px;
   transition: all .4s ease;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image {
   height: 80px;
   width: 80px;
   background: linear-gradient(90deg, #ff876b 0%, #ff7e9f 100%);
@@ -2184,85 +2241,144 @@ ul.exad-pricing-table-features {
   border-radius: 50%;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image svg {
-  height: 40px;
-  width: 40px;
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i {
+  font-size: 30px;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  color: #fff;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image svg path {
-  fill: #fff;
-}
-
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
   font-size: 20px;
   margin: 25px 0;
   font-family: "Roboto", sans-serif;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-description {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-description {
   font-size: 14px;
   color: #817e7e;
   font-family: "Roboto", sans-serif;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-back {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  background: linear-gradient(38deg, #ff876b 0%, #ff7e9f 100%);
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-  padding: 30px 40px;
+  background: #ddd;
+  padding: 30px 20px;
   border-radius: 5px;
+  width: 100%;
+
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-back svg {
-  height: 35px;
-  width: 35px;
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back i {
+  font-size: 30px;
+  color: #fff;
   margin-bottom: 20px;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-back svg path {
-  fill: #fff;
-}
-
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-title {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-title {
   font-size: 20px;
   color: #fff;
   font-family: "Roboto", sans-serif;
-  margin: 0;
+  margin: 6px auto;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
   font-size: 14px;
   color: #fff;
-  margin: 30px 0 50px 0;
+  margin: 20px 0 30px 0;
   font-family: "Roboto", sans-serif;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
   font-size: 14px;
   text-decoration: none;
   background: #fff;
   padding: 10px 20px;
   border: 1px solid transparent;
-  border-radius: 25px;
+  border-radius: 5px;
   color: #FF7F97;
   transition: all .4s ease;
   font-family: "Roboto", sans-serif;
+  display: inline-block;
 }
 
-.exad-flip-box.four .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action:hover {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action:hover {
   background: transparent;
   color: #fff;
   border: 1px solid #fff;
+}
+
+.exad-flip-box .exad-flip-box-inner.left-to-right .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.right-to-left .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.top-to-bottom .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.bottom-to-top .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.top-to-bottom-angle .exad-flip-box-front {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.exad-flip-box .exad-flip-box-inner.top-to-bottom-angle .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotate3d(1, 1, 0, 180deg);
+          transform: rotate3d(1, 1, 0, 180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.bottom-to-top-angle .exad-flip-box-front {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.exad-flip-box .exad-flip-box-inner.bottom-to-top-angle .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotate3d(1, 1, 0, -180deg);
+          transform: rotate3d(1, 1, 0, -180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.fade-in-out .exad-flip-box-front {
+  transition: all .8s ease;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.exad-flip-box .exad-flip-box-inner.fade-in-out .exad-flip-box-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  transition: all .8s ease;
 }
 
 /* Flip Box End */
@@ -3224,5 +3340,140 @@ ul.exad-pricing-table-features {
   color: #826EFF;
 }
 
-
 /* InfoBox End */
+
+
+/* Contact Form Start */
+
+.exad-contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  box-shadow: 0px 20px 40px 0px rgba(5, 12, 77, 0.2);
+  position: relative;
+}
+
+.exad-contact-form::before {
+  height: 2px;
+  width: 100%;
+  background: #ff9c44;
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.exad-contact-form .exad-contact-form-title {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #132c47;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.exad-contact-form .exad-contact-form-input-group {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+@media (max-width: 575px) {
+  .exad-contact-form .exad-contact-form-input-group {
+    width: 100%;
+  }
+}
+
+.exad-contact-form-7 input[type="text"], .exad-contact-form-7 input[type="email"], .exad-contact-form-7 input[type="url"], .exad-contact-form-7 input[type="password"], .exad-contact-form-7 input[type="search"], .exad-contact-form-7 input[type="number"], .exad-contact-form-7 input[type="tel"], .exad-contact-form-7 input[type="range"], .exad-contact-form-7 input[type="date"], .exad-contact-form-7 input[type="month"], .exad-contact-form-7 input[type="week"], .exad-contact-form-7 input[type="time"], .exad-contact-form-7 input[type="datetime"], .exad-contact-form-7 input[type="datetime-local"], .exad-contact-form-7 input[type="color"], .exad-contact-form-7 textarea {
+  width: 100%;
+  height: 50px;
+  border-width: 0 0 1px 0;
+}
+
+.exad-contact-form-7 input[type="text"]:focus {
+  border-bottom: 2px solid #ff9c44;
+}
+
+.exad-contact-form-7 textarea {
+  height: auto;
+}
+
+.exad-contact-form .exad-contact-form-input-group label {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 0 0 0 25px;
+}
+
+.exad-contact-form .exad-contact-form-input-group label input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.exad-contact-form .exad-contact-form-input-group label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.exad-contact-form .exad-contact-form-input-group label input:checked ~ .checkmark {
+  background-color: #4ce2bd;
+  border: none;
+}
+
+.exad-contact-form .exad-contact-form-input-group label .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border: 1px solid #e3e6ec;
+}
+
+.exad-contact-form .exad-contact-form-input-group label .checkmark::after {
+  content: "\f00c";
+  font-family: FontAwesome;
+  position: absolute;
+  display: none;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+.exad-contact-form .exad-contact-form-input-action {
+  background: #ff9c44;
+  padding: 20px 70px;
+  box-shadow: 0px 21px 35px 0px rgba(255, 172, 87, 0.2);
+  color: #fff;
+  text-decoration: none;
+  margin-top: 30px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: all .4s ease;
+}
+
+.exad-contact-form .exad-contact-form-input-action i {
+  margin-left: 10px;
+}
+
+.exad-contact-form .exad-contact-form-input-action:hover {
+  color: #ff9c44;
+  background: #fff;
+  border: 1px solid #ff9c44;
+}
+
+.exad-contact-form.two {
+  display: flex;
+  flex-wrap: wrap;
+}
