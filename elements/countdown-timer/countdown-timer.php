@@ -21,82 +21,53 @@ class Exad_Countdown_Timer extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
+	public function get_script_depends() {
+		return [ 'exad-jquery-countdown' ];
+	}
+
 	protected function _register_controls() {
 
-		/*
-		 * Team Member Image
+		/**
+		 * Countdown Timer Settings
 		 */
 		$this->start_controls_section(
-  			'exad_section_team_member_image',
+  			'exad_section_countdown_settings_general',
   			[
-  				'label' => esc_html__( 'Team Member Image', 'exclusive-addons-elementor' )
+  				'label' => esc_html__( 'Timer Settings', 'exclusive-addons-elementor' )
   			]
   		);
 		
-
 		$this->add_control(
-			'exad_team_member_image',
+			'exad_countdown_time',
 			[
-				'label' => __( 'Team Member Avatar', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::MEDIA,
-				'default' => [
-					'url' => Utils::get_placeholder_image_src(),
-				],
+				'label' => esc_html__( 'Countdown Date', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DATE_TIME,
+				'default' => date("Y/m/d", strtotime("+ 1 week")),
+				'description' => esc_html__( 'Set the date and time here', 'exclusive-addons-elementor' ),
 			]
 		);
 
-
-		$this->add_group_control(
-			Group_Control_Image_Size::get_type(),
+		$this->add_responsive_control(
+			'exad_countdown_label_padding_left',
 			[
-				'name' => 'thumbnail',
-				'default' => 'full',
+				'label' => esc_html__( 'Left spacing for Labels', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'description' => esc_html__( 'Use when you select inline labels', 'exclusive-addons-elementor' ),
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown-label' => 'padding-left:{{SIZE}}px;',
+				],
 				'condition' => [
-					'exad_team_member_image[url]!' => '',
+					'exad_countdown_label_view' => 'exad-countdown-label-inline',
 				],
 			]
 		);
 
-
-		$this->end_controls_section();
-
-
-		/**
-		 * Team Member Content Section
-		 */
-		$this->start_controls_section(
-			'exad_team_content',
-			[
-				'label' => esc_html__( 'Team Member Information', 'exclusive-addons-elementor' ),
-			]
-		);
-		
-		$this->add_control(
-			'exad_team_member_name',
-			[
-				'label' => esc_html__( 'Name', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'John Doe', 'exclusive-addons-elementor' ),
-			]
-		);
-		
-		$this->add_control(
-			'exad_team_member_designation',
-			[
-				'label' => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => esc_html__( 'My Designation', 'exclusive-addons-elementor' ),
-			]
-		);
-		
-		$this->add_control(
-			'exad_team_member_description',
-			[
-				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Add team member details here', 'exclusive-addons-elementor' ),
-			]
-		);
 
 		$this->end_controls_section();
 
@@ -105,14 +76,14 @@ class Exad_Countdown_Timer extends Widget_Base {
 		 */
 		
 		$this->start_controls_section(
-  			'exad_section_team_member_social_profiles',
+  			'exad_section_countdown_social_profiles',
   			[
   				'label' => esc_html__( 'Social Profiles', 'exclusive-addons-elementor' )
   			]
   		);
 
 		$this->add_control(
-			'exad_team_member_enable_social_profiles',
+			'exad_countdown_enable_social_profiles',
 			[
 				'label' => esc_html__( 'Display Social Profiles?', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -121,90 +92,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);
 		
 		
-		$this->add_control(
-			'exad_team_member_social_profile_links',
-			[
-				'type' => Controls_Manager::REPEATER,
-				'condition' => [
-					'exad_team_member_enable_social_profiles!' => '',
-				],
-				'default' => [
-					[
-						'social' => 'fa fa-facebook',
-					],
-					[
-						'social' => 'fa fa-twitter',
-					],
-					[
-						'social' => 'fa fa-google-plus',
-					],
-					[
-						'social' => 'fa fa-linkedin',
-					],
-				],
-				'fields' => [
-					[
-						'name' => 'social',
-						'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::ICON,
-						'label_block' => true,
-						'default' => 'fa fa-wordpress',
-						'include' => [
-							'fa fa-apple',
-							'fa fa-behance',
-							'fa fa-bitbucket',
-							'fa fa-codepen',
-							'fa fa-delicious',
-							'fa fa-digg',
-							'fa fa-dribbble',
-							'fa fa-envelope',
-							'fa fa-facebook',
-							'fa fa-flickr',
-							'fa fa-foursquare',
-							'fa fa-github',
-							'fa fa-google-plus',
-							'fa fa-houzz',
-							'fa fa-instagram',
-							'fa fa-jsfiddle',
-							'fa fa-linkedin',
-							'fa fa-medium',
-							'fa fa-pinterest',
-							'fa fa-product-hunt',
-							'fa fa-reddit',
-							'fa fa-shopping-cart',
-							'fa fa-slideshare',
-							'fa fa-snapchat',
-							'fa fa-soundcloud',
-							'fa fa-spotify',
-							'fa fa-stack-overflow',
-							'fa fa-tripadvisor',
-							'fa fa-tumblr',
-							'fa fa-twitch',
-							'fa fa-twitter',
-							'fa fa-vimeo',
-							'fa fa-vk',
-							'fa fa-whatsapp',
-							'fa fa-wordpress',
-							'fa fa-xing',
-							'fa fa-yelp',
-							'fa fa-youtube',
-						],
-					],
-					[
-						'name' => 'link',
-						'label' => esc_html__( 'Link', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::URL,
-						'label_block' => true,
-						'default' => [
-							'url' => '',
-							'is_external' => 'true',
-						],
-						'placeholder' => esc_html__( 'Place URL here', 'exclusive-addons-elementor' ),
-					],
-				],
-				'title_field' => '<i class="{{ social }}"></i> {{{ social.replace( \'fa fa-\', \'\' ).replace( \'-\', \' \' ).replace( /\b\w/g, function( letter ){ return letter.toUpperCase() } ) }}}',
-			]
-		);
+		
 
 		$this->end_controls_section();
 
@@ -214,7 +102,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		 */
 
 		$this->start_controls_section(
-			'exad_section_team_members_styles_general',
+			'exad_section_countdown_styles_general',
 			[
 				'label' => esc_html__( 'Team Member Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
@@ -222,7 +110,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_team_members_preset',
+			'exad_countdown_preset',
 			[
 				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
@@ -238,7 +126,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_team_members_overlay_background',
+			'exad_countdown_overlay_background',
 			[
 				'label' => esc_html__( 'Overlay Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
@@ -247,13 +135,13 @@ class Exad_Countdown_Timer extends Widget_Base {
 					'{{WRAPPER}} .exad-team-members-overlay .exad-team-content' => 'background-color: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_members_preset' => 'exad-team-members-overlay',
+					'exad_countdown_preset' => 'exad-team-members-overlay',
 				],
 			]
 		);
 
 		$this->add_control(
-			'exad_team_members_background',
+			'exad_countdown_background',
 			[
 				'label' => esc_html__( 'Content Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
@@ -271,7 +159,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		*/
 
 		$this->start_controls_section(
-			'exad_section_team_members_image_styles',
+			'exad_section_countdown_image_styles',
 			[
 				'label' => esc_html__( 'Team Member Image Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
@@ -279,7 +167,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);		
 
 		$this->add_responsive_control(
-			'exad_team_members_image_width',
+			'exad_countdown_image_width',
 			[
 				'label' => esc_html__( 'Image Width', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
@@ -306,7 +194,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 
 
 		$this->add_responsive_control(
-			'exad_team_members_image_margin',
+			'exad_countdown_image_margin',
 			[
 				'label' => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
@@ -318,7 +206,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'exad_team_members_image_padding',
+			'exad_countdown_image_padding',
 			[
 				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
@@ -330,7 +218,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_team_members_bg_svg',
+			'exad_countdown_bg_svg',
 			[
 				'label' => esc_html__( 'Avatar Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
@@ -339,7 +227,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 					'{{WRAPPER}} .exad-team-image svg.exad-member-img-bg g' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_members_preset' => 'exad-team-members-rounded',
+					'exad_countdown_preset' => 'exad-team-members-rounded',
 				],
 			]
 		);
@@ -347,14 +235,14 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name' => 'exad_team_members_image_border',
+				'name' => 'exad_countdown_image_border',
 				'label' => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-team-item figure img',
 			]
 		);
 
 		$this->add_control(
-			'exad_team_members_image_rounded',
+			'exad_countdown_image_rounded',
 			[
 				'label' => esc_html__( 'Rounded Avatar?', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -365,7 +253,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 
 
 		$this->add_control(
-			'exad_team_members_image_border_radius',
+			'exad_countdown_image_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
@@ -373,7 +261,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 					'{{WRAPPER}} .exad-team-item figure img' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
 				],
 				'condition' => [
-					'exad_team_members_image_rounded!' => 'team-avatar-rounded',
+					'exad_countdown_image_rounded!' => 'team-avatar-rounded',
 				],
 			]
 		);
@@ -386,57 +274,13 @@ class Exad_Countdown_Timer extends Widget_Base {
 
 	protected function render() {
 
-		$settings = $this->get_settings();
-      	$team_member_image = $this->get_settings( 'exad_team_member_image' );
-	  	$team_member_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'thumbnail', $settings );	
-	  	if( empty( $team_member_image_url ) ) : $team_member_image_url = $team_member_image['url']; else: $team_member_image_url = $team_member_image_url; endif;
-	  	$team_member_classes = $this->get_settings('exad_team_members_preset') . " " . $this->get_settings('exad_team_members_image_rounded');
+		$settings = $this->get_settings_for_display();
 	
 	?>
 
-
-	<div id="exad-team-member-<?php echo esc_attr($this->get_id()); ?>" class="exad-team-item <?php echo $team_member_classes; ?>">
-		<div class="exad-team-item-inner">
-			<div class="exad-team-image">
-				<svg class="exad-member-img-bg" width="112px" height="109px" viewBox="0 0 112 109" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-				    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.568475632">
-				        <g id="Artboard" transform="translate(-625.000000, -92.000000)" fill="#000" fill-rule="nonzero">
-				            <g id="Group" transform="translate(606.000000, 71.000000)">
-				                <ellipse id="Oval-Copy-3" cx="75" cy="76" rx="56" ry="51"></ellipse>
-				                <ellipse id="Oval-Copy-4" cx="75" cy="76" rx="45" ry="51"></ellipse>
-				                <ellipse id="Oval-Copy-5" transform="translate(75.064373, 75.680657) rotate(-50.000000) translate(-75.064373, -75.680657) " cx="75.0643727" cy="75.6806569" rx="56" ry="51"></ellipse>
-				            </g>
-				        </g>
-				    </g>
-				</svg>
-				<div class="exad-team-img-wrapper">
-					<figure>
-						<img src="<?php echo esc_url($team_member_image_url);?>" alt="<?php echo $settings['exad_team_member_name'];?>">
-					</figure>
-				</div>
-			</div>
-
-			<div class="exad-team-content">
-				<h3 class="exad-team-member-name"><?php echo $settings['exad_team_member_name']; ?></h3>
-				<p class="exad-team-member-designation"><?php echo $settings['exad_team_member_designation']; ?></p>
-
-				<?php if ( ! empty( $settings['exad_team_member_enable_social_profiles'] ) ): ?>
-				<ul class="exad-team-member-social-profiles">
-					<?php foreach ( $settings['exad_team_member_social_profile_links'] as $item ) : ?>
-						<?php if ( ! empty( $item['social'] ) ) : ?>
-							<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
-							<li class="exad-team-member-social-link">
-								<a href="<?php echo esc_attr( $item['link']['url'] ); ?>"<?php echo $target; ?>><i class="<?php echo esc_attr($item['social'] ); ?>"></i></a>
-							</li>
-						<?php endif; ?>
-					<?php endforeach; ?>
-				</ul>
-				<?php endif; ?>
-
-				<!--<p class="exad-team-text"><?php echo $settings['exad_team_member_description']; ?></p>-->
-			</div>
-		</div>
-	</div>
+	<div class="exad-countdown-content-container">
+        <div class="exad-countdown two" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="<?php echo esc_attr( $settings['exad_countdown_time'] ); ?>"></div>
+    </div>
 
 <?php
 	}

@@ -641,7 +641,6 @@ class Exad_Progress_Bar extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		
-	
 		?>
 
 		<div class="exad-single-progress-bar-wrapper" id="progress-style-one-1">

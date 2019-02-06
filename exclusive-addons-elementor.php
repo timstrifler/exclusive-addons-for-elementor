@@ -181,6 +181,9 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.min.js', array( 'jquery' ), 1.0, true );
             // Waypoints js
             wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
+
+            // jQuery Cuntdown js
+            wp_enqueue_script( 'exad-jquery-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
             
             wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/main-script.js', array( 'jquery' ), 1.0, true );
         }
@@ -244,6 +247,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
             require_once EXAD_ELEMENTS . 'post-timeline/post-timeline.php';
             require_once EXAD_ELEMENTS . 'infobox/infobox.php';
             require_once EXAD_ELEMENTS . 'contact-form-7/contact-form-7.php';
+            require_once EXAD_ELEMENTS . 'post-grid/post-grid.php';
         }
 
         /**

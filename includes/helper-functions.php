@@ -131,6 +131,71 @@ function exad_get_post_excerpt( $post_id, $length ){
      return $the_excerpt;
 }
 
+
+/**
+ *
+ * @return Array of Post arguments based on Post Style prefix
+ *
+ *
+ */
+
+function exad_get_post_arguments( $prefix ) {
+
+    $author_ids = implode( ", ", $settings[ $prefix . '_authors'] );
+
+    $category_ids = implode( ", ", $settings[ $prefix . '_categories'] );
+
+    if ( 'yes' === $settings[ $prefix . '_ignore_sticky'] ) {
+        $exad_ignore_sticky = true;
+    } else {
+        $exad_ignore_sticky = false;
+    }
+
+    $post_args = array(
+        'post_type'        => $settings[ $prefix . '_type'],
+        'posts_per_page'   => $settings[ $prefix .'_per_page'],
+        'offset'           => $settings[ $prefix . '_offset'],
+        'cat'              => $category_ids,
+        'category_name'    => '',
+        'ignore_sticky_posts' => $exad_ignore_sticky,
+        'orderby'          => 'date',
+        'order'            => $settings[ $prefix . '_order'],
+        'include'          => '',
+        'exclude'          => '',
+        'meta_key'         => '',
+        'meta_value'       => '',
+        'post_mime_type'   => '',
+        'post_parent'      => '',
+        'author'           => $author_ids,
+        'author_name'      => '',
+        'post_status'      => 'publish',
+        'suppress_filters' => true,
+        'tag__in'          => $settings[ $prefix . '_tags'],
+        'post__not_in'     => '',
+    );
+
+    return $post_args;
+
+}
+
+/**
+ *
+ * Get the categories as list
+ *
+ */
+function exad_get_categories_for_post() {
+
+    $categories = get_the_category();
+    $separator = ' ';
+    $output = '';
+    if ( ! empty( $categories ) ) {
+        foreach( $categories as $category ) {
+            $output .= '<li><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></li>' . $separator;
+        }
+        echo trim( $output, $separator );
+    }
+}
+
 /**
  * 
  * Return the Posts from Database
@@ -140,42 +205,8 @@ function exad_get_post_excerpt( $post_id, $length ){
  */
 
 function exad_get_posts( $settings ) {
-
-    $author_ids = implode( ", ", $settings['exad_get_timeline_authors'] );
-
-    $category_ids = implode( ", ", $settings['exad_get_timeline_categories'] );
-
-    if ( 'yes' === $settings['exad_post_timeline_ignore_sticky'] ) {
-        $exad_ignore_sticky = true;
-    } else {
-        $exad_ignore_sticky = false;
-    }
-
-    $post_args = array(
-            'post_type'        => $settings['exad_post_timeline_type'],
-            'posts_per_page'   => $settings['exad_posts_per_page'],
-            'offset'           => $settings['exad_offset'],
-            'cat'              => $category_ids,
-            'category_name'    => '',
-            'ignore_sticky_posts' => $exad_ignore_sticky,
-            'orderby'          => 'date',
-            'order'            => $settings['exad_order'],
-            'include'          => '',
-            'exclude'          => '',
-            'meta_key'         => '',
-            'meta_value'       => '',
-            'post_mime_type'   => '',
-            'post_parent'      => '',
-            'author'           => $author_ids,
-            'author_name'      => '',
-            'post_status'      => 'publish',
-            'suppress_filters' => true,
-            'tag__in'          => $settings['exad_get_timeline_tags'],
-            'post__not_in'     => '',
-        );
     
-    $posts = new WP_Query( $post_args );
-
+    $posts = new WP_Query( $settings['post_args'] );
 
     //ob_start();
 
@@ -183,7 +214,9 @@ function exad_get_posts( $settings ) {
 
         if ( $settings['template_type'] == 'exad-post-timeline' ) { 
             include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
-        } else {
+        } elseif ( $settings['template_type'] == 'exad-post-grid' ) { 
+            include EXAD_TEMPLATES . 'tmpl-post-grid.php';
+        }else {
             echo "No Contents Found";
         }
 
