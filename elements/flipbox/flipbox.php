@@ -12,7 +12,7 @@ class Exad_Flip_Box extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'DC Flip Box', 'essential-addons-elementor' );
+		return esc_html__( 'DC Flip Box', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
@@ -20,7 +20,7 @@ class Exad_Flip_Box extends Widget_Base {
 	}
 
    	public function get_categories() {
-		return [ 'essential-addons-elementor' ];
+		return [ 'exclusive-addons-elementor' ];
 	}
 
 	protected function _register_controls() {

@@ -1,15 +1,4 @@
 <?php
-/**
- * Plugin Name: Exclusive Addons for Elementor
- * Plugin URI: http://devscred.com
- * Description: Packed with a bunch of Exclusively designed widget for Elementor.
- * Version: 1.0.0
- * Author: DevsCred
- * Author URI: http://devscred.com
- * Text Domain: exclusive-addons-elementor
- * Domain Path: /languages
- * License: GPL3
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -167,7 +156,7 @@ final class Exclusive_Addons_Elementor {
 
 		// Add Plugin actions
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
-        //add_action( 'elementor/controls/controls_registered', [ $this, 'init_controls' ] );
+        add_action( 'elementor/controls/controls_registered', [ $this, 'init_controls' ] );
 
         // Enqueue Styles and Scripts
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -204,10 +193,10 @@ final class Exclusive_Addons_Elementor {
     *
     */
     public function enqueue_scripts() {
-        
+        //wp_enqueue_style( 'exad-bootstrap', EXAD_URL . 'assets/css/bootstrap.min.css' );
         wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
         // Progress Bar Js
-        wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.js', array( 'jquery' ), 1.0, true );
+        wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.min.js', array( 'jquery' ), 1.0, true );
         // Waypoints js
         wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
 
