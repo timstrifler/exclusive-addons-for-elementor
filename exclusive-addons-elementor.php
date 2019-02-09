@@ -165,9 +165,11 @@ final class Exclusive_Addons_Elementor {
 			return;
 		}
 
+        // Register Widget Scripts
+		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
+
 		// Add Plugin actions
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
-        //add_action( 'elementor/controls/controls_registered', [ $this, 'init_controls' ] );
 
         // Enqueue Styles and Scripts
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
@@ -206,16 +208,25 @@ final class Exclusive_Addons_Elementor {
     public function enqueue_scripts() {
         
         wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
-        // Progress Bar Js
+        
+        wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/main-script.js', array( 'jquery' ), 1.0, true );
+    }
+
+    /**
+     * Elementor Widget Custom Scripts
+     * 
+     */
+    public function widget_scripts() {
+
+		// Progress Bar Js
         wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.js', array( 'jquery' ), 1.0, true );
         // Waypoints js
         wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
 
         // jQuery Cuntdown js
         wp_enqueue_script( 'exad-jquery-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
-        
-        wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/main-script.js', array( 'jquery' ), 1.0, true );
-    }
+
+	}
 
     /*
     *
@@ -325,25 +336,6 @@ final class Exclusive_Addons_Elementor {
         include_once EXAD_ELEMENTS . 'infobox/infobox.php';
         include_once EXAD_ELEMENTS . 'contact-form-7/contact-form-7.php';
         include_once EXAD_ELEMENTS . 'post-grid/post-grid.php';
-
-	}
-
-	/**
-	 * Init Controls
-	 *
-	 * Include controls files and register them
-	 *
-	 * @since 1.0.0
-	 *
-	 * @access public
-	 */
-	public function init_controls() {
-
-		// Include Control files
-		include_once( __DIR__ . '/controls/test-control.php' );
-
-		// Register control
-		\Elementor\Plugin::$instance->controls_manager->register_control( 'control-type-', new \Test_Control() );
 
 	}
 

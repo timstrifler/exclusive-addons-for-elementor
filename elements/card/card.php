@@ -292,6 +292,29 @@ class Exad_Card extends Widget_Base {
 
 	<?php
 	}
+
+	protected function _content_template() {
+		?>
+		<div id="exad-card" class="exad-card {{ settings.exad_card_preset }}">
+        	<div class="exad-card-thumb">
+            	<img src="{{ settings.exad_card_image.url }}" >
+          	</div>
+          	<div class="exad-card-body">
+            	<a href="{{ settings.exad_card_title_link.url }}" class="exad-card-title">{{{ settings.exad_card_title }}}</a>
+            	<p class="exad-card-tag">{{{ settings.exad_card_tag }}}</p>
+            	<p class="exad-card-description">{{{ settings.exad_card_description }}}</p>
+            	<a href="{{ settings.exad_card_action_link.url ); ?>" class="exad-card-action">
+            		<# if ( 'two' == settings.exad_card_preset ) {
+						#><i class="fa fa-arrow-right" aria-hidden="true"></i>
+            		<# } else { #>
+            			{{{ settings.exad_card_action_text }}} <#
+            		} #>
+            	</a>
+          	</div>
+        </div>
+		<?php
+	}
+
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Card() );
