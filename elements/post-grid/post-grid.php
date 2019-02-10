@@ -204,7 +204,6 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 		
 
-		
 		$this->add_control(
 			'exad_grid_bullet_bg_color',
 			[
@@ -257,7 +256,7 @@ class Exad_Post_Grid extends Widget_Base {
 
 			]
 		);
-		
+
 		$this->end_controls_section();
 
         $this->start_controls_section(
