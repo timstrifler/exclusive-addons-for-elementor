@@ -139,7 +139,7 @@ function exad_get_post_excerpt( $post_id, $length ){
  *
  */
 
-function exad_get_post_arguments( $prefix ) {
+function exad_get_post_arguments( $settings, $prefix ) {
 
     $author_ids = implode( ", ", $settings[ $prefix . '_authors'] );
 

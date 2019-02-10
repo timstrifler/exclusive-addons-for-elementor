@@ -165,6 +165,8 @@ final class Exclusive_Addons_Elementor {
 			return;
 		}
 
+		include_once EXAD_PATH . 'includes/helper-functions.php';
+
         // Register Widget Scripts
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
 
@@ -181,7 +183,6 @@ final class Exclusive_Addons_Elementor {
         add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 
         include_once EXAD_PATH . 'admin/dashboard-settings.php';
-        include_once EXAD_PATH . 'includes/helper-functions.php';
 
     }
     
@@ -222,7 +223,6 @@ final class Exclusive_Addons_Elementor {
         wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.js', array( 'jquery' ), 1.0, true );
         // Waypoints js
         wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
-
         // jQuery Cuntdown js
         wp_enqueue_script( 'exad-jquery-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
 
@@ -333,8 +333,10 @@ final class Exclusive_Addons_Elementor {
         include_once EXAD_ELEMENTS . 'countdown-timer/countdown-timer.php';
         include_once EXAD_ELEMENTS . 'flipbox/flipbox.php';
         include_once EXAD_ELEMENTS . 'post-timeline/post-timeline.php';
-        include_once EXAD_ELEMENTS . 'infobox/infobox.php';
-        include_once EXAD_ELEMENTS . 'contact-form-7/contact-form-7.php';
+		include_once EXAD_ELEMENTS . 'infobox/infobox.php';
+		if ( function_exists( 'wpcf7' ) ) {
+			include_once EXAD_ELEMENTS . 'contact-form-7/contact-form-7.php';
+		}
         include_once EXAD_ELEMENTS . 'post-grid/post-grid.php';
 
 	}

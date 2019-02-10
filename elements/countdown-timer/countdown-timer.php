@@ -273,16 +273,20 @@ class Exad_Countdown_Timer extends Widget_Base {
 	}
 
 	protected function render() {
-
 		$settings = $this->get_settings_for_display();
-	
-	?>
+		?>
+		<div id="exad-countdown-timer-<?php echo esc_attr($this->get_id()); ?>" class="exad-countdown-content-container">
+			<div class="exad-countdown two" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="<?php echo esc_attr( $settings['exad_countdown_time'] ); ?>"></div>
+		</div>
+		<?php
+	}
 
-	<div class="exad-countdown-content-container">
-        <div class="exad-countdown two" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="<?php echo esc_attr( $settings['exad_countdown_time'] ); ?>"></div>
-    </div>
-
-<?php
+	protected function _content_template() {
+		?>
+		<div id="exad-countdown-timer" class="exad-countdown-content-container">
+        	<div class="exad-countdown two" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="{{ settings.exad_countdown_time }}"></div>
+    	</div>
+		<?php
 	}
 
 }

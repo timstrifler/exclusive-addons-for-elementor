@@ -246,7 +246,7 @@ class Exad_Flip_Box extends Widget_Base {
 		 * Title
 		 */
 		$this->add_control(
-			'exad_flipbox_front_title_heading',
+			'exad_flipbox_front_icon_style',
 			[
 				'label' => esc_html__( 'Icon Style', 'essential-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -890,7 +890,7 @@ class Exad_Flip_Box extends Widget_Base {
 
 	?>
 
-	<div class="exad-flip-box">
+	<div id="exad-flip-box-<?php echo esc_attr($this->get_id()); ?>" class="exad-flip-box">
       	<div class="exad-flip-box-inner <?php echo esc_attr( $settings['exad_flipbox_style'] ); ?>">
         	<div class="exad-flip-box-front">
           		<div class="exad-flip-box-front-image">

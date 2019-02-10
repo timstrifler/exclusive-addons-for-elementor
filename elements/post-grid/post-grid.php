@@ -51,10 +51,28 @@ class Exad_Post_Grid extends Widget_Base {
                 'type' => Controls_Manager::NUMBER,
                 'default' => '4'
             ]
-        );
+		);
+
+		$this->add_control(
+            'exad_post_grid_column_no',
+            [
+                'label' => __( 'Number of Columns', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::SELECT,
+				'default' => '3',
+				'options' => [
+					'1' => esc_html__( 'One', 'exclusive-addons-elementor' ),
+					'2' => esc_html__( 'Two', 'exclusive-addons-elementor' ),
+					'3' => esc_html__( 'Three', 'exclusive-addons-elementor' ),
+					'4' => esc_html__( 'Four', 'exclusive-addons-elementor' ),
+					'5' => esc_html__( 'Five', 'exclusive-addons-elementor' ),
+					'6' => esc_html__( 'Six', 'exclusive-addons-elementor' ),
+				],
+            ]
+		);
+		
 		
         $this->add_control(
-            'exad_offset',
+            'exad_post_grid_offset',
             [
                 'label' => __( 'Offset', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::NUMBER,
@@ -99,7 +117,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_order',
+            'exad_post_grid_order',
             [
                 'label' => __( 'Order', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
@@ -374,48 +392,41 @@ class Exad_Post_Grid extends Widget_Base {
         $settings = $this->get_settings_for_display();
 
         $settings['template_type'] = $this->get_name();
-        $settings['post_args'] = exad_get_post_arguments('exad_post_grid');
+        $settings['post_args'] = exad_get_post_arguments($settings, 'exad_post_grid');
 		
 		$this->add_render_attribute(
 			'exad_post_grid_wrapper',
 			[
 				'id'		=> "exad-post-grid-{$this->get_id()}",
-				'class'		=> 'exad-post-grid',
-				'data-total_posts'	=> $total_post,
+				'class'		=> "exad-row-wrapper exad-col-{$settings['exad_post_grid_column_no']}",
+				//'data-total_posts'	=> $total_post,
 				'data-grid_id'	=> $this->get_id(),
 				
-				'data-post_type'	=> $settings['post_type'],
-				'data-posts_per_page'	=> $settings['posts_per_page'] ? $settings['posts_per_page'] : 4,
-				'data-post_order'		=> $settings['order'],
-				'data-post_orderby'		=> $settings['orderby'],
-				'data-post_offset'		=> intval( $settings['offset'] ),
+				'data-post_type'	=> $settings['exad_post_grid_type'],
+				'data-posts_per_page'	=> $settings['exad_post_grid_per_page'] ? $settings['exad_post_grid_per_page'] : 4,
+				'data-post_order'		=> $settings['exad_post_grid_order'],
+				//'data-post_orderby'		=> $settings['exad_post_grid_orderby'],
+				'data-post_offset'		=> intval( $settings['exad_post_grid_offset'] ),
 
-				'data-show_images'	=> $settings['exad_show_image'],
-				'data-image_size'	=> $settings['image_size'],
-				'data-show_title'	=> $settings['exad_show_title'],
+				//'data-show_images'	=> $settings['exad_show_image'],
+				//'data-image_size'	=> $settings['image_size'],
+				//'data-show_title'	=> $settings['exad_show_title'],
 
-				'data-show_excerpt'	=> $settings['exad_show_excerpt'],
-				'data-excerpt_length'	=> $settings['exad_excerpt_length'],
+				//'data-show_excerpt'	=> $settings['exad_show_excerpt'],
+				'data-excerpt_length'	=> $settings['exad_grid_excerpt_length'],
 
-				'data-btn_text'			=> $settings['show_load_more_text'],
+				//'data-btn_text'			=> $settings['show_load_more_text'],
 
-				'data-tax_query'		=> json_encode( ! empty( $tax_query ) ? $tax_query : [] ),
-				'data-exclude_posts'	=> json_encode( ! empty( $settings['post__not_in'] ) ? $settings['post__not_in'] : [] ),
-				'data-post__in'	=> json_encode( ! empty( $settings['post__in'] ) ? $settings['post__in'] : [] ),
-			]
-		);
-
-		$this->add_render_attribute(
-			'exad_post_grid',
-			[
-				'class'	=> [ 'exad-post-grid', "exad-post-appender-{$this->get_id()}" ]
+				//'data-tax_query'		=> json_encode( ! empty( $tax_query ) ? $tax_query : [] ),
+				//'data-exclude_posts'	=> json_encode( ! empty( $settings['post__not_in'] ) ? $settings['post__not_in'] : [] ),
+				//'data-post__in'	=> json_encode( ! empty( $settings['post__in'] ) ? $settings['post__in'] : [] ),
 			]
 		);
 
         ?>
 
 		<!-- Load More Button -->
-		<div class="exad-row-wrapper exad-col-<?php echo $settings['exad_post_grid_per_page']; ?>">
+		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
         	<?php exad_get_posts( $settings ); ?>
     	</div>
 
