@@ -165,7 +165,7 @@ final class Exclusive_Addons_Elementor {
 			return;
 		}
 
-		include_once EXAD_PATH . 'includes/helper-functions.php';
+		include_once EXAD_PATH . 'includes/helper-class.php';
 
         // Register Widget Scripts
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );

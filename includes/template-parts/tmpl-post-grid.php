@@ -6,7 +6,7 @@
     </figure>
     <div class="exad-post-grid-body"> 
         <ul class="exad-post-grid-category">
-            <?php exad_get_categories_for_post(); ?>
+            <?php Elementor\Exad_Helper::exad_get_categories_for_post(); ?>
         </ul>
         <h3>
             <a href="#" class="exad-post-grid-title"><?php the_title(); ?></a>
@@ -16,7 +16,7 @@
                 <a href="#" class="exad-post-grid-author-date"><?php echo get_the_date('M d, Y'); ?></a>
             </p>
         <?php endif; ?> 
-        <p class="exad-post-grid-description"><?php echo exad_get_post_excerpt( get_the_ID(), $settings['exad_grid_excerpt_length'] ); ?></p>
+        <p class="exad-post-grid-description"><?php echo Elementor\Exad_Helper::exad_get_post_excerpt( get_the_ID(), $settings['exad_grid_excerpt_length'] ); ?></p>
         <?php if ( '-one' === $settings['exad_post_grid_preset'] ) : ?>
             <div class="exad-post-grid-author">
                 <div class="exad-post-grid-author-image">

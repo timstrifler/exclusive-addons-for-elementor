@@ -38,7 +38,7 @@ class Exad_Post_Timeline extends Widget_Base {
             [
                 'label' => __( 'Post Type', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
-                'options' => exad_get_post_types(),
+                'options' => Exad_Helper::exad_get_post_types(),
                 'default' => 'post',
 
             ]
@@ -70,7 +70,7 @@ class Exad_Post_Timeline extends Widget_Base {
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'default' => [],
-                'options' => exad_get_authors(),
+                'options' => Exad_Helper::exad_get_authors(),
             ]
         );
 
@@ -82,7 +82,7 @@ class Exad_Post_Timeline extends Widget_Base {
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'default' => [],
-                'options' => exad_get_all_categories(),
+                'options' => Exad_Helper::exad_get_all_categories(),
             ]
         );
 
@@ -94,7 +94,7 @@ class Exad_Post_Timeline extends Widget_Base {
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'default' => [],
-                'options' => exad_get_all_tags(),
+                'options' => Exad_Helper::exad_get_all_tags(),
             ]
         );
 
@@ -360,7 +360,7 @@ class Exad_Post_Timeline extends Widget_Base {
 
         $settings['template_type'] = $this->get_name();
 
-        $settings['post_args'] = exad_get_post_arguments('exad_post_timeline');
+        $settings['post_args'] = Exad_Helper::exad_get_post_arguments('exad_post_timeline');
 		
 		$this->add_render_attribute(
 			'exad_post_timeline_wrapper',
@@ -399,7 +399,7 @@ class Exad_Post_Timeline extends Widget_Base {
 		<!-- Load More Button -->
 		<div class="exad-post-timeline one">
 
-          	<?php exad_get_posts( $settings ); ?>
+          	<?php Exad_Helper::exad_get_posts( $settings ); ?>
 
         </div>  
 		<?php

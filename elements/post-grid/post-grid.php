@@ -38,7 +38,7 @@ class Exad_Post_Grid extends Widget_Base {
             [
                 'label' => __( 'Post Type', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
-                'options' => exad_get_post_types(),
+                'options' => Exad_Helper::exad_get_post_types(),
                 'default' => 'post',
 
             ]
@@ -88,7 +88,7 @@ class Exad_Post_Grid extends Widget_Base {
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'default' => [],
-                'options' => exad_get_authors(),
+                'options' => Exad_Helper::exad_get_authors(),
             ]
         );
 
@@ -100,7 +100,7 @@ class Exad_Post_Grid extends Widget_Base {
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'default' => [],
-                'options' => exad_get_all_categories(),
+                'options' => Exad_Helper::exad_get_all_categories(),
             ]
         );
 
@@ -112,7 +112,7 @@ class Exad_Post_Grid extends Widget_Base {
                 'type' => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'default' => [],
-                'options' => exad_get_all_tags(),
+                'options' => Exad_Helper::exad_get_all_tags(),
             ]
         );
 
@@ -151,8 +151,6 @@ class Exad_Post_Grid extends Widget_Base {
 
         $this->end_controls_section();
 
-		//$this->layout_controls();
-
         $this->start_controls_section(
             'exad_section_post_grid_style',
             [
@@ -169,9 +167,7 @@ class Exad_Post_Grid extends Widget_Base {
 				'default' => '-one',
 				'options' => [
 					'-one' => esc_html__( 'Default', 'exclusive-addons-elementor' ),
-					'-two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-					'-three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-					'-four' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
+					'-three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -386,11 +382,11 @@ class Exad_Post_Grid extends Widget_Base {
 	}
 
 
-	protected function render( ) {
+	protected function render() {
         $settings = $this->get_settings_for_display();
 
         $settings['template_type'] = $this->get_name();
-        $settings['post_args'] = exad_get_post_arguments($settings, 'exad_post_grid');
+        $settings['post_args'] = Exad_Helper::exad_get_post_arguments($settings, 'exad_post_grid');
 		
 		$this->add_render_attribute(
 			'exad_post_grid_wrapper',
@@ -425,7 +421,7 @@ class Exad_Post_Grid extends Widget_Base {
 
 		<!-- Load More Button -->
 		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
-        	<?php exad_get_posts( $settings ); ?>
+        	<?php Exad_Helper::exad_get_posts( $settings ); ?>
     	</div>
 
 
