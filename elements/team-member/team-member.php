@@ -451,6 +451,48 @@ class Exad_Team_Member extends Widget_Base {
 		</div>
 	<?php
 	}
+
+	protected function _content_template() {
+		?>
+		<div id="exad-team-member" class="exad-team-item">
+			<div class="exad-team-member{{ settings.exad_team_members_preset }}">
+				<div class="exad-team-member-thumb">
+					<# if ( '-circle' == settings.exad_team_members_preset ) { #>
+					<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+						<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+						<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
+						<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
+					</svg>
+					<# } #>
+					<img src="{{ settings.exad_team_member_image.url }}" class="circled" alt="{{ settings.exad_team_member_name }}">
+				</div>
+				<div class="exad-team-member-content">
+					<h2 class="exad-team-member-name">{{{ settings.exad_team_member_name }}}</h2>
+					<span class="exad-team-member-designation">{{{ settings.exad_team_member_designation }}}</span>
+					<p class="exad-team-member-about">{{{ settings.exad_team_member_description }}}</p>
+					<# if ( 'yes' == settings.exad_team_member_enable_social_profiles ) { #>
+						<ul class="list-inline exad-team-member-social">
+							<# foreach ( settings.exad_team_member_social_profile_links as item ) { #>
+							
+							<# var target = item.link.is_external ? ' target="_blank"' : '' #>
+							<li>
+								<a href="{{ item.link.url }}">{{{ target }}}<i class="{{ item.social }}"></i></a>
+							</li>
+							
+							<# } #>
+						</ul>
+					<# } #>
+				</div>
+			</div>
+		</div>
+
+		<?php
+	}
+
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Team_Member() );

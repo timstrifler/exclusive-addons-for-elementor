@@ -3511,11 +3511,11 @@ ul.exad-pricing-table-features {
   padding: 0 300px;
 }
 
-.exad-countdown-description.white-v {
+.exad-countdown-description.style-1 {
   color: #fff;
 }
 
-.exad-countdown-description.white-v h2 {
+.exad-countdown-description.style-1 h2 {
   color: #fff;
 }
 
@@ -3553,13 +3553,11 @@ ul.exad-pricing-table-features {
   z-index: 2;
 }
 
-.exad-countdown .exad-countdown-container {
+.exad-countdown.style-1 .exad-countdown-container {
   width: calc((100% / 4) - 23px);
   padding: 17px 10px;
   margin-right: 30px;
   text-align: center;
-  background-color: #552de9;
-  border-radius: 4px;
 }
 
 .exad-countdown .exad-countdown-container:last-child {
@@ -3575,32 +3573,32 @@ ul.exad-pricing-table-features {
   margin-bottom: 16px;
 }
 
-.exad-countdown.white-v .exad-countdown-count,
-.exad-countdown.white-v .exad-countdown-title {
+.exad-countdown.style-1 .exad-countdown-count,
+.exad-countdown.style-1 .exad-countdown-title {
   color: #fff;
 }
 
-.exad-countdown.two {
+.exad-countdown.style-2 {
   padding: 0 30px;
 }
 
-.exad-countdown.two .exad-countdown-container {
+.exad-countdown.style-2 .exad-countdown-container {
   background-color: transparent;
   margin-right: 0px;
   width: 25%;
   padding: 0px;
 }
 
-.exad-countdown.two .exad-countdown-container:last-child .exad-countdown-count::after {
+.exad-countdown.style-2 .exad-countdown-container:last-child .exad-countdown-count::after {
   display: none;
 }
 
-.exad-countdown.two .exad-countdown-count {
+.exad-countdown.style-2 .exad-countdown-count {
   font-weight: 100;
   position: relative;
 }
 
-.exad-countdown.two .exad-countdown-count::after {
+.exad-countdown.style-2 .exad-countdown-count::after {
   content: ":";
   color: #000;
   font-family: "Roboto", sans-serif;
@@ -3995,7 +3993,7 @@ ul.exad-pricing-table-features {
   .exad-countdown-description.two {
     margin-bottom: 30px;
   }
-  .exad-countdown.two {
+  .exad-countdown.style-2 {
     padding: 0px;
   }
   .exad-countdown-content-container.image-version {
@@ -4025,10 +4023,10 @@ ul.exad-pricing-table-features {
     padding-left: 15px;
     padding-right: 15px;
   }
-  .exad-countdown.two .exad-countdown-count::after {
+  .exad-countdown.style-2 .exad-countdown-count::after {
     display: none;
   }
-  .exad-countdown.two .exad-countdown-container, .exad-countdown.three .exad-countdown-container, .exad-countdown.four .exad-countdown-container, .exad-countdown.five .exad-countdown-container {
+  .exad-countdown.style-2 .exad-countdown-container, .exad-countdown.three .exad-countdown-container, .exad-countdown.four .exad-countdown-container, .exad-countdown.five .exad-countdown-container {
     width: calc((100% / 2) - 20px);
     margin-right: 10px;
     margin-left: 10px;

@@ -71,31 +71,6 @@ class Exad_Countdown_Timer extends Widget_Base {
 
 		$this->end_controls_section();
 
-		/* 
-		 * Team member Social profiles section 
-		 */
-		
-		$this->start_controls_section(
-  			'exad_section_countdown_social_profiles',
-  			[
-  				'label' => esc_html__( 'Social Profiles', 'exclusive-addons-elementor' )
-  			]
-  		);
-
-		$this->add_control(
-			'exad_countdown_enable_social_profiles',
-			[
-				'label' => esc_html__( 'Display Social Profiles?', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-			]
-		);
-		
-		
-		
-
-		$this->end_controls_section();
-
 
 		/*
 		 * Team Members Styling Section
@@ -104,7 +79,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_countdown_styles_general',
 			[
-				'label' => esc_html__( 'Team Member Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Countdown Timer Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -114,28 +89,10 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'exad-team-members-simple',
+				'default' => 'style-1',
 				'options' => [
-					'exad-team-members-simple' 		=> esc_html__( 'Simple Style', 		'exclusive-addons-elementor' ),
-					'exad-team-members-overlay' 	=> esc_html__( 'Overlay Style', 	'exclusive-addons-elementor' ),
-					'exad-team-members-social-left-hover' 	=> esc_html__( 'Centered Style', 	'exclusive-addons-elementor' ),
-					'exad-team-members-rounded' 		=> esc_html__( 'Circle Style', 	'exclusive-addons-elementor' ),
-					'exad-team-members-pro-style-5' => esc_html__( 'Social on Bottom', 	'exclusive-addons-elementor' ),
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_countdown_overlay_background',
-			[
-				'label' => esc_html__( 'Overlay Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => 'rgba(255,255,255,0.8)',
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-members-overlay .exad-team-content' => 'background-color: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_countdown_preset' => 'exad-team-members-overlay',
+					'style-1' 		=> esc_html__( 'Style 1', 		'exclusive-addons-elementor' ),
+					'style-2' 	=> esc_html__( 'Style 2', 	'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -143,11 +100,60 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_control(
 			'exad_countdown_background',
 			[
-				'label' => esc_html__( 'Content Background Color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Box Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#552de9',
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container' => 'background-color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_countdown_preset' => 'style-1',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'border',
+				'label' => __( 'Border', 'plugin-domain' ),
+				'selector' => '{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container',
+			]
+		);
+
+		$this->add_control(
+			'exad_countdown_image_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+				],
+				'default' => [
+					'top' => 4,
+					'right' => 4,
+					'bottom' => 4,
+					'left' => 4,
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+				'condition' => [
+					'exad_countdown_preset' => 'style-1',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_countdown_background',
+			[
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-item .exad-team-content' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container' => 'background-color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_countdown_preset' => 'style-1',
 				],
 			]
 		);
@@ -227,7 +233,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 					'{{WRAPPER}} .exad-team-image svg.exad-member-img-bg g' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_countdown_preset' => 'exad-team-members-rounded',
+					'exad_countdown_preset' => 'style-1',
 				],
 			]
 		);
@@ -251,24 +257,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			]
 		);
 
-
-		$this->add_control(
-			'exad_countdown_image_border_radius',
-			[
-				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-item figure img' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
-				],
-				'condition' => [
-					'exad_countdown_image_rounded!' => 'team-avatar-rounded',
-				],
-			]
-		);
-
 		$this->end_controls_section();
-
-		 
 
 	}
 
@@ -276,7 +265,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		?>
 		<div id="exad-countdown-timer-<?php echo esc_attr($this->get_id()); ?>" class="exad-countdown-content-container">
-			<div class="exad-countdown two" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="<?php echo esc_attr( $settings['exad_countdown_time'] ); ?>"></div>
+			<div class="exad-countdown <?php echo esc_attr( $settings['exad_countdown_preset'] ); ?>" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="<?php echo esc_attr( $settings['exad_countdown_time'] ); ?>"></div>
 		</div>
 		<?php
 	}
@@ -284,7 +273,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 	protected function _content_template() {
 		?>
 		<div id="exad-countdown-timer" class="exad-countdown-content-container">
-        	<div class="exad-countdown two" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="{{ settings.exad_countdown_time }}"></div>
+        	<div class="exad-countdown {{ settings.exad_countdown_preset }}" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="{{ settings.exad_countdown_time }}"></div>
     	</div>
 		<?php
 	}
