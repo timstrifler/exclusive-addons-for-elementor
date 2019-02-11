@@ -476,14 +476,14 @@ class Exad_Team_Member extends Widget_Base {
 					<p class="exad-team-member-about">{{{ settings.exad_team_member_description }}}</p>
 					<# if ( 'yes' == settings.exad_team_member_enable_social_profiles ) { #>
 						<ul class="list-inline exad-team-member-social">
-							<# foreach ( settings.exad_team_member_social_profile_links as item ) { #>
+							<# _.each( settings.exad_team_member_social_profile_links, function( item, index ) { #>
 							
 							<# var target = item.link.is_external ? ' target="_blank"' : '' #>
 							<li>
-								<a href="{{ item.link.url }}">{{{ target }}}<i class="{{ item.social }}"></i></a>
+								<a href="{{ item.link.url }}" {{{ target }}}><i class="{{ item.social }}"></i></a>
 							</li>
 							
-							<# } #>
+							<# }); #>
 						</ul>
 					<# } #>
 				</div>

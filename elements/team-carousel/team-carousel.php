@@ -572,10 +572,6 @@ class Exad_Team_Carousel extends Widget_Base {
 			]
 		);
 
-		if ( $settings['exad_team_pause'] == 'yes' ) {
-            $this->add_render_attribute( 'exad-team-carousel', 'data-pauseonhover', "true");
-        }
-
 		if ( $settings['exad_team_autoplay_speed'] == 'yes' ) {
             $this->add_render_attribute( 'exad-team-carousel', 'data-autoplayspeed', "true");
         }

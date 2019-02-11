@@ -144,7 +144,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_countdown_background',
+			'exad_countdown_border_radius',
 			[
 				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
