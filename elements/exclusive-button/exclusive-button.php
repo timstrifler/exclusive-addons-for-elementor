@@ -7,11 +7,11 @@ class Exad_Exclusive_Button extends Widget_Base {
 	
 
 	public function get_name() {
-		return 'eael-creative-button';
+		return 'exad-exclusive-button';
 	}
 
 	public function get_title() {
-		return esc_html__( 'EA Creative Button', 'exclusive-addons-elementor' );
+		return esc_html__( 'DC Exclusive Button', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
@@ -59,6 +59,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 					[
 						'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::ICON,
+						'default' => 'fa fa-download'
 					]
 				);
 		
@@ -93,9 +94,9 @@ class Exad_Exclusive_Button extends Widget_Base {
 							'exad_exclusive_button_icon!' => '',
 						],
 						'selectors' => [
-							'{{WRAPPER}} .eael-creative-button-icon-right' => 'margin-left: {{SIZE}}px;',
-							'{{WRAPPER}} .eael-creative-button-icon-left' => 'margin-right: {{SIZE}}px;',
-							'{{WRAPPER}} .eael-creative-button--shikoba i' => 'left: -{{SIZE}}px;',
+							'{{WRAPPER}} .exad-exclusive-button-icon-right' => 'margin-left: {{SIZE}}px;',
+							'{{WRAPPER}} .exad-exclusive-button-icon-left' => 'margin-right: {{SIZE}}px;',
+							'{{WRAPPER}} .exad-exclusive-button--shikoba i' => 'left: -{{SIZE}}px;',
 						],
 					]
 				);
@@ -157,24 +158,24 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label' => esc_html__( 'Set Button Effect', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'eael-creative-button--default',
+				'default' => 'exad-exclusive-button--default',
 				'options' => [
-					'eael-creative-button--default' 	=> esc_html__( 'Default', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--winona' 		=> esc_html__( 'Winona', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--ujarak' 		=> esc_html__( 'Ujarak', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--wayra' 		=> esc_html__( 'Wayra', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--tamaya' 		=> esc_html__( 'Tamaya', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--rayen' 		=> esc_html__( 'Rayen', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--pipaluk' 	=> esc_html__( 'Pipaluk', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--moema' 		=> esc_html__( 'Moema', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--wave' 		=> esc_html__( 'Wave', 		'exclusive-addons-elementor' ),
-					'eael-creative-button--aylen' 		=> esc_html__( 'Aylen', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--saqui' 		=> esc_html__( 'Saqui', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--wapasha' 	=> esc_html__( 'Wapasha', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--nuka' 		=> esc_html__( 'Nuka', 		'exclusive-addons-elementor' ),
-					'eael-creative-button--antiman' 	=> esc_html__( 'Antiman', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--quidel' 		=> esc_html__( 'Quidel', 	'exclusive-addons-elementor' ),
-					'eael-creative-button--shikoba' 	=> esc_html__( 'Shikoba', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--default' 	=> esc_html__( 'Default', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--winona' 		=> esc_html__( 'Winona', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--ujarak' 		=> esc_html__( 'Ujarak', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--wayra' 		=> esc_html__( 'Wayra', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--tamaya' 		=> esc_html__( 'Tamaya', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--rayen' 		=> esc_html__( 'Rayen', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--pipaluk' 	=> esc_html__( 'Pipaluk', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--moema' 		=> esc_html__( 'Moema', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--wave' 		=> esc_html__( 'Wave', 		'exclusive-addons-elementor' ),
+					'exad-exclusive-button--aylen' 		=> esc_html__( 'Aylen', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--saqui' 		=> esc_html__( 'Saqui', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--wapasha' 	=> esc_html__( 'Wapasha', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--nuka' 		=> esc_html__( 'Nuka', 		'exclusive-addons-elementor' ),
+					'exad-exclusive-button--antiman' 	=> esc_html__( 'Antiman', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--quidel' 		=> esc_html__( 'Quidel', 	'exclusive-addons-elementor' ),
+					'exad-exclusive-button--shikoba' 	=> esc_html__( 'Shikoba', 	'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -190,7 +191,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				[
 				'name' => 'exad_exclusive_button_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .eael-creative-button',
+					'selector' => '{{WRAPPER}} .exad-exclusive-button',
 				]
 			);
 
@@ -205,7 +206,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				[
 				'name' => 'exad_exclusive_button_secondary_typography',
 					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .eael-creative-button--rayen::before',
+					'selector' => '{{WRAPPER}} .exad-exclusive-button--rayen::before',
 				]
 			);
 
@@ -235,7 +236,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				],
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eael-creative-button-wrapper' => 'justify-content: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button-wrapper' => 'justify-content: {{VALUE}};',
 				],
 			]
 		);
@@ -258,7 +259,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eael-creative-button' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-exclusive-button' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -270,13 +271,13 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
-					'{{WRAPPER}} .eael-creative-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--winona::after' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--winona > span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--rayen::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--rayen > span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--saqui::after' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-exclusive-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--winona::after' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--winona > span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen > span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--saqui::after' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -292,9 +293,9 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#ffffff',
 				'selectors'	=> [
-					'{{WRAPPER}} .eael-creative-button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--tamaya::before' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--tamaya::after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::after' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -306,19 +307,19 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#333333',
 				'selectors' => [
-					'{{WRAPPER}} .eael-creative-button' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--ujarak:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--wayra:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--tamaya::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--tamaya::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--rayen:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--pipaluk::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--wave:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--aylen::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--nuka::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--nuka::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--antiman::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--quidel::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--ujarak:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wayra:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--pipaluk::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wave:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--aylen::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--nuka::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--nuka::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--antiman::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--quidel::after' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -327,7 +328,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'		=> 'exad_exclusive_button_border',
-				'selector'	=> '{{WRAPPER}} .eael-creative-button',
+				'selector'	=> '{{WRAPPER}} .exad-exclusive-button',
 			]
 		);
 		
@@ -342,9 +343,9 @@ class Exad_Exclusive_Button extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .eael-creative-button' => 'border-radius: {{SIZE}}px;',
-					'{{WRAPPER}} .eael-creative-button::before' => 'border-radius: {{SIZE}}px;',
-					'{{WRAPPER}} .eael-creative-button::after' => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .exad-exclusive-button' => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .exad-exclusive-button::before' => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .exad-exclusive-button::after' => 'border-radius: {{SIZE}}px;',
 				],
 			]
 		);
@@ -361,9 +362,9 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .eael-creative-button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--winona::after' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--saqui::after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--winona::after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--saqui::after' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -375,17 +376,17 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f54',
 				'selectors' => [
-					'{{WRAPPER}} .eael-creative-button:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--ujarak::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--wayra:hover::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--tamaya:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--rayen::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--wave::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--wave:hover::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--aylen::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--saqui:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--nuka:hover::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--quidel:hover::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--ujarak::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wayra:hover::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya:hover' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wave::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wave:hover::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--aylen::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--saqui:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--nuka:hover::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--quidel:hover::after' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -397,11 +398,11 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .eael-creative-button:hover' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--wapasha::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--antiman::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--pipaluk::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .eael-creative-button.eael-creative-button--quidel::before'  => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button:hover' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wapasha::before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--antiman::before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--pipaluk::before' => 'border-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--quidel::before'  => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -415,7 +416,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} .eael-creative-button',
+				'selector' => '{{WRAPPER}} .exad-exclusive-button',
 			]
 		);		
 		
@@ -430,7 +431,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 		$settings = $this->get_settings();
 		
 		$this->add_render_attribute( 'exad_exclusive_button', [
-			'class'	=> [ 'eael-creative-button', esc_attr($settings['exclusive_button_effect'] ) ],
+			'class'	=> [ 'exad-button-action', esc_attr($settings['exclusive_button_effect'] ) ],
 			'href'	=> esc_attr($settings['exclusive_button_link_url']['url'] ),
 		]);
 
@@ -444,19 +445,13 @@ class Exad_Exclusive_Button extends Widget_Base {
 
 		$this->add_render_attribute( 'exad_exclusive_button', 'data-text', esc_attr($settings['exclusive_button_secondary_text'] ));
 	?>
-	<div class="eael-creative-button-wrapper">
+	<div class="exad-button-one">
 		<a <?php echo $this->get_render_attribute_string( 'exad_exclusive_button' ); ?>>
-			<span>
-				<?php if ( ! empty( $settings['exad_exclusive_button_icon'] ) && $settings['exad_exclusive_button_icon_alignment'] == 'left' ) : ?>
-					<i class="<?php echo esc_attr($settings['exad_exclusive_button_icon'] ); ?> eael-creative-button-icon-left" aria-hidden="true"></i> 
-				<?php endif; ?>
+			<?php if ( ! empty( $settings['exad_exclusive_button_icon'] ) ) : ?>
+				<i class="<?php echo esc_attr($settings['exad_exclusive_button_icon'] ); ?>" aria-hidden="true"></i> 
+			<?php endif; ?>
 
-				<?php echo  $settings['exclusive_button_text'];?>
-
-				<?php if ( ! empty( $settings['exad_exclusive_button_icon'] ) && $settings['exad_exclusive_button_icon_alignment'] == 'right' ) : ?>
-					<i class="<?php echo esc_attr($settings['exad_exclusive_button_icon'] ); ?> eael-creative-button-icon-right" aria-hidden="true"></i> 
-				<?php endif; ?>
-			</span>
+			<?php echo  $settings['exclusive_button_text'];?>
 		</a>
 	</div>
 	<?php

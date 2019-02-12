@@ -200,6 +200,17 @@ class Exad_Contact_Form extends Widget_Base {
             ]
         );
 		
+        $this->add_control(
+            'exad_contact_container_border_top',
+            [
+                'label'                 => __( 'Border Top Color', 'essential-addons-elementor' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '#724cff',
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-contact-form::before' => 'background: {{VALUE}}',
+                ],
+            ]
+        );
 
   		$this->add_responsive_control(
   			'exad_contact_form_width',
@@ -219,7 +230,7 @@ class Exad_Contact_Form extends Widget_Base {
 				],
 				'default'   => [
 				        'unit'  => 'px',
-                        'size'  => '500'
+                        'size'  => '600'
                 ],
 				'selectors' => [
 					'{{WRAPPER}} .exad-contact-form' => 'width: {{SIZE}}{{UNIT}};',
@@ -228,7 +239,7 @@ class Exad_Contact_Form extends Widget_Base {
   		);
 		
 		
-		$this->add_responsive_control(
+        /* $this->add_responsive_control(
 			'exad_contact_form_margin',
 			[
 				'label' => esc_html__( 'Form Margin', 'essential-addons-elementor' ),
@@ -243,9 +254,9 @@ class Exad_Contact_Form extends Widget_Base {
                     'bottom' => 0,
                     'left' => auto,
                     'unit' => 'px'
-                    ]
+                ]
 			]
-		);		
+		); */
 		
 		$this->add_responsive_control(
 			'exad_contact_form_padding',
@@ -506,203 +517,6 @@ class Exad_Contact_Form extends Widget_Base {
         
         $this->end_controls_section();
 
-        /**
-         * Style Tab: Radio & Checkbox
-         * -------------------------------------------------
-         */
-        $this->start_controls_section(
-            'section_radio_checkbox_style',
-            [
-                'label'                 => __( 'Radio & Checkbox', 'essential-addons-elementor' ),
-                'tab'                   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-        
-        $this->add_control(
-            'custom_radio_checkbox',
-            [
-                'label'                 => __( 'Custom Styles', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::SWITCHER,
-                'label_on'              => __( 'Yes', 'essential-addons-elementor' ),
-                'label_off'             => __( 'No', 'essential-addons-elementor' ),
-                'return_value'          => 'yes',
-            ]
-        );
-        
-        $this->add_responsive_control(
-            'radio_checkbox_size',
-            [
-                'label'                 => __( 'Size', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'default'               => [
-                    'size'      => '15',
-                    'unit'      => 'px'
-                ],
-                'range'                 => [
-                    'px'        => [
-                        'min'   => 0,
-                        'max'   => 80,
-                        'step'  => 1,
-                    ],
-                ],
-                'size_units'            => [ 'px', 'em', '%' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .exad-custom-radio-checkbox input[type="radio"]' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}',
-                ],
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-            ]
-        );
-
-        $this->start_controls_tabs( 'tabs_radio_checkbox_style' );
-
-        $this->start_controls_tab(
-            'radio_checkbox_normal',
-            [
-                'label'                 => __( 'Normal', 'essential-addons-elementor' ),
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'radio_checkbox_color',
-            [
-                'label'                 => __( 'Color', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .exad-custom-radio-checkbox input[type="radio"]' => 'background: {{VALUE}}',
-                ],
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-            ]
-        );
-        
-        $this->add_responsive_control(
-            'radio_checkbox_border_width',
-            [
-                'label'                 => __( 'Border Width', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
-                    'px'        => [
-                        'min'   => 0,
-                        'max'   => 15,
-                        'step'  => 1,
-                    ],
-                ],
-                'size_units'            => [ 'px' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .exad-custom-radio-checkbox input[type="radio"]' => 'border-width: {{SIZE}}{{UNIT}}',
-                ],
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'radio_checkbox_border_color',
-            [
-                'label'                 => __( 'Border Color', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .exad-custom-radio-checkbox input[type="radio"]' => 'border-color: {{VALUE}}',
-                ],
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-            ]
-        );
-        
-        $this->add_control(
-            'checkbox_heading',
-            [
-                'label'                 => __( 'Checkbox', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::HEADING,
-				'condition'             => [
-					'custom_radio_checkbox' => 'yes',
-				],
-            ]
-        );
-
-		$this->add_control(
-			'checkbox_border_radius',
-			[
-				'label'                 => __( 'Border Radius', 'essential-addons-elementor' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
-				'selectors'             => [
-					'{{WRAPPER}} .exad-custom-radio-checkbox input[type="checkbox"], {{WRAPPER}} .exad-custom-radio-checkbox input[type="checkbox"]:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-			]
-		);
-        
-        $this->add_control(
-            'radio_heading',
-            [
-                'label'                 => __( 'Radio Buttons', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::HEADING,
-				'condition'             => [
-					'custom_radio_checkbox' => 'yes',
-				],
-            ]
-        );
-
-		$this->add_control(
-			'radio_border_radius',
-			[
-				'label'                 => __( 'Border Radius', 'essential-addons-elementor' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
-				'selectors'             => [
-					'{{WRAPPER}} .exad-custom-radio-checkbox input[type="radio"], {{WRAPPER}} .exad-custom-radio-checkbox input[type="radio"]:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-			]
-		);
-
-        $this->end_controls_tab();
-
-        $this->start_controls_tab(
-            'radio_checkbox_checked',
-            [
-                'label'                 => __( 'Checked', 'essential-addons-elementor' ),
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'radio_checkbox_color_checked',
-            [
-                'label'                 => __( 'Color', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-custom-radio-checkbox input[type="checkbox"]:checked:before, {{WRAPPER}} .exad-custom-radio-checkbox input[type="radio"]:checked:before' => 'background: {{VALUE}}',
-                ],
-                'condition'             => [
-                    'custom_radio_checkbox' => 'yes',
-                ],
-            ]
-        );
-
-        $this->end_controls_tab();
-
-        $this->end_controls_tabs();
-        
-        $this->end_controls_section();
 
         /**
          * Style Tab: Submit Button
