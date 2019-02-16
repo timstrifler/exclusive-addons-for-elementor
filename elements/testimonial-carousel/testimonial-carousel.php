@@ -37,8 +37,6 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 
 		$testimonial_repeater = new Repeater();
 
-		
-
 		$testimonial_repeater->add_control(
 			'exad_testimonial_carousel_name',
 			[
@@ -131,11 +129,105 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			]
 		);
 
+		$this->end_controls_section();
+		
+
+		$this->start_controls_section(
+			'section_test_carousel_settings',
+			[
+				'label' => esc_html__( 'Carousel Settings', 'exclusive-addons-elementor' ),
+			]
+		);
+
+		$slides_per_view = range( 1, 10 );
+		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
+
+		$this->add_responsive_control(
+			'exad_testimonial_per_view',
+			[
+				'type'           => Controls_Manager::SELECT,
+				'label'          => esc_html__( 'Testimonials On Row', 'exclusive-addons-elementor' ),
+				'label_block'    => true,
+				'options'        => $slides_per_view,
+				'default'        => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
+				'condition' => [
+					'exad_testimonial_carousel_preset' => '-circle',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_slides_to_scroll',
+			[
+				'type'      => Controls_Manager::SELECT,
+				'label'     => esc_html__( 'Testimonials to Scroll', 'exclusive-addons-elementor' ),
+				'label_block'    => true,
+				'options'   => $slides_per_view,
+				'default'   => '1',
+				'condition' => [
+					'exad_testimonial_carousel_preset' => '-circle',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_transition_duration',
+			[
+				'label'   => esc_html__( 'Transition Duration', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 500,
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_autoplay',
+			[
+				'label'     => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'yes',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_autoplay_speed',
+			[
+				'label'     => esc_html__( 'Autoplay Speed', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 5000,
+				'condition' => [
+					'exad_testimonial_autoplay' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_loop',
+			[
+				'label'   => esc_html__( 'Infinite Loop', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_pause',
+			[
+				'label'     => esc_html__( 'Pause on Interaction', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'yes',
+				'condition' => [
+					'exad_testimonial_autoplay' => 'yes',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 
 		/*
-		* Testimonial Members Styling Section
+		* Testimonial Carousel Styling Section
 		*/
 		$this->start_controls_section(
 			'exad_section_testimonial_carousel_styles_general',
@@ -348,99 +440,6 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 
         $this->end_controls_section();
 
-		$this->start_controls_section(
-			'section_test_carousel_settings',
-			[
-				'label' => esc_html__( 'Carousel Settings', 'exclusive-addons-elementor' ),
-			]
-		);
-
-		$slides_per_view = range( 1, 10 );
-		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
-
-		$this->add_responsive_control(
-			'exad_testimonial_per_view',
-			[
-				'type'           => Controls_Manager::SELECT,
-				'label'          => esc_html__( 'Testimonials On Row', 'exclusive-addons-elementor' ),
-				'label_block'    => true,
-				'options'        => $slides_per_view,
-				'default'        => '3',
-				'tablet_default' => '2',
-				'mobile_default' => '1',
-				'condition' => [
-					'exad_testimonial_carousel_preset' => '-circle',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_slides_to_scroll',
-			[
-				'type'      => Controls_Manager::SELECT,
-				'label'     => esc_html__( 'Testimonials to Scroll', 'exclusive-addons-elementor' ),
-				'label_block'    => true,
-				'options'   => $slides_per_view,
-				'default'   => '1',
-				'condition' => [
-					'exad_testimonial_carousel_preset' => '-circle',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_transition_duration',
-			[
-				'label'   => esc_html__( 'Transition Duration', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::NUMBER,
-				'default' => 500,
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_autoplay',
-			[
-				'label'     => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'yes',
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_autoplay_speed',
-			[
-				'label'     => esc_html__( 'Autoplay Speed', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::NUMBER,
-				'default'   => 5000,
-				'condition' => [
-					'exad_testimonial_autoplay' => 'yes',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_loop',
-			[
-				'label'   => esc_html__( 'Infinite Loop', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_pause',
-			[
-				'label'     => esc_html__( 'Pause on Interaction', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'yes',
-				'condition' => [
-					'exad_testimonial_autoplay' => 'yes',
-				],
-			]
-		);
-
-		$this->end_controls_section();
 
 	}
 

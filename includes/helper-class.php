@@ -217,9 +217,8 @@ class Exad_Helper {
             } elseif ( $settings['template_type'] == 'exad-post-grid' ) { 
                 include EXAD_TEMPLATES . 'tmpl-post-grid.php';
             }else {
-                echo "No Contents Found";
+                _e( 'No Contents Found', 'exclusive-addons-elementor' );
             }
-
 
         endwhile;
 
