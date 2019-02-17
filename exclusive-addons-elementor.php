@@ -332,6 +332,7 @@ final class Exclusive_Addons_Elementor {
 		}
 		include_once EXAD_ELEMENTS . 'post-grid/post-grid.php';
 		include_once EXAD_ELEMENTS . 'exclusive-button/exclusive-button.php';
+		include_once EXAD_ELEMENTS . 'exclusive-accordion/exclusive-accordion.php';
 		//include_once EXAD_ELEMENTS . 'exclusive-tabs/exclusive-tabs.php';
 	}
 
