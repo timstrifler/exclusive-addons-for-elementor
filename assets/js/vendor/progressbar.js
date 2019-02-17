@@ -219,12 +219,12 @@
         "min": 0,
         "max": 100
       };
-      config["preset"] = root.attr("data-preset") || option["preset"];
+      config["preset"] = root.getAttribute("data-preset") || option["preset"];
       if (config.preset != null) {
         import$(config, presets[config.preset]);
       }
       for (attr in config) {
-        if (that = that = root.attr("data-" + attr)) {
+        if (that = that = root.getAttribute("data-" + attr)) {
           config[attr] = that;
         }
       }
