@@ -112,6 +112,26 @@
 	};
 
 	
+	// Accordion one script
+	var ExclusiveAccordion = function($scope, $) {
+		var $accordionWrapper = $scope.find('.exad-accordion-one'),
+			$accordionTitle = $scope.find('.exad-accordion-title');
+
+		if (typeof $accordionWrapper !== 'undefined' && $accordionWrapper !== null) {	
+			// Remove multiple click event for nested accordion
+			$accordionTitle.unbind("click");
+
+			$accordionWrapper.children('.exad-accordion-content').first().show();
+			$accordionTitle.click(function(){
+				$(this).next('.exad-accordion-content').slideToggle(200);
+				$(this).parent().toggleClass('active');
+				$(this).parent().siblings().children('.exad-accordion-content').slideUp();
+				$(this).parent().siblings().removeClass('active');
+			});	
+		}	
+	};
+
+    
 
 
 	$(window).on('elementor/frontend/init', function () {
@@ -122,7 +142,8 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/exad-team-carousel.default', TeamCarousel);
         elementorFrontend.hooks.addAction('frontend/element_ready/exad-testimonial-carousel.default', TestimonialCarousel);
         //elementorFrontend.hooks.addAction('frontend/element_ready/exad-progress-bar.default', ProgressBar);
-        elementorFrontend.hooks.addAction('frontend/element_ready/exad-countdown-timer.default', CountdownTimer);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-countdown-timer.default', CountdownTimer);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-accordion.default', ExclusiveAccordion);
         
     });
 

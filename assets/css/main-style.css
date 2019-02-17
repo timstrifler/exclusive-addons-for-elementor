@@ -6821,3 +6821,674 @@ ul.exad-pricing-table-features {
 }
 
 /* Exclusive Tabs End */
+
+/* Exclusive Accordion Start */
+
+.exad-accordion.one .exad-accordion-one {
+  border-top: 1px solid #000000;
+}
+
+.exad-accordion.one .exad-accordion-one:last-child {
+  border-bottom: 1px solid #000000;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-title {
+  position: relative;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-title::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  font-size: 25px;
+  font-weight: 300;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-title h3 {
+  font-size: 18px;
+  color: #000000;
+  padding: 25px 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-content {
+  background-color: #fff;
+  display: none;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 0 30px 20px 0;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-content .exad-accordion-content-wrapper p {
+  margin: 0;
+  color: #717171;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.exad-accordion.one .exad-accordion-one.active .exad-accordion-title::after {
+  content: '-';
+  position: absolute;
+  right: 0;
+  font-size: 40px;
+  top: 45%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-accordion.two .exad-accordion-two {
+  margin-bottom: 20px;
+}
+
+.exad-accordion.two .exad-accordion-two.active .exad-accordion-title {
+  position: relative;
+}
+
+.exad-accordion.two .exad-accordion-two.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title {
+  display: flex;
+  border: 1px solid #000000;
+  height: 70px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #000000;
+  font-size: 22px;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title span {
+  width: 7%;
+  position: relative;
+  border-right: 1px solid #000000;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title span i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #000000;
+  font-size: 20px;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title h3 {
+  width: 86%;
+  margin: 0;
+  font-size: 18px;
+  border-width: 0px 1px 0px 1px;
+  border-color: #000000;
+  border-style: solid;
+  padding: 24px 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper {
+  display: flex;
+  border: 1px solid #000000;
+  border-top: none;
+  padding: 30px 30px;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description {
+  width: 60%;
+  padding: 0 40px 0 0;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description h2 {
+  color: #0a1724;
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description p {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #717171;
+  line-height: 26px;
+  margin: 30px 0 50px 0;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #000000;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: all .3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 0;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .3s ease;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a:hover {
+  color: #000000;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a:hover::before {
+  width: 100%;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-thumbnail {
+  width: 40%;
+}
+
+.exad-accordion.three .exad-accordion-three {
+  box-shadow: 0px 13px 49px 0px rgba(51, 77, 128, 0.15);
+  margin-bottom: 30px;
+}
+
+.exad-accordion.three .exad-accordion-three.active .exad-accordion-title::after {
+  content: '-';
+  font-size: 36px;
+  right: 20px;
+  top: 45%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title {
+  display: flex;
+  padding: 15px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title::after {
+  position: absolute;
+  content: '+';
+  color: #fff;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title span {
+  width: 5%;
+  text-align: center;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title span i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title h3 {
+  width: 95%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title.orange {
+  background: #ff6434;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title.teal {
+  background: #21b8a9;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title.blue {
+  background: #7a38ff;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title:hover.orange {
+  background: #b24624;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title:hover.teal {
+  background: #178076;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title:hover.blue {
+  background: #5527b2;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 50px 30px;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-content .exad-accordion-content-wrapper p {
+  font-size: 15px;
+  color: #717171;
+  font-family: "Roboto", sans-serif;
+  line-height: 26px;
+}
+
+.exad-accordion.four .exad-accordion-four.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+  color: #fff;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title span {
+  width: 5%;
+  text-align: center;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title span i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title h3 {
+  width: 95%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper {
+  display: flex;
+  padding: 30px 30px;
+  align-items: center;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-thumbnail {
+  width: 40%;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description {
+  width: 60%;
+  padding: 0 30px 0 30px;
+  color: #fff;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description h2 {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description p {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  line-height: 26px;
+  margin: 30px 0 50px 0;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a {
+  display: inline-block;
+  padding: 15px 40px;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  transition: all .3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 0;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .3s ease;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a:hover {
+  color: #000000;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a:hover::before {
+  width: 100%;
+}
+
+.exad-accordion.four .exad-accordion-four.dark-black {
+  background: #1f2124;
+}
+
+.exad-accordion.four .exad-accordion-four.semi-black {
+  background: #363a3f;
+}
+
+.exad-accordion.four .exad-accordion-four.light-black {
+  background: #494d52;
+}
+
+.exad-accordion.five .exad-accordion-five {
+  margin-bottom: 30px;
+}
+
+.exad-accordion.five .exad-accordion-five.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+  background: #5f5f5f;
+  color: #fff;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title span {
+  width: 10%;
+  text-align: center;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title span i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title h3 {
+  width: 90%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 20px 0;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-content .exad-accordion-content-wrapper p {
+  font-size: 15px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.exad-accordion.six .exad-accordion-six {
+  margin-bottom: 30px;
+}
+
+.exad-accordion.six .exad-accordion-six.active .exad-accordion-title {
+  color: #36d3ac;
+}
+
+.exad-accordion.six .exad-accordion-six.active .exad-accordion-title span i {
+  color: #36d3ac;
+}
+
+.exad-accordion.six .exad-accordion-six.active .exad-accordion-title h3 {
+  color: #36d3ac;
+}
+
+.exad-accordion.six .exad-accordion-six.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+  color: #0a1724;
+  box-shadow: 0px 13px 49px 0px rgba(51, 77, 128, 0.15);
+  border-radius: 40px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title span {
+  width: 10%;
+  text-align: center;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title span i {
+  color: #0a1724;
+  font-size: 20px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title h3 {
+  width: 90%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 20px 20px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-content .exad-accordion-content-wrapper p {
+  font-size: 15px;
+  color: #717171;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.exad-accordion.seven .exad-accordion-seven {
+  margin-bottom: 30px;
+}
+
+.exad-accordion.seven .exad-accordion-seven.active .exad-accordion-title {
+  color: #fff;
+  background: linear-gradient(90deg, #724cff 0%, #8868fe 100%);
+  box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.15);
+}
+
+.exad-accordion.seven .exad-accordion-seven.active .exad-accordion-title span i {
+  color: #fff;
+}
+
+.exad-accordion.seven .exad-accordion-seven.active .exad-accordion-title h3 {
+  color: #fff;
+}
+
+.exad-accordion.seven .exad-accordion-seven.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+  color: #0a1724;
+  box-shadow: 0px 13px 49px 0px rgba(51, 77, 128, 0.15);
+  border-radius: 40px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title span {
+  width: 10%;
+  text-align: center;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title span i {
+  color: #0a1724;
+  font-size: 20px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title h3 {
+  width: 90%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 20px 20px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-content .exad-accordion-content-wrapper p {
+  font-size: 15px;
+  color: #717171;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  font-weight: 100;
+  margin: 0;
+}
+
+/* Exclusive Accordion End */ 
