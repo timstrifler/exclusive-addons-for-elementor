@@ -142,12 +142,9 @@ class Exclusive_Accordion extends Widget_Base {
 				  	[
 						'name'		=> 'exad_exclusive_accordion_tab_content',
 						'label'		=> esc_html__( 'Tab Content', 'exclusive-addons-elementor' ),
-						'type'		=> Controls_Manager::WYSIWYG,
+						'type'		=> Controls_Manager::TEXTAREA,
 						'default'	=> esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'exclusive-addons-elementor' ),
 						'dynamic'	=> [ 'active' => true ],
-						'condition'	=> [
-							'exad_exclusive_accordion_text_type'	=> 'content',
-						],
 					],
 				],
 				'title_field' => '{{exad_exclusive_accordion_tab_title}}',
@@ -654,18 +651,38 @@ class Exclusive_Accordion extends Widget_Base {
 		$this->add_render_attribute( 'exad-exclusive-accordion', 'id', 'exad-exclusive-accordion-'.esc_attr( $this->get_id() ));
 	?>
 	
-		<div class="exad-accordion one">
-          	<div class="exad-accordion-one active">
-            	<div class="exad-accordion-title">
-              		<h3><?php echo $settings['exad_exclusive_accordion_tab_title']; ?></h3>
-            	</div>
-				<div class="exad-accordion-content">
-					<div class="exad-accordion-content-wrapper">
-						<p><?php echo $settings['exad_exclusive_accordion_tab_content']; ?></p>
+		<div class="exad-accordion six">
+			<?php 
+				foreach( $settings['exad_exclusive_accordion_tab'] as $key => $accordion ) : 
+					
+					$accordion_item_setting_key = $this->get_repeater_setting_key('exad_exclusive_accordion_tab_title', 'exad_exclusive_accordion_tab', $key);
+
+					$accordion_class = ['exad-accordion-title'];
+
+					if ( $accordion['exad_exclusive_accordion_tab_default_active'] == 'yes' ) {
+						$accordion_class[] = 'active-default';
+					}
+
+					$this->add_render_attribute( $accordion_item_setting_key, [
+						'class'		=> $accordion_class,
+						
+					]);
+
+				?>
+				<div class="exad-accordion-six">
+					<div <?php echo $this->get_render_attribute_string($accordion_item_setting_key); ?>>
+						<?php if ( isset( $accordion['exad_exclusive_accordion_icon_show'] ) && $accordion['exad_exclusive_accordion_icon_show'] == 'yes' ) : ?>
+							<span><i class="<?php echo esc_attr( $accordion['exad_exclusive_accordion_icon'] ); ?>"></i></span>
+						<?php endif; ?>
+						<h3><?php echo $accordion['exad_exclusive_accordion_tab_title']; ?></h3>
+					</div>
+					<div class="exad-accordion-content">
+						<div class="exad-accordion-content-wrapper">
+							<p><?php echo $accordion['exad_exclusive_accordion_tab_content']; ?></p>
+						</div>
 					</div>
 				</div>
-        	</div>
-			
+			<?php endforeach; ?>
     	</div>
 	
 	<?php
