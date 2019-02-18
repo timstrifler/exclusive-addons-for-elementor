@@ -42,12 +42,16 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		  	[
 		   	'label'       	=> esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
 		     	'type' 			=> Controls_Manager::SELECT,
-		     	'default' 		=> 'two',
+		     	'default' 		=> 'one',
 		     	'label_block' 	=> false,
 		     	'options' 		=> [
-		     		'two' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-					'three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+		     		'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+					'two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 					'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
+					'four' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
+					'five' => esc_html__( 'Style 5', 'exclusive-addons-elementor' ),
+					'six' => esc_html__( 'Style 6', 'exclusive-addons-elementor' ),
+					'seven' => esc_html__( 'Style 7', 'exclusive-addons-elementor' ),
 		     	],
 		  	]
 		);
