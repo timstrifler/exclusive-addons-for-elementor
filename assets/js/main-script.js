@@ -218,7 +218,22 @@
 		}	
 	};
 
-    
+	// Exclusive Tabs 
+	var ExclusiveTabs = function($scope, $) {
+		// Advance tab script
+		var $tabsWrapper = $scope.find('[data-tabs]');
+		
+		$tabsWrapper.each( function(index) {
+			var tab = $(this);
+			tab.find('[data-tab]').click(function() {
+				tab.find('[data-tab]').removeClass('active');
+				tab.find('.exad-advance-tab-content').removeClass('active');
+				$(this).addClass('active');
+				tab.find('.exad-advance-tab-content').eq($(this).index()).addClass('active');
+			});
+
+		});
+	}
 
 
 	$(window).on('elementor/frontend/init', function () {
@@ -231,6 +246,7 @@
         elementorFrontend.hooks.addAction('frontend/element_ready/exad-progress-bar.default', ProgressBar);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-countdown-timer.default', CountdownTimer);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-accordion.default', ExclusiveAccordion);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-tabs.default', ExclusiveTabs);
         
     });
 
