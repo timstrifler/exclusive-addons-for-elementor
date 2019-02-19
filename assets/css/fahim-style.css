@@ -1,0 +1,414 @@
+/* Card Style Start */
+
+.exad-card {
+  font-family: "Roboto", sans-serif;
+}
+.exad-card-description {
+    font-size: 16px;
+    color: #8a8d91;
+    margin: 0 auto;
+}
+.exad-card-tag {
+    font-size: 15px;
+    color: #8a8d91;
+    margin: 0;
+}
+
+.exad-card.one {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e5e5e5;
+  border-radius: 4px;
+  background-color: white;
+  position: relative;
+  margin: 20px 0 30px;
+}
+
+.exad-card.one .exad-card-thumb {
+  border-radius: 4px 4px 0 0;
+}
+
+.exad-card.one .exad-card-thumb img {
+  width: 100%;
+}
+
+.exad-card.one .exad-card-body {
+  padding: 30px 30px;
+}
+
+.exad-card.one .exad-card-body .exad-card-title {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #132c47;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: all .4s ease;
+}
+
+.exad-card.one .exad-card-body .exad-card-title::before {
+  position: absolute;
+  content: '';
+  height: 30px;
+  width: 3px;
+  top: 0;
+  left: -30px;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  background: #ff4a4a;
+  transition: all .2s ease;
+}
+
+.exad-card.one .exad-card-body .exad-card-title:hover::before {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+.exad-card.one .exad-card-body .exad-card-description {
+  margin: 20px 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  color: #8a8d91;
+}
+
+.exad-card.one .exad-card-body .exad-card-action {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 118px;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
+  background: #fff;
+  font-family: "Roboto", sans-serif;
+  padding: 15px 35px;
+  border-radius: 4px;
+  transition: all .4s ease;
+  color: #132c47;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.exad-card.one .exad-card-body .exad-card-action:hover {
+  background: #ff4a4a;
+  color: #fff;
+}
+
+.exad-card.two {
+  background-color: white;
+  box-shadow: 0px 15px 39px 0px rgba(9, 24, 33, 0.06);
+  border-radius: 4px;
+  position: relative;
+  margin: 20px 0;
+}
+
+.exad-card.two:hover .exad-card-body .exad-card-title {
+  margin-left: 30px;
+}
+
+.exad-card.two:hover .exad-card-body .exad-card-title::before {
+  opacity: 1;
+}
+
+.exad-card.two .exad-card-thumb img {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+}
+
+.exad-card.two .exad-card-body {
+  padding: 30px 30px;
+}
+
+.exad-card.two .exad-card-body .exad-card-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #132c47;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none;
+  transition: all .3s ease;
+  display: block;
+}
+
+.exad-card.two .exad-card-body .exad-card-title::before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 20px;
+  background: #9059ff;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  transition: all .3s ease;
+  opacity: 0;
+}
+
+.exad-card.two .exad-card-body .exad-card-tag {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  color: #8a8d91;
+  margin-bottom: 15px;
+}
+
+.exad-card.two .exad-card-body .exad-card-action {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  text-align: center;
+  line-height: 52px;
+  width: 50px;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
+  background: #fff;
+  border-radius: 50%;
+  transition: all .4s ease;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  display: block;
+}
+
+.exad-card.two .exad-card-body .exad-card-action i {
+  color: #c6c6c6;
+  font-size: 22px;
+}
+
+.exad-card.two .exad-card-body .exad-card-action svg {
+  fill: #c6c6c6;
+}
+
+.exad-card.two .exad-card-body .exad-card-action:hover {
+  -webkit-transform: translate(-50%, 50%) scale(1.2);
+          transform: translate(-50%, 50%) scale(1.2);
+  background: #9059ff;
+}
+
+.exad-card.two .exad-card-body .exad-card-action:hover i {
+  color: #fff;
+}
+
+.exad-card.three {
+  position: relative;
+}
+
+.exad-card.three::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #ff4a4a;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  transition: all .2s ease;
+  z-index: 1;
+}
+
+.exad-card.three:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.exad-card.three:hover .exad-card-body .exad-card-tag {
+  margin-left: 30px;
+}
+
+.exad-card.three:hover .exad-card-body .exad-card-tag::before {
+  opacity: 1;
+}
+
+.exad-card.three .exad-card-thumb {
+  position: relative;
+}
+
+.exad-card.three .exad-card-thumb img {
+  width: 100%;
+}
+
+.exad-card.three .exad-card-thumb::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.exad-card.three .exad-card-body .exad-card-description {
+  position: absolute;
+  bottom: 105px;
+  left: 40px;
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-card.three .exad-card-body .exad-card-tag {
+  position: absolute;
+  bottom: 80px;
+  left: 40px;
+  color: #ff4a4a;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  transition: all .2s ease;
+}
+
+.exad-card.three .exad-card-body .exad-card-tag::before {
+  content: '';
+  height: 2px;
+  width: 20px;
+  background: #ff4a4a;
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.exad-card.three .exad-card-body .exad-card-title {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+}
+
+.exad-card.three .exad-card-body .exad-card-action {
+  position: absolute;
+  bottom: 40px;
+  right: 25px;
+  background: rgba(95, 90, 84, 0.7);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  padding: 14px 48px;
+  border-radius: 25px;
+  transition: all .3s ease;
+  display: block;
+}
+
+.exad-card.three .exad-card-body .exad-card-action:hover {
+  background: #ff4a4a;
+}
+
+.exad-card.four {
+  position: relative;
+  box-shadow: 0px 50px 50px 0px rgba(0, 0, 0, 0.1);
+  margin: 0 20px;
+  z-index: 1;
+}
+
+.exad-card.four:hover .exad-card-body .exad-card-title {
+  margin-bottom: 30px;
+}
+
+.exad-card.four:hover .exad-card-body .exad-card-description {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+.exad-card.four:hover .exad-card-body .exad-card-action {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.exad-card.four:hover::before {
+  height: 100%;
+}
+
+.exad-card.four::before {
+  position: absolute;
+  content: '';
+  height: 90%;
+  width: 85%;
+  background: transparent;
+  border: 7px solid #dcdcdc;
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translate(40px, 40px);
+          transform: translate(40px, 40px);
+  z-index: -1;
+  transition: all .5s ease;
+}
+
+.exad-card.four .exad-card-thumb img {
+  width: 100%;
+}
+
+.exad-card.four .exad-card-body {
+  position: absolute;
+  bottom: 0;
+  bottom: 0;
+  left: 0;
+  padding: 40px 30px 30px 30px;
+}
+
+.exad-card.four .exad-card-body .exad-card-tag {
+  margin: 0;
+  font-size: 13px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  top: 0;
+  background: rgba(255, 255, 255, 0.3);
+  left: 30px;
+  padding: 3px 22px;
+  border-radius: 12px;
+}
+
+.exad-card.four .exad-card-body .exad-card-title {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  display: block;
+  margin-bottom: -190px;
+  transition: all .5s ease;
+}
+
+.exad-card.four .exad-card-body .exad-card-description {
+  margin: 30px 0;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  color: #fff;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  transition: all .4s ease;
+}
+
+.exad-card.four .exad-card-body .exad-card-action {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  text-decoration: none;
+  background: #ff4a4a;
+  border-radius: 25px;
+  padding: 16px 50px;
+  display: inline-block;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  transition: all .4s ease;
+}
+
+/* Card Style End */
