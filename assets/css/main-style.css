@@ -5900,6 +5900,7 @@ ul.exad-pricing-table-features {
   display: none;
   padding: 50px 0 60px;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .exad-advance-tab.one .exad-advance-tab-content .exad-advance-tab-content-title {
@@ -5981,10 +5982,8 @@ ul.exad-pricing-table-features {
 }
 
 .exad-advance-tab.two .exad-advance-tab-nav li span {
-  font-size: 16px;
   color: #8a8d91;
   font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
 }
 
 .exad-advance-tab.two .exad-advance-tab-nav li.active {
@@ -5997,7 +5996,7 @@ ul.exad-pricing-table-features {
 
 .exad-advance-tab.two .exad-advance-tab-content {
   display: none;
-  padding: 50px 0 60px;
+  padding: 40px;
   position: relative;
 }
 
@@ -6190,7 +6189,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-advance-tab.four .exad-advance-tab-nav li span {
-  text-transform: uppercase;
   color: #0a1724;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
@@ -6722,7 +6720,7 @@ ul.exad-pricing-table-features {
   position: relative;
 }
 
-.exad-accordion.two .exad-accordion-two.active .exad-accordion-title::after {
+.exad-accordion.two .exad-accordion-two .exad-accordion-title.active::after {
   position: absolute;
   font-family: "FontAwesome";
   content: "\f106";

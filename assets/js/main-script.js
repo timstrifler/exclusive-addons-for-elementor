@@ -189,7 +189,6 @@
 		var $accordionWrapper = $scope.find('.exad-accordion-six'),
 			$accordionTitle = $scope.find('.exad-accordion-title');
 
-		if (typeof $accordionWrapper !== 'undefined' && $accordionWrapper !== null) {	
 
 			// Open default actived tab
             $accordionTitle.each(function(){
@@ -215,7 +214,7 @@
                     $(this).next().slideToggle(400);
 				}	
 			});	
-		}	
+			
 	};
 
 	// Exclusive Tabs 
