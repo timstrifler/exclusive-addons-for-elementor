@@ -278,6 +278,32 @@ class Exad_Infobox extends Widget_Base {
 
 	<?php
 	}
+
+	protected function _content_template() {
+		?>
+		<div id="exad-infobox" class="exad-infobox {{ settings.exad_infobox_preset }}">
+          	<div class="exad-infobox-item">
+	            <div class="exad-infobox-icon">
+
+	            	<# if( 'icon' == settings.exad_infobox_img_or_icon ) { #>
+						<i class="{{{ settings.exad_infobox_icon }}}"></i>
+					<# } #>
+
+	            	<# if( 'img' == settings.exad_infobox_img_or_icon ) { #>
+						<i class="{{{ settings.exad_infobox_icon }}}"></i>
+						<img src="{{{ settings.exad_infobox_img_or_icon }}}" alt="Icon Image">
+					<# } #>
+					
+	            </div>
+	            <div class="exad-infobox-content">
+	            	<h3 class="exad-infobox-content-title">{{{ settings.exad_infobox_title }}}</h3>
+	              	<div class="exad-infobox-content-description">{{{ settings.exad_infobox_description }}}
+	              	</div>
+	            </div>
+          	</div>
+        </div>
+		<?php
+	}
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Infobox() );
