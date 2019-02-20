@@ -4606,8 +4606,16 @@ ul.exad-pricing-table-features {
 
 /* Exclusive Button Start */
 
+/* Global Styles for Buttons */
+.exad-button .exad-button-action {
+  width: 100%;
+  text-align: center;
+}
+.exad-button .exad-button-wrapper {
+  margin-bottom: 30px;
+}
 
-.exad-button-one .exad-button-action {
+.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action {
   padding: 30px 30px 30px 70px;
   display: inline-block;
   margin-right: 20px;
@@ -4620,10 +4628,9 @@ ul.exad-pricing-table-features {
   border: 1px solid transparent;
   background: linear-gradient(90deg, #724cff 0%, #8868fe 100%);
   box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.2);
-  margin-bottom: 32px;
 }
 
-.exad-button-one .exad-button-action i {
+.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action i {
   font-size: 35px;
   margin-right: 15px;
   position: absolute;
@@ -4631,7 +4638,7 @@ ul.exad-pricing-table-features {
   top: 25px;
 }
 
-.exad-button-one .exad-button-action::before {
+.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action::before {
   position: absolute;
   content: '';
   height: 100%;
@@ -4644,423 +4651,30 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button-one .exad-button-action:hover {
-  color: #704aff;
+.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action:hover {
+  color: #8868fe;
 }
 
-.exad-button-one .exad-button-action:hover::before {
+.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action:hover::before {
   width: 100%;
 }
 
-.exad-button.two {
-  text-align: center;
-}
-
-.exad-button.two .exad-button-two .exad-button-action {
+.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action {
+  display: inline-block;
   text-decoration: none;
-  text-transform: uppercase;
-  width: 70%;
-  padding: 20px 0;
-  display: inline-block;
-  font-size: 15px;
-  color: #000000;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  transition: all .3s ease;
-  position: relative;
-}
-
-.exad-button.two .exad-button-two .exad-button-action:hover.side-border {
-  color: #fff;
-}
-
-.exad-button.two .exad-button-two .exad-button-action:hover.side-border::before {
-  width: 100%;
-  z-index: -1;
-}
-
-.exad-button.two .exad-button-two .exad-button-action:hover.full-radius {
-  color: #fff;
-  border: 2px solid transparent;
-}
-
-.exad-button.two .exad-button-two .exad-button-action:hover.full-radius::before {
-  width: 100%;
-  z-index: -1;
-}
-
-.exad-button.two .exad-button-two .exad-button-action:hover.full-square::after {
-  opacity: 1;
-}
-
-.exad-button.two .exad-button-two .exad-button-action.side-border {
-  border-width: 0 2px 0 2px;
-  border-color: #000000;
-  border-style: solid;
-}
-
-.exad-button.two .exad-button-two .exad-button-action.side-border::before {
-  position: absolute;
-  content: '';
-  background: #000000;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  transition: all .3s ease;
-}
-
-.exad-button.two .exad-button-two .exad-button-action.full-radius {
-  border: 2px solid #000000;
-  border-radius: 50px;
-  transition: all .3s ease;
-  overflow: hidden;
-}
-
-.exad-button.two .exad-button-two .exad-button-action.full-radius::before {
-  position: absolute;
-  content: '';
-  background: #000000;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 0%;
-  transition: all .3s ease;
-  border-radius: 50px;
-}
-
-.exad-button.two .exad-button-two .exad-button-action.full-square {
-  border: 2px solid transparent;
-  background: #000000;
-  color: #fff;
-  transition: all .3s ease;
-}
-
-.exad-button.two .exad-button-two .exad-button-action.full-square::after {
-  position: absolute;
-  content: '';
-  top: 7px;
-  left: 7px;
-  background: #c4c4c4;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  opacity: 0;
-  transition: all .3s ease;
-  display: block;
-}
-
-.exad-button.three h5 {
-  font-family: "Roboto", sans-serif;
-  color: #000000;
-  font-size: 20px;
-}
-
-.exad-button.three p {
-  font-family: "Roboto", sans-serif;
-  margin: 20px 0 30px 0;
-}
-
-.exad-button.three .exad-button-three .exad-button-action {
-  height: 60px;
-  width: 60px;
-  background: #000000;
-  display: inline-block;
-  transition: all .3s ease;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.exad-button.three .exad-button-three .exad-button-action .before-hover {
-  opacity: 1;
-  transition: 0.3s ease all;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 100%;
-  z-index: 200;
-}
-
-.exad-button.three .exad-button-three .exad-button-action .after-hover {
-  opacity: 0;
-  transition: 0.2s ease all;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: inline-block;
-  width: 100%;
-}
-
-.exad-button.three .exad-button-three .exad-button-action .after-hover i {
-  margin-left: 10px;
-}
-
-.exad-button.three .exad-button-three .exad-button-action.background-transparent {
-  border: 1px solid #000000;
-  color: #000000;
-  background: transparent;
-}
-
-.exad-button.three .exad-button-three .exad-button-action.background-round {
-  border-radius: 40px;
-}
-
-.exad-button.three .exad-button-three .exad-button-action.background-round-transparent {
-  border-radius: 40px;
-  border: 1px solid #000000;
-  color: #000000;
-  background: transparent;
-}
-
-.exad-button.three .exad-button-three .exad-button-action:hover {
-  width: 60%;
-}
-
-.exad-button.three .exad-button-three .exad-button-action:hover .before-hover {
-  opacity: 0;
-}
-
-.exad-button.three .exad-button-three .exad-button-action:hover .after-hover {
-  opacity: 1;
-}
-
-.exad-button.four h5 {
-  font-family: "Roboto", sans-serif;
-  color: #000000;
-  font-size: 20px;
-}
-
-.exad-button.four p {
-  font-family: "Roboto", sans-serif;
-  margin: 20px 0 30px 0;
-}
-
-.exad-button.four .exad-button-four .exad-button-action {
-  height: 60px;
-  width: 60px;
-  background: #000000;
-  display: inline-block;
-  transition: all .3s ease;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.exad-button.four .exad-button-four .exad-button-action .before-hover {
-  opacity: 1;
-  transition: 0.3s ease all;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 100%;
-  z-index: 200;
-}
-
-.exad-button.four .exad-button-four .exad-button-action .after-hover {
-  opacity: 0;
-  transition: 0.2s ease all;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: inline-block;
-  width: 100%;
-}
-
-.exad-button.four .exad-button-four .exad-button-action .after-hover i {
-  margin-left: 10px;
-}
-
-.exad-button.four .exad-button-four .exad-button-action.background-transparent {
-  background: #fff;
-  border: 1px solid #000000;
-  color: #000000;
-}
-
-.exad-button.four .exad-button-four .exad-button-action.two-side-radius {
-  border-radius: 0 40px 0 40px;
-}
-
-.exad-button.four .exad-button-four .exad-button-action.background-round-transparent {
-  background: #eceff3;
-  border-radius: 40px;
-  color: #000000;
-}
-
-.exad-button.four .exad-button-four .exad-button-action:hover {
-  width: 60%;
-}
-
-.exad-button.four .exad-button-four .exad-button-action:hover .before-hover {
-  opacity: 0;
-}
-
-.exad-button.four .exad-button-four .exad-button-action:hover .after-hover {
-  opacity: 1;
-}
-
-.exad-button.five {
-  text-align: center;
-}
-
-.exad-button.five .exad-button-five {
-  display: flex;
-  align-content: center;
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 40px;
-}
-
-.exad-button.five .exad-button-five .exad-button-left-action {
-  flex-basis: 50%;
-  border: 2px solid #000000;
-  border-right: 0;
-  padding: 20px 0;
-  position: relative;
-  overflow: hidden;
-  transition: all .3s ease;
-  z-index: 1;
-  color: #000000;
-  text-transform: uppercase;
-}
-
-.exad-button.five .exad-button-five .exad-button-left-action:before, .exad-button.five .exad-button-five .exad-button-left-action:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000;
-  transition: all .3s ease;
-  z-index: -1;
-}
-
-.exad-button.five .exad-button-five .exad-button-left-action:before {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-}
-
-.exad-button.five .exad-button-five .exad-button-left-action:after {
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
-
-.exad-button.five .exad-button-five .exad-button-left-action:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.exad-button.five .exad-button-five .exad-button-left-action:hover:before {
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.exad-button.five .exad-button-five .exad-button-left-action:hover:after {
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
-}
-
-.exad-button.five .exad-button-five .exad-button-right-action {
-  flex-basis: 50%;
-  border: 2px solid #000000;
-  padding: 20px 0;
-  position: relative;
-  overflow: hidden;
-  transition: all .3s ease;
-  z-index: 1;
-  color: #000000;
-  text-transform: uppercase;
-}
-
-.exad-button.five .exad-button-five .exad-button-right-action:before, .exad-button.five .exad-button-five .exad-button-right-action:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000;
-  transition: all .3s ease;
-  z-index: -1;
-}
-
-.exad-button.five .exad-button-five .exad-button-right-action:before {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-}
-
-.exad-button.five .exad-button-five .exad-button-right-action:after {
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
-
-.exad-button.five .exad-button-five .exad-button-right-action:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.exad-button.five .exad-button-five .exad-button-right-action:hover:before {
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.exad-button.five .exad-button-five .exad-button-right-action:hover:after {
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
-}
-
-.exad-button.five .exad-button-five.right .exad-button-left-action {
-  border-radius: 40px 0 0 40px;
-}
-
-.exad-button.five .exad-button-five.right .exad-button-right-action {
-  border-radius: 0 40px 40px 0;
-}
-
-.exad-button.six {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-one {
-  display: inline-block;
-  width: 50%;
   padding: 20px 0;
   color: #000000;
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
   position: relative;
   z-index: 1;
   border: 1px solid #704aff;
   overflow: hidden;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-one i {
+.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-one:before, .exad-button.six .exad-button-six .exad-button-action-one:after {
+.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:before, .exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:after {
   content: '';
   background: #704aff;
   height: 50%;
@@ -5070,42 +4684,31 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-one:before {
+.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:before {
   top: 0;
   left: 0;
   right: auto;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-one:after {
+.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:after {
   bottom: 0;
   right: 0;
   left: auto;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-one.half-radius {
-  border-radius: 5px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-one.full-radius {
-  border-radius: 40px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-one:hover {
+.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:hover {
   color: #fff;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-one:hover:before, .exad-button.six .exad-button-six .exad-button-action-one:hover:after {
+.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:hover:before, .exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:hover:after {
   width: 100%;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-two {
+.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action {
   display: inline-block;
-  width: 50%;
   padding: 20px 0;
   color: #fff;
   background: #fb4b15;
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
   text-decoration: none;
   position: relative;
   z-index: 1;
@@ -5115,11 +4718,11 @@ ul.exad-pricing-table-features {
   z-index: 1;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-two i {
+.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-two::before {
+.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action::before {
   position: absolute;
   content: '';
   height: 100%;
@@ -5136,35 +4739,18 @@ ul.exad-pricing-table-features {
           transform-origin: center center;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-two.half-radius {
-  border-radius: 5px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-two.half-radius::before {
-  border-radius: 5px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-two.full-radius {
-  border-radius: 40px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-two.full-radius::before {
-  border-radius: 40px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-two:hover {
+.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action:hover {
   color: #000000;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-two:hover::before {
+.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action:hover::before {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-three {
+.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action {
   display: inline-block;
-  width: 50%;
   padding: 20px 0;
   color: #fff;
   background: #ff9d45;
@@ -5179,11 +4765,11 @@ ul.exad-pricing-table-features {
   transition: all .5s ease;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-three i {
+.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-three::before, .exad-button.six .exad-button-six .exad-button-action-three::after {
+.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action::before, .exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action::after {
   content: '';
   position: absolute;
   top: 0;
@@ -5197,55 +4783,36 @@ ul.exad-pricing-table-features {
   transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 
-.exad-button.six .exad-button-six .exad-button-action-three::before {
+.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action::before {
   background: #c4c4c4;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-three::after {
+.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action::after {
   transition-delay: 0.2s;
   background: #fff;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-three.half-radius {
-  border-radius: 5px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-three.half-radius::before {
-  border-radius: 5px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-three.full-radius {
-  border-radius: 40px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-three.full-radius::before {
-  border-radius: 40px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-three:hover {
+.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action:hover {
   color: #ff9d45;
   letter-spacing: 3px;
   border: 1px solid #ff9d45;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-three:hover::before {
+.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action:hover::before {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 
-.exad-button.six .exad-button-six .exad-button-action-three:hover::after {
+.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action:hover::after {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action {
   display: inline-block;
-  width: 50%;
   padding: 20px 0;
   color: #fff;
   background: linear-gradient(270deg, #ff7e9f 0%, #ff876b 100%);
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
   text-decoration: none;
   position: relative;
   z-index: 1;
@@ -5253,11 +4820,11 @@ ul.exad-pricing-table-features {
   overflow: hidden;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four i {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four::before {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action::before {
   position: absolute;
   content: '';
   top: 50%;
@@ -5270,73 +4837,58 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four.half-radius {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action.half-radius {
   border-radius: 5px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four.half-radius::before {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action.half-radius::before {
   border-radius: 5px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four.full-radius {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action.full-radius {
   border-radius: 40px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four.full-radius::before {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action.full-radius::before {
   border-radius: 40px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four:hover {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action:hover {
   color: #000000;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-four:hover::before {
+.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action:hover::before {
   top: 0;
   bottom: 0;
   opacity: 1;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-five {
+.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action {
   display: inline-block;
-  width: 50%;
   padding: 20px 0;
   color: #fff;
   background: #704aff;
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
   text-decoration: none;
   position: relative;
   z-index: 1;
   border: 1px solid transparent;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-five i {
+.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-five.half-radius {
+.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action.half-radius {
   border-radius: 5px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-five.full-radius {
+.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action.full-radius {
   border-radius: 40px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-five:hover {
+.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action:hover {
   -webkit-animation: pulse 0.5s cubic-bezier(0.66, 0, 0, 1);
           animation: pulse 0.5s cubic-bezier(0.66, 0, 0, 1);
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0px rgba(112, 74, 255, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 0 20px rgba(112, 74, 255, 0.1);
-  }
-  100% {
-    box-shadow: 0 0 0 0px rgba(112, 74, 255, 0.1);
-  }
 }
 
 @keyframes pulse {
@@ -5351,14 +4903,11 @@ ul.exad-pricing-table-features {
   }
 }
 
-.exad-button.six .exad-button-six .exad-button-action-six {
+.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action {
   display: inline-block;
-  width: 50%;
   padding: 20px 0;
   color: #fb4b15;
   background: #fff;
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
   text-decoration: none;
   position: relative;
   z-index: 1;
@@ -5366,7 +4915,7 @@ ul.exad-pricing-table-features {
   overflow: hidden;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-six::before {
+.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action::before {
   position: absolute;
   content: '';
   top: 0;
@@ -5380,14 +4929,14 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-six span {
+.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action span {
   display: inline-block;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
   transition: all 0.3s ease;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-six span i {
+.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action span i {
   position: absolute;
   font-size: 20px;
   top: 4px;
@@ -5397,31 +4946,22 @@ ul.exad-pricing-table-features {
   transition: all 0.3s ease;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-six.half-radius {
-  border-radius: 5px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-six.full-radius {
-  border-radius: 40px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-six:hover {
+.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action:hover {
   color: #fff;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-six:hover::before {
+.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action:hover::before {
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-.exad-button.six .exad-button-six .exad-button-action-six:hover span i {
+.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action:hover span i {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 
-.exad-button.six .exad-button-six .exad-button-action-seven {
+.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action {
   display: inline-block;
-  width: 50%;
   padding: 20px 0;
   color: #ff9d45;
   background: #fff;
@@ -5434,11 +4974,11 @@ ul.exad-pricing-table-features {
   overflow: hidden;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-seven i {
+.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-seven span {
+.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action span {
   position: absolute;
   content: '';
   display: block;
@@ -5452,40 +4992,68 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-seven.half-radius {
-  border-radius: 5px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-seven.full-radius {
-  border-radius: 40px;
-}
-
-.exad-button.six .exad-button-six .exad-button-action-seven:hover {
+.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action:hover {
   color: #fff;
 }
 
-.exad-button.six .exad-button-six .exad-button-action-seven:hover span {
+.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action:hover span {
   height: 250%;
   width: 250%;
 }
 
-.exad-button.seven {
-  text-align: center;
+.exad-button.ten .exad-button-wrapper.effect-9 .exad-button-action {
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 20px 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: all .3s ease;
 }
 
-.exad-button.seven h4 {
-  font-family: "Roboto", sans-serif;
+.exad-button.ten .exad-button-wrapper.effect-9 .exad-button-action:hover {
+  border: 2px solid #fff;
+  letter-spacing: 5px;
 }
 
-.exad-button.seven p {
-  margin-bottom: 50px;
-  margin-top: 20px;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
+.exad-button.ten .exad-button-wrapper.effect-10 .exad-button-action {
+
+  display: inline-block;
+  padding: 20px 0;
+  color: #1b1a1a;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #1b1a1a;
+  transition: all .3s ease;
+  position: relative;
 }
 
-.exad-button.seven .exad-button-seven .exad-button-action {
-  width: 60%;
+.exad-button.ten .exad-button-wrapper.effect-10 .exad-button-action::before {
+  position: absolute;
+  content: '';
+  left: 50%;
+  right: 50%;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-10 .exad-button-action:hover {
+  color: #fff;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-10 .exad-button-action:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-11 .exad-button-action {
   padding: 20px 0;
   display: inline-block;
   color: #fff;
@@ -5493,15 +5061,12 @@ ul.exad-pricing-table-features {
   text-decoration: none;
   position: relative;
   transition: all .3s ease;
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action.border-rounded {
   border-radius: 40px;
   background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
   transition: all .3s ease;
 }
 
-.exad-button.seven .exad-button-seven .exad-button-action.border-rounded::before {
+.exad-button.ten .exad-button-wrapper.effect-11 .exad-button-action::before {
   position: absolute;
   content: '';
   top: -20px;
@@ -5517,80 +5082,14 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.seven .exad-button-seven .exad-button-action.border-square {
-  border-radius: 0;
-  background: rgba(112, 74, 255, 0.8);
-  transition: all .7s ease;
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action.border-square::before, .exad-button.seven .exad-button-seven .exad-button-action.border-square::after {
-  position: absolute;
-  content: '';
-  height: 2px;
-  width: 0;
-  background: #704aff;
-  transition: all .4s ease;
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action.border-square::before {
-  top: 0;
-  left: 0;
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action.border-square::after {
-  bottom: 0;
-  right: 0;
-  top: inherit;
-  left: inherit;
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action.half-rounded {
-  border-radius: 5px;
-  background: #36d3ac;
-  border: 1px solid transparent;
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action:hover.border-rounded {
+.exad-button.ten .exad-button-wrapper.effect-11 .exad-button-action:hover {
   -webkit-animation: anim 0.3s forwards;
           animation: anim 0.3s forwards;
 }
 
-.exad-button.seven .exad-button-seven .exad-button-action:hover.border-rounded::before {
+.exad-button.ten .exad-button-wrapper.effect-11 .exad-button-action:hover::before {
   -webkit-animation: anim-1 0.3s forwards;
           animation: anim-1 0.3s forwards;
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action:hover.border-square {
-  background: #fff;
-  color: #704aff;
-  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action:hover.border-square::before, .exad-button.seven .exad-button-seven .exad-button-action:hover.border-square::after {
-  width: 100%;
-  transition: all .7s ease;
-}
-
-.exad-button.seven .exad-button-seven .exad-button-action:hover.half-rounded {
-  background: transparent;
-  border: 1px solid #36d3ac;
-  color: #36d3ac;
-  box-shadow: 0px 23px 59px 0px rgba(54, 211, 172, 0.3);
-}
-
-@-webkit-keyframes anim {
-  60% {
-    -webkit-transform: scale3d(0.8, 0.8, 1);
-            transform: scale3d(0.8, 0.8, 1);
-  }
-  85% {
-    -webkit-transform: scale3d(1.1, 1.1, 1);
-            transform: scale3d(1.1, 1.1, 1);
-  }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
 }
 
 @keyframes anim {
@@ -5608,14 +5107,6 @@ ul.exad-pricing-table-features {
   }
 }
 
-@-webkit-keyframes anim-1 {
-  100% {
-    opacity: 0;
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-}
-
 @keyframes anim-1 {
   100% {
     opacity: 0;
@@ -5624,111 +5115,209 @@ ul.exad-pricing-table-features {
   }
 }
 
-.exad-button.eight {
-  background: url("../../images/button/button-background-eight.jpg");
-  background-size: cover;
-  height: 250px;
-  width: 100%;
-  text-align: center;
-  display: inline-flex;
-  position: relative;
-}
-
-.exad-button.eight .exad-button-eight .exad-button-action {
-  width: 40%;
-  background: rgba(0, 0, 0, 0.5);
-  display: inline-block;
+.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action {
+  width: 60%;
   padding: 20px 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 2px solid transparent;
-  overflow: hidden;
-  transition: all .3s ease;
-}
-
-.exad-button.eight .exad-button-eight .exad-button-action.full-radius {
-  border-radius: 40px;
-}
-
-.exad-button.eight .exad-button-eight .exad-button-action:hover {
-  border: 2px solid #fff;
-  letter-spacing: 5px;
-}
-
-.exad-button.eight-bottom {
-  background: url("../../images/button/button-black-background.jpg");
-  background-size: cover;
-  height: 250px;
-  width: 100%;
-  text-align: center;
-  display: inline-flex;
-  position: relative;
-  margin-top: 50px;
-}
-
-.exad-button.eight-bottom .exad-button-eight .exad-button-action {
-  width: 40%;
-  background: rgba(255, 255, 255, 0.5);
   display: inline-block;
-  padding: 20px 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   color: #fff;
-  text-decoration: none;
   text-transform: uppercase;
-  border: 1px solid transparent;
+  text-decoration: none;
+  position: relative;
   transition: all .3s ease;
+  border-radius: 0;
+  background: rgba(112, 74, 255, 0.8);
+  transition: all .7s ease;
 }
 
-.exad-button.eight-bottom .exad-button-eight .exad-button-action::before {
+.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action::before, .exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action::after {
   position: absolute;
   content: '';
-  left: 50%;
-  right: 50%;
+  height: 2px;
+  width: 0;
+  background: #704aff;
+  transition: all .4s ease;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action::before {
   top: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-  opacity: 0;
-  transition: all .3s ease;
-}
-
-.exad-button.eight-bottom .exad-button-eight .exad-button-action.full-radius {
-  border-radius: 40px;
-}
-
-.exad-button.eight-bottom .exad-button-eight .exad-button-action.full-radius::before {
-  border-radius: 40px;
-}
-
-.exad-button.eight-bottom .exad-button-eight .exad-button-action:hover::before {
   left: 0;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action::after {
+  bottom: 0;
   right: 0;
+  top: inherit;
+  left: inherit;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action:hover {
+  background: #fff;
+  color: #704aff;
+  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+}
+
+.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action:hover::before, .exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action:hover::after {
+  width: 100%;
+  transition: all .7s ease;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-13 .exad-button-action {
+  width: 60%;
+  padding: 20px 0;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  transition: all .3s ease;
+  border-radius: 5px;
+  background: #36d3ac;
+  border: 1px solid transparent;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-13 .exad-button-action:hover {
+  background: transparent;
+  border: 1px solid #36d3ac;
+  color: #36d3ac;
+  box-shadow: 0px 23px 59px 0px rgba(54, 211, 172, 0.3);
+}
+
+.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action {
+  height: 60px;
+  width: 60px;
+  background: #000000;
+  display: inline-block;
+  transition: all .3s ease;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action .before-hover {
+  opacity: 1;
+  transition: 0.3s ease all;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 200;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action .after-hover {
+  opacity: 0;
+  transition: 0.2s ease all;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: inline-block;
+  width: 100%;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action .after-hover i {
+  margin-left: 10px;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action:hover {
+  width: 60%;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action:hover .before-hover {
+  opacity: 0;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action:hover .after-hover {
   opacity: 1;
 }
 
-.exad-button.nine .exad-button-nine {
+.exad-button.ten .exad-button-wrapper.effect-15 {
   display: flex;
+  align-content: center;
   text-align: center;
-  align-items: center;
-  position: relative;
-  justify-content: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 40px;
 }
 
-.exad-button.nine .exad-button-nine span {
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action {
+  padding: 20px 0;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s ease;
+  z-index: 1;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:before, .exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  transition: all .3s ease;
+  z-index: -1;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:before {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:after {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:hover:before {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:hover:after {
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action.left {
+  border: 2px solid #000000;
+  border-right: 0;
+  flex-basis: 50%;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action.right {
+  border: 2px solid #000000;
+  flex-basis: 50%;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-16 {
+  display: flex;
+  align-content: center;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 40px;
+  position: relative;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-16 span {
   position: absolute;
   color: #000000;
   z-index: 5;
-  top: 50%;
+  top: 45%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -5741,11 +5330,7 @@ ul.exad-pricing-table-features {
   border: 1px solid #704aff;
 }
 
-.exad-button.nine .exad-button-nine .exad-button-left {
-  flex-basis: 50%;
-}
-
-.exad-button.nine .exad-button-nine .exad-button-left .exad-button-action {
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action {
   background: #fff;
   padding: 20px 0;
   width: 100%;
@@ -5760,7 +5345,7 @@ ul.exad-pricing-table-features {
   border: 1px solid transparent;
 }
 
-.exad-button.nine .exad-button-nine .exad-button-left .exad-button-action::before, .exad-button.nine .exad-button-nine .exad-button-left .exad-button-action::after {
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action::before, .exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -5770,92 +5355,110 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.nine .exad-button-nine .exad-button-left .exad-button-action::before {
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action::before {
   top: 0;
   left: 0;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-.exad-button.nine .exad-button-nine .exad-button-left .exad-button-action::after {
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action::after {
   bottom: 0;
   right: 0;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-.exad-button.nine .exad-button-nine .exad-button-left .exad-button-action:hover {
-  color: #704aff;
-  border: 1px solid #704aff;
-}
-
-.exad-button.nine .exad-button-nine .exad-button-left .exad-button-action:hover::before {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-}
-
-.exad-button.nine .exad-button-nine .exad-button-left .exad-button-action:hover::after {
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
-
-.exad-button.nine .exad-button-nine .exad-button-right {
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action.left {
   flex-basis: 50%;
-  border-left: 1px solid #fff;
 }
 
-.exad-button.nine .exad-button-nine .exad-button-right .exad-button-action {
-  background: #fff;
-  padding: 20px 0;
-  width: 100%;
-  display: inline-block;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  position: relative;
-  transition: all .3s ease;
-  z-index: 1;
-  overflow: hidden;
-  border: 1px solid transparent;
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action.right {
+  flex-basis: 50%;
 }
 
-.exad-button.nine .exad-button-nine .exad-button-right .exad-button-action::before, .exad-button.nine .exad-button-nine .exad-button-right .exad-button-action::after {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 50%;
-  background: #704aff;
-  transition: all .3s ease;
-  z-index: -1;
-}
-
-.exad-button.nine .exad-button-nine .exad-button-right .exad-button-action::before {
-  top: 0;
-  left: 0;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-
-.exad-button.nine .exad-button-nine .exad-button-right .exad-button-action::after {
-  bottom: 0;
-  right: 0;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-
-.exad-button.nine .exad-button-nine .exad-button-right .exad-button-action:hover {
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action:hover {
   color: #704aff;
   border: 1px solid #704aff;
 }
 
-.exad-button.nine .exad-button-nine .exad-button-right .exad-button-action:hover::before {
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action:hover::before {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
 }
 
-.exad-button.nine .exad-button-nine .exad-button-right .exad-button-action:hover::after {
+.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action:hover::after {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
+}
+
+.exad-button.ten .exad-button-wrapper.effect-17 {
+  margin-top: 50px;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-17 .exad-button-action {
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 70%;
+  padding: 20px 0;
+  display: inline-block;
+  font-size: 15px;
+  transition: all .3s ease;
+  position: relative;
+  border: 2px solid transparent;
+  background: #000000;
+  color: #fff;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-17 .exad-button-action::after {
+  position: absolute;
+  content: '';
+  top: 7px;
+  left: 7px;
+  background: #c4c4c4;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-17 .exad-button-action:hover::after {
+  opacity: 1;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-18 .exad-button-action {
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 70%;
+  padding: 20px 0;
+  display: inline-block;
+  font-size: 15px;
+  color: #000000;
+  transition: all .3s ease;
+  position: relative;
+  border-width: 0 2px 0 2px;
+  border-color: #000000;
+  border-style: solid;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-18 .exad-button-action::before {
+  position: absolute;
+  content: '';
+  background: #000000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  transition: all .3s ease;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-18 .exad-button-action:hover {
+  color: #fff;
+}
+
+.exad-button.ten .exad-button-wrapper.effect-18 .exad-button-action:hover::before {
+  width: 100%;
+  z-index: -1;
 }
 
 /* Exclusive Button End */
