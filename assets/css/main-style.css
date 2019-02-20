@@ -209,6 +209,8 @@
   background: #f5f6fa;
   transition: .3s ease;
   z-index: -1;
+  top: 0;
+  left: 0;
 }
 
 .exad-team-member-social-left .exad-team-member-thumb img {
@@ -389,7 +391,6 @@
 
 
 
-
 /* Style for Team Carousel */
 
 .exad-team-carousel-content {
@@ -481,7 +482,7 @@
 }
 
 .exad-team-carousel-social-left-inner {
-  margin: 0 15px;
+  margin: 20px 15px 20px 15px;
   outline: 0;
 }
 
@@ -629,6 +630,8 @@
   right: -70px;
 }
 
+/* Team carousel Styles end*/
+
 
 /* Card Style Start */
 
@@ -774,8 +777,9 @@
   height: 2px;
   width: 20px;
   background: #9059ff;
-  top: 14px;
+  top: 50%;
   left: -30px;
+  transform: translateY(-50%);
   transition: all .3s ease;
   opacity: 0;
 }
@@ -903,8 +907,9 @@
   width: 20px;
   background: #ff4a4a;
   position: absolute;
-  top: 10px;
+  top: 50%;
   left: -30px;
+  transform: translateY(-50%);
   opacity: 0;
 }
 
@@ -1042,8 +1047,6 @@
 }
 
 /* Card Style End */
-
-
 
 /* Testimonial Carousel Basic */
 
@@ -1427,7 +1430,7 @@
   transition: .3s ease;
   margin-right: 20px;
   border: 1px solid #e5e5e5;
-  bottom: 110px;
+  bottom: 20px;
   z-index: 1;
 }
 
@@ -1450,6 +1453,8 @@
 .exad-testimonial-carousel-single .exad-testimonial-carousel-next {
   left: 126px;
 }
+
+/* Testimonial Carousel End */
 
 
 /* Pricing Table Start */
