@@ -208,7 +208,7 @@ final class Exclusive_Addons_Elementor {
     */
     public function enqueue_scripts() {
         
-		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
+				wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
 				
         wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 		

@@ -853,6 +853,44 @@ class Exad_Pricing_Table extends Widget_Base {
 		
 	<?php
 	}
+
+	protected function _content_template() {
+		?>
+
+		<div class="exad-pricing-table-wrapper exad-pricing-table{{ settings.exad_pricing_table_preset }}">
+			<# if ( settings.exad_pricing_table_featured == 'yes' ) { #>
+				<div class="exad-pricing-table-badge-wrapper">
+					<span class="exad-pricing-table-badge">
+	            		{{{ settings.exad_pricing_table_featured_tag_text }}}
+	          		</span>
+	          		<h4 class="exad-pricing-table-title">{{{ settings.exad_pricing_table_title }}}</h4>
+		          	<div class="exad-pricing-table-price">
+		          		<# if ( settings.exad_pricing_table_preset == '-one' ) { #>
+				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+									<# } #>
+			            <p>
+			            {{{ settings.exad_pricing_table_price_cur }}}{{{ settings.exad_pricing_table_price }}}<span>{{{ settings.exad_pricing_table_period_separator }}}{{{ settings.exad_pricing_table_price_by }}}</span>
+			        	</p>
+		          	</div>
+		          	<ul class="exad-pricing-table-features">
+								<# _.each( settings.exad_pricing_table_items, function( features, index ) { 
+									var active = ( 'yes' !== features.exad_pricing_table_icon_mood ) ? 'exad-pricing-table-features-disable' : ''
+									#>
+			            	<li class="{{ active }}">
+			              		<span class="exad-pricing-li-icon"><i class="{{ features.exad_pricing_table_list_icon }}"></i></span>
+			              		{{{ features.exad_pricing_table_item }}}
+			            	</li>
+										<# }); #>
+		          	</ul>
+	          	</div>
+	        <# } #>
+          	<a href="{{ settings.exad_pricing_table_btn_link.url }}" class="exad-pricing-table-action">{{{ settings.exad_pricing_table_btn }}}</a>
+        </div>
+		
+	<?php
+	}
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Pricing_Table() );
