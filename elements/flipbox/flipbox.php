@@ -916,7 +916,33 @@ class Exad_Flip_Box extends Widget_Base {
 	<?php
 	}
 
-	protected function content_template() { }
+	protected function _content_template() {
+		?>
+		<div id="exad-flip-box" class="exad-flip-box">
+      	<div class="exad-flip-box-inner {{ settings.exad_flipbox_style }}">
+        	<div class="exad-flip-box-front">
+          		<div class="exad-flip-box-front-image">
+	            	<i class="{{ settings.exad_flipbox_front_icon }}"></i>
+        		</div>
+							<h5 class="exad-flip-box-front-title">{{{ settings.exad_flipbox_front_title }}}</h5>
+		        <p class="exad-flip-box-front-description">
+		            {{{ settings.exad_flipbox_front_description }}}
+		        </p>
+        	</div>
+	        <div class="exad-flip-box-back">
+	          	<i class="{{ settings.exad_flipbox_back_icon }}"></i>
+	          	<h5 class="exad-flip-box-back-title">{{{ settings.exad_flipbox_back_title }}}</h5>
+		        <p class="exad-flip-box-back-description">
+		            {{{ settings.exad_flipbox_back_description}}}
+		        </p>
+		        <a href="{{ settings.exad_flipbox_button_link.url }}" class="exad-flip-box-back-action">
+							{{{ settings.exad_flipbox_button_text }}}
+						</a>
+	        </div>
+      	</div>
+    </div>
+		<?php
+	}
 }
 
 
