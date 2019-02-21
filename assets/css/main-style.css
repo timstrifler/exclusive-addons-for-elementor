@@ -4612,14 +4612,11 @@ ul.exad-pricing-table-features {
   text-align: center;
 }
 .exad-button .exad-button-wrapper {
-  margin-bottom: 30px;
+  margin: 30px auto;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action {
-  padding: 30px 30px 30px 70px;
+.exad-button .exad-button-wrapper.effect-1 .exad-button-action {
   display: inline-block;
-  margin-right: 20px;
-  color: #fff;
   text-decoration: none;
   font-size: 18px;
   border-radius: 10px;
@@ -4630,15 +4627,11 @@ ul.exad-pricing-table-features {
   box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.2);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action i {
-  font-size: 35px;
+.exad-button .exad-button-wrapper.effect-1 .exad-button-action i {
   margin-right: 15px;
-  position: absolute;
-  left: 20px;
-  top: 25px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-1 .exad-button-action::before {
   position: absolute;
   content: '';
   height: 100%;
@@ -4651,15 +4644,15 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-1 .exad-button-action:hover {
   color: #8868fe;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-1 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-1 .exad-button-action:hover::before {
   width: 100%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-2 .exad-button-action {
   display: inline-block;
   text-decoration: none;
   padding: 20px 0;
@@ -4670,11 +4663,11 @@ ul.exad-pricing-table-features {
   overflow: hidden;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action i {
+.exad-button .exad-button-wrapper.effect-2 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:before, .exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:after {
+.exad-button .exad-button-wrapper.effect-2 .exad-button-action:before, .exad-button .exad-button-wrapper.effect-2 .exad-button-action:after {
   content: '';
   background: #704aff;
   height: 50%;
@@ -4684,27 +4677,27 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:before {
+.exad-button .exad-button-wrapper.effect-2 .exad-button-action:before {
   top: 0;
   left: 0;
   right: auto;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:after {
+.exad-button .exad-button-wrapper.effect-2 .exad-button-action:after {
   bottom: 0;
   right: 0;
   left: auto;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-2 .exad-button-action:hover {
   color: #fff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:hover:before, .exad-button.ten .exad-button-wrapper.effect-2 .exad-button-action:hover:after {
+.exad-button .exad-button-wrapper.effect-2 .exad-button-action:hover:before, .exad-button .exad-button-wrapper.effect-2 .exad-button-action:hover:after {
   width: 100%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-3 .exad-button-action {
   display: inline-block;
   padding: 20px 0;
   color: #fff;
@@ -4718,11 +4711,11 @@ ul.exad-pricing-table-features {
   z-index: 1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action i {
+.exad-button .exad-button-wrapper.effect-3 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-3 .exad-button-action::before {
   position: absolute;
   content: '';
   height: 100%;
@@ -4739,17 +4732,17 @@ ul.exad-pricing-table-features {
           transform-origin: center center;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-3 .exad-button-action:hover {
   color: #000000;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-3 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-3 .exad-button-action:hover::before {
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-4 .exad-button-action {
   display: inline-block;
   padding: 20px 0;
   color: #fff;
@@ -4765,11 +4758,11 @@ ul.exad-pricing-table-features {
   transition: all .5s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action i {
+.exad-button .exad-button-wrapper.effect-4 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action::before, .exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action::after {
+.exad-button .exad-button-wrapper.effect-4 .exad-button-action::before, .exad-button .exad-button-wrapper.effect-4 .exad-button-action::after {
   content: '';
   position: absolute;
   top: 0;
@@ -4783,32 +4776,32 @@ ul.exad-pricing-table-features {
   transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-4 .exad-button-action::before {
   background: #c4c4c4;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action::after {
+.exad-button .exad-button-wrapper.effect-4 .exad-button-action::after {
   transition-delay: 0.2s;
   background: #fff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-4 .exad-button-action:hover {
   color: #ff9d45;
   letter-spacing: 3px;
   border: 1px solid #ff9d45;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-4 .exad-button-action:hover::before {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-4 .exad-button-action:hover::after {
+.exad-button .exad-button-wrapper.effect-4 .exad-button-action:hover::after {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action {
   display: inline-block;
   padding: 20px 0;
   color: #fff;
@@ -4820,11 +4813,11 @@ ul.exad-pricing-table-features {
   overflow: hidden;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action i {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action::before {
   position: absolute;
   content: '';
   top: 50%;
@@ -4837,33 +4830,33 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action.half-radius {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action.half-radius {
   border-radius: 5px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action.half-radius::before {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action.half-radius::before {
   border-radius: 5px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action.full-radius {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action.full-radius {
   border-radius: 40px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action.full-radius::before {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action.full-radius::before {
   border-radius: 40px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action:hover {
   color: #000000;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-5 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-5 .exad-button-action:hover::before {
   top: 0;
   bottom: 0;
   opacity: 1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-6 .exad-button-action {
   display: inline-block;
   padding: 20px 0;
   color: #fff;
@@ -4874,19 +4867,19 @@ ul.exad-pricing-table-features {
   border: 1px solid transparent;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action i {
+.exad-button .exad-button-wrapper.effect-6 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action.half-radius {
+.exad-button .exad-button-wrapper.effect-6 .exad-button-action.half-radius {
   border-radius: 5px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action.full-radius {
+.exad-button .exad-button-wrapper.effect-6 .exad-button-action.full-radius {
   border-radius: 40px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-6 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-6 .exad-button-action:hover {
   -webkit-animation: pulse 0.5s cubic-bezier(0.66, 0, 0, 1);
           animation: pulse 0.5s cubic-bezier(0.66, 0, 0, 1);
 }
@@ -4903,7 +4896,7 @@ ul.exad-pricing-table-features {
   }
 }
 
-.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-7 .exad-button-action {
   display: inline-block;
   padding: 20px 0;
   color: #fb4b15;
@@ -4915,7 +4908,7 @@ ul.exad-pricing-table-features {
   overflow: hidden;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-7 .exad-button-action::before {
   position: absolute;
   content: '';
   top: 0;
@@ -4929,14 +4922,14 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action span {
+.exad-button .exad-button-wrapper.effect-7 .exad-button-action span {
   display: inline-block;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
   transition: all 0.3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action span i {
+.exad-button .exad-button-wrapper.effect-7 .exad-button-action span i {
   position: absolute;
   font-size: 20px;
   top: 4px;
@@ -4946,21 +4939,21 @@ ul.exad-pricing-table-features {
   transition: all 0.3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-7 .exad-button-action:hover {
   color: #fff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-7 .exad-button-action:hover::before {
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-7 .exad-button-action:hover span i {
+.exad-button .exad-button-wrapper.effect-7 .exad-button-action:hover span i {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-8 .exad-button-action {
   display: inline-block;
   padding: 20px 0;
   color: #ff9d45;
@@ -4974,11 +4967,11 @@ ul.exad-pricing-table-features {
   overflow: hidden;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action i {
+.exad-button .exad-button-wrapper.effect-8 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action span {
+.exad-button .exad-button-wrapper.effect-8 .exad-button-action span {
   position: absolute;
   content: '';
   display: block;
@@ -4992,16 +4985,16 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-8 .exad-button-action:hover {
   color: #fff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-8 .exad-button-action:hover span {
+.exad-button .exad-button-wrapper.effect-8 .exad-button-action:hover span {
   height: 250%;
   width: 250%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-9 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-9 .exad-button-action {
   background: rgba(0, 0, 0, 0.5);
   display: inline-block;
   padding: 20px 0;
@@ -5013,12 +5006,12 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-9 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-9 .exad-button-action:hover {
   border: 2px solid #fff;
   letter-spacing: 5px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-10 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-10 .exad-button-action {
 
   display: inline-block;
   padding: 20px 0;
@@ -5030,7 +5023,7 @@ ul.exad-pricing-table-features {
   position: relative;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-10 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-10 .exad-button-action::before {
   position: absolute;
   content: '';
   left: 50%;
@@ -5043,17 +5036,17 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-10 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-10 .exad-button-action:hover {
   color: #fff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-10 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-10 .exad-button-action:hover::before {
   left: 0;
   right: 0;
   opacity: 1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-11 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-11 .exad-button-action {
   padding: 20px 0;
   display: inline-block;
   color: #fff;
@@ -5066,7 +5059,7 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-11 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-11 .exad-button-action::before {
   position: absolute;
   content: '';
   top: -20px;
@@ -5082,12 +5075,12 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-11 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-11 .exad-button-action:hover {
   -webkit-animation: anim 0.3s forwards;
           animation: anim 0.3s forwards;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-11 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-11 .exad-button-action:hover::before {
   -webkit-animation: anim-1 0.3s forwards;
           animation: anim-1 0.3s forwards;
 }
@@ -5115,7 +5108,7 @@ ul.exad-pricing-table-features {
   }
 }
 
-.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-12 .exad-button-action {
   width: 60%;
   padding: 20px 0;
   display: inline-block;
@@ -5129,7 +5122,7 @@ ul.exad-pricing-table-features {
   transition: all .7s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action::before, .exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action::after {
+.exad-button .exad-button-wrapper.effect-12 .exad-button-action::before, .exad-button .exad-button-wrapper.effect-12 .exad-button-action::after {
   position: absolute;
   content: '';
   height: 2px;
@@ -5138,30 +5131,30 @@ ul.exad-pricing-table-features {
   transition: all .4s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-12 .exad-button-action::before {
   top: 0;
   left: 0;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action::after {
+.exad-button .exad-button-wrapper.effect-12 .exad-button-action::after {
   bottom: 0;
   right: 0;
   top: inherit;
   left: inherit;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-12 .exad-button-action:hover {
   background: #fff;
   color: #704aff;
   box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action:hover::before, .exad-button.ten .exad-button-wrapper.effect-12 .exad-button-action:hover::after {
+.exad-button .exad-button-wrapper.effect-12 .exad-button-action:hover::before, .exad-button .exad-button-wrapper.effect-12 .exad-button-action:hover::after {
   width: 100%;
   transition: all .7s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-13 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-13 .exad-button-action {
   width: 60%;
   padding: 20px 0;
   display: inline-block;
@@ -5175,14 +5168,14 @@ ul.exad-pricing-table-features {
   border: 1px solid transparent;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-13 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-13 .exad-button-action:hover {
   background: transparent;
   border: 1px solid #36d3ac;
   color: #36d3ac;
   box-shadow: 0px 23px 59px 0px rgba(54, 211, 172, 0.3);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-14 .exad-button-action {
   height: 60px;
   width: 60px;
   background: #000000;
@@ -5196,7 +5189,7 @@ ul.exad-pricing-table-features {
   text-transform: uppercase;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action .before-hover {
+.exad-button .exad-button-wrapper.effect-14 .exad-button-action .before-hover {
   opacity: 1;
   transition: 0.3s ease all;
   position: absolute;
@@ -5208,7 +5201,7 @@ ul.exad-pricing-table-features {
   z-index: 200;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action .after-hover {
+.exad-button .exad-button-wrapper.effect-14 .exad-button-action .after-hover {
   opacity: 0;
   transition: 0.2s ease all;
   position: absolute;
@@ -5220,23 +5213,23 @@ ul.exad-pricing-table-features {
   width: 100%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action .after-hover i {
+.exad-button .exad-button-wrapper.effect-14 .exad-button-action .after-hover i {
   margin-left: 10px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-14 .exad-button-action:hover {
   width: 60%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action:hover .before-hover {
+.exad-button .exad-button-wrapper.effect-14 .exad-button-action:hover .before-hover {
   opacity: 0;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-14 .exad-button-action:hover .after-hover {
+.exad-button .exad-button-wrapper.effect-14 .exad-button-action:hover .after-hover {
   opacity: 1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 {
+.exad-button .exad-button-wrapper.effect-15 {
   display: flex;
   align-content: center;
   text-align: center;
@@ -5245,7 +5238,7 @@ ul.exad-pricing-table-features {
   margin-top: 40px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action {
   padding: 20px 0;
   position: relative;
   overflow: hidden;
@@ -5255,7 +5248,7 @@ ul.exad-pricing-table-features {
   text-transform: uppercase;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:before, .exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:after {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action:before, .exad-button .exad-button-wrapper.effect-15 .exad-button-action:after {
   content: '';
   position: absolute;
   top: 0;
@@ -5267,43 +5260,43 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:before {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action:before {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:after {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action:after {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action:hover {
   color: #fff;
   text-decoration: none;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:hover:before {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action:hover:before {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action:hover:after {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action:hover:after {
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action.left {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action.left {
   border: 2px solid #000000;
   border-right: 0;
   flex-basis: 50%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-15 .exad-button-action.right {
+.exad-button .exad-button-wrapper.effect-15 .exad-button-action.right {
   border: 2px solid #000000;
   flex-basis: 50%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 {
+.exad-button .exad-button-wrapper.effect-16 {
   display: flex;
   align-content: center;
   text-align: center;
@@ -5313,7 +5306,7 @@ ul.exad-pricing-table-features {
   position: relative;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 span {
+.exad-button .exad-button-wrapper.effect-16 span {
   position: absolute;
   color: #000000;
   z-index: 5;
@@ -5330,7 +5323,7 @@ ul.exad-pricing-table-features {
   border: 1px solid #704aff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action {
   background: #fff;
   padding: 20px 0;
   width: 100%;
@@ -5345,7 +5338,7 @@ ul.exad-pricing-table-features {
   border: 1px solid transparent;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action::before, .exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action::after {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action::before, .exad-button .exad-button-wrapper.effect-16 .exad-button-action::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -5355,48 +5348,48 @@ ul.exad-pricing-table-features {
   z-index: -1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action::before {
   top: 0;
   left: 0;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action::after {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action::after {
   bottom: 0;
   right: 0;
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action.left {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action.left {
   flex-basis: 50%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action.right {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action.right {
   flex-basis: 50%;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action:hover {
   color: #704aff;
   border: 1px solid #704aff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action:hover::before {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-16 .exad-button-action:hover::after {
+.exad-button .exad-button-wrapper.effect-16 .exad-button-action:hover::after {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
 }
 
-.exad-button.ten .exad-button-wrapper.effect-17 {
+.exad-button .exad-button-wrapper.effect-17 {
   margin-top: 50px;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-17 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-17 .exad-button-action {
   text-decoration: none;
   text-transform: uppercase;
   width: 70%;
@@ -5410,7 +5403,7 @@ ul.exad-pricing-table-features {
   color: #fff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-17 .exad-button-action::after {
+.exad-button .exad-button-wrapper.effect-17 .exad-button-action::after {
   position: absolute;
   content: '';
   top: 7px;
@@ -5422,11 +5415,11 @@ ul.exad-pricing-table-features {
   opacity: 0;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-17 .exad-button-action:hover::after {
+.exad-button .exad-button-wrapper.effect-17 .exad-button-action:hover::after {
   opacity: 1;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-18 .exad-button-action {
+.exad-button .exad-button-wrapper.effect-18 .exad-button-action {
   text-decoration: none;
   text-transform: uppercase;
   width: 70%;
@@ -5441,7 +5434,7 @@ ul.exad-pricing-table-features {
   border-style: solid;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-18 .exad-button-action::before {
+.exad-button .exad-button-wrapper.effect-18 .exad-button-action::before {
   position: absolute;
   content: '';
   background: #000000;
@@ -5452,11 +5445,11 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-18 .exad-button-action:hover {
+.exad-button .exad-button-wrapper.effect-18 .exad-button-action:hover {
   color: #fff;
 }
 
-.exad-button.ten .exad-button-wrapper.effect-18 .exad-button-action:hover::before {
+.exad-button .exad-button-wrapper.effect-18 .exad-button-action:hover::before {
   width: 100%;
   z-index: -1;
 }

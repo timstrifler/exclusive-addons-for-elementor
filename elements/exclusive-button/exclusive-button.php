@@ -86,82 +86,31 @@ class Exad_Exclusive_Button extends Widget_Base {
 		$this->add_control(
 			'exclusive_button_effect',
 			[
-				'label' => esc_html__( 'Set Button Effect', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Button Effect', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'effect-1',
 				'options' => [
 					'effect-1' 	=> esc_html__( 'Effect 1', 	'exclusive-addons-elementor' ),
-					'effect-2' 		=> esc_html__( 'Effect 2', 	'exclusive-addons-elementor' ),
-					'effect-3' 		=> esc_html__( 'Effect 3', 	'exclusive-addons-elementor' ),
-					'effect-4' 		=> esc_html__( 'Effect 4', 	'exclusive-addons-elementor' ),
-					'effect-5' 		=> esc_html__( 'Effect 5', 	'exclusive-addons-elementor' ),
-					'effect-6' 		=> esc_html__( 'Effect 6', 	'exclusive-addons-elementor' ),
-					'effect-7' 		=> esc_html__( 'Effect 7', 	'exclusive-addons-elementor' ),
-					'effect-8' 		=> esc_html__( 'Effect 8', 	'exclusive-addons-elementor' ),
-					'effect-9' 		=> esc_html__( 'Effect 9', 	'exclusive-addons-elementor' ),
+					'effect-2' 	=> esc_html__( 'Effect 2', 	'exclusive-addons-elementor' ),
+					'effect-3' 	=> esc_html__( 'Effect 3', 	'exclusive-addons-elementor' ),
+					'effect-4' 	=> esc_html__( 'Effect 4', 	'exclusive-addons-elementor' ),
+					'effect-5' 	=> esc_html__( 'Effect 5', 	'exclusive-addons-elementor' ),
+					'effect-6' 	=> esc_html__( 'Effect 6', 	'exclusive-addons-elementor' ),
+					'effect-7' 	=> esc_html__( 'Effect 7', 	'exclusive-addons-elementor' ),
+					'effect-8' 	=> esc_html__( 'Effect 8', 	'exclusive-addons-elementor' ),
+					'effect-9' 	=> esc_html__( 'Effect 9', 	'exclusive-addons-elementor' ),
 					
 				],
 			]
 		);
 
-		$this->start_controls_tabs('exad_exclusive_button_typography_separation');
-
-			$this->start_controls_tab('button_primary_typography', [
-				'label'	=> __( 'Primary', 'exclusive-addons-elementor')
-			]);
-
-			$this->add_group_control(
-				Group_Control_Typography::get_type(),
-				[
-				'name' => 'exad_exclusive_button_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .exad-exclusive-button',
-				]
-			);
-
-			$this->end_controls_tab();
-
-			$this->start_controls_tab('button_secondary_typography', [
-				'label'	=> __( 'Secondary', 'exclusive-addons-elementor')
-			]);
-
-			$this->add_group_control(
-				Group_Control_Typography::get_type(),
-				[
-				'name' => 'exad_exclusive_button_secondary_typography',
-					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-					'selector' => '{{WRAPPER}} .exad-exclusive-button--rayen::before',
-				]
-			);
-
-			$this->end_controls_tab();
-
-		$this->end_controls_tabs();
-
-		$this->add_responsive_control(
-			'exad_exclusive_button_alignment',
+		
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
 			[
-				'label' => esc_html__( 'Button Alignment', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'label_block' => true,
-				'options' => [
-					'left' => [
-						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-center',
-					],
-					'right' => [
-						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-right',
-					],
-				],
-				'default' => 'center',
-				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-wrapper' => 'text-align: {{VALUE}};',
-				],
+			'name' => 'exad_exclusive_button_typography',
+				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action',
 			]
 		);
 
@@ -193,23 +142,98 @@ class Exad_Exclusive_Button extends Widget_Base {
 		);
 		
 		$this->add_responsive_control(
+			'exad_exclusive_button_alignment',
+			[
+				'label' => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'label_block' => true,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
+				],
+				'default' => 'center',
+				'selectors' => [
+					'{{WRAPPER}} .exad-button .exad-button-wrapper' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
+
+		
+		$this->add_responsive_control(
 			'exad_exclusive_button_padding',
 			[
-				'label' => esc_html__( 'Button Padding', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
+				'default' => [
+					'top' => 20,
+					'right' => 0,
+					'bottom' => 20,
+					'left' => 20,
+					'isLinked' => false,
+				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-exclusive-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--winona::after' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--winona > span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen::before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen > span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--saqui::after' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
 		
+		$this->add_control(
+			'exad_button_border_properties',
+			[
+				'label' => __( 'Border', 'plugin-name' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'		=> 'exad_exclusive_button_border',
+				'selector'	=> '{{WRAPPER}} .exad-button .exad-button-action',
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_button_border_radius',
+			[
+				'label'		=> esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'		=> Controls_Manager::SLIDER,
+				'range'	=> [
+					'px' => [
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-button .exad-button-action' => 'border-radius: {{SIZE}}px;',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_button_separator',
+			[
+				'type' => Controls_Manager::DIVIDER,
+				'style' => 'default',
+			]
+		);
+
+
 		$this->start_controls_tabs( 'exad_exclusive_button_tabs' );
 
 		$this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
@@ -221,7 +245,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#ffffff',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-exclusive-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::after' => 'color: {{VALUE}};',
 				],
@@ -252,33 +276,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'		=> 'exad_exclusive_button_border',
-				'selector'	=> '{{WRAPPER}} .exad-button .exad-button-action',
-			]
-		);
-		
-		$this->add_control(
-			'exad_exclusive_button_border_radius',
-			[
-				'label'		=> esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type'		=> Controls_Manager::SLIDER,
-				'range'	=> [
-					'px' => [
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 10,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-action' => 'border-radius: {{SIZE}}px;',
-				],
-			]
-		);
+	
 		
 		$this->end_controls_tab();
 		
@@ -292,7 +290,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-exclusive-button:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action:hover' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--winona::after' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--saqui::after' => 'color: {{VALUE}};',
 				],
@@ -306,8 +304,8 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f54',
 				'selectors' => [
-					'{{WRAPPER}} .exad-exclusive-button:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--ujarak::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-1 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-2 .exad-button-action:before, {{WRAPPER}} .exad-button .exad-button-wrapper.effect-2 .exad-button-action:after' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wayra:hover::before' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya:hover' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen::before' => 'background-color: {{VALUE}};',
@@ -321,27 +319,20 @@ class Exad_Exclusive_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_exclusive_button_hover_border_color',
-			[
-				'label' => esc_html__( 'Border Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .exad-exclusive-button:hover' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wapasha::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--antiman::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--pipaluk::before' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--quidel::before'  => 'background-color: {{VALUE}};',
-				],
-			]
-		);
 		
 		$this->end_controls_tab();
 		
 		$this->end_controls_tabs();
 		
-		
+		$this->add_control(
+			'exad_box_shadow_heading',
+			[
+				'label' => __( 'Box Shadow', 'plugin-name' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -352,9 +343,6 @@ class Exad_Exclusive_Button extends Widget_Base {
 		
 		$this->end_controls_section();
 
-
-		
-		
 	}
 
 	protected function render() {
@@ -372,9 +360,8 @@ class Exad_Exclusive_Button extends Widget_Base {
 			$this->add_render_attribute( 'exad_exclusive_button', 'rel', 'nofollow' );
 		}
 
-		$this->add_render_attribute( 'exad_exclusive_button', 'data-text', esc_attr($settings['exclusive_button_secondary_text'] ));
 	?>
-	<div class="exad-button ten">
+	<div class="exad-button">
 		<div <?php echo $this->get_render_attribute_string( 'exad_exclusive_button' ); ?>>
 			<a href="<?php echo esc_attr($settings['exclusive_button_link_url']['url'] ); ?>" class="exad-button-action">
 				<?php if ( ! empty( $settings['exad_exclusive_button_icon'] ) ) : ?>
@@ -384,7 +371,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				<?php echo  $settings['exclusive_button_text'];?>
 			</a>
 		</div>
-	</div>
+	
 	<?php
 	
 	}
