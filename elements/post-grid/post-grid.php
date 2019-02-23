@@ -177,9 +177,9 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label' => __( 'Post Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#FFFFFF',
+				'default'=> '#f5f7fa',
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-content' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body' => 'background: {{VALUE}};',
 				]
 
 			]
@@ -277,9 +277,9 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label' => __( 'Title Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#132c47',
+				'default'=> '#0a1724',
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-content-text h4 a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title' => 'color: {{VALUE}};',
 				]
 
 			]
@@ -305,7 +305,7 @@ class Exad_Post_Grid extends Widget_Base {
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-content-text h4' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-title' => 'text-align: {{VALUE}};',
 				]
 			]
 		);
@@ -316,7 +316,7 @@ class Exad_Post_Grid extends Widget_Base {
 				'name' => 'exad_grid_title_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .exad-post-grid-content-text h4 a',
+				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title',
 			]
 		);
 
@@ -334,9 +334,9 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label' => __( 'Excerpt Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#8a8d91',
+				'default'=> '#848484',
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-content-text p' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-description' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -365,7 +365,7 @@ class Exad_Post_Grid extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-content-text p' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-description' => 'text-align: {{VALUE}};',
 				],
 			]
 		);

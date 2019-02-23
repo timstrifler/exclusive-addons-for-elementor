@@ -4012,7 +4012,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body {
-  background: #f5f7fa;
   padding: 35px 20px;
   border-radius: 0 0 15px 15px;
 }
@@ -4040,7 +4039,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-title {
-  color: #0a1724;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
@@ -4303,7 +4301,6 @@ ul.exad-pricing-table-features {
 
 .exad-row-wrapper .exad-post-grid-body .exad-post-grid-description {
   font-family: "Roboto", sans-serif;
-  color: #848484;
   font-size: 15px;
   line-height: 26px;
   margin: 0 0 35px 0;
