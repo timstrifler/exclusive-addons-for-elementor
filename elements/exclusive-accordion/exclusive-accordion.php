@@ -215,7 +215,7 @@ class Exclusive_Accordion extends Widget_Base {
 					[
 						'label'		=> esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
-						'default'	=> '#444',
+						'default'	=> '#FFF',
 						'selectors' => [
 							'{{WRAPPER}} .exad-accordion-title:hover' => 'background-color: {{VALUE}};',
 						],
@@ -226,7 +226,7 @@ class Exclusive_Accordion extends Widget_Base {
 					[
 						'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
-						'default'	=> '#fff',
+						'default'	=> '#333',
 						'selectors'	=> [
 							'{{WRAPPER}} .exad-accordion-title:hover' => 'color: {{VALUE}};',
 						],

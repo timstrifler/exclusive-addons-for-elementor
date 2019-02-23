@@ -2055,9 +2055,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-pricing-table-six .exad-pricing-table-price {
-  color: #724cff;
   margin: 0;
-  font-size: 100px;
   font-weight: 300;
   font-family: "Open Sans", sans-serif;
 }
@@ -6278,7 +6276,6 @@ ul.exad-pricing-table-features {
 
 .exad-accordion.one .exad-accordion-one .exad-accordion-title h3 {
   font-size: 18px;
-  color: #000000;
   padding: 25px 0;
   margin: 0;
   cursor: pointer;

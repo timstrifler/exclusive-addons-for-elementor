@@ -121,29 +121,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'default' => esc_html__( '50', 'exclusive-addons-elementor' )
 			]
 		);
-		$this->add_control(
-			'exad_pricing_table_onsale',
-			[
-				'label' => __( 'On Sale?', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'no',
-				'label_on' => __( 'Yes', 'exclusive-addons-elementor' ),
-				'label_off' => __( 'No', 'exclusive-addons-elementor' ),
-				'return_value' => 'yes',
-			]
-		);
-		$this->add_control(
-			'exad_pricing_table_onsale_price',
-			[
-				'label' => esc_html__( 'Sale Price', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'label_block' => false,
-				'default' => esc_html__( '40', 'exclusive-addons-elementor' ),
-				'condition' => [
-					'exad_pricing_table_onsale' => 'yes'
-				]
-			]
-		);
+		
   		$this->add_control(
 			'exad_pricing_table_price_cur',
 			[
@@ -435,38 +413,9 @@ class Exad_Pricing_Table extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_pricing_table_price_tag_onsale_heading',
-			[
-				'label' => esc_html__( 'Original Price', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' =>  'before'
-			]
-		);
-
-		$this->add_control(
-			'exad_pricing_table_pricing_onsale_color',
-			[
-				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#999',
-				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-table-price' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-            'name' => 'exad_pricing_table_price_tag_onsale_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing-item .muted-price',
-			]
-		);
-
-		$this->add_control(
 			'exad_pricing_table_price_tag_heading',
 			[
-				'label' => esc_html__( 'Sale Price', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Original Price', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' =>  'before'
 			]
@@ -477,9 +426,9 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '',
+				'default' => '#999',
 				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-item .price-tag' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -488,49 +437,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
             'name' => 'exad_pricing_table_price_tag_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing-item .price-tag',
-			]
-		);
-
-
-		$this->add_control(
-			'exad_pricing_table_price_currency_heading',
-			[
-				'label' => esc_html__( 'Currency', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' =>  'before'
-			]
-		);
-
-		$this->add_control(
-			'exad_pricing_table_pricing_curr_color',
-			[
-				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#00C853',
-				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-item .price-tag .price-currency' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-            'name' => 'exad_pricing_table_price_cur_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing-item .price-currency',
-			]
-		);
-
-		$this->add_responsive_control(
-			'exad_pricing_table_price_cur_margin',
-			[
-				'label' => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
-				'selectors' => [
-	 					'{{WRAPPER}} .exad-pricing-item .price-currency' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-	 			],
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price',
 			]
 		);
 
@@ -822,33 +729,35 @@ class Exad_Pricing_Table extends Widget_Base {
 		?>
 
 		<div class="exad-pricing-table-wrapper exad-pricing-table<?php echo esc_attr( $pricing_preset ); ?>">
+			<div class="exad-pricing-table-badge-wrapper">
 			<?php if ( $settings['exad_pricing_table_featured'] == 'yes' ) : ?>
-				<div class="exad-pricing-table-badge-wrapper">
-					<span class="exad-pricing-table-badge">
-	            		<?php echo $settings['exad_pricing_table_featured_tag_text'] ?>
-	          		</span>
-	          		<h4 class="exad-pricing-table-title"><?php echo $settings['exad_pricing_table_title']; ?></h4>
-		          	<div class="exad-pricing-table-price">
-		          		<?php if ( $pricing_preset === '-one' ) : ?>
-				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-				        <?php endif; ?>
-			            <p>
-			            <?php echo $settings['exad_pricing_table_price_cur'] ?><?php echo $settings['exad_pricing_table_price']; ?><span><?php echo $settings['exad_pricing_table_period_separator']; ?><?php echo $settings['exad_pricing_table_price_by']; ?></span>
-			        	</p>
-		          	</div>
-		          	<ul class="exad-pricing-table-features">
-		          		<?php foreach( $settings['exad_pricing_table_items'] as $item ) : ?>
-			            	<li class="<?php echo ( 'yes' !== $item['exad_pricing_table_icon_mood'] ) ? 'exad-pricing-table-features-disable' : ''; ?>">
-			              		<span class="exad-pricing-li-icon"><i class="<?php echo esc_attr( $item['exad_pricing_table_list_icon'] ); ?>"></i></span>
-			              		<?php echo $item['exad_pricing_table_item']; ?>
-			            	</li>
-		            	<?php endforeach; ?>
-		          	</ul>
-	          	</div>
-	        <?php endif; ?>
-          	<a href="<?php echo esc_url( $settings['exad_pricing_table_btn_link']['url'] ); ?>" class="exad-pricing-table-action"><?php echo $settings['exad_pricing_table_btn']; ?></a>
+				<span class="exad-pricing-table-badge">
+					<?php echo $settings['exad_pricing_table_featured_tag_text'] ?>
+				</span>
+			<?php endif; ?>
+				<h4 class="exad-pricing-table-title"><?php echo $settings['exad_pricing_table_title']; ?></h4>
+				<div class="exad-pricing-table-price">
+					<?php if ( $pricing_preset === '-one' ) : ?>
+						<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+					<?php endif; ?>
+					<p>
+					<?php echo $settings['exad_pricing_table_price_cur'] ?><?php echo $settings['exad_pricing_table_price']; ?><span><?php echo $settings['exad_pricing_table_period_separator']; ?><?php echo $settings['exad_pricing_table_price_by']; ?></span>
+					</p>
+				</div>
+				<ul class="exad-pricing-table-features">
+					<?php foreach( $settings['exad_pricing_table_items'] as $item ) : ?>
+						<li class="<?php echo ( 'yes' !== $item['exad_pricing_table_icon_mood'] ) ? 'exad-pricing-table-features-disable' : ''; ?>">
+							<span class="exad-pricing-li-icon"><i class="<?php echo esc_attr( $item['exad_pricing_table_list_icon'] ); ?>"></i></span>
+							<?php echo $item['exad_pricing_table_item']; ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+          	<a href="<?php echo esc_url( $settings['exad_pricing_table_btn_link']['url'] ); ?>" class="exad-pricing-table-action">
+				<?php echo $settings['exad_pricing_table_btn']; ?>
+			</a>
         </div>
 		
 	<?php
@@ -858,34 +767,34 @@ class Exad_Pricing_Table extends Widget_Base {
 		?>
 
 		<div class="exad-pricing-table-wrapper exad-pricing-table{{ settings.exad_pricing_table_preset }}">
+			<div class="exad-pricing-table-badge-wrapper">
 			<# if ( settings.exad_pricing_table_featured == 'yes' ) { #>
-				<div class="exad-pricing-table-badge-wrapper">
-					<span class="exad-pricing-table-badge">
-	            		{{{ settings.exad_pricing_table_featured_tag_text }}}
-	          		</span>
-	          		<h4 class="exad-pricing-table-title">{{{ settings.exad_pricing_table_title }}}</h4>
-		          	<div class="exad-pricing-table-price">
-		          		<# if ( settings.exad_pricing_table_preset == '-one' ) { #>
-				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-				            <svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
-									<# } #>
-			            <p>
-			            {{{ settings.exad_pricing_table_price_cur }}}{{{ settings.exad_pricing_table_price }}}<span>{{{ settings.exad_pricing_table_period_separator }}}{{{ settings.exad_pricing_table_price_by }}}</span>
-			        	</p>
-		          	</div>
-		          	<ul class="exad-pricing-table-features">
-								<# _.each( settings.exad_pricing_table_items, function( features, index ) { 
-									var active = ( 'yes' !== features.exad_pricing_table_icon_mood ) ? 'exad-pricing-table-features-disable' : ''
-									#>
-			            	<li class="{{ active }}">
-			              		<span class="exad-pricing-li-icon"><i class="{{ features.exad_pricing_table_list_icon }}"></i></span>
-			              		{{{ features.exad_pricing_table_item }}}
-			            	</li>
-										<# }); #>
-		          	</ul>
-	          	</div>
-	        <# } #>
+				<span class="exad-pricing-table-badge">
+					{{{ settings.exad_pricing_table_featured_tag_text }}}
+				</span>
+			<# } #>
+				<h4 class="exad-pricing-table-title">{{{ settings.exad_pricing_table_title }}}</h4>
+				<div class="exad-pricing-table-price">
+					<# if ( settings.exad_pricing_table_preset == '-one' ) { #>
+						<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
+								<# } #>
+					<p>
+					{{{ settings.exad_pricing_table_price_cur }}}{{{ settings.exad_pricing_table_price }}}<span>{{{ settings.exad_pricing_table_period_separator }}}{{{ settings.exad_pricing_table_price_by }}}</span>
+					</p>
+				</div>
+				<ul class="exad-pricing-table-features">
+							<# _.each( settings.exad_pricing_table_items, function( features, index ) { 
+								var active = ( 'yes' !== features.exad_pricing_table_icon_mood ) ? 'exad-pricing-table-features-disable' : ''
+								#>
+						<li class="{{ active }}">
+							<span class="exad-pricing-li-icon"><i class="{{ features.exad_pricing_table_list_icon }}"></i></span>
+							{{{ features.exad_pricing_table_item }}}
+						</li>
+									<# }); #>
+				</ul>
+			</div>
           	<a href="{{ settings.exad_pricing_table_btn_link.url }}" class="exad-pricing-table-action">{{{ settings.exad_pricing_table_btn }}}</a>
         </div>
 		
