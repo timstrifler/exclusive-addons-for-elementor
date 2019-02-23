@@ -388,7 +388,35 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 	<?php
 	}
 
-	protected function content_template() {}
+	/*protected function _content_template() {
+		?>
+		<div id="exad-advance-tabs" class="exad-advance-tab {{ settings.exad_exclusive_tabs_preset }}" data-tabs>
+			
+			<ul class="exad-advance-tab-nav">
+				<# _.each( settings.exad_exclusive_tabs, function( tab, index ) { #>
+					<li class="{{ tab.exad_exclusive_tab_show_as_default }}" data-tab>
+					<# if( settings.exad_exclusive_tabs_icon_show === 'yes' ) #>
+						<# if( tab.exad_exclusive_tabs_icon_type === 'icon' )  #>
+							<i class="{{ tab.exad_exclusive_tab_title_icon }}"></i>
+						<# else if( tab.exad_exclusive_tabs_icon_type === 'image' ) #>
+							<img src="{{ tab.exad_exclusive_tab_title_image.url }}">
+					<span class="exad-tab-title">{{{ tab.exad_exclusive_tab_title }}}</span></li>
+				<# }); #>
+			</ul>
+			
+			<# _.each( settings.exad_exclusive_tabs, function( tab, index ) { #>
+				<div class="exad-advance-tab-content {{ tab.exad_exclusive_tab_show_as_default }}">
+				<h3 class="exad-advance-tab-content-title">{{{ tab.exad_exclusive_tab_title }}}</h3>
+				<p>{{{ tab.exad_exclusive_tab_content }}}</p>
+				<a href="#" class="exad-advance-tab-content-action">Read More
+				<i class="fa fa-long-arrow-right"></i>
+				</a>
+				</div>
+			<# }); #>
+			
+		</div>
+		<?php
+	}*/
 }
 
 

@@ -352,7 +352,6 @@ class Exclusive_Accordion extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() {  }
 }
 
 
