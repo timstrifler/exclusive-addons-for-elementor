@@ -1,0 +1,2220 @@
+/* Pricing Table Start */
+
+ul.exad-pricing-table-features {
+  list-style: none;
+}
+.exad-pricing-table-price {
+  line-height: 0;
+}
+
+.exad-pricing-table-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #13c83a;
+  padding: 13px 50px;
+  width: 160px;
+    text-align: center;
+  -webkit-transform: rotate(45deg) translate(40px, -22px);
+          transform: rotate(45deg) translate(40px, -22px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-pricing-table-features li.exad-pricing-table-features-disable {
+  color: #a6a9ad;
+}
+
+.exad-pricing-table-one {
+  background: #fff;
+  text-align: center;
+  position: relative;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
+  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
+}
+.exad-pricing-table-one .exad-pricing-table-badge-wrapper, .exad-pricing-table-two .exad-pricing-table-badge-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 45px 30px;
+}
+
+.exad-pricing-table-one .exad-pricing-table-title {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #414141;
+  margin-bottom: 30px;
+}
+
+.exad-pricing-table-one .exad-pricing-table-price {
+  position: relative;
+  width: 208px;
+  height: 208px;
+  margin: 0 auto;
+  margin-bottom: 45px;
+}
+
+.exad-pricing-table-one .exad-pricing-table-price svg {
+  position: absolute;
+}
+
+.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(1) {
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(2) {
+  right: 0;
+  top: 0;
+}
+
+.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(3) {
+  right: 0;
+  bottom: 0;
+}
+
+.exad-pricing-table-one .exad-pricing-table-price p {
+  font-family: "Playfair Display", serif;
+  font-size: 60px;
+  line-height: 208px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.exad-pricing-table-one .exad-pricing-table-price p span {
+  font-size: 20px;
+}
+
+.exad-pricing-table-one .exad-pricing-table-features {
+  padding-left: 0;
+  font-family: "Poppins", sans-serif;
+  color: #132c47;
+}
+
+.exad-pricing-table-one .exad-pricing-table-features li {
+  padding: 15px 0;
+}
+
+.exad-pricing-table-one .exad-pricing-table-features li:not(:last-child) {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.exad-pricing-table-one .exad-pricing-table-features .exad-pricing-table-features-disable svg {
+  fill: #8a8d91 !important;
+}
+
+.exad-pricing-table-one .exad-pricing-table-action {
+  position: absolute;
+  display: block;
+  width: 80%;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+  padding: 20px 0;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 1px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+}
+
+.exad-pricing-table-one.purple .exad-pricing-table-price svg {
+  fill: #826EFF;
+}
+
+.exad-pricing-table-one.purple .exad-pricing-table-features svg {
+  fill: #826EFF;
+}
+
+.exad-pricing-table-one.purple .exad-pricing-table-action {
+  color: #826EFF;
+  border: 1px solid #826EFF;
+}
+
+.exad-pricing-table-one.purple .exad-pricing-table-action:hover {
+  text-decoration: none;
+  background: -webkit-linear-gradient(0deg, #826EFF 0%, #4d3cb9 100%);
+  border: none;
+  color: #fff;
+  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+}
+
+.exad-pricing-table-one.orange .exad-pricing-table-price svg {
+  fill: #ff6a47;
+}
+
+.exad-pricing-table-one.orange .exad-pricing-table-features svg {
+  fill: #ff6a47;
+}
+
+.exad-pricing-table-one.orange .exad-pricing-table-action {
+  color: #ff6a47;
+  border: 1px solid #ff6a47;
+  transition: .3s ease;
+}
+
+.exad-pricing-table-one.orange .exad-pricing-table-action:hover {
+  text-decoration: none;
+  background: -webkit-linear-gradient(0deg, #ff704e 0%, #fb5d86 100%);
+  border: none;
+  color: #fff;
+  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+}
+
+.exad-pricing-table-one.cyan .exad-pricing-table-price svg {
+  fill: #3ad8f4;
+}
+
+.exad-pricing-table-one.cyan .exad-pricing-table-features svg {
+  fill: #3ad8f4;
+}
+
+.exad-pricing-table-one.cyan .exad-pricing-table-action {
+  color: #3ad8f4;
+  border: 1px solid #3ad8f4;
+}
+
+.exad-pricing-table-one.cyan .exad-pricing-table-action:hover {
+  text-decoration: none;
+  background: -webkit-linear-gradient(0deg, #3ad8f4 0%, #249fb4 100%);
+  border: none;
+  color: #fff;
+  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+}
+
+.exad-pricing-table-one.highlighted {
+  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
+}
+
+.exad-pricing-table-two {
+  border: 1px solid #e0e2e5;
+  padding-bottom: 45px; 
+  padding-left: 30px;
+  margin: 20px 0;
+}
+
+.exad-pricing-table-two .exad-pricing-table-title {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  color: #8a8d91;
+  font-weight: 400;
+}
+
+.exad-pricing-table-two .exad-pricing-table-price {
+  font-size: 48px;
+  color: #132c47;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 30px;
+}
+
+.exad-pricing-table-two .exad-pricing-table-price span {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-pricing-table-two .exad-pricing-table-features {
+  padding-top: 20px;
+  padding-left: 30px;
+  font-family: "Poppins", sans-serif;
+  color: #132c47;
+  border-top: 1px solid #e5e5e5;
+}
+
+.exad-pricing-table-two .exad-pricing-table-features li {
+  font-size: 15px;
+  padding: 8px 0px;
+}
+
+.exad-pricing-table-two .exad-pricing-table-features li.exad-pricing-table-disabled {
+  color: #a6a9ad;
+}
+
+.exad-pricing-table-two .exad-pricing-table-action {
+  display: block;
+  width: 70%;
+  font-family: "Poppins", sans-serif;
+  padding: 15px 0;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: all .5s ease;
+  margin-top: 50px;
+}
+
+.exad-pricing-table-two {
+  border-top-style: solid;
+  border-top-width: 4px;
+}
+
+.exad-pricing-table-two.purple .exad-pricing-table-action {
+  background: #826EFF;
+}
+
+.exad-pricing-table-two.purple .exad-pricing-table-action:hover {
+  border: 1px solid #826EFF;
+  color: #826EFF;
+  text-decoration: none;
+  background: #fff;
+}
+
+.exad-pricing-table-two.Pink {
+  border-top: 4px solid #ef6189;
+}
+
+.exad-pricing-table-two.Pink .exad-pricing-table-action {
+  background: #ef6189;
+}
+
+.exad-pricing-table-two.Pink .exad-pricing-table-action:hover {
+  border: 1px solid #ef6189;
+  color: #ef6189;
+  text-decoration: none;
+  background: #fff;
+}
+
+.exad-pricing-table-two.teal {
+  border-top: 4px solid #42d9f4;
+}
+
+.exad-pricing-table-two.teal .exad-pricing-table-action {
+  background: #42d9f4;
+}
+
+.exad-pricing-table-two.teal .exad-pricing-table-action:hover {
+  border: 1px solid #42d9f4;
+  color: #42d9f4;
+  text-decoration: none;
+  background: #fff;
+}
+
+.exad-pricing-table-three {
+  background: #ffffff;
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
+  padding: 45px 30px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.exad-pricing-table-three .exad-pricing-table-title {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  color: #8a8d91;
+  font-weight: 400;
+}
+
+.exad-pricing-table-three .exad-pricing-table-price {
+  font-size: 48px;
+  color: #132c47;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+}
+
+.exad-pricing-table-three .exad-pricing-table-price span {
+  font-size: 20px;
+  color: #132c47;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-pricing-table-three .exad-pricing-table-description {
+  font-size: 15px;
+  color: #132c47;
+  line-height: 26px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-pricing-table-three .exad-pricing-table-features {
+  padding-left: 0;
+  font-family: "Poppins", sans-serif;
+  color: #132c47;
+  list-style: none;
+  margin-bottom: 50px;
+}
+
+.exad-pricing-table-three .exad-pricing-table-features li {
+  font-size: 15px;
+  padding: 8px 0px;
+}
+
+.exad-pricing-table-three .exad-pricing-table-features li svg {
+  fill: #3ac772;
+}
+
+.exad-pricing-table-three .exad-pricing-table-action {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  background: #3ac772;
+  text-decoration: none !important;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: all .5s ease;
+  border-radius: 4px;
+}
+
+.exad-pricing-table-three .exad-pricing-table-action:hover {
+  color: #3ac772;
+  border: 1px solid #3ac772;
+  background: #ffffff;
+}
+
+.exad-pricing-table-four {
+  background: #ffffff;
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
+  padding: 45px 30px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.exad-pricing-table-four .exad-pricing-table-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(-90deg, #ff764c 0%, #ff2d59 100%);
+  padding: 13px 50px;
+  -webkit-transform: rotate(45deg) translate(40px, -22px);
+          transform: rotate(45deg) translate(40px, -22px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-pricing-table-four .exad-pricing-table-title {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #8a8d91;
+}
+
+.exad-pricing-table-four .exad-pricing-table-price {
+  font-size: 48px;
+  color: #132c47;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+}
+
+.exad-pricing-table-four .exad-pricing-table-price span {
+  font-size: 20px;
+  color: #132c47;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  border-top: 1px dashed #724cff;
+}
+
+.exad-pricing-table-four .exad-pricing-table-description {
+  font-size: 15px;
+  color: #132c47;
+  line-height: 26px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-pricing-table-four .exad-pricing-table-features {
+  padding-left: 0;
+  font-family: "Poppins", sans-serif;
+  color: #132c47;
+  list-style: none;
+  margin-bottom: 50px;
+}
+
+.exad-pricing-table-four .exad-pricing-table-features li {
+  font-size: 15px;
+  padding: 8px 0px;
+}
+
+.exad-pricing-table-four .exad-pricing-table-features li svg {
+  fill: #3ac772;
+}
+
+
+.exad-pricing-table-four .exad-pricing-table-action {
+  background: #724cff;
+  color: #fff;
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: all .5s ease;
+  border-radius: 4px;
+}
+
+.exad-pricing-table-four .exad-pricing-table-action:hover {
+  color: #3ac772;
+  border: 1px solid #3ac772;
+  background: #ffffff;
+}
+
+.exad-pricing-table-five {
+  background: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 40px 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.exad-pricing-table-five svg {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: .47;
+}
+
+.exad-pricing-table-five svg:nth-child(1) {
+  height: 229px;
+}
+
+.exad-pricing-table-five svg:nth-child(2) {
+  height: 230px;
+}
+
+.exad-pricing-table-five svg:nth-child(3) {
+  height: 233px;
+}
+
+.exad-pricing-table-five .exad-pricing-table-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.exad-pricing-table-five .exad-pricing-table-subtitle {
+  font-size: 15px;
+  display: block;
+  color: #fff;
+  opacity: .6;
+  margin-bottom: 40px;
+}
+
+.exad-pricing-table-five .exad-pricing-table-price {
+  width: 138px;
+  height: 138px;
+  text-align: center;
+  margin: 0 auto;
+  border: 8px solid #fff;
+  background-image: linear-gradient(0deg, #ff764c 1%, #ff2d59 100%);
+  border-radius: 50%;
+}
+
+.exad-pricing-table-five .exad-pricing-table-price p {
+  color: #fff;
+  font-size: 55px;
+  line-height: 122px;
+}
+
+.exad-pricing-table-five .exad-pricing-table-price p span {
+  font-size: 22px;
+}
+
+.exad-pricing-table-five .exad-pricing-table-features {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.exad-pricing-table-five .exad-pricing-table-features li {
+  color: #132c47;
+  padding: 12px 0;
+  font-size: 15px;
+}
+
+
+.exad-pricing-table-five .exad-pricing-table-action {
+  color: #8a8d91;
+  padding: 20px 30px;
+  border: 1px solid #caccd2;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.exad-pricing-table-five .exad-pricing-table-action:hover {
+  text-decoration: none;
+}
+
+.exad-pricing-table-six {
+  border-radius: 4px;
+  background-color: #FFF;
+  text-align: center;
+  padding: 45px 30px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px 0 60px;
+  -webkit-box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
+  box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
+}
+
+
+
+.exad-pricing-table-six .exad-pricing-table-title {
+  color: #724cff;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+}
+
+.exad-pricing-table-six .exad-pricing-table-price {
+  color: #724cff;
+  margin: 0;
+  font-size: 70px;
+  font-weight: 300;
+  font-family: "Open Sans", sans-serif;
+  display: inline-block;
+}
+
+.exad-pricing-table-six .exad-pricing-table-features {
+  color: #132c47;
+  padding-left: 0;
+  padding-top: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  list-style: none;
+  margin-bottom: 50px;
+  border-top: 1px dashed #724cff;
+}
+
+.exad-pricing-table-six .exad-pricing-table-features li {
+  font-size: 15px;
+  padding: 6px 0px;
+}
+
+.exad-pricing-table-six .exad-pricing-table-action {
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  background: #724cff;
+  text-decoration: none !important;
+  text-align: center;
+  font-size: 16px;
+  color: #FFF;
+  -webkit-box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
+  border: 1px solid #fff;
+  transition: all .3s ease;
+  border-radius: 4px;
+}
+
+.exad-pricing-table-six .exad-pricing-table-action:hover {
+  background: #fff;
+  color: #724cff;
+  border: 1px solid #724cff;
+}
+
+.exad-pricing-table-six.middle {
+  background: #fff;
+  -webkit-transform: scaleY(1.1);
+          transform: scaleY(1.1);
+  box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
+  padding-bottom: 65px;
+}
+
+.exad-pricing-table-six.middle .exad-pricing-table-title {
+  color: #724cff;
+}
+
+.exad-pricing-table-six.middle .exad-pricing-table-price {
+  color: #724cff;
+  margin: 0;
+}
+
+.exad-pricing-table-six.middle .exad-pricing-table-features {
+  color: #132c47;
+  border-top: 1px dashed #724cff;
+  padding-top: 48px;
+  margin-bottom: 28px;
+}
+
+
+.exad-pricing-table-six.middle .exad-pricing-table-action {
+  background: #724cff;
+  color: #fff;
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
+  padding: 13px 30px;
+}
+
+.exad-pricing-table-six.middle .exad-pricing-table-action:hover {
+  background: #fff;
+  color: #724cff;
+  border: 1px solid #724cff;
+}
+
+@media (max-width: 450px){
+  .exad-pricing-table-six .exad-pricing-table-price {
+    font-size: 40px;
+  }
+}
+
+/* Pricing Table End */
+
+
+/* Exclusive Tabs Start */
+
+.exad-advance-tab.one .exad-advance-tab-nav {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+
+.exad-advance-tab.one .exad-advance-tab-nav li {
+  position: relative;
+  padding: 1em 1.5em;
+  flex: 1;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.exad-advance-tab.one .exad-advance-tab-nav li span {
+  font-size: 16px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+}
+
+.exad-advance-tab.one .exad-advance-tab-nav li span i {
+  margin-right: 15px;
+}
+
+.exad-advance-tab.one .exad-advance-tab-nav li.active {
+  border-bottom: 2px solid #fb4b15;
+}
+
+.exad-advance-tab.one .exad-advance-tab-nav li.active span {
+  color: #fb4b15;
+}
+
+.exad-advance-tab.one .exad-advance-tab-content {
+  display: none;
+  padding: 50px 0 60px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.exad-advance-tab.one .exad-advance-tab-content .exad-advance-tab-content-title {
+  font-size: 30px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-advance-tab.one .exad-advance-tab-content .exad-advance-tab-content-description {
+  font-size: 15px;
+  color: #8a8d91;
+  font-family: "Roboto", sans-serif;
+  margin: 20px 0px 50px 0px;
+}
+
+.exad-advance-tab.one .exad-advance-tab-content .exad-advance-tab-content-action {
+  display: inline-block;
+  padding: 20px 50px;
+  background: #fb4b15;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all .3s ease;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.exad-advance-tab.one .exad-advance-tab-content .exad-advance-tab-content-action i {
+  margin-left: 10px;
+}
+
+.exad-advance-tab.one .exad-advance-tab-content .exad-advance-tab-content-action:hover {
+  box-shadow: 0px 25px 50px 0px rgba(251, 75, 21, 0.4);
+}
+
+.exad-advance-tab.one .exad-advance-tab-content.active {
+  display: inherit;
+}
+
+.exad-advance-tab.one .exad-advance-tab-thumbnail {
+  position: relative;
+  z-index: 1;
+}
+
+.exad-advance-tab.one .exad-advance-tab-thumbnail img {
+  box-shadow: 0px 50px 90px 0px rgba(0, 0, 0, 0.2);
+}
+
+.exad-advance-tab.one .exad-advance-tab-thumbnail::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  bottom: -40px;
+  left: 40px;
+  background: #4ecad2;
+  z-index: -1;
+}
+
+.exad-advance-tab.two .exad-advance-tab-nav {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+
+.exad-advance-tab.two .exad-advance-tab-nav li {
+  position: relative;
+  padding: 1em 1.5em;
+  flex: 1;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.exad-advance-tab.two .exad-advance-tab-nav li span {
+  color: #8a8d91;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-advance-tab.two .exad-advance-tab-nav li.active {
+  border-bottom: 1px solid #704aff;
+}
+
+.exad-advance-tab.two .exad-advance-tab-nav li.active span {
+  color: #0a1724;
+}
+
+.exad-advance-tab.two .exad-advance-tab-content {
+  display: none;
+  padding: 40px;
+  position: relative;
+}
+
+.exad-advance-tab.two .exad-advance-tab-content .exad-advance-tab-content-title {
+  font-size: 40px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-advance-tab.two .exad-advance-tab-content .exad-advance-tab-content-description {
+  font-size: 15px;
+  color: #8a8d91;
+  font-family: "Roboto", sans-serif;
+  margin: 20px 0px 50px 0px;
+}
+
+.exad-advance-tab.two .exad-advance-tab-content .exad-advance-tab-content-action {
+  display: inline-block;
+  padding: 20px 50px;
+  background: transparent;
+  color: #704aff;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid #704aff;
+  transition: all .3s ease;
+  border-radius: 40px;
+}
+
+.exad-advance-tab.two .exad-advance-tab-content .exad-advance-tab-content-action:hover {
+  background: #704aff;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.exad-advance-tab.two .exad-advance-tab-content.active {
+  display: inherit;
+}
+
+.exad-advance-tab.three {
+  display: flex;
+}
+
+.exad-advance-tab.three .exad-advance-tab-nav {
+  width: 26%;
+  margin: 0 4% 0 0;
+  padding: 0;
+}
+
+.exad-advance-tab.three .exad-advance-tab-nav li {
+  list-style: none;
+  background: #fff;
+  padding: 25px 40px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.three .exad-advance-tab-nav li::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  right: -8px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #fff;
+  opacity: 0;
+}
+
+.exad-advance-tab.three .exad-advance-tab-nav li span {
+  color: #0a1724;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-advance-tab.three .exad-advance-tab-nav li span i {
+  margin-right: 15px;
+}
+
+.exad-advance-tab.three .exad-advance-tab-nav li.active {
+  box-shadow: 0px 30px 40px 0px rgba(5, 9, 42, 0.08);
+}
+
+.exad-advance-tab.three .exad-advance-tab-nav li.active::before {
+  opacity: 1;
+}
+
+.exad-advance-tab.three .exad-advance-tab-nav li.active span {
+  color: #4ecad2;
+}
+
+.exad-advance-tab.three .exad-advance-tab-content {
+  width: 70%;
+  display: none;
+  background: #fff;
+  padding: 60px 30px;
+  border-radius: 10px;
+}
+
+.exad-advance-tab.three .exad-advance-tab-content .exad-advance-tab-content-title {
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.exad-advance-tab.three .exad-advance-tab-content .exad-advance-tab-content-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #8a8d91;
+  line-height: 26px;
+  margin: 25px 0 50px 0;
+}
+
+.exad-advance-tab.three .exad-advance-tab-content .exad-advance-tab-content-action {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #4ecad2;
+  background: #fff;
+  border: 1px solid #4ecad2;
+  padding: 15px 50px;
+  display: inline-block;
+  border-radius: 40px;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.three .exad-advance-tab-content .exad-advance-tab-content-action:hover {
+  background: #4ecad2;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.exad-advance-tab.three .exad-advance-tab-content.active {
+  display: block;
+}
+
+.exad-advance-tab.four {
+  display: flex;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav {
+  width: 30%;
+  margin: 0;
+  padding: 0;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li {
+  list-style: none;
+  background: #f0f1f2;
+  padding: 25px 40px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin-right: 10px;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li::before {
+  position: absolute;
+  content: '';
+  width: calc(100% + 11px);
+  height: 0;
+  background: #fff;
+  top: 0;
+  left: 0px;
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li::after {
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 3px;
+  background: #36d3ac;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li span {
+  color: #0a1724;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li span i {
+  margin-right: 10px;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li.active {
+  background: #fff;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li.active::before {
+  opacity: 1;
+  z-index: -1;
+  border-width: 1px 0 1px 1px;
+  border-color: #f0f1f2;
+  border-style: solid;
+  height: 100%;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li.active span {
+  color: #36d3ac;
+}
+
+.exad-advance-tab.four .exad-advance-tab-nav li.active::after {
+  opacity: 1;
+  -webkit-transform: translateY(1);
+          transform: translateY(1);
+  height: 100%;
+}
+
+.exad-advance-tab.four .exad-advance-tab-content {
+  display: none;
+  width: 70%;
+  border: 1px solid #f0f1f2;
+  padding: 30px 25px;
+}
+
+.exad-advance-tab.four .exad-advance-tab-content .exad-advance-tab-content-title {
+  font-size: 24px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.exad-advance-tab.four .exad-advance-tab-content .exad-advance-tab-content-description {
+  font-size: 15px;
+  color: #8a8d91;
+  font-family: "Roboto", sans-serif;
+  line-height: 26px;
+  margin: 30px 0 40px 0;
+}
+
+.exad-advance-tab.four .exad-advance-tab-content .exad-advance-tab-content-action {
+  background: #36d3ac;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  display: inline-block;
+  padding: 15px 40px;
+  border-radius: 5px;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.four .exad-advance-tab-content .exad-advance-tab-content-action:hover {
+  background: #fff;
+  color: #36d3ac;
+  border: 1px solid #36d3ac;
+}
+
+.exad-advance-tab.four .exad-advance-tab-content.active {
+  display: block;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li {
+  position: relative;
+  padding: 1em 1.5em;
+  flex: 1;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+  background: #f7f7f7;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background: #e3e3e3;
+  right: 0;
+  top: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li:last-child::after {
+  opacity: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li::before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: #744fff;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li span {
+  font-size: 16px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li span i {
+  margin-right: 10px;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active {
+  background: #fff;
+  margin-top: -15px;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active:nth-child(n-1)::after {
+  opacity: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active::before {
+  opacity: 1;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active::after {
+  opacity: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active span {
+  color: #744fff;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content {
+  box-shadow: 0px 20px 40px 0px rgba(5, 12, 77, 0.1);
+  display: none;
+  padding: 40px 40px 50px 40px;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-title {
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  margin: 30px 0 40px 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-action {
+  display: inline-block;
+  padding: 15px 40px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: linear-gradient(0deg, #724cff 0%, #8868fe 100%);
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-action i {
+  margin-left: 20px;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-action:hover {
+  box-shadow: 0px 21px 35px 0px rgba(114, 76, 255, 0.27);
+}
+
+.exad-advance-tab.five .exad-advance-tab-content.active {
+  display: block;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav li {
+  position: relative;
+  padding: 1em 1.5em;
+  flex: 1;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+  background: #2c2c2c;
+  transition: all .3s ease;
+  z-index: 1;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav li:not(:last-child) {
+  border-right: 1px solid #3b4045;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav li::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #fd666a transparent transparent transparent;
+  bottom: -8px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -1;
+  opacity: 0;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav li span {
+  font-size: 16px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav li span i {
+  margin-right: 10px;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav li.active {
+  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
+  border-right: 1px solid transparent;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav li.active::before {
+  opacity: 1;
+}
+
+.exad-advance-tab.six .exad-advance-tab-nav li:hover {
+  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
+}
+
+.exad-advance-tab.six .exad-advance-tab-content {
+  background: #fff;
+  display: none;
+}
+
+.exad-advance-tab.six .exad-advance-tab-content .exad-advance-tab-content-title {
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.exad-advance-tab.six .exad-advance-tab-content .exad-advance-tab-content-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  margin: 30px 0 40px 0;
+}
+
+.exad-advance-tab.six .exad-advance-tab-content .exad-advance-tab-content-action {
+  display: inline-block;
+  padding: 15px 40px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
+  transition: all .3s ease;
+  border: 1px solid transparent;
+}
+
+.exad-advance-tab.six .exad-advance-tab-content .exad-advance-tab-content-action i {
+  margin-left: 20px;
+}
+
+.exad-advance-tab.six .exad-advance-tab-content .exad-advance-tab-content-action:hover {
+  background: #fff;
+  color: #fb4b15;
+  border: 1px solid #fb4b15;
+}
+
+.exad-advance-tab.six .exad-advance-tab-content.active {
+  display: flex;
+  align-items: center;
+}
+
+.exad-advance-tab.six .exad-advance-tab-content.active .exad-advance-tab-content-thumbnail {
+  flex-basis: 35%;
+  padding: 40px 40px 40px 40px;
+}
+
+.exad-advance-tab.six .exad-advance-tab-content.active .exad-advance-tab-content-details {
+  flex-basis: 65%;
+  padding: 0 30px;
+}
+
+.exad-advance-tab.seven {
+  display: flex;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav {
+  width: 15%;
+  margin: 0;
+  padding: 0;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li {
+  list-style: none;
+  background: #f0f1f2;
+  margin-bottom: 20px;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin-right: 10px;
+  transition: all .5s ease;
+  z-index: 1;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li::before {
+  content: attr(data-hover);
+  position: absolute;
+  background: #2c2c2c;
+  padding: 10px 20px;
+  font-size: 14px;
+  width: 140px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -160px;
+  border-radius: 5px;
+  opacity: 0;
+  z-index: 3;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #2c2c2c;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -25px;
+  z-index: 2;
+  opacity: 0;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li span {
+  color: #0a1724;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li span i {
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li.active {
+  background: linear-gradient(0deg, #ffb561 0%, #ff983f 100%);
+  box-shadow: 0px 21px 35px 0px rgba(255, 172, 87, 0.4);
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li.active span {
+  color: #fff;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li:hover::before {
+  opacity: 1;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-nav li:hover::after {
+  opacity: 1;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content {
+  display: none;
+  width: 85%;
+  background: #fff;
+  box-shadow: 0px 13px 49px 0px rgba(51, 77, 128, 0.2);
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content .exad-advance-tab-content-title {
+  font-size: 24px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content .exad-advance-tab-content-description {
+  font-size: 15px;
+  color: #8a8d91;
+  font-family: "Roboto", sans-serif;
+  line-height: 26px;
+  margin: 30px 0 40px 0;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content .exad-advance-tab-content-action {
+  background: linear-gradient(0deg, #ffb561 0%, #ff983f 100%);
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  display: inline-block;
+  padding: 15px 40px;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content .exad-advance-tab-content-action:hover {
+  box-shadow: 0px 21px 35px 0px rgba(255, 172, 87, 0.4);
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content.active {
+  position: relative;
+  display: flex;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content.active .exad-advance-tab-content-details {
+  width: 60%;
+  padding: 40px 30px;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content.active .exad-advance-tab-content-thumbnail {
+  width: 40%;
+}
+
+.exad-advance-tab.seven .exad-advance-tab-content.active .exad-advance-tab-content-thumbnail img {
+  position: absolute;
+  top: 40px;
+}
+
+@media (max-width: 768px){
+  .exad-advance-tab.two .exad-advance-tab-nav{
+    flex-direction: column;
+  }
+  .exad-advance-tab.three{
+    flex-direction: column;
+  }
+  .exad-advance-tab.three .exad-advance-tab-nav{
+    width: 100%;
+  }
+  .exad-advance-tab.three .exad-advance-tab-content{
+    width: 100%;
+  }
+  .exad-advance-tab.three .exad-advance-tab-nav li.active::before{
+    opacity: 0;
+  }
+  .exad-advance-tab.four{
+    flex-direction: column;
+  }
+  .exad-advance-tab.four .exad-advance-tab-nav{
+    width: 100%;
+  }
+  .exad-advance-tab.four .exad-advance-tab-content{
+    width: 100%;
+  }
+}
+
+/* Exclusive Tabs End */
+
+
+/* Exclusive Accordion Start */
+
+.exad-accordion.one .exad-accordion-one {
+  border-top: 1px solid #000000;
+}
+
+.exad-accordion.one .exad-accordion-one:last-child {
+  border-bottom: 1px solid #000000;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-title {
+  position: relative;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-title::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  font-size: 25px;
+  font-weight: 300;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-title h3 {
+  font-size: 18px;
+  color: #000000;
+  padding: 25px 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-content {
+  background-color: #fff;
+  display: none;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 0 30px 20px 0;
+}
+
+.exad-accordion.one .exad-accordion-one .exad-accordion-content .exad-accordion-content-wrapper p {
+  margin: 0;
+  color: #717171;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.exad-accordion.one .exad-accordion-one.active .exad-accordion-title::after {
+  content: '-';
+  position: absolute;
+  right: 0;
+  font-size: 40px;
+  top: 45%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-accordion.two .exad-accordion-two {
+  margin-bottom: 20px;
+}
+
+.exad-accordion.two .exad-accordion-two.active .exad-accordion-title {
+  position: relative;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title.active::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title {
+  display: flex;
+  border: 1px solid #000000;
+  height: 70px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #000000;
+  font-size: 22px;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title span {
+  width: 7%;
+  position: relative;
+  border-right: 1px solid #000000;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title span i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #000000;
+  font-size: 20px;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-title h3 {
+  width: 86%;
+  margin: 0;
+  font-size: 18px;
+  border-width: 0px 1px 0px 1px;
+  border-color: #000000;
+  border-style: solid;
+  padding: 24px 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper {
+  display: flex;
+  border: 1px solid #000000;
+  border-top: none;
+  padding: 30px 30px;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description {
+  width: 60%;
+  padding: 0 40px 0 0;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description h2 {
+  color: #0a1724;
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description p {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #717171;
+  line-height: 26px;
+  margin: 30px 0 50px 0;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #000000;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: all .3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 0;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .3s ease;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a:hover {
+  color: #000000;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a:hover::before {
+  width: 100%;
+}
+
+.exad-accordion.two .exad-accordion-two .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-thumbnail {
+  width: 40%;
+}
+
+.exad-accordion.three .exad-accordion-three {
+  box-shadow: 0px 13px 49px 0px rgba(51, 77, 128, 0.15);
+  margin-bottom: 30px;
+}
+
+.exad-accordion.three .exad-accordion-three.active .exad-accordion-title::after {
+  content: '-';
+  font-size: 36px;
+  right: 20px;
+  top: 45%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title {
+  display: flex;
+  padding: 15px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title::after {
+  position: absolute;
+  content: '+';
+  color: #fff;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title span {
+  width: 5%;
+  text-align: center;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title span i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title h3 {
+  width: 95%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title.orange {
+  background: #ff6434;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title.teal {
+  background: #21b8a9;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title.blue {
+  background: #7a38ff;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title:hover.orange {
+  background: #b24624;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title:hover.teal {
+  background: #178076;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-title:hover.blue {
+  background: #5527b2;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 50px 30px;
+}
+
+.exad-accordion.three .exad-accordion-three .exad-accordion-content .exad-accordion-content-wrapper p {
+  font-size: 15px;
+  color: #717171;
+  font-family: "Roboto", sans-serif;
+  line-height: 26px;
+}
+
+.exad-accordion.four .exad-accordion-four.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+  color: #fff;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title span {
+  width: 5%;
+  text-align: center;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title span i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-title h3 {
+  width: 95%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper {
+  display: flex;
+  padding: 30px 30px;
+  align-items: center;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-thumbnail {
+  width: 40%;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description {
+  width: 60%;
+  padding: 0 30px 0 30px;
+  color: #fff;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description h2 {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description p {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  line-height: 26px;
+  margin: 30px 0 50px 0;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a {
+  display: inline-block;
+  padding: 15px 40px;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  transition: all .3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 0;
+  background: #fff;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .3s ease;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a:hover {
+  color: #000000;
+}
+
+.exad-accordion.four .exad-accordion-four .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-content-description a:hover::before {
+  width: 100%;
+}
+
+.exad-accordion.four .exad-accordion-four.dark-black {
+  background: #1f2124;
+}
+
+.exad-accordion.four .exad-accordion-four.semi-black {
+  background: #363a3f;
+}
+
+.exad-accordion.four .exad-accordion-four.light-black {
+  background: #494d52;
+}
+
+.exad-accordion.five .exad-accordion-five {
+  margin-bottom: 30px;
+}
+
+.exad-accordion.five .exad-accordion-five.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+  background: #5f5f5f;
+  color: #fff;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title span {
+  width: 10%;
+  text-align: center;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title span i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-title h3 {
+  width: 90%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 20px 0;
+}
+
+.exad-accordion.five .exad-accordion-five .exad-accordion-content .exad-accordion-content-wrapper p {
+  font-size: 15px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.exad-accordion.six .exad-accordion-six {
+  margin-bottom: 30px;
+}
+
+.exad-accordion.six .exad-accordion-six.active .exad-accordion-title {
+  color: #36d3ac;
+}
+
+.exad-accordion.six .exad-accordion-six.active .exad-accordion-title span i {
+  color: #36d3ac;
+}
+
+.exad-accordion.six .exad-accordion-six.active .exad-accordion-title h3 {
+  color: #36d3ac;
+}
+
+.exad-accordion.six .exad-accordion-six.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+  color: #0a1724;
+  box-shadow: 0px 13px 49px 0px rgba(51, 77, 128, 0.15);
+  border-radius: 40px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title span {
+  width: 10%;
+  text-align: center;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title span i {
+  color: #0a1724;
+  font-size: 20px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-title h3 {
+  width: 90%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 20px 20px;
+}
+
+.exad-accordion.six .exad-accordion-six .exad-accordion-content .exad-accordion-content-wrapper p {
+  font-size: 15px;
+  color: #717171;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.exad-accordion.seven .exad-accordion-seven {
+  margin-bottom: 30px;
+}
+
+.exad-accordion.seven .exad-accordion-seven.active .exad-accordion-title {
+  color: #fff;
+  background: linear-gradient(90deg, #724cff 0%, #8868fe 100%);
+  box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.15);
+}
+
+.exad-accordion.seven .exad-accordion-seven.active .exad-accordion-title span i {
+  color: #fff;
+}
+
+.exad-accordion.seven .exad-accordion-seven.active .exad-accordion-title h3 {
+  color: #fff;
+}
+
+.exad-accordion.seven .exad-accordion-seven.active .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f106";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title {
+  display: flex;
+  padding: 20px 20px;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease;
+  cursor: pointer;
+  color: #0a1724;
+  box-shadow: 0px 13px 49px 0px rgba(51, 77, 128, 0.15);
+  border-radius: 40px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title::after {
+  position: absolute;
+  font-family: "FontAwesome";
+  content: "\f107";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title span {
+  width: 10%;
+  text-align: center;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title span i {
+  color: #0a1724;
+  font-size: 20px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-title h3 {
+  width: 90%;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  font-weight: 400;
+  margin: 0;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-content {
+  display: none;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-content .exad-accordion-content-wrapper {
+  padding: 20px 20px;
+}
+
+.exad-accordion.seven .exad-accordion-seven .exad-accordion-content .exad-accordion-content-wrapper p {
+  font-size: 15px;
+  color: #717171;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+  font-weight: 100;
+  margin: 0;
+}
+
+@media(max-width:1200px){
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
+    width: 82%;
+  }
+}
+@media(max-width:575px){
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title::after{
+    right: 20px;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title.active::after{
+    right: 20px;
+  }
+}
+@media(max-width:400px){
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
+    width: 80%;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title::after{
+    right: 10px;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title.active::after{
+    right: 10px;
+  }
+}
+@media(max-width:320px){
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
+    width: 80%;
+    padding: 14px 20px;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title::after{
+    right: 10px;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title.active::after{
+    right: 10px;
+  }
+}
+
+/* Exclusive Accordion End */ 
