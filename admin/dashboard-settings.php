@@ -7,8 +7,6 @@ if( ! defined( 'ABSPATH' ) ) exit(); // Exit if accessed directly
 
 class Exad_Admin_Settings {
 
-    private $is_pro = false;
-
 	/**
 	 * Contains Default Component keys
 	 * @var array
@@ -61,10 +59,7 @@ class Exad_Admin_Settings {
 		wp_enqueue_style( 'exad-notice-css', plugins_url( '/', __FILE__ ).'assets/css/exad-notice.css' );
 		if( isset( $_GET['page'] ) && $_GET['page'] == 'exad-settings' ) {
 			wp_enqueue_style( 'exad-admin-css', plugins_url( '/', __FILE__ ).'assets/css/admin.css' );
-			wp_enqueue_style( 'exad-sweetalert2-css', plugins_url( '/', __FILE__ ).'assets/vendor/sweetalert2/css/sweetalert2.min.css' );
 			wp_enqueue_script( 'exad-admin-js', plugins_url( '/', __FILE__ ).'assets/js/admin.js', array( 'jquery'), '1.0', true );
-			wp_enqueue_script( 'exclusive_addons_core-js', plugins_url( '/', __FILE__ ).'assets/vendor/sweetalert2/js/core.js', array( 'jquery' ), '1.0', true );
-			wp_enqueue_script( 'exclusive_addons_sweetalert2-js', plugins_url( '/', __FILE__ ).'assets/vendor/sweetalert2/js/sweetalert2.min.js', array( 'jquery', 'exclusive_addons_core-js' ), '1.0', true );
 		}
 
 	}
@@ -122,7 +117,7 @@ class Exad_Admin_Settings {
         <div class="exad-header-bar">
             <div class="exad-header-left">
                 <div class="exad-admin-logo-inline">
-                    <img src="<?php echo plugins_url( '/', __FILE__ ).'assets/images/ea-logo.svg'; ?>">
+                    <img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/dc-logo.png'; ?>">
                 </div>
                 <h2 class="title">
                     <?php _e( 'Exclusive Addons Settings', 'exclusive-addons-elementor' ); ?>
@@ -139,18 +134,14 @@ class Exad_Admin_Settings {
             <ul class="exad-tabs">
                 <li><a href="#general" class="active"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/Setting, Preferences, User, Interface, Ui, Gear.png'; ?>"><span>General</span></a></li>
                 <li><a href="#elements"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/Layer, Stack, Data, Layers, Tool.png'; ?>"><span>Elements</span></a></li>
-                <li><a href="#go-pro"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/Tag, Label, Card, Badge, Award, Ecommerce.png'; ?>"><span>Go Premium</span></a></li>
             </ul>
             <div id="general" class="exad-settings-tab active">
                 <div class="row exad-admin-general-wrapper">
                     <div class="row exad-admin-banner">
-                        <a class="exad-admin-block-banner-full" href="https://essential-addons.com/elementor/" target="_blank">
+                        <a class="exad-admin-block-banner-full" href="https://devscred.com/" target="_blank">
                             <img class="exad-preview-img" src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/settings-banner-bg.png'; ?>">
                             <div class="exad-admin-block-banner-content">
                                 <h1>Exclusive Addons<br> for Elementor</h1>
-                            </div>
-                            <div class="exad-admin-block-banner-content-button">
-                                <button>Upgrade to Pro</button>
                             </div>
                         </a>
                     </div>
@@ -289,7 +280,7 @@ class Exad_Admin_Settings {
             </div>
             <div id="elements" class="exad-settings-tab">
                 <div class="row">
-                    <div class="col-full-1">
+                    <div class="col-full">
                         <p class="exad-elements-control-notice">You can disable the elements you are not using on your site. That will disable all associated assets of those widgets to improve your site loading.</p>
                         <div class="premium-elements-title">
                             <img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/raw/Plus, Add, Inset, Append, Circle, Attach.svg'; ?>">
@@ -749,466 +740,7 @@ class Exad_Admin_Settings {
                         </div>
                         <!--./checkbox-container-->
                     </div>
-                    <div class="col-full">
-                        <div class="premium-elements-title">
-                            <img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/raw/Plus, Add, Inset, Append, Circle, Attach Copy.svg'; ?>">
-                            <h4 class="section-title">Premium Elements</h4>
-                            <p class="section-title-p-tag">You can deactivate those elements that you do not intend to use to avoid loading scripts and files related to those elements.</p>
-                        </div>
-                        <div class="exad-checkbox-container">
-                            <div class="exad-checkbox">
-
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Image Comparison', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Image Comparison', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="img-comparison" name="img-comparison" disabled>
-                                    <label for="img-comparison" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-                            </div>
-                            <div class="exad-checkbox">
-
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Instagram Gallery', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Instagram Gallery', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="instagram-gallery" name="instagram-gallery" disabled>
-                                    <label for="instagram-gallery" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Interactive Promo', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Interactive Promo', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="interactive-promo" name="interactive-promo" disabled>
-                                    <label for="interactive-promo" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Lightbox', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Lightbox', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="lightbox" name="lightbox" disabled>
-                                    <label for="lightbox" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Post Block', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Post Block', 'exclusive-addons-elementor' ); ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="post-block" name="post-block" disabled>
-                                    <label for="post-block" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Testimonial Slider', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Testimonial Slider', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="testimonial-slider" name="testimonial-slider" disabled>
-                                    <label for="testimonial-slider" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Static Product', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Static Product', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="static-product" name="static-product" disabled>
-                                    <label for="static-product" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Flip Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Flip Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="flip-carousel" name="flip-carousel" disabled>
-                                    <label for="flip-carousel" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Interactive Cards', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Interactive Cards', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="interactive-cards" name="interactive-cards" disabled>
-                                    <label for="interactive-cards" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Content Timeline', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Content Timeline', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="content-timeline" name="content-timeline" disabled>
-                                    <label for="content-timeline" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Twitter Feed Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Twitter Feed Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="twitter-feed-carousel" name="twitter-feed-carousel" disabled>
-                                    <label for="twitter-feed-carousel" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Facebook Feed Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Facebook Feed Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="facebook-feed-carousel" name="facebook-feed-carousel" disabled>
-                                    <label for="facebook-feed-carousel" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Dynamic Filter Gallery', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Dynamic Filter Gallery', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="dynamic-filter-gallery" name="dynamic-filter-gallery" disabled>
-                                    <label for="dynamic-filter-gallery" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Smart Post List', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Smart Post List', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="post-list" name="post-list" disabled>
-                                    <label for="post-list" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Advanced Google Map', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Advanced Google Map', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="adv-google-map" name="adv-google-map" disabled>
-                                    <label for="adv-google-map" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Content Toggle', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Content Toggle', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="toggle" name="toggle" disabled>
-                                    <label for="toggle" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Mailchimp', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Mailchimp', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="mailchimp" name="mailchimp" disabled>
-                                    <label for="mailchimp" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Divider', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Divider', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="divider" name="divider" disabled>
-                                    <label for="divider" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Price Menu', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Price Menu', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="price-menu" name="price-menu" disabled>
-                                    <label for="price-menu" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Image Hotspots', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Image Hotspots', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="image-hotspots" name="image-hotspots" disabled>
-                                    <label for="image-hotspots" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'One Page Navigation', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'One Page Navigation', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="one-page-navigation" name="one-page-navigation" disabled>
-                                    <label for="one-page-navigation" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Counter', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Counter', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="counter" name="counter" disabled>
-                                    <label for="counter" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Post Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Post Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="post-carousel" name="post-carousel" disabled>
-                                    <label for="post-carousel" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Team Member Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Team Member Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="team-member-carousel" name="team-member-carousel" disabled>
-                                    <label for="team-member-carousel" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Logo Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Logo Carousel', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="logo-carousel" name="logo-carousel" disabled>
-                                    <label for="logo-carousel" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Protected Content', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Protected Content', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="protected-content" name="protected-content" disabled>
-                                    <label for="protected-content" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                            <div class="exad-checkbox">
-                                <div class="exad-checkbox-text">
-                                    <p class="exad-el-title">
-                                        <?php _e( 'Offcanvas Content', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                    <p class="exad-el-title-small">
-                                        <?php _e( 'Offcanvas Content', 'exclusive-addons-elementor' ) ?>
-                                    </p>
-                                </div>
-                                <div class="exad-checkbox-label">
-                                    <input type="checkbox" id="offcanvas" name="offcanvas" disabled>
-                                    <label for="offcanvas" class="<?php if( (bool) $this->is_pro === false ) : echo 'exad-get-pro'; endif; ?>"></label>
-                                </div>
-
-
-                            </div>
-                        </div>
-                        <!--./checkbox-container-->
-                        <div class="exad-save-btn-wrap">
-                            <button type="submit" class="button exad-btn js-exad-settings-save">
-                                <?php _e('Save settings', 'exclusive-addons-elementor'); ?></button>
-                        </div>
-                        <div class="exad-save-notification"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="go-pro" class="exad-settings-tab">
-                <div class="row go-premium">
-                    <div class="col-half">
-                        <h4>Why upgrade to Premium Version?</h4>
-                        <p>The premium version helps us to continue development of the product incorporating even more features and enhancements.</p>
-
-                        <p>You will also get world class support from our dedicated team, 24/7.</p>
-
-                        <a href="https://wpdeveloper.net/in/upgrade-essential-addons-elementor" target="_blank" class="button exad-btn exad-license-btn">Get Premium Version</a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
