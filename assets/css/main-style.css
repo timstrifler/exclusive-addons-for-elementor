@@ -3746,11 +3746,11 @@ ul.exad-pricing-table-features {
   margin-bottom: 117px;
 }
 
-.exad-countdown.flip-style {
+.exad-countdown.style-3 {
   justify-content: center;
 }
 
-.exad-countdown.flip-style .time {
+.exad-countdown.style-3 .time {
   border-radius: 5px;
   display: inline-block;
   text-align: center;
@@ -3768,11 +3768,11 @@ ul.exad-pricing-table-features {
           transform: translate3d(0, 0, 0);
 }
 
-.exad-countdown.flip-style .time:first-child {
+.exad-countdown.style-3 .time:first-child {
   margin-left: 0;
 }
 
-.exad-countdown.flip-style .count {
+.exad-countdown.style-3 .count {
   background-color: #431bd4;
   color: #fff;
   display: block;
@@ -3789,7 +3789,7 @@ ul.exad-pricing-table-features {
           transform-style: flat;
 }
 
-.exad-countdown.flip-style .count.top {
+.exad-countdown.style-3 .count.top {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px 5px 0 0;
   height: 50%;
@@ -3797,7 +3797,7 @@ ul.exad-pricing-table-features {
           transform-origin: 50% 100%;
 }
 
-.exad-countdown.flip-style .count.bottom {
+.exad-countdown.style-3 .count.bottom {
   border-radius: 0 0 5px 5px;
   line-height: 0;
   height: 50%;
@@ -3806,24 +3806,24 @@ ul.exad-pricing-table-features {
           transform-origin: 50% 0;
 }
 
-.exad-countdown.flip-style .count.curr.bottom {
+.exad-countdown.style-3 .count.curr.bottom {
   background-color: #552ee4;
 }
 
-.exad-countdown.flip-style .count.curr.top {
+.exad-countdown.style-3 .count.curr.top {
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg);
   z-index: 3;
 }
 
-.exad-countdown.flip-style .count.next.bottom {
+.exad-countdown.style-3 .count.next.bottom {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
   z-index: 2;
   background-color: #552ee4;
 }
 
-.exad-countdown.flip-style .label {
+.exad-countdown.style-3 .label {
   margin-top: 25px;
   display: block;
   width: 100%;
@@ -3835,13 +3835,13 @@ ul.exad-pricing-table-features {
   font-weight: 500;
 }
 
-.exad-countdown.flip-style .flip .count.curr.top {
+.exad-countdown.style-3 .flip .count.curr.top {
   transition: all 350ms ease-in-out;
   -webkit-transform: rotateX(-90deg);
           transform: rotateX(-90deg);
 }
 
-.exad-countdown.flip-style .flip .count.next.bottom {
+.exad-countdown.style-3 .flip .count.next.bottom {
   transition: all 350ms ease-in-out 350ms;
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg);
@@ -3894,7 +3894,7 @@ ul.exad-pricing-table-features {
   .exad-countdoen-watermark {
     display: none;
   }
-  .exad-countdown.flip-style .label {
+  .exad-countdown.style-3 .label {
     margin-top: 0;
     top: 0;
     color: white;
@@ -3925,7 +3925,7 @@ ul.exad-pricing-table-features {
   .exad-countdown .exad-countdown-count {
     font-size: 40px;
   }
-  .exad-countdown.flip-style .time {
+  .exad-countdown.style-3 .time {
     margin-left: 0;
     margin-bottom: 5px;
   }

@@ -340,9 +340,38 @@ class Exad_Countdown_Timer extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+		$this->add_render_attribute(
+			'exad-countdown-timer-attribute',
+			[
+				'data-day'	=> 'Days',
+				'data-minutes' => 'Minutes',
+				'data-hours'	=> 'Hours',
+				'data-seconds' => 'Seconds'
+			]
+		);
+		if ($settings['exad_countdown_preset'] == 'style-1' || $settings['exad_countdown_preset'] == 'style-2') {
+			$this->add_render_attribute(
+				'exad-countdown-timer-attribute',
+				[
+					'data-countdown' => esc_attr( $settings['exad_countdown_time'] )
+				]
+			);
+		}
+
+		if ($settings['exad_countdown_preset'] == 'style-3') {
+			$this->add_render_attribute(
+				'exad-countdown-timer-attribute',
+				[
+					// 'data-flip-countdown-date' => esc_attr( $settings['exad_countdown_time'] )
+					'data-flip-countdown-date' => '2020/01/31'
+				]
+			);
+		}
+
 		?>
 		<div id="exad-countdown-timer-<?php echo esc_attr($this->get_id()); ?>" class="exad-countdown-content-container">
-			<div class="exad-countdown <?php echo esc_attr( $settings['exad_countdown_preset'] ); ?>" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="<?php echo esc_attr( $settings['exad_countdown_time'] ); ?>"></div>
+			<div class="exad-countdown <?php echo esc_attr( $settings['exad_countdown_preset'] ); ?>" 
+			<?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute') ?>></div>
 		</div>
 		<?php
 	}
