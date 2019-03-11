@@ -4614,7 +4614,6 @@ ul.exad-pricing-table-features {
   display: inline-block;
   text-decoration: none;
   font-size: 18px;
-  border-radius: 10px;
   position: relative;
   z-index: 1;
   border: 1px solid transparent;
@@ -4623,7 +4622,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-button .exad-button-wrapper.effect-1 .exad-button-action i {
-  margin-right: 15px;
+  margin-right: 5px;
 }
 
 .exad-button .exad-button-wrapper.effect-1 .exad-button-action::before {
@@ -4634,7 +4633,6 @@ ul.exad-pricing-table-features {
   background: #fff;
   top: 0;
   left: 0;
-  border-radius: 10px;
   z-index: -1;
   transition: all .3s ease;
 }
@@ -4715,7 +4713,6 @@ ul.exad-pricing-table-features {
   content: '';
   height: 100%;
   width: 100%;
-  background: #fff;
   top: 0;
   left: 0;
   z-index: -1;
@@ -4777,7 +4774,6 @@ ul.exad-pricing-table-features {
 
 .exad-button .exad-button-wrapper.effect-4 .exad-button-action::after {
   transition-delay: 0.2s;
-  background: #fff;
 }
 
 .exad-button .exad-button-wrapper.effect-4 .exad-button-action:hover {
@@ -4819,7 +4815,6 @@ ul.exad-pricing-table-features {
   bottom: 50%;
   left: 0;
   right: 0;
-  background: #fff;
   z-index: -1;
   opacity: 0;
   transition: all .3s ease;
@@ -4908,7 +4903,6 @@ ul.exad-pricing-table-features {
   content: '';
   top: 0;
   left: 0;
-  background: #fb4b15;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   transition: all 0.3s ease;
@@ -4925,10 +4919,8 @@ ul.exad-pricing-table-features {
 }
 
 .exad-button .exad-button-wrapper.effect-7 .exad-button-action span i {
-  position: absolute;
+  position: relative;
   font-size: 20px;
-  top: 4px;
-  left: -20px;
   -webkit-transform: translate(0, 4em);
           transform: translate(0, 4em);
   transition: all 0.3s ease;
@@ -4971,7 +4963,6 @@ ul.exad-pricing-table-features {
   content: '';
   display: block;
   border-radius: 50%;
-  background: #ff9d45;
   height: 0;
   width: 0;
   transition: width 0.3s ease-in-out,height 0.3s ease-in-out;
@@ -5025,7 +5016,6 @@ ul.exad-pricing-table-features {
   right: 50%;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
   z-index: -1;
   opacity: 0;
   transition: all .3s ease;
@@ -5432,7 +5422,6 @@ ul.exad-pricing-table-features {
 .exad-button .exad-button-wrapper.effect-18 .exad-button-action::before {
   position: absolute;
   content: '';
-  background: #000000;
   top: 0;
   left: 0;
   height: 100%;

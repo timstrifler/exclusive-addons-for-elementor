@@ -250,6 +250,29 @@
 		});
 	}
 
+	// Exclusive Button 
+	var ExclusiveButton = function($scope, $) {
+		// position on hover a button in button style seven
+		var $mouseHoverEffect8 = $scope.find('.effect-8.mouse-hover-effect'),
+		$mouseHoverEffect8Link = $scope.find('.effect-8.mouse-hover-effect .exad-button-action');
+		
+		$mouseHoverEffect8Link.append('<span/>');
+		$mouseHoverEffect8.on('mouseenter', function (e) {
+		  	var parentOffset = $(this).offset(),
+			relX = e.pageX - parentOffset.left,
+			relY = e.pageY - parentOffset.top;
+		  	$(this).find('span').css({ top: relY, left: relX })
+		});
+		$mouseHoverEffect8.on('mouseout', function (e) {
+		  	var parentOffset = $(this).offset(),
+			relX = e.pageX - parentOffset.left,
+			relY = e.pageY - parentOffset.top;
+		  	$(this).find('span').css({ top: relY, left: relX })
+		});
+	  	// position on hover a button in button style seven
+	}
+
+	
 
 	$(window).on('elementor/frontend/init', function () {
         if(elementorFrontend.isEditMode()) {
@@ -262,6 +285,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-countdown-timer.default', CountdownTimer);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-accordion.default', ExclusiveAccordion);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-tabs.default', ExclusiveTabs);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-button.default', ExclusiveButton);
         
     });
 

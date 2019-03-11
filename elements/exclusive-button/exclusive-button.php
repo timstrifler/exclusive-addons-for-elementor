@@ -133,7 +133,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 300,
+					'size' => 240,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-action' => 'width: {{SIZE}}{{UNIT}};',
@@ -177,7 +177,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'size_units' => [ 'px', 'em', '%' ],
 				'default' => [
 					'top' => 20,
-					'right' => 0,
+					'right' => 20,
 					'bottom' => 20,
 					'left' => 20,
 					'isLinked' => false,
@@ -221,6 +221,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-action' => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-1 .exad-button-action::before' => 'border-radius: {{SIZE}}px;'
 				],
 			]
 		);
@@ -288,7 +289,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#ffffff',
+				'default' => '#8868fe',
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action:hover' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--winona::after' => 'color: {{VALUE}};',
@@ -302,19 +303,16 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#f54',
+				'default' => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-1 .exad-button-action::before' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-2 .exad-button-action:before, {{WRAPPER}} .exad-button .exad-button-wrapper.effect-2 .exad-button-action:after' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wayra:hover::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wave::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wave:hover::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--aylen::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--saqui:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--nuka:hover::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--quidel:hover::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-3 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-4 .exad-button-action::after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-5 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-7 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-8 .exad-button-action span' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-10 .exad-button-action::before' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -352,6 +350,10 @@ class Exad_Exclusive_Button extends Widget_Base {
 			'class'	=> [ 'exad-button-wrapper', esc_attr($settings['exclusive_button_effect'] ) ],
 		]);
 
+		if ( 'effect-8' == $settings['exclusive_button_effect'] ) {
+			$this->add_render_attribute( 'exad_exclusive_button', 'class', 'mouse-hover-effect' );
+		}
+
 		if( $settings['exclusive_button_link_url']['is_external'] ) {
 			$this->add_render_attribute( 'exad_exclusive_button', 'target', '_blank' );
 		}
@@ -365,10 +367,9 @@ class Exad_Exclusive_Button extends Widget_Base {
 		<div <?php echo $this->get_render_attribute_string( 'exad_exclusive_button' ); ?>>
 			<a href="<?php echo esc_attr($settings['exclusive_button_link_url']['url'] ); ?>" class="exad-button-action">
 				<?php if ( ! empty( $settings['exad_exclusive_button_icon'] ) ) : ?>
-					<i class="<?php echo esc_attr($settings['exad_exclusive_button_icon'] ); ?>" aria-hidden="true"></i> 
+					<span><i class="<?php echo esc_attr($settings['exad_exclusive_button_icon'] ); ?>" aria-hidden="true"></i></span>
 				<?php endif; ?>
-
-				<?php echo  $settings['exclusive_button_text'];?>
+				<?php echo  $settings['exclusive_button_text']; ?>
 			</a>
 		</div>
 	
@@ -383,10 +384,10 @@ class Exad_Exclusive_Button extends Widget_Base {
 		view.addRenderAttribute( 'exclusive-button', 'class', [ 'exad-button-wrapper', settings.exclusive_button_effect] );
 	#>	
 
-	<div class="exad-button ten">
+	<div class="exad-button">
 		<div {{{ view.getRenderAttributeString( 'exclusive-button' ) }}}>
 			<a href="{{ settings.exclusive_button_link_url.url }}" class="exad-button-action">
-				<i class="{{ settings.exad_exclusive_button_icon }}" aria-hidden="true"></i>
+				<span><i class="{{ settings.exad_exclusive_button_icon }}" aria-hidden="true"></i></span>
 				{{{ settings.exclusive_button_text }}}
 			</a>
 		</div>
