@@ -3991,7 +3991,10 @@ ul.exad-pricing-table-features {
   overflow: hidden;
   margin-bottom: 30px;
 }
-
+.exad-row-wrapper .exad-post-grid-container {
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-thumbnail {
   margin: 0;
   overflow: hidden;
@@ -4012,8 +4015,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body {
-  padding: 35px 20px;
-  border-radius: 0 0 15px 15px;
+  padding: 20px;
 }
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-category {
@@ -4037,7 +4039,9 @@ ul.exad-pricing-table-features {
   display: block;
   text-decoration: none;
 }
-
+.exad-row-wrapper .exad-post-grid-one .exad-post-grid-body h3 {
+  margin: 0 auto 15px auto;
+}
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-title {
   font-size: 20px;
   font-family: "Roboto", sans-serif;
@@ -4602,22 +4606,22 @@ ul.exad-pricing-table-features {
 /* Exclusive Button Start */
 
 /* Global Styles for Buttons */
-.exad-button .exad-button-action {
-  width: 100%;
+.exad-button .exad-button-wrapper .exad-button-action {
+  font-family: "Roboto", sans-serif;
   text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  border: 1px solid transparent;
+  overflow: hidden;
 }
 .exad-button .exad-button-wrapper {
   margin: 30px auto;
 }
 
 .exad-button .exad-button-wrapper.effect-1 .exad-button-action {
-  display: inline-block;
-  text-decoration: none;
-  font-size: 18px;
-  position: relative;
-  z-index: 1;
-  border: 1px solid transparent;
-  background: linear-gradient(90deg, #724cff 0%, #8868fe 100%);
+  -webkit-box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.2);
   box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.2);
 }
 
@@ -4637,24 +4641,11 @@ ul.exad-pricing-table-features {
   transition: all .3s ease;
 }
 
-.exad-button .exad-button-wrapper.effect-1 .exad-button-action:hover {
-  color: #8868fe;
-}
 
 .exad-button .exad-button-wrapper.effect-1 .exad-button-action:hover::before {
   width: 100%;
 }
 
-.exad-button .exad-button-wrapper.effect-2 .exad-button-action {
-  display: inline-block;
-  text-decoration: none;
-  padding: 20px 0;
-  color: #000000;
-  position: relative;
-  z-index: 1;
-  border: 1px solid #704aff;
-  overflow: hidden;
-}
 
 .exad-button .exad-button-wrapper.effect-2 .exad-button-action i {
   margin-right: 10px;
@@ -4690,20 +4681,6 @@ ul.exad-pricing-table-features {
   width: 100%;
 }
 
-.exad-button .exad-button-wrapper.effect-3 .exad-button-action {
-  display: inline-block;
-  padding: 20px 0;
-  color: #fff;
-  background: #fb4b15;
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-  border: 1px solid transparent;
-  overflow: hidden;
-  box-shadow: 0px 25px 50px 0px rgba(251, 75, 21, 0.2);
-  z-index: 1;
-}
-
 .exad-button .exad-button-wrapper.effect-3 .exad-button-action i {
   margin-right: 10px;
 }
@@ -4735,18 +4712,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-button .exad-button-wrapper.effect-4 .exad-button-action {
-  display: inline-block;
-  padding: 20px 0;
-  color: #fff;
-  background: #ff9d45;
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-  border: 1px solid transparent;
-  overflow: hidden;
-  box-shadow: 0px 21px 35px 0px rgba(255, 172, 87, 0.2);
   transition: all .5s ease;
 }
 
@@ -4777,9 +4742,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-button .exad-button-wrapper.effect-4 .exad-button-action:hover {
-  color: #ff9d45;
   letter-spacing: 3px;
-  border: 1px solid #ff9d45;
 }
 
 .exad-button .exad-button-wrapper.effect-4 .exad-button-action:hover::before {
@@ -4790,18 +4753,6 @@ ul.exad-pricing-table-features {
 .exad-button .exad-button-wrapper.effect-4 .exad-button-action:hover::after {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
-}
-
-.exad-button .exad-button-wrapper.effect-5 .exad-button-action {
-  display: inline-block;
-  padding: 20px 0;
-  color: #fff;
-  background: linear-gradient(270deg, #ff7e9f 0%, #ff876b 100%);
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-  border: 1px solid transparent;
-  overflow: hidden;
 }
 
 .exad-button .exad-button-wrapper.effect-5 .exad-button-action i {
@@ -4848,9 +4799,6 @@ ul.exad-pricing-table-features {
 
 .exad-button .exad-button-wrapper.effect-6 .exad-button-action {
   display: inline-block;
-  padding: 20px 0;
-  color: #fff;
-  background: #704aff;
   text-decoration: none;
   position: relative;
   z-index: 1;
@@ -4884,18 +4832,6 @@ ul.exad-pricing-table-features {
   100% {
     box-shadow: 0 0 0 0px rgba(112, 74, 255, 0.1);
   }
-}
-
-.exad-button .exad-button-wrapper.effect-7 .exad-button-action {
-  display: inline-block;
-  padding: 20px 0;
-  color: #fb4b15;
-  background: #fff;
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-  border: 1px solid #fb4b15;
-  overflow: hidden;
 }
 
 .exad-button .exad-button-wrapper.effect-7 .exad-button-action::before {
@@ -4940,25 +4876,11 @@ ul.exad-pricing-table-features {
           transform: translate(0, 0);
 }
 
-.exad-button .exad-button-wrapper.effect-8 .exad-button-action {
-  display: inline-block;
-  padding: 20px 0;
-  color: #ff9d45;
-  background: #fff;
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
-  position: relative;
-  z-index: 1;
-  border: 1px solid #ff9d45;
-  overflow: hidden;
-}
-
 .exad-button .exad-button-wrapper.effect-8 .exad-button-action i {
   margin-right: 10px;
 }
 
-.exad-button .exad-button-wrapper.effect-8 .exad-button-action span {
+.exad-button .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position {
   position: absolute;
   content: '';
   display: block;
@@ -4981,14 +4903,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-button .exad-button-wrapper.effect-9 .exad-button-action {
-  background: rgba(0, 0, 0, 0.5);
-  display: inline-block;
-  padding: 20px 0;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 2px solid transparent;
-  overflow: hidden;
   transition: all .3s ease;
 }
 
@@ -4998,15 +4912,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-button .exad-button-wrapper.effect-10 .exad-button-action {
-
-  display: inline-block;
-  padding: 20px 0;
-  color: #1b1a1a;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 1px solid #1b1a1a;
   transition: all .3s ease;
-  position: relative;
 }
 
 .exad-button .exad-button-wrapper.effect-10 .exad-button-action::before {
@@ -5112,7 +5018,6 @@ ul.exad-pricing-table-features {
   content: '';
   height: 2px;
   width: 0;
-  background: #704aff;
   transition: all .4s ease;
 }
 
@@ -5137,305 +5042,6 @@ ul.exad-pricing-table-features {
 .exad-button .exad-button-wrapper.effect-12 .exad-button-action:hover::before, .exad-button .exad-button-wrapper.effect-12 .exad-button-action:hover::after {
   width: 100%;
   transition: all .7s ease;
-}
-
-.exad-button .exad-button-wrapper.effect-13 .exad-button-action {
-  width: 60%;
-  padding: 20px 0;
-  display: inline-block;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  position: relative;
-  transition: all .3s ease;
-  border-radius: 5px;
-  background: #36d3ac;
-  border: 1px solid transparent;
-}
-
-.exad-button .exad-button-wrapper.effect-13 .exad-button-action:hover {
-  background: transparent;
-  border: 1px solid #36d3ac;
-  color: #36d3ac;
-  box-shadow: 0px 23px 59px 0px rgba(54, 211, 172, 0.3);
-}
-
-.exad-button .exad-button-wrapper.effect-14 .exad-button-action {
-  height: 60px;
-  width: 60px;
-  background: #000000;
-  display: inline-block;
-  transition: all .3s ease;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.exad-button .exad-button-wrapper.effect-14 .exad-button-action .before-hover {
-  opacity: 1;
-  transition: 0.3s ease all;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 100%;
-  z-index: 200;
-}
-
-.exad-button .exad-button-wrapper.effect-14 .exad-button-action .after-hover {
-  opacity: 0;
-  transition: 0.2s ease all;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: inline-block;
-  width: 100%;
-}
-
-.exad-button .exad-button-wrapper.effect-14 .exad-button-action .after-hover i {
-  margin-left: 10px;
-}
-
-.exad-button .exad-button-wrapper.effect-14 .exad-button-action:hover {
-  width: 60%;
-}
-
-.exad-button .exad-button-wrapper.effect-14 .exad-button-action:hover .before-hover {
-  opacity: 0;
-}
-
-.exad-button .exad-button-wrapper.effect-14 .exad-button-action:hover .after-hover {
-  opacity: 1;
-}
-
-.exad-button .exad-button-wrapper.effect-15 {
-  display: flex;
-  align-content: center;
-  text-align: center;
-  width: 70%;
-  margin: 0 auto;
-  margin-top: 40px;
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action {
-  padding: 20px 0;
-  position: relative;
-  overflow: hidden;
-  transition: all .3s ease;
-  z-index: 1;
-  color: #000000;
-  text-transform: uppercase;
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action:before, .exad-button .exad-button-wrapper.effect-15 .exad-button-action:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000;
-  transition: all .3s ease;
-  z-index: -1;
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action:before {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action:after {
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action:hover:before {
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action:hover:after {
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action.left {
-  border: 2px solid #000000;
-  border-right: 0;
-  flex-basis: 50%;
-}
-
-.exad-button .exad-button-wrapper.effect-15 .exad-button-action.right {
-  border: 2px solid #000000;
-  flex-basis: 50%;
-}
-
-.exad-button .exad-button-wrapper.effect-16 {
-  display: flex;
-  align-content: center;
-  text-align: center;
-  width: 70%;
-  margin: 0 auto;
-  margin-top: 40px;
-  position: relative;
-}
-
-.exad-button .exad-button-wrapper.effect-16 span {
-  position: absolute;
-  color: #000000;
-  z-index: 5;
-  top: 45%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  background: #fff;
-  height: 35px;
-  width: 35px;
-  line-height: 35px;
-  border-radius: 50%;
-  text-transform: lowercase;
-  border: 1px solid #704aff;
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action {
-  background: #fff;
-  padding: 20px 0;
-  width: 100%;
-  display: inline-block;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  position: relative;
-  transition: all .3s ease;
-  z-index: 1;
-  overflow: hidden;
-  border: 1px solid transparent;
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action::before, .exad-button .exad-button-wrapper.effect-16 .exad-button-action::after {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 50%;
-  background: #704aff;
-  transition: all .3s ease;
-  z-index: -1;
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action::before {
-  top: 0;
-  left: 0;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action::after {
-  bottom: 0;
-  right: 0;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action.left {
-  flex-basis: 50%;
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action.right {
-  flex-basis: 50%;
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action:hover {
-  color: #704aff;
-  border: 1px solid #704aff;
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action:hover::before {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-}
-
-.exad-button .exad-button-wrapper.effect-16 .exad-button-action:hover::after {
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
-
-.exad-button .exad-button-wrapper.effect-17 {
-  margin-top: 50px;
-}
-
-.exad-button .exad-button-wrapper.effect-17 .exad-button-action {
-  text-decoration: none;
-  text-transform: uppercase;
-  width: 70%;
-  padding: 20px 0;
-  display: inline-block;
-  font-size: 15px;
-  transition: all .3s ease;
-  position: relative;
-  border: 2px solid transparent;
-  background: #000000;
-  color: #fff;
-}
-
-.exad-button .exad-button-wrapper.effect-17 .exad-button-action::after {
-  position: absolute;
-  content: '';
-  top: 7px;
-  left: 7px;
-  background: #c4c4c4;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  opacity: 0;
-}
-
-.exad-button .exad-button-wrapper.effect-17 .exad-button-action:hover::after {
-  opacity: 1;
-}
-
-.exad-button .exad-button-wrapper.effect-18 .exad-button-action {
-  text-decoration: none;
-  text-transform: uppercase;
-  width: 70%;
-  padding: 20px 0;
-  display: inline-block;
-  font-size: 15px;
-  color: #000000;
-  transition: all .3s ease;
-  position: relative;
-  border-width: 0 2px 0 2px;
-  border-color: #000000;
-  border-style: solid;
-}
-
-.exad-button .exad-button-wrapper.effect-18 .exad-button-action::before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  transition: all .3s ease;
-}
-
-.exad-button .exad-button-wrapper.effect-18 .exad-button-action:hover {
-  color: #fff;
-}
-
-.exad-button .exad-button-wrapper.effect-18 .exad-button-action:hover::before {
-  width: 100%;
-  z-index: -1;
 }
 
 /* Exclusive Button End */

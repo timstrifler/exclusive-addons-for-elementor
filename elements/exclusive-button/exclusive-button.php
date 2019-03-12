@@ -99,6 +99,9 @@ class Exad_Exclusive_Button extends Widget_Base {
 					'effect-7' 	=> esc_html__( 'Effect 7', 	'exclusive-addons-elementor' ),
 					'effect-8' 	=> esc_html__( 'Effect 8', 	'exclusive-addons-elementor' ),
 					'effect-9' 	=> esc_html__( 'Effect 9', 	'exclusive-addons-elementor' ),
+					'effect-10' => esc_html__( 'Effect 10', 'exclusive-addons-elementor' ),
+					'effect-11' => esc_html__( 'Effect 11', 'exclusive-addons-elementor' ),
+					'effect-12' => esc_html__( 'Effect 12', 'exclusive-addons-elementor' ),
 					
 				],
 			]
@@ -180,7 +183,8 @@ class Exad_Exclusive_Button extends Widget_Base {
 					'right' => 20,
 					'bottom' => 20,
 					'left' => 20,
-					'isLinked' => false,
+					'unit' => 'px',
+					'isLinked' => true,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
@@ -253,27 +257,27 @@ class Exad_Exclusive_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		/*$this->add_control(
 			'exad_exclusive_button_background_color',
 			[
 				'label'		=> esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#8868fe',
 				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-action' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--ujarak:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wayra:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--rayen:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--pipaluk::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--wave:hover' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--aylen::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--nuka::before' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--nuka::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--antiman::after' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--quidel::after' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-12 .exad-button-action::before, {{WRAPPER}} .exad-button .exad-button-wrapper.effect-12 .exad-button-action::after' => 'background: {{VALUE}};',
+					
 				],
+			]
+		); */
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'background',
+				'label' => __( 'Background', 'plugin-domain' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action',
 			]
 		);
 
@@ -291,9 +295,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#8868fe',
 				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--winona::after' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--saqui::after' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action:hover' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -311,8 +313,11 @@ class Exad_Exclusive_Button extends Widget_Base {
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-4 .exad-button-action::after' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-5 .exad-button-action::before' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-7 .exad-button-action::before' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-8 .exad-button-action span' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position' => 'background: {{VALUE}};',
+					//'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-9 .exad-button-action:hover' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-10 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-11 .exad-button-action:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-12 .exad-button-action:hover' => 'background: {{VALUE}};',	
 				],
 			]
 		);
@@ -370,25 +375,34 @@ class Exad_Exclusive_Button extends Widget_Base {
 					<span><i class="<?php echo esc_attr($settings['exad_exclusive_button_icon'] ); ?>" aria-hidden="true"></i></span>
 				<?php endif; ?>
 				<?php echo  $settings['exclusive_button_text']; ?>
+				<?php if ( 'effect-8' == $settings['exclusive_button_effect'] ) { ?>
+					<span class="effect-8-position"></span>	
+				<?php } ?>	
 			</a>
 		</div>
 	
 	<?php
-	
 	}
 
 	protected function _content_template() {
 	?>
 
+	<# if ( 'effect-8' == settings.exclusive_button_effect ) {
+		view.addRenderAttribute( 'exad_exclusive_button', 'class', 'mouse-hover-effect' );
+	}
+	#>	
 	<#
-		view.addRenderAttribute( 'exclusive-button', 'class', [ 'exad-button-wrapper', settings.exclusive_button_effect] );
+		view.addRenderAttribute( 'exad_exclusive_button', 'class', [ 'exad-button-wrapper', settings.exclusive_button_effect ] );
 	#>	
 
 	<div class="exad-button">
-		<div {{{ view.getRenderAttributeString( 'exclusive-button' ) }}}>
+		<div {{{ view.getRenderAttributeString( 'exad_exclusive_button' ) }}}>
 			<a href="{{ settings.exclusive_button_link_url.url }}" class="exad-button-action">
 				<span><i class="{{ settings.exad_exclusive_button_icon }}" aria-hidden="true"></i></span>
 				{{{ settings.exclusive_button_text }}}
+				<# if ( 'effect-8' == settings.exclusive_button_effect ) { #>
+					<span class="effect-8-position"></span>	
+				<# } #>
 			</a>
 		</div>
 	</div>

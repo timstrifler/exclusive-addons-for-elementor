@@ -179,7 +179,7 @@ class Exad_Post_Grid extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#f5f7fa',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'background: {{VALUE}};',
 				]
 
 			]

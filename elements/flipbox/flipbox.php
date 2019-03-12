@@ -924,7 +924,7 @@ class Exad_Flip_Box extends Widget_Base {
           		<div class="exad-flip-box-front-image">
 	            	<i class="{{ settings.exad_flipbox_front_icon }}"></i>
         		</div>
-							<h5 class="exad-flip-box-front-title">{{{ settings.exad_flipbox_front_title }}}</h5>
+				<h5 class="exad-flip-box-front-title">{{{ settings.exad_flipbox_front_title }}}</h5>
 		        <p class="exad-flip-box-front-description">
 		            {{{ settings.exad_flipbox_front_description }}}
 		        </p>
@@ -936,8 +936,8 @@ class Exad_Flip_Box extends Widget_Base {
 		            {{{ settings.exad_flipbox_back_description}}}
 		        </p>
 		        <a href="{{ settings.exad_flipbox_button_link.url }}" class="exad-flip-box-back-action">
-							{{{ settings.exad_flipbox_button_text }}}
-						</a>
+					{{{ settings.exad_flipbox_button_text }}}
+				</a>
 	        </div>
       	</div>
     </div>
