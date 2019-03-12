@@ -166,7 +166,7 @@ class Exad_Post_Grid extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => '-one',
 				'options' => [
-					'-one' => esc_html__( 'Default', 'exclusive-addons-elementor' ),
+					'-one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
 					'-three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 				],
 			]

@@ -362,7 +362,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			$this->add_render_attribute(
 				'exad-countdown-timer-attribute',
 				[
-					// 'data-flip-countdown-date' => esc_attr( $settings['exad_countdown_time'] )
+					//'data-flip-countdown-date' => esc_attr( $settings['exad_countdown_time'] )
 					'data-flip-countdown-date' => '2020/01/31'
 				]
 			);
@@ -379,7 +379,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 	protected function _content_template() {
 		?>
 		<div id="exad-countdown-timer" class="exad-countdown-content-container">
-				<div class="exad-countdown {{ settings.exad_countdown_preset }}" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="{{ settings.exad_countdown_time }}"></div>
+			<div class="exad-countdown {{ settings.exad_countdown_preset }}" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="{{ settings.exad_countdown_time }}"></div>
 		</div>
 		<?php
 	}

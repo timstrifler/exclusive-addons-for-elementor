@@ -4041,6 +4041,7 @@ ul.exad-pricing-table-features {
 }
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body h3 {
   margin: 0 auto 15px auto;
+  line-height: 1.6;
 }
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-title {
   font-size: 20px;
@@ -4258,20 +4259,23 @@ ul.exad-pricing-table-features {
   text-decoration: none;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(1) {
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:not(:last-child) {
+  margin-right: 5px;
+}
+
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n-1) {
   background: #3ac772;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2) {
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n) {
   background: #8774ff;
-  margin-left: 5px;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:hover:nth-child(1) {
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:hover:nth-child(2n-1) {
   background: #1d6339;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:hover:nth-child(2) {
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:hover:nth-child(2n) {
   background: #433a7f;
 }
 
