@@ -360,28 +360,19 @@ class Exad_Post_Timeline extends Widget_Base {
 
         $settings['template_type'] = $this->get_name();
 
-        $settings['post_args'] = Exad_Helper::exad_get_post_arguments('exad_post_timeline');
+        $settings['post_args'] = Exad_Helper::exad_get_post_arguments($settings, 'exad_post_timeline');
 		
 		$this->add_render_attribute(
 			'exad_post_timeline_wrapper',
 			[
 				'id'		=> "exad-post-timeline-{$this->get_id()}",
 				'class'		=> 'exad-post-timeline',
-				'data-total_posts'	=> $total_post,
 				'data-timeline_id'	=> $this->get_id(),
 				
 				'data-post_type'	=> $settings['exad_post_timeline_type'],
 				'data-posts_per_page'	=> $settings['exad_post_timeline_per_page'] ? $settings['exad_post_timeline_per_page'] : 4,
 				'data-post_order'		=> $settings['exad_post_timeline_order'],
 				'data-post_offset'		=> intval( $settings['exad_post_timeline_offset'] ),
-
-				'data-show_title'	    => $settings['exad_show_title'],
-
-				'data-show_excerpt'	    => $settings['exad_show_excerpt'],
-				'data-excerpt_length'	=> $settings['exad_excerpt_length'],
-
-				'data-btn_text'			=> $settings['show_load_more_text'],
-
 				'data-tax_query'		=> json_encode( ! empty( $tax_query ) ? $tax_query : [] ),
 				'data-exclude_posts'	=> json_encode( ! empty( $settings['post__not_in'] ) ? $settings['post__not_in'] : [] ),
 			]

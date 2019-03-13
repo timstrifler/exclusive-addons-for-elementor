@@ -565,7 +565,7 @@ class Exad_Post_Grid extends Widget_Base {
 		/**
 		 * Load More Button Style Controls!
 		 */
-		//$this->load_more_button_style();
+		
 
 	}
 
