@@ -106,9 +106,8 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 					[
 						'name' => 'exad_exclusive_tab_content',
 						'label' => esc_html__( 'Tab Content', 'essential-addons-elementor' ),
-						'type' => Controls_Manager::WYSIWYG,
+						'type' => Controls_Manager::TEXTAREA,
 						'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'essential-addons-elementor' ),
-						'dynamic' => [ 'active' => true ],
 					],
 				],
 				'title_field' => '{{exad_exclusive_tab_title}}',
@@ -388,18 +387,20 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 	<?php
 	}
 
-	/*protected function _content_template() {
+	protected function _content_template() {
 		?>
 		<div id="exad-advance-tabs" class="exad-advance-tab {{ settings.exad_exclusive_tabs_preset }}" data-tabs>
 			
 			<ul class="exad-advance-tab-nav">
 				<# _.each( settings.exad_exclusive_tabs, function( tab, index ) { #>
 					<li class="{{ tab.exad_exclusive_tab_show_as_default }}" data-tab>
-					<# if( settings.exad_exclusive_tabs_icon_show === 'yes' ) #>
-						<# if( tab.exad_exclusive_tabs_icon_type === 'icon' )  #>
+					<# if( settings.exad_exclusive_tabs_icon_show === 'yes' ) { #>
+						<# if( tab.exad_exclusive_tabs_icon_type === 'icon' ) { #>
 							<i class="{{ tab.exad_exclusive_tab_title_icon }}"></i>
-						<# else if( tab.exad_exclusive_tabs_icon_type === 'image' ) #>
+						<# } else if( tab.exad_exclusive_tabs_icon_type === 'image' ) { #>
 							<img src="{{ tab.exad_exclusive_tab_title_image.url }}">
+						<# } #>	
+					<# } #>		
 					<span class="exad-tab-title">{{{ tab.exad_exclusive_tab_title }}}</span></li>
 				<# }); #>
 			</ul>
@@ -409,14 +410,14 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				<h3 class="exad-advance-tab-content-title">{{{ tab.exad_exclusive_tab_title }}}</h3>
 				<p>{{{ tab.exad_exclusive_tab_content }}}</p>
 				<a href="#" class="exad-advance-tab-content-action">Read More
-				<i class="fa fa-long-arrow-right"></i>
+					<i class="fa fa-long-arrow-right"></i>
 				</a>
 				</div>
 			<# }); #>
 			
 		</div>
 		<?php
-	}*/
+	}
 }
 
 

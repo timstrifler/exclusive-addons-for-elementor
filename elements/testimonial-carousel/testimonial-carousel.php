@@ -545,8 +545,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			$testimonial_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $testimonial_carousel_image['id'], 'thumbnail', $testimonial );
 
 			if( empty( $testimonial_carousel_image_url ) ) : $testimonial_carousel_image_url = $testimonial_carousel_image['url']; else: $testimonial_carousel_image_url = $testimonial_carousel_image_url; endif;
-
-
+			
 			?>	
 				<?php if ( $testimonial_preset == '-circle' ) { ?> 
 				<div class="exad-testimonial-carousel-inner">
