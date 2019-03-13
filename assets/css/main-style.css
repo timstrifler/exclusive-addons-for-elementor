@@ -4034,7 +4034,6 @@ ul.exad-pricing-table-features {
   font-size: 15px;
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
-  color: #848484;
   font-weight: 400;
   display: block;
   text-decoration: none;
@@ -4263,20 +4262,12 @@ ul.exad-pricing-table-features {
   margin-right: 5px;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n-1) {
-  background: #3ac772;
-}
-
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n) {
-  background: #8774ff;
-}
-
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:hover:nth-child(2n-1) {
-  background: #1d6339;
+  opacity: 0.7;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:hover:nth-child(2n) {
-  background: #433a7f;
+  opacity: 0.7;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-title {

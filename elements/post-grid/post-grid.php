@@ -370,7 +370,56 @@ class Exad_Post_Grid extends Widget_Base {
 			]
 		);
 
-		
+		$this->add_control(
+			'exad_grid_category_style',
+			[
+				'label' => __( 'Category Style', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+        $this->add_control(
+			'exad_grid_category_color',
+			[
+				'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#848484',
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-category li a' => 'color: {{VALUE}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_grid_category_bg_odd_color',
+			[
+				'label' => __( 'Background Color (Odd)', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#3ac772',
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n-1)' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_post_grid_preset' => '-three'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_grid_category_bg_even_color',
+			[
+				'label' => __( 'Background Color (Even)', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#8774ff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_post_grid_preset' => '-three'
+				]
+			]
+		);
 
 
 		$this->end_controls_section();

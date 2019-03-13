@@ -354,5 +354,4 @@ class Exclusive_Accordion extends Widget_Base {
 
 }
 
-
 Plugin::instance()->widgets_manager->register_widget_type( new Exclusive_Accordion() );
