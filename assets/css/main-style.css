@@ -4122,7 +4122,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-action li a:hover {
-  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
   color: #fff;
   border: 1px solid transparent;
 }
@@ -4161,7 +4160,6 @@ ul.exad-pricing-table-features {
 .exad-row-wrapper .exad-post-grid-two .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-name,
 .exad-row-wrapper .exad-post-grid-two .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-date {
   font-size: 15px;
-  color: #0a1724;
   font-family: "Roboto", sans-serif;
 }
 
@@ -4293,7 +4291,6 @@ ul.exad-pricing-table-features {
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-name,
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-date {
   font-size: 15px;
-  color: #0a1724;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
 }
@@ -4310,7 +4307,6 @@ ul.exad-pricing-table-features {
   background: #fff;
   padding: 15px 30px;
   font-size: 15px;
-  color: #0a1724;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   transition: all .3s ease;
@@ -4318,7 +4314,6 @@ ul.exad-pricing-table-features {
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action:hover {
   border: 1px solid transparent;
-  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
   color: #fff;
 }
 
