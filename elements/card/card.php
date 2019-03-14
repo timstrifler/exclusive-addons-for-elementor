@@ -17,13 +17,14 @@ class Exad_Card extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 	protected function _register_controls() {
-		/*
-		* Card Image
+		
+		/**
+		* Card Content Section
 		*/
 		$this->start_controls_section(
-			'exad_section_card_image',
+			'exad_card_content',
 			[
-				'label' => esc_html__( 'Card Image', 'exclusive-addons-elementor' )
+				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' ),
 			]
 		);
 		
@@ -47,22 +48,13 @@ class Exad_Card extends Widget_Base {
 				],
 			]
 		);
-		$this->end_controls_section();
-		/**
-		* Card Content Section
-		*/
-		$this->start_controls_section(
-			'exad_card_content',
-			[
-				'label' => esc_html__( 'Card Information', 'exclusive-addons-elementor' ),
-			]
-		);
-		
+
 		$this->add_control(
 			'exad_card_title',
 			[
 				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => esc_html__( 'Card Title', 'exclusive-addons-elementor' ),
 			]
 		);
@@ -94,10 +86,7 @@ class Exad_Card extends Widget_Base {
 			'exad_card_description',
 			[
 				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::WYSIWYG,
-				'dynamic' => [
-                    'active' => true,
-                ],
+				'type' => Controls_Manager::TEXTAREA,
 				'default' => esc_html__( 'Basic description about the Card', 'exclusive-addons-elementor' ),
 			]
 		);
@@ -134,7 +123,7 @@ class Exad_Card extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_card_styles_general',
 			[
-				'label' => esc_html__( 'Card Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -148,7 +137,6 @@ class Exad_Card extends Widget_Base {
 					'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
 					'two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 					'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-					//'four' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -186,7 +174,7 @@ class Exad_Card extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_card_image_styles',
 			[
-				'label' => esc_html__( 'Card Image Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Image Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);

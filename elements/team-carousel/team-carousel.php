@@ -43,7 +43,7 @@ class Exad_Team_Carousel extends Widget_Base {
 		$team_repeater->add_control(
 			'exad_team_carousel_image',
 			[
-				'label' => __( 'Team Member Avatar', 'exclusive-addons-elementor' ),
+				'label' => __( 'Image', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -66,6 +66,7 @@ class Exad_Team_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Name', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => esc_html__( 'John Doe', 'exclusive-addons-elementor' ),
 			]
 		);
@@ -75,6 +76,7 @@ class Exad_Team_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => esc_html__( 'My Designation', 'exclusive-addons-elementor' ),
 			]
 		);
@@ -232,7 +234,7 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_team_carousel_styles_general',
 			[
-				'label' => esc_html__( 'Carousel Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
