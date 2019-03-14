@@ -2391,6 +2391,9 @@ ul.exad-pricing-table-features {
 
 .ldBar{position:relative;}.ldBar.label-center > .ldBar-label{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);text-shadow:0 0 3px #fff}.ldBar-label:after{content:"%";display:inline}.ldBar.no-percent .ldBar-label:after{content:""}
 
+[class*="exad-progress-bar-"] .ldBar-label {
+  font-family: 'Roboto', sans-serif;
+}
 
 [class*="exad-progress-bar-"].line {
   position: relative;
@@ -2398,6 +2401,7 @@ ul.exad-pricing-table-features {
 }
 
 [class*="exad-progress-bar-"].line .ldBar-label {
+  font-family: "Roboto", sans-serif;
   position: absolute;
   top: 0;
   right: 0;
@@ -2412,10 +2416,9 @@ ul.exad-pricing-table-features {
 [class*="exad-progress-bar-"].line-bubble .ldBar-label {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 56%;
   width: 50px;
   height: 50px;
-  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
   border-radius: 50%;
   line-height: 50px;
   text-align: center;
@@ -3445,6 +3448,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-countdown.style-1 .exad-countdown-container {
+  background: #552de9;
   width: calc((100% / 4) - 23px);
   padding: 17px 10px;
   margin-right: 30px;
@@ -3485,13 +3489,11 @@ ul.exad-pricing-table-features {
 }
 
 .exad-countdown.style-2 .exad-countdown-count {
-  font-weight: 100;
   position: relative;
 }
 
 .exad-countdown.style-2 .exad-countdown-count::after {
   content: ":";
-  color: #000;
   font-family: "Roboto", sans-serif;
   font-size: 80px;
   font-weight: 100;
@@ -3501,150 +3503,17 @@ ul.exad-pricing-table-features {
   line-height: 70px;
 }
 
-.exad-countdown.three {
-  margin-bottom: 50px;
-}
-
-.exad-countdown.three .exad-countdown-container {
-  box-shadow: 0px 12px 32px 0px rgba(8, 18, 109, 0.08);
-  border-radius: 3px;
-  background-color: #fff;
-  width: calc((100% / 4) - 15px);
-  padding: 22px 10px;
-  margin-right: 20px;
-}
-
-.exad-countdown.three .exad-countdown-container:last-child {
-  margin-right: 0px;
-}
-
-.exad-countdown.three .exad-countdown-count {
-  font-size: 45px;
-  color: #0a1724;
-}
-
-.exad-countdown.three .exad-countdown-title {
-  color: #8a8d91;
-}
-
-.exad-countdown.four {
-  margin-bottom: 75px;
-}
-
-.exad-countdown.four .exad-countdown-container {
-  box-shadow: 0px 12px 32px 0px rgba(8, 18, 109, 0.08);
-  background-color: rgba(255, 255, 255, 0.1);
-  width: calc((100% / 4) - 15px);
-  margin-right: 20px;
-  border-radius: 0px;
-  padding: 23px 10px;
-}
-
-.exad-countdown.four .exad-countdown-container:last-child {
-  margin-right: 0px;
-}
-
-.exad-countdown.four .exad-countdown-container .exad-countdown-count {
-  font-size: 45px;
-}
-
-.exad-countdown.four .exad-countdown-container .exad-countdown-title {
-  font-size: 14px;
-}
-
-.exad-countdown.five {
-  margin-bottom: 40px;
-}
-
-.exad-countdown.five .exad-countdown-container {
-  box-shadow: none;
-  background-color: transparent;
-  width: calc((100% / 4) - 15px);
-  margin-right: 20px;
-  border-radius: 0px;
-  padding: 23px 10px;
-}
-
-.exad-countdown.five .exad-countdown-container:last-child {
-  margin-right: 0px;
-}
-
-.exad-countdown.five .exad-countdown-container .exad-countdown-count {
-  font-size: 45px;
-}
-
-.exad-countdown.five .exad-countdown-container .exad-countdown-title {
-  font-size: 14px;
-}
-
-.exad-countdown.six .exad-countdown-container {
-  border: 2px solid #fff;
-  background-color: rgba(0, 0, 0, 0.36);
-  border-radius: 0px;
-}
-
-.exad-countdown.six .exad-countdown-container .exad-countdown-count {
-  font-size: 60px;
-}
-
-.exad-countdown-count {
+.exad-countdown .exad-countdown-count {
+  font-family: "Roboto", sans-serif;
   font-size: 80px;
   color: #000;
+  text-align: center;
 }
 
-.exad-countdown-title {
+.exad-countdown .exad-countdown-title {
+  font-family: "Roboto", sans-serif;
   color: #0a1724;
-}
-
-.exad-countdown-content-container.thin-style .exad-countdown-description {
-  margin-bottom: 40px;
-}
-
-.exad-countdown-content-container.modern {
-  box-shadow: 0px 15px 39px 0px rgba(8, 18, 109, 0.1);
-  background-color: #fff;
-  position: relative;
-  padding: 45px 55px;
   text-align: center;
-}
-
-.exad-countdown-content-container.modern::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: #ff704e;
-  background: linear-gradient(90deg, #ff704e 1%, #fb5d86 100%);
-}
-
-.exad-countdown-content-container.modern .exad-countdown-description {
-  margin-bottom: 40px;
-}
-
-.exad-countdown-content-container.image-version {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  padding: 55px;
-  text-align: center;
-}
-
-.exad-countdown-content-container.image-version .exad-countdown-description {
-  margin-bottom: 140px;
-  color: #fff;
-}
-
-.exad-countdown-content-container.image-version .exad-countdown-description h2 {
-  font-size: 30px;
-  color: #fff;
-  font-weight: 900;
-}
-
-.exad-countdown-content-container.image-version .exad-countdown-description p {
-  padding: 0px 50px;
-  font-size: 15px;
 }
 
 .exad-countdown-content-container.gradient-version {
@@ -3746,106 +3615,6 @@ ul.exad-pricing-table-features {
   margin-bottom: 117px;
 }
 
-.exad-countdown.style-3 {
-  justify-content: center;
-}
-
-.exad-countdown.style-3 .time {
-  border-radius: 5px;
-  display: inline-block;
-  text-align: center;
-  position: relative;
-  height: 170px;
-  width: 140px;
-  margin-left: 50px;
-  -webkit-perspective: 479px;
-          perspective: 479px;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-}
-
-.exad-countdown.style-3 .time:first-child {
-  margin-left: 0;
-}
-
-.exad-countdown.style-3 .count {
-  background-color: #431bd4;
-  color: #fff;
-  display: block;
-  line-height: 168px;
-  font-size: 80px;
-  overflow: hidden;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  width: 100%;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  -webkit-transform-style: flat;
-          transform-style: flat;
-}
-
-.exad-countdown.style-3 .count.top {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 5px 5px 0 0;
-  height: 50%;
-  -webkit-transform-origin: 50% 100%;
-          transform-origin: 50% 100%;
-}
-
-.exad-countdown.style-3 .count.bottom {
-  border-radius: 0 0 5px 5px;
-  line-height: 0;
-  height: 50%;
-  top: 50%;
-  -webkit-transform-origin: 50% 0;
-          transform-origin: 50% 0;
-}
-
-.exad-countdown.style-3 .count.curr.bottom {
-  background-color: #552ee4;
-}
-
-.exad-countdown.style-3 .count.curr.top {
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
-  z-index: 3;
-}
-
-.exad-countdown.style-3 .count.next.bottom {
-  -webkit-transform: rotateX(90deg);
-          transform: rotateX(90deg);
-  z-index: 2;
-  background-color: #552ee4;
-}
-
-.exad-countdown.style-3 .label {
-  margin-top: 25px;
-  display: block;
-  width: 100%;
-  position: absolute;
-  top: 100%;
-  color: #0a1724;
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-}
-
-.exad-countdown.style-3 .flip .count.curr.top {
-  transition: all 350ms ease-in-out;
-  -webkit-transform: rotateX(-90deg);
-          transform: rotateX(-90deg);
-}
-
-.exad-countdown.style-3 .flip .count.next.bottom {
-  transition: all 350ms ease-in-out 350ms;
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
-}
 
 @media (max-width: 1200px) {
   .exad-countdown-description p {
@@ -3923,6 +3692,7 @@ ul.exad-pricing-table-features {
     margin-left: 10px;
   }
   .exad-countdown .exad-countdown-count {
+    font-family: "Roboto", sans-serif;
     font-size: 40px;
   }
   .exad-countdown.style-3 .time {

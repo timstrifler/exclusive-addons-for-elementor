@@ -79,7 +79,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_countdown_styles_general',
 			[
-				'label' => esc_html__( 'Countdown Timer Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -93,12 +93,40 @@ class Exad_Countdown_Timer extends Widget_Base {
 				'options' => [
 					'style-1' 	=> esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
 					'style-2' 	=> esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-					'style-3' 	=> esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
 
 		$this->add_control(
+			'exad_countdown_divider_color',
+			[
+				'label' => __( 'Divider Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#000',
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown.style-2 .exad-countdown-count::after' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_countdown_preset' => 'style-2',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+
+		$this->start_controls_section(
+			'exad_section_countdown_box_style',
+			[
+				'label' => esc_html__( 'Box Style', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_countdown_preset' => 'style-1',
+				],
+			]
+		);
+
+		/*$this->add_control(
 			'exad_countdown_background',
 			[
 				'label' => esc_html__( 'Box Background Color', 'exclusive-addons-elementor' ),
@@ -111,6 +139,42 @@ class Exad_Countdown_Timer extends Widget_Base {
 					'exad_countdown_preset' => 'style-1',
 				],
 			]
+		); */
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_countdown_background',
+				'label' => __( 'Background', 'plugin-domain' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container',
+				'condition' => [
+					'exad_countdown_preset' => 'style-1',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-countdown-container',
+				'condition' => [
+					'exad_countdown_preset' => 'style-1',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_before_border',
+			[
+				'type' => Controls_Manager::DIVIDER,
+				'style' => 'thin',
+				'condition' => [
+					'exad_countdown_preset' => 'style-1',
+				],
+			]
 		);
 
 		$this->add_group_control(
@@ -119,6 +183,9 @@ class Exad_Countdown_Timer extends Widget_Base {
 				'name' => 'border',
 				'label' => __( 'Border', 'plugin-domain' ),
 				'selector' => '{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container',
+				'condition' => [
+					'exad_countdown_preset' => 'style-1',
+				],
 			]
 		);
 
@@ -144,41 +211,15 @@ class Exad_Countdown_Timer extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'box_shadow',
-				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-countdown-container',
-				'condition' => [
-					'exad_countdown_preset' => 'style-1',
-				],
-			]
-		);
-
-		// $this->add_control(
-		// 	'exad_countdown_border_radius',
-		// 	[
-		// 		'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'default' => '',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container' => 'background-color: {{VALUE}};',
-		// 		],
-		// 		'condition' => [
-		// 			'exad_countdown_preset' => 'style-1',
-		// 		],
-		// 	]
-		// );
 
 		$this->end_controls_section();
 		
-		// Count Styles
+		// Counter Styles
 
 		$this->start_controls_section(
-			'exad_section_countdown_styles_count',
+			'exad_section_countdown_styles_counter',
 			[
-				'label' => esc_html__( 'Count Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Counter Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -186,7 +227,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-						'name' => 'count_typography',
+						'name' => 'counter_typography',
 						'selector' => '{{WRAPPER}} .exad-countdown-count',
 				]
 		);
@@ -196,7 +237,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#000',
+				'default' => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown-count' => 'color: {{VALUE}};',
 				],
@@ -228,7 +269,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#000',
+				'default' => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown-title' => 'color: {{VALUE}};',
 				],
@@ -237,136 +278,21 @@ class Exad_Countdown_Timer extends Widget_Base {
 		
 		$this->end_controls_section();
 
-		// /*
-		// * Team Member Image Styling
-		// */
-
-		// $this->start_controls_section(
-		// 	'exad_section_countdown_image_styles',
-		// 	[
-		// 		'label' => esc_html__( 'Team Member Image Style', 'exclusive-addons-elementor' ),
-		// 		'tab' => Controls_Manager::TAB_STYLE
-		// 	]
-		// );		
-
-		// $this->add_responsive_control(
-		// 	'exad_countdown_image_width',
-		// 	[
-		// 		'label' => esc_html__( 'Image Width', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::SLIDER,
-		// 		'default' => [
-		// 			'size' => 100,
-		// 			'unit' => '%',
-		// 		],
-		// 		'range' => [
-		// 			'%' => [
-		// 				'min' => 0,
-		// 				'max' => 100,
-		// 			],
-		// 			'px' => [
-		// 				'min' => 0,
-		// 				'max' => 1000,
-		// 			],
-		// 		],
-		// 		'size_units' => [ '%', 'px' ],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-team-item figure img' => 'width:{{SIZE}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-
-		// $this->add_responsive_control(
-		// 	'exad_countdown_image_margin',
-		// 	[
-		// 		'label' => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', '%' ],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-team-item figure img' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_responsive_control(
-		// 	'exad_countdown_image_padding',
-		// 	[
-		// 		'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-team-item figure img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'exad_countdown_bg_svg',
-		// 	[
-		// 		'label' => esc_html__( 'Avatar Background Color', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'default' => 'rgba(255,255,255,0.8)',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-team-image svg.exad-member-img-bg g' => 'fill: {{VALUE}};',
-		// 		],
-		// 		'condition' => [
-		// 			'exad_countdown_preset' => 'style-1',
-		// 		],
-		// 	]
-		// );
-		
-		// $this->add_group_control(
-		// 	Group_Control_Border::get_type(),
-		// 	[
-		// 		'name' => 'exad_countdown_image_border',
-		// 		'label' => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-		// 		'selector' => '{{WRAPPER}} .exad-team-item figure img',
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'exad_countdown_image_rounded',
-		// 	[
-		// 		'label' => esc_html__( 'Rounded Avatar?', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::SWITCHER,
-		// 		'return_value' => 'team-avatar-rounded',
-		// 		'default' => '',
-		// 	]
-		// );
-
-		// $this->end_controls_section();
-
 	}
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+
 		$this->add_render_attribute(
 			'exad-countdown-timer-attribute',
 			[
 				'data-day'	=> 'Days',
 				'data-minutes' => 'Minutes',
 				'data-hours'	=> 'Hours',
-				'data-seconds' => 'Seconds'
+				'data-seconds' => 'Seconds',
+				'data-countdown' => esc_attr( $settings['exad_countdown_time'] )
 			]
 		);
-		if ($settings['exad_countdown_preset'] == 'style-1' || $settings['exad_countdown_preset'] == 'style-2') {
-			$this->add_render_attribute(
-				'exad-countdown-timer-attribute',
-				[
-					'data-countdown' => esc_attr( $settings['exad_countdown_time'] )
-				]
-			);
-		}
-
-		if ($settings['exad_countdown_preset'] == 'style-3') {
-			$this->add_render_attribute(
-				'exad-countdown-timer-attribute',
-				[
-					//'data-flip-countdown-date' => esc_attr( $settings['exad_countdown_time'] )
-					'data-flip-countdown-date' => '2020/01/31'
-				]
-			);
-		}
 
 		?>
 		<div id="exad-countdown-timer-<?php echo esc_attr($this->get_id()); ?>" class="exad-countdown-content-container">

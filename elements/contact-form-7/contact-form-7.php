@@ -565,7 +565,7 @@ class Exad_Contact_Form extends Widget_Base {
         );
 
 		$this->add_control(
-            'button_text_color_normal',
+            'button_border_color_normal',
             [
                 'label'                 => __( 'Border Color', 'essential-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
@@ -810,23 +810,6 @@ class Exad_Contact_Form extends Widget_Base {
                 'exad-contact-form-'.esc_attr($this->get_id())
 			]
 		);
-        
-        
-        if ( $settings['custom_radio_checkbox'] == 'yes' ) {
-            $this->add_render_attribute( 'exad-contact-form', 'class', 'exad-custom-radio-checkbox' );
-        }
-        if ( $settings['exad_contact_form_alignment'] == 'left' ) {
-            $this->add_render_attribute( 'exad-contact-form', 'class', 'exad-contact-form-align-left' );
-        }
-        elseif ( $settings['exad_contact_form_alignment'] == 'center' ) {
-            $this->add_render_attribute( 'exad-contact-form', 'class', 'exad-contact-form-align-center' );
-        }
-        elseif ( $settings['exad_contact_form_alignment'] == 'right' ) {
-            $this->add_render_attribute( 'exad-contact-form', 'class', 'exad-contact-form-align-right' );
-        }
-        else {
-            $this->add_render_attribute( 'exad-contact-form', 'class', 'exad-contact-form-align-default' );
-        }
         
         if ( function_exists( 'wpcf7' ) ) {
             if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>

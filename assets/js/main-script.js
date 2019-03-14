@@ -109,107 +109,31 @@
 			});
 		}
 		
-		// flip countdown style
-		if ($('[data-flip-countdown-date]').length > 0) {
-			$('[data-flip-countdown-date]').each(function () {
-				var date = $(this).data('flip-countdown-date'),
-					week = $(this).data('week'),
-					days = $(this).data('day'),
-					hours = $(this).data('hours'),
-					minutes = $(this).data('minutes'),
-					seconds = $(this).data('seconds'),
-					labels = [week, days, hours, minutes, seconds],
-					nextYear = (new Date(date)),
-					template = _.template('<div class="time <%= label %>"><span class="count curr top"><%= curr %></span><span class="count next top"><%= next %></span><span class="count next bottom"><%= next %></span><span class="count curr bottom"><%= curr %></span><span class="label"><%= label.length < 100 ? label : label.substr(0, 3)  %></span></div>'),
-					currDate = '00:00:00:00:00',
-					nextDate = '00:00:00:00:00',
-					parser = /([0-9]{2})/gi,
-					$example = $(this);
-				// Parse countdown string to an object
-				function strfobj(str) {
-					var parsed = str.match(parser),
-						obj = {};
-					labels.forEach(function (label, i) {
-						obj[label] = parsed[i]
-					});
-					return obj;
-				}
-				// Return the time components that diffs
-				function diff(obj1, obj2) {
-					var diff = [];
-					labels.forEach(function (key) {
-						if (obj1[key] !== obj2[key]) {
-							diff.push(key);
-						}
-					});
-					return diff;
-				}
-				// Build the layout
-				var initData = strfobj(currDate);
-				labels.forEach(function (label, i) {
-					$example.append(template({
-						curr: initData[label],
-						next: initData[label],
-						label: label
-					}));
-				});
-				// Starts the countdown
-				$example.countdown(nextYear, function (event) {
-					var newDate = event.strftime('%w:%d:%H:%M:%S'),
-						data;
-					if (newDate !== nextDate) {
-						currDate = nextDate;
-						nextDate = newDate;
-						// Setup the data
-						data = {
-							'curr': strfobj(currDate),
-							'next': strfobj(nextDate)
-						};
-						// Apply the new values to each node that changed
-						diff(data.curr, data.next).forEach(function (label) {
-							var selector = '.%s'.replace(/%s/, label),
-								$node = $example.find(selector);
-							// Update the node
-							$node.removeClass('flip');
-							$node.find('.curr').text(data.curr[label]);
-							$node.find('.next').text(data.next[label]);
-							// Wait for a repaint to then flip
-							_.delay(function ($node) {
-								$node.addClass('flip');
-							}, 50, $node);
-						});
-					}
-				});
-			})
-		}
 
 	};
 
 	var ProgressBar = function ($scope, $){
         var $progressBarWrapper = $scope.find('[data-progress-bar]').eq(0);
 		$progressBarWrapper.waypoint(function () {
-			console.log(this.element);
 			var element = $(this.element);
 			var id = element.data('id');
 			var type = element.data('type');
 			var value = element.data('progress-bar-value');
-			var duration = element.data('progress-duration');
+			//var duration = element.data('progress-duration');
 			var strokeWidth = element.data('progress-bar-stroke-width');
 			var strokeTrailWidth = element.data('progress-bar-stroke-trail-width');
 			var color = element.data('stroke-color');
 			var trailColor = element.data('stroke-trail-color');
-			console.log(id, type, value, strokeWidth, strokeTrailWidth, color, trailColor, duration);
-			animatedProgressbar(id, type, value, duration, color, trailColor, strokeWidth, strokeTrailWidth);
+			animatedProgressbar(id, type, value, color, trailColor, strokeWidth, strokeTrailWidth);
 			this.destroy();
 		}, {
 			offset: 'bottom-in-view'
 		});
     }
     
-    function animatedProgressbar(id, type, value, duration, strokeColor, trailColor, strokeWidth, strokeTrailWidth){
+    function animatedProgressbar(id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth){
         var triggerClass = '.exad-progress-bar-'+id;
-        if("line" == type){
-            console.log(triggerClass);
+        if("line" == type) {
             new ldBar(triggerClass, {
                 "type"              : 'stroke',
                 "path"              : 'M0 10L100 10',
@@ -220,8 +144,7 @@
                 "stroke-trail-width": strokeTrailWidth
             }).set(value);
         }
-        if("line-bubble" == type){
-            console.log(triggerClass);
+        if("line-bubble" == type) {
             new ldBar(triggerClass, {
                 "type"              : 'stroke',
                 "path"              : 'M0 10L100 10',
@@ -229,7 +152,7 @@
                 "stroke"			: strokeColor,
                 "stroke-trail"		: trailColor,
                 "stroke-width"      : strokeWidth,
-                "stroke-trail-width": strokeTrailWidth
+				"stroke-trail-width": strokeTrailWidth
             }).set(value);
             $($('.exad-progress-bar-'+id).find('.ldBar-label')).animate({
                 left: value + '%'

@@ -257,20 +257,6 @@ class Exad_Exclusive_Button extends Widget_Base {
 			]
 		);
 
-		/*$this->add_control(
-			'exad_exclusive_button_background_color',
-			[
-				'label'		=> esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-				'type'		=> Controls_Manager::COLOR,
-				'default'	=> '#8868fe',
-				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-12 .exad-button-action::before, {{WRAPPER}} .exad-button .exad-button-wrapper.effect-12 .exad-button-action::after' => 'background: {{VALUE}};',
-					
-				],
-			]
-		); */
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -282,7 +268,6 @@ class Exad_Exclusive_Button extends Widget_Base {
 		);
 
 	
-		
 		$this->end_controls_tab();
 		
 

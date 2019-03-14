@@ -61,7 +61,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_progress_bar_styles_general',
 			[
-				'label' => __('Presets', 'exclusive-addons-elementor'),
+				'label' => __('General Styles', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -69,7 +69,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->add_control(
 			'exad_progress_bar_preset',
 			[
-				'label' => __('Presets', 'exclusive-addons-elementor'),
+				'label' => __('Style Presets', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'line' => __('Line', 'exclusive-addons-elementor'),
@@ -78,6 +78,22 @@ class Exad_Progress_Bar extends Widget_Base {
 					'fan' => __('Fan', 'exclusive-addons-elementor')
 				],
 				'default' => 'line',
+			]
+		);
+
+		$this->add_control(
+			'exad_progress_bar_bubble_color',
+			[
+				'label' => __( 'Bubble Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ff704e',
+				'selectors' => [
+					'{{WRAPPER}} [class*="exad-progress-bar-"].line-bubble .ldBar-label' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_progress_bar_preset' => 'line-bubble'
+				]
+
 			]
 		);
 
@@ -106,8 +122,8 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-						'name' => 'title_typography',
-						'selector' => '{{WRAPPER}} .exad-progress-bar-title',
+					'name' => 'title_typography',
+					'selector' => '{{WRAPPER}} .exad-progress-bar-title',
 				]
 		);
 
@@ -166,7 +182,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->add_control(
 			'exad_progress_bar_trail_width',
 			[
-				'label' => __( ']Width', 'exclusive-addons-elementor' ),
+				'label' => __( 'Width', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::NUMBER,
 				'min' => 0,
 				'max' => 100,
@@ -192,7 +208,7 @@ class Exad_Progress_Bar extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000',
 				'selectors' => [
-					'{{WRAPPER}} .ldBar-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} [class*="exad-progress-bar-"] .ldBar-label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -258,12 +274,10 @@ class Exad_Progress_Bar extends Widget_Base {
 
 		?>		
 		
-		<div <?php echo $this->get_render_attribute_string('exad-progress-bar') ?> 					data-progress-bar 
-				data-progress-duration="2"
-				>
+		<div <?php echo $this->get_render_attribute_string('exad-progress-bar') ?> data-progress-bar data-progress-duration="2">
 			<h6 class="exad-progress-bar-title">
-		  	<?php echo $settings['exad_progress_bar_title'] ?>
-		  </h6>
+		  		<?php echo $settings['exad_progress_bar_title'] ?>
+		  	</h6>
 		</div>
 
 	<?php
