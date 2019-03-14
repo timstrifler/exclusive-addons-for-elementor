@@ -110,7 +110,7 @@ class Exclusive_Accordion extends Widget_Base {
 				[
 				 'label'       	=> esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
 				   'type' 			=> Controls_Manager::SELECT,
-				   'default' 		=> 'one',
+				   'default' 		=> 'six',
 				   'label_block' 	=> false,
 				   'options' 		=> [
 						'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
