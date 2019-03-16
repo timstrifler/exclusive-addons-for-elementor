@@ -41,7 +41,7 @@ class Exad_Team_Member extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'thumbnail',
+				'name' => 'team_member_thumbnail',
 				'default' => 'full',
 				'condition' => [
 					'exad_team_member_image[url]!' => '',
@@ -189,9 +189,9 @@ class Exad_Team_Member extends Widget_Base {
 		* Team Members Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_section_team_members_styles_general',
+			'exad_section_team_members_styles_preset',
 			[
-				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -409,10 +409,13 @@ class Exad_Team_Member extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$team_member_image = $this->get_settings_for_display( 'exad_team_member_image' );
-			$team_member_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'thumbnail', $settings );
-		if( empty( $team_member_image_url ) ) : $team_member_image_url = $team_member_image['url']; else: $team_member_image_url = $team_member_image_url; endif;
-		$team_member_classes = $this->get_settings_for_display('exad_team_members_image_rounded');
-	
+		$team_member_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'thumbnail', $settings );
+		if( empty( $team_member_image_url_src ) ) {
+			$team_member_image_url = $team_member_image['url']; 
+		} else { 
+			$team_member_image_url = $team_member_image_url_src;
+		}
+
 		?>
 		<div id="exad-team-member-<?php echo esc_attr($this->get_id()); ?>" class="exad-team-item">
 			<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>">

@@ -229,8 +229,8 @@ class Exad_Contact_Form extends Widget_Base {
 					],
 				],
 				'default'   => [
-				        'unit'  => 'px',
-                        'size'  => '600'
+				        'unit'  => '%',
+                        'size'  => '100'
                 ],
 				'selectors' => [
 					'{{WRAPPER}} .exad-contact-form' => 'width: {{SIZE}}{{UNIT}};',
@@ -238,25 +238,6 @@ class Exad_Contact_Form extends Widget_Base {
   			]
   		);
 		
-		
-        /* $this->add_responsive_control(
-			'exad_contact_form_margin',
-			[
-				'label' => esc_html__( 'Form Margin', 'essential-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
-				'selectors' => [
-					'{{WRAPPER}} .exad-contact-form' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'default' => [
-                    'top' => 0,
-                    'right' => auto,
-                    'bottom' => 0,
-                    'left' => auto,
-                    'unit' => 'px'
-                ]
-			]
-		); */
 		
 		$this->add_responsive_control(
 			'exad_contact_form_padding',
@@ -524,8 +505,8 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_section(
             'section_submit_button_style',
             [
-                'label'                 => __( 'Submit Button', 'essential-addons-elementor' ),
-                'tab'                   => Controls_Manager::TAB_STYLE,
+                'label' => __( 'Submit Button', 'essential-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
     
@@ -536,7 +517,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_tab(
             'tab_button_normal',
             [
-                'label'                 => __( 'Normal', 'essential-addons-elementor' ),
+                'label' => __( 'Normal', 'essential-addons-elementor' ),
             ]
         );
 
@@ -571,7 +552,7 @@ class Exad_Contact_Form extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => 'transparent',
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'border-color: {{VALUE}}',
                 ],
             ]
         );
@@ -595,7 +576,7 @@ class Exad_Contact_Form extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
+		$this->add_control(
 			'button_padding',
 			[
 				'label'                 => __( 'Padding', 'essential-addons-elementor' ),
@@ -610,7 +591,7 @@ class Exad_Contact_Form extends Widget_Base {
                     'bottom' => 20,
                     'left' => 50,
                     'unit' => 'px'
-                    ]
+                ]
 			]
 		);
         
