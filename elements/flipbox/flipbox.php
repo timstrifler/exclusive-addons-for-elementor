@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 class Exad_Flip_Box extends Widget_Base {
 
 	public function get_name() {
-		return 'exad-flip-box';
+		return 'exad-flipbox';
 	}
 
 	public function get_title() {

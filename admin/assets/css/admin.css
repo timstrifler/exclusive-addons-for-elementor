@@ -6,7 +6,7 @@
 
 /* General Style */
 
-.exad-settings-wrap {
+.exad-elements-settings-wrap {
     padding: 15px;
 }
 
@@ -23,7 +23,7 @@
     align-items: center;
 }
 
-.exad-settings-wrap .exad-header-left {
+.exad-elements-settings-wrap .exad-header-left {
     display: flex;
     align-content: center;
     align-items: center;
@@ -54,7 +54,7 @@
     flex-grow: 1;
 }
 
-.settings-saved {
+.exad-settings-saved {
     line-height: 36px;
     color: #3fcd8e;
     padding-right: 10px;
@@ -448,7 +448,6 @@ textarea.exad-form-control {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
-}
 
 @-webkit-keyframes rotate {
     from {
@@ -559,15 +558,15 @@ textarea.exad-form-control {
     background-color: #02CC7B;
 }
 
-.exad-save-btn-wrap .exad-btn.save-now,
-.exad-header-bar .exad-btn.save-now,
-.exad-fb-feed-btn.save-now {
+.exad-save-btn-wrap .exad-btn.exad-save-now,
+.exad-header-bar .exad-btn.exad-save-now,
+.exad-fb-feed-btn.exad-save-now {
     background: #E74C3C;
 }
 
-.exad-save-btn-wrap .exad-btn.save-now:hover,
-.exad-header-bar .exad-btn.save-now:hover,
-.exad-fb-feed-btn.save-now:hover {
+.exad-save-btn-wrap .exad-btn.exad-save-now:hover,
+.exad-header-bar .exad-btn.exad-save-now:hover,
+.exad-fb-feed-btn.exad-save-now:hover {
     background: #ff5544;
 }
 

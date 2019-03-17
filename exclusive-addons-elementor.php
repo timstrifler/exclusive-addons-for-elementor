@@ -318,24 +318,16 @@ final class Exclusive_Addons_Elementor {
 	 */
 	public function init_widgets() {
 
-		// Include Widget files
-		include_once EXAD_ELEMENTS . 'team-member/team-member.php';
-        include_once EXAD_ELEMENTS . 'team-carousel/team-carousel.php';
-        include_once EXAD_ELEMENTS . 'testimonial-carousel/testimonial-carousel.php';
-        include_once EXAD_ELEMENTS . 'progress-bar/progress-bar.php';
-        include_once EXAD_ELEMENTS . 'card/card.php';
-        include_once EXAD_ELEMENTS . 'pricing-table/pricing-table.php';
-        include_once EXAD_ELEMENTS . 'countdown-timer/countdown-timer.php';
-        include_once EXAD_ELEMENTS . 'flipbox/flipbox.php';
-        include_once EXAD_ELEMENTS . 'post-timeline/post-timeline.php';
-		include_once EXAD_ELEMENTS . 'infobox/infobox.php';
-		if ( function_exists( 'wpcf7' ) ) {
-			include_once EXAD_ELEMENTS . 'contact-form-7/contact-form-7.php';
+		$exad_default_keys = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
+
+		$exad_active_widgets = get_option( 'exad_save_settings', $exad_default_keys );
+
+		foreach( $exad_active_widgets as $key => $widget ) {
+			if ( $widget ) {
+				require_once EXAD_ELEMENTS . $key . '/' .$key . '.php';
+			}
 		}
-		include_once EXAD_ELEMENTS . 'post-grid/post-grid.php';
-		include_once EXAD_ELEMENTS . 'exclusive-button/exclusive-button.php';
-		include_once EXAD_ELEMENTS . 'exclusive-accordion/exclusive-accordion.php';
-		include_once EXAD_ELEMENTS . 'exclusive-tabs/exclusive-tabs.php';
+
 	}
 
 }

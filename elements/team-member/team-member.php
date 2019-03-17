@@ -41,7 +41,7 @@ class Exad_Team_Member extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'team_member_thumbnail',
+				'name' => 'thumbnail',
 				'default' => 'full',
 				'condition' => [
 					'exad_team_member_image[url]!' => '',

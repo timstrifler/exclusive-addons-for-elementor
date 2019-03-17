@@ -5,10 +5,10 @@ class Exad_Card extends Widget_Base {
 	
 	//use ElementsCommonFunctions;
 	public function get_name() {
-		return 'exad-card';
+		return 'exad-exclusive-card';
 	}
 	public function get_title() {
-		return esc_html__( 'DC Card', 'exclusive-addons-elementor' );
+		return esc_html__( 'DC Exclusive Card', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'fa fa-user-circle';
@@ -41,7 +41,7 @@ class Exad_Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name' => 'card_thumbnail',
+				'name' => 'thumbnail',
 				'default' => 'full',
 				'condition' => [
 					'exad_card_image[url]!' => '',
@@ -191,7 +191,7 @@ class Exad_Card extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		$card_image = $this->get_settings_for_display( 'exad_card_image' );
-		$card_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $card_image['id'], 'full', $settings );
+		$card_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $card_image['id'], 'thumbnail', $settings );
 		if( empty( $card_image_url_src ) ) {
 			$card_image_url = $card_image['url'];
 		} else {

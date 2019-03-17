@@ -2,7 +2,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-
 /* Style for removing Twenty Nineteen Theme heading border */
 .exclusive-addons-elemento h1:not(.site-title):before, .exclusive-addons-elementor h2:before {
   content: none;
@@ -25,7 +24,6 @@
 .exad-team-member-about {
   font-size: 15px;
 }
-
 
 
 /* Team Member Basic Start */
@@ -637,6 +635,7 @@
 
 .exad-card {
   font-family: "Roboto", sans-serif;
+  margin-bottom: 35px;
 }
 .exad-card-description {
     font-size: 16px;
@@ -656,7 +655,6 @@
   border-radius: 4px;
   background-color: white;
   position: relative;
-  margin: 20px 0 30px;
 }
 
 .exad-card.one .exad-card-thumb {
@@ -673,7 +671,7 @@
 
 .exad-card.one .exad-card-body .exad-card-title {
   display: block;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   color: #132c47;
   font-weight: bold;
@@ -740,7 +738,7 @@
   box-shadow: 0px 15px 39px 0px rgba(9, 24, 33, 0.06);
   border-radius: 4px;
   position: relative;
-  margin: 20px 0;
+
 }
 
 .exad-card.two:hover .exad-card-body .exad-card-title {
@@ -761,7 +759,7 @@
 }
 
 .exad-card.two .exad-card-body .exad-card-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   color: #132c47;
   font-weight: bold;
@@ -1540,7 +1538,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-pricing-table-one .exad-pricing-table-price p {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 60px;
   line-height: 208px;
   color: #fff;
@@ -2692,7 +2690,7 @@ ul.exad-pricing-table-features {
 
 .exad-infobox.one .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
   font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .exad-infobox.one .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
