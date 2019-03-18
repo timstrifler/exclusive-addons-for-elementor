@@ -308,6 +308,28 @@ final class Exclusive_Addons_Elementor {
 	}
 
 	/**
+       * This function will return true for all activated modules
+      *
+      * @since   v1.0
+      */
+      public static function exad_activated_modules() {
+
+		$exad_default_keys = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
+		
+		$exad_default_settings  = array_fill_keys( $exad_default_keys, true );
+		$exad_get_settings      = get_option( 'exad_save_settings', $exad_default_settings );
+		$exad_new_settings      = array_diff_key( $exad_default_settings, $exad_get_settings );
+
+		if( ! empty( $exad_new_settings ) ) {
+		   $exad_updated_settings = array_merge( $exad_get_settings, $exad_new_settings );
+		   update_option( 'exad_save_settings', $exad_updated_settings );
+		}
+
+		return $exad_get_settings = get_option( 'exad_save_settings', $exad_default_settings );
+
+	 }
+
+	/**
 	 * Init Widgets
 	 *
 	 * Include widgets files and register them
@@ -317,7 +339,8 @@ final class Exclusive_Addons_Elementor {
 	 * @access public
 	 */
 	public function init_widgets() {
-
+		$this->exad_activated_modules();
+		
 		$exad_default_keys = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
 
 		$exad_active_widgets = get_option( 'exad_save_settings', $exad_default_keys );

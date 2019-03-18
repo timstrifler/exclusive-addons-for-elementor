@@ -6,11 +6,13 @@
 
 /* General Style */
 
-.exad-elements-settings-wrap {
+.exad-elements-dashboard-wrapper {
     padding: 15px;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
 }
 
-.exad-header-bar {
+.exad-dashboard-header-wrapper {
     height: auto;
     padding: 10px;
     background: #fff;
@@ -23,24 +25,24 @@
     align-items: center;
 }
 
-.exad-elements-settings-wrap .exad-header-left {
+.exad-elements-dashboard-wrapper .exad-dashboard-header-left {
     display: flex;
     align-content: center;
     align-items: center;
 }
 
-.exad-header-bar .exad-admin-logo-inline {
+.exad-dashboard-header-wrapper .exad-admin-logo-inline {
     width: 32px;
     box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
     padding: 10px 10px 5px;
     margin-right: 10px;
 }
 
-.exad-header-bar .exad-admin-logo-inline img {
+.exad-dashboard-header-wrapper .exad-admin-logo-inline img {
     width: 100%;
 }
 
-.exad-header-bar .title {
+.exad-dashboard-header-wrapper .title {
     font-size: 24px;
     color: #444;
     font-weight: 600;
@@ -48,8 +50,8 @@
     line-height: 1;
 }
 
-.exad-header-left,
-.exad-header-right {
+.exad-dashboard-header-left,
+.exad-dashboard-header-right {
     -webkit-flex-grow: 1;
     flex-grow: 1;
 }
@@ -60,33 +62,33 @@
     padding-right: 10px;
 }
 
-.exad-header-right {
+.exad-dashboard-header-right {
     text-align: right;
 }
 
-.exad-settings-tabs {
+.exad-dashboard-tabs-wrapper {
     padding-top: 15px;
 }
 
-.exad-settings-tab h4 {
+.exad-dashboard-tab h4 {
     font-size: 22px;
 }
 
-.exad-settings-tab p {
+.exad-dashboard-tab p {
     font-size: 14px;
 }
 
-.exad-settings-tabs ul {
+.exad-dashboard-tabs-wrapper ul {
     width: 100%;
     height: auto;
     margin: 25px 0px 20px 0px;
 }
 
-.exad-settings-tabs ul li {
+.exad-dashboard-tabs-wrapper ul li {
     display: inline-block;
 }
 
-.exad-settings-tabs ul li a {
+.exad-dashboard-tabs-wrapper ul li a {
     padding: 20px 30px;
     background: #ffffff7a;
     color: #646464;
@@ -97,17 +99,17 @@
     margin-right: 2px;
 }
 
-.exad-settings-tabs ul li a:focus {
+.exad-dashboard-tabs-wrapper ul li a:focus {
     outline: none;
     box-shadow: none;
 }
 
-.exad-settings-tabs ul li a img {
+.exad-dashboard-tabs-wrapper ul li a img {
     /*	width: 20px;*/
     margin: 0 5px -3px 0;
 }
 
-.exad-settings-tab {
+.exad-dashboard-tab {
     background: #fff;
     padding: 15px 25px;
     margin-top: -8px;
@@ -117,7 +119,7 @@
     -webkit-box-shadow: 0px 7px 11px 0px #e0e0e0;
 }
 
-.exad-settings-tabs ul li.ui-tabs-active a {
+.exad-dashboard-tabs-wrapper ul li.ui-tabs-active a {
     background: #fff;
     outline: none;
     box-shadow: none;
@@ -139,15 +141,6 @@ p.exad-el-title-small {
     margin: -6px 0px .5em .5em;
 }
 
-.exad-settings-tab p.exad-elements-control-notice {
-    color: #42418e;
-    font-size: 16px;
-    border: 1px solid #42418e;
-    padding: 10px;
-    text-align: center;
-    display: block;
-}
-
 .exad-form-control {
     width: 100%;
 }
@@ -159,7 +152,7 @@ textarea.exad-form-control {
     color: #5d5d5d;
 }
 
-.row {
+.exad-row {
     width: 100%;
     height: auto;
     display: flex;
@@ -169,37 +162,22 @@ textarea.exad-form-control {
     padding: 15px 0px;
 }
 
-.col-full-1 {
+
+.exad-full-width {
     width: 100%;
-    height: auto;
-    border-bottom: 2px dashed #979797;
-}
-
-.col-full {
-    width: 100%;
-    height: auto;
-}
-
-.col-half {
-    width: 49%;
-    height: auto;
-}
-
-.col-one-third {
-    width: 32%;
     height: auto;
 }
 
 /* Checkbox Style */
 
-.exad-checkbox-container {
+.exad-dashboard-checkbox-container {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     margin-bottom: 50px;
 }
 
-.exad-checkbox {
+.exad-dashboard-checkbox {
     position: relative;
     min-width: 260px;
     font-size: 24px;
@@ -212,25 +190,25 @@ textarea.exad-form-control {
     padding: 10px;
 }
 
-.exad-checkbox-label {
+.exad-dashboard-checkbox-label {
     position: absolute;
     top: 40%;
     right: 10%;
 }
 
 /*checkbox-hober-effect*/
-.exad-checkbox:hover {
+.exad-dashboard-checkbox:hover {
     border: 1px solid #4F2BFF;
 }
 
 /*checkbox-hober-effect*/
 
-.exad-checkbox input[type=checkbox] {
+.exad-dashboard-checkbox input[type=checkbox] {
     visibility: hidden;
     display: none;
 }
 
-.exad-checkbox label {
+.exad-dashboard-checkbox label {
     width: 2em;
     height: 16px;
     position: relative;
@@ -238,17 +216,7 @@ textarea.exad-form-control {
     display: block;
 }
 
-.exad-checkbox label:before {
-    /*
-    content: '';
-    position: absolute;
-    width: 2em;
-    height: 1em;
-    left: 0.1em;
-    transition: background 0.1s 0.1s ease;
-    background: #CBCFD0;
-    border-radius: 50px;
-*/
+.exad-dashboard-checkbox label:before {
     content: '';
     position: absolute;
     width: 46px;
@@ -259,22 +227,7 @@ textarea.exad-form-control {
     border-radius: 50px;
 }
 
-.exad-checkbox label:after {
-    /*
-    content: '';
-    position: absolute;
-    width: .8em;
-    height: .8em;
-    border-radius: 100%;
-    left: .2em;
-    top: .1em;
-    transition: all 0.2s ease;
-    box-shadow: 0 0 0 5px #fcfff4 inset;
-    background: #CBCFD0;
-    z-index: 2;
-    animation: switch-off .3s ease-out;
-*/
-
+.exad-dashboard-checkbox label:after {
     content: '';
     position: absolute;
     width: 24px;
@@ -288,20 +241,11 @@ textarea.exad-form-control {
     animation: switch-off .3s ease-out;
 }
 
-.exad-checkbox input[type=checkbox]:checked + label:before {
-    /*
-    background: #7E86F9;
-    box-shadow: inset 0px 1px 1px rgba(84, 152, 140, 0.5);
-*/
+.exad-dashboard-checkbox input[type=checkbox]:checked + label:before {
     background: #E3E7EF;
 }
 
-.exad-checkbox input[type=checkbox]:checked + label:after {
-    /*
-    left: 1.2em;
-    background: #7E86F9;
-    animation: switch-on .3s ease-out;
-*/
+.exad-dashboard-checkbox input[type=checkbox]:checked + label:after {
     left: 1.2em;
     background: #3411FF;
     animation: switch-on .3s ease-out;
@@ -319,16 +263,16 @@ textarea.exad-form-control {
     }
 }
 
-/* Eael Tab Toggles */
-.exad-settings-tab {
+/* Exad Tab Toggles */
+.exad-dashboard-tab {
     display: none;
 }
 
-.exad-settings-tab.active {
+.exad-dashboard-tab.active {
     display: block;
 }
 
-.exad-tabs li a.active {
+.exad-dashboard-tabs li a.active {
     background-color: #fff;
     border-top: 2px solid #7448F6;
     border-radius: 0;
@@ -353,7 +297,7 @@ textarea.exad-form-control {
     margin-top: 0px;
 }
 
-.exad-settings-tab img {
+.exad-dashboard-tab img {
     max-width: 100%;
 }
 
@@ -374,54 +318,6 @@ textarea.exad-form-control {
 .button.exad-btn:focus {
     background-color: #1E96F1;
     color: #fff;
-}
-
-.exad-save-btn-wrap {
-    margin: 30px 0 20px;
-}
-
-.exad-save-btn-wrap .exad-btn {
-    background-color: #3CCD94;
-    color: #fff;
-    padding: 10px 20px
-}
-
-.exad-save-btn-wrap .exad-btn:hover,
-.exad-save-btn-wrap .exad-btn:focus {
-    background-color: #02CC7B;
-    color: #fff;
-}
-
-.exad-btn.exad-demo-btn {
-    background-color: #42418e;
-    color: #fff;
-}
-
-.exad-btn.exad-demo-btn:hover,
-.exad-btn.exad-demo-btn:focus {
-    background-color: #FF0188;
-    color: #fff;
-}
-
-
-.exad-btn.exad-license-btn {
-    background-color: #0dc9c3;
-}
-
-.exad-btn.exad-license-btn:hover,
-.exad-btn.exad-license-btn:focus {
-    background-color: #08d1ca;
-}
-
-.exad-btn.exad-demo-btn,
-.exad-btn.exad-license-btn,
-.exad-btn.exad-review-btn {
-    padding: 10px;
-    display: block;
-    max-width: 250px;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 13px;
 }
 
 #exad-spinner {
@@ -479,16 +375,16 @@ textarea.exad-form-control {
     }
 }
 
-.premium-elements-title {
-    margin: 50px 0 30px;
+.exad-elements-dashboard-title {
+    margin-bottom: 30px;
 }
 
-.premium-elements-title img {
+.exad-elements-dashboard-title img {
     width: 75px;
     float: left;
 }
 
-.premium-elements-title .section-title {
+.exad-elements-dashboard-title .exad-dashboard-section-title {
     color: #3F3F3F;
     margin: 18px 0 0px 20px;
     text-transform: uppercase;
@@ -497,21 +393,11 @@ textarea.exad-form-control {
     display: inline-block;
 }
 
-.section-title-p-tag {
+.exad-dashboard-section-title-p-tag {
     margin: 5px 0 0 95px;
     color: #989898;
 }
 
-.go-premium .exad-btn.exad-license-btn {
-    margin-top: 30px;
-}
-
-.go-premium img {
-    width: 100%;
-    max-width: 400px;
-    display: block;
-    float: right;
-}
 
 .exad-notice {
     background-color: #F7F6D4;
@@ -527,45 +413,26 @@ textarea.exad-form-control {
     font-weight: bold;
 }
 
-.essential-addons-community-link {
-    background-color: #475A96;
-    margin: 15px 0;
-    display: inline-block;
-    border-radius: 3px;
-}
 
-.essential-addons-community-link:hover {
-    background-color: #3351b2;
-}
-
-.essential-addons-community-link a {
-    color: #fff;
-    text-decoration: none;
-    padding: 15px 20px;
-    font-size: 1.4em;
-    display: flex;
-    align-items: center;
-    align-content: center;
-}
 
 /* Header Button */
-.exad-header-bar .exad-btn {
+.exad-dashboard-header-wrapper .exad-btn {
     background-color: #3CCD94;
 }
 
-.exad-header-bar .exad-btn:hover,
-.exad-header-bar .exad-btn:focus {
+.exad-dashboard-header-wrapper .exad-btn:hover,
+.exad-dashboard-header-wrapper .exad-btn:focus {
     background-color: #02CC7B;
 }
 
 .exad-save-btn-wrap .exad-btn.exad-save-now,
-.exad-header-bar .exad-btn.exad-save-now,
+.exad-dashboard-header-wrapper .exad-btn.exad-save-now,
 .exad-fb-feed-btn.exad-save-now {
     background: #E74C3C;
 }
 
 .exad-save-btn-wrap .exad-btn.exad-save-now:hover,
-.exad-header-bar .exad-btn.exad-save-now:hover,
+.exad-dashboard-header-wrapper .exad-btn.exad-save-now:hover,
 .exad-fb-feed-btn.exad-save-now:hover {
     background: #ff5544;
 }
@@ -699,7 +566,7 @@ textarea.exad-form-control {
 }
 
 
-.exad-settings-tab .exad-admin-title {
+.exad-dashboard-tab .exad-admin-title {
     /*
     margin: 1em 0;
     font-size: 1.185em;
@@ -730,9 +597,15 @@ textarea.exad-form-control {
     transition: all .3s;
 }
 
-/*button style*/
+/* Button Style */
+.exad-admin-block-header a:hover {
+    opacity: 0.8;
+    color: #FFF;
+}
+
 .exad-admin-block-header-button {
     font-size: 15px;
+    font-weight: 500;
     padding: 12px 44px;
     background: #2DD9D1;
     color: #fff;
@@ -740,8 +613,10 @@ textarea.exad-form-control {
     border-radius: 3px;
 }
 
+
 .exad-admin-block-docs-button {
     font-size: 15px;
+    font-weight: 500;
     padding: 12px 44px;
     background: #FF719D;
     color: #fff;
@@ -751,6 +626,7 @@ textarea.exad-form-control {
 
 .exad-admin-block-contribution-button {
     font-size: 15px;
+    font-weight: 500;
     padding: 12px 44px;
     background: #FF719D;
     color: #fff;
@@ -760,6 +636,7 @@ textarea.exad-form-control {
 
 .exad-admin-block-support-button {
     font-size: 15px;
+    font-weight: 500;
     padding: 12px 44px;
     background: #2DD9D1;
     color: #fff;
@@ -903,7 +780,7 @@ textarea.exad-form-control {
 }
 
 @media (max-width:726px) {
-    .premium-elements-title .section-title {
+    .exad-elements-dashboard-title .exad-dashboard-section-title {
         font-size: 15px;
     }
 }

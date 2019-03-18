@@ -72,13 +72,7 @@ class Exad_Admin_Settings {
 	 */
 	public function create_exad_admin_menu() {
 
-		add_submenu_page(
-			'elementor',
-			'Exclusive Addons',
-			'Exclusive Addons',
-			'manage_options',
-			'exad-settings',
-			array( $this, 'exad_admin_settings_page' )
+		add_submenu_page( 'elementor', 'Exclusive Addons', 'Exclusive Addons', 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' )
 		);
 
 	}
@@ -111,11 +105,13 @@ class Exad_Admin_Settings {
 	   }
 	   $this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
 	?>
-    <div class="exad-elements-settings-wrap">
+    <div class="exad-elements-dashboard-wrapper">
         <form action="" method="POST" id="exad-elements-settings" name="exad-elements-settings">
+
             <?php wp_nonce_field( 'exad_settings_nonce_action' ); ?>
-            <div class="exad-header-bar">
-                <div class="exad-header-left">
+            
+            <div class="exad-dashboard-header-wrapper">
+                <div class="exad-dashboard-header-left">
                     <div class="exad-admin-logo-inline">
                         <img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/dc-logo.png'; ?>">
                     </div>
@@ -123,21 +119,21 @@ class Exad_Admin_Settings {
                         <?php _e( 'Exclusive Addons Settings', 'exclusive-addons-elementor' ); ?>
                     </h2>
                 </div>
-                <div class="exad-header-right">
+                <div class="exad-dashboard-header-right">
                     <button type="submit" class="button exad-btn exad-js-element-save-setting">
-                        <?php _e('Save settings', 'exclusive-addons-elementor'); ?></button>
-
+                        <?php _e('Save Settings', 'exclusive-addons-elementor'); ?>
+                    </button>
                 </div>
-                
             </div>
-            <div class="exad-settings-tabs">
-                <ul class="exad-tabs">
+
+            <div class="exad-dashboard-tabs-wrapper">
+                <ul class="exad-dashboard-tabs">
                     <li><a href="#general" class="active"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/Setting, Preferences, User, Interface, Ui, Gear.png'; ?>"><span>General</span></a></li>
                     <li><a href="#elements"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/Layer, Stack, Data, Layers, Tool.png'; ?>"><span>Elements</span></a></li>
                 </ul>
-                <div id="general" class="exad-settings-tab active">
-                    <div class="row exad-admin-general-wrapper">
-                        <div class="row exad-admin-banner">
+                <div id="general" class="exad-dashboard-tab active">
+                    <div class="exad-row exad-admin-general-wrapper">
+                        <div class="exad-row exad-admin-banner">
                             <a class="exad-admin-block-banner-full" href="https://devscred.com/" target="_blank">
                                 <img class="exad-preview-img" src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/settings-banner-bg.png'; ?>">
                                 <div class="exad-admin-block-banner-content">
@@ -250,21 +246,20 @@ class Exad_Admin_Settings {
                         </div>
 
                     </div>
-                    <!--Row end-->
+                    <!--exad-row end-->
                 </div>
-                <div id="elements" class="exad-settings-tab">
-                    <div class="row">
-                        <div class="col-full">
-                            <p class="exad-elements-control-notice">You can disable the elements you are not using on your site. That will disable all associated assets of those widgets to improve your site loading.</p>
-                            <div class="premium-elements-title">
+                <div id="elements" class="exad-dashboard-tab">
+                    <div class="exad-row">
+                        <div class="exad-full-width">
+                            <div class="exad-elements-dashboard-title">
                                 <img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/raw/Plus, Add, Inset, Append, Circle, Attach.svg'; ?>">
-                                <h4 class="section-title">Deactivate elements for better performance</h4>
-                                <p class="section-title-p-tag">You can deactivate those elements that you do not intend to use to avoid loading scripts and files related to those elements.</p>
+                                <h4 class="exad-dashboard-section-title">Deactivate elements for better performance</h4>
+                                <p class="exad-dashboard-section-title-p-tag">You can deactivate those elements that you do not intend to use to avoid loading scripts and files related to those elements.</p>
                             </div>
-                            <div class="exad-checkbox-container">
-                                <div class="exad-checkbox">
+                            <div class="exad-dashboard-checkbox-container">
+                                <div class="exad-dashboard-checkbox">
                                     <!--changed-->
-                                    <div class="exad-checkbox-text">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Contact Form 7', 'exclusive-addons-elementor' ); ?>
                                         </p>
@@ -272,14 +267,14 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Contact Form 7', 'exclusive-addons-elementor' ); ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="contact-form-7" name="contact-form-7" <?php checked( 1, $this->exad_get_settings['contact-form-7'], true ); ?> >
                                         <label for="contact-form-7"></label>
                                     </div>
 
                                 </div>
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'CountDown Timer', 'exclusive-addons-elementor' ); ?>
                                         </p>
@@ -287,13 +282,13 @@ class Exad_Admin_Settings {
                                             <?php _e( 'CountDown Timer', 'exclusive-addons-elementor' ); ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="count-down" name="countdown-timer" <?php checked( 1, $this->exad_get_settings['countdown-timer'], true ); ?> >
                                         <label for="count-down"></label>
                                     </div>
                                 </div>
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Exclusive Button', 'exclusive-addons-elementor' ); ?>
                                         </p>
@@ -301,14 +296,14 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Exclusive Button', 'exclusive-addons-elementor' ); ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="exclusive-button" name="exclusive-button" <?php checked( 1, $this->exad_get_settings['exclusive-button'], true ); ?> >
                                         <label for="exclusive-button"></label>
                                     </div>
                                 </div>
-                                <div class="exad-checkbox">
+                                <div class="exad-dashboard-checkbox">
 
-                                    <div class="exad-checkbox-text">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Exclusive Card', 'exclusive-addons-elementor' ); ?>
                                         </p>
@@ -316,14 +311,14 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Exclusive Card', 'exclusive-addons-elementor' ); ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="exclusive-card" name="exclusive-card" <?php checked( 1, $this->exad_get_settings['exclusive-card'], true ); ?> >
                                         <label for="exclusive-card"></label>
                                     </div>
 
                                 </div>
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Post Grid', 'exclusive-addons-elementor' ); ?>
                                         </p>
@@ -331,14 +326,14 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Post Grid', 'exclusive-addons-elementor' ); ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="post-grid" name="post-grid" <?php checked( 1, $this->exad_get_settings['post-grid'], true ); ?> >
                                         <label for="post-grid"></label>
                                     </div>
 
                                 </div>
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Post Timeline', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -346,7 +341,7 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Post Timeline', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="post-timeline" name="post-timeline" <?php checked( 1, $this->exad_get_settings['post-timeline'], true ); ?> >
                                         <label for="post-timeline"></label>
                                     </div>
@@ -354,8 +349,8 @@ class Exad_Admin_Settings {
                                 </div>
 
 
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Team Carousel', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -363,7 +358,7 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Team Carousel', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="team-carousel" name="team-carousel" <?php checked( 1, $this->exad_get_settings['team-carousel'], true ); ?> >
                                         <label for="team-carousel"></label>
                                     </div>
@@ -372,8 +367,8 @@ class Exad_Admin_Settings {
 
 
 
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Team Member', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -381,14 +376,14 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Team Member', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="team-members" name="team-member" <?php checked( 1, $this->exad_get_settings['team-member'], true ); ?> >
                                         <label for="team-members"></label>
                                     </div>
 
                                 </div>
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Testimonials', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -396,14 +391,14 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Testimonials', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="testimonials" name="testimonial-carousel" <?php checked( 1, $this->exad_get_settings['testimonial-carousel'], true ); ?> >
                                         <label for="testimonials"></label>
                                     </div>
 
                                 </div>
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Exclusive Tabs', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -411,15 +406,15 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Exclusive Tabs', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="exclusive-tabs" name="exclusive-tabs" <?php checked( 1, $this->exad_get_settings['exclusive-tabs'], true ); ?> >
                                         <label for="exclusive-tabs"></label>
                                     </div>
 
                                 </div>
                                 
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Flip Box', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -427,15 +422,15 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Flip Box', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="flip-box" name="flipbox" <?php checked( 1, $this->exad_get_settings['flipbox'], true ); ?> >
                                         <label for="flip-box"></label>
                                     </div>
 
 
                                 </div>
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Info Box', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -443,7 +438,7 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Info Box', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="info-box" name="infobox" <?php checked( 1, $this->exad_get_settings['infobox'], true ); ?> >
                                         <label for="info-box"></label>
                                     </div>
@@ -451,8 +446,8 @@ class Exad_Admin_Settings {
 
                                 </div>
                                 
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Pricing Table', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -460,7 +455,7 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Pricing Table', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="price-table" name="pricing-table" <?php checked( 1, $this->exad_get_settings['pricing-table'], true ); ?> >
                                         <label for="price-table"></label>
                                     </div>
@@ -468,8 +463,8 @@ class Exad_Admin_Settings {
                                 </div>
                                 
                                 
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Exclusive Accordion', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -477,14 +472,14 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Exclusive Accordion', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="exclusive-accordion" name="exclusive-accordion" <?php checked( 1, $this->exad_get_settings['exclusive-accordion'], true ); ?> >
                                         <label for="exclusive-accordion"></label>
                                     </div>
                                 </div>
 
-                                <div class="exad-checkbox">
-                                    <div class="exad-checkbox-text">
+                                <div class="exad-dashboard-checkbox">
+                                    <div class="exad-dashboard-checkbox-text">
                                         <p class="exad-el-title">
                                             <?php _e( 'Progress Bar', 'exclusive-addons-elementor' ) ?>
                                         </p>
@@ -492,7 +487,7 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Progress Bar', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
-                                    <div class="exad-checkbox-label">
+                                    <div class="exad-dashboard-checkbox-label">
                                         <input type="checkbox" id="progress-bar" name="progress-bar" <?php checked( 1, $this->exad_get_settings['progress-bar'], true ); ?> >
                                         <label for="progress-bar"></label>
                                     </div>
