@@ -143,7 +143,7 @@ class Exclusive_Accordion extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
             	'name'		=> 'exad_exclusive_accordion_title_typography',
-				'selector'	=> '{{WRAPPER}} .exad-accordion-title h3',
+				'selector'	=> '{{WRAPPER}} .exad-accordion .exad-accordion-title h3',
 			]
 		);
 
@@ -157,7 +157,7 @@ class Exclusive_Accordion extends Widget_Base {
 						'type'	=> Controls_Manager::COLOR,
 						'default'	=> '#FFF',
 						'selectors' => [
-							'{{WRAPPER}} .exad-accordion-title' => 'background: {{VALUE}};',
+							'{{WRAPPER}} .exad-accordion .exad-accordion-title' => 'background: {{VALUE}};',
 						],
 					]
 				);
@@ -168,7 +168,7 @@ class Exclusive_Accordion extends Widget_Base {
 						'type'		=> Controls_Manager::COLOR,
 						'default'	=> '#000',
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-title' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .exad-accordion .exad-accordion-title' => 'color: {{VALUE}};',
 						],
 					]
 				);
@@ -179,21 +179,21 @@ class Exclusive_Accordion extends Widget_Base {
 						'type'		=> Controls_Manager::COLOR,
 						'default'	=> '#000',
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-title span i' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .exad-accordion .exad-accordion-title span i' => 'color: {{VALUE}};',
 						],
 						'condition' => [
 							'eael_adv_tabs_icon_show' => 'yes'
 						]
 					]
 				);
-				$this->add_group_control(
+				/*$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
 						'name'		=> 'exad_exclusive_accordion_tab_border',
 						'label'		=> esc_html__( 'Border', 'exclusive-addons-elementor' ),
-						'selector'	=> '{{WRAPPER}} .exad-accordion-title',
+						'selector'	=> '{{WRAPPER}} .exad-accordion .exad-accordion-title',
 					]
-				);
+				); */
 				
 			$this->end_controls_tab();
 
@@ -212,7 +212,7 @@ class Exclusive_Accordion extends Widget_Base {
 						'type'		=> Controls_Manager::COLOR,
 						'default'	=> '#FFF',
 						'selectors' => [
-							'{{WRAPPER}} .exad-accordion-title:hover' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .exad-accordion .exad-accordion-title:hover' => 'background-color: {{VALUE}};',
 						],
 					]
 				);
@@ -223,7 +223,7 @@ class Exclusive_Accordion extends Widget_Base {
 						'type'		=> Controls_Manager::COLOR,
 						'default'	=> '#333',
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-title:hover' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .exad-accordion .exad-accordion-title:hover, .exad-accordion .exad-accordion-title::after' => 'color: {{VALUE}};',
 						],
 					]
 				);
@@ -234,21 +234,21 @@ class Exclusive_Accordion extends Widget_Base {
 						'type'		=> Controls_Manager::COLOR,
 						'default'	=> '#fff',
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-title:hover .exad-accordion-title span i' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .exad-accordion .exad-accordion-title:hover .exad-accordion-title span i' => 'color: {{VALUE}};',
 						],
 						'condition'	=> [
 							'exad_exclusive_accordion_toggle_icon_show' => 'yes'
 						]
 					]
 				);
-				$this->add_group_control(
+				/*$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
 						'name'		=> 'exad_exclusive_accordion_tab_border_hover',
 						'label'		=> esc_html__( 'Border', 'exclusive-addons-elementor' ),
-						'selector'	=> '{{WRAPPER}} .exad-exclusive-accordion .eael-accordion-list .eael-accordion-header.active',
+						'selector'	=> '{{WRAPPER}} .exad-exclusive-accordion .exad-accordion-list .exad-accordion-header.active',
 					]
-				);
+				); */
 				
 			$this->end_controls_tab();
 		$this->end_controls_tabs();
@@ -260,7 +260,7 @@ class Exclusive_Accordion extends Widget_Base {
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
-			'eael_section_adv_accordion_tab_content_style_settings',
+			'exad_section_accordion_tab_content_style_settings',
 			[
 				'label'	=> esc_html__( 'Content Style', 'exclusive-addons-elementor' ),
 				'tab'	=> Controls_Manager::TAB_STYLE,
@@ -268,25 +268,25 @@ class Exclusive_Accordion extends Widget_Base {
 		);
 
 		$this->add_control(
-			'adv_accordion_content_bg_color',
+			'exad_accordion_content_bg_color',
 			[
 				'label'		=> esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-accordion-content-wrapper' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-accordion .exad-accordion-content-wrapper' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
 
 		$this->add_control(
-			'adv_accordion_content_text_color',
+			'exad_accordion_content_text_color',
 			[
 				'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#333',
 				'selectors' => [
-					'{{WRAPPER}} .exad-accordion-content-wrapper' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-accordion .exad-accordion-content-wrapper' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -294,7 +294,7 @@ class Exclusive_Accordion extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
             	'name'		=> 'exad_exclusive_accordion_content_typography',
-				'selector'	=> '{{WRAPPER}} .exad-accordion-content-wrapper p',
+				'selector'	=> '{{WRAPPER}} .exad-accordion .exad-accordion-content-wrapper p',
 			]
 		);
 		

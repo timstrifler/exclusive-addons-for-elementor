@@ -339,15 +339,27 @@ final class Exclusive_Addons_Elementor {
 	 * @access public
 	 */
 	public function init_widgets() {
-		$this->exad_activated_modules();
 		
+		$activated_widgets = $this->exad_activated_modules();
+
+
+		if ( function_exists( 'wpcf7' ) ) {
+			$cf7form = true;
+		} else {
+			$cf7form = false;
+		}
+
 		$exad_default_keys = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
 
-		$exad_active_widgets = get_option( 'exad_save_settings', $exad_default_keys );
+		//$exad_active_widgets = get_option( 'exad_save_settings', $exad_default_keys );
 
-		foreach( $exad_active_widgets as $key => $widget ) {
-			if ( $widget ) {
-				require_once EXAD_ELEMENTS . $key . '/' .$key . '.php';
+		foreach( $exad_default_keys as $key => $widget ) {
+			if ( $activated_widgets[$widget] ) {
+				if ( $widget == 'contact-form-7' && $cf7form == true ) {
+					require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+				} else {
+					require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+				}
 			}
 		}
 
