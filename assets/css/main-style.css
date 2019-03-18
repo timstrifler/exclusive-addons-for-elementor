@@ -5722,7 +5722,7 @@ ul.exad-pricing-table-features {
   border-width: 0px 1px 0px 1px;
   border-color: #000000;
   border-style: solid;
-  padding: 24px 20px;
+  padding: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
@@ -6265,6 +6265,43 @@ ul.exad-pricing-table-features {
   line-height: 24px;
   font-weight: 100;
   margin: 0;
+}
+
+@media(max-width:1200px){
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
+    width: 82%;
+  }
+}
+@media(max-width:575px){
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title::after{
+    right: 20px;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title.active::after{
+    right: 20px;
+  }
+}
+@media(max-width:400px){
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
+    width: 80%;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title::after{
+    right: 10px;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title.active::after{
+    right: 10px;
+  }
+}
+@media(max-width:320px){
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
+    width: 80%;
+    padding: 14px 20px;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title::after{
+    right: 10px;
+  }
+  .exad-accordion.two .exad-accordion-two .exad-accordion-title.active::after{
+    right: 10px;
+  }
 }
 
 /* Exclusive Accordion End */ 
