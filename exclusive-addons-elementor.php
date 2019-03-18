@@ -210,7 +210,7 @@ final class Exclusive_Addons_Elementor {
         
 		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
 				
-        //wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
+        wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 		
 		// Progress Bar Js
         wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.js', array( 'jquery' ), 1.0, true );

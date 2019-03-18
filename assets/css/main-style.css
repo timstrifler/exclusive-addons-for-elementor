@@ -1659,7 +1659,6 @@ ul.exad-pricing-table-features {
   border: 1px solid #e0e2e5;
   padding-bottom: 45px; 
   padding-left: 30px;
-  margin: 20px 0;
 }
 
 .exad-pricing-table-two .exad-pricing-table-title {
@@ -1668,6 +1667,7 @@ ul.exad-pricing-table-features {
   text-transform: uppercase;
   color: #8a8d91;
   font-weight: 400;
+  margin-bottom: 40px;
 }
 
 .exad-pricing-table-two .exad-pricing-table-price {
@@ -1777,6 +1777,7 @@ ul.exad-pricing-table-features {
   text-transform: uppercase;
   color: #8a8d91;
   font-weight: 400;
+  margin-bottom: 40px;
 }
 
 .exad-pricing-table-three .exad-pricing-table-price {
@@ -2038,7 +2039,7 @@ ul.exad-pricing-table-features {
   padding: 45px 30px;
   position: relative;
   overflow: hidden;
-  margin: 20px 0 60px;
+  margin: 0 0 60px;
   -webkit-box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
   box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
 }
@@ -5691,7 +5692,7 @@ ul.exad-pricing-table-features {
   position: absolute;
   font-family: "FontAwesome";
   content: "\f107";
-  right: 30px;
+  right: 5px;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -6267,12 +6268,12 @@ ul.exad-pricing-table-features {
   margin: 0;
 }
 
-@media(max-width:1200px){
+@media only screen and (max-width:1200px){
   .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
     width: 82%;
   }
 }
-@media(max-width:575px){
+@media only screen and (max-width:575px){
   .exad-accordion.two .exad-accordion-two .exad-accordion-title::after{
     right: 20px;
   }
@@ -6280,7 +6281,7 @@ ul.exad-pricing-table-features {
     right: 20px;
   }
 }
-@media(max-width:400px){
+@media only screen and (max-width:400px){
   .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
     width: 80%;
   }
@@ -6291,7 +6292,7 @@ ul.exad-pricing-table-features {
     right: 10px;
   }
 }
-@media(max-width:320px){
+@media only screen and (max-width:320px){
   .exad-accordion.two .exad-accordion-two .exad-accordion-title h3{
     width: 80%;
     padding: 14px 20px;
