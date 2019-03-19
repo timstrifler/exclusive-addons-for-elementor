@@ -121,9 +121,9 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
-			'exad_section_exclusive_tabs_style_settings',
+			'exad_section_exclusive_tabs_style_preset_settings',
 			[
-				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -155,20 +155,20 @@ class Exad_Exclusive_Tabs extends Widget_Base {
   		$this->end_controls_section();
   		/**
 		 * -------------------------------------------
-		 * Tab Style Exclusive Tabs Content Style
+		 * Tab Style Exclusive Tabs Heading Style
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
-			'exad_section_exclusive_tabs_tab_style_settings',
+			'exad_section_exclusive_tabs_heading_style_settings',
 			[
-				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Heading', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-            	'name' => 'exad_exclusive_tab_title_typography',
+            	'name' => 'exad_exclusive_tab_heading_typography',
 				'selector' => '{{WRAPPER}} .exad-advance-tab .exad-tab-title',
 			]
 		);
@@ -177,10 +177,23 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->start_controls_tabs( 'exad_exclusive_tabs_header_tabs' );
 			// Normal State Tab
 			$this->start_controls_tab( 'exad_exclusive_tabs_header_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
-				$this->add_control(
-					'exad_exclusive_tab_color',
+				
+			$this->add_control(
+				'exad_exclusive_tab_text_color',
+				[
+					'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#8a8d91',
+					'selectors' => [
+						'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-nav li span, {{WRAPPER}} .exad-advance-tab .exad-advance-tab-nav li i' => 'color: {{VALUE}};'
+					],
+				]
+			);
+
+			$this->add_control(
+					'exad_exclusive_tab_bg_color',
 					[
-						'label' => esc_html__( 'Tab Background Color', 'exclusive-addons-elementor' ),
+						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '#FFF',
 						'selectors' => [
@@ -188,17 +201,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 						],
 					]
 				);
-				$this->add_control(
-					'exad_exclusive_tab_text_color',
-					[
-						'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::COLOR,
-						'default' => '#8a8d91',
-						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab.two .exad-advance-tab-nav li span' => 'color: {{VALUE}};'
-						],
-					]
-				);
+				
 				$this->add_control(
 					'exad_exclusive_tab_border_color',
 					[
@@ -218,18 +221,8 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 			$this->end_controls_tab();
 			
 			// Active State Tab
+
 			$this->start_controls_tab( 'exad_exclusive_tabs_header_active', [ 'label' => esc_html__( 'Active', 'exclusive-addons-elementor' ) ] );
-				$this->add_control(
-					'exad_exclusive_tab_color_active',
-					[
-						'label' => esc_html__( 'Tab Background Color', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::COLOR,
-						'default' => '#FFF',
-						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-nav li.active' => 'background: {{VALUE}};'
-						],
-					]
-				);
 				$this->add_control(
 					'exad_exclusive_tab_text_color_active',
 					[
@@ -237,10 +230,24 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 						'type' => Controls_Manager::COLOR,
 						'default' => '#0a1724',
 						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-nav li.active span' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-nav li.active span, {{WRAPPER}} .exad-advance-tab .exad-advance-tab-nav li.active i' => 'color: {{VALUE}};'
+						],
+					]
+				);	
+				
+				$this->add_control(
+					'exad_exclusive_tab_bg_color_active',
+					[
+						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#FFF',
+						'selectors' => [
+							'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab.four .exad-advance-tab-nav li::before' => 'background: {{VALUE}};',
+							'{{WRAPPER}} .exad-advance-tab.three .exad-advance-tab-nav li::before' => 'border-left-color: {{VALUE}};'
 						],
 					]
 				);
+				
 				$this->add_control(
 					'exad_exclusive_tab_border_color_active',
 					[
@@ -289,6 +296,18 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
+
+		$this->add_control(
+			'exclusive_tabs_content_title_color',
+			[
+				'label' => esc_html__( 'Title Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#0a1724',
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content .exad-advance-tab-content-title' => 'color: {{VALUE}};',
+				],
+			]
+		);
 		$this->add_control(
 			'exclusive_tabs_content_bg_color',
 			[
@@ -296,7 +315,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-advance-tab .exad-tabs-content > div' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content ' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
@@ -307,7 +326,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#333',
 				'selectors' => [
-					'{{WRAPPER}} .exad-advance-tab .exad-tabs-content > div' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content ' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -376,10 +395,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 			<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : $exad_find_default_tab[] = $tab['exad_exclusive_tab_show_as_default'];?>
 				<div class="exad-advance-tab-content <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?>">
 				<h3 class="exad-advance-tab-content-title"><?php echo $tab['exad_exclusive_tab_title']; ?></h3>
-				<p><?php echo do_shortcode( $tab['exad_exclusive_tab_content'] ); ?></p>
-				<a href="#" class="exad-advance-tab-content-action">Read More
-				<i class="fa fa-long-arrow-right"></i>
-				</a>
+				<p><?php echo esc_html( $tab['exad_exclusive_tab_content'] ); ?></p>
 				</div>
 			<?php endforeach; ?>
 			
@@ -409,9 +425,6 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				<div class="exad-advance-tab-content {{ tab.exad_exclusive_tab_show_as_default }}">
 				<h3 class="exad-advance-tab-content-title">{{{ tab.exad_exclusive_tab_title }}}</h3>
 				<p>{{{ tab.exad_exclusive_tab_content }}}</p>
-				<a href="#" class="exad-advance-tab-content-action">Read More
-					<i class="fa fa-long-arrow-right"></i>
-				</a>
 				</div>
 			<# }); #>
 			
