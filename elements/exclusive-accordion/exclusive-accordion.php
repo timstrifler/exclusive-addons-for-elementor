@@ -95,7 +95,7 @@ class Exclusive_Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_accordion_style_settings',
 			[
-				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -114,15 +114,6 @@ class Exclusive_Accordion extends Widget_Base {
 					  	'six' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
 				   ],
 				]
-		  	);
-		  	$this->add_control(
-			  	'exad_exclusive_tabs_icon_show',
-			  	[
-				  	'label' => esc_html__( 'Enable Icon', 'exclusive-addons-elementor' ),
-				  	'type' => Controls_Manager::SWITCHER,
-				  	'default' => 'yes',
-				  	'return_value' => 'yes',
-			  	]
 		  	);
 		  
   		$this->end_controls_section();
@@ -168,7 +159,7 @@ class Exclusive_Accordion extends Widget_Base {
 						'type'		=> Controls_Manager::COLOR,
 						'default'	=> '#000',
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion .exad-accordion-title' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .exad-accordion .exad-accordion-title, {{WRAPPER}} .exad-accordion .exad-accordion-title::after' => 'color: {{VALUE}};',
 						],
 					]
 				);
@@ -186,14 +177,7 @@ class Exclusive_Accordion extends Widget_Base {
 						]
 					]
 				);
-				/*$this->add_group_control(
-					Group_Control_Border::get_type(),
-					[
-						'name'		=> 'exad_exclusive_accordion_tab_border',
-						'label'		=> esc_html__( 'Border', 'exclusive-addons-elementor' ),
-						'selector'	=> '{{WRAPPER}} .exad-accordion .exad-accordion-title',
-					]
-				); */
+				
 				
 			$this->end_controls_tab();
 
