@@ -207,18 +207,25 @@ final class Exclusive_Addons_Elementor {
     *
     */
     public function enqueue_scripts() {
+
+		$is_activated_widget = $this->activated_widgets();
         
 		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
 				
         wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 		
-		// Progress Bar Js
-        wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.js', array( 'jquery' ), 1.0, true );
-        // Waypoints js
-        wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
-        // jQuery Cuntdown js
-        wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
-		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/main-script.js', array( 'jquery', 'exad-countdown', 'exad-progress-bar', 'exad-waypoints' ), 1.0, true );
+		if ( $is_activated_widget['progress-bar'] == 1 ) {
+			// Progress Bar Js
+			wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.js', array( 'jquery' ), 1.0, true );
+			// Waypoints js
+			wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
+		}
+		// jQuery Countdown js
+		if ( $is_activated_widget['countdown-timer'] == 1) {
+			wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
+		}
+        
+		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/main-script.js', array( 'jquery' ), 1.0, true );
         
     }
 
@@ -312,7 +319,7 @@ final class Exclusive_Addons_Elementor {
       *
       * @since   v1.0
       */
-      public static function exad_activated_modules() {
+      public static function activated_widgets() {
 
 		$exad_default_keys = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
 		
@@ -340,7 +347,7 @@ final class Exclusive_Addons_Elementor {
 	 */
 	public function init_widgets() {
 		
-		$activated_widgets = $this->exad_activated_modules();
+		$activated_widgets = $this->activated_widgets();
 
 
 		if ( function_exists( 'wpcf7' ) ) {

@@ -232,9 +232,9 @@ class Exad_Team_Carousel extends Widget_Base {
 		* Team Members Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_section_team_carousel_styles_general',
+			'exad_section_team_carousel_styles_preset',
 			[
-				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -257,7 +257,7 @@ class Exad_Team_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Avatar Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => 'rgba(255,255,255,0.8)',
+				'default' => '#826EFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-member-circle .exad-team-member-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
 				],

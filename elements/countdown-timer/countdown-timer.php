@@ -22,7 +22,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'exad-jquery-countdown' ];
+		return [ 'exad-countdown' ];
 	}
 
 	protected function _register_controls() {
@@ -77,9 +77,9 @@ class Exad_Countdown_Timer extends Widget_Base {
 		 */
 
 		$this->start_controls_section(
-			'exad_section_countdown_styles_general',
+			'exad_section_countdown_styles_preset',
 			[
-				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -126,26 +126,13 @@ class Exad_Countdown_Timer extends Widget_Base {
 			]
 		);
 
-		/*$this->add_control(
-			'exad_countdown_background',
-			[
-				'label' => esc_html__( 'Box Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#552de9',
-				'selectors' => [
-					'{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container' => 'background-color: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_countdown_preset' => 'style-1',
-				],
-			]
-		); */
+
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'exad_countdown_background',
-				'label' => __( 'Background', 'plugin-domain' ),
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container',
 				'condition' => [
@@ -181,7 +168,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'border',
-				'label' => __( 'Border', 'plugin-domain' ),
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container',
 				'condition' => [
 					'exad_countdown_preset' => 'style-1',
@@ -296,7 +283,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 
 		?>
 		<div id="exad-countdown-timer-<?php echo esc_attr($this->get_id()); ?>" class="exad-countdown-content-container">
-			<div class="exad-countdown <?php echo esc_attr( $settings['exad_countdown_preset'] ); ?>" 
+			<div class="exad-countdown <?php echo esc_attr( $settings['exad_countdown_preset'] ); ?>"				
 			<?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute') ?>></div>
 		</div>
 		<?php

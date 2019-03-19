@@ -53,7 +53,6 @@
 	var TestimonialCarousel = function ($scope, $) {
 		var $testimonialCarouselWrapper = $scope.find('.exad-testimonial-carousel-wrapper').eq(0),
 		$testimonial_preset = $testimonialCarouselWrapper.data("testimonial-preset"),
-		//$carousel_nav = $testimonialCarouselWrapper.data("carousel-nav"),
 		$loop = ($testimonialCarouselWrapper.data("loop") !== undefined) ? $testimonialCarouselWrapper.data("loop") : false,
 		$slidesToShow = ($testimonialCarouselWrapper.data("slidestoshow") !== undefined) ? $testimonialCarouselWrapper.data("slidestoshow") : 1,
 		$slidesToScroll = ($testimonialCarouselWrapper.data("slidestoscroll") !== undefined) ? $testimonialCarouselWrapper.data("slidestoscroll") : 1,
@@ -80,8 +79,6 @@
 	        	return '<a><img src="'+ image +'"></a>';
 	      	},
 			rows: 0,
-			//lazyLoad: "ondemand",
-			//swipe: true,
 	    });	
 	};
 
@@ -245,7 +242,7 @@
 				tab.find('.exad-advance-tab-content').eq($(this).index()).addClass('active');
 			});
 		});
-	}
+	};
 
 	// Exclusive Button 
 	var ExclusiveButton = function($scope, $) {
@@ -265,7 +262,7 @@
 		  	$(this).find('.effect-8-position').css({ top: relY, left: relX })
 		});
 	  	// position on hover a button in button style seven
-	}
+	};
 
 	
 
