@@ -5,7 +5,6 @@
 
 	var TeamCarousel = function ($scope, $) {
 		var $teamCarouselWrapper = $scope.find('.exad-team-carousel-wrapper').eq(0),
-		//$team_carousel_id = $teamCarouselWrapper.data("team-carousel-id"),
 		$team_preset = $teamCarouselWrapper.data("team-preset"),
 		$carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
 		$loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
@@ -18,8 +17,6 @@
 
 
 		// Team Carousel 
-
-		//var $teamCarousel = $("#exad-team-carousel-" + $team_carousel_id);
 
 		if ($carousel_nav == "arrows" ) {
 			var arrows = true;
@@ -42,8 +39,6 @@
 	      	prevArrow: "<div class='exad-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
 			nextArrow: "<div class='exad-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
 			rows: 0,
-			//lazyLoad: "ondemand",
-			//swipe: true,
 	    });
 
 		

@@ -130,13 +130,13 @@ p.exad-el-title {
     font-size: 16px;
     font-weight: 600;
     color: #333;
-    margin: .5em;
+    margin: 10px 5px;
 }
 
 p.exad-el-title-small {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 600;
-    color: #999898;
+    color: #3e3e3e;
     font-weight: 100;
     margin: -6px 0px .5em .5em;
 }
@@ -209,7 +209,7 @@ textarea.exad-form-control {
 }
 
 .exad-dashboard-checkbox label {
-    width: 2em;
+    width: 1.5em;
     height: 16px;
     position: relative;
     cursor: pointer;

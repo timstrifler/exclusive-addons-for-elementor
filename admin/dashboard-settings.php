@@ -264,7 +264,7 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Contact Form 7', 'exclusive-addons-elementor' ); ?>
                                         </p>
                                         <p class="exad-el-title-small">
-                                            <?php _e( 'Contact Form 7', 'exclusive-addons-elementor' ); ?>
+                                            <?php _e( 'Contact Form 7 Plugin requires <br/> to be Installed', 'exclusive-addons-elementor' ); ?>
                                         </p>
                                     </div>
                                     <div class="exad-dashboard-checkbox-label">
@@ -388,7 +388,7 @@ class Exad_Admin_Settings {
                                             <?php _e( 'Testimonials', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                         <p class="exad-el-title-small">
-                                            <?php _e( 'Testimonials', 'exclusive-addons-elementor' ) ?>
+                                            <?php _e( 'Testimonials Carousel', 'exclusive-addons-elementor' ) ?>
                                         </p>
                                     </div>
                                     <div class="exad-dashboard-checkbox-label">

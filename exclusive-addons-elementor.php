@@ -214,14 +214,14 @@ final class Exclusive_Addons_Elementor {
 				
         wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 		
-		if ( $is_activated_widget['progress-bar'] == 1 ) {
+		if ( $is_activated_widget['progress-bar'] ) {
 			// Progress Bar Js
-			wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/progressbar.js', array( 'jquery' ), 1.0, true );
+			wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), 1.0, true );
 			// Waypoints js
 			wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
 		}
 		// jQuery Countdown js
-		if ( $is_activated_widget['countdown-timer'] == 1) {
+		if ( $is_activated_widget['countdown-timer'] ) {
 			wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
 		}
         
@@ -349,24 +349,14 @@ final class Exclusive_Addons_Elementor {
 		
 		$activated_widgets = $this->activated_widgets();
 
-
+		$exad_default_keys = [ 'exclusive-card', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
 		if ( function_exists( 'wpcf7' ) ) {
-			$cf7form = true;
-		} else {
-			$cf7form = false;
-		}
-
-		$exad_default_keys = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
-
-		//$exad_active_widgets = get_option( 'exad_save_settings', $exad_default_keys );
+			$exad_default_keys[] = 'contact-form-7';
+		} 
 
 		foreach( $exad_default_keys as $key => $widget ) {
 			if ( $activated_widgets[$widget] ) {
-				if ( $widget == 'contact-form-7' && $cf7form == true ) {
-					require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
-				} else {
-					require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
-				}
+				require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
 			}
 		}
 
