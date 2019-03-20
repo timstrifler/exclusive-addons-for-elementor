@@ -234,3 +234,590 @@
 }
 
 /* Flip Box End */
+
+
+/* InfoBox Start */
+
+.exad-infobox.one .exad-infobox-item {
+  padding: 30px 0 0 0;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.exad-infobox.one .exad-infobox-item .exad-infobox-icon {
+  height: 90px;
+  width: 90px;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0px 22px 59px 0px rgba(18, 34, 66, 0.2);
+  position: relative;
+  z-index: 1;
+  transition: all .3s ease;
+}
+
+.exad-infobox.one .exad-infobox-item .exad-infobox-icon::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  transition: .3s ease;
+}
+
+.exad-infobox.one .exad-infobox-item .exad-infobox-icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  transition: all .3s ease;
+  font-size: 40px;
+}
+
+.exad-infobox.one .exad-infobox-item .exad-infobox-icon img, .exad-infobox.two .exad-infobox-item .exad-infobox-icon img, .exad-infobox.four .exad-infobox-item .exad-infobox-icon img, .exad-infobox.five .exad-infobox-item .exad-infobox-icon img {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.exad-infobox.one .exad-infobox-item .exad-infobox-content {
+  padding: 30px 20px;
+}
+
+.exad-infobox.one .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
+  
+}
+
+.exad-infobox.one .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
+  margin: 20px 0 0 0;
+  line-height: 26px;
+}
+
+.exad-infobox.one .exad-infobox-item:hover .exad-infobox-icon::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.exad-infobox.one .exad-infobox-item:hover .exad-infobox-icon i {
+  /* color: #fff; */
+}
+
+.exad-infobox.two .exad-infobox-item {
+  box-shadow: 0px 22px 59px 0px rgba(18, 34, 66, 0.1);
+  padding: 60px 30px;
+  border-radius: 6px;
+  background: #fff;
+  margin-bottom: 30px;
+}
+
+.exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon {
+  background: #fff;
+  border: 1px solid #ff8672;
+}
+
+.exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon i {
+  color: #ff8672;
+}
+
+.exad-infobox.two .exad-infobox-item .exad-infobox-icon {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  border-radius: 6px;
+  margin-bottom: 50px;
+  background-color: #ff8672;
+  border: 1px solid transparent;
+  transition: all .3s ease;
+}
+
+.exad-infobox.two .exad-infobox-item .exad-infobox-icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #fff;
+}
+
+.exad-infobox.two .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
+}
+
+.exad-infobox.two .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
+  margin: 20px 0;
+}
+
+.exad-infobox.three .exad-infobox-item {
+  text-align: center;
+  padding: 60px 30px;
+  border-radius: 4px;
+}
+
+.exad-infobox.three .exad-infobox-item .exad-infobox-icon {
+  margin-bottom: 60px;
+  font-size: 50px;
+}
+
+.exad-infobox.three .exad-infobox-item .exad-infobox-icon i {
+  transition: all .3s ease;
+  /* color: rgba(255, 255, 255, 0.5); */
+  opacity: 0.5;
+}
+
+.exad-infobox.three .exad-infobox-item .exad-infobox-icon img {
+  height: 45px;
+  width: 45px;
+}
+
+.exad-infobox.three .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
+}
+
+.exad-infobox.three .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
+  margin: 25px 0 0 0;
+}
+
+.exad-infobox.three .exad-infobox-item {
+  /* background: linear-gradient(360deg, #634eff 0%, #c55dfb 100%); */
+}
+
+
+.exad-infobox.three .exad-infobox-item:hover .exad-infobox-icon {
+  color: #fff;
+}
+.exad-infobox.three .exad-infobox-item:hover .exad-infobox-icon i{
+  opacity: 1;
+}
+
+.exad-infobox.four .exad-infobox-item {
+  display: flex;
+  transition: .3s ease;
+}
+
+.exad-infobox.four .exad-infobox-item .exad-infobox-icon {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  position: relative;
+  transition: .3s ease;
+  margin: 10px;
+}
+
+.exad-infobox.four .exad-infobox-item .exad-infobox-icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 30px;
+}
+
+.exad-infobox.four .exad-infobox-item .exad-infobox-icon {
+  background: #826EFF;
+}
+
+.exad-infobox.four .exad-infobox-item .exad-infobox-content {
+  padding: 10px 0 0 20px;
+}
+
+.exad-infobox.four .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
+  margin: 0;
+}
+
+.exad-infobox.four .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
+  line-height: 26px;
+  margin: 15px 0 0 0;
+}
+
+.exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon {
+  background: #fff;
+  border: 1px solid #826EFF;
+}
+
+.exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon i {
+  color: #826EFF;
+}
+
+.exad-infobox.five {
+  margin-top: 50px;
+}
+
+.exad-infobox.five .exad-infobox-item {
+  border: 1px solid #e0e2e5;
+  text-align: center;
+}
+
+.exad-infobox.five .exad-infobox-item .exad-infobox-icon {
+  position: relative;
+  height: 90px;
+  width: 90px;
+  border: 1px solid transparent;
+  margin: -45px auto 0 auto;
+  border-radius: 50%;
+  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+  transition: all .3s ease;
+}
+
+.exad-infobox.five .exad-infobox-item .exad-infobox-icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #fff;
+}
+
+.exad-infobox.five .exad-infobox-item .exad-infobox-content {
+  padding: 35px 20px;
+}
+
+.exad-infobox.five .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
+}
+
+.exad-infobox.five .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
+  line-height: 26px;
+  margin: 20px 0 0 0;
+}
+
+.exad-infobox.five .exad-infobox-item {
+  border-bottom: 3px solid #8774ff;
+}
+
+.exad-infobox.five .exad-infobox-item .exad-infobox-icon {
+  background: #8774ff;
+}
+
+
+.exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon {
+  background: #ffffff;
+  border: 1px solid #8774ff;
+}
+
+.exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon i {
+  color: #8774ff;
+}
+
+/* InfoBox End */
+
+
+/* Card Style Start */
+
+.exad-card {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 35px;
+}
+.exad-card-description {
+    font-size: 16px;
+    color: #8a8d91;
+    margin: 0 auto;
+}
+.exad-card-tag {
+    font-size: 15px;
+    color: #8a8d91;
+    margin: 20px 0 0 0;
+}
+
+.exad-card.one {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e5e5e5;
+  border-radius: 4px;
+  background-color: white;
+  position: relative;
+}
+
+.exad-card.one .exad-card-thumb {
+  border-radius: 4px 4px 0 0;
+}
+
+.exad-card.one .exad-card-thumb img {
+  width: 100%;
+  display: block;
+}
+
+.exad-card.one .exad-card-body {
+  padding: 30px 30px;
+}
+
+.exad-card.one .exad-card-body .exad-card-title {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: #132c47;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: all .4s ease;
+  line-height: 100%;
+}
+
+.exad-card.one .exad-card-body .exad-card-title::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 3px;
+  top: 0;
+  left: -30px;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  background: #ff4a4a;
+  transition: all .2s ease;
+}
+
+.exad-card.one .exad-card-body .exad-card-title:hover::before {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+.exad-card.one .exad-card-body .exad-card-description {
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+.exad-card.one .exad-card-body .exad-card-action {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 118px;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
+  background: #fff;
+  font-family: "Roboto", sans-serif;
+  padding: 15px 35px;
+  border-radius: 4px;
+  transition: all .4s ease;
+  color: #132c47;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.exad-card.one .exad-card-body .exad-card-action:hover {
+  background: #ff4a4a;
+  color: #fff;
+}
+
+.exad-card.two {
+  background-color: white;
+  box-shadow: 0px 15px 39px 0px rgba(9, 24, 33, 0.06);
+  border-radius: 4px;
+  position: relative;
+
+}
+
+.exad-card.two:hover .exad-card-body .exad-card-title {
+  margin-left: 30px;
+}
+
+.exad-card.two:hover .exad-card-body .exad-card-title::before {
+  opacity: 1;
+}
+
+.exad-card.two .exad-card-thumb img {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  display: block;
+}
+
+.exad-card.two .exad-card-body {
+  padding: 30px 30px;
+}
+
+.exad-card.two .exad-card-body .exad-card-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: #132c47;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none;
+  transition: all .3s ease;
+  display: block;
+}
+
+.exad-card.two .exad-card-body .exad-card-title::before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 20px;
+  background: #9059ff;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  transition: all .3s ease;
+  opacity: 0;
+}
+
+.exad-card.two .exad-card-body .exad-card-tag {
+  font-size: 15px;
+  line-height: 26px;
+  margin-bottom: 15px;
+}
+
+.exad-card.two .exad-card-body .exad-card-action {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  text-align: center;
+  line-height: 52px;
+  width: 50px;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
+  background: #fff;
+  border-radius: 50%;
+  transition: all .4s ease;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  display: block;
+}
+
+.exad-card.two .exad-card-body .exad-card-action i {
+  color: #c6c6c6;
+  font-size: 22px;
+}
+
+.exad-card.two .exad-card-body .exad-card-action svg {
+  fill: #c6c6c6;
+}
+
+.exad-card.two .exad-card-body .exad-card-action:hover {
+  -webkit-transform: translate(-50%, 50%) scale(1.2);
+          transform: translate(-50%, 50%) scale(1.2);
+  background: #9059ff;
+}
+
+.exad-card.two .exad-card-body .exad-card-action:hover i {
+  color: #fff;
+}
+
+.exad-card.three {
+  position: relative;
+}
+
+.exad-card.three::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #ff4a4a;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  transition: all .2s ease;
+  z-index: 1;
+}
+
+.exad-card.three:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.exad-card.three:hover .exad-card-body .exad-card-tag {
+  margin-left: 30px;
+}
+
+.exad-card.three:hover .exad-card-body .exad-card-tag::before {
+  opacity: 1;
+}
+
+.exad-card.three .exad-card-thumb {
+  position: relative;
+}
+
+.exad-card.three .exad-card-thumb img {
+  width: 100%;
+}
+
+.exad-card.three .exad-card-thumb::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.99) 0%, rgba(128, 128, 128, 0.1) 50%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.exad-card.three .exad-card-body .exad-card-description {
+  position: absolute;
+  bottom: 105px;
+  left: 40px;
+  font-size: 15px;
+}
+
+.exad-card.three .exad-card-body .exad-card-tag {
+  position: absolute;
+  bottom: 72px;
+  left: 40px;
+  font-size: 15px;
+  transition: all .2s ease;
+}
+
+.exad-card.three .exad-card-body .exad-card-tag::before {
+  content: '';
+  height: 2px;
+  width: 20px;
+  background: #ff4a4a;
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.exad-card.three .exad-card-body .exad-card-title {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+}
+
+.exad-card.three .exad-card-body .exad-card-action {
+  position: absolute;
+  bottom: 40px;
+  right: 25px;
+  background: rgba(95, 90, 84, 0.7);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  padding: 14px 48px;
+  border-radius: 25px;
+  transition: all .3s ease;
+  display: block;
+}
+
+.exad-card.three .exad-card-body .exad-card-action:hover {
+  background: #ff4a4a;
+}
+
+/* Card Style End */

@@ -156,10 +156,11 @@ class Exad_Infobox extends Widget_Base {
                 'default' => '#5480ff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-infobox.one .exad-infobox-icon::before' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .exad-infobox.one .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .exad-infobox.one .exad-infobox-item:hover .exad-infobox-icon i' => 'color: #FFF',
+                    '{{WRAPPER}} .exad-infobox.one .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.three .exad-infobox-item .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-infobox.one .exad-infobox-item:hover .exad-infobox-icon i' => 'color: #FFF',
                     '{{WRAPPER}} .exad-infobox.two .exad-infobox-icon' => 'background-color: {{VALUE}};',
                     '{{WRAPPER}} .exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon, {{WRAPPER}} .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon, {{WRAPPER}} .exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon' => 'background: #FFF; border: 1px solid {{VALUE}};',
+					'{{WRAPPER}} .exad-infobox.three .exad-infobox-item:hover .exad-infobox-icon i' => 'color: #FFF',  /*new added line */
                     '{{WRAPPER}} .exad-infobox.four .exad-infobox-icon, {{WRAPPER}} .exad-infobox.five .exad-infobox-icon' => 'background: {{VALUE}};',
                     '{{WRAPPER}} .exad-infobox.five .exad-infobox-item' => 'border-bottom: 3px solid {{VALUE}};',
 
@@ -269,9 +270,9 @@ class Exad_Infobox extends Widget_Base {
 	            </div>
 	            <div class="exad-infobox-content">
 	            	<h3 class="exad-infobox-content-title"><?php echo $settings['exad_infobox_title']; ?></h3>
-	              	<div class="exad-infobox-content-description">
+	              	<p class="exad-infobox-content-description">
 	   					<?php echo $settings['exad_infobox_description']; ?>
-	              	</div>
+	              	</p>
 	            </div>
           	</div>
         </div>
@@ -297,8 +298,8 @@ class Exad_Infobox extends Widget_Base {
 	            </div>
 	            <div class="exad-infobox-content">
 	            	<h3 class="exad-infobox-content-title">{{{ settings.exad_infobox_title }}}</h3>
-	              	<div class="exad-infobox-content-description">{{{ settings.exad_infobox_description }}}
-	              	</div>
+	              	<p class="exad-infobox-content-description">{{{ settings.exad_infobox_description }}}
+	              	</p>
 	            </div>
           	</div>
         </div>
