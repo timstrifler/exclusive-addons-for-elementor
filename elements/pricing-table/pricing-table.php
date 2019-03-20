@@ -253,9 +253,9 @@ class Exad_Pricing_Table extends Widget_Base {
 		* Pricing Table Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_section_pricing_tables_styles_general',
+			'exad_section_pricing_tables_styles_presets',
 			[
-				'label' => esc_html__( 'Styleset', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -266,7 +266,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => '-one',
 				'options' => [
-					'-one' => esc_html__( 'Default', 'exclusive-addons-elementor' ),
+					'-one' => esc_html__( 'Style', 'exclusive-addons-elementor' ),
 					'-two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 					'-three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
 					'-six' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
@@ -426,7 +426,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#999',
+				'default' => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price' => 'color: {{VALUE}};',
 				],
@@ -457,7 +457,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-item .price-period' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-price-period' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -466,7 +466,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
             'name' => 'exad_pricing_table_price_preiod_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing-item .price-period',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-price-period',
 			]
 		);
 
@@ -625,7 +625,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 	         'name' => 'exad_pricing_table_btn_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing .exad-pricing-button',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action',
 			]
 		);
 
@@ -641,7 +641,7 @@ class Exad_Pricing_Table extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '#fff',
 					'selectors' => [
-						'{{WRAPPER}} .exad-pricing-table-action' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -653,7 +653,7 @@ class Exad_Pricing_Table extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '#00C853',
 					'selectors' => [
-						'{{WRAPPER}} .exad-pricing-table-action' => 'background: {{VALUE}};',
+						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action' => 'background: {{VALUE}};',
 					],
 				]
 			);
@@ -665,7 +665,7 @@ class Exad_Pricing_Table extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '#00C853',
 					'selectors' => [
-						'{{WRAPPER}} .exad-pricing-table-action' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action' => 'border-color: {{VALUE}};',
 					],
 				]
 
@@ -684,7 +684,7 @@ class Exad_Pricing_Table extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '#00C853',
 					'selectors' => [
-						'{{WRAPPER}} .exad-pricing-table-action:hover' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action:hover' => 'color: {{VALUE}};',
 					],
 				]
 			);
@@ -696,7 +696,7 @@ class Exad_Pricing_Table extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '#FFFFFF',
 					'selectors' => [
-						'{{WRAPPER}} .exad-pricing-table-action:hover' => 'background: {{VALUE}};',
+						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action:hover' => 'background: {{VALUE}};',
 					],
 				]
 			);
@@ -708,7 +708,7 @@ class Exad_Pricing_Table extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '#00C853',
 					'selectors' => [
-						'{{WRAPPER}} .exad-pricing-table-action:hover' => 'border-color: {{VALUE}};',
+						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action:hover' => 'border-color: {{VALUE}};',
 					],
 				]
 
@@ -743,7 +743,7 @@ class Exad_Pricing_Table extends Widget_Base {
 						<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
 					<?php endif; ?>
 					<p>
-					<?php echo $settings['exad_pricing_table_price_cur'] ?><?php echo $settings['exad_pricing_table_price']; ?><span><?php echo $settings['exad_pricing_table_period_separator']; ?><?php echo $settings['exad_pricing_table_price_by']; ?></span>
+					<?php echo $settings['exad_pricing_table_price_cur'] ?><?php echo $settings['exad_pricing_table_price']; ?><span class="exad-price-period"><?php echo $settings['exad_pricing_table_period_separator']; ?><?php echo $settings['exad_pricing_table_price_by']; ?></span>
 					</p>
 				</div>
 				<ul class="exad-pricing-table-features">
@@ -781,7 +781,7 @@ class Exad_Pricing_Table extends Widget_Base {
 						<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186"><path fill-rule="evenodd" opacity=".659" d="M92.516.531c51.095 0 92.515 41.442 92.515 92.563s-41.42 92.562-92.515 92.562S0 144.215 0 93.094C0 41.973 41.421.531 92.516.531z"/></svg>
 								<# } #>
 					<p>
-					{{{ settings.exad_pricing_table_price_cur }}}{{{ settings.exad_pricing_table_price }}}<span>{{{ settings.exad_pricing_table_period_separator }}}{{{ settings.exad_pricing_table_price_by }}}</span>
+					{{{ settings.exad_pricing_table_price_cur }}}{{{ settings.exad_pricing_table_price }}}<span class="exad-price-period">{{{ settings.exad_pricing_table_period_separator }}}{{{ settings.exad_pricing_table_price_by }}}</span>
 					</p>
 				</div>
 				<ul class="exad-pricing-table-features">
