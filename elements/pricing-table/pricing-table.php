@@ -50,19 +50,6 @@ class Exad_Pricing_Table extends Widget_Base {
 		 * Condition: 'exad_pricing_table_style' => 'style-2'
 		 */
 		$this->add_control(
-			'exad_pricing_table_sub_title',
-			[
-				'label' => esc_html__( 'Sub Title', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'label_block' => false,
-				'default' => esc_html__( 'Tagline for Pricing', 'exclusive-addons-elementor' ),
-			]
-		);
-
-		/**
-		 * Condition: 'exad_pricing_table_style' => 'style-2'
-		 */
-		$this->add_control(
 			'exad_pricing_table_style_2_icon',
 			[
 				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
@@ -266,7 +253,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => '-one',
 				'options' => [
-					'-one' => esc_html__( 'Style', 'exclusive-addons-elementor' ),
+					'-one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
 					'-two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 					'-three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
 					'-six' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
@@ -281,7 +268,6 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => esc_html__( 'Price Box Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'description' => __( 'Only works with the default Style', 'exclusive-addons-elementor' ),
 				'default' => '#826EFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-one .exad-pricing-table-price svg' => 'fill: {{VALUE}};',
@@ -297,7 +283,6 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => esc_html__( 'Top Line Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'description' => __( 'Only works with the Style 2', 'exclusive-addons-elementor' ),
 				'default' => '#826EFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-two' => 'border-top-color: {{VALUE}};',
@@ -365,36 +350,6 @@ class Exad_Pricing_Table extends Widget_Base {
              'name' => 'exad_pricing_table_title_typography',
 				'selector' => '{{WRAPPER}} .exad-pricing-table-title',
 			]
-		);
-
-		$this->add_control(
-			'exad_pricing_table_subtitle_heading',
-			[
-				'label' => esc_html__( 'Subtitle Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'exad_pricing_table_subtitle_color',
-			[
-				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-item .header .subtitle' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-             	'name' => 'exad_pricing_table_subtitle_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing-item .header .subtitle',
-			]
-
 		);
 
 		$this->end_controls_section();
