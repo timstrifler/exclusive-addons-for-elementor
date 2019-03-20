@@ -301,27 +301,9 @@ textarea.exad-form-control {
     max-width: 100%;
 }
 
-.button.exad-btn {
-    background-color: #0099CC;
-    color: #fff;
-    padding: 6px 20px;
-    border: none;
-    box-shadow: none;
-    font-size: 14px;
-    height: auto;
-    text-transform: uppercase;
-    text-shadow: none;
-    letter-spacing: .05em;
-}
-
-.button.exad-btn:hover,
-.button.exad-btn:focus {
-    background-color: #1E96F1;
-    color: #fff;
-}
 
 #exad-spinner {
-    width: 18px;
+    width: 14px;
     display: inline-block;
     float: left;
     margin: 3px 5px 0 0;
@@ -418,11 +400,21 @@ textarea.exad-form-control {
 /* Header Button */
 .exad-dashboard-header-wrapper .exad-btn {
     background-color: #3CCD94;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
+    height: auto;
+    text-transform: uppercase;
+    text-shadow: none;
+    letter-spacing: .05em;
 }
 
 .exad-dashboard-header-wrapper .exad-btn:hover,
 .exad-dashboard-header-wrapper .exad-btn:focus {
-    background-color: #02CC7B;
+    color: #FFF;
+    outline: 0;
 }
 
 .exad-save-btn-wrap .exad-btn.exad-save-now,
@@ -567,13 +559,6 @@ textarea.exad-form-control {
 
 
 .exad-dashboard-tab .exad-admin-title {
-    /*
-    margin: 1em 0;
-    font-size: 1.185em;
-    font-weight: 600;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-*/
     margin: 0;
     font-size: 20px;
     color: #3F3F3F;

@@ -120,7 +120,7 @@ class Exad_Admin_Settings {
                     </h2>
                 </div>
                 <div class="exad-dashboard-header-right">
-                    <button type="submit" class="button exad-btn exad-js-element-save-setting">
+                    <button type="submit" class="exad-btn exad-js-element-save-setting">
                         <?php _e('Save Settings', 'exclusive-addons-elementor'); ?>
                     </button>
                 </div>
