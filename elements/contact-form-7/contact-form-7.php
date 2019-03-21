@@ -315,7 +315,7 @@ class Exad_Contact_Form extends Widget_Base {
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-contact-form-7 .exad-contact-form-7-title' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-contact-form-7 label' => 'color: {{VALUE}}',
                 ],
             ]
         );
@@ -326,7 +326,7 @@ class Exad_Contact_Form extends Widget_Base {
                 'name'                  => 'title_typography',
                 'label'                 => __( 'Typography', 'essential-addons-elementor' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} .exad-contact-form-7 .exad-contact-form-7-title',
+                'selector'              => '{{WRAPPER}} .exad-contact-form-7 label',
             ]
         );
         
@@ -428,7 +428,39 @@ class Exad_Contact_Form extends Widget_Base {
 					'{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
-		);
+        );
+        
+        // Placeholder style
+        $this->add_control(
+            'placeholder_heading',
+            [
+                'label'                 => __( 'Placeholder', 'essential-addons-elementor' ),
+                'type'                  => Controls_Manager::HEADING,
+            ]
+        );
+
+        $this->add_control(
+            'placeholder_color',
+            [
+                'label'                 => __( 'Placeholder Color', 'essential-addons-elementor' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-contact-form-7 label input::placeholder' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-contact-form-7 label textarea::placeholder' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'                  => 'placeholder_typography',
+                'label'                 => __( 'Typography', 'essential-addons-elementor' ),
+                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+                'selector'              => '{{WRAPPER}} .exad-contact-form-7 label input::placeholder,{{WRAPPER}} .exad-contact-form-7 label textarea::placeholder',
+            ]
+        );
 
         
         $this->end_controls_section();

@@ -278,6 +278,21 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_testimonial_carousel_bg',
+			[
+				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#fff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-carousel-inner' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_testimonial_carousel_preset' => '-circle',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
         $this->start_controls_section(
