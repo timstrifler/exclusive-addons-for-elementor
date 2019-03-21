@@ -58,11 +58,21 @@ class Exad_Infobox extends Widget_Base {
 		$this->add_control(
 			'exad_infobox_image',
 			[
-				'label' => esc_html__( 'Infobox Image', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Image', 'essential-addons-elementor' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
 				],
+				'condition' => [
+					'exad_infobox_img_or_icon' => 'img'
+				]
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'thumbnail',
+				'default' => 'full',
 				'condition' => [
 					'exad_infobox_img_or_icon' => 'img'
 				]

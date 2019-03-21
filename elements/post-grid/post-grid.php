@@ -60,12 +60,12 @@ class Exad_Post_Grid extends Widget_Base {
                 'type' => Controls_Manager::SELECT,
 				'default' => '3',
 				'options' => [
-					'1' => esc_html__( 'One', 'exclusive-addons-elementor' ),
-					'2' => esc_html__( 'Two', 'exclusive-addons-elementor' ),
-					'3' => esc_html__( 'Three', 'exclusive-addons-elementor' ),
-					'4' => esc_html__( 'Four', 'exclusive-addons-elementor' ),
-					'5' => esc_html__( 'Five', 'exclusive-addons-elementor' ),
-					'6' => esc_html__( 'Six', 'exclusive-addons-elementor' ),
+					'1' => esc_html__( '1', 'exclusive-addons-elementor' ),
+					'2' => esc_html__( '2', 'exclusive-addons-elementor' ),
+					'3' => esc_html__( '3', 'exclusive-addons-elementor' ),
+					'4' => esc_html__( '4', 'exclusive-addons-elementor' ),
+					'5' => esc_html__( '5', 'exclusive-addons-elementor' ),
+					'6' => esc_html__( '6', 'exclusive-addons-elementor' ),
 				],
             ]
 		);
@@ -152,9 +152,9 @@ class Exad_Post_Grid extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'exad_section_post_grid_style',
+            'exad_section_post_grid_presets',
             [
-                'label' => __( 'Post Grid Styles', 'exclusive-addons-elementor' ),
+                'label' => __( 'Presets', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -185,86 +185,33 @@ class Exad_Post_Grid extends Widget_Base {
 			]
 		);
 
-
 		$this->add_control(
-			'exad_grid_date_bg_color',
+			'exad_grid_comment_hover_bg_color',
 			[
-				'label' => __( 'Date Background Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Comment Hover Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#FFFFFF',
+				'default'=> '#ff704e',
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-date' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a:hover' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_post_grid_preset' => '-one'
 				]
-
-			]
-		);
-		
-
-		$this->add_control(
-			'exad_grid_bullet_bg_color',
-			[
-				'label' => __( 'Bullet Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#A282FF',
-				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-icon' => 'background: {{VALUE}};',
-				]
-
-			]
-		);
-
-        $this->add_control(
-			'exad_grid_bullet_icon_color',
-			[
-				'label' => __( 'Bullet Icon Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#D1C1FF',
-				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-icon i' => 'color: {{VALUE}};',
-				]
-
-			]
-		);
-
-
-        $this->add_control(
-			'exad_grid_vertical_line_color',
-			[
-				'label' => __( 'Vertical Line Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#e3e5e8',
-				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-item::before' => 'background: {{VALUE}};',
-				]
-
-			]
-		);
-
-		$this->add_control(
-			'exad_grid_horizontal_sep_color',
-			[
-				'label' => __( 'Horizontal Seprator Line Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#e3e5e8',
-				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-icon::before, {{WRAPPER}} .exad-post-grid-icon::after' => 'border: 1px dashed {{VALUE}};',
-				]
-
 			]
 		);
 
 		$this->end_controls_section();
 
         $this->start_controls_section(
-            'exad_section_typography',
+            'exad_post_grid_title',
             [
-                'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+                'label' => __( 'Title', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
 		$this->add_control(
-			'exad_grid_title_style',
+			'exad_post_grid_title_style',
 			[
 				'label' => __( 'Title Style', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -346,20 +293,20 @@ class Exad_Post_Grid extends Widget_Base {
 				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title',
 			]
 		);
+		$this->end_controls_section();
 
-		$this->add_control(
-			'exad_grid_excerpt_style',
-			[
-				'label' => __( 'Excerpt Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
+		$this->start_controls_section(
+            'exad_post_grid_excerpt_style',
+            [
+                'label' => __( 'Excerpt', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
 
         $this->add_control(
 			'exad_grid_excerpt_color',
 			[
-				'label' => __( 'Excerpt Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#848484',
 				'selectors' => [
@@ -371,7 +318,7 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_responsive_control(
 			'exad_grid_excerpt_alignment',
 			[
-				'label' => __( 'Excerpt Alignment', 'exclusive-addons-elementor' ),
+				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
@@ -396,7 +343,15 @@ class Exad_Post_Grid extends Widget_Base {
 				],
 			]
 		);
+		$this->end_controls_section();
 
+		$this->start_controls_section(
+            'exad_post_grid_category_style',
+            [
+                'label' => __( 'Category', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
 		$this->add_control(
 			'exad_grid_category_style',
 			[
@@ -447,7 +402,15 @@ class Exad_Post_Grid extends Widget_Base {
 				]
 			]
 		);
+		$this->end_controls_section();
 
+		$this->start_controls_section(
+            'exad_post_grid_author_date_style',
+            [
+                'label' => __( 'Author & Date', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
 		$this->add_control(
 			'exad_grid_author_style',
 			[
@@ -489,21 +452,20 @@ class Exad_Post_Grid extends Widget_Base {
 				]
 			]
 		);
+		$this->end_controls_section();
 
-
-		$this->add_control(
-			'exad_grid_button_style',
-			[
-				'label' => __( 'Button Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
+		$this->start_controls_section(
+            'exad_post_grid_button_style',
+            [
+                'label' => __( 'Button', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
 
 
 		$this->start_controls_tabs( 'exad_post_grid_button_tabs' );
 
-			$this->start_controls_tab( 'exad_button_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+			$this->start_controls_tab( 'exad_post_grid_button_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
 
 			$this->add_control(
 				'exad_grid_button_text_color',
@@ -517,19 +479,42 @@ class Exad_Post_Grid extends Widget_Base {
 				]
 			);
 
+			$this->add_control(
+				'exad_grid_button_bg_color',
+				[
+					'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default'=> '#FFF',
+					'selectors' => [
+						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action' => 'background: {{VALUE}};',
+					]
+				]
+			);
+
 			$this->end_controls_tab();
 			
-			$this->start_controls_tab( 'exad_button_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+			$this->start_controls_tab( 'exad_post_grid_button_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+			
+			$this->add_control(
+				'exad_grid_button_text_hover_color',
+				[
+					'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default'=> '#FFF',
+					'selectors' => [
+						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action:hover' => 'color: {{VALUE}};',
+					]
+				]
+			);
 
 			$this->add_control(
 				'exad_grid_button_hover_bg_color',
 				[
-					'label' => __( 'Hover Background Color', 'exclusive-addons-elementor' ),
+					'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'default'=> '#ff704e',
 					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action:hover' => 'background: {{VALUE}}; color: #FFF;',
-						//'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action:hover' => 'color: #FFF;',
+						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action:hover' => 'background: {{VALUE}};',
 					]
 				]
 			);
@@ -537,29 +522,6 @@ class Exad_Post_Grid extends Widget_Base {
 			$this->end_controls_tab();
 		
 		$this->end_controls_tabs();
-
-		$this->add_control(
-			'exad_grid_comment_style',
-			[
-				'label' => __( 'Comment Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'exad_grid_comment_hover_bg_color',
-			[
-				'label' => __( 'Hover Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#ff704e',
-				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a:hover' => 'background: {{VALUE}};',
-					
-				]
-			]
-		);
-
 
 		$this->end_controls_section();
 		/**

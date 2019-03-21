@@ -145,19 +145,6 @@ class Exad_Card extends Widget_Base {
 			]
 		);
 
-		$this->end_controls_section();
-		
-		/* 
-		* Card Color Scheme
-		*/
-		$this->start_controls_section(
-			'exad_section_card_color_schemes',
-			[
-				'label' => esc_html__( 'Color Scheme', 'exclusive-addons-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE
-			]
-		);
-
 		$this->add_control(
             'exad_card_color_scheme',
             [
@@ -193,16 +180,8 @@ class Exad_Card extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_card_styles_title',
 			[
-				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-		// tytle style
-		$this->add_control(
-			'exad_title_style',
-			[
-					'label' => __('Title Style', 'exclusive-addons-elementor'),
-					'type' => Controls_Manager::HEADING,
 			]
 		);
 		$this->add_control(
@@ -225,12 +204,14 @@ class Exad_Card extends Widget_Base {
 			]
 		);
 
+		$this->end_controls_section();
+
 		// description style
-		$this->add_control(
-			'exad_description_style',
+		$this->start_controls_section(
+			'exad_section_card_styles_description',
 			[
-					'label' => __('Description Style', 'exclusive-addons-elementor'),
-					'type' => Controls_Manager::HEADING,
+				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(
@@ -251,21 +232,14 @@ class Exad_Card extends Widget_Base {
 					'selector' => '{{WRAPPER}} .exad-card-body .exad-card-description',
 			]
 		);
+		$this->end_controls_section();
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-					'name' => 'card_title_typography',
-					'selector' => '{{WRAPPER}} .exad-card-body .exad-card-title',
-			]
-		);
 
-		// tag style
-		$this->add_control(
-			'exad_tag_style',
+		$this->start_controls_section(
+			'exad_section_card_styles_tag',
 			[
-					'label' => __('Tag Style', 'exclusive-addons-elementor'),
-					'type' => Controls_Manager::HEADING,
+				'label' => esc_html__( 'Tag', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_control(

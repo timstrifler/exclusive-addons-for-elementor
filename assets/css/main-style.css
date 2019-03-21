@@ -2428,7 +2428,7 @@ text-align: right;
   border: 1px solid transparent;
   position: relative;
   transition: .3s ease;
-  margin: 10px;
+  margin: 10px 0;
 }
 
 .exad-infobox.four .exad-infobox-item .exad-infobox-icon i {
@@ -2446,7 +2446,7 @@ text-align: right;
 }
 
 .exad-infobox.four .exad-infobox-item .exad-infobox-content {
-  padding: 10px 0 0 20px;
+  padding: 10px 0 0 12px;
 }
 
 .exad-infobox.four .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
@@ -3112,10 +3112,15 @@ text-align: right;
   overflow: hidden;
   margin-bottom: 30px;
 }
-.exad-row-wrapper .exad-post-grid-container {
+.exad-row-wrapper .exad-post-grid-one .exad-post-grid-container {
   -webkit-border-radius: 15px;
   border-radius: 15px;
 }
+
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-container {
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.2);
+}
+
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-thumbnail {
   margin: 0;
   overflow: hidden;
@@ -3351,8 +3356,6 @@ text-align: right;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body {
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.2);
-  background: #fff;
   padding: 40px 30px;
 }
 
@@ -3427,16 +3430,13 @@ text-align: right;
   border: 1px solid #e5e5e5;
   background: #fff;
   padding: 15px 30px;
+  display: inline-block;
   font-size: 15px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   transition: all .3s ease;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action:hover {
-  border: 1px solid transparent;
-  color: #fff;
-}
 
 .exad-row-wrapper .exad-post-grid-four .exad-post-grid-four-content {
   box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.1);
