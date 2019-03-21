@@ -133,8 +133,7 @@ class Exad_Post_Timeline extends Widget_Base {
 
         $this->end_controls_section();
 
-		//$this->layout_controls();
-
+		
         $this->start_controls_section(
             'exad_section_post_timeline_general',
             [
@@ -209,13 +208,12 @@ class Exad_Post_Timeline extends Widget_Base {
 			]
 		);
 
-
 		$this->end_controls_section();
 
         $this->start_controls_section(
-            'exad_section_typography',
+            'exad_post_timeline_title',
             [
-                'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+                'label' => __( 'Title', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -276,20 +274,20 @@ class Exad_Post_Timeline extends Widget_Base {
 				'selector' => '{{WRAPPER}} .exad-post-timeline-content-text h4 a',
 			]
 		);
+		$this->end_controls_section();
 
-		$this->add_control(
-			'exad_timeline_excerpt_style',
-			[
-				'label' => __( 'Excerpt Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
+		$this->start_controls_section(
+            'exad_post_timeline_excerpt',
+            [
+                'label' => __( 'Excerpt', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
 
         $this->add_control(
 			'exad_timeline_excerpt_color',
 			[
-				'label' => __( 'Excerpt Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#8a8d91',
 				'selectors' => [
@@ -301,7 +299,7 @@ class Exad_Post_Timeline extends Widget_Base {
         $this->add_responsive_control(
 			'exad_timeline_excerpt_alignment',
 			[
-				'label' => __( 'Excerpt Alignment', 'exclusive-addons-elementor' ),
+				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
@@ -326,16 +324,16 @@ class Exad_Post_Timeline extends Widget_Base {
 				],
 			]
 		);
+		$this->end_controls_section();
 
 		// Date Style
-		$this->add_control(
-			'exad_timeline_date_style',
-			[
-				'label' => __( 'Date Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
+		$this->start_controls_section(
+            'exad_post_timeline_date',
+            [
+                'label' => __( 'Date', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
 
 		$this->add_control(
 			'exad_timeline_date_bg_color',

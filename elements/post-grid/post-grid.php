@@ -454,15 +454,17 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 		$this->end_controls_section();
 
+		
+
+
+		/*
 		$this->start_controls_section(
             'exad_post_grid_button_style',
             [
                 'label' => __( 'Button', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
-        );
-
-
+		);
 		$this->start_controls_tabs( 'exad_post_grid_button_tabs' );
 
 			$this->start_controls_tab( 'exad_post_grid_button_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
@@ -524,9 +526,7 @@ class Exad_Post_Grid extends Widget_Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
-		/**
-		 * Load More Button Style Controls!
-		 */
+		*/
 		
 
 	}
@@ -543,27 +543,13 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'id'		=> "exad-post-grid-{$this->get_id()}",
 				'class'		=> "exad-row-wrapper exad-col-{$settings['exad_post_grid_column_no']}",
-				//'data-total_posts'	=> $total_post,
 				'data-grid_id'	=> $this->get_id(),
-				
 				'data-post_type'	=> $settings['exad_post_grid_type'],
 				'data-posts_per_page'	=> $settings['exad_post_grid_per_page'] ? $settings['exad_post_grid_per_page'] : 4,
 				'data-post_order'		=> $settings['exad_post_grid_order'],
-				//'data-post_orderby'		=> $settings['exad_post_grid_orderby'],
 				'data-post_offset'		=> intval( $settings['exad_post_grid_offset'] ),
-
-				//'data-show_images'	=> $settings['exad_show_image'],
-				//'data-image_size'	=> $settings['image_size'],
-				//'data-show_title'	=> $settings['exad_show_title'],
-
-				//'data-show_excerpt'	=> $settings['exad_show_excerpt'],
 				'data-excerpt_length'	=> $settings['exad_grid_excerpt_length'],
 
-				//'data-btn_text'			=> $settings['show_load_more_text'],
-
-				//'data-tax_query'		=> json_encode( ! empty( $tax_query ) ? $tax_query : [] ),
-				//'data-exclude_posts'	=> json_encode( ! empty( $settings['post__not_in'] ) ? $settings['post__not_in'] : [] ),
-				//'data-post__in'	=> json_encode( ! empty( $settings['post__in'] ) ? $settings['post__in'] : [] ),
 			]
 		);
 

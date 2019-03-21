@@ -59,9 +59,9 @@ class Exad_Progress_Bar extends Widget_Base {
 
 		// Progressbar Style Section
 		$this->start_controls_section(
-			'exad_section_progress_bar_styles_general',
+			'exad_section_progress_bar_styles_preset',
 			[
-				'label' => __('General Styles', 'exclusive-addons-elementor'),
+				'label' => __('Presets', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);

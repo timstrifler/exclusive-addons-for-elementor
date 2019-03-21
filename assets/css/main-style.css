@@ -1793,6 +1793,14 @@ ul.exad-pricing-table-features {
   transition: all .4s ease;
 }
 
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image {
+  height: 80px;
+  width: 80px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 50%;
+ }
+
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i {
   font-size: 30px;
   position: absolute;
@@ -1819,7 +1827,7 @@ ul.exad-pricing-table-features {
   position: absolute;
   top: 0;
   left: 0;
-  background: #ddd;
+  background: #8168ff;
   padding: 30px 20px;
   border-radius: 5px;
   width: 100%;
@@ -3423,7 +3431,7 @@ text-align: right;
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   line-height: 26px;
-  margin: 0 0 35px 0;
+  margin: 0 0 10px 0;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action {

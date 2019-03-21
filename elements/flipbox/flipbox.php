@@ -28,7 +28,7 @@ class Exad_Flip_Box extends Widget_Base {
   		$this->start_controls_section(
 			'exad_section_side_a_content',
 			[
-				'label' => __( 'Front', 'bdthemes-element-pack' ),
+				'label' => __( 'Front', 'exclusive-addons-elementor' ),
 			]
 		);
 
@@ -36,7 +36,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_icon',
 			[
-				'label'     => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::ICON,
 				'default'   => 'fa fa-heart',
 			]
@@ -45,23 +45,23 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_title',
 			[
-				'label'       => __( 'Title', 'bdthemes-element-pack' ),
+				'label'       => __( 'Title', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => __( 'Heading Front', 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Your Title', 'bdthemes-element-pack' ),
+				'default'     => __( 'Heading Front', 'exclusive-addons-elementor' ),
+				'placeholder' => __( 'Your Title', 'exclusive-addons-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'exad_flipbox_front_description',
 			[
-				'label'       => __( 'Description', 'bdthemes-element-pack' ),
+				'label'       => __( 'Description', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Your Description', 'bdthemes-element-pack' ),
-				'title'       => __( 'Input image text here', 'bdthemes-element-pack' ),
+				'default'     => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'exclusive-addons-elementor' ),
+				'placeholder' => __( 'Your Description', 'exclusive-addons-elementor' ),
+				'title'       => __( 'Input image text here', 'exclusive-addons-elementor' ),
 			]
 		);
 
@@ -71,7 +71,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_back_content',
 			[
-				'label' => __( 'Back', 'bdthemes-element-pack' ),
+				'label' => __( 'Back', 'exclusive-addons-elementor' ),
 			]
 		);
 
@@ -80,7 +80,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_icon',
 			[
-				'label'     => __( 'Icon', 'bdthemes-element-pack' ),
+				'label'     => __( 'Icon', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::ICON,
 				'default'   => 'fa fa-heart',
 			]
@@ -89,23 +89,23 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_title',
 			[
-				'label'       => __( 'Title', 'bdthemes-element-pack' ),
+				'label'       => __( 'Title', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => __( 'Heading Back', 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Your Title', 'bdthemes-element-pack' ),
+				'default'     => __( 'Heading Back', 'exclusive-addons-elementor' ),
+				'placeholder' => __( 'Your Title', 'exclusive-addons-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'exad_flipbox_back_description',
 			[
-				'label'       => __( 'Description', 'bdthemes-element-pack' ),
+				'label'       => __( 'Description', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'bdthemes-element-pack' ),
-				'placeholder' => __( 'Your Description', 'bdthemes-element-pack' ),
-				'title'       => __( 'Input image text here', 'bdthemes-element-pack' ),
+				'default'     => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'exclusive-addons-elementor' ),
+				'placeholder' => __( 'Your Description', 'exclusive-addons-elementor' ),
+				'title'       => __( 'Input image text here', 'exclusive-addons-elementor' ),
 				'separator'   => 'none',
 			]
 		);
@@ -113,10 +113,10 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_button_text',
 			[
-				'label'     => __( 'Button Text', 'bdthemes-element-pack' ),
+				'label'     => __( 'Button Text', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => [ 'active' => true ],
-				'default'   => __( 'Click Here', 'bdthemes-element-pack' ),
+				'default'   => __( 'Click Here', 'exclusive-addons-elementor' ),
 				'separator' => 'before',
 			]
 		);
@@ -124,7 +124,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_button_link',
 			[
-				'label'       => __( 'Link', 'bdthemes-element-pack' ),
+				'label'       => __( 'Link', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::URL,
 				'label_block' => true,
 				'default' => [
@@ -138,11 +138,11 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_link_click',
 			[
-				'label'   => __( 'Apply Link On', 'bdthemes-element-pack' ),
+				'label'   => __( 'Apply Link On', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => [
-					'box'    => __( 'Whole Box', 'bdthemes-element-pack' ),
-					'button' => __( 'Button Only', 'bdthemes-element-pack' ),
+					'box'    => __( 'Whole Box', 'exclusive-addons-elementor' ),
+					'button' => __( 'Button Only', 'exclusive-addons-elementor' ),
 				],
 				'default'   => 'button',
 				'condition' => [
@@ -154,15 +154,15 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_button_size',
 			[
-				'label' => __( 'Size', 'bdthemes-element-pack' ),
+				'label' => __( 'Size', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'sm',
 				'options' => [
-					'xs' => __( 'Extra Small', 'bdthemes-element-pack' ),
-					'sm' => __( 'Small', 'bdthemes-element-pack' ),
-					'md' => __( 'Medium', 'bdthemes-element-pack' ),
-					'lg' => __( 'Large', 'bdthemes-element-pack' ),
-					'xl' => __( 'Extra Large', 'bdthemes-element-pack' ),
+					'xs' => __( 'Extra Small', 'exclusive-addons-elementor' ),
+					'sm' => __( 'Small', 'exclusive-addons-elementor' ),
+					'md' => __( 'Medium', 'exclusive-addons-elementor' ),
+					'lg' => __( 'Large', 'exclusive-addons-elementor' ),
+					'xl' => __( 'Extra Large', 'exclusive-addons-elementor' ),
 				],
 				'condition' => [
 					'button_text!' => '',
@@ -183,7 +183,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'back_background_overlay',
 			[
-				'label' => __( 'Background Overlay', 'bdthemes-element-pack' ),
+				'label' => __( 'Background Overlay', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
@@ -199,36 +199,34 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->end_controls_section();
 
 
-
 		$this->start_controls_section(
-			'section_box_settings',
+			'exad_section_flipbox_settings',
 			[
-				'label' => __( 'Settings', 'bdthemes-element-pack' ),
+				'label' => __( 'General Styles', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_control(
 			'exad_flipbox_style',
 			[
-				'label'   => __( 'Flip Style', 'bdthemes-element-pack' ),
+				'label'   => __( 'Flip Style', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'left-to-right',
 				'options' => [
-					'left-to-right'  => __( 'Left to Right', 'bdthemes-element-pack' ),
-					'right-to-left' => __( 'Right to Left', 'bdthemes-element-pack' ),
-					'top-to-bottom'    => __( 'Top to Bottom', 'bdthemes-element-pack' ),
-					'bottom-to-top'  => __( 'Bottom to Top', 'bdthemes-element-pack' ),
-					'top-to-bottom-angle'  => __( 'Diagonal (Top to Bottom)', 'bdthemes-element-pack' ),
-					'bottom-to-top-angle'  => __( 'Diagonal (Bottom to Top)', 'bdthemes-element-pack' ),
-					'fade-in-out'  => __( 'Fade In Out', 'bdthemes-element-pack' ),
+					'left-to-right'  => __( 'Left to Right', 'exclusive-addons-elementor' ),
+					'right-to-left' => __( 'Right to Left', 'exclusive-addons-elementor' ),
+					'top-to-bottom'    => __( 'Top to Bottom', 'exclusive-addons-elementor' ),
+					'bottom-to-top'  => __( 'Bottom to Top', 'exclusive-addons-elementor' ),
+					'top-to-bottom-angle'  => __( 'Diagonal (Top to Bottom)', 'exclusive-addons-elementor' ),
+					'bottom-to-top-angle'  => __( 'Diagonal (Bottom to Top)', 'exclusive-addons-elementor' ),
+					'fade-in-out'  => __( 'Fade In Out', 'exclusive-addons-elementor' ),
 				],
 				
 			]
 		);
 
 		$this->end_controls_section();
-
-
 		/**
 		 * -------------------------------------------
 		 * Tab Style (Flipbox Front)
@@ -237,7 +235,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->start_controls_section(
 			'exad_front_end_style_section',
 			[
-				'label' => __( 'Front', 'bdthemes-element-pack' ),
+				'label' => __( 'Front', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -292,7 +290,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_title_heading',
 			[
-				'label' => esc_html__( 'Title Style', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Title', 'essential-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -333,7 +331,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_content_heading',
 			[
-				'label' => esc_html__( 'Content Style', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Content', 'essential-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -400,7 +398,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->start_controls_section(
 			'exad_back_end_style_section',
 			[
-				'label' => __( 'Back', 'bdthemes-element-pack' ),
+				'label' => __( 'Back', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -433,14 +431,14 @@ class Exad_Flip_Box extends Widget_Base {
 			]
 		);
 		/**
-		 * Condition: 'exad_flipbox_front_back_content_toggler' => 'front'
+		 * 
 		 */
 		$this->add_control(
 			'exad_flipbox_back_title_color',
 			[
 				'label' => esc_html__( 'Color', 'essential-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#132c47',
+				'default' => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-title' => 'color: {{VALUE}};',
 				],
@@ -449,7 +447,7 @@ class Exad_Flip_Box extends Widget_Base {
 		);
 
 		/**
-		 * Condition: 'exad_flipbox_front_back_content_toggler' => 'front'
+		 * 
 		 */
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -474,14 +472,14 @@ class Exad_Flip_Box extends Widget_Base {
 		);
 
 		/**
-		 * Condition: 'exad_flipbox_front_back_content_toggler' => 'front'
+		 * 
 		 */
 		$this->add_control(
 			'exad_flipbox_back_content_color',
 			[
 				'label' => esc_html__( 'Color', 'essential-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#817e7e',
+				'default' => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-description' => 'color: {{VALUE}};',
 				],
@@ -491,7 +489,7 @@ class Exad_Flip_Box extends Widget_Base {
 
 		
 		/**
-		 * Condition: 'exad_flipbox_front_back_content_toggler' => 'front'
+		 * 
 		 */
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -522,7 +520,17 @@ class Exad_Flip_Box extends Widget_Base {
 			]
 		);
 
-
+		/**
+		 * Title
+		 */
+		$this->add_control(
+			'exad_flipbox_back_button',
+			[
+				'label' => esc_html__( 'Button', 'essential-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before'
+			]
+		);
 		$this->start_controls_tabs( 'exad_cta_button_tabs' );
 
 			// Normal State Tab
@@ -533,7 +541,7 @@ class Exad_Flip_Box extends Widget_Base {
 					[
 						'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'default' => '#FFF',
+						'default' => '#FF7F97',
 						'selectors' => [
 							'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action' => 'color: {{VALUE}};',
 						],
@@ -545,7 +553,7 @@ class Exad_Flip_Box extends Widget_Base {
 					[
 						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'default' => '#FF7F97',
+						'default' => '#FFF',
 						'selectors' => [
 							'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action' => 'background: {{VALUE}};',
 						],
@@ -557,7 +565,6 @@ class Exad_Flip_Box extends Widget_Base {
 					[
 						'label' => esc_html__( 'Border Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'default' => 'transparent',
 						'selectors' => [
 							'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action' => 'border-color: {{VALUE}};',
 						],
@@ -588,7 +595,6 @@ class Exad_Flip_Box extends Widget_Base {
 					[
 						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'default' => 'transparent',
 						'selectors' => [
 							'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action:hover' => 'background: {{VALUE}};',
 						],

@@ -36,9 +36,6 @@
                     <?php endif; ?>
                 </div>
             <?php endif; ?>    
-            <?php if( '-three' === $settings['exad_post_grid_preset'] ) : ?>
-                <a href="<?php echo esc_url( get_permalink() ); ?>" class="exad-post-grid-action">Read More</a>
-            <?php endif; ?>    
         </div>
     </div>    
 </article>
