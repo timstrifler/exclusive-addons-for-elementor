@@ -1018,10 +1018,12 @@ text-align: right;
   }
   .exad-post-timeline.one .exad-post-timeline-item:nth-child(odd) .exad-post-timeline-date {
     margin-left: 0;
+    margin-top: 10px;
   }
   .exad-post-timeline.one .exad-post-timeline-item:nth-child(even) .exad-post-timeline-date {
     margin-left: 0;
     text-align: left;
+    margin-top: 10px;
   }
   .exad-post-timeline.one .exad-post-timeline-item:not(:last-child) {
     margin-bottom: 50px;

@@ -126,9 +126,9 @@ class Exad_Infobox extends Widget_Base {
 		* Infobox Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_section_infobox_styles_general',
+			'exad_section_infobox_styles_preset',
 			[
-				'label' => esc_html__( 'Infobox Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -249,10 +249,16 @@ class Exad_Infobox extends Widget_Base {
 	}
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+		
 		$infobox_image = $this->get_settings_for_display( 'exad_infobox_image' );
-			$infobox_image_url = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'full', $settings );
-		if( empty( $infobox_image_url ) ) : $infobox_image_url = $infobox_image['url']; else: $infobox_image_url = $infobox_image_url; endif;
-	
+		$infobox_image_url = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
+
+		if ( empty( $infobox_image_url ) ) {
+			$infobox_image_url = $infobox_image['url'];
+		}  else {
+			$infobox_image_url = $infobox_image_url;
+		} 
+
 		?>
 
 		<div id="exad-infobox-<?php echo esc_attr($this->get_id()); ?>" class="exad-infobox <?php echo esc_attr($settings['exad_infobox_preset']); ?>">
@@ -291,8 +297,7 @@ class Exad_Infobox extends Widget_Base {
 					<# } #>
 
 	            	<# if( 'img' == settings.exad_infobox_img_or_icon ) { #>
-						<i class="{{{ settings.exad_infobox_icon }}}"></i>
-						<img src="{{{ settings.exad_infobox_img_or_icon }}}" alt="Icon Image">
+						<img src="{{{ settings.exad_infobox_image.url }}}" alt="Icon Image">
 					<# } #>
 					
 	            </div>

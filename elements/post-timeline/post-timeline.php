@@ -136,9 +136,9 @@ class Exad_Post_Timeline extends Widget_Base {
 		//$this->layout_controls();
 
         $this->start_controls_section(
-            'exad_section_post_timeline_style',
+            'exad_section_post_timeline_general',
             [
-                'label' => __( 'Timeline Styles', 'exclusive-addons-elementor' ),
+                'label' => __( 'General Styles', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -155,22 +155,6 @@ class Exad_Post_Timeline extends Widget_Base {
 
 			]
 		);
-
-
-		$this->add_control(
-			'exad_timeline_date_bg_color',
-			[
-				'label' => __( 'Date Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#FFFFFF',
-				'selectors' => [
-					'{{WRAPPER}} .exad-post-timeline-date' => 'background: {{VALUE}};',
-				]
-
-			]
-		);
-		
-
 		
 		$this->add_control(
 			'exad_timeline_bullet_bg_color',
@@ -354,9 +338,22 @@ class Exad_Post_Timeline extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_timeline_date_bg_color',
+			[
+				'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#FFFFFF',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-date' => 'background: {{VALUE}};',
+				]
+
+			]
+		);
+
+		$this->add_control(
 			'exad_timeline_date_color',
 			[
-				'label' => __( 'Date Year Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Year Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '',
 				'selectors' => [
@@ -368,7 +365,7 @@ class Exad_Post_Timeline extends Widget_Base {
 		$this->add_control(
 			'exad_timeline_date_month_color',
 			[
-				'label' => __( 'Date Month Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Month Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '',
 				'selectors' => [
