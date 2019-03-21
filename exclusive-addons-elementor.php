@@ -210,7 +210,7 @@ final class Exclusive_Addons_Elementor {
 
 		$is_activated_widget = $this->activated_widgets();
         
-		// wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
+		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
 				
         wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 		

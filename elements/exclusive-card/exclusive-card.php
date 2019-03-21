@@ -167,7 +167,7 @@ class Exad_Card extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .exad-card.two .exad-card-action:hover, {{WRAPPER}} .exad-card.two .exad-card-title::before, {{WRAPPER}} .exad-card.one .exad-card-action:hover,
                     {{WRAPPER}} .exad-card.one .exad-card-title::before, {{WRAPPER}} .exad-card.three .exad-card-action:hover, {{WRAPPER}} .exad-card.three .exad-card-tag::before, {{WRAPPER}} .exad-card.three::before' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .exad-card.three .exad-card-body .exad-card-tag' => 'color: {{VALUE}};'
+                    
                 ],
             ]
         );
