@@ -136,9 +136,9 @@ class Exad_Post_Timeline extends Widget_Base {
 		//$this->layout_controls();
 
         $this->start_controls_section(
-            'exad_section_post_timeline_style',
+            'exad_section_post_timeline_general',
             [
-                'label' => __( 'Timeline Styles', 'exclusive-addons-elementor' ),
+                'label' => __( 'General Styles', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -155,22 +155,6 @@ class Exad_Post_Timeline extends Widget_Base {
 
 			]
 		);
-
-
-		$this->add_control(
-			'exad_timeline_date_bg_color',
-			[
-				'label' => __( 'Date Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#FFFFFF',
-				'selectors' => [
-					'{{WRAPPER}} .exad-post-timeline-date' => 'background: {{VALUE}};',
-				]
-
-			]
-		);
-		
-
 		
 		$this->add_control(
 			'exad_timeline_bullet_bg_color',
@@ -343,8 +327,60 @@ class Exad_Post_Timeline extends Widget_Base {
 			]
 		);
 
-		
+		// Date Style
+		$this->add_control(
+			'exad_timeline_date_style',
+			[
+				'label' => __( 'Date Style', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
 
+		$this->add_control(
+			'exad_timeline_date_bg_color',
+			[
+				'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#FFFFFF',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-date' => 'background: {{VALUE}};',
+				]
+
+			]
+		);
+
+		$this->add_control(
+			'exad_timeline_date_color',
+			[
+				'label' => __( 'Year Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-item .exad-post-timeline-date h4' => 'color: {{VALUE}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_timeline_date_month_color',
+			[
+				'label' => __( 'Month Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-item .exad-post-timeline-date p' => 'color: {{VALUE}};',
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+					'name' => 'timeline_date_typography',
+					'selector' => '{{WRAPPER}} .exad-post-timeline-item .exad-post-timeline-date h4',
+			]
+		);
 
 		$this->end_controls_section();
 		/**

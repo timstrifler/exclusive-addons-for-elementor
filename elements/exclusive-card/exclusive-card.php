@@ -167,7 +167,7 @@ class Exad_Card extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .exad-card.two .exad-card-action:hover, {{WRAPPER}} .exad-card.two .exad-card-title::before, {{WRAPPER}} .exad-card.one .exad-card-action:hover,
                     {{WRAPPER}} .exad-card.one .exad-card-title::before, {{WRAPPER}} .exad-card.three .exad-card-action:hover, {{WRAPPER}} .exad-card.three .exad-card-tag::before, {{WRAPPER}} .exad-card.three::before' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .exad-card.three .exad-card-body .exad-card-tag' => 'color: {{VALUE}};'
+                    
                 ],
             ]
         );
@@ -179,8 +179,111 @@ class Exad_Card extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .exad-card-item .exad-card-content' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-card-body' => 'background-color: {{VALUE}};',
 				],
+			]
+		);
+
+		$this->end_controls_section();
+
+
+		/*
+		* Card Content Styling Section
+		*/
+		$this->start_controls_section(
+			'exad_section_card_styles_title',
+			[
+				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		// tytle style
+		$this->add_control(
+			'exad_title_style',
+			[
+					'label' => __('Title Style', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::HEADING,
+			]
+		);
+		$this->add_control(
+			'exad_title_color',
+			[
+					'label' => __('Color', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#132c47',
+					'selectors' => [
+							'{{WRAPPER}} .exad-card-body .exad-card-title' => 'color: {{VALUE}};',
+					],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+					'name' => 'card_title_typography',
+					'selector' => '{{WRAPPER}} .exad-card-body .exad-card-title',
+			]
+		);
+
+		// description style
+		$this->add_control(
+			'exad_description_style',
+			[
+					'label' => __('Description Style', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::HEADING,
+			]
+		);
+		$this->add_control(
+			'exad_description_color',
+			[
+					'label' => __('Color', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+							'{{WRAPPER}} .exad-card-body .exad-card-description' => 'color: {{VALUE}};',
+					],
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+					'name' => 'card_description_typography',
+					'selector' => '{{WRAPPER}} .exad-card-body .exad-card-description',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+					'name' => 'card_title_typography',
+					'selector' => '{{WRAPPER}} .exad-card-body .exad-card-title',
+			]
+		);
+
+		// tag style
+		$this->add_control(
+			'exad_tag_style',
+			[
+					'label' => __('Tag Style', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::HEADING,
+			]
+		);
+		$this->add_control(
+			'exad_tag_color',
+			[
+					'label' => __('Color', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::COLOR,
+					'default' => '',
+					'selectors' => [
+							'{{WRAPPER}} .exad-card-body .exad-card-tag' => 'color: {{VALUE}};',
+					],
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+					'name' => 'card_tag_typography',
+					'selector' => '{{WRAPPER}} .exad-card-body .exad-card-tag',
 			]
 		);
 
