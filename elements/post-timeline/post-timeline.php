@@ -343,8 +343,47 @@ class Exad_Post_Timeline extends Widget_Base {
 			]
 		);
 
-		
+		// Date Style
+		$this->add_control(
+			'exad_timeline_date_style',
+			[
+				'label' => __( 'Date Style', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
 
+		$this->add_control(
+			'exad_timeline_date_color',
+			[
+				'label' => __( 'Date Year Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-item .exad-post-timeline-date h4' => 'color: {{VALUE}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_timeline_date_month_color',
+			[
+				'label' => __( 'Date Month Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-item .exad-post-timeline-date p' => 'color: {{VALUE}};',
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+					'name' => 'timeline_date_typography',
+					'selector' => '{{WRAPPER}} .exad-post-timeline-item .exad-post-timeline-date h4',
+			]
+		);
 
 		$this->end_controls_section();
 		/**
