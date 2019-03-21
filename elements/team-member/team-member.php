@@ -225,6 +225,21 @@ class Exad_Team_Member extends Widget_Base {
 				],
 			]
 		);
+
+		$this->add_control(
+			'exad_team_members_bg',
+			[
+				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#fff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-circle' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_team_members_preset' => '-circle',
+				],
+			]
+		);
 		
 
 		$this->end_controls_section();

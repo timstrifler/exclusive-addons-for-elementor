@@ -39,6 +39,20 @@
 	      	prevArrow: "<div class='exad-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
 			nextArrow: "<div class='exad-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
 			rows: 0,
+			responsive: [
+				{
+				  breakpoint: 1024,
+				  settings: {
+					slidesToShow: 2,
+				  }
+				},
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 1,
+				  }
+				}
+			],
 	    });
 
 		
@@ -74,6 +88,14 @@
 	        	return '<a><img src="'+ image +'"></a>';
 	      	},
 			rows: 0,
+			responsive: [
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 1,
+				  }
+				}
+			],
 	    });	
 	};
 
