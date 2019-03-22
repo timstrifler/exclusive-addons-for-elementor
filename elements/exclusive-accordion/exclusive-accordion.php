@@ -30,7 +30,7 @@ class Exclusive_Accordion extends Widget_Base {
   		$this->start_controls_section(
   			'eael_section_adv_accordion_content_settings',
   			[
-  				'label' => esc_html__( 'Content Settings', 'exclusive-addons-elementor' )
+  				'label' => esc_html__( 'Contents', 'exclusive-addons-elementor' )
   			]
   		);
   		$this->add_control(

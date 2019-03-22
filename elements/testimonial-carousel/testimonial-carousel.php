@@ -80,7 +80,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			'exad_testimonial_carousel_description',
 			[
 				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::WYSIWYG,
+				'type' => Controls_Manager::TEXTAREA,
 				'dynamic' => [
                     'active' => true,
                 ],
@@ -125,7 +125,20 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'type' => Controls_Manager::REPEATER,
 				'fields' => $testimonial_repeater->get_controls(),
 				'title_field' => '{{{ exad_testimonial_carousel_name }}}',
-				//'default' => $this->get_repeater_defaults(),
+				'default' => [
+					[
+						'exad_testimonial_carousel_name' => __( 'Title #1', 'plugin-domain' ),
+						'exad_testimonial_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+					],
+					[
+						'exad_testimonial_carousel_name' => __( 'Title #2', 'plugin-domain' ),
+						'exad_testimonial_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+					],
+					[
+						'exad_testimonial_carousel_name' => __( 'Title #3', 'plugin-domain' ),
+						'exad_testimonial_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+					],
+			]	
 			]
 		);
 
@@ -496,7 +509,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 	protected function render_testimonial_carousel_quote( $testimonial ) {
 	?>	
 		<div class="exad-testimonial-carousel-quote">
-          <?php echo $this->parse_text_editor($testimonial['exad_testimonial_carousel_description']); ?>
+          <?php echo esc_html( $testimonial['exad_testimonial_carousel_description'] ); ?>
         </div>
 	<?php
 	}
