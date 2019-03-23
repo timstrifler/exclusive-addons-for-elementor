@@ -12,7 +12,7 @@ class Exad_Flip_Box extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'DC Flip Box', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex. Flip Box', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
@@ -246,7 +246,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_icon_style',
 			[
-				'label' => esc_html__( 'Icon Style', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Icon Style', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -257,7 +257,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_icon_color',
 			[
-				'label' => esc_html__( 'Icon Color', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors' => [
@@ -274,7 +274,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_icon_bg',
 			[
-				'label' => esc_html__( 'Icon Background', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Icon Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#826EFF',
 				'selectors' => [
@@ -290,7 +290,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_title_heading',
 			[
-				'label' => esc_html__( 'Title', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -302,7 +302,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_title_color',
 			[
-				'label' => esc_html__( 'Color', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#132c47',
 				'selectors' => [
@@ -331,7 +331,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_content_heading',
 			[
-				'label' => esc_html__( 'Content', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -343,7 +343,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_content_color',
 			[
-				'label' => esc_html__( 'Color', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#817e7e',
 				'selectors' => [
@@ -372,7 +372,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_background',
 			[
-				'label' => esc_html__( 'Background', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -409,7 +409,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_icon_color',
 			[
-				'label' => esc_html__( 'Icon Color', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors' => [
@@ -425,7 +425,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_title_heading',
 			[
-				'label' => esc_html__( 'Title Style', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Title Style', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -436,7 +436,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_title_color',
 			[
-				'label' => esc_html__( 'Color', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
@@ -465,7 +465,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_content_heading',
 			[
-				'label' => esc_html__( 'Content Style', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Content Style', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -477,7 +477,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_content_color',
 			[
-				'label' => esc_html__( 'Color', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
@@ -506,7 +506,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_rear_background',
 			[
-				'label' => esc_html__( 'Background', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -526,7 +526,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_button',
 			[
-				'label' => esc_html__( 'Button', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Button', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -630,7 +630,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_flipbox_imgae_style_settings',
 			[
-				'label' => esc_html__( 'Image Style', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Image Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 		     		'exad_flipbox_img_or_icon' => 'img'
@@ -641,14 +641,14 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 		  'exad_flipbox_img_type',
 		  	[
-		   	'label'       	=> esc_html__( 'Image Type', 'essential-addons-elementor' ),
+		   	'label'       	=> esc_html__( 'Image Type', 'exclusive-addons-elementor' ),
 		     	'type' 			=> Controls_Manager::SELECT,
 		     	'default' 		=> 'default',
 		     	'label_block' 	=> false,
 		     	'options' 		=> [
-		     		'circle'  	=> esc_html__( 'Circle', 'essential-addons-elementor' ),
-		     		'radius' 	=> esc_html__( 'Radius', 'essential-addons-elementor' ),
-		     		'default' 	=> esc_html__( 'Default', 'essential-addons-elementor' ),
+		     		'circle'  	=> esc_html__( 'Circle', 'exclusive-addons-elementor' ),
+		     		'radius' 	=> esc_html__( 'Radius', 'exclusive-addons-elementor' ),
+		     		'default' 	=> esc_html__( 'Default', 'exclusive-addons-elementor' ),
 		     	],
 		     	'prefix_class' => 'exad-flipbox-img-',
 		     	'condition' => [
@@ -663,7 +663,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_filpbox_img_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -691,7 +691,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_flipbox_icon_style_settings',
 			[
-				'label' => esc_html__( 'Icon Style', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Icon Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 		     		'exad_flipbox_img_or_icon' => 'icon'
@@ -703,7 +703,7 @@ class Exad_Flip_Box extends Widget_Base {
 			Group_Control_Border::get_type(),
 				[
 					'name' => 'exad_flipbox_border',
-					'label' => esc_html__( 'Border', 'essential-addons-elementor' ),
+					'label' => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 					'selector' => '{{WRAPPER}} .exad-elements-flip-box-icon-image',
 					'condition' => [
 						'exad_flipbox_img_or_icon' => 'icon'
@@ -714,7 +714,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_flipbox_icon_padding',
 			[
-				'label' => esc_html__( 'Padding', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em' ],
 				'selectors' => [
@@ -726,7 +726,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_icon_border_radius',
 			[
-				'label' => esc_html__( 'Border Radius', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units'	=> [ 'px', '%' ],
 				'range' => [
@@ -760,7 +760,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_flipbox_button_style_settings',
 			[
-				'label' => esc_html__( 'Button Style', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Button Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition'	=> [
 					'flipbox_link_type'	=> 'button'
@@ -773,13 +773,13 @@ class Exad_Flip_Box extends Widget_Base {
 			$this->start_controls_tab(
 				'flipbox_button_normal_style',
 				[
-					'label'	=> __( 'Normal', 'essential-addons-elementor' )
+					'label'	=> __( 'Normal', 'exclusive-addons-elementor' )
 				]
 			);
 				$this->add_responsive_control(
 					'exad_flipbox_button_margin',
 					[
-						'label' => esc_html__( 'Margin', 'essential-addons-elementor' ),
+						'label' => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::DIMENSIONS,
 						'size_units' => [ 'px', 'em' ],
 						'selectors' => [
@@ -791,7 +791,7 @@ class Exad_Flip_Box extends Widget_Base {
 				$this->add_responsive_control(
 					'exad_flipbox_button_padding',
 					[
-						'label' => esc_html__( 'Padding', 'essential-addons-elementor' ),
+						'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::DIMENSIONS,
 						'size_units' => [ 'px', 'em' ],
 						'selectors' => [
@@ -803,7 +803,7 @@ class Exad_Flip_Box extends Widget_Base {
 				$this->add_control(
 					'exad_flipbox_button_color',
 					[
-						'label' => esc_html__( 'Color', 'essential-addons-elementor' ),
+						'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '#ffffff',
 						'selectors' => [
@@ -815,7 +815,7 @@ class Exad_Flip_Box extends Widget_Base {
 				$this->add_control(
 					'exad_flipbox_button_bg_color',
 					[
-						'label' => esc_html__( 'Background', 'essential-addons-elementor' ),
+						'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '#000000',
 						'selectors' => [
@@ -827,7 +827,7 @@ class Exad_Flip_Box extends Widget_Base {
 				$this->add_control(
 					'exad_flipbox_button_border_radius',
 					[
-						'label' => esc_html__( 'Border Radius', 'essential-addons-elementor' ),
+						'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::SLIDER,
 						'size_units'	=> [ 'px' ],
 						'range' => [
@@ -855,13 +855,13 @@ class Exad_Flip_Box extends Widget_Base {
 			$this->start_controls_tab(
 				'flipbox_button_hover_style',
 				[
-					'label'	=> __( 'Hover', 'essential-addons-elementor' )
+					'label'	=> __( 'Hover', 'exclusive-addons-elementor' )
 				]
 			);
 				$this->add_control(
 					'exad_flipbox_button_hover_color',
 					[
-						'label' => esc_html__( 'Color', 'essential-addons-elementor' ),
+						'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '#ffffff',
 						'selectors' => [
@@ -873,7 +873,7 @@ class Exad_Flip_Box extends Widget_Base {
 				$this->add_control(
 					'exad_flipbox_button_hover_bg_color',
 					[
-						'label' => esc_html__( 'Background', 'essential-addons-elementor' ),
+						'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
 						'default' => '#000000',
 						'selectors' => [

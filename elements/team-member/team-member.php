@@ -8,10 +8,10 @@ class Exad_Team_Member extends Widget_Base {
 		return 'exad-team-member';
 	}
 	public function get_title() {
-		return esc_html__( 'DC Team Member', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex. Team Member', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'fa fa-user';
+		return 'eicon-lock-user';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];

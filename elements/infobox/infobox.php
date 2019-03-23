@@ -8,10 +8,10 @@ class Exad_Infobox extends Widget_Base {
 		return 'exad-infobox';
 	}
 	public function get_title() {
-		return esc_html__( 'DC Info Box', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex. Info Box', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'fa fa-user-circle';
+		return 'eicon-info-box';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
@@ -30,20 +30,20 @@ class Exad_Infobox extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_infobox_img_or_icon',
 			[
-				'label' => esc_html__( 'Image or Icon', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Image or Icon', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => true,
 				'options' => [
 					'none' => [
-						'title' => esc_html__( 'None', 'essential-addons-elementor' ),
+						'title' => esc_html__( 'None', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-ban',
 					],
 					'icon' => [
-						'title' => esc_html__( 'Icon', 'essential-addons-elementor' ),
+						'title' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-info-circle',
 					],
 					'img' => [
-						'title' => esc_html__( 'Image', 'essential-addons-elementor' ),
+						'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-picture-o',
 					]
 				],
@@ -58,7 +58,7 @@ class Exad_Infobox extends Widget_Base {
 		$this->add_control(
 			'exad_infobox_image',
 			[
-				'label' => esc_html__( 'Image', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -86,7 +86,7 @@ class Exad_Infobox extends Widget_Base {
 		$this->add_control(
 			'exad_infobox_icon',
 			[
-				'label' => esc_html__( 'Icon', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::ICON,
 				'default' => 'fa fa-tag',
 				'condition' => [
@@ -109,9 +109,9 @@ class Exad_Infobox extends Widget_Base {
 		$this->add_control(
 			'exad_infobox_title_link',
 			[
-				'label' => __( 'Title URL', 'plugin-domain' ),
+				'label' => __( 'Title URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
 					'url' => '',
@@ -182,7 +182,7 @@ class Exad_Infobox extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'background',
-				'label' => __( 'Background', 'plugin-domain' ),
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'separator' => 'before',
 				'selector' => '{{WRAPPER}} .exad-infobox .exad-infobox-item',

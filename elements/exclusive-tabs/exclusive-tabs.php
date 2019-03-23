@@ -10,7 +10,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'DC Exclusive Tabs', 'exclusive-addons-elementor' );
+		return esc_html__( 'Exclusive Tabs', 'exclusive-addons-elementor' );
 	}
 
 	public function get_script_depends() {
@@ -105,9 +105,9 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 					],
 					[
 						'name' => 'exad_exclusive_tab_content',
-						'label' => esc_html__( 'Tab Content', 'essential-addons-elementor' ),
+						'label' => esc_html__( 'Tab Content', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::TEXTAREA,
-						'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'essential-addons-elementor' ),
+						'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'exclusive-addons-elementor' ),
 					],
 				],
 				'title_field' => '{{exad_exclusive_tab_title}}',

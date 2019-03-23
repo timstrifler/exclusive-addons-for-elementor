@@ -8,10 +8,10 @@ class Exad_Card extends Widget_Base {
 		return 'exad-exclusive-card';
 	}
 	public function get_title() {
-		return esc_html__( 'DC Exclusive Card', 'exclusive-addons-elementor' );
+		return esc_html__( 'Exclusive Card', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'fa fa-user-circle';
+		return 'eicon-image-box';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
@@ -63,9 +63,9 @@ class Exad_Card extends Widget_Base {
 		$this->add_control(
 			'exad_card_title_link',
 			[
-				'label' => __( 'Title URL', 'plugin-domain' ),
+				'label' => __( 'Title URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
 					'url' => '',
@@ -107,9 +107,9 @@ class Exad_Card extends Widget_Base {
 		$this->add_control(
 			'exad_card_action_link',
 			[
-				'label' => __( 'Action URL', 'plugin-domain' ),
+				'label' => __( 'Action URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
 					'url' => '',

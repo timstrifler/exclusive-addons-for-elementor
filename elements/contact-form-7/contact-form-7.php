@@ -29,7 +29,7 @@ class Exad_Contact_Form extends Widget_Base {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'DC Contact Form 7', 'essential-addons-elementor' );
+        return __( 'Ex. Contact Form 7', 'exclusive-addons-elementor' );
     }
 
     /**
@@ -42,7 +42,7 @@ class Exad_Contact_Form extends Widget_Base {
 	 * @return array Widget categories.
 	 */
     public function get_categories() {
-        return [ 'essential-addons-elementor' ];
+        return [ 'exclusive-addons-elementor' ];
     }
 
     /**
@@ -53,7 +53,7 @@ class Exad_Contact_Form extends Widget_Base {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'fa fa-envelope-o';
+        return 'eicon-mail';
     }
 
     /**
@@ -64,10 +64,6 @@ class Exad_Contact_Form extends Widget_Base {
 	 * @access protected
 	 */
     protected function _register_controls() {
-
-        /*-----------------------------------------------------------------------------------*/
-        /*	CONTENT TAB
-        /*-----------------------------------------------------------------------------------*/
         
         /**
          * Content Tab: Contact Form
@@ -76,14 +72,14 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_section(
             'exad_section_contact_intro',
             [
-                'label'  => __( 'Contact Form', 'essential-addons-elementor' ),
+                'label'  => __( 'Contact Form', 'exclusive-addons-elementor' ),
             ]
         );
 		
 		$this->add_control(
 			'exad_contact_form_list',
 			[
-				'label'                 => esc_html__( 'Select Form', 'essential-addons-elementor' ),
+				'label'                 => esc_html__( 'Select Form', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
 				'label_block'           => true,
 				'options'               => Exad_Helper::exad_retrive_contact_form(),
@@ -91,27 +87,14 @@ class Exad_Contact_Form extends Widget_Base {
 			]
 		);
         
-        $this->add_control(
-            'exad_contact_form_title',
-            [
-                'label'                 => __( 'Form Title', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::SWITCHER,
-                'label_on'              => __( 'On', 'essential-addons-elementor' ),
-                'label_off'             => __( 'Off', 'essential-addons-elementor' ),
-                'return_value'          => 'yes',
-            ]
-        );
 		
 		$this->add_control(
 			'exad_contact_form_title_text',
 			[
-				'label'                 => esc_html__( 'Title', 'essential-addons-elementor' ),
+				'label'                 => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::TEXT,
 				'label_block'           => true,
                 'default'               => '',
-                'condition'             => [
-                    'exad_contact_form_title'   => 'yes',
-                ],
 			]
 		);
         
@@ -126,19 +109,19 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_section(
             'exad_section_errors',
             [
-                'label'                 => __( 'Errors', 'essential-addons-elementor' ),
+                'label'                 => __( 'Errors', 'exclusive-addons-elementor' ),
             ]
         );
         
         $this->add_control(
             'exad_error_messages',
             [
-                'label'                 => __( 'Error Messages', 'essential-addons-elementor' ),
+                'label'                 => __( 'Error Messages', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'show',
                 'options'               => [
-                    'show'          => __( 'Show', 'essential-addons-elementor' ),
-                    'hide'          => __( 'Hide', 'essential-addons-elementor' ),
+                    'show'          => __( 'Show', 'exclusive-addons-elementor' ),
+                    'hide'          => __( 'Hide', 'exclusive-addons-elementor' ),
                 ],
                 'selectors_dictionary'  => [
                     'show'          => 'block',
@@ -153,12 +136,12 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'exad_validation_errors',
             [
-                'label'                 => __( 'Validation Errors', 'essential-addons-elementor' ),
+                'label'                 => __( 'Validation Errors', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::SELECT,
                 'default'               => 'show',
                 'options'               => [
-                    'show'          => __( 'Show', 'essential-addons-elementor' ),
-                    'hide'          => __( 'Hide', 'essential-addons-elementor' ),
+                    'show'          => __( 'Show', 'exclusive-addons-elementor' ),
+                    'hide'          => __( 'Hide', 'exclusive-addons-elementor' ),
                 ],
                 'selectors_dictionary'  => [
                     'show'          => 'block',
@@ -173,11 +156,6 @@ class Exad_Contact_Form extends Widget_Base {
         $this->end_controls_section();
 
 
-        /*-----------------------------------------------------------------------------------*/
-        /*	STYLE TAB
-        /*-----------------------------------------------------------------------------------*/
-
-
         /**
          * Style Tab: Form Container
          * -------------------------------------------------
@@ -185,7 +163,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_section(
             'exad_section_container_style',
             [
-                'label'                 => __( 'Form Container', 'essential-addons-elementor' ),
+                'label'                 => __( 'Form Container', 'exclusive-addons-elementor' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -194,7 +172,7 @@ class Exad_Contact_Form extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'      => 'exad_contact_form_background',
-                'label'     => __( 'Background', 'plugin-domain' ),
+                'label'     => __( 'Background', 'exclusive-addons-elementor' ),
                 'types'     => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .exad-contact-form',
             ]
@@ -203,7 +181,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'exad_contact_container_border_top',
             [
-                'label'                 => __( 'Border Top Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Border Top Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#724cff',
                 'selectors'             => [
@@ -215,7 +193,7 @@ class Exad_Contact_Form extends Widget_Base {
   		$this->add_responsive_control(
   			'exad_contact_form_width',
   			[
-  				'label' => esc_html__( 'Form Width', 'essential-addons-elementor' ),
+  				'label' => esc_html__( 'Form Width', 'exclusive-addons-elementor' ),
   				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', 'em', '%' ],
 				'range' => [
@@ -242,16 +220,16 @@ class Exad_Contact_Form extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_contact_form_padding',
 			[
-				'label' => esc_html__( 'Form Padding', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Form Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
 					'{{WRAPPER}} .exad-contact-form' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
                 'default' => [
-                    'top' => 60,
+                    'top' => 40,
                     'right' => 40,
-                    'bottom' => 60,
+                    'bottom' => 40,
                     'left' => 40,
                     'unit' => 'px'
                     ]
@@ -268,7 +246,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_section(
             'section_fields_title_description',
             [
-                'label'                 => __( 'Title', 'essential-addons-elementor' ),
+                'label'                 => __( 'Title', 'exclusive-addons-elementor' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -276,19 +254,19 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_responsive_control(
             'heading_alignment',
             [
-                'label'                 => __( 'Alignment', 'essential-addons-elementor' ),
+                'label'                 => __( 'Alignment', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::CHOOSE,
                 'options'               => [
                     'left'      => [
-                        'title' => __( 'Left', 'essential-addons-elementor' ),
+                        'title' => __( 'Left', 'exclusive-addons-elementor' ),
                         'icon'  => 'fa fa-align-left',
                     ],
                     'center'    => [
-                        'title' => __( 'Center', 'essential-addons-elementor' ),
+                        'title' => __( 'Center', 'exclusive-addons-elementor' ),
                         'icon'  => 'fa fa-align-center',
                     ],
                     'right'     => [
-                        'title' => __( 'Right', 'essential-addons-elementor' ),
+                        'title' => __( 'Right', 'exclusive-addons-elementor' ),
                         'icon'  => 'fa fa-align-right',
                     ],
                 ],
@@ -302,7 +280,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'title_heading',
             [
-                'label'                 => __( 'Title', 'essential-addons-elementor' ),
+                'label'                 => __( 'Title', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
             ]
@@ -311,7 +289,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'title_text_color',
             [
-                'label'                 => __( 'Text Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -324,7 +302,7 @@ class Exad_Contact_Form extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'                  => 'title_typography',
-                'label'                 => __( 'Typography', 'essential-addons-elementor' ),
+                'label'                 => __( 'Typography', 'exclusive-addons-elementor' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .exad-contact-form-7 label',
             ]
@@ -340,17 +318,15 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_section(
             'section_fields_style',
             [
-                'label'                 => __( 'Input & Textarea', 'essential-addons-elementor' ),
+                'label'                 => __( 'Input & Textarea', 'exclusive-addons-elementor' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
 
-        
-
         $this->add_control(
             'field_bg',
             [
-                'label'                 => __( 'Background Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -362,7 +338,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'field_text_color',
             [
-                'label'                 => __( 'Text Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -377,7 +353,7 @@ class Exad_Contact_Form extends Widget_Base {
 		$this->add_responsive_control(
 			'field_padding',
 			[
-				'label'                 => __( 'Padding', 'essential-addons-elementor' ),
+				'label'                 => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -390,7 +366,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_responsive_control(
             'textarea_width',
             [
-                'label'                 => __( 'Textarea Width', 'essential-addons-elementor' ),
+                'label'                 => __( 'Textarea Width', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -410,7 +386,7 @@ class Exad_Contact_Form extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'field_border',
-				'label'                 => __( 'Border', 'essential-addons-elementor' ),
+				'label'                 => __( 'Border', 'exclusive-addons-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-select',
@@ -421,7 +397,7 @@ class Exad_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'field_radius',
 			[
-				'label'                 => __( 'Border Radius', 'essential-addons-elementor' ),
+				'label'                 => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -429,20 +405,21 @@ class Exad_Contact_Form extends Widget_Base {
 				],
 			]
         );
-        
+        $this->end_controls_section();
+
         // Placeholder style
-        $this->add_control(
-            'placeholder_heading',
+        $this->start_controls_section(
+            'exad_contact_section_placeholder_style',
             [
-                'label'                 => __( 'Placeholder', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::HEADING,
+                'label'                 => __( 'Placeholder', 'exclusive-addons-elementor' ),
+                'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'placeholder_color',
+            'exad_contact_placeholder_color',
             [
-                'label'                 => __( 'Placeholder Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -455,8 +432,8 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'                  => 'placeholder_typography',
-                'label'                 => __( 'Typography', 'essential-addons-elementor' ),
+                'name'                  => 'exad_contact_placeholder_typography',
+                'label'                 => __( 'Typography', 'exclusive-addons-elementor' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .exad-contact-form-7 label input::placeholder,{{WRAPPER}} .exad-contact-form-7 label textarea::placeholder',
             ]
@@ -469,62 +446,32 @@ class Exad_Contact_Form extends Widget_Base {
          * Style Tab: Label Section
          */
         $this->start_controls_section(
-            'section_label_style',
+            'exad_contact_section_label_style',
             [
-                'label'                 => __( 'Labels', 'essential-addons-elementor' ),
+                'label'                 => __( 'Labels', 'exclusive-addons-elementor' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
-                'condition'             => [
-                    'labels_switch'   => 'yes',
-                ],
             ]
         );
 
         $this->add_control(
             'text_color_label',
             [
-                'label'                 => __( 'Text Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'selectors'             => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form label' => 'color: {{VALUE}}',
                 ],
-                'condition'             => [
-                    'labels_switch'   => 'yes',
-                ],
             ]
         );
         
-        $this->add_responsive_control(
-            'label_spacing',
-            [
-                'label'                 => __( 'Spacing', 'essential-addons-elementor' ),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
-                    'px'        => [
-                        'min'   => 0,
-                        'max'   => 100,
-                        'step'  => 1,
-                    ],
-                ],
-                'size_units'            => [ 'px', 'em', '%' ],
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form label' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-                ],
-                'condition'             => [
-                    'labels_switch'   => 'yes',
-                ],
-            ]
-        );
         
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'                  => 'typography_label',
-                'label'                 => __( 'Typography', 'essential-addons-elementor' ),
+                'name'                  => 'exad_contact_typography_label',
+                'label'                 => __( 'Typography', 'exclusive-addons-elementor' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
                 'selector'              => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form label',
-                'condition'             => [
-                    'labels_switch'   => 'yes',
-                ],
             ]
         );
         
@@ -537,7 +484,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_section(
             'section_submit_button_style',
             [
-                'label' => __( 'Submit Button', 'essential-addons-elementor' ),
+                'label' => __( 'Submit Button', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -549,14 +496,14 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_tab(
             'tab_button_normal',
             [
-                'label' => __( 'Normal', 'essential-addons-elementor' ),
+                'label' => __( 'Normal', 'exclusive-addons-elementor' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_normal',
             [
-                'label'                 => __( 'Background Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#724cff',
                 'selectors'             => [
@@ -568,7 +515,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'button_text_color_normal',
             [
-                'label'                 => __( 'Text Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#FFF',
                 'selectors'             => [
@@ -580,7 +527,7 @@ class Exad_Contact_Form extends Widget_Base {
 		$this->add_control(
             'button_border_color_normal',
             [
-                'label'                 => __( 'Border Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Border Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => 'transparent',
                 'selectors'             => [
@@ -592,7 +539,7 @@ class Exad_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'                 => __( 'Border Radius', 'essential-addons-elementor' ),
+				'label'                 => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -611,7 +558,7 @@ class Exad_Contact_Form extends Widget_Base {
 		$this->add_control(
 			'button_padding',
 			[
-				'label'                 => __( 'Padding', 'essential-addons-elementor' ),
+				'label'                 => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
 				'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
@@ -633,14 +580,14 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_tab(
             'tab_button_hover',
             [
-                'label'                 => __( 'Hover', 'essential-addons-elementor' ),
+                'label'                 => __( 'Hover', 'exclusive-addons-elementor' ),
             ]
         );
 
         $this->add_control(
             'button_bg_color_hover',
             [
-                'label'                 => __( 'Background Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#FFF',
                 'selectors'             => [
@@ -652,7 +599,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'button_text_color_hover',
             [
-                'label'                 => __( 'Text Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#724cff',
                 'selectors'             => [
@@ -664,7 +611,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'button_border_color_hover',
             [
-                'label'                 => __( 'Border Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Border Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#724cff',
                 'selectors'             => [
@@ -685,7 +632,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->start_controls_section(
             'exad_section_error_style',
             [
-                'label'                 => __( 'Errors', 'essential-addons-elementor' ),
+                'label'                 => __( 'Errors', 'exclusive-addons-elementor' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -693,7 +640,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'error_messages_heading',
             [
-                'label'                 => __( 'Error Messages', 'essential-addons-elementor' ),
+                'label'                 => __( 'Error Messages', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::HEADING,
 				'condition'             => [
 					'exad_error_messages' => 'show',
@@ -705,7 +652,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'error_alert_text_color',
             [
-                'label'                 => __( 'Text Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -721,7 +668,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'error_field_bg_color',
             [
-                'label'                 => __( 'Background Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -737,7 +684,7 @@ class Exad_Contact_Form extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'error_field_border',
-				'label'                 => __( 'Border', 'essential-addons-elementor' ),
+				'label'                 => __( 'Border', 'exclusive-addons-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-not-valid-tip',
@@ -752,7 +699,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'validation_errors_heading',
             [
-                'label'                 => __( 'Validation Errors', 'essential-addons-elementor' ),
+                'label'                 => __( 'Validation Errors', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::HEADING,
                 'separator'             => 'before',
 				'condition'             => [
@@ -764,7 +711,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'validation_errors_bg_color',
             [
-                'label'                 => __( 'Background Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -779,7 +726,7 @@ class Exad_Contact_Form extends Widget_Base {
         $this->add_control(
             'validation_errors_color',
             [
-                'label'                 => __( 'Text Color', 'essential-addons-elementor' ),
+                'label'                 => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '',
                 'selectors'             => [
@@ -796,7 +743,7 @@ class Exad_Contact_Form extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'                  => 'validation_errors_border',
-				'label'                 => __( 'Border', 'essential-addons-elementor' ),
+				'label'                 => __( 'Border', 'exclusive-addons-elementor' ),
 				'placeholder'           => '1px',
 				'default'               => '1px',
 				'selector'              => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-validation-errors',
@@ -828,7 +775,7 @@ class Exad_Contact_Form extends Widget_Base {
             if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>
                 <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
                         
-                    <?php if ( $settings['exad_contact_form_title'] == 'yes' && $settings['exad_contact_form_title_text'] != '' ) { ?>
+                    <?php if ( $settings['exad_contact_form_title_text'] != '' ) { ?>
                         <h3 class="exad-contact-form-title exad-contact-form-7-title">
                             <?php echo esc_attr( $settings['exad_contact_form_title_text'] ); ?>
                         </h3>

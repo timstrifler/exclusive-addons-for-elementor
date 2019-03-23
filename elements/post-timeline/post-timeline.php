@@ -11,11 +11,11 @@ class Exad_Post_Timeline extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'DC Post Timeline', 'exclusive-addons-elementor' );
+		return __( 'Ex. Post Timeline', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
-		return 'eicon-post-list';
+		return 'eicon-time-line';
 	}
 
 	public function get_categories() {
@@ -115,7 +115,7 @@ class Exad_Post_Timeline extends Widget_Base {
         $this->add_control(
             'exad_timeline_excerpt_length',
             [
-                'label' => __( 'Excerpt Words', 'essential-addons-elementor' ),
+                'label' => __( 'Excerpt Words', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::NUMBER,
                 'default' => '20',
             ]

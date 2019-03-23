@@ -11,7 +11,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'DC Exclusive Button', 'exclusive-addons-elementor' );
+		return esc_html__( 'Exclusive Button', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
@@ -261,7 +261,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'background',
-				'label' => __( 'Background', 'plugin-domain' ),
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action',
 			]

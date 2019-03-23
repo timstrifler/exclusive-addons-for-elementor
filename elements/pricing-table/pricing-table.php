@@ -10,10 +10,10 @@ class Exad_Pricing_Table extends Widget_Base {
 		return 'exad-pricing-table';
 	}
 	public function get_title() {
-		return esc_html__( 'DC Pricing Table', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex. Pricing Table', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'fa fa-user-circle';
+		return 'eicon-price-table';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];

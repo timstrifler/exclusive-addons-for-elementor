@@ -34,13 +34,13 @@ class Exad_Helper {
                 'showposts' => 999,
             ));
             $options = array();
-            $options[0] = esc_html__( 'Select a Form', 'essential-addons-elementor' );
+            $options[0] = esc_html__( 'Select a Form', 'exclusive-addons-elementor' );
             if ( ! empty( $wpcf7_form_list ) && ! is_wp_error( $wpcf7_form_list ) ){
                 foreach ( $wpcf7_form_list as $post ) {
                     $options[ $post->ID ] = $post->post_title;
                 }
             } else {
-                $options[0] = esc_html__( 'Create a Form First', 'essential-addons-elementor' );
+                $options[0] = esc_html__( 'Create a Form First', 'exclusive-addons-elementor' );
             }
             return $options;
         }

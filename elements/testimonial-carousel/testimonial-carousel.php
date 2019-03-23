@@ -11,11 +11,11 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'DC Testimonial Carousel', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex. Testimonial Carousel', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
-		return 'fa fa-user-circle';
+		return 'eicon-testimonial-carousel';
 	}
 
 	public function get_categories() {
@@ -127,16 +127,16 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'title_field' => '{{{ exad_testimonial_carousel_name }}}',
 				'default' => [
 					[
-						'exad_testimonial_carousel_name' => __( 'Title #1', 'plugin-domain' ),
-						'exad_testimonial_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+						'exad_testimonial_carousel_name' => __( 'Testimonial #1', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Add your Testimonial text here.', 'exclusive-addons-elementor' ),
 					],
 					[
-						'exad_testimonial_carousel_name' => __( 'Title #2', 'plugin-domain' ),
-						'exad_testimonial_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+						'exad_testimonial_carousel_name' => __( 'Testimonial #2', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Add your Testimonial text here.', 'exclusive-addons-elementor' ),
 					],
 					[
-						'exad_testimonial_carousel_name' => __( 'Title #3', 'plugin-domain' ),
-						'exad_testimonial_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+						'exad_testimonial_carousel_name' => __( 'Testimonial #3', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Add your Testimonial text here.', 'exclusive-addons-elementor' ),
 					],
 			]	
 			]
@@ -243,9 +243,9 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		* Testimonial Carousel Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_section_testimonial_carousel_styles_general',
+			'exad_section_testimonial_carousel_styles_presets',
 			[
-				'label' => esc_html__( 'Testimonial Carousel Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);

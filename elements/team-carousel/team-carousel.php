@@ -11,11 +11,11 @@ class Exad_Team_Carousel extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'DC Team Carousel', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex. Team Carousel', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
-		return 'fa fa-users';
+		return 'eicon-person';
 	}
 
 	public function get_categories() {
@@ -102,12 +102,12 @@ class Exad_Team_Carousel extends Widget_Base {
 		$team_repeater->add_control(
 			'exad_team_carousel_facebook_link',
 			[
-				'label' => __( 'Facebook URL', 'plugin-domain' ),
+				'label' => __( 'Facebook URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
 				'condition' => [
 					'exad_team_carousel_enable_social_profiles!' => '',
 				],
-				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
 					'url' => '',
@@ -119,12 +119,12 @@ class Exad_Team_Carousel extends Widget_Base {
 		$team_repeater->add_control(
 			'exad_team_carousel_twitter_link',
 			[
-				'label' => __( 'Twitter URL', 'plugin-domain' ),
+				'label' => __( 'Twitter URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
 				'condition' => [
 					'exad_team_carousel_enable_social_profiles!' => '',
 				],
-				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
 					'url' => '',
@@ -136,12 +136,12 @@ class Exad_Team_Carousel extends Widget_Base {
 		$team_repeater->add_control(
 			'exad_team_carousel_instagram_link',
 			[
-				'label' => __( 'Instagram URL', 'plugin-domain' ),
+				'label' => __( 'Instagram URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
 				'condition' => [
 					'exad_team_carousel_enable_social_profiles!' => '',
 				],
-				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
 					'url' => '',
@@ -153,12 +153,12 @@ class Exad_Team_Carousel extends Widget_Base {
 		$team_repeater->add_control(
 			'exad_team_carousel_linkedin_link',
 			[
-				'label' => __( 'Linkedin URL', 'plugin-domain' ),
+				'label' => __( 'Linkedin URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
 				'condition' => [
 					'exad_team_carousel_enable_social_profiles!' => '',
 				],
-				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
 					'url' => '',
@@ -170,12 +170,12 @@ class Exad_Team_Carousel extends Widget_Base {
 		$team_repeater->add_control(
 			'exad_team_carousel_dribbble_link',
 			[
-				'label' => __( 'Dribbble URL', 'plugin-domain' ),
+				'label' => __( 'Dribbble URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
 				'condition' => [
 					'exad_team_carousel_enable_social_profiles!' => '',
 				],
-				'placeholder' => __( 'https://your-link.com', 'plugin-domain' ),
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
 					'url' => '',
@@ -194,16 +194,20 @@ class Exad_Team_Carousel extends Widget_Base {
 				'title_field' => '{{{ exad_team_carousel_name }}}',
 				'default' => [
 						[
-							'exad_team_carousel_name' => __( 'Title #1', 'plugin-domain' ),
-							'exad_team_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+							'exad_team_carousel_name' => __( 'Member #1', 'exclusive-addons-elementor' ),
+							'exad_team_carousel_description' => __( 'Add team member details here', 'exclusive-addons-elementor' ),
 						],
 						[
-							'exad_team_carousel_name' => __( 'Title #2', 'plugin-domain' ),
-							'exad_team_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+							'exad_team_carousel_name' => __( 'Member #2', 'exclusive-addons-elementor' ),
+							'exad_team_carousel_description' => __( 'Add team member details here', 'exclusive-addons-elementor' ),
 						],
 						[
-							'exad_team_carousel_name' => __( 'Title #3', 'plugin-domain' ),
-							'exad_team_carousel_description' => __( 'Item content. Click the edit button to change this text.', 'plugin-domain' ),
+							'exad_team_carousel_name' => __( 'Member #3', 'exclusive-addons-elementor' ),
+							'exad_team_carousel_description' => __( 'Add team member details here', 'exclusive-addons-elementor' ),
+						],
+						[
+							'exad_team_carousel_name' => __( 'Member #4', 'exclusive-addons-elementor' ),
+							'exad_team_carousel_description' => __( 'Add team member details here', 'exclusive-addons-elementor' ),
 						],
 				]	
 			]
