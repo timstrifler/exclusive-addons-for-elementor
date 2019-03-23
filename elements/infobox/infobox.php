@@ -8,7 +8,7 @@ class Exad_Infobox extends Widget_Base {
 		return 'exad-infobox';
 	}
 	public function get_title() {
-		return esc_html__( 'Ex. Info Box', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex Info Box', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'eicon-info-box';
@@ -52,9 +52,7 @@ class Exad_Infobox extends Widget_Base {
 		);
 
 
-		/**
-		 * Condition: 'exad_infobox_img_or_icon' => 'img'
-		 */
+		
 		$this->add_control(
 			'exad_infobox_image',
 			[
@@ -79,10 +77,6 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
-
-		/**
-		 * Condition: 'exad_infobox_img_or_icon' => 'icon'
-		 */
 		$this->add_control(
 			'exad_infobox_icon',
 			[

@@ -11,7 +11,7 @@ class Exad_Post_Timeline extends Widget_Base {
 	}
 
 	public function get_title() {
-		return __( 'Ex. Post Timeline', 'exclusive-addons-elementor' );
+		return __( 'Ex Post Timeline', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {

@@ -2444,16 +2444,13 @@ text-align: right;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   color: #fff;
   font-size: 30px;
 }
 
-.exad-infobox.four .exad-infobox-item .exad-infobox-icon {
-  background: #826EFF;
-}
-
 .exad-infobox.four .exad-infobox-item .exad-infobox-content {
+  flex-basis: calc(100% - 70px);
   padding: 10px 0 0 12px;
 }
 
@@ -2507,9 +2504,6 @@ text-align: right;
 
 .exad-infobox.five .exad-infobox-item .exad-infobox-content {
   padding: 35px 20px;
-}
-
-.exad-infobox.five .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
 }
 
 .exad-infobox.five .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {

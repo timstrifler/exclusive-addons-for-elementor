@@ -12,7 +12,7 @@ class Exad_Flip_Box extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Ex. Flip Box', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex Flip Box', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {

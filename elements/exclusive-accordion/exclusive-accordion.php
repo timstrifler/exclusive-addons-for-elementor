@@ -28,7 +28,7 @@ class Exclusive_Accordion extends Widget_Base {
   		 * Exclusive Accordion Content Settings
   		 */
   		$this->start_controls_section(
-  			'eael_section_adv_accordion_content_settings',
+  			'exad_section_exclusive_accordion_content_settings',
   			[
   				'label' => esc_html__( 'Contents', 'exclusive-addons-elementor' )
   			]
@@ -124,7 +124,7 @@ class Exclusive_Accordion extends Widget_Base {
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
-			'eael_section_adv_accordions_tab_style_settings',
+			'exad_section_exclusive_accordions_tab_style_settings',
 			[
 				'label'	=> esc_html__( 'Tab Style', 'exclusive-addons-elementor' ),
 				'tab'	=> Controls_Manager::TAB_STYLE,
@@ -173,7 +173,7 @@ class Exclusive_Accordion extends Widget_Base {
 							'{{WRAPPER}} .exad-accordion .exad-accordion-title span i' => 'color: {{VALUE}};',
 						],
 						'condition' => [
-							'eael_adv_tabs_icon_show' => 'yes'
+							'exad_adv_tabs_icon_show' => 'yes'
 						]
 					]
 				);
