@@ -29,7 +29,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_button_content',
 			[
-				'label' => esc_html__( 'Button Content', 'exclusive-addons-elementor' )
+				'label' => esc_html__( 'Contents', 'exclusive-addons-elementor' )
 			]
 		);
 
@@ -78,7 +78,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_button_settings',
 			[
-				'label' => esc_html__( 'Button Effects &amp; Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Styles & Effects', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -135,8 +135,8 @@ class Exad_Exclusive_Button extends Widget_Base {
 					],
 				],
 				'default' => [
-					'unit' => 'px',
-					'size' => 240,
+					'unit' => '%',
+					'size' => 100,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-action' => 'width: {{SIZE}}{{UNIT}};',
@@ -248,7 +248,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
-				'default'	=> '#ffffff',
+				'default'	=> '#8868fe',
 				'selectors'	=> [
 					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'color: {{VALUE}};',
@@ -278,7 +278,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#8868fe',
+				'default' => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action:hover' => 'color: {{VALUE}};'
 				],
@@ -290,7 +290,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#ffffff',
+				'default' => '#8868fe',
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-1 .exad-button-action::before' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-2 .exad-button-action:before, {{WRAPPER}} .exad-button .exad-button-wrapper.effect-2 .exad-button-action:after' => 'background: {{VALUE}};',

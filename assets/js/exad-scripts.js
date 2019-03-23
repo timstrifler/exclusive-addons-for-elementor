@@ -5,7 +5,6 @@
 
 	var TeamCarousel = function ($scope, $) {
 		var $teamCarouselWrapper = $scope.find('.exad-team-carousel-wrapper').eq(0),
-		$team_preset = $teamCarouselWrapper.data("team-preset"),
 		$carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
 		$loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
 		$slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
@@ -15,9 +14,7 @@
 		$transitionSpeed = $teamCarouselWrapper.data("speed"),
 		$pauseOnHover = ($teamCarouselWrapper.data("pauseOnHover") !== undefined) ? $teamCarouselWrapper.data("pauseOnHover") : false;
 
-
 		// Team Carousel 
-
 		if ($carousel_nav == "arrows" ) {
 			var arrows = true;
 			var dots = false;
@@ -61,7 +58,6 @@
 	// Testimonial Carousel
 	var TestimonialCarousel = function ($scope, $) {
 		var $testimonialCarouselWrapper = $scope.find('.exad-testimonial-carousel-wrapper').eq(0),
-		$testimonial_preset = $testimonialCarouselWrapper.data("testimonial-preset"),
 		$loop = ($testimonialCarouselWrapper.data("loop") !== undefined) ? $testimonialCarouselWrapper.data("loop") : false,
 		$slidesToShow = ($testimonialCarouselWrapper.data("slidestoshow") !== undefined) ? $testimonialCarouselWrapper.data("slidestoshow") : 1,
 		$slidesToScroll = ($testimonialCarouselWrapper.data("slidestoscroll") !== undefined) ? $testimonialCarouselWrapper.data("slidestoscroll") : 1,
@@ -70,7 +66,6 @@
 		$transitionSpeed = $testimonialCarouselWrapper.data("speed"),
 		$dots = ($testimonialCarouselWrapper.data("carousel-dot") !== undefined) ? $testimonialCarouselWrapper.data("carousel-dot") : false,
 		$pauseOnHover = ($testimonialCarouselWrapper.data("pauseOnHover") !== undefined) ? $testimonialCarouselWrapper.data("pauseOnHover") : false;
-
 
 		$testimonialCarouselWrapper.slick({
 			infinite: $loop,
@@ -202,9 +197,7 @@
 	
 	// Accordion one script
 	var ExclusiveAccordion = function($scope, $) {
-		var $accordionWrapper = $scope.find('.exad-accordion-six'),
-			$accordionTitle = $scope.find('.exad-accordion-title');
-
+		var $accordionTitle = $scope.find('.exad-accordion-title').eq(0);
 
 			// Open default actived tab
             $accordionTitle.each(function(){
@@ -236,8 +229,8 @@
 	// Exclusive Tabs 
 	var ExclusiveTabs = function($scope, $) {
 		// Advance tab script
-		var $tabsWrapper = $scope.find('[data-tabs]');
-		$tabsWrapper.each( function(index) {
+		var $tabsWrapper = $scope.find('[data-tabs]').eq(0);
+		$tabsWrapper.each( function() {
 			var tab = $(this);
 			var isTabActive = false;
 			var isContentActive = false;
@@ -269,7 +262,7 @@
 	// Exclusive Button 
 	var ExclusiveButton = function($scope, $) {
 		// position on hover a button in button style seven
-		var $mouseHoverEffect8 = $scope.find('.effect-8.mouse-hover-effect');
+		var $mouseHoverEffect8 = $scope.find('.effect-8.mouse-hover-effect').eq(0);
 		
 		$mouseHoverEffect8.on('mouseenter', function (e) {
 		  	var parentOffset = $(this).offset(),
