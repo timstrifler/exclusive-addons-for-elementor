@@ -1999,7 +1999,7 @@ ul.exad-pricing-table-features {
           transform: translate(-50%, -50%);
 }
 
-[class*="exad-progress-bar-"].circle h6 {
+[class*="exad-progress-bar-"].circle h3 {
   position: absolute;
   bottom: -20px;
   left: 50%;
@@ -2011,7 +2011,7 @@ ul.exad-pricing-table-features {
   position: relative;
 }
 
-[class*="exad-progress-bar-"].fan h6 {
+[class*="exad-progress-bar-"].fan h3 {
   position: absolute;
   bottom: -20px;
   left: 50%;

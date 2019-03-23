@@ -210,7 +210,7 @@ final class Exclusive_Addons_Elementor {
 
 		$is_activated_widget = $this->activated_widgets();
         
-		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/main-style.css' );
+		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
 				
         wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 		
@@ -225,7 +225,7 @@ final class Exclusive_Addons_Elementor {
 			wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
 		}
         
-		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/main-script.js', array( 'jquery' ), 1.0, true );
+		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), 1.0, true );
         
     }
 

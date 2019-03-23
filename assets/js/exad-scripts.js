@@ -139,7 +139,6 @@
 			var id = element.data('id');
 			var type = element.data('type');
 			var value = element.data('progress-bar-value');
-			//var duration = element.data('progress-duration');
 			var strokeWidth = element.data('progress-bar-stroke-width');
 			var strokeTrailWidth = element.data('progress-bar-stroke-trail-width');
 			var color = element.data('stroke-color');

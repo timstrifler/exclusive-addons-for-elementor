@@ -58,8 +58,8 @@ class Exad_Admin_Settings {
 
 		wp_enqueue_style( 'exad-notice-css', plugins_url( '/', __FILE__ ).'assets/css/exad-notice.css' );
 		if( isset( $_GET['page'] ) && $_GET['page'] == 'exad-settings' ) {
-			wp_enqueue_style( 'exad-admin-css', plugins_url( '/', __FILE__ ).'assets/css/admin.css' );
-			wp_enqueue_script( 'exad-admin-js', plugins_url( '/', __FILE__ ).'assets/js/admin.js', array( 'jquery'), '1.0', true );
+			wp_enqueue_style( 'exad-admin-css', plugins_url( '/', __FILE__ ).'assets/css/exad-admin.css' );
+			wp_enqueue_script( 'exad-admin-js', plugins_url( '/', __FILE__ ).'assets/js/exad-admin.js', array( 'jquery'), '1.0', true );
 		}
 
 	}
