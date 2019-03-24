@@ -3777,9 +3777,6 @@ text-align: right;
   text-decoration: none;
   position: relative;
   transition: all .3s ease;
-  border-radius: 40px;
-  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
-  transition: all .3s ease;
 }
 
 .exad-button .exad-button-wrapper.effect-11 .exad-button-action::before {
