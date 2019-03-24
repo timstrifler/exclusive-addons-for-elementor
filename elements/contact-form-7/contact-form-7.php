@@ -344,7 +344,6 @@ class Exad_Contact_Form extends Widget_Base {
                 'selectors'             => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-select' => 'color: {{VALUE}}',
                 ],
-				'separator'         => 'before',
             ]
         );
         
@@ -355,7 +354,11 @@ class Exad_Contact_Form extends Widget_Base {
 			[
 				'label'                 => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+                'size_units'            => [ 'px', 'em', '%' ],
+                'default' => [
+                    'unit' => 'px',
+					'size' => 15,
+                ],
 				'selectors'             => [
 					'{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -364,9 +367,9 @@ class Exad_Contact_Form extends Widget_Base {
         
         
         $this->add_responsive_control(
-            'textarea_width',
+            'exad_contact_field_width',
             [
-                'label'                 => __( 'Textarea Width', 'exclusive-addons-elementor' ),
+                'label'                 => __( 'Field Width', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::SLIDER,
                 'range'                 => [
                     'px'        => [
@@ -376,8 +379,12 @@ class Exad_Contact_Form extends Widget_Base {
                     ],
                 ],
                 'size_units'            => [ 'px', 'em', '%' ],
+                'default' => [
+                    'unit' => '%',
+					'size' => 100,
+                ],
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea' => 'width: {{SIZE}}{{UNIT}}',
+                    '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea' => 'width: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -395,11 +402,11 @@ class Exad_Contact_Form extends Widget_Base {
 		);
 
 		$this->add_control(
-			'field_radius',
+			'exad_contact_field_radius',
 			[
 				'label'                 => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
+                'size_units'            => [ 'px', 'em', '%' ],
 				'selectors'             => [
 					'{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -489,7 +496,15 @@ class Exad_Contact_Form extends Widget_Base {
             ]
         );
     
-    
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'                  => 'exad_contact_button_typography',
+                'label'                 => __( 'Button Typography', 'exclusive-addons-elementor' ),
+                'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
+                'selector'              => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]',
+            ]
+        );
 
         $this->start_controls_tabs( 'tabs_button_style' );
 
@@ -525,7 +540,7 @@ class Exad_Contact_Form extends Widget_Base {
         );
 
 		$this->add_control(
-            'button_border_color_normal',
+            'exad_contact_button_border_color_normal',
             [
                 'label'                 => __( 'Border Color', 'exclusive-addons-elementor' ),
                 'type'                  => Controls_Manager::COLOR,
@@ -535,46 +550,8 @@ class Exad_Contact_Form extends Widget_Base {
                 ],
             ]
         );
-
-		$this->add_control(
-			'button_border_radius',
-			[
-				'label'                 => __( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
-				'selectors'             => [
-					'{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'default' => [
-                    'top' => 0,
-                    'right' => 0,
-                    'bottom' => 0,
-                    'left' => 0,
-                    'unit' => 'px'
-                    ]
-			]
-		);
-
-		$this->add_control(
-			'button_padding',
-			[
-				'label'                 => __( 'Padding', 'exclusive-addons-elementor' ),
-				'type'                  => Controls_Manager::DIMENSIONS,
-				'size_units'            => [ 'px', 'em', '%' ],
-				'selectors'             => [
-					'{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-                'default' => [
-                    'top' => 20,
-                    'right' => 50,
-                    'bottom' => 20,
-                    'left' => 50,
-                    'unit' => 'px'
-                ]
-			]
-		);
         
-        
+    
         $this->end_controls_tab();
 
         $this->start_controls_tab(
@@ -623,6 +600,45 @@ class Exad_Contact_Form extends Widget_Base {
         $this->end_controls_tab();
         
         $this->end_controls_tabs();
+
+        $this->add_control(
+			'exad_contact_button_border_radius',
+			[
+				'label'                 => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+                'size_units'            => [ 'px', 'em', '%' ],
+                'separator'             => 'before',
+				'selectors'             => [
+					'{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+                'default' => [
+                    'top' => 0,
+                    'right' => 0,
+                    'bottom' => 0,
+                    'left' => 0,
+                    'unit' => 'px'
+                    ]
+			]
+		);
+
+		$this->add_control(
+			'button_padding',
+			[
+				'label'                 => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type'                  => Controls_Manager::DIMENSIONS,
+				'size_units'            => [ 'px', 'em', '%' ],
+				'selectors'             => [
+					'{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+                'default' => [
+                    'top' => 20,
+                    'right' => 50,
+                    'bottom' => 20,
+                    'left' => 50,
+                    'unit' => 'px'
+                ]
+			]
+		);
         
         $this->end_controls_section();
 
