@@ -92,10 +92,12 @@ final class Exclusive_Addons_Elementor {
 	 * @access public
 	 */
 	public function __construct() {
-
 		add_action( 'init', [ $this, 'i18n' ] );
+		// Redirect Plugin to Settings Page
+		add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
+		register_activation_hook( __FILE__ , [ $this, 'plugin_redirect_option' ] );
+		
 		add_action( 'plugins_loaded', [ $this, 'init' ] );
-
 	}
 
 	/**
@@ -167,8 +169,7 @@ final class Exclusive_Addons_Elementor {
 
 		include_once EXAD_PATH . 'includes/helper-class.php';
 
-        // Register Widget Scripts
-		//add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
+        
 
 		// Add Plugin actions
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
@@ -212,7 +213,7 @@ final class Exclusive_Addons_Elementor {
         
 		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
 				
-        wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
+        //wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 		
 		if ( $is_activated_widget['progress-bar'] ) {
 			// Progress Bar Js
@@ -360,6 +361,25 @@ final class Exclusive_Addons_Elementor {
 			}
 		}
 
+	}
+
+	/**
+	 * Plugin Redirect Option Added by register_activation_hook
+	 * 
+	 */
+	public function plugin_redirect_option() {
+		add_option( 'exad_do_update_redirect', true );
+	}
+
+	/**
+	 * Plugin Redirect Hook
+	 * 
+	 */
+	public function plugin_redirect_hook() {
+		if ( get_option( 'exad_do_update_redirect', false ) ) {
+			delete_option( 'exad_do_update_redirect' );
+			wp_redirect( 'admin.php?page=exad-settings' );
+		}
 	}
 
 }

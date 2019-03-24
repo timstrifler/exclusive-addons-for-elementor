@@ -40,7 +40,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'label' => __( 'Button Text', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => 'Click Me!',
+				'default' => 'Download!',
 				'placeholder' => __( 'Enter button text', 'exclusive-addons-elementor' ),
 				'title' => __( 'Enter button text here', 'exclusive-addons-elementor' ),
 			]
@@ -88,7 +88,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label' => esc_html__( 'Button Effect', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'effect-1',
+				'default' => 'effect-2',
 				'options' => [
 					'effect-1' 	=> esc_html__( 'Effect 1', 	'exclusive-addons-elementor' ),
 					'effect-2' 	=> esc_html__( 'Effect 2', 	'exclusive-addons-elementor' ),
@@ -136,7 +136,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				],
 				'default' => [
 					'unit' => '%',
-					'size' => 100,
+					'size' => 80,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-action' => 'width: {{SIZE}}{{UNIT}};',
@@ -179,10 +179,10 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', 'em', '%' ],
 				'default' => [
-					'top' => 20,
-					'right' => 20,
-					'bottom' => 20,
-					'left' => 20,
+					'top' => 15,
+					'right' => 15,
+					'bottom' => 15,
+					'left' => 15,
 					'unit' => 'px',
 					'isLinked' => true,
 				],
@@ -195,7 +195,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 		$this->add_control(
 			'exad_button_border_properties',
 			[
-				'label' => __( 'Border', 'plugin-name' ),
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -221,7 +221,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 10,
+					'size' => 0,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-button .exad-button-action' => 'border-radius: {{SIZE}}px;',
@@ -299,7 +299,6 @@ class Exad_Exclusive_Button extends Widget_Base {
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-5 .exad-button-action::before' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-7 .exad-button-action::before' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position' => 'background: {{VALUE}};',
-					//'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-9 .exad-button-action:hover' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-10 .exad-button-action::before' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-11 .exad-button-action:hover' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-12 .exad-button-action:hover' => 'background: {{VALUE}};',	
@@ -315,7 +314,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 		$this->add_control(
 			'exad_box_shadow_heading',
 			[
-				'label' => __( 'Box Shadow', 'plugin-name' ),
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 			]

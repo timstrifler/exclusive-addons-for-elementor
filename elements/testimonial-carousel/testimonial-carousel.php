@@ -84,7 +84,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'dynamic' => [
                     'active' => true,
                 ],
-				'default' => esc_html__( 'Add testimonial member details here', 'exclusive-addons-elementor' ),
+				'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'exclusive-addons-elementor' ),
 			]
 		);
 
@@ -128,15 +128,15 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'default' => [
 					[
 						'exad_testimonial_carousel_name' => __( 'Testimonial #1', 'exclusive-addons-elementor' ),
-						'exad_testimonial_carousel_description' => __( 'Add your Testimonial text here.', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'exclusive-addons-elementor' ),
 					],
 					[
 						'exad_testimonial_carousel_name' => __( 'Testimonial #2', 'exclusive-addons-elementor' ),
-						'exad_testimonial_carousel_description' => __( 'Add your Testimonial text here.', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'exclusive-addons-elementor' ),
 					],
 					[
 						'exad_testimonial_carousel_name' => __( 'Testimonial #3', 'exclusive-addons-elementor' ),
-						'exad_testimonial_carousel_description' => __( 'Add your Testimonial text here.', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'exclusive-addons-elementor' ),
 					],
 			]	
 			]

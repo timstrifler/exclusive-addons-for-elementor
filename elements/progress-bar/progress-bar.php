@@ -86,7 +86,7 @@ class Exad_Progress_Bar extends Widget_Base {
 			[
 				'label' => __( 'Bubble Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#ff704e',
+				'default' => '#61ce70',
 				'selectors' => [
 					'{{WRAPPER}} [class*="exad-progress-bar-"].line-bubble .ldBar-label' => 'background: {{VALUE}};',
 				],
@@ -144,7 +144,7 @@ class Exad_Progress_Bar extends Widget_Base {
 			[
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#4054b2'
+				'default' => '#704aff'
 			]
 		);
 
@@ -156,7 +156,7 @@ class Exad_Progress_Bar extends Widget_Base {
 				'min' => 0,
 				'max' => 100,
 				'step' => 1,
-				'default' => 2,
+				'default' => 5,
 			]
 		);
 
@@ -187,7 +187,7 @@ class Exad_Progress_Bar extends Widget_Base {
 				'min' => 0,
 				'max' => 100,
 				'step' => 1,
-				'default' => 2,
+				'default' => 5,
 			]
 		);
 

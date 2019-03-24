@@ -49,7 +49,7 @@ class Exad_Admin_Settings {
 	}
 
 	/**
-	 * Loading all essential scripts
+	 * Loading required scripts
 	 * @param
 	 * @return void
 	 * @since 1.1.2
@@ -168,10 +168,10 @@ class Exad_Admin_Settings {
                                     </div>
                                     <div class="exad-admin-block-header">
                                         <h4 class="exad-admin-title">Contribute to Exclusive Addons</h4>
-                                        <p>You can contribute to make Essential Addons
+                                        <p>You can contribute to make Exclusive Addons
                                             better reporting bugs, creating issues,
-                                            pull requests at <a href="https://github.com/rupok/essential-addons-elementor-lite/" target="_blank">Github.</a></p>
-                                        <a href="https://github.com/rupok/essential-addons-elementor-lite/issues/new" class="exad-admin-block-header-button" target="_blank">Report a bug</a>
+                                            pull requests at <a href="https://github.com/mmaumio/exclusive-addons-elementor/" target="_blank">Github.</a></p>
+                                        <a href="https://github.com/mmaumio/exclusive-addons-elementor/issues/new" class="exad-admin-block-header-button" target="_blank">Report a bug</a>
                                     </div>
 
 
@@ -196,7 +196,7 @@ class Exad_Admin_Settings {
                                     <div class="exad-admin-block-header">
                                         <h4 class="exad-admin-title">Documentation</h4>
                                         <p>Get started by spending some time with the documentation to get familiar with Exclusive Addons.</p>
-                                        <a href="https://essential-addons.com/elementor/docs/" class="exad-admin-block-docs-button" target="_blank">Get Support</a>
+                                        <a href="http://docs.exclusiveaddons.com/" class="exad-admin-block-docs-button" target="_blank">Get Support</a>
                                     </div>
                                 </div>
                                 <div class="exad-admin-block exad-admin-block-contribution">
@@ -214,8 +214,8 @@ class Exad_Admin_Settings {
                                     </div>
                                     <div class="exad-admin-block-header">
                                         <h4 class="exad-admin-title">Contribute to Exclusive Addons</h4>
-                                        <p>You can contribute to make Exclusive Addons better reporting bugs, creating issues, pull requests at <a href="https://github.com/rupok/essential-addons-elementor-lite/" target="_blank">Github.</a></p>
-                                        <a href="https://github.com/rupok/essential-addons-elementor-lite/issues/new" class="exad-admin-block-contribution-button" target="_blank">View Documentation</a>
+                                        <p>You can contribute to make Exclusive Addons better reporting bugs, creating issues, pull requests at <a href="https://github.com/mmaumio/exclusive-addons-elementor" target="_blank">Github.</a></p>
+                                        <a href="https://github.com/mmaumio/exclusive-addons-elementor/issues/new" class="exad-admin-block-contribution-button" target="_blank">View Documentation</a>
                                     </div>
                                 </div>
                                 <div class="exad-admin-block exad-admin-block-support">
@@ -237,8 +237,8 @@ class Exad_Admin_Settings {
                                     </div>
                                     <div class="exad-admin-block-header">
                                         <h4 class="exad-admin-title">Need Help?</h4>
-                                        <p>Stuck with something? Get help from the community on <a href="https://community.wpdeveloper.net/" target="_blank">WPDeveloper Forum</a> or <a href="https://www.facebook.com/groups/essentialaddons/" target="_blank">Facebook Community.</a> In case of emergency, initiate a live chat at <a href="https://essential-addons.com/elementor/" target="_blank">Exclusive Addons website.</a></p>
-                                        <a href="https://community.wpdeveloper.net/support-forum/forum/essential-addons-for-elementor/" class="exad-admin-block-support-button" target="_blank">leave a Review</a>
+                                        <p>Stuck with something? Get help from our Support <a href="http://exclusiveaddons.com/" target="_blank">WP</a> or <a href="https://www.facebook.com/devscred/" target="_blank">Facebook Page.</a></p>
+                                        <a href="http://exclusiveaddons.com/support/" class="exad-admin-block-support-button" target="_blank">Leave a Review</a>
                                     </div>
                                 </div>
                             </div>
