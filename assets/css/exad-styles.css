@@ -2538,6 +2538,10 @@ text-align: right;
 
 /* Contact Form 7 Start */
 
+.exad-contact-form-7 .wpcf7 {
+  width: 100%;
+}
+
 .exad-contact-form {
   display: flex;
   flex-wrap: wrap;

@@ -244,10 +244,22 @@ class Exad_Contact_Form extends Widget_Base {
          * -------------------------------------------------
          */
         $this->start_controls_section(
-            'section_fields_title_description',
+            'exad_contact_section_title',
             [
                 'label'                 => __( 'Title', 'exclusive-addons-elementor' ),
                 'tab'                   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'title_text_color',
+            [
+                'label'                 => __( 'Color', 'exclusive-addons-elementor' ),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '',
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-contact-form-7 .exad-contact-form-7-title' => 'color: {{VALUE}}',
+                ],
             ]
         );
         
@@ -277,34 +289,14 @@ class Exad_Contact_Form extends Widget_Base {
             ]
         );
         
-        $this->add_control(
-            'title_heading',
-            [
-                'label'                 => __( 'Title', 'exclusive-addons-elementor' ),
-                'type'                  => Controls_Manager::HEADING,
-                'separator'             => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'title_text_color',
-            [
-                'label'                 => __( 'Text Color', 'exclusive-addons-elementor' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-contact-form-7 label' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
         
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'                  => 'title_typography',
+                'name'                  => 'exad_contact_title_typography',
                 'label'                 => __( 'Typography', 'exclusive-addons-elementor' ),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '{{WRAPPER}} .exad-contact-form-7 label',
+                'selector'              => '{{WRAPPER}} .exad-contact-form-7 .exad-contact-form-7-title',
             ]
         );
         

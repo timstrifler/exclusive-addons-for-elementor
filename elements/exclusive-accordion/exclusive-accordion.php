@@ -62,7 +62,7 @@ class Exclusive_Accordion extends Widget_Base {
 						'name'		=> 'exad_exclusive_accordion_title_icon',
 						'label'		=> esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::ICON,
-						'default'	=> 'fa fa-plus',
+						'default'	=> 'fa fa-anchor',
 						'condition' => [
 							'exad_exclusive_accordion_icon_show' => 'yes'
 						]

@@ -197,7 +197,7 @@
 	
 	// Accordion one script
 	var ExclusiveAccordion = function($scope, $) {
-		var $accordionTitle = $scope.find('.exad-accordion-title').eq(0);
+		var $accordionTitle = $scope.find('.exad-accordion-title');
 
 			// Open default actived tab
             $accordionTitle.each(function(){
