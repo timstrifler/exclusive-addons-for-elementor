@@ -1,0 +1,31 @@
+{
+  "name": "exclusiveAddonsElementor",
+  "version": "1.0.0",
+  "description": "exclusiveAddonsElementor by Devscred",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:mmaumio/exclusive-addons-elementor.git"
+  },
+  "keywords": [
+    "exclusive",
+    "addons",
+    "elementor",
+    "wordpress"
+  ],
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-rename": "latest",
+    "gulp-postcss": "latest",
+    "gulp-cssnano": "latest",
+    "postcss-object-fit-images": "latest",
+    "del": "latest",
+    "gulp-zip": "latest",
+    "run-sequence": "latest",
+    "gulp-wp-pot": "latest"
+  }
+}

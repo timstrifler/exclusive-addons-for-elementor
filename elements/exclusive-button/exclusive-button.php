@@ -42,7 +42,6 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'label_block' => true,
 				'default' => 'Download!',
 				'placeholder' => __( 'Enter button text', 'exclusive-addons-elementor' ),
-				'title' => __( 'Enter button text here', 'exclusive-addons-elementor' ),
 			]
 		);
 
@@ -113,7 +112,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 			'name' => 'exad_exclusive_button_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action',
+				'selector' => '{{WRAPPER}} .exad-button-wrapper .exad-button-action',
 			]
 		);
 
@@ -139,7 +138,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 					'size' => 80,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-action' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-button-wrapper .exad-button-action' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -166,7 +165,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				],
 				'default' => 'center',
 				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-wrapper' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -187,7 +186,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 					'isLinked' => true,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-button-wrapper .exad-button-action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
@@ -205,7 +204,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'		=> 'exad_exclusive_button_border',
-				'selector'	=> '{{WRAPPER}} .exad-button .exad-button-action',
+				'selector'	=> '{{WRAPPER}} .exad-button-wrapper .exad-button-action',
 			]
 		);
 
@@ -224,8 +223,8 @@ class Exad_Exclusive_Button extends Widget_Base {
 					'size' => 0,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-action' => 'border-radius: {{SIZE}}px;',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-1 .exad-button-action::before' => 'border-radius: {{SIZE}}px;'
+					'{{WRAPPER}} .exad-button-wrapper .exad-button-action' => 'border-radius: {{SIZE}}px;',
+					'{{WRAPPER}} .exad-button-wrapper.effect-1 .exad-button-action::before' => 'border-radius: {{SIZE}}px;'
 				],
 			]
 		);
@@ -250,7 +249,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#8868fe',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper .exad-button-action' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::after' => 'color: {{VALUE}};',
 				],
@@ -263,7 +262,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'name' => 'background',
 				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action',
+				'selector' => '{{WRAPPER}} .exad-button-wrapper .exad-button-action',
 			]
 		);
 
@@ -280,7 +279,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-wrapper .exad-button-action:hover' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-button-wrapper .exad-button-action:hover' => 'color: {{VALUE}};'
 				],
 			]
 		);
@@ -292,16 +291,16 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#8868fe',
 				'selectors' => [
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-1 .exad-button-action::before' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-2 .exad-button-action:before, {{WRAPPER}} .exad-button .exad-button-wrapper.effect-2 .exad-button-action:after' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-3 .exad-button-action::before' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-4 .exad-button-action::after' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-5 .exad-button-action::before' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-7 .exad-button-action::before' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-10 .exad-button-action::before' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-11 .exad-button-action:hover' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button .exad-button-wrapper.effect-12 .exad-button-action:hover' => 'background: {{VALUE}};',	
+					'{{WRAPPER}} .exad-button-wrapper.effect-1 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-2 .exad-button-action:before, {{WRAPPER}} .exad-button-wrapper.effect-2 .exad-button-action:after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-3 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-4 .exad-button-action::after' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-5 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-7 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-10 .exad-button-action::before' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-11 .exad-button-action:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-button-wrapper.effect-12 .exad-button-action:hover' => 'background: {{VALUE}};',	
 				],
 			]
 		);
@@ -324,7 +323,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name' => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} .exad-button .exad-button-action',
+				'selector' => '{{WRAPPER}} .exad-button-wrapper .exad-button-action',
 			]
 		);		
 		
@@ -352,18 +351,18 @@ class Exad_Exclusive_Button extends Widget_Base {
 		}
 
 	?>
-	<div class="exad-button">
-		<div <?php echo $this->get_render_attribute_string( 'exad_exclusive_button' ); ?>>
-			<a href="<?php echo esc_attr($settings['exclusive_button_link_url']['url'] ); ?>" class="exad-button-action">
-				<?php if ( ! empty( $settings['exad_exclusive_button_icon'] ) ) : ?>
-					<span><i class="<?php echo esc_attr($settings['exad_exclusive_button_icon'] ); ?>" aria-hidden="true"></i></span>
-				<?php endif; ?>
-				<?php echo  $settings['exclusive_button_text']; ?>
-				<?php if ( 'effect-8' == $settings['exclusive_button_effect'] ) { ?>
-					<span class="effect-8-position"></span>	
-				<?php } ?>	
-			</a>
-		</div>
+	
+	<div <?php echo $this->get_render_attribute_string( 'exad_exclusive_button' ); ?>>
+		<a href="<?php echo esc_attr($settings['exclusive_button_link_url']['url'] ); ?>" class="exad-button-action">
+			<?php if ( ! empty( $settings['exad_exclusive_button_icon'] ) ) : ?>
+			<span><i class="<?php echo esc_attr($settings['exad_exclusive_button_icon'] ); ?>"></i></span>
+			<?php endif; ?>
+			<?php echo esc_html($settings['exclusive_button_text']); ?>
+			<?php if ( 'effect-8' == $settings['exclusive_button_effect'] ) { ?>
+				<span class="effect-8-position"></span>	
+			<?php } ?>	
+		</a>
+	</div>	
 	
 	<?php
 	}
@@ -379,16 +378,14 @@ class Exad_Exclusive_Button extends Widget_Base {
 		view.addRenderAttribute( 'exad_exclusive_button', 'class', [ 'exad-button-wrapper', settings.exclusive_button_effect ] );
 	#>	
 
-	<div class="exad-button">
-		<div {{{ view.getRenderAttributeString( 'exad_exclusive_button' ) }}}>
-			<a href="{{ settings.exclusive_button_link_url.url }}" class="exad-button-action">
-				<span><i class="{{ settings.exad_exclusive_button_icon }}" aria-hidden="true"></i></span>
-				{{{ settings.exclusive_button_text }}}
-				<# if ( 'effect-8' == settings.exclusive_button_effect ) { #>
-					<span class="effect-8-position"></span>	
-				<# } #>
-			</a>
-		</div>
+	<div {{{ view.getRenderAttributeString( 'exad_exclusive_button' ) }}}>
+		<a href="{{ settings.exclusive_button_link_url.url }}" class="exad-button-action">
+			<span><i class="{{ settings.exad_exclusive_button_icon }}" aria-hidden="true"></i></span>
+			{{{ settings.exclusive_button_text }}}
+			<# if ( 'effect-8' == settings.exclusive_button_effect ) { #>
+				<span class="effect-8-position"></span>	
+			<# } #>
+		</a>
 	</div>
 
 	<?php	
