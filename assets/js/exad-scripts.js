@@ -59,6 +59,7 @@
 	var TestimonialCarousel = function ($scope, $) {
 		var $testimonialCarouselWrapper = $scope.find('.exad-testimonial-carousel-wrapper').eq(0),
 		$loop = ($testimonialCarouselWrapper.data("loop") !== undefined) ? $testimonialCarouselWrapper.data("loop") : false,
+		$responsiveTestimonial =  ( $testimonialCarouselWrapper.data("testimonial-preset") == '-circle' ) ? 2 : 1,
 		$slidesToShow = ($testimonialCarouselWrapper.data("slidestoshow") !== undefined) ? $testimonialCarouselWrapper.data("slidestoshow") : 1,
 		$slidesToScroll = ($testimonialCarouselWrapper.data("slidestoscroll") !== undefined) ? $testimonialCarouselWrapper.data("slidestoscroll") : 1,
 		$autoPlay = ($testimonialCarouselWrapper.data("autoplay") !== undefined) ? $testimonialCarouselWrapper.data("autoplay") : false,
@@ -87,7 +88,7 @@
 				{
 					breakpoint: 1024,
 					settings: {
-						slidesToShow: 2,
+						slidesToShow: $responsiveTestimonial,
 					},
 				},	
 				{

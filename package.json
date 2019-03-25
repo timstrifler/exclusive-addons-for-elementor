@@ -17,15 +17,16 @@
     "wordpress"
   ],
   "devDependencies": {
-    "gulp": "latest",
-    "gulp-autoprefixer": "latest",
-    "gulp-rename": "latest",
-    "gulp-postcss": "latest",
-    "gulp-cssnano": "latest",
-    "postcss-object-fit-images": "latest",
+    "autoprefixer": "latest",
+    "cssnano": "latest",
     "del": "latest",
+    "gulp": "latest",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "latest",
+    "gulp-uglify": "^3.0.2",
+    "gulp-wp-pot": "latest",
     "gulp-zip": "latest",
-    "run-sequence": "latest",
-    "gulp-wp-pot": "latest"
+    "postcss-object-fit-images": "latest",
+    "run-sequence": "latest"
   }
 }

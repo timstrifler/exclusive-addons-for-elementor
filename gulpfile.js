@@ -20,15 +20,17 @@
  */
 
 var gulp = require('gulp');
+//var pjson = require('./package.json');
 var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
-var cssnano = require('gulp-cssnano');
+var cssnano = require('cssnano');
 var objectfit = require('postcss-object-fit-images');
 var zip = require('gulp-zip');
 var rename = require('gulp-rename');
 var del = require('del');
 var runSequence = require('run-sequence');
 var pot = require('gulp-wp-pot');
+var uglify = require('gulp-uglify');
 
 
 /**
@@ -111,7 +113,7 @@ gulp.task('cleanmin', function () {
 /**
  * Copies all files to the dist folder
  */
-gulp.task('copy', ['clean', 'cssmin', 'jsmin'], function () {
+gulp.task('copy', gulp.series('clean', 'cssmin', 'jsmin'), function () {
     return gulp.src([
             '**/*',
             '!.gitignore',
@@ -128,7 +130,7 @@ gulp.task('copy', ['clean', 'cssmin', 'jsmin'], function () {
  * (has task that copies all required theme files
  * to dist folder)
  */
-gulp.task('zip', ['copy'], function () {
+gulp.task('zip', gulp.series('copy'), function () {
     return gulp.src('dist/**/*')
         .pipe(zip('exclusiveAddonsElementor.zip'))
         .pipe(gulp.dest('dist'))
@@ -160,4 +162,4 @@ gulp.task('prod', function(callback) {
 /**
  * Minifies and concatenates JS and CSS
  */
-gulp.task('default', ['cssmin', 'jsmin']);
+gulp.task('default', gulp.series('cssmin', 'jsmin') );
