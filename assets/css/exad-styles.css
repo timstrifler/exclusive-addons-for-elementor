@@ -1261,6 +1261,7 @@
 .exad-testimonial-carousel-single .exad-testimonial-carousel-inner {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
 .exad-testimonial-carousel-single .exad-testimonial-carousel-inner .exad-testimonial-carousel-inner-left {
@@ -2321,6 +2322,8 @@ text-align: right;
 
 .exad-infobox-content-title {
   font-size: 24px;
+  line-height: 1;
+  margin: 0 0 10px 0;
   font-family: "Roboto", sans-serif;
 }
 .exad-infobox-content-description {
@@ -2458,13 +2461,10 @@ text-align: right;
   padding: 10px 0 0 12px;
 }
 
-.exad-infobox.four .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
-  margin: 0;
-}
+
 
 .exad-infobox.four .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
-  line-height: 26px;
-  margin: 15px 0 0 0;
+  margin: 0;
 }
 
 .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon {
@@ -2511,8 +2511,7 @@ text-align: right;
 }
 
 .exad-infobox.five .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
-  line-height: 26px;
-  margin: 20px 0 0 0;
+  line-height: 2;
 }
 
 .exad-infobox.five .exad-infobox-item {
