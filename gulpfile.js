@@ -30,6 +30,7 @@ var rename = require('gulp-rename');
 var del = require('del');
 var runSequence = require('run-sequence');
 var pot = require('gulp-wp-pot');
+var uglify = require('gulp-uglify');
 
 
 /**
@@ -83,6 +84,7 @@ gulp.task('jsmin', function () {
             '!dist/**/*',
             '!node_modules/**/*'
         ])
+        .pipe(uglify())
         .pipe(rename(function (path) {
             path.extname = ".min.js"
         }))

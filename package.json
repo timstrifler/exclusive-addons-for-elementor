@@ -18,11 +18,12 @@
   ],
   "devDependencies": {
     "autoprefixer": "latest",
+    "cssnano": "latest",
     "del": "latest",
     "gulp": "latest",
-    "cssnano": "latest",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "latest",
+    "gulp-uglify": "^3.0.2",
     "gulp-wp-pot": "latest",
     "gulp-zip": "latest",
     "postcss-object-fit-images": "latest",
