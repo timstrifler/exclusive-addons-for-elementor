@@ -68,8 +68,8 @@ gulp.task('cssmin', function () {
         .pipe(rename(function (path) {
             path.extname = ".min.css"
         }))
-        .pipe(gulp.dest('./'));
-        // .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('./dist'));
 });
 
 
@@ -113,24 +113,27 @@ gulp.task('cleanmin', function () {
 /**
  * Copies all files to the dist folder
  */
-gulp.task('copy', gulp.series('clean', 'cssmin', 'jsmin'), function () {
+gulp.task('copy', function () {
     return gulp.src([
-            '**/*',
-            '!.gitignore',
-            '!package.json',
-            '!gulpfile.js',
-            '!dist/**/*',
-            '!node_modules/**/*'
-        ])
-        .pipe(gulp.dest('./dist/exclusiveAddonsElementor'));
+        '**/*',
+        '!.gitignore',
+        '!package.json',
+        '!package-lock.json',
+        '!gulpfile.js',
+        '!dist/**/*',
+        '!node_modules/**/*'
+    ])
+    .pipe(gulp.dest('dist/exclusiveAddonsElementor'));
 });
+
+
 
 /**
  * Creates the zip file for the theme from dist folder
  * (has task that copies all required theme files
  * to dist folder)
  */
-gulp.task('zip', gulp.series('copy'), function () {
+gulp.task('zip', function () {
     return gulp.src('dist/**/*')
         .pipe(zip('exclusiveAddonsElementor.zip'))
         .pipe(gulp.dest('dist'))
@@ -156,10 +159,10 @@ gulp.task('pot', function () {
  * and finally creates a new theme zip
  */
 gulp.task('prod', function(callback) {
-    return runSequence( 'pot', 'zip', callback);
+    return runSequence( 'clean', 'cssmin', 'jsmin', 'pot', 'copy', 'zip', callback);
 });
 
 /**
  * Minifies and concatenates JS and CSS
  */
-gulp.task('default', gulp.series('cssmin', 'jsmin') );
+gulp.task('default', ['cssmin', 'jsmin'] );

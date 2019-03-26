@@ -20,7 +20,7 @@
     "autoprefixer": "latest",
     "cssnano": "latest",
     "del": "latest",
-    "gulp": "latest",
+    "gulp": "^3.9.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "latest",
     "gulp-uglify": "^3.0.2",
