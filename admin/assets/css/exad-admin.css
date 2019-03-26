@@ -453,20 +453,30 @@ textarea.exad-form-control {
     border-bottom: 1px dotted #949494;
 }
 
+
+/* exad-admin-block wrapper section */
+
 .exad-admin-block-wrapper {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
 }
 
-.exad-admin-block-wrapper .exad-admin-block {
-    padding: 20px;
-    background-color: #fff;
-    flex: 1 1 auto;
-    min-width: 250px;
-    width: 400px;
+.exad-admin-block-wrapper .exad-admin-block{
+    width: 44%;
+    padding: 30px;
+}
 
+.exad-admin-block-banner,.exad-admin-block-docs,.exad-admin-block-contribution,.exad-admin-block-support{
+    display: flex;
+}
 
+.exad-admin-block-header-icon{
+    flex-basis: 40px;
+}
+.exad-admin-block-header{
+    flex-basis: calc(100% - 70px);
+    padding: 0 0 0 30px;
 }
 
 .exad-admin-block-large,
@@ -478,65 +488,32 @@ textarea.exad-form-control {
 }
 
 .exad-admin-block-wrapper .exad-admin-block.exad-admin-block-banner {
-    /*    padding: 8px;*/
-}
 
-.exad-admin-block-header {
-    background-color: #fff;
-    align-content: center;
-    align-items: center;
-    padding: 0 64px;
-    margin-bottom: 25px;
 }
-
 .exad-admin-block-banner > .exad-admin-block-header-icon {
-    /*
-    width: 42px;
-    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
-    padding: 10px;
-*/
     width: 40px;
     height: 40px;
-    float: left;
     background: linear-gradient(90deg, #FC6A28 0%, #F94045 100%);
     border-radius: 4px;
 }
 
 .exad-admin-block-docs > .exad-admin-block-header-icon {
-    /*
-    width: 42px;
-    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
-    padding: 10px;
-*/
     width: 40px;
     height: 40px;
-    float: left;
     background: linear-gradient(90deg, #85BF49 0%, #56AC4D 100%);
     border-radius: 4px;
 }
 
 .exad-admin-block-contribution > .exad-admin-block-header-icon {
-    /*
-    width: 42px;
-    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
-    padding: 10px;
-*/
     width: 40px;
     height: 40px;
-    float: left;
     background: linear-gradient(90deg, rgba(117, 224, 250, 1) 0%, rgba(44, 158, 186, 1) 100%);
     border-radius: 4px;
 }
 
 .exad-admin-block-support > .exad-admin-block-header-icon {
-    /*
-    width: 42px;
-    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1);
-    padding: 10px;
-*/
     width: 40px;
     height: 40px;
-    float: left;
     background: linear-gradient(90deg, #FF8047 0%, #F94045 100%);
     border-radius: 4px;
 }
@@ -550,7 +527,7 @@ textarea.exad-form-control {
 .exad-admin-block-header p {
     color: #949494;
     font-size: 15px;
-    margin-bottom: 65px;
+    margin-bottom: 50px;
 }
 
 .exad-admin-block-review .exad-admin-block-header-icon svg {
@@ -596,6 +573,7 @@ textarea.exad-form-control {
     color: #fff;
     text-decoration: none;
     border-radius: 3px;
+    display: inline-block;
 }
 
 
@@ -607,6 +585,7 @@ textarea.exad-form-control {
     color: #fff;
     text-decoration: none;
     border-radius: 3px;
+    display: inline-block;
 }
 
 .exad-admin-block-contribution-button {
@@ -617,6 +596,7 @@ textarea.exad-form-control {
     color: #fff;
     text-decoration: none;
     border-radius: 3px;
+    display: inline-block;
 }
 
 .exad-admin-block-support-button {
@@ -627,6 +607,13 @@ textarea.exad-form-control {
     color: #fff;
     text-decoration: none;
     border-radius: 3px;
+    display: inline-block;
+}
+
+.exad-admin-block-header-button,.exad-admin-block-docs-button,.exad-admin-block-contribution-button,.exad-admin-block-support-button:focus{
+    outline: 0 !important;
+    color: #fff !important;
+    box-shadow: none !important;
 }
 
 /*exad-admin-block-banner-content*/
@@ -767,5 +754,23 @@ textarea.exad-form-control {
 @media (max-width:726px) {
     .exad-elements-dashboard-title .exad-dashboard-section-title {
         font-size: 15px;
+    }
+}
+
+@media (max-width:1300px) {
+    .exad-admin-block-wrapper .exad-admin-block{
+        width: 42%;
+    }
+}
+@media (max-width:1100px) {
+    .exad-admin-block-wrapper .exad-admin-block{
+        width: 100%;
+    }
+    .exad-admin-block-banner{
+        border-right: none;
+    }
+    .exad-admin-block-contribution{
+        border-right: none;
+        border-bottom: 1px dashed rgba(151, 151, 151, 0.4);
     }
 }
