@@ -942,12 +942,12 @@
 /* Testimonial Carousel Basic */
 
 .exad-testimonial-carousel-basic {
-  background: #fff;
   box-shadow: 0px 24px 81px 0px rgba(9, 24, 33, 0.1);
   text-align: left;
   padding: 100px;
   margin-left: 70px;
   position: relative;
+  margin-bottom: 50px;
 }
 
 .exad-testimonial-carousel-basic::before {

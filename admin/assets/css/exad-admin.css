@@ -780,3 +780,33 @@ textarea.exad-form-control {
         border-bottom: 1px dashed rgba(151, 151, 151, 0.4);
     }
 }
+
+@media (max-width:450px) {
+    .exad-admin-block-header{
+        padding: 0 0 0 10px;
+        text-align: center;
+    }
+    .exad-admin-block-wrapper .exad-admin-block {
+        padding: 30px 0;
+    }
+    .exad-admin-general-wrapper .exad-admin-general-inner {
+        max-width: 100%;
+    }
+    .exad-admin-block-banner,.exad-admin-block-docs,.exad-admin-block-contribution,.exad-admin-block-support{
+        display: block;
+    }
+    .exad-admin-block-header-icon{
+        margin: 15px auto;
+        position: relative;
+    }
+    .exad-admin-block-header-icon svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        margin: 0;
+    }
+    .exad-dashboard-tab .exad-admin-title {
+        white-space: pre-wrap;
+    }
+ }
