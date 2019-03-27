@@ -5,7 +5,7 @@
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
  * Version: 1.0.0
  * Author: DevsCred
- * Author URI: http://exclusiveaddons.com/
+ * Author URI: http://devscred.com/
  * Text Domain: exclusive-addons-elementor
  * Domain Path: /languages
  * License: GPL3
@@ -211,11 +211,11 @@ final class Exclusive_Addons_Elementor {
 
 		$is_activated_widget = $this->activated_widgets();
         
-		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.min.css' );
+		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
 		
 		if ( $is_activated_widget['progress-bar'] ) {
 			// Progress Bar Js
-			wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.min.js', array( 'jquery' ), 1.0, true );
+			wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), 1.0, true );
 			// Waypoints js
 			wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), 1.0, true );
 		}
@@ -224,7 +224,7 @@ final class Exclusive_Addons_Elementor {
 			wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
 		}
         
-		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.min.js', array( 'jquery' ), 1.0, true );
+		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), 1.0, true );
         
     }
 

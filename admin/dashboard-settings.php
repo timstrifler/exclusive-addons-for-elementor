@@ -60,10 +60,10 @@ class Exad_Admin_Settings {
 	 */
 	public function enqueue_exad_admin_scripts() {
 
-		wp_enqueue_style( 'exad-notice-css', plugins_url( '/', __FILE__ ).'assets/css/exad-notice.min.css' );
+		wp_enqueue_style( 'exad-notice-css', plugins_url( '/', __FILE__ ).'assets/css/exad-notice.css' );
 		if( isset( $_GET['page'] ) && $_GET['page'] == 'exad-settings' ) {
-			wp_enqueue_style( 'exad-admin-css', plugins_url( '/', __FILE__ ).'assets/css/exad-admin.min.css' );
-			wp_enqueue_script( 'exad-admin-js', plugins_url( '/', __FILE__ ).'assets/js/exad-admin.min.js', array( 'jquery'), '1.0', true );
+			wp_enqueue_style( 'exad-admin-css', plugins_url( '/', __FILE__ ).'assets/css/exad-admin.css' );
+			wp_enqueue_script( 'exad-admin-js', plugins_url( '/', __FILE__ ).'assets/js/exad-admin.js', array( 'jquery'), '1.0', true );
 		}
 
 	}
@@ -128,8 +128,8 @@ class Exad_Admin_Settings {
 
             <div class="exad-dashboard-tabs-wrapper">
                 <ul class="exad-dashboard-tabs">
-                    <li><a href="#general" class="active"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/Setting, Preferences, User, Interface, Ui, Gear.png'; ?>"><span>General</span></a></li>
-                    <li><a href="#elements"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/Layer, Stack, Data, Layers, Tool.png'; ?>"><span>Elements</span></a></li>
+                    <li><a href="#general" class="active"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/settings-icon.png'; ?>"><span>General</span></a></li>
+                    <li><a href="#elements"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/elements-icon.png'; ?>"><span>Elements</span></a></li>
                 </ul>
                 <div id="general" class="exad-dashboard-tab active">
                     <div class="exad-row exad-admin-general-wrapper">
@@ -252,7 +252,7 @@ class Exad_Admin_Settings {
                     <div class="exad-row">
                         <div class="exad-full-width">
                             <div class="exad-elements-dashboard-title">
-                                <img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/raw/Plus, Add, Inset, Append, Circle, Attach.svg'; ?>">
+                                <img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/elements-dashboard.svg'; ?>">
                                 <h4 class="exad-dashboard-section-title">Deactivate elements for better performance</h4>
                                 <p class="exad-dashboard-section-title-p-tag">You can deactivate those elements that you do not intend to use to avoid loading scripts and files related to those elements.</p>
                             </div>

@@ -261,7 +261,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);
 
 		?>
-		<div  id = "exad-countdown-"<?php echo esc_attr( $this->get_id() ); ?> class="exad-countdown-content-container">
+		<div  id ="exad-countdown-<?php echo esc_attr( $this->get_id() ); ?>" class="exad-countdown-content-container">
 			<div <?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute') ?>></div>
 		</div>
 		<?php
