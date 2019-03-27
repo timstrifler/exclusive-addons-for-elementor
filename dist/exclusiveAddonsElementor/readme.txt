@@ -3,12 +3,12 @@ Contributors: devscred, mmaumio
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern
 Requires at least: 4.6
 Tested up to: 5.1.1
-Stable tag: 4.3
+Stable tag: 1.0
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
-Packed with a bunch of Exclusively designed widget for Elementor that you'll love on the first glance.
+Packed with a bunch of Exclusively designed widget for Elementor that you'll love on the first glance, we believe.
 
 == Description ==
 
