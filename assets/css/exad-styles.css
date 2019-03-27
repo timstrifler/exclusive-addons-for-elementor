@@ -8,7 +8,9 @@
 }
 
 /* Team Global Styles */
-
+.exad-team-item {
+  margin-bottom: 32px;
+}
 .exad-team-member-name {
   font-size: 22px;
   font-family: "Roboto", sans-serif;
@@ -17,6 +19,7 @@
 }
 .exad-team-member-content {
   color: #8a8d91;
+  padding: 10px;
 }
 .exad-team-member-designation {
   font-size: 15px;
@@ -29,7 +32,6 @@
 /* Team Member Basic Start */
 
 .exad-team-member-basic {
-  margin-bottom: 20px;
   box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
 }
 
@@ -72,7 +74,6 @@
 .exad-team-member-circle {
   padding: 70px 40px 30px;
   box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
-  background: #fff;
   text-align: center;
   border-radius: 5px;
 }
@@ -940,6 +941,9 @@
 /* Card Style End */
 
 /* Testimonial Carousel Basic */
+.exad-testimonial-carousel-wrapper {
+  background: #DDD;
+}
 
 .exad-testimonial-carousel-basic {
   box-shadow: 0px 24px 81px 0px rgba(9, 24, 33, 0.1);
@@ -947,7 +951,9 @@
   padding: 100px;
   margin-left: 70px;
   position: relative;
-  margin-bottom: 50px;
+}
+.exad-testimonial-carousel-basic.slick-dotted.slick-slider {
+  margin-bottom: 80px;
 }
 
 .exad-testimonial-carousel-basic::before {
@@ -1274,18 +1280,19 @@
 }
 
 .exad-testimonial-carousel-single .exad-testimonial-carousel-name {
-  font-size: 20px;
+  font-size: 22px;
   font-family: "Roboto", sans-serif;
   margin-bottom: 5px;
 }
 
 .exad-testimonial-carousel-single .exad-testimonial-carousel-designation {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   margin-bottom: 25px;
 }
 
 .exad-testimonial-carousel-single .exad-testimonial-carousel-quote {
+  font-size: 16px;
   color: #132c47;
   margin-bottom: 25px;
 }

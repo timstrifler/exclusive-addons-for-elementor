@@ -1,6 +1,5 @@
 === Exclusive Addons for Elementor ===
-Contributors: mmaumio, devscred
-Donate link: https://example.com/
+Contributors: devscred, mmaumio
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern
 Requires at least: 4.6
 Tested up to: 5.1.1
@@ -22,19 +21,19 @@ Even if you don't, we have a bunch of options for you to design them according t
 [Check out our Demos](http://exclusiveaddons.com/)
 
 
-### Weekly Updates with New Element
+## Weekly Updates with New Element
 We'll update Exclusive Addons with new Elements for you, every week.
 
-### Live Preview
+## Live Preview
 We have enabled Live Preview for most of our elements. That means you can see as you edit your elements without a delay of second.
 
-### 15 Elementor widgets
+## 15 Elementor widgets
 We have packed 15 Elementor widgets for now. We'll continue to add them as time goes on.
 
-### Light Weight & Fast Loading
+## Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
 
-### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
+## [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
 
 
 == Installation ==

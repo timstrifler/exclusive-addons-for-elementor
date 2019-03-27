@@ -231,12 +231,9 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#fff',
+				'default' => '#f9f9f9',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-circle' => 'background: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_team_members_preset' => '-circle',
+					'{{WRAPPER}} .exad-team-member-basic, {{WRAPPER}} .exad-team-member-circle, {{WRAPPER}} .exad-team-member-social-left, {{WRAPPER}} .exad-team-member-rounded' => 'background: {{VALUE}};',
 				],
 			]
 		);

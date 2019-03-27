@@ -285,6 +285,18 @@ class Exad_Team_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_team_carousel_bg',
+			[
+				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#f9f9f9',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-basic, {{WRAPPER}} .exad-team-member-circle, {{WRAPPER}} .exad-team-member-social-left, {{WRAPPER}} .exad-team-member-rounded' => 'background: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'exad_team_carousel_nav',
 			[
 				'label' => esc_html__( 'Navigation Style', 'exclusive-addons-elementor' ),

@@ -238,7 +238,7 @@ class Exad_Admin_Settings {
                                     <div class="exad-admin-block-header">
                                         <h4 class="exad-admin-title">Show your Love</h4>
                                         <p>We are continiously working to make "Exclusive Addons" better, everyday. Your kind feedback will surely encourage us to move forward with the development.</p>
-                                        <a href="https://github.com/mmaumio/exclusive-addons-elementor/issues/new" class="exad-admin-block-header-button" target="_blank">Leave a Review</a>
+                                        <a href="https://wordpress.org/plugins/exclusive-addons-for-elementor/" class="exad-admin-block-header-button" target="_blank">Leave a Review</a>
                                     </div>
                                 </div>
                             </div>
