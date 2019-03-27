@@ -941,9 +941,6 @@
 /* Card Style End */
 
 /* Testimonial Carousel Basic */
-.exad-testimonial-carousel-wrapper {
-  background: #DDD;
-}
 
 .exad-testimonial-carousel-basic {
   box-shadow: 0px 24px 81px 0px rgba(9, 24, 33, 0.1);
@@ -1046,7 +1043,9 @@
 .exad-testimonial-carousel-basic .exad-testimonial-carousel-next {
   right: 50px;
 }
-
+.exad-testimonial-carousel-basic .slick-dots li {
+  display: block;
+}
 .exad-testimonial-carousel-basic ul.slick-dots {
   padding-left: 0;
   margin-bottom: 0;
@@ -1257,7 +1256,7 @@
 }
 
 .exad-testimonial-carousel-single {
-  margin: 0 -27px;
+  margin: 0;
 }
 
 .exad-testimonial-carousel-single .exad-testimonial-carousel-item {
@@ -1267,7 +1266,6 @@
 .exad-testimonial-carousel-single .exad-testimonial-carousel-inner {
   display: flex;
   align-items: center;
-  flex-direction: column;
 }
 
 .exad-testimonial-carousel-single .exad-testimonial-carousel-inner .exad-testimonial-carousel-inner-left {
@@ -1357,6 +1355,13 @@
   left: 126px;
 }
 
+@media only screen and (max-width:630px){
+  .exad-testimonial-carousel-single .exad-testimonial-carousel-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 @media only screen and (max-width:400px){
 
   .exad-testimonial-carousel-basic {
@@ -1387,6 +1392,10 @@
     right: 90px;
   }
  }
+
+
+
+
 
 /* Testimonial Carousel End */
 

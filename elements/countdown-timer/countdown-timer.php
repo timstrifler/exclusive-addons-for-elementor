@@ -251,18 +251,18 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_render_attribute(
 			'exad-countdown-timer-attribute',
 			[
+				'class'    => ['exad-countdown', esc_attr( $settings['exad_countdown_preset'] )],
 				'data-day'	=> esc_attr__( 'Days', 'exclusive-addons-elementor' ),
 				'data-minutes' => esc_attr( 'Minutes', 'exclusive-addons-elementor' ),
 				'data-hours'	=> esc_attr__( 'Hours', 'exclusive-addons-elementor' ),
 				'data-seconds' => esc_attr( 'Seconds', 'exclusive-addons-elementor' ),
-				'data-countdown' => esc_attr( $settings['exad_countdown_time'] )
+				'data-countdown' => esc_attr( $settings['exad_countdown_time'] ),
 			]
 		);
 
 		?>
-		<div id="exad-countdown-timer-<?php echo esc_attr($this->get_id()); ?>" class="exad-countdown-content-container">
-			<div class="exad-countdown <?php echo esc_attr( $settings['exad_countdown_preset'] ); ?>"				
-			<?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute') ?>></div>
+		<div  id = "exad-countdown-"<?php echo esc_attr( $this->get_id() ); ?> class="exad-countdown-content-container">
+			<div <?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute') ?>></div>
 		</div>
 		<?php
 	}

@@ -175,7 +175,7 @@ final class Exclusive_Addons_Elementor {
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
 
         // Enqueue Styles and Scripts
-        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ], 20 );
         
         // Registering Elementor Widget Category
         add_action( 'elementor/elements/categories_registered', [ $this, 'register_category' ] );

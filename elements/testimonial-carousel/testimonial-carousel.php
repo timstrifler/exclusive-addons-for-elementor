@@ -298,11 +298,9 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-carousel-inner' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-testimonial-carousel-circle .exad-testimonial-carousel-inner, {{WRAPPER}} .exad-testimonial-carousel-single, {{WRAPPER}} .exad-testimonial-carousel-basic' => 'background: {{VALUE}};',
 				],
-				'condition' => [
-					'exad_testimonial_carousel_preset' => '-circle',
-				],
+				
 			]
 		);
 
@@ -400,7 +398,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
             [
                 'label' => __('Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#8a8d91',
+                'default' => '#132c47',
                 'selectors' => [
                     '{{WRAPPER}} .exad-testimonial-carousel-designation' => 'color: {{VALUE}};',
                 ],
