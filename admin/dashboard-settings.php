@@ -43,11 +43,11 @@ class Exad_Admin_Settings {
 	 * Constructor of the class
 	 * @param
 	 * @return void
-	 * @since 1.1.2
+	 * @since 1.0.1
 	 */
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'create_exad_admin_menu' ), 550 );
-		add_action( 'init', array( $this, 'enqueue_exad_admin_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_exad_admin_scripts' ) );
 		add_action( 'wp_ajax_exad_ajax_save_elements_setting', array( $this, 'exad_ajax_save_elements_setting_function' ) );
 
 	}
@@ -56,12 +56,12 @@ class Exad_Admin_Settings {
 	 * Loading required scripts
 	 * @param
 	 * @return void
-	 * @since 1.1.2
+	 * @since 1.0.1
 	 */
-	public function enqueue_exad_admin_scripts() {
+	public function enqueue_exad_admin_scripts( $hook ) {
 
 		wp_enqueue_style( 'exad-notice-css', plugins_url( '/', __FILE__ ).'assets/css/exad-notice.css' );
-		if( isset( $_GET['page'] ) && $_GET['page'] == 'exad-settings' ) {
+		if( isset( $hook ) && $hook == 'elementor_page_exad-settings' ) {
 			wp_enqueue_style( 'exad-admin-css', plugins_url( '/', __FILE__ ).'assets/css/exad-admin.css' );
 			wp_enqueue_script( 'exad-admin-js', plugins_url( '/', __FILE__ ).'assets/js/exad-admin.js', array( 'jquery'), '1.0', true );
 		}
@@ -72,12 +72,11 @@ class Exad_Admin_Settings {
 	 * Create an admin menu.
 	 * @param
 	 * @return void
-	 * @since 1.1.2
+	 * @since 1.0.1
 	 */
 	public function create_exad_admin_menu() {
 
-		add_submenu_page( 'elementor', 'Exclusive Addons', 'Exclusive Addons', 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' )
-		);
+		add_submenu_page( 'elementor', 'Exclusive Addons', 'Exclusive Addons', 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' ) );
 
 	}
 
@@ -85,7 +84,7 @@ class Exad_Admin_Settings {
 	 * Create settings page.
 	 * @param
 	 * @return void
-	 * @since 1.1.2
+	 * @since 1.0.1
 	 */
 	public function exad_admin_settings_page() {
 
@@ -511,7 +510,7 @@ class Exad_Admin_Settings {
 	 * Saving widgets status with ajax request
 	 * @param
 	 * @return  array
-	 * @since 1.1.2
+	 * @since 1.0.1
 	 */
 	public function exad_ajax_save_elements_setting_function() {
 
