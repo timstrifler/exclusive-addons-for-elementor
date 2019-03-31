@@ -59,17 +59,17 @@ gulp.task('cssmin', function () {
     ];
 
     return gulp.src([
-            '**/*/*.css',
-            '!**/*/*.min.css',
-            '!dist/**/*',
-            '!node_modules/**/*'
+            './admin/assets/**/*.css',
+            './assets/**/*.css'
         ])
         .pipe(postcss(plugins))
         .pipe(rename(function (path) {
             path.extname = ".min.css"
         }))
-        .pipe(gulp.dest('./'))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest(function(file) {
+            return file.base;
+        }));
+        
 });
 
 
@@ -79,16 +79,16 @@ gulp.task('cssmin', function () {
  */
 gulp.task('jsmin', function () {
     return gulp.src([
-            '**/*/*.js',
-            '!**/*/*.min.js',
-            '!dist/**/*',
-            '!node_modules/**/*'
+        'admin/assets/**/*.js',
+        'assets/**/*.js'
         ])
         .pipe(uglify())
         .pipe(rename(function (path) {
             path.extname = ".min.js"
         }))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest(function(file) {
+            return file.base;
+        }));
 });
 
 
@@ -121,6 +121,7 @@ gulp.task('copy', function () {
         '!package-lock.json',
         '!gulpfile.js',
         '!dist/**/*',
+        '!node_modules',
         '!node_modules/**/*'
     ])
     .pipe(gulp.dest('dist/exclusiveAddonsElementor'));

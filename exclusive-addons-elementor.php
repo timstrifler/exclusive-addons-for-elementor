@@ -236,10 +236,19 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 			return $classes;
 		}
 		
+		/**
+		 * Check to see if Elementor is Activated
+		 * 
+		 * @since 1.0.2
+		 */
+		public function is_elementor_activated( $plugin_path = 'elementor/elementor.php' ){
+			$installed_plugins_list = get_plugins();
+			return isset( $installed_plugins_list[ $plugin_path ] );
+		}
+
 
 		/**
 		 * Admin notice
-		 *
 		 * Warning when the site doesn't have Elementor installed or activated.
 		 *
 		 * @since 1.0.0
@@ -250,14 +259,27 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 
 			if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
 
-			$message = sprintf(
-				/* translators: 1: Plugin name 2: Elementor */
-				esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'exclusive-addons-elementor' ),
-				'<strong>' . esc_html__( 'Exclusive Addons Elementor', 'exclusive-addons-elementor' ) . '</strong>',
-				'<strong>' . esc_html__( 'Elementor', 'exclusive-addons-elementor' ) . '</strong>'
-			);
+			$elementor_path = 'elementor/elementor.php';
 
-			printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+			if ( $this->is_elementor_activated() ) {
+				if( ! current_user_can( 'activate_plugins' ) ) {
+				   return;
+				}
+				$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $elementor_path . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $elementor_path );
+				$message = __( '<strong>Exclusive Addons for Elementor</strong> won\'t work without the help of <strong>Elementor</strong> plugin. Please activate Elementor.', 'exclusive-addons-elementor' );
+				$button_text = __( 'Activate Elementor', 'exclusive-addons-elementor' );
+			 } else {
+				if( ! current_user_can( 'install_plugins' ) ) {
+				   return;
+				}
+				$activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
+				$message = sprintf( __( '<strong>Exclusive Addons for Elementor</strong> won\'t work without the help of <strong>Elementor</strong> plugin. Please install Elementor.', 'exclusive-addons-elementor' ), '<strong>', '</strong>' );
+				$button_text = __( 'Install Elementor', 'exclusive-addons-elementor' );
+			 }
+
+			
+			$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
+         	printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', __( $message ), $button );
 
 		}
 
@@ -366,7 +388,7 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		public function plugin_redirect_hook() {
 			if ( get_option( 'exad_do_update_redirect', false ) ) {
 				delete_option( 'exad_do_update_redirect' );
-				if( !isset($_GET['activate-multi'] ) && did_action( 'elementor/loaded' ) ) {
+				if ( !isset($_GET['activate-multi'] ) && $this->is_elementor_activated() ) {
 					wp_redirect( 'admin.php?page=exad-settings' );
 					exit;
 				}
