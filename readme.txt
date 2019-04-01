@@ -74,6 +74,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
+= 1.0.2 - 01/04/2019 =
+- EX Icon added to every Elementor Editor Icon.
+- Pricing table top margin added.
+
 = 1.0.1 - 28/03/2019 =
 - Fixed a bug about redirecting to Admin Dashboard after activation when Elementor is not activated.
 

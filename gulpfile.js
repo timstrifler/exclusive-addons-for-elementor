@@ -160,7 +160,7 @@ gulp.task('pot', function () {
  * and finally creates a new theme zip
  */
 gulp.task('prod', function(callback) {
-    return runSequence( 'clean', 'cssmin', 'jsmin', 'pot', 'copy', 'zip', callback);
+    return runSequence( 'clean', 'pot', 'copy', 'zip', callback);
 });
 
 /**
