@@ -11,7 +11,7 @@ class Exad_Infobox extends Widget_Base {
 		return esc_html__( 'Ex Info Box', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'eicon-info-box';
+		return 'exad-element-icon eicon-info-box';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];

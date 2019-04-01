@@ -13,14 +13,8 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		return esc_html__( 'Exclusive Tabs', 'exclusive-addons-elementor' );
 	}
 
-	public function get_script_depends() {
-        return [
-            'exad-scripts'
-        ];
-    }
-
 	public function get_icon() {
-		return 'eicon-tabs';
+		return 'exad-element-icon eicon-tabs';
 	}
 
    public function get_categories() {

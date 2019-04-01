@@ -16,7 +16,7 @@ class Exad_Flip_Box extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-flip-box';
+		return 'exad-element-icon eicon-flip-box';
 	}
 
    	public function get_categories() {

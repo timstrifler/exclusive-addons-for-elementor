@@ -11,7 +11,7 @@ class Exad_Team_Member extends Widget_Base {
 		return esc_html__( 'Ex Team Member', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'eicon-lock-user';
+		return 'exad-element-icon eicon-lock-user';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];

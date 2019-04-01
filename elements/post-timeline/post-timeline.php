@@ -15,7 +15,7 @@ class Exad_Post_Timeline extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-time-line';
+		return 'exad-element-icon eicon-time-line';
 	}
 
 	public function get_categories() {

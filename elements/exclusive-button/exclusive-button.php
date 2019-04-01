@@ -15,7 +15,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-button';
+		return 'exad-element-icon eicon-button';
 	}
 
    public function get_categories() {

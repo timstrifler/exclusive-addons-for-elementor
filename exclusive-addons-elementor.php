@@ -3,7 +3,7 @@
  * Plugin Name: Exclusive Addons for Elementor
  * Plugin URI: http://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: DevsCred
  * Author URI: http://devscred.com/
  * Text Domain: exclusive-addons-elementor
@@ -32,7 +32,7 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		 *
 		 * @var string The plugin version.
 		 */
-		const VERSION = '1.0.1';
+		const VERSION = '1.0.2';
 
 		/**
 		 * Minimum Elementor Version
@@ -93,26 +93,44 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		 * @access public
 		 */
 		public function __construct() {
-			// Redirect Plugin to Settings Page
+			$this->constants();
+			$this->includes();
 			add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
 			add_action( 'init', [ $this, 'init' ] );
 		}
 
 		/**
-		 * Load Textdomain
-		 *
-		 * Load plugin localization files.
-		 *
-		 * Fired by `init` action hook.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @access public
+		 * Define Constants
+		 * @since 1.0.2
 		 */
-		public function i18n() {
+		public function constants() {
+			// Some Constants for ease of use
+			if ( ! defined( 'EXAD_PNAME' ) )
+				define( 'EXAD_PNAME', basename( dirname( __FILE__ ) ) );
+			if ( ! defined( 'EXAD_PBNAME' ) )
+			define( 'EXAD_PBNAME', plugin_basename(__FILE__) );
+			if ( ! defined( 'EXAD_PATH' ) )
+				define( 'EXAD_PATH', plugin_dir_path( __FILE__ ) );
+			if ( ! defined( 'EXAD_ELEMENTS' ) )
+				define( 'EXAD_ELEMENTS', plugin_dir_path( __FILE__ ) . 'elements/' );
+			if ( ! defined( 'EXAD_TEMPLATES' ) )
+				define( 'EXAD_TEMPLATES', plugin_dir_path( __FILE__ ) . 'includes/template-parts/' );
+			if ( ! defined( 'EXAD_URL' ) )
+			define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
+			if ( ! defined( 'EXAD_ASSETS_URL' ) )
+				define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );	
+		}
 
-			load_plugin_textdomain( 'exclusive-addons-elementor' );
-
+		/**
+		 * 
+		 * Including necessary assets
+		 * @since 1.0.2
+		 */
+		public function includes() {
+			// Helper Class
+			include_once EXAD_PATH . 'includes/helper-class.php';
+			// Admin Dashboard
+			include_once EXAD_PATH . 'admin/dashboard-settings.php';
 		}
 
 		/**
@@ -129,24 +147,6 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		 * @access public
 		 */
 		public function init() {
-
-			// Some Constants for ease of use
-			if ( ! defined( 'EXAD_PNAME' ) )
-				define( 'EXAD_PNAME', basename( dirname( __FILE__ ) ) );
-			if ( ! defined( 'EXAD_PBNAME' ) )
-			define( 'EXAD_PBNAME', plugin_basename(__FILE__) );
-			if ( ! defined( 'EXAD_PATH' ) )
-				define( 'EXAD_PATH', plugin_dir_path( __FILE__ ) );
-			if ( ! defined( 'EXAD_ELEMENTS' ) )
-				define( 'EXAD_ELEMENTS', plugin_dir_path( __FILE__ ) . 'elements/' );
-			if ( ! defined( 'EXAD_TEMPLATES' ) )
-				define( 'EXAD_TEMPLATES', plugin_dir_path( __FILE__ ) . 'includes/template-parts/' );
-			if ( ! defined( 'EXAD_URL' ) )
-			define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
-			if ( ! defined( 'EXAD_ASSETS_URL' ) )
-				define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );
-
-				
 
 			// Check if Elementor installed and activated
 			if ( ! did_action( 'elementor/loaded' ) ) {
@@ -165,13 +165,16 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 				add_action( 'admin_notices', [ $this, 'admin_notice_minimum_php_version' ] );
 				return;
 			}
-			include_once EXAD_PATH . 'includes/helper-class.php';
+			
 
 			// Add Plugin actions
 			add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
 
 			// Enqueue Styles and Scripts
 			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ], 20 );
+
+			// Elementor Editor Styles
+			add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'exad_editor_styles' ] );
 			
 			// Registering Elementor Widget Category
 			add_action( 'elementor/elements/categories_registered', [ $this, 'register_category' ] );
@@ -180,8 +183,6 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 			add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 
 			load_plugin_textdomain( 'exclusive-addons-elementor' );
-
-			include_once EXAD_PATH . 'admin/dashboard-settings.php';
 
 		}
 		
@@ -199,6 +200,15 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 				]
 			);
 
+		}
+
+		/**
+		 * 
+		 * Enqueue Elementor Editor Styles
+		 * 
+		 */
+		public function exad_editor_styles() {
+			wp_enqueue_style( 'exad-frontend-editor', EXAD_URL . 'assets/css/exad-frontend-editor.css' );
 		}
 
 		/**
@@ -277,7 +287,6 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 				$button_text = __( 'Install Elementor', 'exclusive-addons-elementor' );
 			 }
 
-			
 			$button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
          	printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', __( $message ), $button );
 
@@ -397,6 +406,10 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 
 	}
 
+	/**
+	 * 
+	 * Initilize Plugin Class
+	 */
 	function init_exclusive_addons() {
 		return Exclusive_Addons_Elementor::instance();
 	}

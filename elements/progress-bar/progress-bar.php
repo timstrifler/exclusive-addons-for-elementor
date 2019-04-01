@@ -11,7 +11,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		return esc_html__( 'Ex Progress Bar', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'eicon-skill-bar';
+		return 'exad-element-icon eicon-skill-bar';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];

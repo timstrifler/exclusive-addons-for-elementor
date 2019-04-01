@@ -15,7 +15,7 @@ class Exad_Post_Grid extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-posts-grid';
+		return 'exad-element-icon eicon-posts-grid';
 	}
 
 	public function get_categories() {

@@ -11,7 +11,7 @@ class Exad_Card extends Widget_Base {
 		return esc_html__( 'Exclusive Card', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'eicon-image-box';
+		return 'exad-element-icon eicon-image-box';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];

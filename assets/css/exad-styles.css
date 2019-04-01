@@ -1394,9 +1394,6 @@
  }
 
 
-
-
-
 /* Testimonial Carousel End */
 
 
@@ -1431,10 +1428,9 @@ ul.exad-pricing-table-features {
 }
 
 .exad-pricing-table-one {
-  background: #fff;
   text-align: center;
   position: relative;
-  margin-bottom: 50px;
+  margin: 20px auto 50px;
   -webkit-box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
   box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
 }

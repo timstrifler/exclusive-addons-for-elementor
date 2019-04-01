@@ -15,7 +15,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-testimonial-carousel';
+		return 'exad-element-icon eicon-testimonial-carousel';
 	}
 
 	public function get_categories() {

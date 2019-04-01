@@ -14,7 +14,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-countdown';
+		return 'exad-element-icon eicon-countdown';
 	}
 
 	public function get_categories() {

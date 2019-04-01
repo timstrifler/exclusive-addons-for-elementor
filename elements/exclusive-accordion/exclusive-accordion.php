@@ -14,7 +14,7 @@ class Exclusive_Accordion extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-accordion';
+		return 'exad-element-icon eicon-accordion';
 	}
 
 

@@ -1,0 +1,12 @@
+/* Exclusive Addon Icon on Elementor Dashboard */
+.elementor-element .icon {
+    position: relative;
+}
+.elementor-element .icon .exad-element-icon::after {
+    content: "EX";
+    font-size: 10px;
+    opacity: 0.5;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}

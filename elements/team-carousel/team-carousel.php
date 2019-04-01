@@ -15,7 +15,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-person';
+		return 'exad-element-icon eicon-person';
 	}
 
 	public function get_categories() {
