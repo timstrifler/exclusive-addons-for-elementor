@@ -106,8 +106,8 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		public function __construct() {
 			$this->constants();
 			$this->includes();
-			add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
 			add_action( 'init', [ $this, 'init' ] );
+			add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
 		}
 
 		/**

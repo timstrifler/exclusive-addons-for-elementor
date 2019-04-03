@@ -236,9 +236,6 @@ class Exad_Pricing_Table extends Widget_Base {
 		 * -------------------------------------------
 		 */
 
-		/*
-		* Pricing Table Styling Section
-		*/
 		$this->start_controls_section(
 			'exad_section_pricing_tables_styles_presets',
 			[
@@ -306,8 +303,6 @@ class Exad_Pricing_Table extends Widget_Base {
 		);
 
 		
-
-
 		$this->end_controls_section();
 
 		/**

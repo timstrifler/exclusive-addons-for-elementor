@@ -27,32 +27,11 @@ class Exad_Heading extends Widget_Base {
 				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' ),
 			]
 		);
-		
-		$this->add_control(
-			'exad_heading_image',
-			[
-				'label' => __( 'Image', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::MEDIA,
-				'default' => [
-					'url' => Utils::get_placeholder_image_src(),
-				],
-			]
-		);
-		$this->add_group_control(
-			Group_Control_Image_Size::get_type(),
-			[
-				'name' => 'thumbnail',
-				'default' => 'full',
-				'condition' => [
-					'exad_heading_image[url]!' => '',
-				],
-			]
-		);
 
 		$this->add_control(
 			'exad_heading_title',
 			[
-				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Heading', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'separator' => 'before',
@@ -63,58 +42,24 @@ class Exad_Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_title_link',
 			[
-				'label' => __( 'Title URL', 'exclusive-addons-elementor' ),
+				'label' => __( 'Heading URL', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
 				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'default' => [
-					'url' => '',
+					'url' => '#',
 					'is_external' => true,
 				],
 			]
 		);
+
 		
 		$this->add_control(
-			'exad_heading_tag',
+			'exad_heading_subheading',
 			[
-				'label' => esc_html__( 'Tag', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'label_block' => true,
-				'default' => esc_html__( 'Heading Tag', 'exclusive-addons-elementor' ),
-			]
-		);
-		
-		$this->add_control(
-			'exad_heading_description',
-			[
-				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Sub Heading', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'default' => esc_html__( 'Basic description about the Heading', 'exclusive-addons-elementor' ),
-			]
-		);
-
-		$this->add_control(
-			'exad_heading_action_text',
-			[
-				'label' => esc_html__( 'Action Text', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'label_block' => true,
-				'separator' => 'before',
-				'default' => esc_html__( 'Details', 'exclusive-addons-elementor' ),
-			]
-		);
-
-		$this->add_control(
-			'exad_heading_action_link',
-			[
-				'label' => __( 'Action URL', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::URL,
-				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
-				'label_block' => true,
-				'default' => [
-					'url' => '',
-					'is_external' => true,
-				],
 			]
 		);
 
@@ -132,42 +77,56 @@ class Exad_Heading extends Widget_Base {
 			]
 		);
 		$this->add_control(
-			'exad_heading_preset',
+			'exad_heading_styles_preset',
 			[
 				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'one',
+				'default' => 'parallax',
 				'options' => [
-					'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-					'two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-					'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
+					'parallax' => esc_html__( 'Image/Gradient', 'exclusive-addons-elementor' ),
+					'separator' => esc_html__( 'With Separator', 'exclusive-addons-elementor' ),
+                    'text-as-bg' => esc_html__( 'Text Background', 'exclusive-addons-elementor' ),
 				],
+			]
+        );
+        
+        $this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'background',
+				'label' => __( 'Title Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .exad-exclusive-heading.parallax .exad-exclusive-heading-wrapper .exad-exclusive-heading-title',
+                'condition' => [
+                    'exad_heading_styles_preset' => 'parallax'
+                ]
 			]
 		);
 
-		$this->add_control(
-            'exad_heading_color_scheme',
-            [
-                'label' => __('Color Scheme', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#9059ff',
-                'selectors' => [
-                    '{{WRAPPER}} .exad-heading.two .exad-heading-action:hover, {{WRAPPER}} .exad-heading.two .exad-heading-title::before, {{WRAPPER}} .exad-heading.one .exad-heading-action:hover,
-                    {{WRAPPER}} .exad-heading.one .exad-heading-title::before, {{WRAPPER}} .exad-heading.three .exad-heading-action:hover, {{WRAPPER}} .exad-heading.three .exad-heading-tag::before, {{WRAPPER}} .exad-heading.three::before' => 'background-color: {{VALUE}};',
-                    
-                ],
-            ]
-        );
-
-		$this->add_control(
-			'exad_heading_background',
+        $this->add_responsive_control(
+			'exad_heading_title_alignment',
 			[
-				'label' => esc_html__( 'Content Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .exad-heading-body' => 'background-color: {{VALUE}};',
+				'label' => esc_html__( 'Alignment', 'essential-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'label_block' => true,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'essential-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'essential-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'essential-addons-elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
 				],
+				'default' => 'center',
+				'selectors'             => [
+                    '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title' => 'text-align: {{VALUE}};',
+                ]
 			]
 		);
 
@@ -178,9 +137,9 @@ class Exad_Heading extends Widget_Base {
 		* Heading Content Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_section_heading_styles_title',
+			'exad_section_heading_styles_heading',
 			[
-				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Heading', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -191,7 +150,7 @@ class Exad_Heading extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '#132c47',
 					'selectors' => [
-							'{{WRAPPER}} .exad-heading-body .exad-heading-title' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a' => 'color: {{VALUE}};',
 					],
 			]
 		);
@@ -200,7 +159,7 @@ class Exad_Heading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 					'name' => 'heading_title_typography',
-					'selector' => '{{WRAPPER}} .exad-heading-body .exad-heading-title',
+					'selector' => '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title',
 			]
 		);
 
@@ -208,9 +167,9 @@ class Exad_Heading extends Widget_Base {
 
 		// description style
 		$this->start_controls_section(
-			'exad_section_heading_styles_description',
+			'exad_section_heading_styles_subheading',
 			[
-				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Sub Heading', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -228,39 +187,10 @@ class Exad_Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-					'name' => 'heading_description_typography',
+					'name' => 'heading_subheading_typography',
 					'selector' => '{{WRAPPER}} .exad-heading-body .exad-heading-description',
 			]
 		);
-		$this->end_controls_section();
-
-
-		$this->start_controls_section(
-			'exad_section_heading_styles_tag',
-			[
-				'label' => esc_html__( 'Tag', 'exclusive-addons-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-		$this->add_control(
-			'exad_heading_tag_color',
-			[
-					'label' => __('Color', 'exclusive-addons-elementor'),
-					'type' => Controls_Manager::COLOR,
-					'default' => '',
-					'selectors' => [
-							'{{WRAPPER}} .exad-heading-body .exad-heading-tag' => 'color: {{VALUE}};',
-					],
-			]
-		);
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-					'name' => 'heading_tag_typography',
-					'selector' => '{{WRAPPER}} .exad-heading-body .exad-heading-tag',
-			]
-		);
-
 		$this->end_controls_section();
 
 		
@@ -277,13 +207,12 @@ class Exad_Heading extends Widget_Base {
 	
 		?>
 
-        <div id="exad-heading-<?php echo esc_attr($this->get_id()); ?>" class="exad-exclusive-heading one">
+        <div id="exad-heading-<?php echo esc_attr($this->get_id()); ?>" class="exad-exclusive-heading <?php echo esc_attr( $settings['exad_heading_styles_preset'] ); ?>">
           <div class="exad-exclusive-heading-wrapper">
-            <h1 class="exad-exclusive-heading-title"><a href="<?php echo esc_url( $settings['exad_heading_title_link']['url'] ); ?>"><?php echo esc_html( $settings['exad_heading_title'] ); ?></a></h1>
-            <p class="exad-exclusive-heading-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic aut dolor error veritatis nulla impedit
-              culpa officia ipsam temporibus ea adipisci voluptates asperiores minus dolorem, corrupti eum tenetur vero
-              vitae harum amet. Excepturi praesentium rem nostrum dicta voluptas recusandae laborum harum? Modi
-            </p>
+            <h1 data-content="<?php echo esc_attr( $settings['exad_heading_title'] ); ?>" class="exad-exclusive-heading-title">
+                <a href="<?php echo esc_url( $settings['exad_heading_title_link']['url'] ); ?>"><?php echo esc_html( $settings['exad_heading_title'] ); ?></a>
+            </h1>
+            <p class="exad-exclusive-heading-description"><?php echo esc_html( $settings['exad_heading_subheading'] ); ?></p>
           </div>
         </div>
 
@@ -293,13 +222,12 @@ class Exad_Heading extends Widget_Base {
 
 	protected function _content_template() {
 		?>
-		<div id="exad-heading" class="exad-exclusive-heading one">
+		<div id="exad-heading" class="exad-exclusive-heading {{ settings.exad_heading_styles_preset }}">
           <div class="exad-exclusive-heading-wrapper">
-            <h1 class="exad-exclusive-heading-title"><a href="{{ settings.exad_heading_title_link.url }}">{{{ settings.exad_heading_title }}}</a></h1>
-            <p class="exad-exclusive-heading-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic aut dolor error veritatis nulla impedit
-              culpa officia ipsam temporibus ea adipisci voluptates asperiores minus dolorem, corrupti eum tenetur vero
-              vitae harum amet. Excepturi praesentium rem nostrum dicta voluptas recusandae laborum harum? Modi
-            </p>
+            <h1 class="exad-exclusive-heading-title">
+                <a href="{{ settings.exad_heading_title_link.url }}">{{{ settings.exad_heading_title }}}</a>
+            </h1>
+            <p class="exad-exclusive-heading-description">{{{ settings.exad_heading_subheading }}}</p>
           </div>
         </div>
 		<?php
