@@ -73,7 +73,7 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		 * 
 		 * @return array
 		 */
-		public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading' ];
+		public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading' ];
 
 		/**
 		 * Instance
@@ -231,6 +231,8 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 			$is_activated_widget = $this->activated_widgets();
 			
 			wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
+
+			wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 			
 			if ( $is_activated_widget['progress-bar'] ) {
 				// Progress Bar Js
