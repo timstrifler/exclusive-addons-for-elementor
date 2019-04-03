@@ -3,8 +3,6 @@
  * Dashboard Settings Page
  */
 
-namespace ExadDashboard;
-
 if( ! defined( 'ABSPATH' ) ) {
     exit(); // Exit if accessed directly
 }
@@ -16,7 +14,7 @@ class Exad_Admin_Settings {
 	 * @var array
 	 * @since 1.0
 	 */
-    public $exad_default_widgets = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading' ];
+    //public $exad_default_widgets = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading' ];
 
 
 	/**
@@ -94,7 +92,7 @@ class Exad_Admin_Settings {
 		);
 		wp_localize_script( 'exad-admin-js', 'js_exad_settings', $js_info );
 
-	    $this->exad_default_settings = array_fill_keys( $this->exad_default_widgets, true );
+	    $this->exad_default_settings = array_fill_keys( Exclusive_Addons_Elementor::$exad_default_widgets, true );
 	    $this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
 	    $exad_new_settings = array_diff_key( $this->exad_default_settings, $this->exad_get_settings );
 
@@ -258,7 +256,7 @@ class Exad_Admin_Settings {
                                 </div>
                                 <div class="exad-dashboard-checkbox-container">
 
-                                <?php foreach( $this->exad_default_widgets as $widget ) : ?>            
+                                <?php foreach( Exclusive_Addons_Elementor::$exad_default_widgets as $widget ) : ?>        
                                     <?php if ( isset( $widget ) ) : ?>            
                                         <div class="exad-dashboard-checkbox">
                                             <div class="exad-dashboard-checkbox-text">
@@ -303,7 +301,7 @@ class Exad_Admin_Settings {
 
 		$this->exad_settings = [];
 
-		foreach( $this->exad_default_widgets as $value ){
+		foreach( Exclusive_Addons_Elementor::$exad_default_widgets as $value ){
 			if( isset( $settings[ $value ] ) ) {
 				$this->exad_settings[ $value ] = 1;
 			} else {
@@ -318,4 +316,4 @@ class Exad_Admin_Settings {
 
 }
 
-new \ExadDashboard\Exad_Admin_Settings();
+new Exad_Admin_Settings();

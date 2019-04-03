@@ -65,6 +65,17 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		private static $_instance = null;
 
 		/**
+		 * 
+		 * Static property that consists all the default widget names
+		 * 
+		 * @access public
+		 * @static
+		 * 
+		 * @return array
+		 */
+		public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading' ];
+
+		/**
 		 * Instance
 		 *
 		 * Ensures only one instance of the class is loaded or can be loaded.
@@ -345,19 +356,17 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		/**
 		 * This function will return true for all activated modules
 		 *
-		* @since   v1.0
+		* @since  1.0
 		*/
 		public static function activated_widgets() {
-
-			$exad_default_widgets = [ 'exclusive-card', 'exclusive-heading', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
 			
-			$exad_default_settings  = array_fill_keys( $exad_default_widgets, true );
+			$exad_default_settings  = array_fill_keys( self::$exad_default_widgets, true );
 			$exad_get_settings      = get_option( 'exad_save_settings', $exad_default_settings );
 			$exad_new_settings      = array_diff_key( $exad_default_settings, $exad_get_settings );
 
 			if( ! empty( $exad_new_settings ) ) {
-			$exad_updated_settings = array_merge( $exad_get_settings, $exad_new_settings );
-			update_option( 'exad_save_settings', $exad_updated_settings );
+				$exad_updated_settings = array_merge( $exad_get_settings, $exad_new_settings );
+				update_option( 'exad_save_settings', $exad_updated_settings );
 			}
 
 			return $exad_get_settings = get_option( 'exad_save_settings', $exad_default_settings );
@@ -377,12 +386,11 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 			
 			$activated_widgets = $this->activated_widgets();
 
-			$exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar' ];
 			if ( function_exists( 'wpcf7' ) ) {
-				$exad_default_widgets[] = 'contact-form-7';
-			} 
+				self::$exad_default_widgets[] = 'contact-form-7';
+			}
 
-			foreach( $exad_default_widgets as $widget ) {
+			foreach( self::$exad_default_widgets as $widget ) {
 				if ( $activated_widgets[$widget] == true ) {
 					require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
 				}
