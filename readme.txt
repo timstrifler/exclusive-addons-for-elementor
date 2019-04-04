@@ -27,8 +27,8 @@ We'll update Exclusive Addons with new Elements for you, every week.
 ### Live Preview
 We have enabled Live Preview for most of our elements. That means you can see as you edit your elements without a delay of second.
 
-### 15 Elementor widgets
-We have packed 15 Elementor widgets for now. We'll continue to add them as time goes on.
+### 17 Elementor widgets
+We have packed 17 Elementor widgets for now. We'll continue to add them as time goes on.
 
 ### Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
