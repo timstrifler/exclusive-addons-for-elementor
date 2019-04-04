@@ -34,8 +34,7 @@ class Exad_Dual_Heading extends Widget_Base {
 				'label' => esc_html__( 'First Heading', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'separator' => 'before',
-				'default' => esc_html__( 'First Part', 'exclusive-addons-elementor' ),
+				'default' => esc_html__( 'First', 'exclusive-addons-elementor' ),
 			]
     );
     $this->add_control(
@@ -44,9 +43,22 @@ class Exad_Dual_Heading extends Widget_Base {
 				'label' => esc_html__( 'Second Heading', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'separator' => 'before',
-				'default' => esc_html__( 'Second Part', 'exclusive-addons-elementor' ),
+				'default' => esc_html__( 'Second', 'exclusive-addons-elementor' ),
 			]
+    );
+
+    $this->add_control(
+        'exad_dual_heading_title_link',
+        [
+            'label' => __( 'Heading URL', 'exclusive-addons-elementor' ),
+            'type' => Controls_Manager::URL,
+            'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
+            'label_block' => true,
+            'default' => [
+                'url' => '#',
+                'is_external' => true,
+            ],
+        ]
     );
 
     $this->add_control(
@@ -55,25 +67,12 @@ class Exad_Dual_Heading extends Widget_Base {
 				'label'       => __( 'Sub Heading', 'exclusive-addons-elementor' ),
         'type'        => Controls_Manager::TEXTAREA,
         'label_block' => true,
-				'separator' => 'before',
 				'dynamic'     => [ 'active' => true ],
-				'default'     => __( 'Welcome to WordPress. This is your first post. Edit or delete it, then start writing!', 'exclusive-addons-elementor' ),
-				'placeholder' => __( 'Your Description', 'exclusive-addons-elementor' ),
+				'default'     => __( 'Add your sub heading here.', 'exclusive-addons-elementor' ),
 			]
 		);
 
-    $this->add_control(
-			'exad_dual_heading_icon',
-			[
-				'label'     => __( 'Icon', 'exclusive-addons-elementor' ),
-        'type'      => Controls_Manager::ICON,
-        'label_block' => true,
-				'separator' => 'before',
-				'default'   => 'fa fa-heart',
-			]
-    );
-
-    $this->add_control(
+	$this->add_control(
       'exad_dual_heading_icon_show',
       [
         'label' => esc_html__( 'Enable Icon', 'exclusive-addons-elementor' ),
@@ -82,35 +81,19 @@ class Exad_Dual_Heading extends Widget_Base {
         'return_value' => 'yes',
       ]
     );
-    
-    $this->add_responsive_control(
-			'exad_dual_heading_alignment',
-			[
-				'label' => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'label_block' => true,
-				'options' => [
-					'left' => [
-						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-center',
-					],
-					'right' => [
-						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-right',
-					],
-				],
-        'default' => 'center',
-        'label_block' => true,
-				'separator' => 'before',
-				'selectors' => [
-					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
+
+    $this->add_control(
+        'exad_dual_heading_icon',
+        [
+		'label'     => __( 'Icon', 'exclusive-addons-elementor' ),
+        'type'      => Controls_Manager::ICON,
+        'default'   => 'fa fa-wordpress',
+        'condition' => [
+            'exad_dual_heading_icon_show' => 'yes'
+        ]
+		]
+    );
+
     
     $this->end_controls_section();
 		
@@ -119,9 +102,9 @@ class Exad_Dual_Heading extends Widget_Base {
 		* Dual Heading Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_dual_heading_styles_icon',
+			'exad_dual_heading_styles_general',
 			[
-				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -133,10 +116,38 @@ class Exad_Dual_Heading extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#132C47',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-icon' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon' => 'color: {{VALUE}};',
 				],
 			]
     );
+
+    $this->add_responsive_control(
+        'exad_dual_heading_alignment',
+        [
+            'label' => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
+            'type' => Controls_Manager::CHOOSE,
+            'label_block' => true,
+            'options' => [
+                'left' => [
+                    'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
+                    'icon' => 'fa fa-align-left',
+                ],
+                'center' => [
+                    'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
+                    'icon' => 'fa fa-align-center',
+                ],
+                'right' => [
+                    'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+                    'icon' => 'fa fa-align-right',
+                ],
+            ],
+        'default' => 'center',
+        'label_block' => true,
+            'selectors' => [
+                '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper' => 'text-align: {{VALUE}};',
+            ],
+            ]
+	);
 
     $this->end_controls_section();
 
@@ -156,18 +167,10 @@ class Exad_Dual_Heading extends Widget_Base {
 			[
 				'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
-				'default' => '#132C47',
+				'default' => '#ffffff',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a .first-heading' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .first-heading' => 'color: {{VALUE}};',
 				],
-			]
-    );
-    $this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-			'name' => 'exad_dual_first_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a .first-heading',
 			]
     );
     
@@ -176,11 +179,21 @@ class Exad_Dual_Heading extends Widget_Base {
 			[
 				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
+				'default' => '#fb4b15',
 				'selectors' => [
-					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a .first-heading' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .first-heading' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+			'name' => 'exad_dual_first_heading_typography',
+				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .first-heading',
+			]
+    );
 
     $this->end_controls_section();
 
@@ -202,37 +215,30 @@ class Exad_Dual_Heading extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#132C47',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a .second-heading' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .second-heading' => 'color: {{VALUE}};',
 				],
 			]
     );
-    $this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-			'name' => 'exad_dual_second_heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a .second-heading',
-			]
-    );
-    // $this->add_group_control(
-		// 	Group_Control_Background::get_type(),
-		// 	[
-		// 		'name' => 'background',
-		// 		'label' => __( 'Background', 'exclusive-addons-elementor' ),
-		// 		'types' => [ 'classic', 'gradient' ],
-		// 		'selector' => '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a span',
-		// 	]
-    // );
+    
     $this->add_control(
 			'exad_dual_heading_second_bg_color',
 			[
 				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a .second-heading' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .second-heading' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+			'name' => 'exad_dual_second_heading_typography',
+				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .second-heading',
+			]
+    );
     
 
     $this->end_controls_section();
@@ -255,7 +261,7 @@ class Exad_Dual_Heading extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default' => '#989B9E',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-description' => 'color: {{VALUE}};',
 				],
 			]
     );
@@ -264,7 +270,7 @@ class Exad_Dual_Heading extends Widget_Base {
 			[
 			'name' => 'exad_dual_heading_description_typography',
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-description',
+				'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-description',
 			]
     );
 
@@ -275,20 +281,19 @@ class Exad_Dual_Heading extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		?>
 
-    <div id="exad-heading-<?php echo esc_attr($this->get_id()); ?>" class="exad-exclusive-heading eight">
-      <div class="exad-exclusive-heading-wrapper">
+    <div id="exad-heading-<?php echo esc_attr($this->get_id()); ?>" class="exad-dual-heading">
+      <div class="exad-dual-heading-wrapper">
         <?php if ( $settings['exad_dual_heading_icon_show'] == 'yes' ) : ?>
-          <span class="exad-exclusive-heading-icon"><i class="<?php echo esc_attr( $settings['exad_dual_heading_icon'] ); ?>"></i></span>
+          <span class="exad-dual-heading-icon"><i class="<?php echo esc_attr( $settings['exad_dual_heading_icon'] ); ?>"></i></span>
 				<?php endif; ?>
-        <h1 class="exad-exclusive-heading-title">
-          <a href="<?php echo esc_url( $settings['exad_heading_title_link']['url'] ); ?>">
-            <span class="first-heading"><?php echo esc_html( $settings['exad_dual_first_heading'] ); ?></span>
-            <span class="second-heading"><?php echo esc_html( $settings['exad_dual_second_heading'] ); ?></span>
+        <h1 class="exad-dual-heading-title">
+          <a href="<?php echo esc_url( $settings['exad_dual_heading_title_link']['url'] ); ?>">
+            <span class="first-heading"><?php echo esc_html( $settings['exad_dual_first_heading'] ); ?></span><span class="second-heading"><?php echo esc_html( $settings['exad_dual_second_heading'] ); ?></span>
           </a>
         </h1>
-        <p class="exad-exclusive-heading-description">
-        <?php echo esc_html( $settings['exad_dual_heading_description'] ); ?>
-        </p>
+        <?php if ( $settings['exad_dual_heading_description'] != "" ) : ?>
+            <p class="exad-dual-heading-description"><?php echo esc_html( $settings['exad_dual_heading_description'] ); ?></p>
+        <?php endif; ?>    
       </div>
     </div>
 	<?php
@@ -296,18 +301,19 @@ class Exad_Dual_Heading extends Widget_Base {
 
   protected function _content_template() {
     ?>
-    <div id="exad-heading" class="exad-exclusive-heading eight">
-      <div class="exad-exclusive-heading-wrapper">
+    <div id="exad-heading" class="exad-dual-heading">
+      <div class="exad-dual-heading-wrapper">
         <# if ( settings.exad_dual_heading_icon_show == 'yes' ) { #>
-          <span class="exad-exclusive-heading-icon"><i class="{{ settings.exad_dual_heading_icon }}"></i></span>
+          <span class="exad-dual-heading-icon"><i class="{{ settings.exad_dual_heading_icon }}"></i></span>
 				<# } #>
-        <h1 class="exad-exclusive-heading-title"><a href="{{{ settings.exad_heading_title_link }}}">
-          <span class="first-heading">{{{ settings.exad_dual_first_heading }}}</span>
-          <span class="second-heading">{{{ settings.exad_dual_second_heading }}}</span>
-        </a></h1>
-        <p class="exad-exclusive-heading-description">
-        {{{ settings.exad_dual_heading_description }}}
-        </p>
+        <h1 class="exad-dual-heading-title">
+			<a href="{{{ settings.exad_dual_heading_title_link }}}">
+				<span class="first-heading">{{{ settings.exad_dual_first_heading }}}</span><span class="second-heading">{{{ settings.exad_dual_second_heading }}}</span>
+			</a>
+        </h1>
+        <# if ( settings.exad_dual_heading_description != "" ) { #>
+            <p class="exad-dual-heading-description">{{{ settings.exad_dual_heading_description }}}</p>
+        <# } #>
       </div>
     </div>
 		<?php

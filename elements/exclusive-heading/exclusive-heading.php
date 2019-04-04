@@ -110,23 +110,20 @@ class Exad_Heading extends Widget_Base {
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => true,
 				'options' => [
-					'left' => [
+					'exad-heading-left' => [
 						'title' => esc_html__( 'Left', 'essential-addons-elementor' ),
 						'icon' => 'fa fa-align-left',
 					],
-					'center' => [
+					'exad-heading-center' => [
 						'title' => esc_html__( 'Center', 'essential-addons-elementor' ),
 						'icon' => 'fa fa-align-center',
 					],
-					'right' => [
+					'exad-heading-right' => [
 						'title' => esc_html__( 'Right', 'essential-addons-elementor' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
-				'default' => 'center',
-				'selectors'             => [
-                    '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title' => 'text-align: {{VALUE}};',
-                ]
+				'default' => 'exad-heading-center'
 			]
 		);
 
@@ -144,22 +141,66 @@ class Exad_Heading extends Widget_Base {
 			]
 		);
 		$this->add_control(
-			'exad_title_color',
+			'exad_heading_color',
 			[
 					'label' => __('Color', 'exclusive-addons-elementor'),
 					'type' => Controls_Manager::COLOR,
 					'default' => '#132c47',
 					'selectors' => [
 							'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a' => 'color: {{VALUE}};',
-					],
+                    ],
+                    'condition' => [
+                        'exad_heading_styles_preset!' => 'parallax'
+                    ]
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-					'name' => 'heading_title_typography',
+					'name' => 'exad_heading_title_typography',
 					'selector' => '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title',
+			]
+        );
+
+        $this->add_control(
+			'exad_heading_separator_color',
+			[
+					'label' => __('Separator Color', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#826EFF',
+					'selectors' => [
+							'{{WRAPPER}} .exad-exclusive-heading.separator .exad-exclusive-heading-wrapper .exad-exclusive-heading-title::before' => 'background: {{VALUE}};',
+                    ],
+                    'condition' => [
+                        'exad_heading_styles_preset' => 'separator'
+                    ]
+			]
+		);
+        
+        $this->add_control(
+			'exad_heading_background_font_size',
+			[
+				'label' => __( 'Background Font Size', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 200,
+						'step' => 5,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 60,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-exclusive-heading.text-as-bg .exad-exclusive-heading-wrapper .exad-exclusive-heading-title::before' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'exad_heading_styles_preset' => 'text-as-bg'
+                ]
 			]
 		);
 
@@ -174,21 +215,43 @@ class Exad_Heading extends Widget_Base {
 			]
 		);
 		$this->add_control(
-			'exad_description_color',
+			'exad_heading_description_color',
 			[
 					'label' => __('Color', 'exclusive-addons-elementor'),
 					'type' => Controls_Manager::COLOR,
-					'default' => '',
+					'default' => '#8a8d91',
 					'selectors' => [
-							'{{WRAPPER}} .exad-heading-body .exad-heading-description' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-description' => 'color: {{VALUE}};',
 					],
 			]
 		);
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-					'name' => 'heading_subheading_typography',
-					'selector' => '{{WRAPPER}} .exad-heading-body .exad-heading-description',
+					'name' => 'exad_heading_subheading_typography',
+					'selector' => '{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-description',
+			]
+        );
+        $this->add_control(
+			'exad_heading_sub_margin_top',
+			[
+				'label' => __( 'Top Spacing', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 5,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-description' => 'margin-top: {{SIZE}}{{UNIT}};',
+                ]
 			]
 		);
 		$this->end_controls_section();
@@ -203,19 +266,19 @@ class Exad_Heading extends Widget_Base {
 			$heading_image_url = $heading_image['url'];
 		} else {
 			$heading_image_url = $heading_image_url_src;
-		}	
-	
-		?>
-
+		}
+        ?>
+        
         <div id="exad-heading-<?php echo esc_attr($this->get_id()); ?>" class="exad-exclusive-heading <?php echo esc_attr( $settings['exad_heading_styles_preset'] ); ?>">
-          <div class="exad-exclusive-heading-wrapper">
-            <h1 data-content="<?php echo esc_attr( $settings['exad_heading_title'] ); ?>" class="exad-exclusive-heading-title">
-                <a href="<?php echo esc_url( $settings['exad_heading_title_link']['url'] ); ?>"><?php echo esc_html( $settings['exad_heading_title'] ); ?></a>
-            </h1>
-            <p class="exad-exclusive-heading-description"><?php echo esc_html( $settings['exad_heading_subheading'] ); ?></p>
-          </div>
+            <div class="exad-exclusive-heading-wrapper <?php echo esc_attr( $settings['exad_heading_title_alignment'] ); ?>">
+                <h1 data-content="<?php echo esc_attr( $settings['exad_heading_title'] ); ?>" class="exad-exclusive-heading-title">
+                    <a href="<?php echo esc_url( $settings['exad_heading_title_link']['url'] ); ?>"><?php echo esc_html( $settings['exad_heading_title'] ); ?></a>
+                </h1>
+                <?php if ( $settings['exad_heading_subheading'] != "" ) : ?>
+                    <p class="exad-exclusive-heading-description"><?php echo esc_html( $settings['exad_heading_subheading'] ); ?></p>
+                <?php endif; ?>
+            </div>
         </div>
-
 
 	<?php
 	}
@@ -223,11 +286,13 @@ class Exad_Heading extends Widget_Base {
 	protected function _content_template() {
 		?>
 		<div id="exad-heading" class="exad-exclusive-heading {{ settings.exad_heading_styles_preset }}">
-          <div class="exad-exclusive-heading-wrapper">
-            <h1 class="exad-exclusive-heading-title">
+          <div class="exad-exclusive-heading-wrapper {{ settings.exad_heading_title_alignment }}">
+            <h1 data-content="{{ settings.exad_heading_title }}" class="exad-exclusive-heading-title">
                 <a href="{{ settings.exad_heading_title_link.url }}">{{{ settings.exad_heading_title }}}</a>
             </h1>
-            <p class="exad-exclusive-heading-description">{{{ settings.exad_heading_subheading }}}</p>
+            <# if ( settings.exad_heading_subheading != "" ) { #>
+                <p class="exad-exclusive-heading-description">{{{ settings.exad_heading_subheading }}}</p>
+            <# } #>
           </div>
         </div>
 		<?php

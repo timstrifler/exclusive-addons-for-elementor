@@ -4589,84 +4589,86 @@ text-align: right;
 
 /* Exclusive Heading Start */
 
-.exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a {
-  text-decoration: none;
-}
-
-
-.exad-exclusive-heading.parallax .exad-exclusive-heading-wrapper {
-  text-align: center;
+.exad-exclusive-heading .exad-exclusive-heading-wrapper {
   font-family: "Roboto", sans-serif;
 }
+
+.exad-exclusive-heading .exad-exclusive-heading-title a {
+  text-decoration: none;
+}
+.exad-exclusive-heading .exad-exclusive-heading-title {
+  font-size: 48px;
+  margin: 0 auto 15px auto;
+}
+
+.exad-exclusive-heading .exad-exclusive-heading-description {
+  font-size: 15px;
+  color: #8a8d91;
+  line-height: 26px;
+}
+
+.exad-exclusive-heading .exad-heading-left {
+  text-align: left;
+}
+.exad-exclusive-heading .exad-heading-center {
+  text-align: center;
+}
+.exad-exclusive-heading .exad-heading-right {
+  text-align: right;
+}
+
 
 .exad-exclusive-heading.parallax .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
   background: linear-gradient(90deg, #ff9d4e 0%, #fb5d86 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  font-size: 60px;
-  text-transform: uppercase;
   font-family: "Roboto", sans-serif;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: bold;
-}
-
-.exad-exclusive-heading.parallax .exad-exclusive-heading-wrapper .exad-exclusive-heading-description {
-  font-size: 15px;
-  color: #000000;
-  line-height: 35px;
-  width: 80%;
-  margin: 50px auto;
 }
 
 .exad-exclusive-heading.separator .exad-exclusive-heading-wrapper {
-  text-align: center;
   font-family: "Roboto", sans-serif;
 }
 
 .exad-exclusive-heading.separator .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
-  color: #132c47;
-  font-family: "Playfair Display", serif;
-  font-size: 44px;
-  font-weight: bold;
   position: relative;
 }
 
-.exad-exclusive-heading.separator .exad-exclusive-heading-wrapper .exad-exclusive-heading-title::before {
+.exad-exclusive-heading.separator .exad-heading-left .exad-exclusive-heading-title::before {
   position: absolute;
-  width: 15%;
+  width: 30%;
   height: 2px;
-  background: #f35029;
+  content: '';
+  left: 0;
+  bottom: -20%;
+}
+
+.exad-exclusive-heading.separator .exad-heading-center .exad-exclusive-heading-title::before {
+  position: absolute;
+  width: 20%;
+  height: 2px;
   content: '';
   left: 50%;
-  bottom: -30%;
+  bottom: -20%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
-.exad-exclusive-heading.separator .exad-exclusive-heading-wrapper .exad-exclusive-heading-description {
-  color: #8a8d91;
-  font-size: 15px;
-  line-height: 28px;
-  margin: 70px 0 0 0;
-}
-
-
-
-.exad-exclusive-heading.text-as-bg {
-  text-align: center;
-  margin-top: 20px;
+.exad-exclusive-heading.separator .exad-heading-right .exad-exclusive-heading-title::before {
+  position: absolute;
+  width: 30%;
+  height: 2px;
+  content: '';
+  right: 0;
+  bottom: -20%;
 }
 
 .exad-exclusive-heading.text-as-bg .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
   font-family: "Roboto", sans-serif;
-  color: #132c47;
-  font-size: 44px;
-  text-transform: uppercase;
   position: relative;
   z-index: 1;
-  margin: 0;
 }
 
 .exad-exclusive-heading.text-as-bg .exad-exclusive-heading-wrapper .exad-exclusive-heading-title::before {
@@ -4676,7 +4678,6 @@ text-align: right;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-size: 100px;
   width: 100%;
   color: #eaeff3;
   z-index: -1;
@@ -4684,10 +4685,49 @@ text-align: right;
   line-height: 50px;
 }
 
-.exad-exclusive-heading.text-as-bg .exad-exclusive-heading-wrapper .exad-exclusive-heading-description {
-  margin: 70px 0 0 0;
-}
-
-
 
 /* Exclusive Heading End */
+
+
+/* Dual heading Start */
+
+.exad-dual-heading .exad-dual-heading-wrapper {
+  padding: 5px;
+}
+
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-description{
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  margin: 30px 0 0 0;
+  padding: 10px;
+}
+
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon{
+  font-size: 36px;
+}
+
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title{
+  font-size: 36px;
+  margin-top: 10px;
+}
+
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a{
+  font-size: 30px;
+  color: #132c47;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a .first-heading,
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a .second-heading{
+  padding: 15px 10px;
+}
+
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title span {
+  color: #132c47;
+}
+
+/* Dual heading End */
