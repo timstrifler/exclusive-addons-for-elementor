@@ -1,38 +1,199 @@
-.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-description{
-  font-family: "Roboto", sans-serif;
-  color: #8a8d91;
-  font-size: 15px;
-  line-height: 26px;
-  margin: 30px 0 0 0;
+/* post carousel style start */
+
+.exad-post-carousel.one {
+  position: relative;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner {
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.1);
+  margin: 0 15px 40px 15px;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-thumbnail {
+  margin: 0;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-thumbnail img {
+  height: 100%;
+  width: 100%;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-body {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-body .exad-post-category {
+  margin: 0;
   padding: 0;
 }
 
-.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-icon{
-  font-size: 36px;
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-body .exad-post-category li {
+  list-style: none;
 }
 
-.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-title{
-  margin: 0;
-  font-size: 36px;
-}
-
-.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-title  a{
-  font-size: 30px;
-  color: #132c47;
-  font-family: "Roboto", sans-serif;
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-body .exad-post-category li a {
+  color: #fe6d57;
+  font-size: 14px;
   text-transform: uppercase;
-  font-weight: bold;
+  letter-spacing: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   text-decoration: none;
 }
 
-.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-title  a .first-heading,
-.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-title  a .second-heading{
-  padding: 10px 5px;
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-body .exad-post-title {
+  color: #0a1724;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  display: block;
+  margin: 15px 0 20px 0;
+  transition: all .2s ease;
 }
 
-.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-title span {
-  color: #132c47;
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-body .exad-post-title:hover {
+  color: #fe6d57;
 }
-h1:not(.site-title):before, h2:before{
-  display: none;
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-body .exad-post-date {
+  font-size: 14px;
+  color: #848484;
+  margin: 0;
 }
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-body .exad-post-date a {
+  font-size: 15px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author {
+  display: flex;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: #e5e5e5;
+  top: 0;
+  left: 0;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-image {
+  height: 45px;
+  width: 45px;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-info {
+  flex-basis: 45%;
+  margin-left: 10px;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-info .exad-post-author-name {
+  font-family: "Roboto", sans-serif;
+  color: #222222;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-info .exad-post-author-name:hover {
+  color: #fe6d57;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-info .exad-post-author-date {
+  color: #848484;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-action {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-action li {
+  list-style: none;
+  float: left;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-action li a {
+  height: 45px;
+  width: 45px;
+  border: 1px solid #e5e5e5;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all .3s ease;
+  display: inline-block;
+  margin-left: 10px;
+  color: #848484;
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-action li a i {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-action li a:hover {
+  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.exad-post-carousel.one .exad-post-carousel-prev,
+.exad-post-carousel.one .exad-post-carousel-next {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+  background: transparent;
+  border: 1px solid #e3e3e3;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.exad-post-carousel.one .exad-post-carousel-prev i,
+.exad-post-carousel.one .exad-post-carousel-next i {
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.exad-post-carousel.one .exad-post-carousel-prev:hover,
+.exad-post-carousel.one .exad-post-carousel-next:hover {
+  color: #0a1724;
+  border: 1px solid #0a1724;
+}
+
+.exad-post-carousel.one .exad-post-carousel-prev {
+  left: -70px;
+}
+
+.exad-post-carousel.one .exad-post-carousel-next {
+  right: -70px;
+}
+/* post carousel style end */

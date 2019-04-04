@@ -280,6 +280,53 @@
 	  	// position on hover a button in button style seven
 	};
 
+
+	// Post Carousel
+	var PostCarousel = function ($scope, $) {
+		var $PostCarouselWrapper = $scope.find('.exad-post-carousel-wrapper').eq(0),
+		$loop = ($PostCarouselWrapper.data("loop") !== undefined) ? $PostCarouselWrapper.data("loop") : false,
+		// $responsivePost =  ( $PostCarouselWrapper.data("Post-preset") == '-circle' ) ? 2 : 1,
+		$slidesToShow = ($PostCarouselWrapper.data("slidestoshow") !== undefined) ? $PostCarouselWrapper.data("slidestoshow") : 1,
+		$slidesToScroll = ($PostCarouselWrapper.data("slidestoscroll") !== undefined) ? $PostCarouselWrapper.data("slidestoscroll") : 1,
+		$autoPlay = ($PostCarouselWrapper.data("autoplay") !== undefined) ? $PostCarouselWrapper.data("autoplay") : false,
+		$autoplaySpeed = ($PostCarouselWrapper.data("autoplayspeed") !== undefined) ? $PostCarouselWrapper.data("autoplayspeed") : false,
+		$transitionSpeed = $PostCarouselWrapper.data("speed"),
+		$dots = ($PostCarouselWrapper.data("carousel-dot") !== undefined) ? $PostCarouselWrapper.data("carousel-dot") : false,
+		$pauseOnHover = ($PostCarouselWrapper.data("pauseOnHover") !== undefined) ? $PostCarouselWrapper.data("pauseOnHover") : false;
+
+		$PostCarouselWrapper.slick({
+			infinite: $loop,
+			slidesToShow: $slidesToShow,
+			slidesToScroll: $slidesToScroll,
+			autoplay: $autoPlay,
+			autoplaySpeed: $autoplaySpeed,
+			speed: $transitionSpeed,
+			pauseOnHover: $pauseOnHover,
+			dots: $dots,
+	      	prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+	      	nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>",
+	      	customPaging: function (slider, i) {
+	        	var image = $(slider.$slides[i]).data('image');
+	        	return '<a><img src="'+ image +'"></a>';
+	      	},
+			rows: 0,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: $responsivePost,
+					},
+				},	
+				{
+					breakpoint: 576,
+					settings: {
+						slidesToShow: 1,
+					}
+				}
+			],
+	    });	
+	};
+
 	
 
 	$(window).on('elementor/frontend/init', function () {
