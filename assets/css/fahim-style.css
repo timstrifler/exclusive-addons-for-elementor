@@ -22,6 +22,12 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-title  a .first-heading,
+.exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-title  a .second-heading{
+  padding: 10px 5px;
 }
 
 .exad-exclusive-heading.eight .exad-exclusive-heading-wrapper .exad-exclusive-heading-title span {

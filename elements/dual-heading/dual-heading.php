@@ -103,7 +103,7 @@ class Exad_Dual_Heading extends Widget_Base {
 						'icon' => 'fa fa-align-right',
 					],
 				],
-        'default' => 'left',
+        'default' => 'center',
         'label_block' => true,
 				'separator' => 'before',
 				'selectors' => [
@@ -119,29 +119,19 @@ class Exad_Dual_Heading extends Widget_Base {
 		* Dual Heading Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_dual_heading_styles_preset',
+			'exad_dual_heading_styles_icon',
 			[
-				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
-    );
-    $this->add_control(
-			'exad_dual_heading_preset',
-			[
-				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'eight',
-				'options' => [
-					'eight' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-				],
-			]
-    );
+		);
 
     $this->add_control(
 			'exad_dual_heading_icon_color',
 			[
 				'label'		=> esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
+				'default' => '#132C47',
 				'selectors'	=> [
 					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-icon' => 'color: {{VALUE}};',
 				],
@@ -156,7 +146,7 @@ class Exad_Dual_Heading extends Widget_Base {
     $this->start_controls_section(
 			'exad_dual_first_heading_styles',
 			[
-				'label' => esc_html__( 'First Part', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'First Heading', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
     );
@@ -166,6 +156,7 @@ class Exad_Dual_Heading extends Widget_Base {
 			[
 				'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
+				'default' => '#132C47',
 				'selectors'	=> [
 					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a .first-heading' => 'color: {{VALUE}};',
 				],
@@ -199,7 +190,7 @@ class Exad_Dual_Heading extends Widget_Base {
     $this->start_controls_section(
 			'exad_dual_second_heading_styles',
 			[
-				'label' => esc_html__( 'Second Part', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Second Heading', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
     );
@@ -209,6 +200,7 @@ class Exad_Dual_Heading extends Widget_Base {
 			[
 				'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
+				'default' => '#132C47',
 				'selectors'	=> [
 					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a .second-heading' => 'color: {{VALUE}};',
 				],
@@ -241,25 +233,6 @@ class Exad_Dual_Heading extends Widget_Base {
 				],
 			]
 		);
-    $this->add_responsive_control(
-			'exad_dual_second_heading_padding',
-			[
-				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
-				'default' => [
-					'top' => 15,
-					'right' => 15,
-					'bottom' => 15,
-					'left' => 15,
-					'unit' => 'px',
-					'isLinked' => true,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title a span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				],
-			]
-		);
     
 
     $this->end_controls_section();
@@ -280,6 +253,7 @@ class Exad_Dual_Heading extends Widget_Base {
 			[
 				'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
+				'default' => '#989B9E',
 				'selectors'	=> [
 					'{{WRAPPER}} .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-description' => 'color: {{VALUE}};',
 				],
