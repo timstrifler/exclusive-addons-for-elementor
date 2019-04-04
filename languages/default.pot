@@ -13,118 +13,50 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: exclusive-addons-elementor.php:198
+#: exclusive-addons-elementor.php:209
 msgid "Exclusive Addons"
 msgstr ""
 
-#: exclusive-addons-elementor.php:279
+#: exclusive-addons-elementor.php:292
 msgid "<strong>Exclusive Addons for Elementor</strong> won't work without the help of <strong>Elementor</strong> plugin. Please activate Elementor."
 msgstr ""
 
-#: exclusive-addons-elementor.php:280
+#: exclusive-addons-elementor.php:293
 msgid "Activate Elementor"
 msgstr ""
 
-#: exclusive-addons-elementor.php:286
+#: exclusive-addons-elementor.php:299
 msgid "<strong>Exclusive Addons for Elementor</strong> won't work without the help of <strong>Elementor</strong> plugin. Please install Elementor."
 msgstr ""
 
-#: exclusive-addons-elementor.php:287
+#: exclusive-addons-elementor.php:300
 msgid "Install Elementor"
 msgstr ""
 
 #. translators: 1: Plugin name 2: Elementor 3: Required Elementor version
 #. translators: 1: Plugin name 2: PHP 3: Required PHP version
-#: exclusive-addons-elementor.php:310, exclusive-addons-elementor.php:335
+#: exclusive-addons-elementor.php:323, exclusive-addons-elementor.php:348
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
 
-#: exclusive-addons-elementor.php:311, exclusive-addons-elementor.php:336
+#: exclusive-addons-elementor.php:324, exclusive-addons-elementor.php:349
 msgid "Exclusive Addons Elementor"
 msgstr ""
 
-#: exclusive-addons-elementor.php:312
+#: exclusive-addons-elementor.php:325
 msgid "Elementor"
 msgstr ""
 
-#: exclusive-addons-elementor.php:337
+#: exclusive-addons-elementor.php:350
 msgid "PHP"
 msgstr ""
 
-#: admin/dashboard-settings.php:118
+#: admin/dashboard-settings.php:117
 msgid "Exclusive Addons Settings"
 msgstr ""
 
-#: admin/dashboard-settings.php:123
+#: admin/dashboard-settings.php:122
 msgid "Save Settings"
-msgstr ""
-
-#: admin/dashboard-settings.php:263
-msgid "Contact Form 7"
-msgstr ""
-
-#: admin/dashboard-settings.php:266
-msgid "Contact Form 7 Plugin requires <br/> to be Installed"
-msgstr ""
-
-#: admin/dashboard-settings.php:278, admin/dashboard-settings.php:281
-msgid "CountDown Timer"
-msgstr ""
-
-#: admin/dashboard-settings.php:292, admin/dashboard-settings.php:295, elements/exclusive-button/exclusive-button.php:14
-msgid "Exclusive Button"
-msgstr ""
-
-#: admin/dashboard-settings.php:307, admin/dashboard-settings.php:310, elements/exclusive-card/exclusive-card.php:11
-msgid "Exclusive Card"
-msgstr ""
-
-#: admin/dashboard-settings.php:322, admin/dashboard-settings.php:325
-msgid "Post Grid"
-msgstr ""
-
-#: admin/dashboard-settings.php:337, admin/dashboard-settings.php:340
-msgid "Post Timeline"
-msgstr ""
-
-#: admin/dashboard-settings.php:354, admin/dashboard-settings.php:357, elements/team-carousel/team-carousel.php:191
-msgid "Team Carousel"
-msgstr ""
-
-#: admin/dashboard-settings.php:372, admin/dashboard-settings.php:375
-msgid "Team Member"
-msgstr ""
-
-#: admin/dashboard-settings.php:387
-msgid "Testimonials"
-msgstr ""
-
-#: admin/dashboard-settings.php:390
-msgid "Testimonials Carousel"
-msgstr ""
-
-#: admin/dashboard-settings.php:402, admin/dashboard-settings.php:405, elements/exclusive-tabs/exclusive-tabs.php:13
-msgid "Exclusive Tabs"
-msgstr ""
-
-#: admin/dashboard-settings.php:418, admin/dashboard-settings.php:421
-msgid "Flip Box"
-msgstr ""
-
-#: admin/dashboard-settings.php:434, admin/dashboard-settings.php:437
-msgid "Info Box"
-msgstr ""
-
-#: admin/dashboard-settings.php:451, admin/dashboard-settings.php:454
-msgid "Pricing Table"
-msgstr ""
-
-#: admin/dashboard-settings.php:468, admin/dashboard-settings.php:471, elements/exclusive-accordion/exclusive-accordion.php:13
-msgid "Exclusive Accordion"
-msgstr ""
-
-#: admin/dashboard-settings.php:483, admin/dashboard-settings.php:486, elements/progress-bar/progress-bar.php:40
-msgid "Progress Bar"
 msgstr ""
 
 #: includes/helper-class.php:37
@@ -179,7 +111,7 @@ msgstr ""
 msgid "Form Container"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:174, elements/countdown-timer/countdown-timer.php:113, elements/exclusive-button/exclusive-button.php:263, elements/flipbox/flipbox.php:375, elements/flipbox/flipbox.php:509, elements/flipbox/flipbox.php:818, elements/flipbox/flipbox.php:876, elements/infobox/infobox.php:179
+#: elements/contact-form-7/contact-form-7.php:174, elements/countdown-timer/countdown-timer.php:113, elements/dual-heading/dual-heading.php:179, elements/dual-heading/dual-heading.php:225, elements/exclusive-button/exclusive-button.php:263, elements/flipbox/flipbox.php:375, elements/flipbox/flipbox.php:509, elements/flipbox/flipbox.php:818, elements/flipbox/flipbox.php:876, elements/infobox/infobox.php:179
 msgid "Background"
 msgstr ""
 
@@ -195,23 +127,23 @@ msgstr ""
 msgid "Form Padding"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:256, elements/contact-form-7/contact-form-7.php:418, elements/countdown-timer/countdown-timer.php:203, elements/countdown-timer/countdown-timer.php:235, elements/exclusive-card/exclusive-card.php:190, elements/exclusive-card/exclusive-card.php:220, elements/exclusive-card/exclusive-card.php:248, elements/flipbox/flipbox.php:305, elements/flipbox/flipbox.php:346, elements/flipbox/flipbox.php:439, elements/flipbox/flipbox.php:480, elements/flipbox/flipbox.php:806, elements/flipbox/flipbox.php:864, elements/infobox/infobox.php:203, elements/infobox/infobox.php:234, elements/post-grid/post-grid.php:309, elements/post-timeline/post-timeline.php:290, elements/pricing-table/pricing-table.php:337, elements/pricing-table/pricing-table.php:382, elements/pricing-table/pricing-table.php:411, elements/pricing-table/pricing-table.php:447, elements/pricing-table/pricing-table.php:537, elements/progress-bar/progress-bar.php:145, elements/progress-bar/progress-bar.php:176, elements/progress-bar/progress-bar.php:207, elements/team-carousel/team-carousel.php:400, elements/team-carousel/team-carousel.php:430, elements/team-carousel/team-carousel.php:460, elements/team-member/team-member.php:258, elements/team-member/team-member.php:288, elements/team-member/team-member.php:318, elements/testimonial-carousel/testimonial-carousel.php:320, elements/testimonial-carousel/testimonial-carousel.php:369, elements/testimonial-carousel/testimonial-carousel.php:399
+#: elements/contact-form-7/contact-form-7.php:256, elements/contact-form-7/contact-form-7.php:418, elements/countdown-timer/countdown-timer.php:203, elements/countdown-timer/countdown-timer.php:235, elements/exclusive-card/exclusive-card.php:190, elements/exclusive-card/exclusive-card.php:220, elements/exclusive-card/exclusive-card.php:248, elements/exclusive-heading/exclusive-heading.php:180, elements/exclusive-heading/exclusive-heading.php:254, elements/flipbox/flipbox.php:305, elements/flipbox/flipbox.php:346, elements/flipbox/flipbox.php:439, elements/flipbox/flipbox.php:480, elements/flipbox/flipbox.php:806, elements/flipbox/flipbox.php:864, elements/infobox/infobox.php:203, elements/infobox/infobox.php:234, elements/post-grid/post-grid.php:309, elements/post-timeline/post-timeline.php:290, elements/pricing-table/pricing-table.php:332, elements/pricing-table/pricing-table.php:377, elements/pricing-table/pricing-table.php:406, elements/pricing-table/pricing-table.php:442, elements/pricing-table/pricing-table.php:532, elements/progress-bar/progress-bar.php:145, elements/progress-bar/progress-bar.php:176, elements/progress-bar/progress-bar.php:207, elements/team-carousel/team-carousel.php:400, elements/team-carousel/team-carousel.php:430, elements/team-carousel/team-carousel.php:460, elements/team-member/team-member.php:258, elements/team-member/team-member.php:288, elements/team-member/team-member.php:318, elements/testimonial-carousel/testimonial-carousel.php:320, elements/testimonial-carousel/testimonial-carousel.php:369, elements/testimonial-carousel/testimonial-carousel.php:399
 msgid "Color"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:267, elements/exclusive-button/exclusive-button.php:149, elements/post-grid/post-grid.php:321, elements/post-timeline/post-timeline.php:302
+#: elements/contact-form-7/contact-form-7.php:267, elements/dual-heading/dual-heading.php:126, elements/exclusive-button/exclusive-button.php:149, elements/post-grid/post-grid.php:321, elements/post-timeline/post-timeline.php:302
 msgid "Alignment"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:271, elements/exclusive-button/exclusive-button.php:154, elements/post-grid/post-grid.php:269, elements/post-grid/post-grid.php:325, elements/post-timeline/post-timeline.php:250, elements/post-timeline/post-timeline.php:306
+#: elements/contact-form-7/contact-form-7.php:271, elements/dual-heading/dual-heading.php:131, elements/exclusive-button/exclusive-button.php:154, elements/post-grid/post-grid.php:269, elements/post-grid/post-grid.php:325, elements/post-timeline/post-timeline.php:250, elements/post-timeline/post-timeline.php:306
 msgid "Left"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:275, elements/exclusive-button/exclusive-button.php:158, elements/post-grid/post-grid.php:273, elements/post-grid/post-grid.php:329, elements/post-timeline/post-timeline.php:254, elements/post-timeline/post-timeline.php:310
+#: elements/contact-form-7/contact-form-7.php:275, elements/dual-heading/dual-heading.php:135, elements/exclusive-button/exclusive-button.php:158, elements/post-grid/post-grid.php:273, elements/post-grid/post-grid.php:329, elements/post-timeline/post-timeline.php:254, elements/post-timeline/post-timeline.php:310
 msgid "Center"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:279, elements/exclusive-button/exclusive-button.php:162, elements/post-grid/post-grid.php:277, elements/post-grid/post-grid.php:333, elements/post-timeline/post-timeline.php:258, elements/post-timeline/post-timeline.php:314
+#: elements/contact-form-7/contact-form-7.php:279, elements/dual-heading/dual-heading.php:139, elements/exclusive-button/exclusive-button.php:162, elements/post-grid/post-grid.php:277, elements/post-grid/post-grid.php:333, elements/post-timeline/post-timeline.php:258, elements/post-timeline/post-timeline.php:314
 msgid "Right"
 msgstr ""
 
@@ -223,11 +155,11 @@ msgstr ""
 msgid "Input & Textarea"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:318, elements/contact-form-7/contact-form-7.php:473, elements/contact-form-7/contact-form-7.php:519, elements/contact-form-7/contact-form-7.php:639, elements/contact-form-7/contact-form-7.php:682, elements/exclusive-accordion/exclusive-accordion.php:147, elements/exclusive-accordion/exclusive-accordion.php:195, elements/exclusive-accordion/exclusive-accordion.php:257, elements/exclusive-button/exclusive-button.php:290, elements/exclusive-tabs/exclusive-tabs.php:190, elements/exclusive-tabs/exclusive-tabs.php:235, elements/exclusive-tabs/exclusive-tabs.php:316, elements/flipbox/flipbox.php:554, elements/flipbox/flipbox.php:596, elements/post-timeline/post-timeline.php:341, elements/pricing-table/pricing-table.php:299, elements/pricing-table/pricing-table.php:552, elements/pricing-table/pricing-table.php:607, elements/pricing-table/pricing-table.php:650, elements/team-carousel/team-carousel.php:290, elements/team-carousel/team-carousel.php:545, elements/team-member/team-member.php:232, elements/team-member/team-member.php:352, elements/team-member/team-member.php:367, elements/testimonial-carousel/testimonial-carousel.php:297
+#: elements/contact-form-7/contact-form-7.php:318, elements/contact-form-7/contact-form-7.php:473, elements/contact-form-7/contact-form-7.php:519, elements/contact-form-7/contact-form-7.php:639, elements/contact-form-7/contact-form-7.php:682, elements/exclusive-accordion/exclusive-accordion.php:147, elements/exclusive-accordion/exclusive-accordion.php:195, elements/exclusive-accordion/exclusive-accordion.php:257, elements/exclusive-button/exclusive-button.php:290, elements/exclusive-tabs/exclusive-tabs.php:190, elements/exclusive-tabs/exclusive-tabs.php:235, elements/exclusive-tabs/exclusive-tabs.php:316, elements/flipbox/flipbox.php:554, elements/flipbox/flipbox.php:596, elements/post-timeline/post-timeline.php:341, elements/pricing-table/pricing-table.php:296, elements/pricing-table/pricing-table.php:547, elements/pricing-table/pricing-table.php:602, elements/pricing-table/pricing-table.php:645, elements/team-carousel/team-carousel.php:290, elements/team-carousel/team-carousel.php:545, elements/team-member/team-member.php:232, elements/team-member/team-member.php:352, elements/team-member/team-member.php:367, elements/testimonial-carousel/testimonial-carousel.php:297
 msgid "Background Color"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:329, elements/contact-form-7/contact-form-7.php:485, elements/contact-form-7/contact-form-7.php:531, elements/contact-form-7/contact-form-7.php:623, elements/contact-form-7/contact-form-7.php:697, elements/exclusive-accordion/exclusive-accordion.php:158, elements/exclusive-accordion/exclusive-accordion.php:206, elements/exclusive-accordion/exclusive-accordion.php:269, elements/exclusive-button/exclusive-button.php:248, elements/exclusive-button/exclusive-button.php:278, elements/exclusive-tabs/exclusive-tabs.php:178, elements/exclusive-tabs/exclusive-tabs.php:223, elements/exclusive-tabs/exclusive-tabs.php:327, elements/flipbox/flipbox.php:542, elements/flipbox/flipbox.php:584, elements/post-grid/post-grid.php:230, elements/post-grid/post-grid.php:367, elements/post-grid/post-grid.php:426, elements/post-grid/post-grid.php:447, elements/pricing-table/pricing-table.php:595, elements/pricing-table/pricing-table.php:638
+#: elements/contact-form-7/contact-form-7.php:329, elements/contact-form-7/contact-form-7.php:485, elements/contact-form-7/contact-form-7.php:531, elements/contact-form-7/contact-form-7.php:623, elements/contact-form-7/contact-form-7.php:697, elements/dual-heading/dual-heading.php:167, elements/dual-heading/dual-heading.php:213, elements/dual-heading/dual-heading.php:259, elements/exclusive-accordion/exclusive-accordion.php:158, elements/exclusive-accordion/exclusive-accordion.php:206, elements/exclusive-accordion/exclusive-accordion.php:269, elements/exclusive-button/exclusive-button.php:248, elements/exclusive-button/exclusive-button.php:278, elements/exclusive-tabs/exclusive-tabs.php:178, elements/exclusive-tabs/exclusive-tabs.php:223, elements/exclusive-tabs/exclusive-tabs.php:327, elements/flipbox/flipbox.php:542, elements/flipbox/flipbox.php:584, elements/post-grid/post-grid.php:230, elements/post-grid/post-grid.php:367, elements/post-grid/post-grid.php:426, elements/post-grid/post-grid.php:447, elements/pricing-table/pricing-table.php:590, elements/pricing-table/pricing-table.php:633
 msgid "Text Color"
 msgstr ""
 
@@ -259,15 +191,15 @@ msgstr ""
 msgid "Button Typography"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:466, elements/exclusive-accordion/exclusive-accordion.php:143, elements/exclusive-button/exclusive-button.php:243, elements/exclusive-tabs/exclusive-tabs.php:173, elements/flipbox/flipbox.php:537, elements/flipbox/flipbox.php:776, elements/post-grid/post-grid.php:225, elements/pricing-table/pricing-table.php:590, elements/team-carousel/team-carousel.php:316, elements/team-carousel/team-carousel.php:539, elements/team-member/team-member.php:347
+#: elements/contact-form-7/contact-form-7.php:466, elements/exclusive-accordion/exclusive-accordion.php:143, elements/exclusive-button/exclusive-button.php:243, elements/exclusive-tabs/exclusive-tabs.php:173, elements/flipbox/flipbox.php:537, elements/flipbox/flipbox.php:776, elements/post-grid/post-grid.php:225, elements/pricing-table/pricing-table.php:585, elements/team-carousel/team-carousel.php:316, elements/team-carousel/team-carousel.php:539, elements/team-member/team-member.php:347
 msgid "Normal"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:497, elements/contact-form-7/contact-form-7.php:543, elements/flipbox/flipbox.php:566, elements/flipbox/flipbox.php:607, elements/pricing-table/pricing-table.php:619, elements/pricing-table/pricing-table.php:662
+#: elements/contact-form-7/contact-form-7.php:497, elements/contact-form-7/contact-form-7.php:543, elements/flipbox/flipbox.php:566, elements/flipbox/flipbox.php:607, elements/pricing-table/pricing-table.php:614, elements/pricing-table/pricing-table.php:657
 msgid "Border Color"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:512, elements/exclusive-accordion/exclusive-accordion.php:188, elements/exclusive-button/exclusive-button.php:273, elements/flipbox/flipbox.php:579, elements/flipbox/flipbox.php:858, elements/post-grid/post-grid.php:242, elements/pricing-table/pricing-table.php:633, elements/team-carousel/team-carousel.php:350, elements/team-carousel/team-carousel.php:560, elements/team-member/team-member.php:381
+#: elements/contact-form-7/contact-form-7.php:512, elements/exclusive-accordion/exclusive-accordion.php:188, elements/exclusive-button/exclusive-button.php:273, elements/flipbox/flipbox.php:579, elements/flipbox/flipbox.php:858, elements/post-grid/post-grid.php:242, elements/pricing-table/pricing-table.php:628, elements/team-carousel/team-carousel.php:350, elements/team-carousel/team-carousel.php:560, elements/team-member/team-member.php:381
 msgid "Hover"
 msgstr ""
 
@@ -287,19 +219,19 @@ msgstr ""
 msgid "Set the date and time here"
 msgstr ""
 
-#: elements/countdown-timer/countdown-timer.php:60, elements/exclusive-accordion/exclusive-accordion.php:98, elements/exclusive-card/exclusive-card.php:130, elements/exclusive-tabs/exclusive-tabs.php:120, elements/infobox/infobox.php:135, elements/post-grid/post-grid.php:157, elements/pricing-table/pricing-table.php:245, elements/progress-bar/progress-bar.php:64, elements/team-carousel/team-carousel.php:254, elements/team-member/team-member.php:194, elements/testimonial-carousel/testimonial-carousel.php:248
+#: elements/countdown-timer/countdown-timer.php:60, elements/exclusive-accordion/exclusive-accordion.php:98, elements/exclusive-card/exclusive-card.php:130, elements/exclusive-heading/exclusive-heading.php:97, elements/exclusive-tabs/exclusive-tabs.php:120, elements/infobox/infobox.php:135, elements/post-grid/post-grid.php:157, elements/pricing-table/pricing-table.php:242, elements/progress-bar/progress-bar.php:64, elements/team-carousel/team-carousel.php:254, elements/team-member/team-member.php:194, elements/testimonial-carousel/testimonial-carousel.php:248
 msgid "Presets"
 msgstr ""
 
-#: elements/countdown-timer/countdown-timer.php:68, elements/exclusive-accordion/exclusive-accordion.php:106, elements/exclusive-card/exclusive-card.php:137, elements/exclusive-tabs/exclusive-tabs.php:128, elements/infobox/infobox.php:142, elements/post-grid/post-grid.php:165, elements/pricing-table/pricing-table.php:252, elements/team-carousel/team-carousel.php:261, elements/team-member/team-member.php:201, elements/testimonial-carousel/testimonial-carousel.php:255
+#: elements/countdown-timer/countdown-timer.php:68, elements/exclusive-accordion/exclusive-accordion.php:106, elements/exclusive-card/exclusive-card.php:137, elements/exclusive-heading/exclusive-heading.php:104, elements/exclusive-tabs/exclusive-tabs.php:128, elements/infobox/infobox.php:142, elements/post-grid/post-grid.php:165, elements/pricing-table/pricing-table.php:249, elements/team-carousel/team-carousel.php:261, elements/team-member/team-member.php:201, elements/testimonial-carousel/testimonial-carousel.php:255
 msgid "Style Preset"
 msgstr ""
 
-#: elements/countdown-timer/countdown-timer.php:72, elements/exclusive-accordion/exclusive-accordion.php:111, elements/exclusive-card/exclusive-card.php:141, elements/exclusive-tabs/exclusive-tabs.php:133, elements/infobox/infobox.php:146, elements/post-grid/post-grid.php:169, elements/pricing-table/pricing-table.php:256
+#: elements/countdown-timer/countdown-timer.php:72, elements/exclusive-accordion/exclusive-accordion.php:111, elements/exclusive-card/exclusive-card.php:141, elements/exclusive-tabs/exclusive-tabs.php:133, elements/infobox/infobox.php:146, elements/post-grid/post-grid.php:169, elements/pricing-table/pricing-table.php:253
 msgid "Style 1"
 msgstr ""
 
-#: elements/countdown-timer/countdown-timer.php:73, elements/exclusive-accordion/exclusive-accordion.php:112, elements/exclusive-card/exclusive-card.php:142, elements/exclusive-tabs/exclusive-tabs.php:134, elements/infobox/infobox.php:147, elements/post-grid/post-grid.php:170, elements/pricing-table/pricing-table.php:257
+#: elements/countdown-timer/countdown-timer.php:73, elements/exclusive-accordion/exclusive-accordion.php:112, elements/exclusive-card/exclusive-card.php:142, elements/exclusive-tabs/exclusive-tabs.php:134, elements/infobox/infobox.php:147, elements/post-grid/post-grid.php:170, elements/pricing-table/pricing-table.php:254
 msgid "Style 2"
 msgstr ""
 
@@ -319,7 +251,7 @@ msgstr ""
 msgid "Counter Style"
 msgstr ""
 
-#: elements/countdown-timer/countdown-timer.php:219, elements/flipbox/flipbox.php:428, elements/post-grid/post-grid.php:216, elements/post-timeline/post-timeline.php:224, elements/pricing-table/pricing-table.php:329
+#: elements/countdown-timer/countdown-timer.php:219, elements/flipbox/flipbox.php:428, elements/post-grid/post-grid.php:216, elements/post-timeline/post-timeline.php:224, elements/pricing-table/pricing-table.php:324
 msgid "Title Style"
 msgstr ""
 
@@ -329,6 +261,66 @@ msgstr ""
 
 #: elements/countdown-timer/countdown-timer.php:257
 msgid "Hours"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:10
+msgid "Ex Dual Heading"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:26, elements/exclusive-card/exclusive-card.php:27, elements/exclusive-heading/exclusive-heading.php:27, elements/exclusive-tabs/exclusive-tabs.php:32, elements/exclusive-tabs/exclusive-tabs.php:289, elements/flipbox/flipbox.php:334, elements/infobox/infobox.php:26, elements/progress-bar/progress-bar.php:31, elements/team-member/team-member.php:27
+msgid "Content"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:33, elements/dual-heading/dual-heading.php:159
+msgid "First Heading"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:36
+msgid "First"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:42, elements/dual-heading/dual-heading.php:205
+msgid "Second Heading"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:45
+msgid "Second"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:52, elements/exclusive-heading/exclusive-heading.php:45
+msgid "Heading URL"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:54, elements/exclusive-card/exclusive-card.php:68, elements/exclusive-card/exclusive-card.php:112, elements/exclusive-heading/exclusive-heading.php:47, elements/infobox/infobox.php:108, elements/team-carousel/team-carousel.php:110, elements/team-carousel/team-carousel.php:127, elements/team-carousel/team-carousel.php:144, elements/team-carousel/team-carousel.php:161, elements/team-carousel/team-carousel.php:178
+msgid "https://your-link.com"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:66, elements/dual-heading/dual-heading.php:251, elements/exclusive-heading/exclusive-heading.php:60, elements/exclusive-heading/exclusive-heading.php:247
+msgid "Sub Heading"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:70
+msgid "Add your sub heading here."
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:77, elements/exclusive-accordion/exclusive-accordion.php:56, elements/exclusive-heading/exclusive-heading.php:69, elements/exclusive-tabs/exclusive-tabs.php:142
+msgid "Enable Icon"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:87, elements/exclusive-accordion/exclusive-accordion.php:63, elements/exclusive-button/exclusive-button.php:51, elements/exclusive-heading/exclusive-heading.php:79, elements/exclusive-tabs/exclusive-tabs.php:63, elements/exclusive-tabs/exclusive-tabs.php:75, elements/flipbox/flipbox.php:39, elements/flipbox/flipbox.php:83, elements/infobox/infobox.php:42, elements/infobox/infobox.php:83, elements/pricing-table/pricing-table.php:55, elements/team-member/team-member.php:125
+msgid "Icon"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:106, elements/flipbox/flipbox.php:205, elements/post-timeline/post-timeline.php:140
+msgid "General Styles"
+msgstr ""
+
+#: elements/dual-heading/dual-heading.php:114, elements/exclusive-accordion/exclusive-accordion.php:169, elements/exclusive-accordion/exclusive-accordion.php:217, elements/exclusive-heading/exclusive-heading.php:118, elements/flipbox/flipbox.php:260, elements/flipbox/flipbox.php:412, elements/testimonial-carousel/testimonial-carousel.php:455
+msgid "Icon Color"
+msgstr ""
+
+#: elements/exclusive-accordion/exclusive-accordion.php:13
+msgid "Exclusive Accordion"
 msgstr ""
 
 #: elements/exclusive-accordion/exclusive-accordion.php:33, elements/exclusive-button/exclusive-button.php:32, elements/team-carousel/team-carousel.php:34, elements/testimonial-carousel/testimonial-carousel.php:34
@@ -351,14 +343,6 @@ msgstr ""
 msgid "Active as Default"
 msgstr ""
 
-#: elements/exclusive-accordion/exclusive-accordion.php:56, elements/exclusive-tabs/exclusive-tabs.php:142
-msgid "Enable Icon"
-msgstr ""
-
-#: elements/exclusive-accordion/exclusive-accordion.php:63, elements/exclusive-button/exclusive-button.php:51, elements/exclusive-tabs/exclusive-tabs.php:63, elements/exclusive-tabs/exclusive-tabs.php:75, elements/flipbox/flipbox.php:39, elements/flipbox/flipbox.php:83, elements/infobox/infobox.php:42, elements/infobox/infobox.php:83, elements/pricing-table/pricing-table.php:55, elements/team-member/team-member.php:125
-msgid "Icon"
-msgstr ""
-
 #: elements/exclusive-accordion/exclusive-accordion.php:72, elements/exclusive-accordion/exclusive-accordion.php:74, elements/exclusive-tabs/exclusive-tabs.php:95, elements/exclusive-tabs/exclusive-tabs.php:97
 msgid "Tab Title"
 msgstr ""
@@ -371,11 +355,11 @@ msgstr ""
 msgid "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur."
 msgstr ""
 
-#: elements/exclusive-accordion/exclusive-accordion.php:113, elements/exclusive-card/exclusive-card.php:143, elements/exclusive-tabs/exclusive-tabs.php:135, elements/infobox/infobox.php:148, elements/pricing-table/pricing-table.php:258
+#: elements/exclusive-accordion/exclusive-accordion.php:113, elements/exclusive-card/exclusive-card.php:143, elements/exclusive-tabs/exclusive-tabs.php:135, elements/infobox/infobox.php:148, elements/pricing-table/pricing-table.php:255
 msgid "Style 3"
 msgstr ""
 
-#: elements/exclusive-accordion/exclusive-accordion.php:114, elements/infobox/infobox.php:149, elements/pricing-table/pricing-table.php:259
+#: elements/exclusive-accordion/exclusive-accordion.php:114, elements/infobox/infobox.php:149, elements/pricing-table/pricing-table.php:256
 msgid "Style 4"
 msgstr ""
 
@@ -383,12 +367,12 @@ msgstr ""
 msgid "Tab Style"
 msgstr ""
 
-#: elements/exclusive-accordion/exclusive-accordion.php:169, elements/exclusive-accordion/exclusive-accordion.php:217, elements/flipbox/flipbox.php:260, elements/flipbox/flipbox.php:412, elements/testimonial-carousel/testimonial-carousel.php:455
-msgid "Icon Color"
-msgstr ""
-
 #: elements/exclusive-accordion/exclusive-accordion.php:249, elements/flipbox/flipbox.php:468
 msgid "Content Style"
+msgstr ""
+
+#: elements/exclusive-button/exclusive-button.php:14
+msgid "Exclusive Button"
 msgstr ""
 
 #: elements/exclusive-button/exclusive-button.php:40, elements/flipbox/flipbox.php:116, elements/pricing-table/pricing-table.php:209
@@ -463,8 +447,8 @@ msgstr ""
 msgid "Width"
 msgstr ""
 
-#: elements/exclusive-card/exclusive-card.php:27, elements/exclusive-tabs/exclusive-tabs.php:32, elements/exclusive-tabs/exclusive-tabs.php:289, elements/flipbox/flipbox.php:334, elements/infobox/infobox.php:26, elements/progress-bar/progress-bar.php:31, elements/team-member/team-member.php:27
-msgid "Content"
+#: elements/exclusive-card/exclusive-card.php:11
+msgid "Exclusive Card"
 msgstr ""
 
 #: elements/exclusive-card/exclusive-card.php:34, elements/exclusive-tabs/exclusive-tabs.php:67, elements/exclusive-tabs/exclusive-tabs.php:84, elements/infobox/infobox.php:46, elements/infobox/infobox.php:59, elements/team-carousel/team-carousel.php:46, elements/team-member/team-member.php:34
@@ -477,10 +461,6 @@ msgstr ""
 
 #: elements/exclusive-card/exclusive-card.php:66, elements/infobox/infobox.php:106
 msgid "Title URL"
-msgstr ""
-
-#: elements/exclusive-card/exclusive-card.php:68, elements/exclusive-card/exclusive-card.php:112, elements/infobox/infobox.php:108, elements/team-carousel/team-carousel.php:110, elements/team-carousel/team-carousel.php:127, elements/team-carousel/team-carousel.php:144, elements/team-carousel/team-carousel.php:161, elements/team-carousel/team-carousel.php:178
-msgid "https://your-link.com"
 msgstr ""
 
 #: elements/exclusive-card/exclusive-card.php:80, elements/exclusive-card/exclusive-card.php:241
@@ -519,6 +499,54 @@ msgstr ""
 msgid "Content Background Color"
 msgstr ""
 
+#: elements/exclusive-heading/exclusive-heading.php:11
+msgid "Exclusive Heading"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:34, elements/exclusive-heading/exclusive-heading.php:173, elements/exclusive-tabs/exclusive-tabs.php:158
+msgid "Heading"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:38
+msgid "Heading Title"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:62
+msgid "Basic description about the Heading"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:108
+msgid "Image/Gradient"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:109
+msgid "With Separator"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:110
+msgid "Text Background"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:131
+msgid "Title Background"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:203
+msgid "Separator Color"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:218
+msgid "Background Font Size"
+msgstr ""
+
+#: elements/exclusive-heading/exclusive-heading.php:272
+msgid "Top Spacing"
+msgstr ""
+
+#: elements/exclusive-tabs/exclusive-tabs.php:13
+msgid "Exclusive Tabs"
+msgstr ""
+
 #: elements/exclusive-tabs/exclusive-tabs.php:41
 msgid "Tab Title 1"
 msgstr ""
@@ -541,10 +569,6 @@ msgstr ""
 
 #: elements/exclusive-tabs/exclusive-tabs.php:59, elements/infobox/infobox.php:38
 msgid "None"
-msgstr ""
-
-#: elements/exclusive-tabs/exclusive-tabs.php:158
-msgid "Heading"
 msgstr ""
 
 #: elements/exclusive-tabs/exclusive-tabs.php:202, elements/exclusive-tabs/exclusive-tabs.php:248
@@ -655,10 +679,6 @@ msgstr ""
 msgid "Background Overlay"
 msgstr ""
 
-#: elements/flipbox/flipbox.php:205, elements/post-timeline/post-timeline.php:140
-msgid "General Styles"
-msgstr ""
-
 #: elements/flipbox/flipbox.php:213
 msgid "Flip Style"
 msgstr ""
@@ -699,7 +719,7 @@ msgstr ""
 msgid "Icon Background"
 msgstr ""
 
-#: elements/flipbox/flipbox.php:529, elements/pricing-table/pricing-table.php:202, elements/pricing-table/pricing-table.php:574
+#: elements/flipbox/flipbox.php:529, elements/pricing-table/pricing-table.php:202, elements/pricing-table/pricing-table.php:569
 msgid "Button"
 msgstr ""
 
@@ -915,7 +935,7 @@ msgstr ""
 msgid "Ex Pricing Table"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:30, elements/pricing-table/pricing-table.php:321
+#: elements/pricing-table/pricing-table.php:30, elements/pricing-table/pricing-table.php:316
 msgid "Header"
 msgstr ""
 
@@ -999,48 +1019,52 @@ msgstr ""
 msgid "Button Link"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:269
+#: elements/pricing-table/pricing-table.php:266
 msgid "Price Box Color"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:284
+#: elements/pricing-table/pricing-table.php:281
 msgid "Top Line Color"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:365
+#: elements/pricing-table/pricing-table.php:360
 msgid "Pricing"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:373
+#: elements/pricing-table/pricing-table.php:368
 msgid "Original Price"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:402
+#: elements/pricing-table/pricing-table.php:397
 msgid "Pricing By"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:439
+#: elements/pricing-table/pricing-table.php:434
 msgid "Feature List"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:459
+#: elements/pricing-table/pricing-table.php:454
 msgid "Disable item color"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:486
+#: elements/pricing-table/pricing-table.php:481
 msgid "Featured Badge"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:497
+#: elements/pricing-table/pricing-table.php:492
 msgid "Line Color"
 msgstr ""
 
-#: elements/pricing-table/pricing-table.php:515
+#: elements/pricing-table/pricing-table.php:510
 msgid "Font Size"
 msgstr ""
 
 #: elements/progress-bar/progress-bar.php:11
 msgid "Ex Progress Bar"
+msgstr ""
+
+#: elements/progress-bar/progress-bar.php:40
+msgid "Progress Bar"
 msgstr ""
 
 #: elements/progress-bar/progress-bar.php:48, elements/progress-bar/progress-bar.php:199
@@ -1121,6 +1145,10 @@ msgstr ""
 
 #: elements/team-carousel/team-carousel.php:173
 msgid "Dribbble URL"
+msgstr ""
+
+#: elements/team-carousel/team-carousel.php:191
+msgid "Team Carousel"
 msgstr ""
 
 #: elements/team-carousel/team-carousel.php:197

@@ -13,10 +13,10 @@ Packed with a bunch of Exclusively designed widget for Elementor that you'll lov
 == Description ==
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
-Don’t get your hand dirty designing elements from scratch. We’ve done the hard work for you.
-Just choose from the presets. We’re quite sure, you’ll love them.
+You don’t need to get your hands dirty designing elements from scratch. We’ve done the hard work for you.
+Choose from the presets. We’re quite sure, you’ll love them.
 
-Even if you don't, we have a bunch of options for you to design them according to your needs.
+If you don't, we have a bunch of options for you to design them according to your needs.
 
 [Check out our Demos](http://exclusiveaddons.com/)
 
@@ -73,6 +73,11 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 7. Dashboard section for enabling/disabling elements
 
 == Changelog ==
+
+= 1.1.0 - 04/04/2019 =
+- Exclusive Heading & Dual Heading elements added.
+- Code improvements on Elements rendering.
+- Changed Editor Icon badge from "EX" to "DC" (DevsCred).
 
 = 1.0.2 - 01/04/2019 =
 - EX Icon added to every Elementor Editor Icon.

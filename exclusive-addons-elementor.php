@@ -3,7 +3,7 @@
  * Plugin Name: Exclusive Addons for Elementor
  * Plugin URI: http://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
- * Version: 1.0.2
+ * Version: 1.1.0
  * Author: DevsCred
  * Author URI: http://devscred.com/
  * Text Domain: exclusive-addons-elementor
@@ -32,7 +32,7 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		 *
 		 * @var string The plugin version.
 		 */
-		const VERSION = '1.0.2';
+		const VERSION = '1.1.0';
 
 		/**
 		 * Minimum Elementor Version
@@ -229,11 +229,7 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		public function enqueue_scripts() {
 
 			$is_activated_widget = $this->activated_widgets();
-			
 			wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
-
-			wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
-			
 			if ( $is_activated_widget['progress-bar'] ) {
 				// Progress Bar Js
 				wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), 1.0, true );
@@ -244,7 +240,6 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 			if ( $is_activated_widget['countdown-timer'] ) {
 				wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), 1.0, true );
 			}
-			
 			wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), 1.0, true );
 			
 		}
