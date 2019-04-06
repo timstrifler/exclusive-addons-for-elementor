@@ -213,7 +213,7 @@ class Exad_Admin_Settings {
                                         <div class="exad-admin-block-header">
                                             <h4 class="exad-admin-title">Customer Support</h4>
                                             <p>We are always here to listen your beautiful voice. A dedicated support team is on your way to the rescue, the moment you need us.</p>
-                                            <a href="http://exclusiveaddons.com/support/" class="exad-admin-block-support-button" target="_blank">Get Support</a>
+                                            <a href="https://wordpress.org/support/plugin/exclusive-addons-for-elementor/" class="exad-admin-block-support-button" target="_blank">Get Support</a>
                                         </div>
                                     </div>
                                     <div class="exad-admin-block exad-admin-block-support">
@@ -236,7 +236,7 @@ class Exad_Admin_Settings {
                                         <div class="exad-admin-block-header">
                                             <h4 class="exad-admin-title">Show your Love</h4>
                                             <p>We are continiously working to make "Exclusive Addons" better, everyday. Your kind feedback will surely encourage us to move forward with the development.</p>
-                                            <a href="https://wordpress.org/plugins/exclusive-addons-for-elementor/" class="exad-admin-block-header-button" target="_blank">Leave a Review</a>
+                                            <a href="https://wordpress.org/plugins/exclusive-addons-for-elementor/#reviews" class="exad-admin-block-header-button" target="_blank">Leave a Review</a>
                                         </div>
                                     </div>
                                 </div>

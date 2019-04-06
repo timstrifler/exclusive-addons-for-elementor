@@ -24,7 +24,7 @@
                         <img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => '43' ) ); ?>" alt="">
                     </div>
                     <div class="exad-post-grid-author-info">
-                        <a href="#" class="exad-post-grid-author-name"><?php echo get_the_author(); ?></a>
+                        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" class="exad-post-grid-author-name"><?php echo get_the_author(); ?></a>
                         <p class="exad-post-grid-author-date"><?php echo get_the_date('M d, Y'); ?></p>
                     </div>
                     <?php if( '-one' === $settings['exad_post_grid_preset'] ) : ?>

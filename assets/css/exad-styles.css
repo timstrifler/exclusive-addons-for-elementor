@@ -2859,7 +2859,7 @@ text-align: right;
 }
 
 .exad-countdown.style-2 {
-  padding: 0 30px;
+  padding: 20px;
 }
 
 .exad-countdown.style-2 .exad-countdown-container {
@@ -3563,6 +3563,8 @@ text-align: right;
 
 .exad-button-wrapper.effect-2 .exad-button-action:hover {
   color: #fff;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .exad-button-wrapper.effect-2 .exad-button-action:hover:before, .exad-button-wrapper.effect-2 .exad-button-action:hover:after {
@@ -4213,6 +4215,7 @@ text-align: right;
 
 .exad-accordion.one .exad-accordion-one .exad-accordion-title.active::after {
   content: '-';
+  font-size: 48px;
 }
 
 .exad-accordion.one .exad-accordion-one .exad-accordion-title h3 {
@@ -4426,6 +4429,7 @@ text-align: right;
 
 .exad-accordion.three .exad-accordion-three .exad-accordion-title span i {
   font-size: 20px;
+  vertical-align: middle;
 }
 
 .exad-accordion.three .exad-accordion-three .exad-accordion-title h3 {
@@ -4434,6 +4438,7 @@ text-align: right;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   margin: 0 0 0 10px;
+  padding: 0;
 }
 
 .exad-accordion.three .exad-accordion-three .exad-accordion-content {
@@ -4455,10 +4460,6 @@ text-align: right;
 }
 
 .exad-accordion.six .exad-accordion-six.active .exad-accordion-title {
-  color: #36d3ac;
-}
-
-.exad-accordion.six .exad-accordion-six.active .exad-accordion-title span i {
   color: #36d3ac;
 }
 
@@ -4506,6 +4507,7 @@ text-align: right;
 }
 
 .exad-accordion.six .exad-accordion-six .exad-accordion-title span i {
+  vertical-align: middle;
   font-size: 20px;
 }
 
@@ -4515,6 +4517,7 @@ text-align: right;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   margin: 0;
+  padding: 0;
 }
 
 .exad-accordion.six .exad-accordion-six .exad-accordion-content {

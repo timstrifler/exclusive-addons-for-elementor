@@ -80,9 +80,24 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'label' => __( 'Divider Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#000',
+				'default' => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown.style-2 .exad-countdown-count::after' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_countdown_preset' => 'style-2',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_countdown_container_bg_color',
+			[
+				'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#8868fe',
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown.style-2' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_countdown_preset' => 'style-2',
