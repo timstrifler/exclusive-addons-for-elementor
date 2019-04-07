@@ -73,7 +73,7 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 		 * 
 		 * @return array
 		 */
-		public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading' ];
+		public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel' ];
 
 		/**
 		 * Instance

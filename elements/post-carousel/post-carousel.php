@@ -1,32 +1,34 @@
 <?php
 namespace Elementor;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+class Exad_Post_Carousel extends Widget_Base {
 
-class Exad_Post_Grid extends Widget_Base {
-
+	private $lightbox_slide_index;
+	private $slide_prints_count = 0;
 
 	public function get_name() {
-		return 'exad-post-grid';
+		return 'exad-post-carousel';
 	}
 
 	public function get_title() {
-		return __( 'Ex Post Grid', 'exclusive-addons-elementor' );
+		return esc_html__( 'Ex Post Carousel', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-posts-grid';
+		return 'exad-element-icon eicon-post';
 	}
 
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
-	protected function _register_controls() {
+	public function get_script_depends() {
+		return [ 'jquery-slick' ];
+	}
 
-		
+	protected function _register_controls() {
         $this->start_controls_section(
-            'exad_section_post_grid_filters',
+            'exad_section_post_carousel_filters',
             [
                 'label' => __( 'Settings', 'exclusive-addons-elementor' ),
             ]
@@ -34,7 +36,7 @@ class Exad_Post_Grid extends Widget_Base {
         
       
         $this->add_control(
-            'exad_post_grid_type',
+            'exad_post_carousel_type',
             [
                 'label' => __( 'Post Type', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
@@ -45,7 +47,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_post_grid_per_page',
+            'exad_post_carousel_per_page',
             [
                 'label' => __( 'Posts Per Page', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::NUMBER,
@@ -54,7 +56,7 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
 		$this->add_control(
-            'exad_post_grid_column_no',
+            'exad_post_carousel_column_no',
             [
                 'label' => __( 'Number of Columns', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
@@ -72,7 +74,7 @@ class Exad_Post_Grid extends Widget_Base {
 		
 		
         $this->add_control(
-            'exad_post_grid_offset',
+            'exad_post_carousel_offset',
             [
                 'label' => __( 'Offset', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::NUMBER,
@@ -81,7 +83,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-        	'exad_post_grid_authors',
+        	'exad_post_carousel_authors',
         	[
                 'label' => __( 'Author', 'exclusive-addons-elementor' ),
                 'label_block' => true,
@@ -93,7 +95,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-        	'exad_post_grid_categories',
+        	'exad_post_carousel_categories',
         	[
                 'label' => __( 'Categories', 'exclusive-addons-elementor' ),
                 'label_block' => true,
@@ -105,7 +107,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-        	'exad_post_grid_tags',
+        	'exad_post_carousel_tags',
         	[
                 'label' => __( 'Tags', 'exclusive-addons-elementor' ),
                 'label_block' => true,
@@ -117,7 +119,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_post_grid_order',
+            'exad_post_carousel_order',
             [
                 'label' => __( 'Order', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
@@ -131,7 +133,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_grid_excerpt_length',
+            'exad_carousel_excerpt_length',
             [
                 'label' => __( 'Excerpt Words', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::NUMBER,
@@ -140,7 +142,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-			'exad_post_grid_ignore_sticky',
+			'exad_post_carousel_ignore_sticky',
 			[
 				'label' => esc_html__( 'Ignore Sticky?', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -152,7 +154,7 @@ class Exad_Post_Grid extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'exad_section_post_grid_presets',
+            'exad_section_post_carousel_presets',
             [
                 'label' => __( 'Presets', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
@@ -160,7 +162,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-			'exad_post_grid_preset',
+			'exad_post_carousel_preset',
 			[
 				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
@@ -173,29 +175,29 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
         $this->add_control(
-			'exad_grid_post_bg_color',
+			'exad_carousel_post_bg_color',
 			[
 				'label' => __( 'Post Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#f5f7fa',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-container' => 'background: {{VALUE}};',
 				]
 
 			]
 		);
 
 		$this->add_control(
-			'exad_grid_comment_hover_bg_color',
+			'exad_carousel_comment_hover_bg_color',
 			[
 				'label' => __( 'Comment Hover Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#ff704e',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-one .exad-post-carousel-author-action li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_post_grid_preset' => '-one'
+					'exad_post_carousel_preset' => '-one'
 				]
 			]
 		);
@@ -203,7 +205,7 @@ class Exad_Post_Grid extends Widget_Base {
 		$this->end_controls_section();
 
         $this->start_controls_section(
-            'exad_post_grid_title',
+            'exad_post_carousel_title',
             [
                 'label' => __( 'Title', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
@@ -211,7 +213,7 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
 		$this->add_control(
-			'exad_post_grid_title_style',
+			'exad_post_carousel_title_style',
 			[
 				'label' => __( 'Title Style', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -220,18 +222,18 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
 
-		$this->start_controls_tabs( 'exad_post_grid_title_tabs' );
+		$this->start_controls_tabs( 'exad_post_carousel_title_tabs' );
 
 			$this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
 
 			$this->add_control(
-				'exad_grid_title_color',
+				'exad_carousel_title_color',
 				[
 					'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'default'=> '#0a1724',
 					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-body .exad-post-carousel-title' => 'color: {{VALUE}};',
 					]
 	
 				]
@@ -242,13 +244,13 @@ class Exad_Post_Grid extends Widget_Base {
 			$this->start_controls_tab( 'hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
 
 			$this->add_control(
-				'exad_grid_title_hover_color',
+				'exad_carousel_title_hover_color',
 				[
 					'label' => __( 'Hover Color', 'exclusive-addons-elementor' ),
 					'type' => Controls_Manager::COLOR,
 					'default'=> '#0A1724',
 					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title:hover' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-body .exad-post-carousel-title:hover' => 'color: {{VALUE}};',
 					]
 	
 				]
@@ -260,7 +262,7 @@ class Exad_Post_Grid extends Widget_Base {
 
 
 		$this->add_responsive_control(
-			'exad_grid_title_alignment',
+			'exad_carousel_title_alignment',
 			[
 				'label' => __( 'Title Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
@@ -279,7 +281,7 @@ class Exad_Post_Grid extends Widget_Base {
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-title' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-carousel-body .exad-post-carousel-title' => 'text-align: {{VALUE}};',
 				]
 			]
 		);
@@ -287,16 +289,16 @@ class Exad_Post_Grid extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name' => 'exad_grid_title_typography',
+				'name' => 'exad_carousel_title_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title',
+				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-body .exad-post-carousel-title',
 			]
 		);
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-            'exad_post_grid_excerpt_style',
+            'exad_post_carousel_excerpt_style',
             [
                 'label' => __( 'Excerpt', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
@@ -304,19 +306,19 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-			'exad_grid_excerpt_color',
+			'exad_carousel_excerpt_color',
 			[
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#848484',
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-carousel-body .exad-post-carousel-description' => 'color: {{VALUE}};',
 				]
 			]
 		);
 
         $this->add_responsive_control(
-			'exad_grid_excerpt_alignment',
+			'exad_carousel_excerpt_alignment',
 			[
 				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
@@ -339,21 +341,21 @@ class Exad_Post_Grid extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-description' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-carousel-body .exad-post-carousel-description' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-            'exad_post_grid_category_style',
+            'exad_post_carousel_category_style',
             [
                 'label' => __( 'Category', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 		$this->add_control(
-			'exad_grid_category_style',
+			'exad_carousel_category_style',
 			[
 				'label' => __( 'Category Style', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -362,57 +364,57 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
         $this->add_control(
-			'exad_grid_category_color',
+			'exad_carousel_category_color',
 			[
 				'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#848484',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-category li a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-body .exad-post-carousel-category li a' => 'color: {{VALUE}};',
 				]
 			]
 		);
 
 		$this->add_control(
-			'exad_grid_category_bg_odd_color',
+			'exad_carousel_category_bg_odd_color',
 			[
 				'label' => __( 'Background Color (Odd)', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#3ac772',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n-1)' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-three .exad-post-carousel-body .exad-post-carousel-category li:nth-child(2n-1)' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_post_grid_preset' => '-three'
+					'exad_post_carousel_preset' => '-three'
 				]
 			]
 		);
 
 		$this->add_control(
-			'exad_grid_category_bg_even_color',
+			'exad_carousel_category_bg_even_color',
 			[
 				'label' => __( 'Background Color (Even)', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#8774ff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-three .exad-post-carousel-body .exad-post-carousel-category li:nth-child(2n)' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_post_grid_preset' => '-three'
+					'exad_post_carousel_preset' => '-three'
 				]
 			]
 		);
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-            'exad_post_grid_author_date_style',
+            'exad_post_carousel_author_date_style',
             [
                 'label' => __( 'Author & Date', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 		$this->add_control(
-			'exad_grid_author_style',
+			'exad_carousel_author_style',
 			[
 				'label' => __( 'Author Style', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -421,19 +423,19 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
         $this->add_control(
-			'exad_grid_author_text_color',
+			'exad_carousel_author_text_color',
 			[
 				'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#0a1724',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-author-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-author-name' => 'color: {{VALUE}};',
 				]
 			]
 		);
 
 		$this->add_control(
-			'exad_grid_date_style',
+			'exad_carousel_date_style',
 			[
 				'label' => __( 'Date Style', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
@@ -442,53 +444,51 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
         $this->add_control(
-			'exad_grid_date_text_color',
+			'exad_carousel_date_text_color',
 			[
 				'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#0a1724',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-author-date' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-author-date' => 'color: {{VALUE}};',
 				]
 			]
-		);
+        );
+        
 		$this->end_controls_section();
-		
-
 	}
 
 
 	protected function render() {
-        $settings = $this->get_settings_for_display();
+		$settings = $this->get_settings_for_display();
 
         $settings['template_type'] = $this->get_name();
-        $settings['post_args'] = Exad_Helper::exad_get_post_arguments($settings, 'exad_post_grid');
+        $settings['post_args'] = Exad_Helper::exad_get_post_arguments($settings, 'exad_post_carousel');
 		
 		$this->add_render_attribute(
-			'exad_post_grid_wrapper',
+			'exad_post_carousel_wrapper',
 			[
-				'id'		=> "exad-post-grid-{$this->get_id()}",
-				'class'		=> "exad-row-wrapper exad-col-{$settings['exad_post_grid_column_no']}",
-				'data-grid_id'	=> $this->get_id(),
-				'data-post_type'	=> $settings['exad_post_grid_type'],
-				'data-posts_per_page'	=> $settings['exad_post_grid_per_page'] ? $settings['exad_post_grid_per_page'] : 4,
-				'data-post_order'		=> $settings['exad_post_grid_order'],
-				'data-post_offset'		=> intval( $settings['exad_post_grid_offset'] ),
-				'data-excerpt_length'	=> $settings['exad_grid_excerpt_length'],
+				'id'    => "exad-post-carousel-{$this->get_id()}",
+				'class' => "exad-row-wrapper exad-post-carousel one",
+                'data-carousel_id'	=> $this->get_id(),
+                'data-carousel-column' => $settings['exad_post_carousel_column_no'],
+				'data-post_type'    => $settings['exad_post_carousel_type'],
+				'data-posts_per_page'   => $settings['exad_post_carousel_per_page'] ? $settings['exad_post_carousel_per_page'] : 4,
+				'data-post_order'   => $settings['exad_post_carousel_order'],
+				'data-post_offset'  => intval( $settings['exad_post_carousel_offset'] ),
+				'data-excerpt_length'   => $settings['exad_carousel_excerpt_length'],
 
 			]
 		);
 
         ?>
 
-		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
+		<div <?php echo $this->get_render_attribute_string( 'exad_post_carousel_wrapper' ); ?>>
         	<?php Exad_Helper::exad_get_posts( $settings ); ?>
     	</div>
 
-
 		<?php
 	}
-
-	protected function content_template() {}
 }
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Post_Grid() );
+
+Plugin::instance()->widgets_manager->register_widget_type( new Exad_Post_Carousel() );
