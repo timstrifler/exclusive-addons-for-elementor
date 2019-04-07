@@ -280,6 +280,20 @@
 	  	// position on hover a button in button style seven
 	};
 
+	// Post Carousel 
+	var PostCarousel = function($scope, $) {
+		var $postCarouselWrapper = $scope.find('.exad-post-carousel.one').eq(0),
+			$postCarouselColumn = $postCarouselWrapper.data("carousel-column");
+		// post Carousel one
+		$($postCarouselWrapper).slick({
+			infinite: true,
+			slidesToShow: $postCarouselColumn,
+			arrows: true,
+			prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-long-arrow-left'></i></div>",
+			nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-long-arrow-right'></i></div>"
+		  });
+	};
+
 	$(window).on('elementor/frontend/init', function () {
         if(elementorFrontend.isEditMode()) {
             editMode = true;
@@ -292,6 +306,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-accordion.default', ExclusiveAccordion);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-tabs.default', ExclusiveTabs);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-button.default', ExclusiveButton);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-post-carousel.default', PostCarousel);
         
     });
 

@@ -216,7 +216,9 @@ class Exad_Helper {
                 include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
             } elseif ( $settings['template_type'] == 'exad-post-grid' ) { 
                 include EXAD_TEMPLATES . 'tmpl-post-grid.php';
-            }else {
+            } elseif ( $settings['template_type'] == 'exad-post-carousel' ) { 
+                include EXAD_TEMPLATES . 'tmpl-post-carousel.php';
+            } else {
                 _e( 'No Contents Found', 'exclusive-addons-elementor' );
             }
 

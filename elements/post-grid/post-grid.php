@@ -453,80 +453,6 @@ class Exad_Post_Grid extends Widget_Base {
 			]
 		);
 		$this->end_controls_section();
-
-		
-
-
-		/*
-		$this->start_controls_section(
-            'exad_post_grid_button_style',
-            [
-                'label' => __( 'Button', 'exclusive-addons-elementor' ),
-                'tab' => Controls_Manager::TAB_STYLE
-            ]
-		);
-		$this->start_controls_tabs( 'exad_post_grid_button_tabs' );
-
-			$this->start_controls_tab( 'exad_post_grid_button_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
-
-			$this->add_control(
-				'exad_grid_button_text_color',
-				[
-					'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'default'=> '#0a1724',
-					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action' => 'color: {{VALUE}};',
-					]
-				]
-			);
-
-			$this->add_control(
-				'exad_grid_button_bg_color',
-				[
-					'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'default'=> '#FFF',
-					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action' => 'background: {{VALUE}};',
-					]
-				]
-			);
-
-			$this->end_controls_tab();
-			
-			$this->start_controls_tab( 'exad_post_grid_button_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
-			
-			$this->add_control(
-				'exad_grid_button_text_hover_color',
-				[
-					'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'default'=> '#FFF',
-					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action:hover' => 'color: {{VALUE}};',
-					]
-				]
-			);
-
-			$this->add_control(
-				'exad_grid_button_hover_bg_color',
-				[
-					'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'default'=> '#ff704e',
-					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action:hover' => 'background: {{VALUE}};',
-					]
-				]
-			);
-
-			$this->end_controls_tab();
-		
-		$this->end_controls_tabs();
-
-		$this->end_controls_section();
-		*/
 		
 
 	}
@@ -555,7 +481,6 @@ class Exad_Post_Grid extends Widget_Base {
 
         ?>
 
-		<!-- Load More Button -->
 		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
         	<?php Exad_Helper::exad_get_posts( $settings ); ?>
     	</div>
