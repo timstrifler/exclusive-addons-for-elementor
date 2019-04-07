@@ -230,6 +230,7 @@ if( ! class_exists( 'Exclusive_Addons_Elementor') ) {
 
 			$is_activated_widget = $this->activated_widgets();
 			wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
+			wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/fahim-style.css' );
 			if ( $is_activated_widget['progress-bar'] ) {
 				// Progress Bar Js
 				wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), 1.0, true );
