@@ -289,8 +289,8 @@
 			infinite: true,
 			slidesToShow: $postCarouselColumn,
 			arrows: true,
-			prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-long-arrow-left'></i></div>",
-			nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-long-arrow-right'></i></div>"
+			prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+			nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>"
 		  });
 	};
 
