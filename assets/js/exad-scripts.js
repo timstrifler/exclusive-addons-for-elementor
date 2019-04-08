@@ -280,6 +280,7 @@
 	  	// position on hover a button in button style seven
 	};
 
+
 	// Post Carousel 
 	var PostCarousel = function($scope, $) {
 		var $postCarouselWrapper = $scope.find('.exad-post-carousel.one').eq(0),
@@ -293,6 +294,7 @@
 			nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>"
 		  });
 	};
+
 
 	$(window).on('elementor/frontend/init', function () {
         if(elementorFrontend.isEditMode()) {

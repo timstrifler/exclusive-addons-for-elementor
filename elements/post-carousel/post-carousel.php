@@ -181,7 +181,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#f5f7fa',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-container' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'background: {{VALUE}};',
 				]
 
 			]
@@ -194,7 +194,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#ff704e',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-one .exad-post-carousel-author-action li a:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_post_carousel_preset' => '-one'
@@ -233,7 +233,7 @@ class Exad_Post_Carousel extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default'=> '#0a1724',
 					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-body .exad-post-carousel-title' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title' => 'color: {{VALUE}};',
 					]
 	
 				]
@@ -250,7 +250,7 @@ class Exad_Post_Carousel extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default'=> '#0A1724',
 					'selectors' => [
-						'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-body .exad-post-carousel-title:hover' => 'color: {{VALUE}};',
+						'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title:hover' => 'color: {{VALUE}};',
 					]
 	
 				]
@@ -281,7 +281,7 @@ class Exad_Post_Carousel extends Widget_Base {
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-carousel-body .exad-post-carousel-title' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-title' => 'text-align: {{VALUE}};',
 				]
 			]
 		);
@@ -292,7 +292,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'name' => 'exad_carousel_title_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
 				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-body .exad-post-carousel-title',
+				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title',
 			]
 		);
 		$this->end_controls_section();
@@ -312,7 +312,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#848484',
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-carousel-body .exad-post-carousel-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-description' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -341,7 +341,7 @@ class Exad_Post_Carousel extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-carousel-body .exad-post-carousel-description' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .exad-post-grid-body .exad-post-grid-description' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -370,7 +370,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#848484',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-body .exad-post-carousel-category li a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-category li a' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -382,7 +382,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#3ac772',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-three .exad-post-carousel-body .exad-post-carousel-category li:nth-child(2n-1)' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n-1)' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_post_carousel_preset' => '-three'
@@ -397,7 +397,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#8774ff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-three .exad-post-carousel-body .exad-post-carousel-category li:nth-child(2n)' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_post_carousel_preset' => '-three'
@@ -429,7 +429,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#0a1724',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-author-name' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-author-name' => 'color: {{VALUE}};',
 				]
 			]
 		);
@@ -450,7 +450,7 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#0a1724',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-carousel-author-date' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-author-date' => 'color: {{VALUE}};',
 				]
 			]
         );
@@ -469,14 +469,14 @@ class Exad_Post_Carousel extends Widget_Base {
 			'exad_post_carousel_wrapper',
 			[
 				'id'    => "exad-post-carousel-{$this->get_id()}",
-				'class' => "exad-row-wrapper exad-post-carousel one",
+				'class' => "exad-row-wrapper exad-col-1 exad-post-carousel one",
                 'data-carousel_id'	=> $this->get_id(),
-                'data-carousel-column' => $settings['exad_post_carousel_column_no'],
+                'data-carousel-column' => intval( $settings['exad_post_carousel_column_no'] ),
 				'data-post_type'    => $settings['exad_post_carousel_type'],
 				'data-posts_per_page'   => $settings['exad_post_carousel_per_page'] ? $settings['exad_post_carousel_per_page'] : 4,
 				'data-post_order'   => $settings['exad_post_carousel_order'],
 				'data-post_offset'  => intval( $settings['exad_post_carousel_offset'] ),
-				'data-excerpt_length'   => $settings['exad_carousel_excerpt_length'],
+				'data-excerpt_length'   => intval( $settings['exad_carousel_excerpt_length'] ),
 
 			]
 		);
