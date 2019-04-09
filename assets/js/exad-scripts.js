@@ -283,7 +283,7 @@
 
 	// Post Carousel 
 	var PostCarousel = function($scope, $) {
-		var $postCarouselWrapper = $scope.find('.exad-post-carousel.one').eq(0),
+		var $postCarouselWrapper = $scope.find('.exad-post-carousel').eq(0),
 			$postCarouselColumn = $postCarouselWrapper.data("carousel-column");
 		// post Carousel one
 		$($postCarouselWrapper).slick({

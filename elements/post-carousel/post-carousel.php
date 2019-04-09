@@ -166,10 +166,10 @@ class Exad_Post_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => '-one',
+				'default' => 'one',
 				'options' => [
-					'-one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-					'-three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+					'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+					'three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -197,7 +197,7 @@ class Exad_Post_Carousel extends Widget_Base {
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_post_carousel_preset' => '-one'
+					'exad_post_carousel_preset' => 'one'
 				]
 			]
 		);
@@ -385,7 +385,7 @@ class Exad_Post_Carousel extends Widget_Base {
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n-1)' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_post_carousel_preset' => '-three'
+					'exad_post_carousel_preset' => 'three'
 				]
 			]
 		);
@@ -400,7 +400,7 @@ class Exad_Post_Carousel extends Widget_Base {
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_post_carousel_preset' => '-three'
+					'exad_post_carousel_preset' => 'three'
 				]
 			]
 		);
@@ -469,14 +469,14 @@ class Exad_Post_Carousel extends Widget_Base {
 			'exad_post_carousel_wrapper',
 			[
 				'id'    => "exad-post-carousel-{$this->get_id()}",
-				'class' => "exad-row-wrapper exad-col-1 exad-post-carousel one",
+				'class' => "exad-row-wrapper exad-post-carousel {$settings['exad_post_carousel_preset']}",
                 'data-carousel_id'	=> $this->get_id(),
                 'data-carousel-column' => intval( $settings['exad_post_carousel_column_no'] ),
-				'data-post_type'    => $settings['exad_post_carousel_type'],
-				'data-posts_per_page'   => $settings['exad_post_carousel_per_page'] ? $settings['exad_post_carousel_per_page'] : 4,
-				'data-post_order'   => $settings['exad_post_carousel_order'],
-				'data-post_offset'  => intval( $settings['exad_post_carousel_offset'] ),
-				'data-excerpt_length'   => intval( $settings['exad_carousel_excerpt_length'] ),
+				'data-carousel_post_type'    => $settings['exad_post_carousel_type'],
+				'data-carousel_posts_per_page'   => $settings['exad_post_carousel_per_page'] ? $settings['exad_post_carousel_per_page'] : 4,
+				'data-carousel_post_order'   => $settings['exad_post_carousel_order'],
+				'data-carousel_post_offset'  => intval( $settings['exad_post_carousel_offset'] ),
+				'data-carousel_excerpt_length'   => intval( $settings['exad_carousel_excerpt_length'] ),
 
 			]
 		);
@@ -489,6 +489,8 @@ class Exad_Post_Carousel extends Widget_Base {
 
 		<?php
 	}
+
+	protected function content_template() {}
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Post_Carousel() );

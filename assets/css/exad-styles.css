@@ -3152,6 +3152,13 @@ text-align: right;
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-container {
   box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.2);
+  margin-bottom: 12px;
+}
+
+/* For Post Carousel style three */
+.exad-post-carousel .exad-post-grid-three .exad-post-grid-container {
+  box-shadow: 0px 6px 16px -3px rgba(51, 77, 128, 0.2);
+  margin-bottom: 20px;
 }
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-thumbnail {
@@ -3283,6 +3290,10 @@ text-align: right;
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-action li a:hover {
   color: #fff;
   border: 1px solid transparent;
+}
+
+.exad-row-wrapper .exad-post-grid-three {
+  padding: 0 10px;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body {
@@ -3477,7 +3488,7 @@ text-align: right;
   width: 100%;
   flex: 0 0 100%;
   max-width: 100%;
-  padding: 0 10px;
+  padding: 0 15px 25px;
 }
 
 @media (max-width: 767px) {
@@ -4898,8 +4909,8 @@ text-align: right;
   border: 1px solid transparent;
 }
 
-.exad-post-carousel.one .exad-post-carousel-prev,
-.exad-post-carousel.one .exad-post-carousel-next {
+.exad-post-carousel .exad-post-carousel-prev,
+.exad-post-carousel .exad-post-carousel-next {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -4914,8 +4925,8 @@ text-align: right;
   transition: all .3s ease;
 }
 
-.exad-post-carousel.one .exad-post-carousel-prev i,
-.exad-post-carousel.one .exad-post-carousel-next i {
+.exad-post-carousel .exad-post-carousel-prev i,
+.exad-post-carousel .exad-post-carousel-next i {
   top: 50%;
   position: absolute;
   left: 50%;
@@ -4924,17 +4935,17 @@ text-align: right;
   font-size: 20px;
 }
 
-.exad-post-carousel.one .exad-post-carousel-prev:hover,
-.exad-post-carousel.one .exad-post-carousel-next:hover {
+.exad-post-carousel .exad-post-carousel-prev:hover,
+.exad-post-carousel .exad-post-carousel-next:hover {
   color: #0a1724;
   border: 1px solid #0a1724;
 }
 
-.exad-post-carousel.one .exad-post-carousel-prev {
+.exad-post-carousel .exad-post-carousel-prev {
   left: -70px;
 }
 
-.exad-post-carousel.one .exad-post-carousel-next {
+.exad-post-carousel .exad-post-carousel-next {
   right: -70px;
 }
 /* post carousel style end */
