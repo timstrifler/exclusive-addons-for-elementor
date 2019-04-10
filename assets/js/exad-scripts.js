@@ -311,9 +311,23 @@
 	      		arrows: arrows,
 				speed: $transitionSpeed,
 				infinite: $loop,
-				rows: 0,
 				prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-				nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>"
+				nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>",
+				rows: 0,
+				responsive: [
+					{
+					  breakpoint: 1024,
+					  settings: {
+						slidesToShow: 2,
+					  }
+					},
+					{
+					  breakpoint: 576,
+					  settings: {
+						slidesToShow: 1,
+					  }
+					}
+				],
 		  });
 
 	};

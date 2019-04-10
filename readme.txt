@@ -27,8 +27,8 @@ We'll update Exclusive Addons with new Elements for you, every week.
 ### Live Preview
 We have enabled Live Preview for most of our elements. That means you can see as you edit your elements without a delay of second.
 
-### 17 Elementor widgets
-We have packed 17 Elementor widgets for now. We'll continue to add them as time goes on.
+### 18 Elementor widgets
+We have packed 18 Elementor widgets for now. We'll continue to add them as time goes on.
 
 ### Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -73,6 +73,11 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 7. Dashboard section for enabling/disabling elements
 
 == Changelog ==
+
+= 1.1.2 - 10/04/2019 =
+- New element Post Carousel added.
+- Post Carousel and Testimonial Carousel bug fixes.
+- Options names revamped.
 
 = 1.1.1 - 07/04/2019 =
 - Dashboard URL bug fix

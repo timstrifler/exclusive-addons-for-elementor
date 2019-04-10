@@ -4637,6 +4637,7 @@ text-align: right;
   background-position: center;
   font-family: "Roboto", sans-serif;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
