@@ -154,7 +154,7 @@ class Exad_Post_Grid extends Widget_Base {
         $this->start_controls_section(
             'exad_section_post_grid_presets',
             [
-                'label' => __( 'Presets', 'exclusive-addons-elementor' ),
+                'label' => __( 'General Styles', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );

@@ -117,7 +117,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_tabs_style_preset_settings',
 			[
-				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);

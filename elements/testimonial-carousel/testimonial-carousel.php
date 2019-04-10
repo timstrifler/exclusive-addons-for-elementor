@@ -199,8 +199,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
-				'default'   => 'yes',
-				'separator' => 'before',
+				'default'   => 'yes'
 			]
 		);
 
@@ -228,7 +227,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_pause',
 			[
-				'label'     => esc_html__( 'Pause on Interaction', 'exclusive-addons-elementor' ),
+				'label'     => esc_html__( 'Pause on Hover', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::SWITCHER,
 				'default'   => 'yes',
 				'condition' => [
@@ -245,7 +244,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_testimonial_carousel_styles_presets',
 			[
-				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);

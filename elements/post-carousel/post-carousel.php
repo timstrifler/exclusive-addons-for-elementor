@@ -30,7 +30,7 @@ class Exad_Post_Carousel extends Widget_Base {
         $this->start_controls_section(
             'exad_section_post_carousel_filters',
             [
-                'label' => __( 'Settings', 'exclusive-addons-elementor' ),
+                'label' => __( 'Post Settings', 'exclusive-addons-elementor' ),
             ]
         );
         
@@ -151,12 +151,165 @@ class Exad_Post_Carousel extends Widget_Base {
 			]
 		);
 
-        $this->end_controls_section();
+		$this->end_controls_section();
+		
+		$this->start_controls_section(
+			'section_carousel_settings',
+			[
+				'label' => esc_html__( 'Carousel Settings', 'exclusive-addons-elementor' ),
+			]
+		);
 
+		$this->add_control(
+			'exad_post_carousel_nav',
+			[
+				'label' => esc_html__( 'Navigation Style', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'arrows',
+				'options' => [
+					'arrows' => esc_html__( 'Arrows', 'exclusive-addons-elementor' ),
+					'dots' => esc_html__( 'Dots', 'exclusive-addons-elementor' ),
+					
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_post_carousel_navigation_tabs' );
+
+			$this->start_controls_tab( 'exad_post_carousel_navigation_control', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_post_carousel_arrow_color',
+				[
+					'label' => esc_html__( 'Arrow Background', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#DDD',
+					'selectors' => [
+						'{{WRAPPER}} .exad-post-carousel .exad-post-carousel-prev, {{WRAPPER}} .exad-post-carousel .exad-post-carousel-next' => 'background-color: {{VALUE}};',
+					],
+					'condition' => [
+						'exad_post_carousel_nav' => 'arrows',
+					],
+				]
+			);
+
+			$this->add_control(
+				'exad_post_carousel_dot_color',
+				[
+					'label' => esc_html__( 'Dot Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#8a8d91',
+					'selectors' => [
+						'{{WRAPPER}} .exad-post-carousel .slick-dots li button' => 'background-color: {{VALUE}};',
+					],
+					'condition' => [
+						'exad_post_carousel_nav' => 'dots',
+					],
+				]
+			);
+			
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'exad_post_carousel_social_icon_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_post_carousel_arrow_hover_color',
+				[
+					'label' => esc_html__( 'Arrow Hover', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#917cff',
+					'selectors' => [
+						'{{WRAPPER}} .exad-post-carousel .exad-post-carousel-prev:hover, {{WRAPPER}} .exad-post-carousel .exad-post-carousel-next:hover' => 'background-color: {{VALUE}};',
+					],
+					'condition' => [
+						'exad_post_carousel_nav' => 'arrows',
+					],
+				]
+			);
+
+			$this->add_control(
+				'exad_post_carousel_dot_hover_color',
+				[
+					'label' => esc_html__( 'Dot Hover', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#917cff',
+					'selectors' => [
+						'{{WRAPPER}} .exad-post-carousel .slick-dots li.slick-active button, {{WRAPPER}} .exad-post-carousel .slick-dots li button:hover' => 'background-color: {{VALUE}};',
+					],
+					'condition' => [
+						'exad_post_carousel_nav' => 'dots',
+					],
+				]
+			);
+			
+			$this->end_controls_tab();
+		
+		$this->end_controls_tabs();
+
+
+		$this->add_control(
+			'exad_post_carousel_transition_duration',
+			[
+				'label'   => esc_html__( 'Transition Duration', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 1000,
+			]
+		);
+
+		$this->add_control(
+			'exad_post_carousel_autoplay',
+			[
+				'label'     => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'no',
+			]
+		);
+
+		// Post Carousel Settings
+		$this->add_control(
+			'exad_post_carousel_autoplay_speed',
+			[
+				'label'     => esc_html__( 'Autoplay Speed', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 5000,
+				'condition' => [
+					'exad_post_carousel_autoplay' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_post_carousel_loop',
+			[
+				'label'   => esc_html__( 'Infinite Loop', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'exad_post_carousel_pause',
+			[
+				'label'     => esc_html__( 'Pause on Hover', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'default'   => 'yes',
+				'condition' => [
+					'exad_post_carousel_autoplay' => 'yes',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+
+		/**
+		 * Start Post Carousel Styling Section
+		 * 
+		 */
         $this->start_controls_section(
             'exad_section_post_carousel_presets',
             [
-                'label' => __( 'Presets', 'exclusive-addons-elementor' ),
+                'label' => __( 'General Styles', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
@@ -174,10 +327,10 @@ class Exad_Post_Carousel extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
+		$this->add_control(
 			'exad_carousel_post_bg_color',
 			[
-				'label' => __( 'Post Background Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Grid Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#f5f7fa',
 				'selectors' => [
@@ -192,7 +345,7 @@ class Exad_Post_Carousel extends Widget_Base {
 			[
 				'label' => __( 'Comment Hover Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default'=> '#ff704e',
+				'default'=> '#917cff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a:hover' => 'background: {{VALUE}};',
 				],
@@ -203,6 +356,8 @@ class Exad_Post_Carousel extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+
 
         $this->start_controls_section(
             'exad_post_carousel_title',
@@ -470,16 +625,26 @@ class Exad_Post_Carousel extends Widget_Base {
 			[
 				'id'    => "exad-post-carousel-{$this->get_id()}",
 				'class' => "exad-row-wrapper exad-post-carousel {$settings['exad_post_carousel_preset']}",
-                'data-carousel_id'	=> $this->get_id(),
                 'data-carousel-column' => intval( $settings['exad_post_carousel_column_no'] ),
-				'data-carousel_post_type'    => $settings['exad_post_carousel_type'],
-				'data-carousel_posts_per_page'   => $settings['exad_post_carousel_per_page'] ? $settings['exad_post_carousel_per_page'] : 4,
-				'data-carousel_post_order'   => $settings['exad_post_carousel_order'],
-				'data-carousel_post_offset'  => intval( $settings['exad_post_carousel_offset'] ),
-				'data-carousel_excerpt_length'   => intval( $settings['exad_carousel_excerpt_length'] ),
+				'data-post-carousel-nav' => $settings['exad_post_carousel_nav'],
+				'data-post-carousel-speed' => $settings['exad_post_carousel_transition_duration'],
 
 			]
 		);
+
+		if ( $settings['exad_post_carousel_pause'] == 'yes' ) {
+            $this->add_render_attribute( 'exad_post_carousel_wrapper', 'data-pauseonhover', "true");
+        }
+
+
+		if ( $settings['exad_post_carousel_autoplay'] == 'yes' ) {
+            $this->add_render_attribute( 'exad_post_carousel_wrapper', 'data-autoplay', "true");
+            $this->add_render_attribute( 'exad_post_carousel_wrapper', 'data-autoplayspeed', $settings['exad_post_carousel_autoplay_speed'] );
+        }
+
+		if ( $settings['exad_post_carousel_loop'] == 'yes' ) {
+            $this->add_render_attribute( 'exad_post_carousel_wrapper', 'data-loop', "true");
+        }
 
         ?>
 

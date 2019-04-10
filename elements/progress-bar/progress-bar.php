@@ -61,7 +61,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_progress_bar_styles_preset',
 			[
-				'label' => __('Presets', 'exclusive-addons-elementor'),
+				'label' => __('General Styles', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);

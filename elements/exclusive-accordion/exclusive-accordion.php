@@ -95,7 +95,7 @@ class Exclusive_Accordion extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_accordion_style_settings',
 			[
-				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);

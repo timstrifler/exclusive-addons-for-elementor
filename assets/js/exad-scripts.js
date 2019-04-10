@@ -12,7 +12,7 @@
 		$autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
 		$autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
 		$transitionSpeed = $teamCarouselWrapper.data("speed"),
-		$pauseOnHover = ($teamCarouselWrapper.data("pauseOnHover") !== undefined) ? $teamCarouselWrapper.data("pauseOnHover") : false;
+		$pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false;
 
 		// Team Carousel 
 		if ($carousel_nav == "arrows" ) {
@@ -284,15 +284,38 @@
 	// Post Carousel 
 	var PostCarousel = function($scope, $) {
 		var $postCarouselWrapper = $scope.find('.exad-post-carousel').eq(0),
-			$postCarouselColumn = $postCarouselWrapper.data("carousel-column");
-		// post Carousel one
-		$($postCarouselWrapper).slick({
-			infinite: true,
-			slidesToShow: $postCarouselColumn,
-			arrows: true,
-			prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-			nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>"
+			$postCarouselColumn = $postCarouselWrapper.data("carousel-column"),
+			$postCarouselNav = $postCarouselWrapper.data("post-carousel-nav"),
+			$loop = ($postCarouselWrapper.data("loop") !== undefined) ? $postCarouselWrapper.data("loop") : false,
+			$autoPlay = ($postCarouselWrapper.data("autoplay") !== undefined) ? $postCarouselWrapper.data("autoplay") : false,
+			$autoplaySpeed = ($postCarouselWrapper.data("autoplayspeed") !== undefined) ? $postCarouselWrapper.data("autoplayspeed") : false,
+			$transitionSpeed = $postCarouselWrapper.data("post-carousel-speed"),
+			$pauseOnHover = ($postCarouselWrapper.data("pauseonhover") !== undefined) ? $postCarouselWrapper.data("pauseonhover") : false;
+
+			// Post Carousel 
+			if ($postCarouselNav == "arrows" ) {
+				var arrows = true;
+				var dots = false;
+			} else {
+				var arrows = false;
+				var dots = true;
+			}
+			// post Carousel one
+			$($postCarouselWrapper).slick({
+				slidesToShow: $postCarouselColumn,
+				arrows: arrows,
+				autoplay: $autoPlay,
+				autoplaySpeed: $autoplaySpeed,
+				pauseOnHover: $pauseOnHover,
+	      		dots: dots,
+	      		arrows: arrows,
+				speed: $transitionSpeed,
+				infinite: $loop,
+				rows: 0,
+				prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+				nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>"
 		  });
+
 	};
 
 

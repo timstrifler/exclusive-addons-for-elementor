@@ -132,7 +132,7 @@ class Exad_Infobox extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_infobox_styles_preset',
 			[
-				'label' => esc_html__( 'Presets', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
