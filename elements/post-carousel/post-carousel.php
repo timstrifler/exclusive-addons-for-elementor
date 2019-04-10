@@ -355,21 +355,6 @@ class Exad_Post_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_carousel_comment_icon_color',
-			[
-				'label' => __( 'Comment Icon Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#848484',
-				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a' => 'color: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_post_carousel_preset' => 'one'
-				]
-			]
-		);
-
 		$this->end_controls_section();
 
 
