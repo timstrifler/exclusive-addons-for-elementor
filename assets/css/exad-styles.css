@@ -3239,14 +3239,14 @@ text-align: right;
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-info .exad-post-grid-author-name {
   font-family: "Roboto", sans-serif;
-  color: #222222;
+  /* color: #222222; */
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
 }
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-info .exad-post-grid-author-date {
-  color: #848484;
+  /* color: #848484; */
   font-size: 14px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -3275,7 +3275,7 @@ text-align: right;
   transition: all .3s ease;
   display: inline-block;
   margin-left: 10px;
-  color: #848484;
+  /* color: #848484; */
 }
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-action li a i {
