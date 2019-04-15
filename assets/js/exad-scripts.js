@@ -292,49 +292,97 @@
 			$transitionSpeed = $postCarouselWrapper.data("post-carousel-speed"),
 			$pauseOnHover = ($postCarouselWrapper.data("pauseonhover") !== undefined) ? $postCarouselWrapper.data("pauseonhover") : false;
 
-			// Post Carousel 
-			if ($postCarouselNav == "arrows" ) {
-				var arrows = true;
-				var dots = false;
-			} else {
-				var arrows = false;
-				var dots = true;
-			}
-			// post Carousel one
-			$($postCarouselWrapper).slick({
-				slidesToShow: $postCarouselColumn,
-				arrows: arrows,
-				autoplay: $autoPlay,
-				autoplaySpeed: $autoplaySpeed,
-				pauseOnHover: $pauseOnHover,
-	      		dots: dots,
-	      		arrows: arrows,
-				speed: $transitionSpeed,
-				infinite: $loop,
-				prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-				nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>",
-				rows: 0,
-				responsive: [
-					{
-					  breakpoint: 1024,
-					  settings: {
-						slidesToShow: 2,
-					  }
-					},
-					{
-					  breakpoint: 576,
-					  settings: {
-						slidesToShow: 1,
-					  }
-					}
-				],
-		  });
-
+        // Post Carousel 
+        if ($postCarouselNav == "arrows" ) {
+            var arrows = true;
+            var dots = false;
+        } else {
+            var arrows = false;
+            var dots = true;
+        }
+        // post Carousel one
+        $postCarouselWrapper.slick({
+            slidesToShow: $postCarouselColumn,
+            arrows: arrows,
+            autoplay: $autoPlay,
+            autoplaySpeed: $autoplaySpeed,
+            pauseOnHover: $pauseOnHover,
+            dots: dots,
+            arrows: arrows,
+            speed: $transitionSpeed,
+            infinite: $loop,
+            prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+            nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>",
+            rows: 0,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                    slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                    slidesToShow: 1,
+                    }
+                }
+            ],
+        });
 	};
+
+    // Google Maps
+    var GoogleMaps = function($scope, $) {
+        var $googleMaps = $scope.find('.exad-google-maps').eq(0),
+            $latitude = $googleMaps.data('exad-lat'),
+            $longitude = $googleMaps.data('exad-lng'),
+            $pinIcon = $googleMaps.data('exad-icon');
+        
+        $googleMaps.gmap3({
+            center: [$latitude, $longitude],
+            zoom: 7,
+            mapTypeId: "shadeOfGrey", // to select it directly
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.SATELLITE, "shadeOfGrey"]
+        }
+        }).marker(function (map) {
+            return {
+                position: map.getCenter(),
+                icon: $pinIcon
+            };
+        }).styledmaptype(
+            "shadeOfGrey",
+            [
+              {
+                  "featureType": "all",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "invert_lightness": true
+                      },
+                      {
+                          "saturation": 10
+                      },
+                      {
+                          "lightness": 30
+                      },
+                      {
+                          "gamma": 0.5
+                      },
+                      {
+                          "hue": "#435158"
+                      }
+                  ]
+              }
+          ],
+            {name: "Shades of Grey"}
+          );
+          ;
+    };
 
 
 	$(window).on('elementor/frontend/init', function () {
-        if(elementorFrontend.isEditMode()) {
+        if( elementorFrontend.isEditMode() ) {
             editMode = true;
         }
         
@@ -346,6 +394,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-tabs.default', ExclusiveTabs);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-button.default', ExclusiveButton);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-post-carousel.default', PostCarousel);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-google-maps.default', GoogleMaps);
         
     });
 

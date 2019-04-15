@@ -4859,3 +4859,9 @@ text-align: right;
 
 
 /* post carousel style end */
+
+
+/* Google Maps Start */
+.exad-google-maps {
+  height: 600px;
+}

@@ -3,7 +3,6 @@ namespace Elementor;
 
 class Exad_Infobox extends Widget_Base {
 	
-	//use ElementsCommonFunctions;
 	public function get_name() {
 		return 'exad-infobox';
 	}

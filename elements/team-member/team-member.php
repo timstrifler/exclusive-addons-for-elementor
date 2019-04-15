@@ -3,7 +3,6 @@ namespace Elementor;
 
 class Exad_Team_Member extends Widget_Base {
 	
-	//use ElementsCommonFunctions;
 	public function get_name() {
 		return 'exad-team-member';
 	}
