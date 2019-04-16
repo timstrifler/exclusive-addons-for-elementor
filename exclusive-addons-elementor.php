@@ -247,7 +247,9 @@ final class Exclusive_Addons_Elementor {
 		if ( $is_activated_widget['google-maps'] ) {
 			wp_enqueue_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFuLx8S7A8eianoUhkYMeXpGPvsXp1NM', array('jquery'),'1.0', false);
 			// Gmap 3 Js
-			wp_enqueue_script( 'exad-gmap3', EXAD_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), 1.0, true );
+			// wp_enqueue_script( 'exad-gmap3', EXAD_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), 1.0, true );
+			// Gmap js
+			wp_enqueue_script( 'exad-gmap', EXAD_URL . 'assets/js/vendor/gmap.js', array( 'jquery' ), 1.0, true );
 		}	
 		
 		if ( $is_activated_widget['countdown-timer'] ) {

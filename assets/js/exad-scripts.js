@@ -335,50 +335,64 @@
     var GoogleMaps = function($scope, $) {
         var $googleMaps = $scope.find('.exad-google-maps').eq(0),
             $latitude = $googleMaps.data('exad-lat'),
-            $longitude = $googleMaps.data('exad-lng'),
-            $pinIcon = $googleMaps.data('exad-icon');
-        
-        $googleMaps.gmap3({
-            center: [$latitude, $longitude],
-            zoom: 7,
-            mapTypeId: "shadeOfGrey", // to select it directly
-            mapTypeControlOptions: {
-                mapTypeIds: [google.maps.MapTypeId.SATELLITE, "shadeOfGrey"]
-        }
-        }).marker(function (map) {
-            return {
-                position: map.getCenter(),
-                icon: $pinIcon
-            };
-        }).styledmaptype(
-            "shadeOfGrey",
-            [
-              {
-                  "featureType": "all",
-                  "elementType": "all",
-                  "stylers": [
-                      {
-                          "invert_lightness": true
-                      },
-                      {
-                          "saturation": 10
-                      },
-                      {
-                          "lightness": 30
-                      },
-                      {
-                          "gamma": 0.5
-                      },
-                      {
-                          "hue": "#435158"
-                      }
-                  ]
-              }
-          ],
-            {name: "Shades of Grey"}
-          );
-          ;
-    };
+			$longitude = $googleMaps.data('exad-lng'),
+			$mapID      = $googleMaps.data('id'),
+			$pinIcon = $googleMaps.data('exad-icon'),
+			// $map_streeview_control  = $googleMaps.data('exad_map_streeview_control');
+		var map = new GMaps({
+			el: ".exad-google-maps-" + $mapID,
+			zoom: 16,
+			lat: $latitude,
+			lng: $longitude,
+			click: function(e) {
+				alert('click');
+			},
+			dragend: function(e) {
+				alert('dragend');
+			}
+			});
+        // $googleMaps.gmap3({
+        //     center: [$latitude, $longitude],
+		// 	zoom: 7,
+		// 	streetViewControl: $map_streeview_control,
+        //     mapTypeId: "shadeOfGrey", // to select it directly
+        //     mapTypeControlOptions: {
+        //         mapTypeIds: [google.maps.MapTypeId.SATELLITE, "shadeOfGrey"]
+        // }
+        // }).marker(function (map) {
+        //     return {
+        //         position: map.getCenter(),
+        //         icon: $pinIcon
+        //     };
+        // }).styledmaptype(
+        //     "shadeOfGrey",
+        //     [
+        //       {
+        //           "featureType": "all",
+        //           "elementType": "all",
+        //           "stylers": [
+        //               {
+        //                   "invert_lightness": true
+        //               },
+        //               {
+        //                   "saturation": 10
+        //               },
+        //               {
+        //                   "lightness": 30
+        //               },
+        //               {
+        //                   "gamma": 0.5
+        //               },
+        //               {
+        //                   "hue": "#435158"
+        //               }
+        //           ]
+        //       }
+        //   ],
+        //     {name: "Shades of Grey"}
+        //   );
+        //   ;
+	};
 
 
 	$(window).on('elementor/frontend/init', function () {
