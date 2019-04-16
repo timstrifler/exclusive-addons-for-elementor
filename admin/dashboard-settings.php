@@ -10,14 +10,6 @@ if( ! defined( 'ABSPATH' ) ) {
 class Exad_Admin_Settings {
 
 	/**
-	 * Contains Default Component keys
-	 * @var array
-	 * @since 1.0
-	 */
-    //public $exad_default_widgets = [ 'exclusive-card', 'contact-form-7', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading' ];
-
-
-	/**
 	 * Defaults Settings
 	 * @var array
 	 * @since 1.0

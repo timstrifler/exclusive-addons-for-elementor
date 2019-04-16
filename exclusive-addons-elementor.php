@@ -72,7 +72,7 @@ final class Exclusive_Addons_Elementor {
 	 * 
 	 * @return array
 	 */
-	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps' ];
+	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps' ];
 
 	/**
 	 * Instance
@@ -176,8 +176,10 @@ final class Exclusive_Addons_Elementor {
 			return;
 		}
 		
+		
+		add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'exad_plugin_settings_action' ) );
 		// Enqueue Styles and Scripts
-		add_action( 'wp_enqueue_scripts', array( $this, 'exad_enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'exad_enqueue_scripts' ), 20 );
 		// Elementor Editor Styles
 		add_action( 'elementor/editor/after_enqueue_styles', array( $this, 'exad_editor_styles' ) );
 		// Add Elementor Widgets
@@ -195,17 +197,28 @@ final class Exclusive_Addons_Elementor {
 	* Register Exclusive Elementor Addons category
 	*
 	*/
-	public function exad_register_category( $elements_category ) {
+	public function exad_register_category( $elements_manager ) {
 
-		$elements_category->add_category(
+		$elements_manager->add_category(
 			'exclusive-addons-elementor',
 			[
 				'title' => __( 'Exclusive Addons', 'exclusive-addons-elementor' ),
-				'icon' => 'fonts',
+				'icon' => 'font',
 			]
 		);
 
 	}
+
+	/**
+	 * 
+	 * Add Plugin Action link for settings page
+	 */
+	public function exad_plugin_settings_action( $links ) {
+		$settings_link = sprintf( '<a href="admin.php?page=exad-settings">' . __( 'Settings', 'exclusive-addons-elementor' ) . '</a>' );
+		array_push( $links, $settings_link );
+		return $links;
+	}
+
 
 	/**
 	 * 
@@ -352,7 +365,7 @@ final class Exclusive_Addons_Elementor {
 	}
 
 	/**
-	 * This function will return true for all activated modules
+	 * This function returns true for all activated modules
 	 *
 	* @since  1.0
 	*/
@@ -384,13 +397,15 @@ final class Exclusive_Addons_Elementor {
 		
 		$activated_widgets = $this->activated_widgets();
 
-		if ( function_exists( 'wpcf7' ) ) {
-			self::$exad_default_widgets[] = 'contact-form-7';
-		}
-
 		foreach( self::$exad_default_widgets as $widget ) {
 			if ( $activated_widgets[$widget] == true ) {
-				require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+				if ( $widget == 'contact-form-7' ) {
+					if ( function_exists( 'wpcf7' ) ) {
+						require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+					}	
+				} else {
+					require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+				}
 			}
 		}
 
