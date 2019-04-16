@@ -77,7 +77,7 @@ class Exad_Google_Map extends Widget_Base {
 				'label' => esc_html__( 'Geo Address', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => esc_html__( 'Marina Bay, Singapore', 'exclusive-addons-elementor' ),
+				'default' => esc_html__( 'Paris, France', 'exclusive-addons-elementor' ),
 				'condition' => [
 					'exad_google_map_address_type' => ['address'],
 					'exad_google_map_type' => ['basic']
@@ -1039,7 +1039,6 @@ class Exad_Google_Map extends Widget_Base {
 			'data-map_basic_marker_icon'		=> esc_attr($settings['exad_google_map_basic_marker_icon']['url']),
 			'data-map_basic_marker_icon_width'	=> esc_attr($settings['exad_google_map_basic_marker_icon_width']['size']),
 			'data-map_basic_marker_icon_height'	=> esc_attr($settings['exad_google_map_basic_marker_icon_height']['size']),
-			'data-map_zoom'				=> esc_attr($settings['exad_google_map_zoom']),
 			'data-map_marker_content'	=> isset($settings['exad_google_map_marker_content']) ? esc_attr($settings['exad_google_map_marker_content']) : '',
 			'data-map_markers'				=> urlencode(json_encode($settings['exad_google_map_markers'])),
 			'data-map_static_width'			=> esc_attr($settings['exad_google_map_static_width']['size']),
@@ -1090,11 +1089,18 @@ class Exad_Google_Map extends Widget_Base {
 		
 		$this->add_render_attribute( 'exad_google_map_wrapper', [
 			'class' => ['exad-google-maps'],
-			'id'	=> 'exad-google-map-'.esc_attr($this->get_id()),
+			'id'	=> 'exad-google-maps-'.esc_attr($this->get_id()),
+			'data-id'	=> esc_attr($this->get_id()),
+			'data-exad-address'	=> esc_attr($settings['exad_google_map_addr']),
 			'data-exad-lat' => esc_attr( $settings['exad_google_map_lat'] ),
 			'data-exad-lng' => esc_attr( $settings['exad_google_map_lng'] ),
 			'data-exad-icon' => EXAD_URL . 'assets/img/pin-3.png',
-			'data-id'	=> esc_attr($this->get_id())
+			'data-exad-zoom' => esc_attr($settings['exad_google_map_zoom']),
+			'data-exad-streeview-control'	=> ($settings['exad_map_streeview_control'] ? 'true': 'false'),
+			'data-exad-type-control'	=> ($settings['exad_map_type_control'] ? 'true': 'false'),
+			'data-exad-zoom-control'	=> ($settings['exad_map_zoom_control'] ? 'true': 'false'),
+			'data-exad-fullscreen-control'	=> ($settings['exad_map_fullscreen_control'] ? 'true': 'false'),
+			'data-exad-scroll-zoom'	=> ($settings['exad_map_scroll_zoom'] ? 'true': 'false')
 		]);
 	?>
 

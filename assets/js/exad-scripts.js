@@ -336,62 +336,61 @@
         var $googleMaps = $scope.find('.exad-google-maps').eq(0),
             $latitude = $googleMaps.data('exad-lat'),
 			$longitude = $googleMaps.data('exad-lng'),
-			$mapID      = $googleMaps.data('id'),
 			$pinIcon = $googleMaps.data('exad-icon'),
-			// $map_streeview_control  = $googleMaps.data('exad_map_streeview_control');
-		var map = new GMaps({
-			el: ".exad-google-maps-" + $mapID,
-			zoom: 16,
-			lat: $latitude,
-			lng: $longitude,
-			click: function(e) {
-				alert('click');
-			},
-			dragend: function(e) {
-				alert('dragend');
-			}
-			});
-        // $googleMaps.gmap3({
-        //     center: [$latitude, $longitude],
-		// 	zoom: 7,
-		// 	streetViewControl: $map_streeview_control,
-        //     mapTypeId: "shadeOfGrey", // to select it directly
-        //     mapTypeControlOptions: {
-        //         mapTypeIds: [google.maps.MapTypeId.SATELLITE, "shadeOfGrey"]
-        // }
-        // }).marker(function (map) {
-        //     return {
-        //         position: map.getCenter(),
-        //         icon: $pinIcon
-        //     };
-        // }).styledmaptype(
-        //     "shadeOfGrey",
-        //     [
-        //       {
-        //           "featureType": "all",
-        //           "elementType": "all",
-        //           "stylers": [
-        //               {
-        //                   "invert_lightness": true
-        //               },
-        //               {
-        //                   "saturation": 10
-        //               },
-        //               {
-        //                   "lightness": 30
-        //               },
-        //               {
-        //                   "gamma": 0.5
-        //               },
-        //               {
-        //                   "hue": "#435158"
-        //               }
-        //           ]
-        //       }
-        //   ],
-        //     {name: "Shades of Grey"}
-        //   );
-        //   ;
+			$mapZoom  = $googleMaps.data('exad-zoom'),
+			$mapAddress = $googleMaps.data('exad-address'),
+			$map_streeview_control  = $googleMaps.data('exad-streeview-control'),
+            $map_type_control       = $googleMaps.data('exad-type-control'),
+            $map_zoom_control       = $googleMaps.data('exad-zoom-control'),
+            $map_fullscreen_control = $googleMaps.data('exad-fullscreen-control'),
+            $map_scroll_zoom        = $googleMaps.data('exad-scroll-zoom');
+
+        $googleMaps.gmap3({
+			//center: [$latitude, $longitude],
+			address: $mapAddress,
+			zoom: $mapZoom,
+			streetViewControl: $map_streeview_control,
+            mapTypeControl: $map_type_control,
+            zoomControl: $map_zoom_control,
+            fullscreenControl: $map_fullscreen_control,
+            scrollwheel: $map_scroll_zoom,
+            mapTypeId: "shadeOfGrey", // to select it directly
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.SATELLITE, "shadeOfGrey"]
+        }
+        }).marker(function (map) {
+            return {
+                position: map.getCenter(),
+                icon: $pinIcon
+            };
+        }).styledmaptype(
+            "shadeOfGrey",
+            [
+              {
+                  "featureType": "all",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "invert_lightness": true
+                      },
+                      {
+                          "saturation": 10
+                      },
+                      {
+                          "lightness": 30
+                      },
+                      {
+                          "gamma": 0.5
+                      },
+                      {
+                          "hue": "#435158"
+                      }
+                  ]
+              }
+          ],
+            {name: "Shades of Grey"}
+          );
+          ;
 	};
 
 
