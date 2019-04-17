@@ -28,28 +28,10 @@ class Exad_Google_Map extends Widget_Base {
   		$this->start_controls_section(
   			'exad_section_google_map_settings',
   			[
-  				'label' => esc_html__( 'General Settings', 'exclusive-addons-elementor' )
+  				'label' => esc_html__( 'Map Settings', 'exclusive-addons-elementor' )
   			]
   		);
-  		$this->add_control(
-		  'exad_google_map_type',
-		  	[
-		   		'label'       	=> esc_html__( 'Google Map Type', 'exclusive-addons-elementor' ),
-		     	'type' 			=> Controls_Manager::SELECT,
-		     	'default' 		=> 'basic',
-		     	'label_block' 	=> false,
-		     	'options' 		=> [
-		     		'basic'  	=> esc_html__( 'Basic', 'exclusive-addons-elementor' ),
-		     		'marker'  	=> esc_html__( 'Multiple Marker', 'exclusive-addons-elementor' ),
-		     		'static'  	=> esc_html__( 'Static', 'exclusive-addons-elementor' ),
-		     		'polyline'  => esc_html__( 'Polyline', 'exclusive-addons-elementor' ),
-		     		'polygon'  	=> esc_html__( 'Polygon', 'exclusive-addons-elementor' ),
-		     		'overlay'  	=> esc_html__( 'Overlay', 'exclusive-addons-elementor' ),
-		     		'routes'  	=> esc_html__( 'With Routes', 'exclusive-addons-elementor' ),
-		     		'panorama'  => esc_html__( 'Panorama', 'exclusive-addons-elementor' ),
-		     	]
-		  	]
-		);
+  		
 		$this->add_control(
             'exad_google_map_address_type',
             [
@@ -66,9 +48,6 @@ class Exad_Google_Map extends Widget_Base {
 					],
 				],
 				'default' => 'address',
-				'condition' => [
-					'exad_google_map_type' => ['basic']
-				]
             ]
         );
          $this->add_control(
@@ -80,7 +59,6 @@ class Exad_Google_Map extends Widget_Base {
 				'default' => esc_html__( 'Paris, France', 'exclusive-addons-elementor' ),
 				'condition' => [
 					'exad_google_map_address_type' => ['address'],
-					'exad_google_map_type' => ['basic']
 				]
 			]
 		);
@@ -90,9 +68,8 @@ class Exad_Google_Map extends Widget_Base {
 				'label' => esc_html__( 'Latitude', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default' => esc_html__( '1.2925005', 'exclusive-addons-elementor' ),
+				'default' => esc_html__( '51.4934', 'exclusive-addons-elementor' ),
 				'condition' => [
-					'exad_google_map_type!' => ['routes'],
 					'exad_google_map_address_type' => ['coordinates']
 				]
 			]
@@ -103,9 +80,8 @@ class Exad_Google_Map extends Widget_Base {
 				'label' => esc_html__( 'Longitude', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default' => esc_html__( '103.8665551', 'exclusive-addons-elementor' ),
+				'default' => esc_html__( '0.0098', 'exclusive-addons-elementor' ),
 				'condition' => [
-					'exad_google_map_type!' => ['routes'],
 					'exad_google_map_address_type' => ['coordinates']
 				]
 			]
@@ -644,35 +620,11 @@ class Exad_Google_Map extends Widget_Base {
 			'exad_section_google_map_theme_settings',
 			[
 				'label'		=> esc_html__( 'Map Theme', 'exclusive-addons-elementor' ),
-				'condition' => [
-					'exad_google_map_type!'	=> ['static', 'panorama']
-				]
 			]
 		);
+		
 		$this->add_control(
-            'exad_google_map_theme_source',
-            [
-                'label'		=> __( 'Theme Source', 'exclusive-addons-elementor' ),
-				'type'		=> Controls_Manager::CHOOSE,
-                'options' => [
-					'gstandard' => [
-						'title' => __( 'Google Standard', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-map',
-					],
-					'snazzymaps' => [
-						'title' => __( 'Snazzy Maps', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-map-marker',
-					],
-					'custom' => [
-						'title' => __( 'Custom', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-edit',
-					],
-				],
-				'default'	=> 'gstandard'
-            ]
-		);
-		$this->add_control(
-			'exad_google_map_gstandards',
+			'exad_google_map_themes',
 			[
 				'label'                 => esc_html__( 'Google Themes', 'exclusive-addons-elementor' ),
 				'type'                  => Controls_Manager::SELECT,
@@ -683,48 +635,18 @@ class Exad_Google_Map extends Widget_Base {
 					'retro'        => __( 'Retro', 'exclusive-addons-elementor' ),
 					'dark'         => __( 'Dark', 'exclusive-addons-elementor' ),
 					'night'        => __( 'Night', 'exclusive-addons-elementor' ),
-					'aubergine'    => __( 'Aubergine', 'exclusive-addons-elementor' )
+					'aubergine'    => __( 'Aubergine', 'exclusive-addons-elementor' ),
 				],
 				'description'           => sprintf( '<a href="https://mapstyle.withgoogle.com/" target="_blank">%1$s</a> %2$s',__( 'Click here', 'exclusive-addons-elementor' ), __( 'to generate your own theme and use JSON within Custom style field.', 'exclusive-addons-elementor' ) ),
-				'condition'	=> [
-					'exad_google_map_theme_source'	=> 'gstandard'
-				]
 			]
 		);
-		$this->add_control(
-			'exad_google_map_snazzymaps',
-			[
-				'label'                 => esc_html__( 'SnazzyMaps Themes', 'exclusive-addons-elementor' ),
-				'type'                  => Controls_Manager::SELECT,
-				'label_block'			=> true,
-				'default'               => 'colorful',
-				'options'               => [
-					'default'		=> __( 'Default', 'exclusive-addons-elementor' ),
-					'simple'		=> __( 'Simple', 'exclusive-addons-elementor' ),
-					'colorful'		=> __( 'Colorful', 'exclusive-addons-elementor' ),
-					'complex'		=> __( 'Complex', 'exclusive-addons-elementor' ),
-					'dark'			=> __( 'Dark', 'exclusive-addons-elementor' ),
-					'greyscale'		=> __( 'Greyscale', 'exclusive-addons-elementor' ),
-					'light'			=> __( 'Light', 'exclusive-addons-elementor' ),
-					'monochrome'	=> __( 'Monochrome', 'exclusive-addons-elementor' ),
-					'nolabels'		=> __( 'No Labels', 'exclusive-addons-elementor' ),
-					'twotone'		=> __( 'Two Tone', 'exclusive-addons-elementor' )
-				],
-				'description'           => sprintf( '<a href="https://snazzymaps.com/explore" target="_blank">%1$s</a> %2$s',__( 'Click here', 'exclusive-addons-elementor' ), __( 'to explore more themes and use JSON within custom style field.', 'exclusive-addons-elementor' ) ),
-				'condition'	=> [
-					'exad_google_map_theme_source'	=> 'snazzymaps'
-				]
-			]
-		);
+		
 		$this->add_control(
 			'exad_google_map_custom_style',
 			[
 				'label'                 => __( 'Custom Style', 'exclusive-addons-elementor' ),
 				'description'           => sprintf( '<a href="https://mapstyle.withgoogle.com/" target="_blank">%1$s</a> %2$s',__( 'Click here', 'exclusive-addons-elementor' ), __( 'to get JSON style code to style your map', 'exclusive-addons-elementor' ) ),
 				'type'                  => Controls_Manager::TEXTAREA,
-                'condition'             => [
-                    'exad_google_map_theme_source'     => 'custom',
-                ],
 			]
 		);
 		$this->end_controls_section(); 
@@ -1009,23 +931,6 @@ class Exad_Google_Map extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-	protected function exad_get_map_theme($settings) {
-
-		if($settings['exad_google_map_theme_source'] == 'custom') {
-			return strip_tags($settings['exad_google_map_custom_style']);
-		}else {
-			$themes = include('advance-gmap-themes.php');
-			if(isset($themes[$settings['exad_google_map_theme_source']][$settings['exad_google_map_gstandards']])) {
-				return $themes[$settings['exad_google_map_theme_source']][$settings['exad_google_map_gstandards']];
-			}elseif(isset($themes[$settings['exad_google_map_theme_source']][$settings['exad_google_map_snazzymaps']])) {
-				return $themes[$settings['exad_google_map_theme_source']][$settings['exad_google_map_snazzymaps']];
-			}else {
-				return '';
-			}
-		}
-
-	}
-
 	protected function map_render_data_attributes( $settings ) {
 		return [
 			'data-map_type'				=> esc_attr($settings['exad_google_map_type']),
@@ -1090,7 +995,8 @@ class Exad_Google_Map extends Widget_Base {
 		$this->add_render_attribute( 'exad_google_map_wrapper', [
 			'class' => ['exad-google-maps'],
 			'id'	=> 'exad-google-maps-'.esc_attr($this->get_id()),
-			'data-id'	=> esc_attr($this->get_id()),
+			'data-exad-address-type' => esc_attr($settings['exad_google_map_address_type']),
+			'data-exad-theme' => esc_attr( $settings['exad_google_map_themes']),
 			'data-exad-address'	=> esc_attr($settings['exad_google_map_addr']),
 			'data-exad-lat' => esc_attr( $settings['exad_google_map_lat'] ),
 			'data-exad-lng' => esc_attr( $settings['exad_google_map_lng'] ),
@@ -1104,13 +1010,36 @@ class Exad_Google_Map extends Widget_Base {
 		]);
 	?>
 
-	<div <?php echo $this->get_render_attribute_string('exad_google_map_wrapper'); ?>>
-	</div>
+		<div <?php echo $this->get_render_attribute_string('exad_google_map_wrapper'); ?>>
+		</div>
 
 	<?php
 	}
 
-	protected function content_template() {}
+	protected function content_template() {
+		?>	
+
+		<#
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'class', 'exad-google-maps' );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-address-type', settings.exad_google_map_address_type );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-theme', settings.exad_google_map_themes );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-address', settings.exad_google_map_addr );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-lat', settings.exad_google_map_lat );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-lng', settings.exad_google_map_lng );
+		
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-zoom', settings.exad_google_map_zoom );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-streeview-control', settings.exad_map_streeview_control );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-type-control', settings.exad_map_type_control );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-zoom-control, settings.exad_map_zoom_control );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-fullscreen-control', settings.exad_map_fullscreen_control );
+		view.addRenderAttribute( 'exadGoogleMapWrapper', 'data-exad-scroll-zoom', settings.exad_map_scroll_zoom );
+		#>
+
+
+		<div {{{ view.getRenderAttributeString( 'exadGoogleMapWrapper' ) }}}>
+		</div>
+	<?php	
+	}
 }
 
 
