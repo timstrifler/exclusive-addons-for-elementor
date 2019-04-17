@@ -337,7 +337,6 @@
 			$longitude = $googleMaps.data('exad-lng'),
 			$mapTheme = $googleMaps.data('exad-theme'),
 			$mapAddressType = $googleMaps.data('exad-address-type'),
-			$pinIcon = $googleMaps.data('exad-icon'),
 			$mapZoom  = $googleMaps.data('exad-zoom'),
 			$mapAddress = $googleMaps.data('exad-address'),
 			$map_streeview_control  = $googleMaps.data('exad-streeview-control'),
@@ -368,7 +367,6 @@
         }).marker(function (map) {
             return {
                 position: map.getCenter(),
-                icon: $pinIcon
             };
         }).styledmaptype(
 			"standard",

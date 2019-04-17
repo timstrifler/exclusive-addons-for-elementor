@@ -140,20 +140,20 @@ class Exad_Heading extends Widget_Base {
         $this->add_responsive_control(
 			'exad_heading_title_alignment',
 			[
-				'label' => esc_html__( 'Alignment', 'essential-addons-elementor' ),
+				'label' => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'label_block' => true,
 				'options' => [
 					'exad-heading-left' => [
-						'title' => esc_html__( 'Left', 'essential-addons-elementor' ),
+						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'exad-heading-center' => [
-						'title' => esc_html__( 'Center', 'essential-addons-elementor' ),
+						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'exad-heading-right' => [
-						'title' => esc_html__( 'Right', 'essential-addons-elementor' ),
+						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
