@@ -30,7 +30,17 @@ class Exad_Google_Map extends Widget_Base {
   			[
   				'label' => esc_html__( 'Map Settings', 'exclusive-addons-elementor' )
   			]
-  		);
+		);
+		 
+		$admin_link = admin_url( 'admin.php?page=exad-settings' );
+		$this->add_control(
+			'exad_map_api_key',
+			[
+				'type'            => Controls_Manager::RAW_HTML,
+				'raw'             => sprintf( __( 'To display Google Map without an issue, you need to configure Google Map API key. Please configure API key from the "API KEYS" tab <a href="%s" target="_blank" rel="noopener">here</a>.', 'exclusive-addons-elementor' ), $admin_link ),
+				'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning',
+			]
+		);
   		
 		$this->add_control(
             'exad_google_map_address_type',
@@ -47,7 +57,7 @@ class Exad_Google_Map extends Widget_Base {
 						'icon' => 'fa fa-map-marker',
 					],
 				],
-				'default' => 'address',
+				'default' => 'coordinates',
             ]
 		);
 
