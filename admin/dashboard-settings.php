@@ -120,7 +120,7 @@ class Exad_Admin_Settings {
                     <ul class="exad-dashboard-tabs">
                         <li><a href="#general" class="active"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/settings-icon.png'; ?>"><span>General</span></a></li>
                         <li><a href="#elements"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/elements-icon.png'; ?>"><span>Elements</span></a></li>
-                        <li><a href="#apikeys"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/elements-icon.png'; ?>"><span>API Keys</span></a></li>
+                        <li><a href="#apikeys"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/api-keys.svg'; ?>"><span>API Keys</span></a></li>
                     </ul>
                     <div id="general" class="exad-dashboard-tab active">
                         <div class="exad-row exad-admin-general-wrapper">

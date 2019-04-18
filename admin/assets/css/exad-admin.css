@@ -106,7 +106,6 @@
 }
 
 .exad-dashboard-tabs-wrapper ul li a img {
-    /*	width: 20px;*/
     margin: 0 5px -3px 0;
 }
 
@@ -254,7 +253,7 @@ textarea.exad-form-control {
 /* Dashboard Text input field */
 .exad-dashboard-text input {
     height: 45px;
-    width: 450px;
+    width: 380px;
     padding: 8px;
     background: #f7f7f7;
 }
