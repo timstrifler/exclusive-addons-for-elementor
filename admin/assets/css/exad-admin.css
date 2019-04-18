@@ -251,6 +251,14 @@ textarea.exad-form-control {
     animation: switch-on .3s ease-out;
 }
 
+/* Dashboard Text input field */
+.exad-dashboard-text input {
+    height: 45px;
+    width: 450px;
+    padding: 8px;
+    background: #f7f7f7;
+}
+
 @keyframes switch-on {
     50% {
         transform: scaleX(1.3);

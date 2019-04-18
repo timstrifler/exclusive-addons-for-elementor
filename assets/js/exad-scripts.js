@@ -351,7 +351,7 @@
 			var $center =  null;
 		} else {
 			var $center = [$latitude, $longitude];
-			var $address = null;
+			var $address = false;
 		} 
 
         $googleMaps.gmap3({

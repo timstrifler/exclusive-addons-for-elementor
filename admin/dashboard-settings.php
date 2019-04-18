@@ -120,6 +120,7 @@ class Exad_Admin_Settings {
                     <ul class="exad-dashboard-tabs">
                         <li><a href="#general" class="active"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/settings-icon.png'; ?>"><span>General</span></a></li>
                         <li><a href="#elements"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/elements-icon.png'; ?>"><span>Elements</span></a></li>
+                        <li><a href="#apikeys"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/elements-icon.png'; ?>"><span>API Keys</span></a></li>
                     </ul>
                     <div id="general" class="exad-dashboard-tab active">
                         <div class="exad-row exad-admin-general-wrapper">
@@ -268,8 +269,29 @@ class Exad_Admin_Settings {
                             
                         </div>
                     </div>
+                    <div id="apikeys" class="exad-dashboard-tab">
+                        <div class="exad-row">
+                            <div class="exad-full-width">
+                                <div class="exad-dashboard-text-container">
+
+                                    <div class="exad-dashboard-text">
+                                        <div class="exad-dashboard-text-title">
+                                            <p class="exad-el-title">Google Map API Key</p>
+                                        </div>
+                                        <div class="exad-dashboard-text-label">
+                                            <input type="text" id="google-map-api-key" placeholder="Google Map API Key" name="google_map_api_key" value="<?php echo get_option('exad_google_map_api_option'); ?>">
+                                            <label for="Map API Key"></label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <!--./checkbox-container-->
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </form> <!-- Form End -->
         </div>
     <?php
 
@@ -300,7 +322,11 @@ class Exad_Admin_Settings {
 				$this->exad_settings[ $value ] = 0;
 			}
 		}
-		update_option( 'exad_save_settings', $this->exad_settings );
+        update_option( 'exad_save_settings', $this->exad_settings );
+        
+        // Google Map API key 
+        update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );
+        
 		return true;
 		die();
 			

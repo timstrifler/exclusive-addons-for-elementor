@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 
 	// Save Button reacting on any changes
 	var saveHeaderAction = $( '.exad-dashboard-header-wrapper .exad-btn' );
-	$('.exad-dashboard-checkbox input[type="checkbox"]').on( 'click', function() {
+	$('.exad-dashboard-tab input').on( 'click', function() {
 		saveHeaderAction.addClass( 'exad-save-now' );
 		saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
 	} );

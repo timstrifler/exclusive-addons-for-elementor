@@ -54,10 +54,10 @@ class Exad_Google_Map extends Widget_Base {
         $this->add_control(
 			'exad_google_map_addr',
 			[
-				'label' => esc_html__( 'Geo Address', 'exclusive-addons-elementor' ),
+				'label' => __( 'Geo Address', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => esc_html__( 'Paris, France', 'exclusive-addons-elementor' ),
+				'default' => __( 'Paris, France', 'exclusive-addons-elementor' ),
 				'condition' => [
 					'exad_google_map_address_type' => ['address'],
 				]
@@ -85,15 +85,6 @@ class Exad_Google_Map extends Widget_Base {
 				'condition' => [
 					'exad_google_map_address_type' => ['coordinates']
 				]
-			]
-		);
-
-		$this->add_control(
-			'exad_google_map_api_key',
-			[
-				'label' => esc_html__( 'API Key', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::TEXT,
-				'label_block' => true,
 			]
 		);
 
@@ -246,16 +237,9 @@ class Exad_Google_Map extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-
-	protected function exad_update_map_api() {
-		
-	}
-
 	protected function render() {
 
 		$settings = $this->get_settings_for_display();
-		$api_settings = $settings['exad_google_map_api_key'];
-		add_option( 'exad_google_map_api_option', $api_settings );
 		
 		$this->add_render_attribute( 'exad_google_map_wrapper', [
 			'class' => ['exad-google-maps'],
@@ -283,12 +267,12 @@ class Exad_Google_Map extends Widget_Base {
 	protected function _content_template() {
 		?>
 
-		<div class="exad-google-maps" data-exad-address-type="{{ settings.exad_google_map_address_type }}"  data-exad-theme="{{ settings.exad_google_map_themes }}" 
+		<div class="exad-google-maps" data-exad-address-type="{{ settings.exad_google_map_address_type }}" data-exad-theme="{{ settings.exad_google_map_themes }}" 
 		data-exad-address="{{ settings.exad_google_map_addr }}" data-exad-lat="{{ settings.exad_google_map_lat }}" data-exad-lng="{{ settings.exad_google_map_lng }}" 
 		data-exad-zoom="{{ settings.exad_google_map_zoom }}" data-exad-streeview-control="{{ settings.exad_map_streeview_control }}" 
 		data-exad-type-control="{{ settings.exad_map_type_control }}" data-exad-zoom-control="{{ settings.exad_map_zoom_control }}" 
 		data-exad-zoom-control="{{ settings.exad_map_zoom_control }}" data-exad-fullscreen-control="{{ settings.exad_map_fullscreen_control }}"
-		data-exad-scroll-zoom = "{{ settings.exad_map_scroll_zoom }}">
+		data-exad-scroll-zoom="{{ settings.exad_map_scroll_zoom }}">
 		</div>
 
 	<?php	
