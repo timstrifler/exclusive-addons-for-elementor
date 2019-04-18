@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern
 Requires at least: 4.6
 Tested up to: 5.1.1
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -27,8 +27,8 @@ We'll update Exclusive Addons with new Elements for you, every week.
 ### Live Preview
 We have enabled Live Preview for most of our elements. That means you can see as you edit your elements without a delay of second.
 
-### 18 Elementor widgets
-We have packed 18 Elementor widgets for now. We'll continue to add them as time goes on.
+### 19 Elementor widgets
+We have packed 19 Elementor widgets for now. We'll continue to add them as time goes on.
 
 ### Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -73,6 +73,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 7. Dashboard section for enabling/disabling elements
 
 == Changelog ==
+
+= 1.2.0 - 18/04/2019 =
+- New element Google Maps Added.
+- Few bug fixes.
 
 = 1.1.2 - 10/04/2019 =
 - New element Post Carousel added.
