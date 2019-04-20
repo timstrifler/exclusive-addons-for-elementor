@@ -116,7 +116,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
+		$this->add_control(
 			'exad_exclusive_button_width',
 			[
 				'label' => esc_html__( 'Width', 'exclusive-addons-elementor' ),
@@ -171,7 +171,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 		);
 
 		
-		$this->add_responsive_control(
+		$this->add_control(
 			'exad_exclusive_button_padding',
 			[
 				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),

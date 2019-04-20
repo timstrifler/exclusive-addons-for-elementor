@@ -58,7 +58,7 @@ class Exad_Post_Carousel extends Widget_Base {
 		$this->add_control(
             'exad_post_carousel_column_no',
             [
-                'label' => __( 'Number of Columns', 'exclusive-addons-elementor' ),
+                'label' => __( 'Columns', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::SELECT,
 				'default' => '3',
 				'options' => [

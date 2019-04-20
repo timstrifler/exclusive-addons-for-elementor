@@ -189,7 +189,7 @@ class Exad_Contact_Form extends Widget_Base {
             ]
         );
 
-  		$this->add_responsive_control(
+  		$this->add_control(
   			'exad_contact_form_width',
   			[
   				'label' => esc_html__( 'Form Width', 'exclusive-addons-elementor' ),
@@ -216,7 +216,7 @@ class Exad_Contact_Form extends Widget_Base {
   		);
 		
 		
-		$this->add_responsive_control(
+		$this->add_control(
 			'exad_contact_form_padding',
 			[
 				'label' => esc_html__( 'Form Padding', 'exclusive-addons-elementor' ),
@@ -231,7 +231,7 @@ class Exad_Contact_Form extends Widget_Base {
                     'bottom' => 40,
                     'left' => 40,
                     'unit' => 'px'
-                    ]
+                ]
 			]
 		);
 		
@@ -336,7 +336,7 @@ class Exad_Contact_Form extends Widget_Base {
         
         
 
-		$this->add_responsive_control(
+		$this->add_control(
 			'exad_contact_field_padding',
 			[
 				'label'                 => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -353,7 +353,7 @@ class Exad_Contact_Form extends Widget_Base {
 		);
         
         
-        $this->add_responsive_control(
+        $this->add_control(
             'exad_contact_field_width',
             [
                 'label'                 => __( 'Field Width', 'exclusive-addons-elementor' ),

@@ -128,16 +128,20 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'default' => [
 					[
 						'exad_testimonial_carousel_name' => __( 'Testimonial #1', 'exclusive-addons-elementor' ),
-						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' ),
 					],
 					[
 						'exad_testimonial_carousel_name' => __( 'Testimonial #2', 'exclusive-addons-elementor' ),
-						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' ),
 					],
 					[
 						'exad_testimonial_carousel_name' => __( 'Testimonial #3', 'exclusive-addons-elementor' ),
-						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum.', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' ),
 					],
+					[
+						'exad_testimonial_carousel_name' => __( 'Testimonial #4', 'exclusive-addons-elementor' ),
+						'exad_testimonial_carousel_description' => __( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' ),
+					]
 			]	
 			]
 		);
@@ -152,19 +156,16 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			]
 		);
 
-		$slides_per_view = range( 1, 10 );
+		$slides_per_view = range( 1, 6 );
 		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
 
-		$this->add_responsive_control(
+		$this->add_control(
 			'exad_testimonial_per_view',
 			[
 				'type'           => Controls_Manager::SELECT,
-				'label'          => esc_html__( 'Testimonials On Row', 'exclusive-addons-elementor' ),
-				'label_block'    => true,
+				'label'          => esc_html__( 'Columns', 'exclusive-addons-elementor' ),
 				'options'        => $slides_per_view,
 				'default'        => '3',
-				'tablet_default' => '2',
-				'mobile_default' => '1',
 				'condition' => [
 					'exad_testimonial_carousel_preset' => '-circle',
 				],
@@ -175,10 +176,11 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			'exad_testimonial_slides_to_scroll',
 			[
 				'type'      => Controls_Manager::SELECT,
-				'label'     => esc_html__( 'Testimonials to Scroll', 'exclusive-addons-elementor' ),
-				'label_block'    => true,
+				'label'     => esc_html__( 'Items to Scroll', 'exclusive-addons-elementor' ),
 				'options'   => $slides_per_view,
 				'default'   => '1',
+				'separator' => 'after',
+				'description'    => esc_html__('Above options work with Circle Gradient Style only', 'exclusive-addons-elementor' ),
 				'condition' => [
 					'exad_testimonial_carousel_preset' => '-circle',
 				],
@@ -295,7 +297,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#fff',
+				'default' => '#f9f9f9',
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-carousel-circle .exad-testimonial-carousel-inner, {{WRAPPER}} .exad-testimonial-carousel-single, {{WRAPPER}} .exad-testimonial-carousel-basic' => 'background: {{VALUE}};',
 				],
@@ -340,25 +342,6 @@ class Exad_Testimonial_Carousel extends Widget_Base {
             [
                 'label' => __('Author Name', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-
-        $this->add_control(
-            'title_tag',
-            [
-                'label' => __('Title HTML Tag', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SELECT,
-                'options' => [
-                    'h1' => __('H1', 'exclusive-addons-elementor'),
-                    'h2' => __('H2', 'exclusive-addons-elementor'),
-                    'h3' => __('H3', 'exclusive-addons-elementor'),
-                    'h4' => __('H4', 'exclusive-addons-elementor'),
-                    'h5' => __('H5', 'exclusive-addons-elementor'),
-                    'h6' => __('H6', 'exclusive-addons-elementor'),
-                    'div' => __('div', 'exclusive-addons-elementor'),
-                ],
-                'default' => 'h4',
             ]
         );
 

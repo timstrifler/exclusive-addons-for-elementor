@@ -26,7 +26,7 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 		
-		$this->add_responsive_control(
+		$this->add_control(
 			'exad_infobox_img_or_icon',
 			[
 				'label' => esc_html__( 'Image or Icon', 'exclusive-addons-elementor' ),

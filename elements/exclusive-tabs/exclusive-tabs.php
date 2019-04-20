@@ -340,7 +340,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				'selector' => '{{WRAPPER}} .exad-advance-tab.two .exad-advance-tab-content p',
 			]
 		);
-		$this->add_responsive_control(
+		$this->add_control(
 			'exad_exclusive_tabs_content_padding',
 			[
 				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
@@ -354,7 +354,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 					'isLinked' => true,
 				],
 				'selectors' => [
-	 					'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+	 				'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	 			],
 			]
 		);

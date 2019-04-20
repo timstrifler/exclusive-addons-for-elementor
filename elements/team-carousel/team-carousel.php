@@ -3,9 +3,6 @@ namespace Elementor;
 
 class Exad_Team_Carousel extends Widget_Base {
 
-	private $lightbox_slide_index;
-	private $slide_prints_count = 0;
-
 	public function get_name() {
 		return 'exad-team-carousel';
 	}
@@ -368,19 +365,16 @@ class Exad_Team_Carousel extends Widget_Base {
 			]
 		);
 
-		$slides_per_view = range( 1, 10 );
+		$slides_per_view = range( 1, 6 );
 		$slides_per_view = array_combine( $slides_per_view, $slides_per_view );
 
-		$this->add_responsive_control(
+		$this->add_control(
 			'exad_team_per_view',
 			[
 				'type'           => Controls_Manager::SELECT,
-				'label'          => esc_html__( 'Number of members', 'exclusive-addons-elementor' ),
-				'label_block'    => true,
+				'label'          => esc_html__( 'Columns', 'exclusive-addons-elementor' ),
 				'options'        => $slides_per_view,
 				'default'        => '3',
-				'tablet_default' => '2',
-				'mobile_default' => '1',
 			]
 		);
 
@@ -388,8 +382,7 @@ class Exad_Team_Carousel extends Widget_Base {
 			'exad_team_slides_to_scroll',
 			[
 				'type'      => Controls_Manager::SELECT,
-				'label'     => esc_html__( 'Members to scroll', 'exclusive-addons-elementor' ),
-				'label_block'    => true,
+				'label'     => esc_html__( 'Items to Scroll', 'exclusive-addons-elementor' ),
 				'options'   => $slides_per_view,
 				'default'   => '1',
 			]

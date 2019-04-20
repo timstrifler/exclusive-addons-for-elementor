@@ -115,7 +115,7 @@ msgstr ""
 msgid "Form Container"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:174, elements/countdown-timer/countdown-timer.php:128, elements/dual-heading/dual-heading.php:179, elements/dual-heading/dual-heading.php:225, elements/exclusive-button/exclusive-button.php:263, elements/flipbox/flipbox.php:375, elements/flipbox/flipbox.php:509, elements/flipbox/flipbox.php:818, elements/flipbox/flipbox.php:876, elements/infobox/infobox.php:178
+#: elements/contact-form-7/contact-form-7.php:174, elements/countdown-timer/countdown-timer.php:128, elements/dual-heading/dual-heading.php:179, elements/dual-heading/dual-heading.php:225, elements/exclusive-button/exclusive-button.php:263, elements/flipbox/flipbox.php:375, elements/flipbox/flipbox.php:509, elements/infobox/infobox.php:178
 msgid "Background"
 msgstr ""
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Form Padding"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:256, elements/contact-form-7/contact-form-7.php:418, elements/countdown-timer/countdown-timer.php:218, elements/countdown-timer/countdown-timer.php:250, elements/exclusive-card/exclusive-card.php:190, elements/exclusive-card/exclusive-card.php:220, elements/exclusive-card/exclusive-card.php:248, elements/exclusive-heading/exclusive-heading.php:180, elements/exclusive-heading/exclusive-heading.php:254, elements/flipbox/flipbox.php:305, elements/flipbox/flipbox.php:346, elements/flipbox/flipbox.php:439, elements/flipbox/flipbox.php:480, elements/flipbox/flipbox.php:806, elements/flipbox/flipbox.php:864, elements/infobox/infobox.php:202, elements/infobox/infobox.php:233, elements/post-carousel/post-carousel.php:466, elements/post-grid/post-grid.php:309, elements/post-timeline/post-timeline.php:290, elements/pricing-table/pricing-table.php:332, elements/pricing-table/pricing-table.php:377, elements/pricing-table/pricing-table.php:406, elements/pricing-table/pricing-table.php:442, elements/pricing-table/pricing-table.php:532, elements/progress-bar/progress-bar.php:145, elements/progress-bar/progress-bar.php:176, elements/progress-bar/progress-bar.php:207, elements/team-carousel/team-carousel.php:285, elements/team-carousel/team-carousel.php:315, elements/team-carousel/team-carousel.php:345, elements/team-member/team-member.php:257, elements/team-member/team-member.php:287, elements/team-member/team-member.php:317, elements/testimonial-carousel/testimonial-carousel.php:319, elements/testimonial-carousel/testimonial-carousel.php:368, elements/testimonial-carousel/testimonial-carousel.php:398
+#: elements/contact-form-7/contact-form-7.php:256, elements/contact-form-7/contact-form-7.php:418, elements/countdown-timer/countdown-timer.php:218, elements/countdown-timer/countdown-timer.php:250, elements/exclusive-card/exclusive-card.php:190, elements/exclusive-card/exclusive-card.php:220, elements/exclusive-card/exclusive-card.php:248, elements/exclusive-heading/exclusive-heading.php:180, elements/exclusive-heading/exclusive-heading.php:254, elements/flipbox/flipbox.php:305, elements/flipbox/flipbox.php:346, elements/flipbox/flipbox.php:439, elements/flipbox/flipbox.php:480, elements/infobox/infobox.php:202, elements/infobox/infobox.php:233, elements/post-carousel/post-carousel.php:466, elements/post-grid/post-grid.php:309, elements/post-timeline/post-timeline.php:290, elements/pricing-table/pricing-table.php:332, elements/pricing-table/pricing-table.php:377, elements/pricing-table/pricing-table.php:406, elements/pricing-table/pricing-table.php:442, elements/pricing-table/pricing-table.php:532, elements/progress-bar/progress-bar.php:145, elements/progress-bar/progress-bar.php:176, elements/progress-bar/progress-bar.php:207, elements/team-carousel/team-carousel.php:282, elements/team-carousel/team-carousel.php:312, elements/team-carousel/team-carousel.php:342, elements/team-member/team-member.php:257, elements/team-member/team-member.php:287, elements/team-member/team-member.php:317, elements/testimonial-carousel/testimonial-carousel.php:321, elements/testimonial-carousel/testimonial-carousel.php:351, elements/testimonial-carousel/testimonial-carousel.php:381
 msgid "Color"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Input & Textarea"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:318, elements/contact-form-7/contact-form-7.php:473, elements/contact-form-7/contact-form-7.php:519, elements/contact-form-7/contact-form-7.php:639, elements/contact-form-7/contact-form-7.php:682, elements/countdown-timer/countdown-timer.php:96, elements/exclusive-accordion/exclusive-accordion.php:147, elements/exclusive-accordion/exclusive-accordion.php:195, elements/exclusive-accordion/exclusive-accordion.php:257, elements/exclusive-button/exclusive-button.php:290, elements/exclusive-tabs/exclusive-tabs.php:190, elements/exclusive-tabs/exclusive-tabs.php:235, elements/exclusive-tabs/exclusive-tabs.php:316, elements/flipbox/flipbox.php:554, elements/flipbox/flipbox.php:596, elements/post-timeline/post-timeline.php:341, elements/pricing-table/pricing-table.php:296, elements/pricing-table/pricing-table.php:547, elements/pricing-table/pricing-table.php:602, elements/pricing-table/pricing-table.php:645, elements/team-carousel/team-carousel.php:261, elements/team-carousel/team-carousel.php:557, elements/team-member/team-member.php:231, elements/team-member/team-member.php:351, elements/team-member/team-member.php:366, elements/testimonial-carousel/testimonial-carousel.php:296
+#: elements/contact-form-7/contact-form-7.php:318, elements/contact-form-7/contact-form-7.php:473, elements/contact-form-7/contact-form-7.php:519, elements/contact-form-7/contact-form-7.php:639, elements/contact-form-7/contact-form-7.php:682, elements/countdown-timer/countdown-timer.php:96, elements/exclusive-accordion/exclusive-accordion.php:147, elements/exclusive-accordion/exclusive-accordion.php:195, elements/exclusive-accordion/exclusive-accordion.php:257, elements/exclusive-button/exclusive-button.php:290, elements/exclusive-tabs/exclusive-tabs.php:190, elements/exclusive-tabs/exclusive-tabs.php:235, elements/exclusive-tabs/exclusive-tabs.php:316, elements/flipbox/flipbox.php:554, elements/flipbox/flipbox.php:596, elements/post-timeline/post-timeline.php:341, elements/pricing-table/pricing-table.php:296, elements/pricing-table/pricing-table.php:547, elements/pricing-table/pricing-table.php:602, elements/pricing-table/pricing-table.php:645, elements/team-carousel/team-carousel.php:258, elements/team-carousel/team-carousel.php:550, elements/team-member/team-member.php:231, elements/team-member/team-member.php:351, elements/team-member/team-member.php:366, elements/testimonial-carousel/testimonial-carousel.php:298
 msgid "Background Color"
 msgstr ""
 
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Text Color"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:342, elements/contact-form-7/contact-form-7.php:579, elements/exclusive-button/exclusive-button.php:177, elements/exclusive-tabs/exclusive-tabs.php:346, elements/flipbox/flipbox.php:717, elements/flipbox/flipbox.php:794
+#: elements/contact-form-7/contact-form-7.php:342, elements/contact-form-7/contact-form-7.php:579, elements/exclusive-button/exclusive-button.php:177, elements/exclusive-tabs/exclusive-tabs.php:346
 msgid "Padding"
 msgstr ""
 
@@ -175,11 +175,11 @@ msgstr ""
 msgid "Field Width"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:383, elements/contact-form-7/contact-form-7.php:655, elements/contact-form-7/contact-form-7.php:714, elements/countdown-timer/countdown-timer.php:164, elements/exclusive-button/exclusive-button.php:197, elements/flipbox/flipbox.php:706
+#: elements/contact-form-7/contact-form-7.php:383, elements/contact-form-7/contact-form-7.php:655, elements/contact-form-7/contact-form-7.php:714, elements/countdown-timer/countdown-timer.php:164, elements/exclusive-button/exclusive-button.php:197
 msgid "Border"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:394, elements/contact-form-7/contact-form-7.php:559, elements/countdown-timer/countdown-timer.php:175, elements/exclusive-button/exclusive-button.php:214, elements/flipbox/flipbox.php:666, elements/flipbox/flipbox.php:729, elements/flipbox/flipbox.php:830
+#: elements/contact-form-7/contact-form-7.php:394, elements/contact-form-7/contact-form-7.php:559, elements/countdown-timer/countdown-timer.php:175, elements/exclusive-button/exclusive-button.php:214
 msgid "Border Radius"
 msgstr ""
 
@@ -195,15 +195,15 @@ msgstr ""
 msgid "Button Typography"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:466, elements/exclusive-accordion/exclusive-accordion.php:143, elements/exclusive-button/exclusive-button.php:243, elements/exclusive-tabs/exclusive-tabs.php:173, elements/flipbox/flipbox.php:537, elements/flipbox/flipbox.php:776, elements/post-carousel/post-carousel.php:179, elements/post-carousel/post-carousel.php:382, elements/post-grid/post-grid.php:225, elements/pricing-table/pricing-table.php:585, elements/team-carousel/team-carousel.php:416, elements/team-carousel/team-carousel.php:551, elements/team-member/team-member.php:346
+#: elements/contact-form-7/contact-form-7.php:466, elements/exclusive-accordion/exclusive-accordion.php:143, elements/exclusive-button/exclusive-button.php:243, elements/exclusive-tabs/exclusive-tabs.php:173, elements/flipbox/flipbox.php:537, elements/post-carousel/post-carousel.php:179, elements/post-carousel/post-carousel.php:382, elements/post-grid/post-grid.php:225, elements/pricing-table/pricing-table.php:585, elements/team-carousel/team-carousel.php:409, elements/team-carousel/team-carousel.php:544, elements/team-member/team-member.php:346
 msgid "Normal"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:497, elements/contact-form-7/contact-form-7.php:543, elements/flipbox/flipbox.php:566, elements/flipbox/flipbox.php:607, elements/pricing-table/pricing-table.php:614, elements/pricing-table/pricing-table.php:657
+#: elements/contact-form-7/contact-form-7.php:497, elements/contact-form-7/contact-form-7.php:543, elements/flipbox/flipbox.php:566, elements/flipbox/flipbox.php:608, elements/pricing-table/pricing-table.php:614, elements/pricing-table/pricing-table.php:657
 msgid "Border Color"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:512, elements/exclusive-accordion/exclusive-accordion.php:188, elements/exclusive-button/exclusive-button.php:273, elements/flipbox/flipbox.php:579, elements/flipbox/flipbox.php:858, elements/post-carousel/post-carousel.php:213, elements/post-carousel/post-carousel.php:399, elements/post-grid/post-grid.php:242, elements/pricing-table/pricing-table.php:628, elements/team-carousel/team-carousel.php:450, elements/team-carousel/team-carousel.php:572, elements/team-member/team-member.php:380
+#: elements/contact-form-7/contact-form-7.php:512, elements/exclusive-accordion/exclusive-accordion.php:188, elements/exclusive-button/exclusive-button.php:273, elements/flipbox/flipbox.php:579, elements/post-carousel/post-carousel.php:213, elements/post-carousel/post-carousel.php:399, elements/post-grid/post-grid.php:242, elements/pricing-table/pricing-table.php:628, elements/team-carousel/team-carousel.php:443, elements/team-carousel/team-carousel.php:565, elements/team-member/team-member.php:380
 msgid "Hover"
 msgstr ""
 
@@ -223,11 +223,11 @@ msgstr ""
 msgid "Set the date and time here"
 msgstr ""
 
-#: elements/countdown-timer/countdown-timer.php:60, elements/dual-heading/dual-heading.php:106, elements/exclusive-accordion/exclusive-accordion.php:98, elements/exclusive-card/exclusive-card.php:130, elements/exclusive-heading/exclusive-heading.php:97, elements/exclusive-tabs/exclusive-tabs.php:120, elements/flipbox/flipbox.php:205, elements/google-maps/google-maps.php:178, elements/infobox/infobox.php:134, elements/post-carousel/post-carousel.php:312, elements/post-grid/post-grid.php:157, elements/post-timeline/post-timeline.php:140, elements/pricing-table/pricing-table.php:242, elements/progress-bar/progress-bar.php:64, elements/team-carousel/team-carousel.php:225, elements/team-member/team-member.php:193, elements/testimonial-carousel/testimonial-carousel.php:247
+#: elements/countdown-timer/countdown-timer.php:60, elements/dual-heading/dual-heading.php:106, elements/exclusive-accordion/exclusive-accordion.php:98, elements/exclusive-card/exclusive-card.php:130, elements/exclusive-heading/exclusive-heading.php:97, elements/exclusive-tabs/exclusive-tabs.php:120, elements/flipbox/flipbox.php:205, elements/google-maps/google-maps.php:178, elements/infobox/infobox.php:134, elements/post-carousel/post-carousel.php:312, elements/post-grid/post-grid.php:157, elements/post-timeline/post-timeline.php:140, elements/pricing-table/pricing-table.php:242, elements/progress-bar/progress-bar.php:64, elements/team-carousel/team-carousel.php:222, elements/team-member/team-member.php:193, elements/testimonial-carousel/testimonial-carousel.php:249
 msgid "General Styles"
 msgstr ""
 
-#: elements/countdown-timer/countdown-timer.php:68, elements/exclusive-accordion/exclusive-accordion.php:106, elements/exclusive-card/exclusive-card.php:137, elements/exclusive-heading/exclusive-heading.php:104, elements/exclusive-tabs/exclusive-tabs.php:128, elements/infobox/infobox.php:141, elements/post-carousel/post-carousel.php:320, elements/post-grid/post-grid.php:165, elements/pricing-table/pricing-table.php:249, elements/team-carousel/team-carousel.php:232, elements/team-member/team-member.php:200, elements/testimonial-carousel/testimonial-carousel.php:254
+#: elements/countdown-timer/countdown-timer.php:68, elements/exclusive-accordion/exclusive-accordion.php:106, elements/exclusive-card/exclusive-card.php:137, elements/exclusive-heading/exclusive-heading.php:104, elements/exclusive-tabs/exclusive-tabs.php:128, elements/infobox/infobox.php:141, elements/post-carousel/post-carousel.php:320, elements/post-grid/post-grid.php:165, elements/pricing-table/pricing-table.php:249, elements/team-carousel/team-carousel.php:229, elements/team-member/team-member.php:200, elements/testimonial-carousel/testimonial-carousel.php:256
 msgid "Style Preset"
 msgstr ""
 
@@ -295,7 +295,7 @@ msgstr ""
 msgid "Heading URL"
 msgstr ""
 
-#: elements/dual-heading/dual-heading.php:54, elements/exclusive-card/exclusive-card.php:68, elements/exclusive-card/exclusive-card.php:112, elements/exclusive-heading/exclusive-heading.php:47, elements/infobox/infobox.php:107, elements/team-carousel/team-carousel.php:110, elements/team-carousel/team-carousel.php:127, elements/team-carousel/team-carousel.php:144, elements/team-carousel/team-carousel.php:161, elements/team-carousel/team-carousel.php:178
+#: elements/dual-heading/dual-heading.php:54, elements/exclusive-card/exclusive-card.php:68, elements/exclusive-card/exclusive-card.php:112, elements/exclusive-heading/exclusive-heading.php:47, elements/infobox/infobox.php:107, elements/team-carousel/team-carousel.php:107, elements/team-carousel/team-carousel.php:124, elements/team-carousel/team-carousel.php:141, elements/team-carousel/team-carousel.php:158, elements/team-carousel/team-carousel.php:175
 msgid "https://your-link.com"
 msgstr ""
 
@@ -315,7 +315,7 @@ msgstr ""
 msgid "Icon"
 msgstr ""
 
-#: elements/dual-heading/dual-heading.php:114, elements/exclusive-accordion/exclusive-accordion.php:169, elements/exclusive-accordion/exclusive-accordion.php:217, elements/exclusive-heading/exclusive-heading.php:118, elements/flipbox/flipbox.php:260, elements/flipbox/flipbox.php:412, elements/testimonial-carousel/testimonial-carousel.php:454
+#: elements/dual-heading/dual-heading.php:114, elements/exclusive-accordion/exclusive-accordion.php:169, elements/exclusive-accordion/exclusive-accordion.php:217, elements/exclusive-heading/exclusive-heading.php:118, elements/flipbox/flipbox.php:260, elements/flipbox/flipbox.php:412, elements/testimonial-carousel/testimonial-carousel.php:437
 msgid "Icon Color"
 msgstr ""
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Exclusive Accordion"
 msgstr ""
 
-#: elements/exclusive-accordion/exclusive-accordion.php:33, elements/exclusive-button/exclusive-button.php:32, elements/team-carousel/team-carousel.php:34, elements/testimonial-carousel/testimonial-carousel.php:34
+#: elements/exclusive-accordion/exclusive-accordion.php:33, elements/exclusive-button/exclusive-button.php:32, elements/team-carousel/team-carousel.php:31, elements/testimonial-carousel/testimonial-carousel.php:34
 msgid "Contents"
 msgstr ""
 
@@ -451,7 +451,7 @@ msgstr ""
 msgid "Exclusive Card"
 msgstr ""
 
-#: elements/exclusive-card/exclusive-card.php:34, elements/exclusive-tabs/exclusive-tabs.php:67, elements/exclusive-tabs/exclusive-tabs.php:84, elements/infobox/infobox.php:45, elements/infobox/infobox.php:58, elements/team-carousel/team-carousel.php:46, elements/team-member/team-member.php:33
+#: elements/exclusive-card/exclusive-card.php:34, elements/exclusive-tabs/exclusive-tabs.php:67, elements/exclusive-tabs/exclusive-tabs.php:84, elements/infobox/infobox.php:45, elements/infobox/infobox.php:58, elements/team-carousel/team-carousel.php:43, elements/team-member/team-member.php:33
 msgid "Image"
 msgstr ""
 
@@ -471,7 +471,7 @@ msgstr ""
 msgid "Card Tag"
 msgstr ""
 
-#: elements/exclusive-card/exclusive-card.php:90, elements/exclusive-card/exclusive-card.php:213, elements/flipbox/flipbox.php:59, elements/flipbox/flipbox.php:103, elements/infobox/infobox.php:119, elements/infobox/infobox.php:225, elements/team-carousel/team-carousel.php:87, elements/team-carousel/team-carousel.php:337, elements/team-member/team-member.php:74, elements/team-member/team-member.php:309, elements/testimonial-carousel/testimonial-carousel.php:82
+#: elements/exclusive-card/exclusive-card.php:90, elements/exclusive-card/exclusive-card.php:213, elements/flipbox/flipbox.php:59, elements/flipbox/flipbox.php:103, elements/infobox/infobox.php:119, elements/infobox/infobox.php:225, elements/team-carousel/team-carousel.php:84, elements/team-carousel/team-carousel.php:334, elements/team-member/team-member.php:74, elements/team-member/team-member.php:309, elements/testimonial-carousel/testimonial-carousel.php:82
 msgid "Description"
 msgstr ""
 
@@ -491,7 +491,7 @@ msgstr ""
 msgid "Action URL"
 msgstr ""
 
-#: elements/exclusive-card/exclusive-card.php:151, elements/testimonial-carousel/testimonial-carousel.php:268
+#: elements/exclusive-card/exclusive-card.php:151, elements/testimonial-carousel/testimonial-carousel.php:270
 msgid "Color Scheme"
 msgstr ""
 
@@ -711,7 +711,7 @@ msgstr ""
 msgid "Fade In Out"
 msgstr ""
 
-#: elements/flipbox/flipbox.php:249, elements/flipbox/flipbox.php:694
+#: elements/flipbox/flipbox.php:249
 msgid "Icon Style"
 msgstr ""
 
@@ -721,34 +721,6 @@ msgstr ""
 
 #: elements/flipbox/flipbox.php:529, elements/pricing-table/pricing-table.php:202, elements/pricing-table/pricing-table.php:569
 msgid "Button"
-msgstr ""
-
-#: elements/flipbox/flipbox.php:633
-msgid "Image Style"
-msgstr ""
-
-#: elements/flipbox/flipbox.php:644
-msgid "Image Type"
-msgstr ""
-
-#: elements/flipbox/flipbox.php:649, elements/progress-bar/progress-bar.php:77
-msgid "Circle"
-msgstr ""
-
-#: elements/flipbox/flipbox.php:650
-msgid "Radius"
-msgstr ""
-
-#: elements/flipbox/flipbox.php:651
-msgid "Default"
-msgstr ""
-
-#: elements/flipbox/flipbox.php:763
-msgid "Button Style"
-msgstr ""
-
-#: elements/flipbox/flipbox.php:782
-msgid "Margin"
 msgstr ""
 
 #: elements/google-maps/google-maps.php:13
@@ -915,8 +887,8 @@ msgstr ""
 msgid "Posts Per Page"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:61, elements/post-grid/post-grid.php:59
-msgid "Number of Columns"
+#: elements/post-carousel/post-carousel.php:61, elements/team-carousel/team-carousel.php:375, elements/testimonial-carousel/testimonial-carousel.php:166
+msgid "Columns"
 msgstr ""
 
 #: elements/post-carousel/post-carousel.php:65, elements/post-grid/post-grid.php:63, elements/testimonial-carousel/testimonial-carousel.php:108
@@ -971,55 +943,55 @@ msgstr ""
 msgid "Ignore Sticky?"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:159, elements/team-carousel/team-carousel.php:367, elements/testimonial-carousel/testimonial-carousel.php:151
+#: elements/post-carousel/post-carousel.php:159, elements/team-carousel/team-carousel.php:364, elements/testimonial-carousel/testimonial-carousel.php:155
 msgid "Carousel Settings"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:166, elements/team-carousel/team-carousel.php:401
+#: elements/post-carousel/post-carousel.php:166, elements/team-carousel/team-carousel.php:394
 msgid "Navigation Style"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:170, elements/team-carousel/team-carousel.php:406
+#: elements/post-carousel/post-carousel.php:170, elements/team-carousel/team-carousel.php:399
 msgid "Arrows"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:171, elements/team-carousel/team-carousel.php:407
+#: elements/post-carousel/post-carousel.php:171, elements/team-carousel/team-carousel.php:400
 msgid "Dots"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:184, elements/team-carousel/team-carousel.php:421
+#: elements/post-carousel/post-carousel.php:184, elements/team-carousel/team-carousel.php:414
 msgid "Arrow Background"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:199, elements/team-carousel/team-carousel.php:436
+#: elements/post-carousel/post-carousel.php:199, elements/team-carousel/team-carousel.php:429
 msgid "Dot Color"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:218, elements/team-carousel/team-carousel.php:455
+#: elements/post-carousel/post-carousel.php:218, elements/team-carousel/team-carousel.php:448
 msgid "Arrow Hover"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:233, elements/team-carousel/team-carousel.php:470
+#: elements/post-carousel/post-carousel.php:233, elements/team-carousel/team-carousel.php:463
 msgid "Dot Hover"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:253, elements/team-carousel/team-carousel.php:489, elements/testimonial-carousel/testimonial-carousel.php:191
+#: elements/post-carousel/post-carousel.php:253, elements/team-carousel/team-carousel.php:482, elements/testimonial-carousel/testimonial-carousel.php:193
 msgid "Transition Duration"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:262, elements/team-carousel/team-carousel.php:499, elements/testimonial-carousel/testimonial-carousel.php:200
+#: elements/post-carousel/post-carousel.php:262, elements/team-carousel/team-carousel.php:492, elements/testimonial-carousel/testimonial-carousel.php:202
 msgid "Autoplay"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:272, elements/team-carousel/team-carousel.php:508, elements/testimonial-carousel/testimonial-carousel.php:209
+#: elements/post-carousel/post-carousel.php:272, elements/team-carousel/team-carousel.php:501, elements/testimonial-carousel/testimonial-carousel.php:211
 msgid "Autoplay Speed"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:284, elements/team-carousel/team-carousel.php:520, elements/testimonial-carousel/testimonial-carousel.php:221
+#: elements/post-carousel/post-carousel.php:284, elements/team-carousel/team-carousel.php:513, elements/testimonial-carousel/testimonial-carousel.php:223
 msgid "Infinite Loop"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:293, elements/team-carousel/team-carousel.php:529, elements/testimonial-carousel/testimonial-carousel.php:230
+#: elements/post-carousel/post-carousel.php:293, elements/team-carousel/team-carousel.php:522, elements/testimonial-carousel/testimonial-carousel.php:232
 msgid "Pause on Hover"
 msgstr ""
 
@@ -1031,7 +1003,7 @@ msgstr ""
 msgid "Comment Hover Background"
 msgstr ""
 
-#: elements/post-carousel/post-carousel.php:404, elements/post-grid/post-grid.php:247, elements/team-carousel/team-carousel.php:578, elements/team-member/team-member.php:385, elements/team-member/team-member.php:400
+#: elements/post-carousel/post-carousel.php:404, elements/post-grid/post-grid.php:247, elements/team-carousel/team-carousel.php:571, elements/team-member/team-member.php:385, elements/team-member/team-member.php:400
 msgid "Hover Color"
 msgstr ""
 
@@ -1077,6 +1049,10 @@ msgstr ""
 
 #: elements/post-grid/post-grid.php:14
 msgid "Ex Post Grid"
+msgstr ""
+
+#: elements/post-grid/post-grid.php:59
+msgid "Number of Columns"
 msgstr ""
 
 #: elements/post-grid/post-grid.php:178, elements/post-timeline/post-timeline.php:148
@@ -1263,6 +1239,10 @@ msgstr ""
 msgid "Line Bubble"
 msgstr ""
 
+#: elements/progress-bar/progress-bar.php:77
+msgid "Circle"
+msgstr ""
+
 #: elements/progress-bar/progress-bar.php:78
 msgid "Fan"
 msgstr ""
@@ -1279,99 +1259,95 @@ msgstr ""
 msgid "Back Bar"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:14
+#: elements/team-carousel/team-carousel.php:11
 msgid "Ex Team Carousel"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:67, elements/team-carousel/team-carousel.php:277, elements/team-member/team-member.php:54, elements/team-member/team-member.php:249, elements/testimonial-carousel/testimonial-carousel.php:43
+#: elements/team-carousel/team-carousel.php:64, elements/team-carousel/team-carousel.php:274, elements/team-member/team-member.php:54, elements/team-member/team-member.php:249, elements/testimonial-carousel/testimonial-carousel.php:43
 msgid "Name"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:70, elements/team-member/team-member.php:57, elements/testimonial-carousel/testimonial-carousel.php:45
+#: elements/team-carousel/team-carousel.php:67, elements/team-member/team-member.php:57, elements/testimonial-carousel/testimonial-carousel.php:45
 msgid "John Doe"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:77, elements/team-carousel/team-carousel.php:307, elements/team-member/team-member.php:64, elements/team-member/team-member.php:279
+#: elements/team-carousel/team-carousel.php:74, elements/team-carousel/team-carousel.php:304, elements/team-member/team-member.php:64, elements/team-member/team-member.php:279
 msgid "Designation"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:80, elements/team-member/team-member.php:67, elements/testimonial-carousel/testimonial-carousel.php:54
+#: elements/team-carousel/team-carousel.php:77, elements/team-member/team-member.php:67, elements/testimonial-carousel/testimonial-carousel.php:54
 msgid "My Designation"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:89, elements/team-carousel/team-carousel.php:198, elements/team-carousel/team-carousel.php:202, elements/team-carousel/team-carousel.php:206, elements/team-carousel/team-carousel.php:210, elements/team-member/team-member.php:76
+#: elements/team-carousel/team-carousel.php:86, elements/team-carousel/team-carousel.php:195, elements/team-carousel/team-carousel.php:199, elements/team-carousel/team-carousel.php:203, elements/team-carousel/team-carousel.php:207, elements/team-member/team-member.php:76
 msgid "Add team member details here"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:96, elements/team-member/team-member.php:93
+#: elements/team-carousel/team-carousel.php:93, elements/team-member/team-member.php:93
 msgid "Display Social Profiles?"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:105
+#: elements/team-carousel/team-carousel.php:102
 msgid "Facebook URL"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:122
+#: elements/team-carousel/team-carousel.php:119
 msgid "Twitter URL"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:139
+#: elements/team-carousel/team-carousel.php:136
 msgid "Instagram URL"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:156
+#: elements/team-carousel/team-carousel.php:153
 msgid "Linkedin URL"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:173
+#: elements/team-carousel/team-carousel.php:170
 msgid "Dribbble URL"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:191
+#: elements/team-carousel/team-carousel.php:188
 msgid "Team Carousel"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:197
+#: elements/team-carousel/team-carousel.php:194
 msgid "Member #1"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:201
+#: elements/team-carousel/team-carousel.php:198
 msgid "Member #2"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:205
+#: elements/team-carousel/team-carousel.php:202
 msgid "Member #3"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:209
+#: elements/team-carousel/team-carousel.php:206
 msgid "Member #4"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:236, elements/team-member/team-member.php:205, elements/testimonial-carousel/testimonial-carousel.php:259
+#: elements/team-carousel/team-carousel.php:233, elements/team-member/team-member.php:205, elements/testimonial-carousel/testimonial-carousel.php:261
 msgid "Circle Gradient"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:237, elements/team-member/team-member.php:206
+#: elements/team-carousel/team-carousel.php:234, elements/team-member/team-member.php:206
 msgid "Social Left on Hover"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:238, elements/team-member/team-member.php:208
+#: elements/team-carousel/team-carousel.php:235, elements/team-member/team-member.php:208
 msgid "Content on Hover"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:246, elements/team-member/team-member.php:216, elements/testimonial-carousel/testimonial-carousel.php:281
+#: elements/team-carousel/team-carousel.php:243, elements/team-member/team-member.php:216, elements/testimonial-carousel/testimonial-carousel.php:283
 msgid "Avatar Background Color"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:378
-msgid "Number of members"
+#: elements/team-carousel/team-carousel.php:385, elements/testimonial-carousel/testimonial-carousel.php:179
+msgid "Items to Scroll"
 msgstr ""
 
-#: elements/team-carousel/team-carousel.php:391
-msgid "Members to scroll"
-msgstr ""
-
-#: elements/team-carousel/team-carousel.php:543, elements/team-member/team-member.php:339
+#: elements/team-carousel/team-carousel.php:536, elements/team-member/team-member.php:339
 msgid "Social"
 msgstr ""
 
@@ -1387,7 +1363,7 @@ msgstr ""
 msgid "Place URL here"
 msgstr ""
 
-#: elements/team-member/team-member.php:204, elements/testimonial-carousel/testimonial-carousel.php:258
+#: elements/team-member/team-member.php:204, elements/testimonial-carousel/testimonial-carousel.php:260
 msgid "Basic"
 msgstr ""
 
@@ -1407,7 +1383,7 @@ msgstr ""
 msgid "Client Avatar"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:87, elements/testimonial-carousel/testimonial-carousel.php:131, elements/testimonial-carousel/testimonial-carousel.php:135, elements/testimonial-carousel/testimonial-carousel.php:139
+#: elements/testimonial-carousel/testimonial-carousel.php:87
 msgid "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
 msgstr ""
 
@@ -1427,6 +1403,10 @@ msgstr ""
 msgid "Testimonial #1"
 msgstr ""
 
+#: elements/testimonial-carousel/testimonial-carousel.php:131, elements/testimonial-carousel/testimonial-carousel.php:135, elements/testimonial-carousel/testimonial-carousel.php:139, elements/testimonial-carousel/testimonial-carousel.php:143
+msgid "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+msgstr ""
+
 #: elements/testimonial-carousel/testimonial-carousel.php:134
 msgid "Testimonial #2"
 msgstr ""
@@ -1435,66 +1415,34 @@ msgstr ""
 msgid "Testimonial #3"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:162
-msgid "Testimonials On Row"
+#: elements/testimonial-carousel/testimonial-carousel.php:142
+msgid "Testimonial #4"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:178
-msgid "Testimonials to Scroll"
+#: elements/testimonial-carousel/testimonial-carousel.php:183
+msgid "Above options work with Circle Gradient Style only"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:260
+#: elements/testimonial-carousel/testimonial-carousel.php:262
 msgid "Single Full Width"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:311
+#: elements/testimonial-carousel/testimonial-carousel.php:313
 msgid "Author Testimonial"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:341
+#: elements/testimonial-carousel/testimonial-carousel.php:343
 msgid "Author Name"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:350
-msgid "Title HTML Tag"
-msgstr ""
-
-#: elements/testimonial-carousel/testimonial-carousel.php:353
-msgid "H1"
-msgstr ""
-
-#: elements/testimonial-carousel/testimonial-carousel.php:354
-msgid "H2"
-msgstr ""
-
-#: elements/testimonial-carousel/testimonial-carousel.php:355
-msgid "H3"
-msgstr ""
-
-#: elements/testimonial-carousel/testimonial-carousel.php:356
-msgid "H4"
-msgstr ""
-
-#: elements/testimonial-carousel/testimonial-carousel.php:357
-msgid "H5"
-msgstr ""
-
-#: elements/testimonial-carousel/testimonial-carousel.php:358
-msgid "H6"
-msgstr ""
-
-#: elements/testimonial-carousel/testimonial-carousel.php:359
-msgid "div"
-msgstr ""
-
-#: elements/testimonial-carousel/testimonial-carousel.php:390
+#: elements/testimonial-carousel/testimonial-carousel.php:373
 msgid "Author Designation"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:421
+#: elements/testimonial-carousel/testimonial-carousel.php:404
 msgid "Quote Icon"
 msgstr ""
 
-#: elements/testimonial-carousel/testimonial-carousel.php:429
+#: elements/testimonial-carousel/testimonial-carousel.php:412
 msgid "Icon size in pixels"
 msgstr ""
