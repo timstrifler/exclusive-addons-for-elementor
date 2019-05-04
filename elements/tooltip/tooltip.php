@@ -24,11 +24,11 @@ class Exad_Tooltip extends Widget_Base {
         $this->start_controls_section(
             'tooltip_button_content',
             [
-                'label' => __( 'Tooltip', 'exclusive-addons-elementor' ),
+                'label' => __( 'Content Settings', 'exclusive-addons-elementor' ),
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_control(
 			'exad_tooltip_type',
 			[
 				'label' => esc_html__( 'Content Type', 'exclusive-addons-elementor' ),
@@ -60,41 +60,17 @@ class Exad_Tooltip extends Widget_Base {
 				'default' => esc_html__( 'Hover Me!', 'exclusive-addons-elementor' ),
 				'condition' => [
 					'exad_tooltip_type' => [ 'text' ]
-				],
-				'dynamic' => [ 'active' => true ]
+				]
 			]
         );
-        
-		$this->add_control(
-            'tooltip_style_section_align',
-            [
-                'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    'left' => [
-                        'title' => __( 'Left', 'exclusive-addons-elementor' ),
-                        'icon' => 'fa fa-align-left',
-                    ],
-                    'center' => [
-                        'title' => __( 'Center', 'exclusive-addons-elementor' ),
-                        'icon' => 'fa fa-align-center',
-                    ],
-                    'right' => [
-                        'title' => __( 'Right', 'exclusive-addons-elementor' ),
-                        'icon' => 'fa fa-align-right',
-                    ],
-                ],
-                'default' => 'center',
-                'prefix_class' => 'exad-tooltip-align-',
-            ]
-        );
+    
 		
 		$this->add_control(
 			'exad_tooltip_icon_content',
 			[
 				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::ICON,
-				'default' => 'fa fa-home',
+				'default' => 'fa fa-linux',
 				'condition' => [
 					'exad_tooltip_type' => [ 'icon' ]
 				]
@@ -141,6 +117,30 @@ class Exad_Tooltip extends Widget_Base {
             );
 
             $this->add_control(
+                'tooltip_style_section_align',
+                [
+                    'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::CHOOSE,
+                    'options' => [
+                        'left' => [
+                            'title' => __( 'Left', 'exclusive-addons-elementor' ),
+                            'icon' => 'fa fa-align-left',
+                        ],
+                        'center' => [
+                            'title' => __( 'Center', 'exclusive-addons-elementor' ),
+                            'icon' => 'fa fa-align-center',
+                        ],
+                        'right' => [
+                            'title' => __( 'Right', 'exclusive-addons-elementor' ),
+                            'icon' => 'fa fa-align-right',
+                        ],
+                    ],
+                    'default' => 'center',
+                    'prefix_class' => 'exad-tooltip-align-',
+                ]
+            );
+
+            $this->add_control(
                 'exad_tooltip_enable_link',
                 [
                     'label' => __( 'Show Link', 'exclusive-addons-elementor' ),
@@ -165,7 +165,7 @@ class Exad_Tooltip extends Widget_Base {
                         'nofollow' => true,
                     ],
                     'condition'=>[
-                        'show_link'=>'yes',
+                        'exad_tooltip_enable_link'=>'yes',
                     ]
                 ]
             );
@@ -184,7 +184,7 @@ class Exad_Tooltip extends Widget_Base {
                     'label' => esc_html__( 'Tooltip Text', 'exclusive-addons-elementor' ),
                     'type' => Controls_Manager::TEXTAREA,
                     'label_block' => true,
-                    'default' => esc_html__( 'Tooltip content', 'exclusive-addons-elementor' ),
+                    'default' => esc_html__( 'These are some dummy tooltip contents.', 'exclusive-addons-elementor' ),
                     'dynamic' => [ 'active' => true ]
                 ]
             );
@@ -205,40 +205,6 @@ class Exad_Tooltip extends Widget_Base {
                 ]
             );
 
-            $this->add_control(
-                'tooltip_space',
-                [
-                    'label' => __( 'Space With Button', 'exclusive-addons-elementor' ),
-                    'type' => Controls_Manager::SLIDER,
-                    'size_units' => [ 'px', '%' ],
-                    'range' => [
-                        'px' => [
-                            'min' => 0,
-                            'max' => 1200,
-                            'step' => 1,
-                        ],
-                        '%' => [
-                            'min' => 0,
-                            'max' => 100,
-                        ],
-                    ],
-                    'default' => [
-                        'unit' => 'px',
-                        'size' => 10,
-                    ],
-                    'selectors' => [
-                        '{{WRAPPER}} .bs-tooltip-auto[x-placement^=top]' => 'top: -{{SIZE}}{{UNIT}} !important;',
-                        '{{WRAPPER}} .bs-tooltip-top' => 'top: -{{SIZE}}{{UNIT}} !important;',
-                        '{{WRAPPER}} .bs-tooltip-auto[x-placement^=bottom]' => 'top: {{SIZE}}{{UNIT}} !important;',
-                        '{{WRAPPER}} .bs-tooltip-bottom' => 'top: {{SIZE}}{{UNIT}} !important;',
-                        '{{WRAPPER}} .bs-tooltip-auto[x-placement^=right]' => 'left: {{SIZE}}{{UNIT}} !important;',
-                        '{{WRAPPER}} .bs-tooltip-right' => 'left: {{SIZE}}{{UNIT}} !important;',
-                        '{{WRAPPER}} .bs-tooltip-auto[x-placement^=left]' => 'left: {{SIZE}}{{UNIT}} !important;',
-                        '{{WRAPPER}} .bs-tooltip-left' => 'left: -{{SIZE}}{{UNIT}} !important;',
-                    ],
-                ]
-            );
-
         $this->end_controls_section();
 
         // Style tab section
@@ -251,10 +217,184 @@ class Exad_Tooltip extends Widget_Base {
         );
 
         
-		$this->add_responsive_control(
-			'exad_tooltip_max_width',
+		$this->add_control(
+			'exad_tooltip_content_width',
 		    [
-		        'label' => __( 'Content Max Width', 'essential-addons-elementor' ),
+		        'label' => __( 'Content Width', 'exclusive-addons-elementor' ),
+		        'type' => Controls_Manager::SLIDER,
+		        'range' => [
+		            'px' => [
+		                'min' => 0,
+		                'max' => 1000,
+		                'step' => 5,
+		            ],
+		            '%' => [
+		                'min' => 0,
+		                'max' => 100,
+		            ],
+                ],
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 150,
+                ],
+		        'selectors' => [
+		            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content' => 'width: {{SIZE}}{{UNIT}};',
+		        ]
+		    ]
+		);
+		$this->add_control(
+			'exad_tooltip_content_padding',
+			[
+				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'default' => [
+                    'top' => 20,
+                    'right' => 20,
+                    'bottom' => 20,
+                    'left' => 20,
+                    'isLinked' => true,
+                ],
+				'selectors' => [
+	 				'{{WRAPPER}} .exad-tooltip .exad-tooltip-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+	 			],
+			]
+		);
+		
+		$this->start_controls_tabs( 'exad_tooltip_content_style_tabs' );
+			// Normal State Tab
+			$this->start_controls_tab( 'exad_tooltip_content_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+				$this->add_control(
+					'exad_tooltip_content_bg_color',
+					[
+						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#f9f9f9',
+						'selectors' => [
+							'{{WRAPPER}} .exad-tooltip .exad-tooltip-content' => 'background: {{VALUE}};',
+						],
+					]
+				);
+				$this->add_control(
+					'exad_tooltip_content_color',
+					[
+						'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#826EFF',
+						'selectors' => [
+                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content, {{WRAPPER}} .exad-tooltip .exad-tooltip-content a' => 'color: {{VALUE}};',
+						],
+					]
+                );
+                
+                $this->add_group_control(
+                    Group_Control_Box_Shadow::get_type(),
+                    [
+                        'name' => 'exad_tooltip_content_shadow',
+                        'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-content',
+                    ]
+                );
+
+			$this->end_controls_tab();
+
+			// Hover State Tab
+			$this->start_controls_tab( 'exad_tooltip_content_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+				$this->add_control(
+					'exad_tooltip_content_hover_bg_color',
+					[
+						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#f9f9f9',
+						'selectors' => [
+							'{{WRAPPER}} .exad-tooltip .exad-tooltip-content:hover' => 'background: {{VALUE}};',
+						],
+					]
+				);
+				$this->add_control(
+					'exad_tooltip_content_hover_color',
+					[
+						'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#212121',
+						'selectors' => [
+                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content:hover' => 'color: {{VALUE}};',
+                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content a:hover' => 'color: {{VALUE}};',
+						],
+					]
+                );
+                
+                $this->add_group_control(
+                    Group_Control_Box_Shadow::get_type(),
+                    [
+                        'name' => 'exad_tooltip_hover_shadow',
+                        'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-content:hover',
+                    ]
+                );
+				
+			$this->end_controls_tab();
+        $this->end_controls_tabs();
+        
+        $this->add_control(
+			'exad_shadow-separator',
+			[
+				'type' => Controls_Manager::DIVIDER,
+			]
+        );
+        
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+            	'name' => 'exad_tooltip_content_typography',
+				'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-content',
+			]
+		);
+        
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'exad_tooltip_hover_border',
+                'label' => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-content',
+            ]
+        );
+
+	
+		$this->add_control(
+			'exad_tooltip_content_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'default' => [
+                    'top' => 4,
+                    'right' => 4,
+                    'bottom' => 4,
+                    'left' => 4,
+                    'isLinked' => true,
+                ],
+				'selectors' => [
+	 					'{{WRAPPER}} .exad-tooltip .exad-tooltip-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+	 			],
+			]
+		);
+            
+        $this->end_controls_section();
+
+        
+        // Tooltip Style tab section
+        $this->start_controls_section(
+            'exad_tooltip_style_section',
+            [
+                'label' => __( 'Tooltip Styles', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+			'exad_tooltip_text_width',
+		    [
+		        'label' => __( 'Tooltip Width', 'exclusive-addons-elementor' ),
 		        'type' => Controls_Manager::SLIDER,
 		        'range' => [
 		            'px' => [
@@ -267,127 +407,16 @@ class Exad_Tooltip extends Widget_Base {
 		                'max' => 100,
 		            ],
 		        ],
-		        'size_units' => [ 'px', '%' ],
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 200,
+                ],
 		        'selectors' => [
-		            '{{WRAPPER}} .exad-tooltip' => 'max-width: {{SIZE}}{{UNIT}};',
+		            '{{WRAPPER}} .exad-tooltip .exad-tooltip-text' => 'width: {{SIZE}}{{UNIT}};',
 		        ]
 		    ]
 		);
-		$this->add_responsive_control(
-			'exad_tooltip_content_padding',
-			[
-				'label' => esc_html__( 'Padding', 'essential-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
-				'selectors' => [
-	 					'{{WRAPPER}} .exad-tooltip' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-	 			],
-			]
-		);
-		
-		$this->start_controls_tabs( 'exad_tooltip_content_style_tabs' );
-			// Normal State Tab
-			$this->start_controls_tab( 'exad_tooltip_content_normal', [ 'label' => esc_html__( 'Normal', 'essential-addons-elementor' ) ] );
-				$this->add_control(
-					'exad_tooltip_content_bg_color',
-					[
-						'label' => esc_html__( 'Background Color', 'essential-addons-elementor' ),
-						'type' => Controls_Manager::COLOR,
-						'default' => '',
-						'selectors' => [
-							'{{WRAPPER}} .exad-tooltip' => 'background-color: {{VALUE}};',
-						],
-					]
-				);
-				$this->add_control(
-					'exad_tooltip_content_color',
-					[
-						'label' => esc_html__( 'Text Color', 'essential-addons-elementor' ),
-						'type' => Controls_Manager::COLOR,
-						'default' => '',
-						'selectors' => [
-							'{{WRAPPER}} .exad-tooltip-content a' => 'color: {{VALUE}};',
-						],
-					]
-				);
-			$this->end_controls_tab();
-
-			// Hover State Tab
-			$this->start_controls_tab( 'exad_tooltip_content_hover', [ 'label' => esc_html__( 'Hover', 'essential-addons-elementor' ) ] );
-				$this->add_control(
-					'exad_tooltip_content_hover_bg_color',
-					[
-						'label' => esc_html__( 'Background Color', 'essential-addons-elementor' ),
-						'type' => Controls_Manager::COLOR,
-						'default' => '',
-						'selectors' => [
-							'{{WRAPPER}} .exad-tooltip:hover' => 'background-color: {{VALUE}};',
-						],
-					]
-				);
-				$this->add_control(
-					'exad_tooltip_content_hover_color',
-					[
-						'label' => esc_html__( 'Text Color', 'essential-addons-elementor' ),
-						'type' => Controls_Manager::COLOR,
-						'default' => '#212121',
-						'selectors' => [
-							'{{WRAPPER}} .exad-tooltip-content a:hover' => 'color: {{VALUE}};',
-						],
-					]
-				);
-				
-			$this->end_controls_tab();
-        $this->end_controls_tabs();
-        
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'exad_tooltip_hover_shadow',
-                'selector' => '{{WRAPPER}} .exad-tooltip',
-                'separator' => 'before'
-            ]
-        );
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'exad_tooltip_hover_border',
-                'label' => esc_html__( 'Border', 'essential-addons-elementor' ),
-                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-text',
-            ]
-        );
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-            	'name' => 'exad_tooltip_content_typography',
-				'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-text',
-			]
-		);
-		$this->add_responsive_control(
-			'exad_tooltip_content_radius',
-			[
-				'label' => esc_html__( 'Border Radius', 'essential-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
-				'selectors' => [
-	 					'{{WRAPPER}} .exad-tooltip' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-	 			],
-			]
-		);
-
-            
-        $this->end_controls_section();
-
-        
-        // Tooltip Style tab section
-        $this->start_controls_section(
-            'exad_tooltip_style_section',
-            [
-                'label' => __( 'Tooltip', 'exclusive-addons-elementor' ),
-                'tab' => Controls_Manager::TAB_STYLE,
-            ]
-        );
 
         $this->add_control(
             'exad_tooltip_style_color',
@@ -395,31 +424,9 @@ class Exad_Tooltip extends Widget_Base {
                 'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::COLOR,
                 'default' => '#ffffff',
-                'selector' => [
-                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text' => 'color: {{VALUE}}!important;',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name' => 'hover_tooltip_content_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
-                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'exad_tooltip_content_padding',
-            [
-                'label' => __( 'Padding', 'exclusive-addons-elementor' ),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%', 'em' ],
                 'selectors' => [
-                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text' => 'color: {{VALUE}};',
                 ],
-                'separator' =>'before',
             ]
         );
 
@@ -429,17 +436,53 @@ class Exad_Tooltip extends Widget_Base {
                 'name' => 'hover_tooltip_content_background',
                 'label' => __( 'Background', 'exclusive-addons-elementor' ),
                 'types' => [ 'classic', 'gradient' ],
-                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text',
+                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-text',
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'hover_tooltip_content_typography',
+                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-text',
+            ]
+        );
+
+        $this->add_control(
+            'exad_tooltip_text_padding',
+            [
+                'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'default' => [
+                    'top' => 10,
+                    'right' => 10,
+                    'bottom' => 10,
+                    'left' => 10,
+                    'isLinked' => true,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' =>'before',
+            ]
+        );
+
+        $this->add_control(
             'exad_tooltip_content_border_radius',
             [
                 'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::DIMENSIONS,
+                'default' => [
+                    'top' => 4,
+                    'right' => 4,
+                    'bottom' => 4,
+                    'left' => 4,
+                    'isLinked' => true,
+                ],
                 'selectors' => [
-                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px !important;',
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-text' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px !important;',
                 ],
             ]
         );
@@ -450,14 +493,15 @@ class Exad_Tooltip extends Widget_Base {
             [
                 'label' => __( 'Arrow Color', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#404040',
-                'selector' => [
-                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
+                'default' => '#826EFF',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item.tooltip-top .exad-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item.tooltip-left .exad-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item.tooltip-bottom .exad-tooltip-text:after' => 'border-color: transparent transparent {{VALUE}} transparent;',
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item.tooltip-right .exad-tooltip-text:after' => 'border-color: transparent {{VALUE}} transparent transparent;',
                 ],
             ]
         );
-
-                
 
         $this->end_controls_section();
 
@@ -467,7 +511,7 @@ class Exad_Tooltip extends Widget_Base {
 
         $settings = $this->get_settings_for_display();
         $this->add_render_attribute( 'exad_tooltip_wrapper', [
-            'class' => [ 'exad-tooltip',  esc_attr( $settings['exad_tooltip_presets'] ) ],
+            'class' => [ 'exad-tooltip' ],
             ]
         );
        
@@ -476,39 +520,31 @@ class Exad_Tooltip extends Widget_Base {
         <div <?php echo $this->get_render_attribute_string( 'exad_tooltip_wrapper' ); ?>>
             <div class="exad-tooltip-item <?php echo esc_attr( $settings['exad_tooltip_direction'] ); ?>">
                 <div class="exad-tooltip-content">
-                    <?php if( $settings['exad_tooltip_type'] === 'text' ) : ?>
-                        <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
-                            <a href="<?php echo esc_url( $settings['exad_tooltip_link']['url'] ); ?>">
-                        <?php endif; ?>
-
-                        <p><?php echo esc_html__( $settings['exad_tooltip_content'], 'exclusive-addons-elementor' ); ?></p>
-
-                        <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
-                            </a>
-                        <?php endif; ?>
-
-                    <span class="exad-tooltip-content-text exad-tooltip-<?php echo esc_attr( $settings['exad_tooltip_hover_dir'] ) ?>">
-                        <?php echo __( $settings['exad_tooltip_hover_content'] ); ?>
-                    </span>
-                    <?php elseif( $settings['exad_tooltip_type'] === 'icon' ) : ?>
-                        
-                        <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
-                        <a href="<?php echo esc_url( $settings['exad_tooltip_link']['url'] ); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> >
-                        <?php endif; ?>
-                        <i class="<?php echo esc_attr( $settings['exad_tooltip_icon_content'] ); ?>"></i>
-                        <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?></a><?php endif; ?></span>
-                        <?php echo __( $settings['exad_tooltip_hover_content'] ); ?>
-                    <?php elseif( $settings['exad_tooltip_type'] === 'image' ) : ?>
-                        
-                        <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
-                            <a href="<?php echo esc_url( $settings['exad_tooltip_link']['url'] ); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> >
-                        <?php endif; ?>
-                            <img src="<?php echo esc_url( $settings['exad_tooltip_img_content']['url'] ); ?>" alt="<?php echo esc_attr( $settings['exad_tooltip_hover_content'] ); ?>">
-                        <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
-                            </a>
-                        <?php endif; ?>
-                        <?php echo __( $settings['exad_tooltip_hover_content'] ); ?>
+                <?php if( $settings['exad_tooltip_type'] === 'text' ) : ?>
+                    <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
+                        <a href="<?php echo esc_url( $settings['exad_tooltip_link']['url'] ); ?>">
                     <?php endif; ?>
+                    <?php echo esc_html( $settings['exad_tooltip_content'] ); ?>
+                    <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
+                        </a>
+                    <?php endif; ?>
+                <?php elseif( $settings['exad_tooltip_type'] === 'icon' ) : ?>
+                    <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
+                        <a href="<?php echo esc_url( $settings['exad_tooltip_link']['url'] ); ?>">
+                    <?php endif; ?>
+                        <i class="<?php echo esc_attr( $settings['exad_tooltip_icon_content'] ); ?>"></i>
+                    <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
+                        </a>    
+                    <?php endif; ?>
+                <?php elseif( $settings['exad_tooltip_type'] === 'image' ) : ?>
+                    <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
+                        <a href="<?php echo esc_url( $settings['exad_tooltip_link']['url'] ); ?>">
+                    <?php endif; ?>
+                        <img src="<?php echo esc_url( $settings['exad_tooltip_img_content']['url'] ); ?>">
+                    <?php if( $settings['exad_tooltip_enable_link'] === 'yes' ) : ?>
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
                 </div>
                 <div class="exad-tooltip-text"><?php echo esc_html( $settings['exad_tooltip_text'] ); ?></div>
             </div>
