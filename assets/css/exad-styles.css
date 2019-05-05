@@ -1459,7 +1459,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-pricing-table-one .exad-pricing-table-price p {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   font-size: 60px;
   line-height: 208px;
   position: relative;
@@ -1507,6 +1507,7 @@ ul.exad-pricing-table-features {
   border-style: solid;
   border-width: 1px;
   text-transform: uppercase;
+  transition: all .3s ease;
 }
 
 .exad-pricing-table-two {
@@ -2386,7 +2387,7 @@ text-align: right;
   height: 80px;
   width: 80px;
   border-radius: 6px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   background-color: #ff8672;
   border: 1px solid transparent;
   transition: all .3s ease;
@@ -2404,12 +2405,12 @@ text-align: right;
 
 .exad-infobox.three .exad-infobox-item {
   text-align: center;
-  padding: 30px;
+  padding: 35px 30px;
   border-radius: 4px;
 }
 
 .exad-infobox.three .exad-infobox-item .exad-infobox-icon {
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
   font-size: 50px;
 }
 
@@ -3687,13 +3688,13 @@ text-align: right;
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0px rgba(112, 74, 255, 0.1);
+    box-shadow: 0 0 0 0px #A9FBD7;
   }
   50% {
-    box-shadow: 0 0 0 20px rgba(112, 74, 255, 0.1);
+    box-shadow: 0 0 0 20px #A9FBD7;
   }
   100% {
-    box-shadow: 0 0 0 0px rgba(112, 74, 255, 0.1);
+    box-shadow: 0 0 0 0px #A9FBD7;
   }
 }
 
@@ -3714,7 +3715,6 @@ text-align: right;
   display: inline-block;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
-  transition: all 0.3s ease;
 }
 
 .exad-button-wrapper.effect-7 .exad-button-action span i {
@@ -3761,16 +3761,16 @@ text-align: right;
 }
 
 .exad-button-wrapper.effect-8 .exad-button-action:hover span {
-  height: 250%;
-  width: 250%;
+  height: 350%;
+  width: 350%;
 }
 
 .exad-button-wrapper.effect-9 .exad-button-action {
   transition: all .3s ease;
+  border: 1px solid #8868fe;
 }
 
 .exad-button-wrapper.effect-9 .exad-button-action:hover {
-  border: 2px solid #fff;
   letter-spacing: 5px;
 }
 
