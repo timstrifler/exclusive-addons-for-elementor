@@ -5017,3 +5017,318 @@ text-align: right;
 }
 
 /* Tooltip End */
+
+/* Logo Box style start */
+.exad-logo.one .exad-logo-item {
+  background: #fff;
+  min-height: 140px;
+  position: relative;
+  border-radius: 2px;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.exad-logo.one .exad-logo-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.exad-logo.one .exad-logo-item i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-logo.one .exad-logo-item:hover {
+  box-shadow: 0px 44px 84px 0px rgba(0, 0, 0, 0.13);
+}
+
+.exad-logo.two .exad-logo-item {
+  background: #fff;
+  min-height: 140px;
+  position: relative;
+  border-radius: 4px;
+  transition: all .3s ease;
+  box-shadow: 0px 22px 59px 0px rgba(18, 34, 66, 0.1);
+  cursor: pointer;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  margin-top: -30%;
+}
+
+.exad-logo.two .exad-logo-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: .3;
+  transition: all .5s ease;
+}
+
+.exad-logo.two .exad-logo-item:hover img {
+  opacity: 1;
+}
+
+.exad-logo.three .exad-logo-item {
+  min-height: 150px;
+  position: relative;
+  border-radius: 4px;
+  transition: all .3s ease;
+  box-shadow: 0px 22px 59px 0px rgba(18, 34, 66, 0.1);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.exad-logo.three .exad-logo-item svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: .5;
+  transition: all .3s ease;
+}
+
+.exad-logo.three .exad-logo-item svg path {
+  fill: #fff;
+}
+
+.exad-logo.three .exad-logo-item.blue {
+  background: linear-gradient(90deg, #634eff 0%, #c55dfb 100%);
+}
+
+.exad-logo.three .exad-logo-item.green {
+  background: linear-gradient(-108deg, #59eda2 0%, #00c9ff 100%);
+}
+
+.exad-logo.three .exad-logo-item.red {
+  background: linear-gradient(38deg, #ff876b 0%, #ff7e9f 100%);
+}
+
+.exad-logo.three .exad-logo-item.teal {
+  background: linear-gradient(54deg, #4facfe 0%, #54e8ef 100%);
+}
+
+.exad-logo.three .exad-logo-item:hover svg {
+  opacity: 1;
+}
+
+.exad-logo.four .exad-logo-item {
+  position: relative;
+  min-height: 150px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.exad-logo.four .exad-logo-item .top img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: all .5s ease;
+}
+
+.exad-logo.four .exad-logo-item .bottom img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -10%);
+          transform: translate(-50%, -10%);
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+.exad-logo.four .exad-logo-item:hover .top img {
+  -webkit-transform: translate(-50%, -90%);
+          transform: translate(-50%, -90%);
+  opacity: 0;
+}
+
+.exad-logo.four .exad-logo-item:hover .bottom img {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-logo.five .exad-logo-item {
+  position: relative;
+  min-height: 140px;
+  border: 1px solid #E8E8E8;
+  border-radius: 2px;
+  background-color: white;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.exad-logo.five .exad-logo-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-logo.five .exad-logo-item:hover {
+  border: 1px solid #387AFF;
+}
+
+.exad-logo.six .exad-logo-item {
+  position: relative;
+  min-height: 140px;
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.42);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.exad-logo.six .exad-logo-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-logo.six .exad-logo-item:hover {
+  border: 2px solid transparent;
+}
+
+/* Logo Box style end */
+
+/* Image Comparison style start */
+
+
+.exad-image-comparision.one .exad-image-comparision-element {
+  width: 100%;
+  height: 700px;
+  max-height: 700px;
+}
+
+.exad-image-comparision.one .exad-image-comparision-element img {
+  width: 100%;
+  height: 100%;
+}
+
+.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle {
+  position: relative;
+  background: #fff;
+  cursor: ew-resize;
+}
+
+.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow {
+  position: absolute;
+  border-right: none;
+  margin-left: -15px;
+}
+
+.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow::before {
+  position: absolute;
+  content: '\f104';
+  font-family: 'FontAwesome';
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #bebebe;
+  font-size: 20px;
+}
+
+.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
+  position: absolute;
+  border-left: none;
+  margin-right: -15px;
+}
+
+.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow::before {
+  position: absolute;
+  content: '\f105';
+  font-family: 'FontAwesome';
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #bebebe;
+  font-size: 20px;
+}
+
+.exad-image-comparision.two .exad-image-comparision-element {
+  width: 100%;
+  height: 700px;
+  max-height: 700px;
+}
+
+.exad-image-comparision.two .exad-image-comparision-element img {
+  width: 100%;
+  height: 100%;
+}
+
+.exad-image-comparision.two .exad-image-comparision-element .twentytwenty-handle {
+  cursor: n-resize;
+}
+
+.exad-image-comparision.three .exad-image-comparision-element {
+  width: 100%;
+  height: 700px;
+  max-height: 700px;
+}
+
+.exad-image-comparision.three .exad-image-comparision-element img {
+  width: 100%;
+  height: 100%;
+}
+
+.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle {
+  position: relative;
+  cursor: ew-resize;
+  background: #fff;
+  height: 70px;
+  width: 30px;
+  border-radius: 2px;
+  border: none;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle::before {
+  margin: 0;
+  bottom: 100%;
+  width: 2px;
+}
+
+.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle::after {
+  margin: 0;
+  top: 100%;
+  width: 2px;
+}
+
+.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow {
+  position: absolute;
+  border-right: none;
+  margin-left: -5px;
+}
+
+.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow::before {
+  position: absolute;
+  content: '\f0c9';
+  font-family: 'FontAwesome';
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #A1A1A1;
+  font-size: 20px;
+}
+
+.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
+  display: none;
+}
+/* Image Comparison style end */

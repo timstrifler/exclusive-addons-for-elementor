@@ -72,7 +72,7 @@ final class Exclusive_Addons_Elementor {
 	 * 
 	 * @return array
 	 */
-	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip' ];
+	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip', 'logo', 'image-comparison', 'modal-popup' ];
 
 	/**
 	 * Instance
@@ -236,6 +236,9 @@ final class Exclusive_Addons_Elementor {
 	public function exad_enqueue_scripts() {
 
 		$is_activated_widget = $this->activated_widgets();
+		// image comparision plugin twentytwenty css
+		wp_enqueue_style( 'exad-image-comparision-style', EXAD_URL . 'assets/css/twentytwenty.css' );
+		// Main Styles
 		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
 		
 		if ( $is_activated_widget['progress-bar'] ) {
@@ -254,6 +257,13 @@ final class Exclusive_Addons_Elementor {
 			// jQuery Countdown Js
 			wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
 		}
+
+		if ( $is_activated_widget['image-comparison'] ) {
+			// jQuery image-comparison twentytwenty Js
+			wp_enqueue_script( 'exad-image-comparison', EXAD_URL . 'assets/js/vendor/jquery.twentytwenty.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_script( 'exad-image-comparison-event', EXAD_URL . 'assets/js/vendor/jquery.event.move.js', array( 'jquery' ), '1.0', true );
+		}
+		
 		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );
 		
 	}
