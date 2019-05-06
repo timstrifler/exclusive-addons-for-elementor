@@ -240,6 +240,8 @@ final class Exclusive_Addons_Elementor {
 		wp_enqueue_style( 'exad-image-comparision-style', EXAD_URL . 'assets/css/twentytwenty.css' );
 		// Main Styles
 		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
+		// counter Style
+		wp_enqueue_style( 'exad-fahim-style', EXAD_URL . 'assets/css/exad-counterStyle.css' );
 		
 		if ( $is_activated_widget['progress-bar'] ) {
 			// Progress Bar Js
