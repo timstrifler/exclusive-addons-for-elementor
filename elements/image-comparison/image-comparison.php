@@ -34,7 +34,18 @@ class Exad_image_comparison extends Widget_Base {
 					'url' => Utils::get_placeholder_image_src(),
 				],
 			]
-    );
+		);
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'thumbnail',
+				'default' => 'full',
+				'condition' => [
+					'exad_comparison_image_one[url]!' => '',
+				],
+			]
+		);
+
     $this->add_control(
 			'exad_comparison_image_two',
 			[
@@ -44,7 +55,18 @@ class Exad_image_comparison extends Widget_Base {
 					'url' => Utils::get_placeholder_image_src(),
 				],
 			]
-    );
+		);
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'thumbnail_two',
+				'default' => 'full',
+				'condition' => [
+					'exad_comparison_image_two[url]!' => '',
+				],
+			]
+		);
+
     $this->end_controls_section();
 
     /*
@@ -151,8 +173,8 @@ class Exad_image_comparison extends Widget_Base {
     $comparison_image_one = $this->get_settings_for_display( 'exad_comparison_image_one' );
     $comparison_image_two = $this->get_settings_for_display( 'exad_comparison_image_two' );
 		$comparison_image_url_one_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_one['id'], 'thumbnail', $settings );
-		$comparison_image_url_two_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_two['id'], 'thumbnail', $settings );
-		$comparison_image_preset = $settings['exad_image_comparision_styles_preset'];
+		$comparison_image_url_two_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_two['id'], 'thumbnail_two', $settings );
+		//$comparison_image_preset = $settings['exad_image_comparision_styles_preset'];
 
 		if( empty( $comparison_image_url_one_src ) ) {
 			$comparison_image_url_one = $comparison_image_one['url']; 

@@ -37,6 +37,7 @@ class Exad_Counter extends Widget_Base {
 		);
     
 		$this->end_controls_section();
+
 		// Title
 		$this->start_controls_section(
 			'exad_section_counter_title',
@@ -92,27 +93,22 @@ class Exad_Counter extends Widget_Base {
 			[
 				'label' => esc_html__( 'Setting', 'exclusive-addons-elementor' )
 			]
-    );
+        );
 
-    $this->add_control(
-			'exad_counter_speed',
-			[
-				'label' => esc_html__( 'Counting Speed', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => 4000,
-				'range'  => [
-						'px' => [
-								'min'   => 1000,
-								'max'   => 4000,
-								'step'  => 1,
-						],
-          ],
-        'size_units' => '',
-			]
-		);
+
+        $this->add_control(
+            'exad_counter_speed',
+            [
+                'label'     => esc_html__( 'Counting Speed', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::NUMBER,
+                'description' => __( 'In Miliseconds', 'exclusive-addons-elementor' ),
+                'default'   => 2000,
+            ]
+        );
     
-    $this->end_controls_section();
+        $this->end_controls_section();
 	}
+
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
@@ -121,7 +117,7 @@ class Exad_Counter extends Widget_Base {
 		// ]);
 
     ?>
-      <div id="exad-counter-<?php echo esc_attr($this->get_id()); ?>" class="exad-counter one">
+      <div id="exad-counter-<?php echo esc_attr($this->get_id()); ?>" class="exad-counter two">
         <div class="exad-counter-item">
 					<?php if ( $settings['exad_counter_icon_show'] == 'yes' ) : ?>
 						<span class="exad-counter-icon">
@@ -129,9 +125,9 @@ class Exad_Counter extends Widget_Base {
 						</span>
 					<?php endif; ?>
           <div class="exad-counter-data">
-						<span class="counter"  data-exad_counter_time="2000">
+						<span class="counter"  data-exad_counter_time="<?php echo esc_attr( $settings['exad_counter_speed'] ); ?>">
 							<?php echo $settings['exad_counter_number']; ?>
-						</span>+
+						</span>
 					</div>
 					<div class="exad-counter-content">
             <h4><?php echo $settings['exad_counter_title']; ?></h4>
