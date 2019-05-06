@@ -414,6 +414,17 @@
 		});
 	};
 
+	// Counter Up Js
+	var CounterUp = function($scope, $) {
+		var $counterUp = $scope.find('.counter').eq(0),
+			$exadCounterTime = $counterUp.data('exad_counter_time');
+
+		$counterUp.counterUp({
+			delay: 10,
+			time: $exadCounterTime,
+		});		
+	};
+
 	$(window).on('elementor/frontend/init', function () {
         if( elementorFrontend.isEditMode() ) {
             editMode = true;
@@ -429,6 +440,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-post-carousel.default', PostCarousel);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-google-maps.default', GoogleMaps);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-comparison.default', ImageComparison);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-counter.default', CounterUp);
         
     });
 

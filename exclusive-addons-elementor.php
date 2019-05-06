@@ -72,7 +72,7 @@ final class Exclusive_Addons_Elementor {
 	 * 
 	 * @return array
 	 */
-	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip', 'logo', 'image-comparison', 'modal-popup' ];
+	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip', 'logo', 'image-comparison', 'modal-popup', 'counter' ];
 
 	/**
 	 * Instance
@@ -262,6 +262,11 @@ final class Exclusive_Addons_Elementor {
 			// jQuery image-comparison twentytwenty Js
 			wp_enqueue_script( 'exad-image-comparison', EXAD_URL . 'assets/js/vendor/jquery.twentytwenty.js', array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'exad-image-comparison-event', EXAD_URL . 'assets/js/vendor/jquery.event.move.js', array( 'jquery' ), '1.0', true );
+		}
+
+		if ( $is_activated_widget['counter'] ) {
+			// jQuery CounterUp Js
+			wp_enqueue_script( 'exad-counter', EXAD_URL . 'assets/js/vendor/jquery.counterup.min.js', array( 'jquery' ), '1.0', true );
 		}
 		
 		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );
