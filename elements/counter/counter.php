@@ -141,6 +141,25 @@ class Exad_Counter extends Widget_Base {
 				],
 				'default' => 'exad-counter-center'
 			]
+        );
+        
+        $this->add_control(
+			'exad_counter_wrapper_padding',
+			[
+				'label'  => __( 'Paddind', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'default' => [
+					'top' => 20,
+					'right' => 20,
+					'bottom' => 20,
+					'left' => 20,
+					'isLinked' => true,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-counter-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
 		);
 
 		$this->add_group_control(
@@ -386,47 +405,47 @@ class Exad_Counter extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
     ?>
-      <div id="exad-counter-<?php echo esc_attr($this->get_id()); ?>" class="exad-counter">
+    <div id="exad-counter-<?php echo esc_attr($this->get_id()); ?>" class="exad-counter">
         <div class="exad-counter-item <?php echo esc_attr( $settings['exad_counter_alignment'] ); ?> ">
-					<?php if ( $settings['exad_counter_icon_show'] == 'yes' ) : ?>
-						<span class="exad-counter-icon">
-							<i class="<?php echo esc_attr( $settings['exad_counter_icon'] ); ?>"></i>
-						</span>
-					<?php endif; ?>
-          <div class="exad-counter-data">
-						<span class="counter"  data-exad_counter_time="<?php echo esc_attr( $settings['exad_counter_speed'] ); ?>">
-							<?php echo esc_html( $settings['exad_counter_number'] ); ?>
-						</span>
-						<span class="exad-counter-suffix"><?php echo esc_html( $settings['exad_counter_suffix'] ); ?></span>
-					</div>
-					<div class="exad-counter-content">
-            <h4><?php echo $settings['exad_counter_title']; ?></h4>
-          </div>
+            <?php if ( $settings['exad_counter_icon_show'] == 'yes' ) : ?>
+                <span class="exad-counter-icon">
+                    <i class="<?php echo esc_attr( $settings['exad_counter_icon'] ); ?>"></i>
+                </span>
+            <?php endif; ?>
+            <div class="exad-counter-data">
+                <span class="counter"  data-exad_counter_time="<?php echo esc_attr( $settings['exad_counter_speed'] ); ?>">
+                    <?php echo esc_html( $settings['exad_counter_number'] ); ?>
+                </span>
+                <span class="exad-counter-suffix"><?php echo esc_html( $settings['exad_counter_suffix'] ); ?></span>
+            </div>
+			<div class="exad-counter-content">
+                <h4><?php echo $settings['exad_counter_title']; ?></h4>
+            </div>
         </div>
-      </div>
+    </div>
     <?php
 	}
 
 	protected function _content_template() {
-		?>
-      <div id="exad-counter" class="exad-counter">
+	?>
+    <div id="exad-counter" class="exad-counter">
         <div class="exad-counter-item {{ settings.exad_counter_alignment }} ">
-					<# if ( settings.exad_counter_icon_show == 'yes' ) { #>
-						<span class="exad-counter-icon">
-							<i class="{{ settings.exad_counter_icon }}"></i>
-						</span>
-					<# } #>
-          <div class="exad-counter-data">
-						<span class="counter"  data-exad_counter_time="{{ settings.exad_counter_speed }}">
-							{{{ settings.exad_counter_number }}}
-						</span>
-						<span class="exad-counter-suffix">{{{ settings.exad_counter_suffix }}}</span>
-					</div>
-					<div class="exad-counter-content">
-            <h4>{{{ settings.exad_counter_title }}}</h4>
-          </div>
+            <# if ( settings.exad_counter_icon_show == 'yes' ) { #>
+                <span class="exad-counter-icon">
+                    <i class="{{ settings.exad_counter_icon }}"></i>
+                </span>
+            <# } #>
+            <div class="exad-counter-data">
+                <span class="counter"  data-exad_counter_time="{{ settings.exad_counter_speed }}">
+                    {{{ settings.exad_counter_number }}}
+                </span>
+                <span class="exad-counter-suffix">{{{ settings.exad_counter_suffix }}}</span>
+            </div>
+		    <div class="exad-counter-content">
+                <h4>{{{ settings.exad_counter_title }}}</h4>
+            </div>
         </div>
-      </div>
+    </div>
     <?php
 	}
 }
