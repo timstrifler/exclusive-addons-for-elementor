@@ -416,8 +416,8 @@
 
 	// Counter Up Js
 	var CounterUp = function($scope, $) {
-		var $counterUp = $scope.find('.counter').eq(0),
-			$exadCounterTime = $counterUp.data('exad_counter_time');
+		var $counterUp = $scope.find('.exad-counter').eq(0),
+			$exadCounterTime = $counterUp.data('counter-speed');
 
 		$counterUp.counterUp({
 			delay: 10,
