@@ -7,7 +7,7 @@ class Exad_Logo extends Widget_Base {
 		return 'exad-logo';
 	}
 	public function get_title() {
-		return esc_html__( 'Ex Logo Box', 'exclusive-addons-elementor' );
+		return esc_html__( 'Logo Box', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-logo';
@@ -289,8 +289,7 @@ class Exad_Logo extends Widget_Base {
     <?php
 	}
 
-	protected function _content_template() {
-		?>
+	protected function _content_template() { ?>
     
     <!-- <div id="exad-logo" class="exad-logo one">
       <div class="exad-logo-item">
@@ -303,8 +302,7 @@ class Exad_Logo extends Widget_Base {
       </div>
     </div> -->
 
-    <?php
-	}
+	<?php }
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Logo() );
