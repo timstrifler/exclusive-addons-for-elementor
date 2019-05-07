@@ -157,6 +157,32 @@ class Exad_Counter extends Widget_Base {
 		);
     
 		$this->end_controls_section();
+
+		/*
+		* Layout
+		*/
+		$this->start_controls_section(
+			'exad_section_counter_layout',
+			[
+				'label' => esc_html__( 'Layout', 'exclusive-addons-elementor' )
+			]
+        );
+
+
+		$this->add_control(
+			'exad_counter_layout',
+			[
+				'label'     => esc_html__( 'Counter Layout', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'              => 'layout-1',
+				'options'              => [
+						'layout-1'     => __( 'Layout 1', 'exclusive-addons-elementor' ),
+						'layout-2'     => __( 'Layout 2', 'exclusive-addons-elementor' )
+				],
+			]
+		);
+    
+		$this->end_controls_section();
 				
 		/*
 		* Counter Styling Section
@@ -245,7 +271,7 @@ class Exad_Counter extends Widget_Base {
 
 		/**
 		* Style Tab: Icon
-		*/
+		**/
 		$this->start_controls_section(
 			'exad_section_counter_icon_style',
 			[
@@ -336,7 +362,7 @@ class Exad_Counter extends Widget_Base {
 
 		/**
 		* Style Tab: Counter Number
-		*/
+		**/
 		$this->start_controls_section(
 			'exad_counter_number_style',
 			[
@@ -382,7 +408,7 @@ class Exad_Counter extends Widget_Base {
 
 		/**
 		* Style Tab: Suffix
-		*/
+		**/
 		$this->start_controls_section(
 			'exad_counter_suffix_style',
 			[
@@ -424,7 +450,7 @@ class Exad_Counter extends Widget_Base {
 
 		/**
 		* Style Tab: Counter Title
-		*/
+		**/
 		$this->start_controls_section(
 			'exad_counter_title_style',
 			[
@@ -472,7 +498,15 @@ class Exad_Counter extends Widget_Base {
 
 	protected function render() {
         $settings = $this->get_settings_for_display();
-        $counter_image = $this->get_settings_for_display( 'exad_counter_image' );
+				$counter_image = $this->get_settings_for_display( 'exad_counter_image' );
+				$counter_layout = $this->get_settings_for_display( 'exad_counter_layout' );
+				$counter_image_url = Group_Control_Image_Size::get_attachment_image_src( $counter_image['id'], 'thumbnail', $settings );
+
+				if ( empty( $counter_image_url ) ) {
+					$counter_image_url = $counter_image['url'];
+				}  else {
+					$counter_image_url = $counter_image_url;
+				} 
 
     ?>
     <div id="exad-counter-<?php echo esc_attr($this->get_id()); ?>" class="exad-counter-wrapper">
@@ -480,22 +514,35 @@ class Exad_Counter extends Widget_Base {
             <?php if ( $settings['exad_counter_icon_show'] == 'yes' ) : ?>
                 <span class="exad-counter-icon">
                     <?php if( 'img' == $settings['exad_counter_img_or_icon'] ) : ?>
-                        <img src="<?php echo esc_url( $logo_image_url ); ?>" alt="logo Image">
+                        <img src="<?php echo esc_url( $counter_image_url ); ?>" alt="Counter Image">
                     <?php endif; ?>
                     <?php if( 'icon' == $settings['exad_counter_img_or_icon'] ) : ?>
                         <i class="<?php echo esc_attr( $settings['exad_counter_icon'] ); ?>"></i>
                     <?php endif; ?>
                 </span>
-            <?php endif; ?>
-            <div class="exad-counter-data">
-                <span class="exad-counter"  data-counter-speed="<?php echo esc_attr( $settings['exad_counter_speed'] ); ?>">
-                    <?php echo esc_html( $settings['exad_counter_number'] ); ?>
-                </span>
-                <span class="exad-counter-suffix"><?php echo esc_html( $settings['exad_counter_suffix'] ); ?></span>
-            </div>
-			<div class="exad-counter-content">
-                <h4><?php echo esc_html( $settings['exad_counter_title'] ); ?></h4>
-            </div>
+						<?php endif; ?>
+						<?php if ( $counter_layout == 'layout-1') : ?>
+							<div class="exad-counter-data">
+									<span class="exad-counter"  data-counter-speed="<?php echo esc_attr( $settings['exad_counter_speed'] ); ?>">
+											<?php echo esc_html( $settings['exad_counter_number'] ); ?>
+									</span>
+									<span class="exad-counter-suffix"><?php echo esc_html( $settings['exad_counter_suffix'] ); ?></span>
+							</div>
+							<div class="exad-counter-content">
+									<h4><?php echo esc_html( $settings['exad_counter_title'] ); ?></h4>
+							</div>
+						<?php endif; ?>
+						<?php if ( $counter_layout == 'layout-2') : ?>
+							<div class="exad-counter-content">
+								<h4><?php echo esc_html( $settings['exad_counter_title'] ); ?></h4>
+							</div>
+							<div class="exad-counter-data">
+									<span class="exad-counter"  data-counter-speed="<?php echo esc_attr( $settings['exad_counter_speed'] ); ?>">
+											<?php echo esc_html( $settings['exad_counter_number'] ); ?>
+									</span>
+									<span class="exad-counter-suffix"><?php echo esc_html( $settings['exad_counter_suffix'] ); ?></span>
+							</div>
+						<?php endif; ?>
         </div>
     </div>
     <?php
@@ -504,27 +551,40 @@ class Exad_Counter extends Widget_Base {
 	protected function _content_template() {
 	?>
     <div id="exad-counter" class="exad-counter-wrapper">
-        <div class="exad-counter-item {{ settings.exad_counter_alignment }} ">
-            <# if ( settings.exad_counter_icon_show == 'yes' ) { #>
-                <span class="exad-counter-icon">
-                    <# if( 'img' == settings.exad_counter_img_or_icon ) { #>
-                        <img src="{{ settings.exad_counter_image }}">
-                    <# } #>
-                    <# if( 'icon' == settings.exad_counter_img_or_icon ) { #>
-                        <i class="{{ settings.exad_counter_icon }}"></i>
-                    <# } #>
-                </span>
-            <# } #>
-            <div class="exad-counter-data">
-                <span class="exad-counter"  data-counter-speed="{{ settings.exad_counter_speed }}">
-                    {{{ settings.exad_counter_number }}}
-                </span>
-                <span class="exad-counter-suffix">{{{ settings.exad_counter_suffix }}}</span>
-            </div>
-		    <div class="exad-counter-content">
-                <h4>{{{ settings.exad_counter_title }}}</h4>
-            </div>
-        </div>
+			<div class="exad-counter-item {{ settings.exad_counter_alignment }} ">
+				<# if ( settings.exad_counter_icon_show == 'yes' ) { #>
+					<span class="exad-counter-icon">
+						<# if( 'img' == settings.exad_counter_img_or_icon ) { #>
+							<img src="{{ settings.exad_counter_image.url }}">
+						<# } #>
+						<# if( 'icon' == settings.exad_counter_img_or_icon ) { #>
+							<i class="{{ settings.exad_counter_icon }}"></i>
+						<# } #>
+					</span>
+				<# } #>
+				<# if ( settings.exad_counter_layout == 'layout-1' ) { #>
+					<div class="exad-counter-data">
+						<span class="exad-counter"  data-counter-speed="{{ settings.exad_counter_speed }}">
+							{{{ settings.exad_counter_number }}}
+						</span>
+						<span class="exad-counter-suffix">{{{ settings.exad_counter_suffix }}}</span>
+					</div>
+					<div class="exad-counter-content">
+						<h4>{{{ settings.exad_counter_title }}}</h4>
+					</div>
+				<# } #>
+				<# if ( settings.exad_counter_layout == 'layout-2' ) { #>
+					<div class="exad-counter-content">
+						<h4>{{{ settings.exad_counter_title }}}</h4>
+					</div>
+					<div class="exad-counter-data">
+						<span class="exad-counter"  data-counter-speed="{{ settings.exad_counter_speed }}">
+							{{{ settings.exad_counter_number }}}
+						</span>
+						<span class="exad-counter-suffix">{{{ settings.exad_counter_suffix }}}</span>
+					</div>
+				<# } #>
+			</div>
     </div>
     <?php
 	}
