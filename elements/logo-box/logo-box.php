@@ -291,16 +291,16 @@ class Exad_Logo extends Widget_Base {
 
 	protected function _content_template() { ?>
     
-    <!-- <div id="exad-logo" class="exad-logo one">
+    <div id="exad-logo" class="exad-logo one">
       <div class="exad-logo-item">
         <# if( 'img' == settings.exad_logo_img_or_icon ) { #>
-          <img src="{{{ settings.url }}}" alt="logo Image">
+          <img src="{{{ settings.exad_logo_image.url }}}" alt="logo Image">
         <# } #>
         <# if( 'icon' == settings.exad_logo_img_or_icon ) { #>
           <i class="{{ settings.exad_logo_icon }}"></i>
         <# } #>
       </div>
-    </div> -->
+    </div>
 
 	<?php }
 }
