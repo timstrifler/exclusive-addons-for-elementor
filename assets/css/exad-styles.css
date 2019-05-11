@@ -4035,6 +4035,10 @@ text-align: right;
   color: #0a1724;
   text-transform: uppercase;
   font-weight: 400;
+  margin: 0 0 30px 0;
+}
+
+.exad-advance-tab.three .exad-advance-tab-content p{
   margin: 0;
 }
 
@@ -4138,6 +4142,10 @@ text-align: right;
   color: #0a1724;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  margin: 0 0 30px 0;
+}
+
+.exad-advance-tab.four .exad-advance-tab-content p {
   margin: 0;
 }
 

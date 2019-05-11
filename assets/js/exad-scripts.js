@@ -425,6 +425,51 @@
 		});		
 	};
 
+	// Logo Carousel
+	var LogoCarousel = function ($scope, $) {
+		var $logoCarouselWrapper = $scope.find('.exad-logo-carousel-wrapper').eq(0);
+		// $loop = ($logoCarouselWrapper.data("loop") !== undefined) ? $logoCarouselWrapper.data("loop") : false,
+		// $slidesToShow = ($logoCarouselWrapper.data("slidestoshow") !== undefined) ? $logoCarouselWrapper.data("slidestoshow") : 1,
+		// $slidesToScroll = ($logoCarouselWrapper.data("slidestoscroll") !== undefined) ? $logoCarouselWrapper.data("slidestoscroll") : 1,
+		// $autoPlay = ($logoCarouselWrapper.data("autoplay") !== undefined) ? $logoCarouselWrapper.data("autoplay") : false,
+		// $autoplaySpeed = ($logoCarouselWrapper.data("autoplayspeed") !== undefined) ? $logoCarouselWrapper.data("autoplayspeed") : false,
+		// $transitionSpeed = $logoCarouselWrapper.data("speed"),
+		// $dots = ($logoCarouselWrapper.data("carousel-dot") !== undefined) ? $logoCarouselWrapper.data("carousel-dot") : false,
+		// $pauseOnHover = ($logoCarouselWrapper.data("pauseOnHover") !== undefined) ? $logoCarouselWrapper.data("pauseOnHover") : false;
+
+		$logoCarouselWrapper.slick({
+			infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay: true,
+			// autoplaySpeed: $autoplaySpeed,
+			// speed: $transitionSpeed,
+			// pauseOnHover: $pauseOnHover,
+			dots: true,
+	      	prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+	      	nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
+	      	// customPaging: function (slider, i) {
+	        // 	var image = $(slider.$slides[i]).data('image');
+	        // 	return '<a><img src="'+ image +'"></a>';
+	      	// },
+			// rows: 0,
+			// responsive: [
+			// 	{
+			// 		breakpoint: 1024,
+			// 		settings: {
+			// 			slidesToShow: $responsiveLogo,
+			// 		},
+			// 	},	
+			// 	{
+			// 		breakpoint: 576,
+			// 		settings: {
+			// 			slidesToShow: 1,
+			// 		}
+			// 	}
+			// ],
+	    });	
+	};
+
 	$(window).on('elementor/frontend/init', function () {
         if( elementorFrontend.isEditMode() ) {
             editMode = true;
@@ -441,6 +486,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-google-maps.default', GoogleMaps);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-comparison.default', ImageComparison);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-counter.default', CounterUp);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-logo-carousel.default', LogoCarousel);
         
     });
 

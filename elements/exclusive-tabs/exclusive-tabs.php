@@ -337,7 +337,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 			[
 				'name' => 'exad_exclusive_tabs_content_typography',
 				'label' => esc_html__( 'Text Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-advance-tab.two .exad-advance-tab-content p',
+				'selector' => '{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content p',
 			]
 		);
 		$this->add_control(
