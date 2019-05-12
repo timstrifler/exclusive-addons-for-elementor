@@ -25,16 +25,56 @@ class Exad_Logo_Carousel extends Widget_Base {
 				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' ),
 			]
 		);
-		$this->add_control(
+
+        $logo_repeater = new Repeater();
+
+		$logo_repeater->add_control(
 			'exad_logo_carousel_image',
 			[
-				'label' => esc_html__( 'Logo Carousel', 'exclusive-addons-elementor' ),
+				'label' => __( 'Logo', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::MEDIA,
 				'default' => [
-						'url' => Utils::get_placeholder_image_src(),
+					'url' => Utils::get_placeholder_image_src(),
 				],
 			]
+        );
+        
+		$logo_repeater->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'thumbnail',
+				'default' => 'full',
+				'condition' => [
+					'exad_logo_carousel_image[url]!' => '',
+				],
+			]
+        );
+        
+        $this->add_control(
+			'exad_logo_carousel_repeater',
+			[
+				'label' => esc_html__( 'Logo Carousel', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::REPEATER,
+				'fields' => $logo_repeater->get_controls(),
+				//'title_field' => '{{{ exad_logo_carousel_image }}}',
+				'default' => [
+						[
+							'exad_logo_carousel_image' => Utils::get_placeholder_image_src(),
+						],
+						[
+							'exad_logo_carousel_image' => Utils::get_placeholder_image_src(),
+						],
+						[
+							'exad_logo_carousel_image' => Utils::get_placeholder_image_src(),
+							
+						],
+						[
+							'exad_logo_carousel_image' => Utils::get_placeholder_image_src(),
+						],
+				]	
+			]
 		);
+
 
     $this->end_controls_section();
 	}
@@ -53,44 +93,37 @@ class Exad_Logo_Carousel extends Widget_Base {
 		// 	]
 		// );
 		
-		$logo_image = $this->get_settings_for_display( 'exad_logo_carousel_image' );
-		$logo_image_url = Group_Control_Image_Size::get_attachment_image_src( $logo_image['id'], 'thumbnail', $settings );
-
-		if ( empty( $logo_image_url ) ) {
-			$logo_image_url = $logo_image['url'];
-		}  else {
-			$logo_image_url = $logo_image_url;
-    }
+		
 
     ?>
         <div id="exad-logo-<?php echo esc_attr($this->get_id()); ?>" class="exad-logo-carousel-wrapper">
+
+            <?php foreach ( $settings['exad_logo_carousel_repeater'] as $logo ) : ?>
+                <?php
+                    $logo_image = $logo[ 'exad_logo_carousel_image' ];
+                    $logo_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $logo_image['id'], 'thumbnail', $logo );
+            
+                    if ( empty( $logo_image_url_src ) ) {
+                        $logo_image_url = $logo_image['url'];
+                    }  else {
+                        $logo_image_url = $logo_image_url_src;
+                    }
+                
+                ?>
+
 					<div class="exad-logo-carousel-item">
-						<?php if( ! empty( $settings['exad_logo_carousel_image'] ) ) { ?>
-							<img src="<?php echo esc_url( $logo_image_url ); ?>">
-						<?php } ?>
+						<img src="<?php echo esc_url( $logo_image_url ); ?>">
 					</div>
-					<div class="exad-logo-carousel-item">
-						<?php if( ! empty( $settings['exad_logo_carousel_image'] ) ) { ?>
-							<img src="<?php echo esc_url( $logo_image_url ); ?>">
-						<?php } ?>
-					</div>
-					<div class="exad-logo-carousel-item">
-						<?php if( ! empty( $settings['exad_logo_carousel_image'] ) ) { ?>
-							<img src="<?php echo esc_url( $logo_image_url ); ?>">
-						<?php } ?>
-					</div>
-					<div class="exad-logo-carousel-item">
-						<?php if( ! empty( $settings['exad_logo_carousel_image'] ) ) { ?>
-							<img src="<?php echo esc_url( $logo_image_url ); ?>">
-						<?php } ?>
-					</div>
+					
+            <?php endforeach; ?>    
+            
         </div>
 
     <?php
 	}
 
 	protected function _content_template() {
-  }
+    }
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Logo_Carousel() );
