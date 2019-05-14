@@ -446,8 +446,8 @@
 			// speed: $transitionSpeed,
 			// pauseOnHover: $pauseOnHover,
 			dots: true,
-	      	prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-	      	nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
+	      	// prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+	      	// nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
 	      	// customPaging: function (slider, i) {
 	        // 	var image = $(slider.$slides[i]).data('image');
 	        // 	return '<a><img src="'+ image +'"></a>';
@@ -470,6 +470,30 @@
 	    });	
 	};
 
+
+	var ModalPopup = function ($scope, $) {
+		var $modalWrapper = $scope.find('.exad-modal-image-action').eq(0);
+		//$exadCounterTime = $counterUp.data('counter-speed');
+
+		$modalWrapper.on("click", function(e) {
+			e.preventDefault();
+			var modal = $(this).data("modal");
+			$(modal).addClass('active');
+			$('.overlay').addClass('active');
+		});
+
+		$('.close-btn').click(function(){
+			$('.overlay').removeClass('active');
+			$('.exad-modal-item').removeClass('active');
+		});
+
+		$('.overlay').click(function(){
+			$('.overlay').removeClass('active');
+			$('.exad-modal-item').removeClass('active');
+		});	
+	};
+
+
 	$(window).on('elementor/frontend/init', function () {
         if( elementorFrontend.isEditMode() ) {
             editMode = true;
@@ -487,7 +511,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-comparison.default', ImageComparison);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-counter.default', CounterUp);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-logo-carousel.default', LogoCarousel);
-        
+        elementorFrontend.hooks.addAction('frontend/element_ready/exad-modal-popup.default', ModalPopup);
     });
 
 }(jQuery));

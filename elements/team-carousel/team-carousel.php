@@ -622,7 +622,6 @@ class Exad_Team_Carousel extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		
-		$team_carousel_classes = $this->get_settings_for_display('exad_team_carousel_image_rounded');
 		$team_preset = $settings['exad_team_carousel_preset']; 
 
 

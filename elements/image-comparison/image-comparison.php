@@ -198,15 +198,31 @@ class Exad_image_comparison extends Widget_Base {
 
     ?>
     <div id="exad-image-comparision-<?php echo esc_attr($this->get_id()); ?>" class="exad-image-comparision <?php echo esc_attr($settings['exad_image_comparison_preset']); ?>">
-      <div class="exad-image-comparision-element" <?php echo $this->get_render_attribute_string('exad_image_comparison_wrapper'); ?> >
-        <img src="<?php echo esc_url( $comparison_image_url_one ); ?>">
-        <img src="<?php echo esc_url( $comparison_image_url_two ); ?>">
-      </div>
+        <div class="exad-image-comparision-element" <?php echo $this->get_render_attribute_string('exad_image_comparison_wrapper'); ?> >
+            <img src="<?php echo esc_url( $comparison_image_url_one ); ?>">
+            <img src="<?php echo esc_url( $comparison_image_url_two ); ?>">
+        </div>
     </div>
     <?php
 	}
 
-	protected function _content_template() {}
+	protected function _content_template() {
+    ?>    
+        <# 
+        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-oriantation', settings.exad_oriantation );
+        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-before_label', settings.exad_before_label );
+        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-after_label', settings.exad_after_label  );
+        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-default_offset_pct', settings.exad_default_offset_pct );
+        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-no_overlay', settings.no_overlay );
+        #>
+        <div id="exad-image-comparision" class="exad-image-comparision {{ settings.exad_image_comparison_preset }}">
+            <div class="exad-image-comparision-element" {{{ view.getRenderAttributeString( 'exad_image_comparison' ) }}} >
+                <img src="{{ settings.exad_comparison_image_one.url }}">
+                <img src="{{ settings.exad_comparison_image_two.url }}">
+            </div>
+        </div>
+    <?php    
+    }
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_image_comparison() );
