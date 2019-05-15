@@ -5087,6 +5087,18 @@ text-align: right;
   font-size: 20px;
 }
 
+.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-down-arrow::before {
+  position: absolute;
+  content: '\f104';
+  font-family: 'FontAwesome';
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #bebebe;
+  font-size: 20px;
+}
+
 .exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
   position: absolute;
   border-left: none;
@@ -5117,7 +5129,7 @@ text-align: right;
 }
 
 .exad-image-comparision.two .exad-image-comparision-element .twentytwenty-handle {
-  cursor: n-resize;
+  cursor: ns-resize;
 }
 
 .exad-image-comparision.three .exad-image-comparision-element {
