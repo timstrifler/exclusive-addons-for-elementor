@@ -26,7 +26,7 @@ class Exad_image_comparison extends Widget_Base {
     $this->start_controls_section(
       'exad_section_comparison_image',
         [
-            'label' => esc_html__( 'Image', 'exclusive-addons-elementor' )
+            'label' => esc_html__( 'Contents', 'exclusive-addons-elementor' )
         ]
     );
 
@@ -51,6 +51,7 @@ class Exad_image_comparison extends Widget_Base {
             ],
         ]
     );
+    
 
     $this->add_control(
         'exad_comparison_image_two',
@@ -72,6 +73,7 @@ class Exad_image_comparison extends Widget_Base {
             ],
         ]
     );
+
 
     $this->end_controls_section();
 
@@ -98,6 +100,59 @@ class Exad_image_comparison extends Widget_Base {
             ],
         ]
     );
+
+    $this->add_control(
+        'exad_image_comparison_container_width',
+        [
+            'label' => __( 'Container Width', 'exclusive-addons-elementor' ),
+            'type' => Controls_Manager::SLIDER,
+            'default' => [
+                'size' => 80,
+                'unit' => '%',
+            ],
+            'size_units' => [ '%', 'px' ],
+            'range' => [
+                '%' => [
+                    'min' => 1,
+                    'max' => 100,
+                ],
+                'px' => [
+                    'min' => 1,
+                    'max' => 1000,
+                ],
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element' => 'width: {{SIZE}}{{UNIT}};',
+            ]
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Border::get_type(),
+        [
+            'name' => 'exad_img_comparison_border',
+            'selector' => '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element',
+        ]
+    );
+    
+    
+    $this->add_control(
+        'exad_img_comparison_border_radius',
+        [
+            'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 100,
+                ],
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element' => 'border-radius: {{SIZE}}{{UNIT}};',
+            ],
+        ]
+    );
+
     $this->end_controls_section();
 
     /*
@@ -106,7 +161,7 @@ class Exad_image_comparison extends Widget_Base {
     $this->start_controls_section(
 		'exad_section_image_comparision_style',
 		[
-            'label' => esc_html__( 'Comparison Option', 'exclusive-addons-elementor' ),
+            'label' => esc_html__( 'Comparison Options', 'exclusive-addons-elementor' ),
             'tab' => Controls_Manager::TAB_STYLE
 		]
     );
@@ -114,66 +169,65 @@ class Exad_image_comparison extends Widget_Base {
     $this->add_control(
 		'exad_no_overlay',
 		[
-		'label'             => esc_html__( 'Enable Overlay', 'exclusive-addons-elementor' ),
-		'type'              => Controls_Manager::SWITCHER,
-        'default'               => 'yes',
-        'label_on'              => __( 'On', 'exclusive-addons-elementor' ),
-        'label_off'             => __( 'Off', 'exclusive-addons-elementor' ),
-        'return_value'          => 'yes',
+            'label'             => esc_html__( 'Disable Overlay', 'exclusive-addons-elementor' ),
+            'type'              => Controls_Manager::SWITCHER,
+            'default'           => 'true',
+            'label_on'          => __( 'On', 'exclusive-addons-elementor' ),
+            'label_off'         => __( 'Off', 'exclusive-addons-elementor' ),
+            'return_value'      => 'true',
 		]
     );
 
     $this->add_control(
-		'exad_oriantation',
-		[
-			'label'   => esc_html__( 'Orientation', 'exclusive-addons-elementor' ),
-            'type'    => Controls_Manager::SELECT,
-            'default' => 'horizontal',
-            'options' => [
-					'vertical'  => __( 'Vertical', 'exclusive-addons-elementor' ),
-					'horizontal' => __( 'Horizontal', 'exclusive-addons-elementor' )
-				],
-			]
-    );
-    $this->add_control(
-        'exad_default_offset_pct',
-        [
-			'label' => esc_html__( 'Overlay Opacity', 'exclusive-addons-elementor' ),
-            'type'  => Controls_Manager::SELECT,
-            'default'                  => '0.5',
-            'options' => [
-            '0.1'  => __( '0.1', 'exclusive-addons-elementor' ),
-					'0.2' => __( '0.2', 'exclusive-addons-elementor' ),
-					'0.3' => __( '0.3', 'exclusive-addons-elementor' ),
-					'0.4' => __( '0.4', 'exclusive-addons-elementor' ),
-					'0.5' => __( '0.5', 'exclusive-addons-elementor' ),
-					'0.6' => __( '0.6', 'exclusive-addons-elementor' ),
-					'0.7' => __( '0.7', 'exclusive-addons-elementor' ),
-					'0.8' => __( '0.8', 'exclusive-addons-elementor' ),
-					'0.9' => __( '0.9', 'exclusive-addons-elementor' ),
-					'1.0' => __( '1.0', 'exclusive-addons-elementor' ),
-                ]
-			]
-		);
-		
-    $this->add_control(
         'exad_before_label',
         [
-            'label' => esc_html__( 'Before Label Text', 'exclusive-addons-elementor' ),
-            'type'  => Controls_Manager::TEXT
+            'label' => esc_html__( 'Overlay Before Text', 'exclusive-addons-elementor' ),
+            'type'  => Controls_Manager::TEXT,
+            'condition' => [
+                'exad_no_overlay' => ''
+            ]
         ]
     );
-    
+
     $this->add_control(
         'exad_after_label',
         [
-            'label' => esc_html__( 'After Label Text', 'exclusive-addons-elementor' ),
-            'type'  => Controls_Manager::TEXT
+            'label' => esc_html__( 'Overlay After Text', 'exclusive-addons-elementor' ),
+            'type'  => Controls_Manager::TEXT,
+            'condition' => [
+                'exad_no_overlay' => ''
+            ]
         ]
     );
     
+    $this->add_control(
+		'exad_default_offset_pct',
+        [
+			'label' => esc_html__( 'Hnadle Bar Position', 'exclusive-addons-elementor' ),
+            'type'  => Controls_Manager::SELECT,
+            'default' => '0.5',
+            'options' => [
+                    '0.0' => __( '0', 'exclusive-addons-elementor' ),
+                    '0.1' => __( '1', 'exclusive-addons-elementor' ),
+					'0.2' => __( '2', 'exclusive-addons-elementor' ),
+					'0.3' => __( '3', 'exclusive-addons-elementor' ),
+					'0.4' => __( '4', 'exclusive-addons-elementor' ),
+					'0.5' => __( '5', 'exclusive-addons-elementor' ),
+					'0.6' => __( '6', 'exclusive-addons-elementor' ),
+					'0.7' => __( '7', 'exclusive-addons-elementor' ),
+					'0.8' => __( '8', 'exclusive-addons-elementor' ),
+					'0.9' => __( '9', 'exclusive-addons-elementor' ),
+					'1.0' => __( '10', 'exclusive-addons-elementor' ),
+                ]
+			]
+	);
+    
+    
     $this->end_controls_section();
-	}
+
+    }
+    
+
 	protected function render() {
 
     $settings = $this->get_settings_for_display();
@@ -193,13 +247,13 @@ class Exad_image_comparison extends Widget_Base {
 			$comparison_image_url_two = $comparison_image_two['url']; 
 		} else { 
 			$comparison_image_url_two = $comparison_image_url_two_src;
-		}
+        }
 		
 		$this->add_render_attribute( 'exad_image_comparison_wrapper', [
 			'data-exad-before_label' => esc_attr( $settings['exad_before_label']),
 			'data-exad-after_label'	=> esc_attr($settings['exad_after_label']),
 			'data-exad-default_offset_pct' => esc_attr( $settings['exad_default_offset_pct'] ),
-			'data-exad-no_overlay' => ( $settings['exad_no_overlay'] ? 'true': 'false')
+			'data-exad-no_overlay' => $settings['exad_no_overlay']
         ]);
         
         if ( $comparison_image_preset == 'two' ) {
@@ -218,8 +272,7 @@ class Exad_image_comparison extends Widget_Base {
 
 	protected function _content_template() {
     ?>    
-        <# 
-
+        <#
         if ( settings.exad_image_comparison_preset == 'two' ) {
             view.addRenderAttribute( 'exad_image_comparison', 'data-exad-oriantation', 'vertical' );
         }
@@ -227,9 +280,9 @@ class Exad_image_comparison extends Widget_Base {
         view.addRenderAttribute( 'exad_image_comparison', 'data-exad-before_label', settings.exad_before_label );
         view.addRenderAttribute( 'exad_image_comparison', 'data-exad-after_label', settings.exad_after_label  );
         view.addRenderAttribute( 'exad_image_comparison', 'data-exad-default_offset_pct', settings.exad_default_offset_pct );
-        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-no_overlay', settings.no_overlay );
-        
+        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-no_overlay', settings.exad_no_overlay );
         #>
+
         <div id="exad-image-comparision" class="exad-image-comparision {{ settings.exad_image_comparison_preset }}">
             <div class="exad-image-comparision-element" {{{ view.getRenderAttributeString( 'exad_image_comparison' ) }}} >
                 <img src="{{ settings.exad_comparison_image_one.url }}">
