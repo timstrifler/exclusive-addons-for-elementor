@@ -427,27 +427,37 @@
 
 	// Logo Carousel
 	var LogoCarousel = function ($scope, $) {
-		var $logoCarouselWrapper = $scope.find('.exad-logo-carousel-wrapper').eq(0);
+		var $logoCarouselWrapper = $scope.find('.exad-logo-carousel-element').eq(0),
+			$slidesToShow = $logoCarouselWrapper.data('slidestoshow'),
+			$carousel_nav = $logoCarouselWrapper.data('carousel-nav');
 		// $loop = ($logoCarouselWrapper.data("loop") !== undefined) ? $logoCarouselWrapper.data("loop") : false,
-		// $slidesToShow = ($logoCarouselWrapper.data("slidestoshow") !== undefined) ? $logoCarouselWrapper.data("slidestoshow") : 1,
+		// $slidesToShow = ($logoCarouselWrapper.data("slidestoshow") !== undefined) ? $logoCarouselWrapper.data("slidestoshow") : 1;
 		// $slidesToScroll = ($logoCarouselWrapper.data("slidestoscroll") !== undefined) ? $logoCarouselWrapper.data("slidestoscroll") : 1,
 		// $autoPlay = ($logoCarouselWrapper.data("autoplay") !== undefined) ? $logoCarouselWrapper.data("autoplay") : false,
 		// $autoplaySpeed = ($logoCarouselWrapper.data("autoplayspeed") !== undefined) ? $logoCarouselWrapper.data("autoplayspeed") : false,
 		// $transitionSpeed = $logoCarouselWrapper.data("speed"),
-		// $dots = ($logoCarouselWrapper.data("carousel-dot") !== undefined) ? $logoCarouselWrapper.data("carousel-dot") : false,
 		// $pauseOnHover = ($logoCarouselWrapper.data("pauseOnHover") !== undefined) ? $logoCarouselWrapper.data("pauseOnHover") : false;
+
+		if ($carousel_nav == "arrows" ) {
+			var arrows = true;
+			var dots = false;
+		} else {
+			var arrows = false;
+			var dots = true;
+		}
 
 		$logoCarouselWrapper.slick({
 			infinite: true,
-			slidesToShow: 3,
+			slidesToShow: $slidesToShow,
 			slidesToScroll: 1,
 			autoplay: true,
 			// autoplaySpeed: $autoplaySpeed,
 			// speed: $transitionSpeed,
 			// pauseOnHover: $pauseOnHover,
-			dots: true,
-	      	// prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-	      	// nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
+			dots: dots,
+	      	arrows: arrows,
+	      	prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+	      	nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
 	      	// customPaging: function (slider, i) {
 	        // 	var image = $(slider.$slides[i]).data('image');
 	        // 	return '<a><img src="'+ image +'"></a>';
