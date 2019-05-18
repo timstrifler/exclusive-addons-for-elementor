@@ -534,7 +534,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-counter.default', CounterUp);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-logo-carousel.default', LogoCarousel);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-modal-popup.default', ModalPopup);
-		elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
+		//elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
     });
 
 }(jQuery));

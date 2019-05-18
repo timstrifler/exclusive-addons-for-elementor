@@ -6619,7 +6619,7 @@ text-align: right;
   z-index: -1;
 }
 
-.exad-hotspot.one .exad-hotspot-item span svg {
+.exad-hotspot.one .exad-hotspot-item span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7005,6 +7005,77 @@ text-align: right;
 .exad-hotspot.four .exad-hotspot-item .exad-hotspot-dot:hover .exad-hotspot-tooltip {
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+/* Keyframe for hotspot animation */
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(6);
+            transform: scale(6);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes tag-rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+@keyframes tag-rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+@-webkit-keyframes pulse-one {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: .5;
+  }
+  100% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-one {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: .5;
+  }
+  100% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+    opacity: 0;
+  }
 }
 
 /* Image Hotspot End */
