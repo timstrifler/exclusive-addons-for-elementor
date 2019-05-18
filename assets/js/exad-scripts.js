@@ -432,8 +432,6 @@
 			$slidesToScroll = $logoCarouselWrapper.data('slidestoscroll'),
 			$carousel_nav = $logoCarouselWrapper.data('carousel-nav'),
 			$loop = ($logoCarouselWrapper.data("loop") !== undefined) ? $logoCarouselWrapper.data("loop") : false,
-		// $slidesToShow = ($logoCarouselWrapper.data("slidestoshow") !== undefined) ? $logoCarouselWrapper.data("slidestoshow") : 1;
-		// $slidesToScroll = ($logoCarouselWrapper.data("slidestoscroll") !== undefined) ? $logoCarouselWrapper.data("slidestoscroll") : 1,
 			$autoPlay = ($logoCarouselWrapper.data("autoplay") !== undefined) ? $logoCarouselWrapper.data("autoplay") : false,
 			$autoplaySpeed = ($logoCarouselWrapper.data("autoplayspeed") !== undefined) ? $logoCarouselWrapper.data("autoplayspeed") : false;
 			// $transitionSpeed = $logoCarouselWrapper.data("speed");
@@ -453,32 +451,30 @@
 			slidesToScroll: $slidesToScroll,
 			autoplay: $autoPlay,
 			autoplaySpeed: $autoplaySpeed,
-			// autoplaySpeed: $autoplaySpeed,
-			// speed: $transitionSpeed,
-			// pauseOnHover: $pauseOnHover,
 			dots: dots,
 	      	arrows: arrows,
 	      	prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
 	      	nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
-	      	// customPaging: function (slider, i) {
-	        // 	var image = $(slider.$slides[i]).data('image');
-	        // 	return '<a><img src="'+ image +'"></a>';
-	      	// },
-			// rows: 0,
-			// responsive: [
-			// 	{
-			// 		breakpoint: 1024,
-			// 		settings: {
-			// 			slidesToShow: $responsiveLogo,
-			// 		},
-			// 	},	
-			// 	{
-			// 		breakpoint: 576,
-			// 		settings: {
-			// 			slidesToShow: 1,
-			// 		}
-			// 	}
-			// ],
+	      	responsive: [
+				{
+				  breakpoint: 1024,
+				  settings: {
+					slidesToShow: 3,
+				  }
+				},
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 2,
+				  }
+				},
+				{
+				  breakpoint: 450,
+				  settings: {
+					slidesToShow: 1,
+				  }
+				}
+			],
 	    });	
 	};
 
