@@ -53,7 +53,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 		// $logo_repeater->add_control(
 		// 	'exad_logo_carousel_enable_link',
 		// 	[
-		// 		'label' => __( 'Enable Link', 'exclusive-addons-elementor' ),
+		// 		'label' => __( 'Enable Link', 'exclusive-addons-elementor' ), 
 		// 		'type' => Controls_Manager::SWITCHER,
 		// 		'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
 		// 		'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
@@ -173,7 +173,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#b8bfc7',
+				'default' => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev i, 
 					{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next i' => 'color: {{VALUE}};',
@@ -208,7 +208,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Arrow Hover', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#917cff',
+				'default' => '#f4f4f4',
 				'selectors' => [
 					'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev:hover, 
 					{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next:hover' => 'background: {{VALUE}};',
@@ -224,7 +224,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Icon Hover Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#b8bfc7',
+				'default' => '#8a8d91',
 				'selectors' => [
 					'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev:hover i, 
 					{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next:hover i' => 'color: {{VALUE}};',
@@ -240,7 +240,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Dot Hover', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#8a8d91',
+				'default' => '#e5e5e5',
 				'selectors' => [
 					'{{WRAPPER}} .slick-dots li.slick-active button, {{WRAPPER}} .slick-dots li button:hover' => 'background: {{VALUE}};',
 				],
@@ -354,6 +354,19 @@ class Exad_Logo_Carousel extends Widget_Base {
 		$this->end_controls_tab();
 
 	$this->end_controls_tabs();
+
+	$this->add_group_control(
+		Group_Control_Border::get_type(),
+		[
+			'name' => 'exad_logo_carousel_border',
+			'label' => __( 'Border', 'exclusive-addons-elementor' ),
+			'selector' => '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item',
+			'condition' => [
+				'exad_logo_carousel_preset' => 'six',
+			],
+
+		]
+	);
 	
 	$this->end_controls_section();
 	}
