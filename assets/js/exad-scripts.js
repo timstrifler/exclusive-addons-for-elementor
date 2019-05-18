@@ -429,13 +429,14 @@
 	var LogoCarousel = function ($scope, $) {
 		var $logoCarouselWrapper = $scope.find('.exad-logo-carousel-element').eq(0),
 			$slidesToShow = $logoCarouselWrapper.data('slidestoshow'),
-			$carousel_nav = $logoCarouselWrapper.data('carousel-nav');
-		// $loop = ($logoCarouselWrapper.data("loop") !== undefined) ? $logoCarouselWrapper.data("loop") : false,
+			$slidesToScroll = $logoCarouselWrapper.data('slidestoscroll'),
+			$carousel_nav = $logoCarouselWrapper.data('carousel-nav'),
+			$loop = ($logoCarouselWrapper.data("loop") !== undefined) ? $logoCarouselWrapper.data("loop") : false,
 		// $slidesToShow = ($logoCarouselWrapper.data("slidestoshow") !== undefined) ? $logoCarouselWrapper.data("slidestoshow") : 1;
 		// $slidesToScroll = ($logoCarouselWrapper.data("slidestoscroll") !== undefined) ? $logoCarouselWrapper.data("slidestoscroll") : 1,
-		// $autoPlay = ($logoCarouselWrapper.data("autoplay") !== undefined) ? $logoCarouselWrapper.data("autoplay") : false,
-		// $autoplaySpeed = ($logoCarouselWrapper.data("autoplayspeed") !== undefined) ? $logoCarouselWrapper.data("autoplayspeed") : false,
-		// $transitionSpeed = $logoCarouselWrapper.data("speed"),
+			$autoPlay = ($logoCarouselWrapper.data("autoplay") !== undefined) ? $logoCarouselWrapper.data("autoplay") : false,
+			$autoplaySpeed = ($logoCarouselWrapper.data("autoplayspeed") !== undefined) ? $logoCarouselWrapper.data("autoplayspeed") : false;
+			// $transitionSpeed = $logoCarouselWrapper.data("speed");
 		// $pauseOnHover = ($logoCarouselWrapper.data("pauseOnHover") !== undefined) ? $logoCarouselWrapper.data("pauseOnHover") : false;
 
 		if ($carousel_nav == "arrows" ) {
@@ -447,10 +448,11 @@
 		}
 
 		$logoCarouselWrapper.slick({
-			infinite: true,
+			infinite: $loop,
 			slidesToShow: $slidesToShow,
-			slidesToScroll: 1,
-			autoplay: true,
+			slidesToScroll: $slidesToScroll,
+			autoplay: $autoPlay,
+			autoplaySpeed: $autoplaySpeed,
 			// autoplaySpeed: $autoplaySpeed,
 			// speed: $transitionSpeed,
 			// pauseOnHover: $pauseOnHover,
