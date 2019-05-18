@@ -48,7 +48,37 @@ class Exad_Logo_Carousel extends Widget_Base {
 					'exad_logo_carousel_image[url]!' => '',
 				],
 			]
-        );
+		);
+		
+		// $logo_repeater->add_control(
+		// 	'exad_logo_carousel_enable_link',
+		// 	[
+		// 		'label' => __( 'Enable Link', 'exclusive-addons-elementor' ),
+		// 		'type' => Controls_Manager::SWITCHER,
+		// 		'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+		// 		'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+		// 		'return_value' => 'yes',
+		// 		'default' => 'no',
+		// 	]
+		// );
+	
+		// $logo_repeater->add_control(
+		// 	'exad_logo_carousel_link',
+		// 	[
+		// 		'label' => __( 'Link', 'exclusive-addons-elementor' ),
+		// 		'type' => Controls_Manager::URL,
+		// 		'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
+		// 		'show_external' => true,
+		// 		'default' => [
+		// 			'url' => '',
+		// 			'is_external' => true,
+		// 			'nofollow' => true,
+		// 		],
+		// 		'condition'=>[
+		// 			'exad_logo_carousel_enable_link'=>'yes',
+		// 		]
+		// 	]
+		// );
         
         $this->add_control(
 			'exad_logo_carousel_repeater',
@@ -293,16 +323,38 @@ class Exad_Logo_Carousel extends Widget_Base {
 		]
 	);
 
-	$this->add_control(
-		'exad_logo_carousel_background',
-		[
-			'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
-			'type' => Controls_Manager::COLOR,
-			'selectors' => [
-				'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item' => 'background: {{VALUE}};',
-			],
-		]
-	);
+	$this->start_controls_tabs( 'exad_logo_carousel_background_tabs' );
+
+		$this->start_controls_tab( 'exad_logo_carousel_background_control', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_logo_carousel_background',
+				[
+					'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item' => 'background: {{VALUE}};',
+					],
+				]
+			);
+		$this->end_controls_tab();
+
+		$this->start_controls_tab( 'exad_logo_carousel_background_hover_control', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_logo_carousel_background_hover',
+				[
+					'label' => esc_html__( 'Background Hover', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item:hover' => 'background: {{VALUE}};',
+					],
+				]
+			);
+		$this->end_controls_tab();
+
+	$this->end_controls_tabs();
+	
 	$this->end_controls_section();
 	}
 	protected function render() {
