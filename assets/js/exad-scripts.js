@@ -505,6 +505,20 @@
 		});	
 	};
 
+	// Image Hotspot
+	var ImageHotspot = function ($scope, $) {
+		var $hotspotWrapper = $scope.find('.exad-hotspot').eq(0),
+			$hotspotItem = $hotspotWrapper.find('.exad-hotspot-dot');
+
+		// hostpot script
+		$hotspotItem.each( function(){
+			var leftPos = $(this).data('left');
+			var topPos = $(this).data('top');
+			$(this).css({ "left" : leftPos, "top" : topPos });
+		});
+		
+	};
+
 
 	$(window).on('elementor/frontend/init', function () {
         if( elementorFrontend.isEditMode() ) {
@@ -523,7 +537,8 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-comparison.default', ImageComparison);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-counter.default', CounterUp);
 		elementorFrontend.hooks.addAction('frontend/element_ready/exad-logo-carousel.default', LogoCarousel);
-        elementorFrontend.hooks.addAction('frontend/element_ready/exad-modal-popup.default', ModalPopup);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-modal-popup.default', ModalPopup);
+		elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
     });
 
 }(jQuery));
