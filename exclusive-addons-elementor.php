@@ -72,7 +72,7 @@ final class Exclusive_Addons_Elementor {
 	 * 
 	 * @return array
 	 */
-	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip', 'counter', 'logo-box', 'image-comparison', 'modal-popup', 'logo-carousel', 'image-hotspot' ];
+	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip', 'counter', 'logo-box', 'image-comparison', 'modal-popup', 'logo-carousel', 'image-hotspot', 'pricing-menu' ];
 
 	/**
 	 * Instance
@@ -241,7 +241,7 @@ final class Exclusive_Addons_Elementor {
 		// Main Styles
 		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
 		// Fahim Styles
-		//wp_enqueue_style( 'fahim-style', EXAD_URL . 'assets/css/fahim-styles.css' );
+		wp_enqueue_style( 'fahim-style', EXAD_URL . 'assets/css/fahim-styles.css' );
 		
 		if ( $is_activated_widget['progress-bar'] ) {
 			// Progress Bar Js
