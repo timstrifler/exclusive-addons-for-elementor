@@ -663,18 +663,18 @@ class Exad_Image_Hotspot extends Widget_Base
 
         ?>
 
-        <div class="exad-hotspot four">
+        <div class="exad-hotspot two">
             <img src="<?php echo esc_url( $settings['exad_hotspot_image']['url'] ); ?>">
 
             <?php foreach( $settings['exad_hotspots'] as $item ) { 
-                $this->add_render_attribute( 'exad_hotspot', 'class', 'exad-hotspot-dot dot-one elementor-repeater-item-' . esc_attr( $item['_id'] ) );    
+                $this->add_render_attribute( 'exad_hotspot', 'class', 'exad-hotspot-dot elementor-repeater-item-' . esc_attr( $item['_id'] ) );    
             ?>
 
                 <div class="exad-hotspot-item">
-                    <span <?php echo $this->get_render_attribute_string( 'exad_hotspot' ); ?>>
+                    <div <?php echo $this->get_render_attribute_string( 'exad_hotspot' ); ?>>
                         <?php
                             if ( $item['exad_hotspot_type'] == 'icon' ) {
-                                printf( '<span class="exad-hotspot-dot-icon"><i class="%1$s"></i></span>', esc_attr( $item['exad_hotspot_icon'] ) );
+                                printf( '<div class="exad-hotspot-dot-icon"><i class="%1$s"></i></div>', esc_attr( $item['exad_hotspot_icon'] ) );
                             }
                         ?>
                         <div class="exad-hotspot-tooltip">
