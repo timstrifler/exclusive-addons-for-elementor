@@ -466,12 +466,27 @@ class Exad_Image_Hotspot extends Widget_Base
          * Style Tab: Image
          */
         $this->start_controls_section(
-            'section_image_style',
+            'exad_section_general_styles',
             [
-                'label'                 => __('Image', 'exclusive-addons-elementor'),
+                'label'                 => __('General Styles', 'exclusive-addons-elementor'),
                 'tab'                   => Controls_Manager::TAB_STYLE,
             ]
         );
+
+        $this->add_control(
+			'exad_hotspot_preset',
+			[
+				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'one',
+				'options' => [
+					'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+					'two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+					'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
+					'four' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
+				],
+			]
+		);
 
         $this->add_responsive_control(
             'image_width',
@@ -531,26 +546,30 @@ class Exad_Image_Hotspot extends Widget_Base
         );
 
         $this->add_control(
-            'icon_color_normal',
+            'exad_hotspot_color_normal',
             [
                 'label'                 => __('Color', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::COLOR,
-                'default'               => '#fff',
+                'default'               => '#FFF',
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hot-spot-wrap, {{WRAPPER}} .exad-hot-spot-inner, {{WRAPPER}} .exad-hot-spot-inner:before' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot' => 'color: {{VALUE}}',
                 ],
+                'description' => __( 'Applies to Style 1 & Style 2', 'exclusive-addons-elementor' )
             ]
         );
 
         $this->add_control(
-            'icon_bg_color_normal',
+            'exad_hotspot_bg_color_normal',
             [
                 'label'                 => __('Background Color', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
+                'default'               => '#704AFF',
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hot-spot-wrap, {{WRAPPER}} .exad-hot-spot-inner, {{WRAPPER}} .exad-hot-spot-inner:before, {{WRAPPER}} .exad-hotspot-icon-wrap' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot.one .exad-hotspot-dot, {{WRAPPER}} .exad-hotspot.two .exad-hotspot-dot, {{WRAPPER}} .exad-hotspot.three .exad-hotspot-dot, {{WRAPPER}} .exad-hotspot.three .exad-hotspot-dot::before, {{WRAPPER}} .exad-hotspot.three .exad-hotspot-dot::before' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-dot::before' => 'border: .5px solid {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-dot::after' => 'border: 1px solid {{VALUE}}',
                 ],
+                'description' => __( 'Applies to Style 1, Style 2 & Style 3', 'exclusive-addons-elementor' )
             ]
         );
 
@@ -663,7 +682,7 @@ class Exad_Image_Hotspot extends Widget_Base
 
         ?>
 
-        <div class="exad-hotspot one">
+        <div class="exad-hotspot <?php echo esc_attr( $settings['exad_hotspot_preset'] ); ?>">
             <img src="<?php echo esc_url( $settings['exad_hotspot_image']['url'] ); ?>">
 
             <?php foreach( $settings['exad_hotspots'] as $item ) { 
@@ -674,7 +693,9 @@ class Exad_Image_Hotspot extends Widget_Base
                     <div <?php echo $this->get_render_attribute_string( 'exad_hotspot' ); ?>>
                         <?php
                             if ( $item['exad_hotspot_type'] == 'icon' ) {
-                                printf( '<div class="exad-hotspot-dot-icon"><i class="%1$s"></i></div>', esc_attr( $item['exad_hotspot_icon'] ) );
+                                if ( $settings['exad_hotspot_preset'] == "one" || $settings['exad_hotspot_preset'] == "four" ) {
+                                    printf( '<div class="exad-hotspot-dot-icon"><i class="%1$s"></i></div>', esc_attr( $item['exad_hotspot_icon'] ) );
+                                }
                             }
                         ?>
                         <div class="exad-hotspot-tooltip">

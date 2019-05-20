@@ -6976,7 +6976,6 @@ text-align: right;
 }
 
 .exad-hotspot.one .exad-hotspot-item .exad-hotspot-dot-icon {
-  background: #704AFF;
   box-shadow: 0px 25px 50px 0px rgba(112, 74, 255, 0.34);
   width: 70px;
   height: 70px;
@@ -7061,7 +7060,7 @@ text-align: right;
   z-index: 5;
   height: 20px;
   width: 20px;
-  background: #FB4B15;
+  /* background: #FB4B15; */
   cursor: pointer;
 }
 
@@ -7071,7 +7070,6 @@ text-align: right;
   top: 0;
   left: 0;
   background: transparent;
-  border: .5px solid #FB4B15;
   height: 100%;
   width: 100%;
   border-radius: 100%;
@@ -7181,7 +7179,7 @@ text-align: right;
   z-index: 5;
   height: 8px;
   width: 8px;
-  background: #4e43dd;
+  /* background: #4e43dd; */
   cursor: pointer;
 }
 
@@ -7265,7 +7263,6 @@ text-align: right;
 }
 
 .exad-hotspot.four .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-dot-icon i {
-  color: #43DC6B;
   font-size: 36px;
   -webkit-transform-origin: left top;
           transform-origin: left top;
