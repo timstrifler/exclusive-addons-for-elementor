@@ -663,7 +663,7 @@ class Exad_Image_Hotspot extends Widget_Base
 
         ?>
 
-        <div class="exad-hotspot two">
+        <div class="exad-hotspot one">
             <img src="<?php echo esc_url( $settings['exad_hotspot_image']['url'] ); ?>">
 
             <?php foreach( $settings['exad_hotspots'] as $item ) { 
