@@ -50,7 +50,8 @@
 .exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item {
   display: flex;
   margin: 0 20px;
-  border-bottom: 2px dashed #e3e3e3;
+  border-bottom-width: 2px;
+  border-bottom-style: dashed;
   padding: 25px 0;
 }
 
@@ -73,35 +74,30 @@
 
 .exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content {
   padding: 0 30px;
-  width: 85%;
+  width: calc(100% - 100px);
 }
 
 .exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title {
   text-decoration: none;
   transition: all .3s ease;
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
-  color: #0a1724;
+  font-weight: 600;
   margin: 0;
   text-decoration: none;
 }
 
-.exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
+/* .exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
   color: #dea728;
-}
+} */
 
 .exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-  color: #8b8e93;
   margin: 20px 0 0 0;
   line-height: 26px;
 }
 
 .exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-price {
-  font-size: 18px;
+  /* font-size: 18px;
   color: #dea728;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif; */
 }
 
 .exad-pricing-list.two .exad-pricing-list-wrapper {
@@ -110,7 +106,9 @@
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item {
   display: flex;
-  border-bottom: 2px dashed #485354;
+  /* border-bottom: 2px dashed #485354; */
+  border-bottom-width: 2px;
+  border-bottom-style: dashed;
   padding: 25px 0;
   align-items: center;
 }
@@ -122,7 +120,8 @@
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-thumbnail {
   box-shadow: 0px 14px 20px 0px rgba(8, 14, 68, 0.15);
   border-radius: 50%;
-  flex-basis: 35%;
+  height: 150px;
+  width: 150px;
 }
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-thumbnail img {
@@ -132,34 +131,30 @@
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content {
   padding: 0 30px;
+  width: calc(100% - 150px);
 }
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title {
   text-decoration: none;
   transition: all .3s ease;
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
-  color: #fff;
+  font-weight: 600;
   margin: 0;
   text-decoration: none;
 }
 
-.exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
+/* .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
   color: #dea728;
-}
+} */
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-  color: #8b8e93;
   margin: 15px 0;
   line-height: 26px;
 }
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-price {
-  font-size: 18px;
+  /* font-size: 18px;
   color: #dea728;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif; */
 }
 
 .exad-pricing-list.three {
@@ -194,30 +189,24 @@
 .exad-pricing-list.three .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title {
   text-decoration: none;
   transition: all .3s ease;
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  color: #0a1724;
+  font-weight: 600;
   margin: 0;
   text-decoration: none;
 }
 
-.exad-pricing-list.three .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
+/* .exad-pricing-list.three .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
   color: #dea728;
-}
+} */
 
 .exad-pricing-list.three .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-  color: #8b8e93;
   margin: 15px 0;
   line-height: 26px;
 }
 
 .exad-pricing-list.three .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-price {
-  font-size: 18px;
+  /* font-size: 18px;
   color: #dea728;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif; */
 }
 
 .exad-pricing-list.four .exad-pricing-list-wrapper {
@@ -233,7 +222,8 @@
 
 .exad-pricing-list.four .exad-pricing-list-wrapper .exad-pricing-list-item {
   display: flex;
-  border-bottom: 2px dashed #e3e3e3;
+  border-bottom-width: 2px;
+  border-bottom-style: dashed;
   padding: 25px 0;
 }
 
@@ -245,7 +235,8 @@
   box-shadow: 0px 14px 20px 0px rgba(8, 14, 68, 0.15);
   border-radius: 50%;
   overflow: hidden;
-  flex-basis: 35%;
+  height: 120px;
+  width: 120px;
 }
 
 .exad-pricing-list.four .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-thumbnail img {
@@ -255,26 +246,22 @@
 
 .exad-pricing-list.four .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content {
   padding: 0 0 0 20px;
+  width: calc(100% - 120px);
 }
 
 .exad-pricing-list.four .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title {
   text-decoration: none;
   transition: all .3s ease;
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
-  color: #0a1724;
+  font-weight: 600;
   margin: 0;
   text-decoration: none;
 }
 
-.exad-pricing-list.four .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
+/* .exad-pricing-list.four .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
   color: #ff6e53;
-}
+} */
 
 .exad-pricing-list.four .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-  color: #8b8e93;
   margin: 10px 0;
   line-height: 26px;
 }
@@ -300,9 +287,9 @@
 }
 
 .exad-pricing-list.four .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-price {
-  font-size: 18px;
+  /* font-size: 18px;
   color: #ff6e53;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif; */
 }
 
 .exad-pricing-list.four .exad-pricing-list-background {
@@ -327,7 +314,7 @@
 }
 
 .exad-pricing-list.five .exad-pricing-list-wrapper {
-  flex-basis: 50%;
+  /* flex-basis: 50%; */
 }
 
 @media (max-width: 991px) {
@@ -351,7 +338,6 @@
   box-shadow: 0px 14px 20px 0px rgba(8, 14, 68, 0.15);
   border-radius: 50%;
   overflow: hidden;
-  flex: 1 0 auto;
 }
 
 .exad-pricing-list.five .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-thumbnail img {
@@ -361,27 +347,22 @@
 
 .exad-pricing-list.five .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content {
   padding: 0 0 0 20px;
+  width: calc(100% - 100px);
 }
 
 .exad-pricing-list.five .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title {
   text-decoration: none;
   transition: all .3s ease;
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
-  color: #0a1724;
   margin: 0;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.exad-pricing-list.five .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
+/* .exad-pricing-list.five .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
   color: #4c59ff;
-}
+} */
 
 .exad-pricing-list.five .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-  color: #8b8e93;
   margin: 20px 0;
   line-height: 26px;
 }
@@ -444,6 +425,9 @@
   margin: 40px 0 0 0;
 }
 
+.exad-pricing-list.six .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-thumbnail {
+  margin-right: 20px;
+}
 .exad-pricing-list.six .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content {
   flex-basis: 90%;
 }
@@ -455,18 +439,15 @@
 .exad-pricing-list.six .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-element .exad-pricing-list-item-content-title {
   text-decoration: none;
   transition: all .3s ease;
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  color: #0a1724;
+  font-weight: 600;
   margin: 0;
   text-decoration: none;
   display: inline-block;
 }
 
-.exad-pricing-list.six .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-element .exad-pricing-list-item-content-title:hover {
+/* .exad-pricing-list.six .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-element .exad-pricing-list-item-content-title:hover {
   color: #dea728;
-}
+} */
 
 .exad-pricing-list.six .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-element .exad-pricing-list-item-content-conntector {
   bottom: calc((-2px)/2);
@@ -478,9 +459,6 @@
 }
 
 .exad-pricing-list.six .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-  color: #8b8e93;
   margin: 10px 0;
   line-height: 26px;
 }
@@ -620,28 +598,39 @@
 .exad-pricing-list.seven .exad-pricing-list-wrapper.active .exad-pricing-list-wrapper-content .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title {
   text-decoration: none;
   transition: all .3s ease;
-  font-size: 18px;
-  font-family: "Roboto", sans-serif;
-  color: #0a1724;
   margin: 20px 0 0 0;
   text-decoration: none;
   display: block;
 }
 
-.exad-pricing-list.seven .exad-pricing-list-wrapper.active .exad-pricing-list-wrapper-content .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
+/* .exad-pricing-list.seven .exad-pricing-list-wrapper.active .exad-pricing-list-wrapper-content .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title:hover {
   color: #61d28e;
-}
+} */
 
 .exad-pricing-list.seven .exad-pricing-list-wrapper.active .exad-pricing-list-wrapper-content .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-  color: #8b8e93;
   margin: 10px 0;
   line-height: 26px;
 }
 
 .exad-pricing-list.seven .exad-pricing-list-wrapper.active .exad-pricing-list-wrapper-content .exad-pricing-list-item .exad-pricing-list-item-price {
-  font-size: 18px;
-  color: #61d28e;
+
+}
+.exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-action {
+  display: inline-block;
+  background: transparent;
+  padding: 5px 15px;
+  border-radius: 3px;
+  color: #4c59ff;
+  border: 1px solid #4c59ff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
   font-family: "Roboto", sans-serif;
+  transition: all .3s ease;
+}
+
+.exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-action:hover {
+  background: #4c59ff;
+  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+  color: #fff;
 }
