@@ -337,7 +337,7 @@ class Exad_Pricing_Menu extends Widget_Base {
                 <?php foreach ( $settings['pricing_menu_repeater'] as $list ) : 
 
                 $exad_pricing_menu_image = $this->get_settings_for_display( 'exad_pricing_menu_image' );
-                $exad_pricing_menu_image_url = Group_Control_Image_Size::get_attachment_image_src( $logo_image['id'], 'thumbnail', $settings );
+                $exad_pricing_menu_image_url = Group_Control_Image_Size::get_attachment_image_src( $exad_pricing_menu_image['id'], 'thumbnail', $settings );
                 if( empty( $exad_pricing_menu_image_url ) ) : $exad_pricing_menu_image_url = $exad_pricing_menu_image['url']; else: $exad_pricing_menu_image_url = $exad_pricing_menu_image_url; endif;
                 ?>
                     <div class="exad-pricing-list-item">

@@ -36,6 +36,20 @@ class Exad_Modal_Popup extends Widget_Base {
 				]
 			);
 
+			$this->add_control(
+				'exad_modal_image',
+				[
+					'label'     => __( 'Image', 'uael' ),
+					'type'      => Controls_Manager::MEDIA,
+					'default'   => [
+						'url' => Utils::get_placeholder_image_src(),
+					],
+					'dynamic'   => [
+						'active' => true,
+					]
+				]
+			);
+
 
 		$this->end_controls_section();
 
@@ -470,26 +484,36 @@ class Exad_Modal_Popup extends Widget_Base {
 
 	protected function render() { 
 		$settings = $this->get_settings_for_display();
+
+		$this->add_render_attribute( 'exad_modal_content', [
+			'id' => 'exad-modal-' . $this->get_id(),
+			'class' => 'exad-modal-item modal-vimeo',	
+		] );
+
 	?>
-	    <div class="exad-modal one">
-          	<div class="exad-modal-button">
-            	<a href="#" class="exad-modal-image-action vimeo-btn" data-modal="#modalOne">
-              		<span><i class="fa fa-vimeo"></i></span>Vimeo
-            	</a>
-          	</div>
+		
+		<div class="exad-modal one">
+          	<div class="exad-modal-wrapper">
+            	<div class="exad-modal-button">
+              		<a href="#" class="exad-modal-image-action image-modal" data-modal="#exad-modal-<?php echo $this->get_id(); ?>">
+                		<span><i class="fa fa-vimeo"></i></span>Vimeo
+              		</a>
+            	</div>
+			
+				<div <?php echo $this->get_render_attribute_string('exad_modal_content'); ?>>
+             		<div class="exad-modal-content">
+                		<div class="exad-modal-element">
+                  			<img src="<?php echo $settings['exad_modal_image']['url']; ?>" />
+							<div class="close-btn">
+								<span><i class="fa fa-times"></i></span>
+							</div>
+                		</div>
+              		</div>
+            	</div>
+
+			</div>
         </div>
 
-		<div class="exad-modal-item image-modal" id="modalOne">
-			<div class="exad-modal-content">
-				<div class="exad-modal-element">
-				<?php echo $settings['exad_modal_title']; ?>
-				
-				<div class="close-btn">
-					<span><i class="fa fa-times"></i></span>
-				</div>
-				</div>
-			</div>
-		</div>
 	<?php
 	}
 
