@@ -163,6 +163,32 @@ class Exad_Pricing_Menu extends Widget_Base {
 			]
 		]
     );
+
+    $this->add_group_control(
+        Group_Control_Background::get_type(),
+        [
+            'name' => 'exad_price_list_background',
+            'label' => __( 'Background', 'exclusive-addons-elementor' ),
+            'types' => [ 'classic', 'gradient' ],
+            'selector' => '{{WRAPPER}} .exad-pricing-list-wrapper',
+            'condition' => [
+                'exad_pricing_menu_preset!' => 'five',
+            ],
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Background::get_type(),
+        [
+            'name' => 'exad_price_list_background_item',
+            'label' => __( 'Background', 'exclusive-addons-elementor' ),
+            'types' => [ 'classic', 'gradient' ],
+            'selector' => '{{WRAPPER}} .exad-pricing-list-wrapper .exad-pricing-list-item',
+            'condition' => [
+                'exad_pricing_menu_preset' => 'five',
+            ],
+        ]
+    );
     $this->end_controls_section();
     /**
      * Pricing menu Title style
