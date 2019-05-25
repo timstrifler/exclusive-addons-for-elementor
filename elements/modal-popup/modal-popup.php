@@ -203,6 +203,18 @@ class Exad_Modal_Popup extends Widget_Base {
 			);
 
 			$this->add_control(
+				'exad_modal_overlay',
+				[
+					'label' => __( 'Overlay', 'plugin-domain' ),
+					'type' => Controls_Manager::SWITCHER,
+					'label_on' => __( 'Show', 'your-plugin' ),
+					'label_off' => __( 'Hide', 'your-plugin' ),
+					'return_value' => 'yes',
+					'default' => 'yes',
+				]
+			);
+
+			$this->add_control(
 				'modal_custom',
 				[
 					'label'       => __( 'Class', 'uael' ),
@@ -490,13 +502,19 @@ class Exad_Modal_Popup extends Widget_Base {
 			'class' => 'exad-modal-item modal-vimeo',	
 		] );
 
+		$this->add_render_attribute( 'exad_modal_action', [
+			'class' => 'exad-modal-image-action image-modal',
+			'data-exad-modal' => '#exad-modal-' . $this->get_id(),
+			'data-exad-overlay' => $settings['exad_modal_overlay'],
+		] );
+
 	?>
 		
 		<div class="exad-modal one">
           	<div class="exad-modal-wrapper">
             	<div class="exad-modal-button">
-              		<a href="#" class="exad-modal-image-action image-modal" data-modal="#exad-modal-<?php echo $this->get_id(); ?>">
-                		<span><i class="fa fa-vimeo"></i></span>Vimeo
+              		<a href="#" <?php echo $this->get_render_attribute_string('exad_modal_action'); ?>>
+                		<span><i class="fa fa-vimeo"></i>Button</span>
               		</a>
             	</div>
 			
@@ -504,15 +522,16 @@ class Exad_Modal_Popup extends Widget_Base {
              		<div class="exad-modal-content">
                 		<div class="exad-modal-element">
                   			<img src="<?php echo $settings['exad_modal_image']['url']; ?>" />
-							<div class="close-btn">
+							<div class="exad-close-btn">
 								<span><i class="fa fa-times"></i></span>
 							</div>
                 		</div>
               		</div>
             	</div>
-
 			</div>
-        </div>
+			<div class="exad-modal-overlay"></div>
+		</div>
+		
 
 	<?php
 	}

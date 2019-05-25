@@ -5570,7 +5570,7 @@ text-align: right;
 
 /* Modal Style Start */
 
-.overlay {
+.exad-modal-overlay {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -5582,7 +5582,7 @@ text-align: right;
   transition: all 0.3s;
 }
 
-.overlay.active {
+.exad-modal-overlay.active {
   opacity: 1;
   z-index: 1000;
 }
@@ -5607,14 +5607,14 @@ text-align: right;
   position: relative;
 }
 
-.exad-modal-item.modal-vimeo .exad-modal-content .close-btn {
+.exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn {
   position: absolute;
   top: -30px;
   right: -20px;
   cursor: pointer;
 }
 
-.exad-modal-item.modal-vimeo .exad-modal-content .close-btn span {
+.exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span {
   display: block;
   font-size: 20px;
   color: #fff;
@@ -5632,14 +5632,14 @@ text-align: right;
   position: relative;
 }
 
-.exad-modal-item.youtube-modal .exad-modal-content .close-btn {
+.exad-modal-item.youtube-modal .exad-modal-content .exad-close-btn {
   position: absolute;
   top: -30px;
   right: -20px;
   cursor: pointer;
 }
 
-.exad-modal-item.youtube-modal .exad-modal-content .close-btn span {
+.exad-modal-item.youtube-modal .exad-modal-content .exad-close-btn span {
   display: block;
   font-size: 20px;
   color: #fff;
@@ -5657,14 +5657,14 @@ text-align: right;
   width: 100%;
 }
 
-.exad-modal-item.image-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.image-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: 5px;
   right: 10px;
   cursor: pointer;
 }
 
-.exad-modal-item.image-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.image-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   display: block;
   font-size: 20px;
   color: #fff;
@@ -5677,14 +5677,14 @@ text-align: right;
   transition: all .3s ease;
 }
 
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   background: #000000;
@@ -5693,7 +5693,7 @@ text-align: right;
   color: #fff;
 }
 
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5726,14 +5726,14 @@ text-align: right;
   padding: 15px;
 }
 
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   background: #000000;
@@ -5742,7 +5742,7 @@ text-align: right;
   color: #fff;
 }
 
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5784,14 +5784,14 @@ text-align: right;
   font-size: 15px;
 }
 
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -5800,7 +5800,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5905,14 +5905,14 @@ text-align: right;
   border: 1px solid #ffb561;
 }
 
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -5921,7 +5921,7 @@ text-align: right;
   color: #2ED8E3;
 }
 
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5968,14 +5968,14 @@ text-align: right;
   font-size: 15px;
 }
 
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -5984,7 +5984,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6044,14 +6044,14 @@ text-align: right;
   line-height: 26px;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -6060,7 +6060,7 @@ text-align: right;
   color: #fff;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6159,14 +6159,14 @@ text-align: right;
   color: #fb5d86;
 }
 
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -6175,7 +6175,7 @@ text-align: right;
   color: #25decf;
 }
 
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6256,14 +6256,14 @@ text-align: right;
   border: 1px solid #ff9c44;
 }
 
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -6272,7 +6272,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6302,14 +6302,14 @@ text-align: right;
   height: 100%;
 }
 
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -6318,7 +6318,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6354,14 +6354,14 @@ text-align: right;
   height: 100%;
 }
 
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -6370,7 +6370,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6411,14 +6411,14 @@ text-align: right;
   height: 100%;
 }
 
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -6427,7 +6427,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6463,14 +6463,14 @@ text-align: right;
   height: 100%;
 }
 
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -6479,7 +6479,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6949,14 +6949,14 @@ text-align: right;
   display: none;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo .exad-modal-content .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn {
   position: absolute;
   top: -30px;
   right: -20px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo .exad-modal-content .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span {
   display: block;
   font-size: 20px;
   color: #fff;
@@ -6975,14 +6975,14 @@ text-align: right;
   display: none;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.youtube-modal .exad-modal-content .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.youtube-modal .exad-modal-content .exad-close-btn {
   position: absolute;
   top: -30px;
   right: -20px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.youtube-modal .exad-modal-content .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.youtube-modal .exad-modal-content .exad-close-btn span {
   display: block;
   font-size: 20px;
   color: #fff;
@@ -7004,14 +7004,14 @@ text-align: right;
   width: 100%;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: 5px;
   right: 10px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   display: block;
   font-size: 20px;
   color: #fff;
@@ -7028,14 +7028,14 @@ text-align: right;
   display: none;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   background: #000000;
@@ -7044,7 +7044,7 @@ text-align: right;
   color: #fff;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7078,14 +7078,14 @@ text-align: right;
   padding: 15px;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   background: #000000;
@@ -7094,7 +7094,7 @@ text-align: right;
   color: #fff;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7136,14 +7136,14 @@ text-align: right;
   font-size: 15px;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7152,7 +7152,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7257,14 +7257,14 @@ text-align: right;
   border: 1px solid #ffb561;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7273,7 +7273,7 @@ text-align: right;
   color: #2ED8E3;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7320,14 +7320,14 @@ text-align: right;
   font-size: 15px;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7336,7 +7336,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7396,14 +7396,14 @@ text-align: right;
   line-height: 26px;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7412,7 +7412,7 @@ text-align: right;
   color: #fff;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7511,14 +7511,14 @@ text-align: right;
   color: #fb5d86;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7527,7 +7527,7 @@ text-align: right;
   color: #25decf;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7608,14 +7608,14 @@ text-align: right;
   border: 1px solid #ff9c44;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7624,7 +7624,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7654,14 +7654,14 @@ text-align: right;
   height: 100%;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7670,7 +7670,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7706,14 +7706,14 @@ text-align: right;
   height: 100%;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7722,7 +7722,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7763,14 +7763,14 @@ text-align: right;
   height: 100%;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7779,7 +7779,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7815,14 +7815,14 @@ text-align: right;
   height: 100%;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .close-btn {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn {
   position: absolute;
   top: -50px;
   right: -50px;
   cursor: pointer;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .close-btn span {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
   height: 50px;
   width: 50px;
   display: block;
@@ -7831,7 +7831,7 @@ text-align: right;
   color: #000000;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .close-btn span i {
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
   position: absolute;
   top: 50%;
   left: 50%;

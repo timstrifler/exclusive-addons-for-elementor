@@ -480,25 +480,35 @@
 
 
 	var ModalPopup = function ($scope, $) {
-		var $modalWrapper = $scope.find('.exad-modal-image-action').eq(0);
-		//$exadCounterTime = $counterUp.data('counter-speed');
+        var $modalWrapper = $scope.find('.exad-modal').eq(0),
+            $modalAction = $modalWrapper.find('.exad-modal-image-action'),
+            $closeButton = $modalWrapper.find('.exad-close-btn');
 
-		$modalWrapper.on("click", function(e) {
-			e.preventDefault();
-			var modal = $(this).data("modal");
-			$(modal).addClass('active');
-			$('.overlay').addClass('active');
-		});
+            $modalAction.on("click", function(e) {
+                e.preventDefault();
+                var $modalOverlay = $(this).parents().eq(1).next();
+                var modal = $(this).data("exad-modal");
+                
+                var $overlay = $(this).data("exad-overlay");
 
-		$('.close-btn').click(function(){
-			$('.overlay').removeClass('active');
-			$('.exad-modal-item').removeClass('active');
-		});
+                $(modal).addClass('active');
+                if ( $overlay == "yes" ) {
+			        $modalOverlay.addClass('active');
+                }
+			    
+		    });
 
-		$('.overlay').click(function(){
-			$('.overlay').removeClass('active');
-			$('.exad-modal-item').removeClass('active');
-		});	
+            $closeButton.click(function() {
+                var $modalOverlay = $(this).parents().eq(3).next();
+                var $modalItem = $(this).parents().eq(2);
+                $modalOverlay.removeClass('active');
+                $modalItem.removeClass('active');
+            });
+
+		// $('.exad-modal-overlay').click(function(){
+		// 	$(this).removeClass('active');
+		// 	$('.exad-modal-item').removeClass('active');
+		// });	
 	};
 
 	// Image Hotspot
