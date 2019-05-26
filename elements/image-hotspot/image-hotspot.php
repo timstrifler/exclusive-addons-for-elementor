@@ -540,7 +540,7 @@ class Exad_Image_Hotspot extends Widget_Base
                 ],
                 'size_units'            => ['px'],
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hot-spot-wrap' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-dot-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -573,29 +573,6 @@ class Exad_Image_Hotspot extends Widget_Base
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'                  => 'icon_border_normal',
-                'label'                 => __('Border', 'exclusive-addons-elementor'),
-                'placeholder'           => '1px',
-                'default'               => '1px',
-                'selector'              => '{{WRAPPER}} .exad-hot-spot-wrap'
-            ]
-        );
-
-        $this->add_control(
-            'icon_border_radius',
-            [
-                'label'                 => __('Border Radius', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => ['px', '%'],
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-hot-spot-wrap, {{WRAPPER}} .exad-hot-spot-inner, {{WRAPPER}} .exad-hot-spot-inner:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
         $this->add_responsive_control(
             'icon_padding',
             [
@@ -605,15 +582,6 @@ class Exad_Image_Hotspot extends Widget_Base
                 'selectors'             => [
                     '{{WRAPPER}} .exad-hot-spot-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name'                  => 'icon_box_shadow',
-                'selector'              => '{{WRAPPER}} .exad-hot-spot-wrap',
-                'separator'             => 'before',
             ]
         );
 
@@ -631,25 +599,51 @@ class Exad_Image_Hotspot extends Widget_Base
         );
 
         $this->add_control(
-            'tooltip_bg_color',
+            'exad_hotspot_tooltip_bg_color',
             [
                 'label'                 => __('Background Color', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
+                'default'               => '#fff',
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip::before' => 'border-color: {{VALUE}} transparent transparent transparent;',
+                ],
+                'condition'       => [
+                    'exad_hotspot_preset'   => 'one',
+                ],
+            ]
+        );
+        $this->add_control(
+            'exad_hotspot_tooltip_bg_color_two',
+            [
+                'label'                 => __('Background Color', 'exclusive-addons-elementor'),
+                'type'                  => Controls_Manager::COLOR,
+                'default'               => '#fff',
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6::before' => 'border-color: {{VALUE}} transparent transparent transparent;',
+                    '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6::before' => 'border-color: transparent transparent transparent {{VALUE}};',
+                ],
+                'condition'       => [
+                    'exad_hotspot_preset!'   => 'one',
+                ],
             ]
         );
 
         $this->add_control(
-            'tooltip_color',
+            'exad_hotspot_tooltip_text_color',
             [
                 'label'                 => __('Text Color', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::COLOR,
-                'default'               => '',
+                'default'               => '#222222',
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-tooltip h6' => 'color: {{VALUE}}',
+                ],
             ]
         );
 
         $this->add_control(
-            'tooltip_width',
+            'exad_hotspot_width',
             [
                 'label'         => __('Width', 'exclusive-addons-elementor'),
                 'type'          => Controls_Manager::SLIDER,
@@ -660,16 +654,20 @@ class Exad_Image_Hotspot extends Widget_Base
                         'step'    => 1,
                     ],
                 ],
+                'size_units'            => ['px'],
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6' => 'width: {{SIZE}}{{UNIT}}',
+                ],
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'                  => 'tooltip_typography',
+                'name'                  => 'exad_hotspot_tooltip_text_typography',
                 'label'                 => __('Typography', 'exclusive-addons-elementor'),
                 'scheme'                => Scheme_Typography::TYPOGRAPHY_4,
-                'selector'              => '.exad-tooltip-{{ID}}',
+                'selector'              => '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-tooltip h6',
             ]
         );
 

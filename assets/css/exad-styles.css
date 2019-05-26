@@ -8264,8 +8264,8 @@ text-align: right;
   right: 50px;
   top: 50%;
   border-radius: 5px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -webkit-transform: translateY(-110%);
+          transform: translateY(-110%);
 }
 
 .exad-hotspot.two .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6::before {
