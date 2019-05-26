@@ -499,7 +499,7 @@ class Exad_Modal_Popup extends Widget_Base {
 
 		$this->add_render_attribute( 'exad_modal_content', [
 			'id' => 'exad-modal-' . $this->get_id(),
-			'class' => 'exad-modal-item modal-vimeo',	
+			'class' => 'exad-modal-item modal-vimeo zoom-out',	
 		] );
 
 		$this->add_render_attribute( 'exad_modal_action', [

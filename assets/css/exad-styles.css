@@ -6936,13 +6936,87 @@ text-align: right;
           transform: translateX(-50%) translateY(-50%);
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo {
+/* .exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo {
   opacity: 0;
   -webkit-transform: translate(-50%, -60%);
           transform: translate(-50%, -60%);
   height: auto;
   transition: all .3s ease;
+} */
+
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo.top-to-middle {
+  -webkit-transform: translate(-50%, -60%);
+          transform: translate(-50%, -60%);
+  transition: all .3s ease;
 }
+
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.active.modal-vimeo.top-to-middle {
+  z-index: 2000;
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo.bottom-to-middle {
+  -webkit-transform: translate(-50%, -30%);
+          transform: translate(-50%, -30%);
+  transition: all .3s ease;
+}
+
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.active.modal-vimeo.bottom-to-middle {
+  z-index: 2000;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo.right-to-middle {
+  transition: all .3s ease;
+  -webkit-transform: translate(-30%, -50%);
+          transform: translate(-30%, -50%);
+}
+
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.active.modal-vimeo.right-to-middle {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 2000;
+}
+
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo.left-to-middle {
+  -webkit-transform: translate(-70%, -50%);
+          transform: translate(-70%, -50%);
+  transition: all .3s ease;
+}
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.active.modal-vimeo.left-to-middle {
+  z-index: 2000;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo.zoom-in {
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  transition: all .3s ease;
+}
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.active.modal-vimeo.zoom-in {
+  z-index: 2000;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo.zoom-out {
+  -webkit-transform: translate(-50%, -50%) scale(1.5);
+          transform: translate(-50%, -50%) scale(1.5);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  transition: all .3s ease;
+}
+.exad-modal.one .exad-modal-wrapper .exad-modal-item.active.modal-vimeo.zoom-out {
+  z-index: 2000;
+  display: block;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
 
 .exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo .exad-modal-content {
   position: relative;
