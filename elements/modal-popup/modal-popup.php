@@ -17,38 +17,238 @@ class Exad_Modal_Popup extends Widget_Base {
 	}
 	protected function _register_controls() {
 
+		/**
+		 * Modal Popup Content section
+		 */
 		$this->start_controls_section(
-			'content',
+			'exad_modal_content_section',
 			[
-				'label' => __( 'Content', 'exclusive-addons-elementor' ),
+				'label' => __( 'Modal Popup Content', 'exclusive-addons-elementor' ),
 			]
 		);
 
 			$this->add_control(
-				'exad_modal_title',
+				'exad_modal_content',
 				[
-					'label'   => __( 'Title', 'uael' ),
-					'type'    => Controls_Manager::TEXT,
-					'dynamic' => [
-						'active' => true,
+					'label'   => __( 'Type of Modal', 'exclusive-addons-elementor' ),
+                    'type'    => Controls_Manager::SELECT,
+                    'default' => 'image',
+                    'options' => [
+						'image'      => __( 'Image', 'exclusive-addons-elementor' ),
+						'image_gallery'      => __( 'Image Gallery', 'exclusive-addons-elementor' ),
+						'html_content'      => __( 'HTML Content', 'exclusive-addons-elementor' ),
+						'video'      => __( 'Video Content Or External page', 'exclusive-addons-elementor' ),
 					],
-					'default' => __( 'This is Modal Title', 'uael' ),
 				]
 			);
 
+			/**
+			 * Modal Popup image section
+			 */
 			$this->add_control(
 				'exad_modal_image',
 				[
-					'label'     => __( 'Image', 'uael' ),
+					'label'     => __( 'Image', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::MEDIA,
 					'default'   => [
 						'url' => Utils::get_placeholder_image_src(),
 					],
 					'dynamic'   => [
 						'active' => true,
+                    ],
+                    'condition' => [
+                        'exad_modal_content' => 'image',
+                    ]
+				]
+			);
+			/**
+			 * Modal Popup image gallery
+			 */
+			$image_repeater = new Repeater();
+
+			$image_repeater->add_control(
+				'exad_modal_image_gallery',
+				[
+					'label' => __( 'Image', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::MEDIA,
+					'default' => [
+						'url' => Utils::get_placeholder_image_src(),
+					],
+				]
+			);
+
+			$image_repeater->add_control(
+				'exad_modal_image_gallery_text',
+				[
+					'label' => __( 'Description', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::TEXTAREA,
+				]
+			);
+
+			$this->add_control(
+				'exad_modal_image_gallery_repeater',
+				[
+					'label' => esc_html__( 'Image Gallery', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::REPEATER,
+					'fields' => $image_repeater->get_controls(),
+					//'title_field' => '{{{ exad_logo_carousel_image }}}',
+					'default' => [
+						[
+							'exad_modal_image_Gallery' => Utils::get_placeholder_image_src(),
+						],
+						[
+							'exad_modal_image_Gallery' => Utils::get_placeholder_image_src(),
+						],
+						[
+							'exad_modal_image_Gallery' => Utils::get_placeholder_image_src(),
+							
+						]
+					],
+					'condition' => [
+						'exad_modal_content' => 'image_gallery',
 					]
 				]
 			);
+			/**
+			 * Modal Popup html content section
+			 */
+			$this->add_control(
+				'exad_modal_html_content',
+					[
+					  'label'   => __( 'Add your content here (HTML/Shortcode)', 'exclusive-addons-elementor' ),
+					  'type'    => Controls_Manager::WYSIWYG,
+					  'default' => __( 'Add your popup content here', 'exclusive-addons-elementor' ),
+					  'condition' => [
+						  'exad_modal_content' => 'html_content',
+					  ],
+					  'dynamic' => [ 'active' => true ]
+					]
+			  );
+			  /**
+			 * Modal Popup video section
+			 */
+            $this->add_control(
+                'exad_modal_video_type',
+                [
+                    'label' => __( 'Choose Video Type', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SELECT,
+                    'default' => 'youtube',
+                    'options' => [
+                        'youtube'      => __( 'Youtube', 'exclusive-addons-elementor' ),
+						'vimeo'      => __( 'Vimeo', 'exclusive-addons-elementor' ),
+						'external_page'      => __( 'External Page', 'exclusive-addons-elementor' ),
+                    ],
+                    'condition' => [
+                        'exad_modal_content' => 'video',
+                    ]
+                ]
+            );
+
+            $this->add_control(
+                'exad_modal_youtube_video_url',
+                [
+                    'label' => __( 'Provide Youtube Video URL', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::TEXT,
+                    'label_block' => true,
+                    'default' => 'https://www.youtube.com/embed/D7ovwGioN9E',
+                    'placeholder' => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
+                    'title' => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
+                    'condition' => [
+                        'exad_modal_content' => 'video',
+                        'exad_modal_video_type' => 'youtube'
+                    ],
+                ]
+            );
+            $this->add_control(
+                'exad_modal_vimeo_video_url',
+                [
+                    'label' => __( 'Provide Vimeo Video URL', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::TEXT,
+                    'label_block' => true,
+                    'default' => 'https://player.vimeo.com/video/180565514?api=1&player_id=vimeoplayer',
+                    'placeholder' => __( 'Place Vimeo Video URL', 'exclusive-addons-elementor' ),
+                    'title' => __( 'Place Vimeo Video URL', 'exclusive-addons-elementor' ),
+                    'condition' => [
+                        'exad_modal_content' => 'video',
+                        'exad_modal_video_type' => 'vimeo'
+                    ],
+                ]
+            );
+            $this->add_control(
+                'exad_modal_external_page_url',
+                [
+                    'label' => __( 'Provide External Page URL', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::TEXT,
+                    'label_block' => true,
+                    'default' => 'http://exclusiveaddons.com/',
+                    'placeholder' => __( 'Place External Page URL', 'exclusive-addons-elementor' ),
+                    'title' => __( 'Place External Page URL', 'exclusive-addons-elementor' ),
+                    'condition' => [
+                        'exad_modal_content' => 'video',
+                        'exad_modal_video_type' => 'external_page'
+                    ],
+                ]
+            );
+            $this->add_control(
+                'exad_modal_video_width',
+                [
+                    'label' => __( 'Video Width', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 1000,
+                            'step' => 5,
+                        ],
+                        '%' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'default' => [
+                        'unit' => 'px',
+                        'size' => 720,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe' => 'width: {{SIZE}}{{UNIT}};',
+                    ],
+                    'condition' => [
+                        'exad_modal_content' => 'video',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'exad_modal_video_height',
+                [
+                    'label' => __( 'Video Height', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 1000,
+                            'step' => 5,
+                        ],
+                        '%' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'default' => [
+                        'unit' => 'px',
+                        'size' => 400,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe' => 'height: {{SIZE}}{{UNIT}};',
+                    ],
+                    'condition' => [
+                        'exad_modal_content' => 'video',
+                    ],
+                ]
+            );
+
 
 
 		$this->end_controls_section();
@@ -490,6 +690,95 @@ class Exad_Modal_Popup extends Widget_Base {
 				]
 			);
 
+        $this->end_controls_section();
+        
+		/**
+		 * Modal Popup style section
+		 */
+		$this->start_controls_section(
+			'exad_modal_style_section',
+			[
+				'label' => __( 'Style', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+        );
+        
+        $this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_modal_content_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element',
+			]
+        );
+        
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'exad_modal_animation_tab',
+			[
+				'label' => __( 'Animation', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_control(
+			'exad_modal_transition',
+			[
+				'label' => __( 'Animated Style', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'top-to-middle',
+				'options' => [
+					'top-to-middle'      => __( 'Top To Middle', 'exclusive-addons-elementor' ),
+					'bottom-to-middle'     => __( 'Bottom To Middle', 'exclusive-addons-elementor' ),
+					'right-to-middle'      => __( 'Right To Middle', 'exclusive-addons-elementor' ),
+					'left-to-middle'    => __( 'Left To Middle', 'exclusive-addons-elementor' ),
+					'zoom-in'    => __( 'Zoom In', 'exclusive-addons-elementor' ),
+					'zoom-out' => __( 'Zoom Out', 'exclusive-addons-elementor' ),
+				],
+			]
+		);
+        $this->end_controls_section();
+        
+		$this->start_controls_section(
+			'exad_modal_overlay_tab',
+			[
+				'label' => __( 'Overlay', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+					'exad_modal_overlay' => 'yes',
+				],
+			]
+		);
+        $this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_modal_overlay_color',
+                'label' => __( 'Color', 'exclusive-addons-elementor' ),
+                'default' => 'rgba(0, 0, 0, .5)',
+				'types' => [ 'classic' ],
+				'selector' => '{{WRAPPER}} .exad-modal-overlay',
+			]
+		);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'exad_modal_close_btn_style',
+			[
+				'label' => __( 'Close Button', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+        $this->add_control(
+			'exad_modal_close_btn_color',
+			[
+				'label' => __( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'selector' => [
+					'{{WRAPPER}} .exad-close-btn span'  => 'color: {{VALUE}};',
+				],
+			]
+		);
 		$this->end_controls_section();
 		
 	}
@@ -497,10 +786,11 @@ class Exad_Modal_Popup extends Widget_Base {
 	protected function render() { 
 		$settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( 'exad_modal_content', [
-			'id' => 'exad-modal-' . $this->get_id(),
-			'class' => 'exad-modal-item modal-vimeo zoom-out',	
-		] );
+
+		// $this->add_render_attribute( 'exad_modal_content', [
+		// 	'id' => 'exad-modal-' . $this->get_id(),
+		// 	'class' => 'exad-modal-item modal-vimeo zoom-in',	
+		// ] );
 
 		$this->add_render_attribute( 'exad_modal_action', [
 			'class' => 'exad-modal-image-action image-modal',
@@ -518,10 +808,51 @@ class Exad_Modal_Popup extends Widget_Base {
               		</a>
             	</div>
 			
-				<div <?php echo $this->get_render_attribute_string('exad_modal_content'); ?>>
+				<div id="exad-modal-<?php echo esc_attr($this->get_id()); ?>" class="exad-modal-item modal-vimeo <?php echo $settings['exad_modal_transition'] ?>">
              		<div class="exad-modal-content">
                 		<div class="exad-modal-element">
-                  			<img src="<?php echo $settings['exad_modal_image']['url']; ?>" />
+							<?php if ( $settings['exad_modal_content'] === 'image' ) { ?>
+								<img src="<?php echo $settings['exad_modal_image']['url']; ?>" />
+							<?php } ?>
+							<?php if ( $settings['exad_modal_content'] === 'image_gallery' ) { ?>
+								<?php foreach ( $settings['exad_modal_image_gallery_repeater'] as $gallery ) : ?>
+									<?php
+										$image_gallery = $gallery[ 'exad_modal_image_gallery' ];
+										$image_gallery_url = Group_Control_Image_Size::get_attachment_image_src( $image_gallery['id'], 'thumbnail', $gallery );
+								
+										if ( empty( $image_gallery_url ) ) {
+											$image_gallery_url = $image_gallery['url'];
+										} else {
+											$image_gallery_url = $image_gallery_url;
+										}
+									?>
+									<div class="exad-modal-element-card">
+										<img src="<?php echo esc_url( $image_gallery_url ); ?>" >
+										<div class="exad-modal-element-card-body">
+											<p><?php echo esc_attr( $gallery['exad_modal_image_gallery_text'] ); ?></p>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							<?php } ?>
+							<?php if ( $settings['exad_modal_content'] === 'html_content' ) { ?>
+								<div class="exad-modal-element-body">
+									<p><?php echo esc_attr( $settings['exad_modal_html_content'] ); ?></p>
+								</div>
+							<?php } ?>
+							<?php if ( $settings['exad_modal_content'] === 'video' ) { ?>
+								<?php if ( $settings['exad_modal_video_type'] === 'youtube' ) { ?>
+									<iframe src="<?php echo esc_attr( $settings['exad_modal_youtube_video_url'] ); ?>" frameborder="0" allowfullscreen>
+									</iframe>
+								<?php } ?>
+								<?php if ( $settings['exad_modal_video_type'] === 'vimeo' ) { ?>
+									<iframe src="<?php echo esc_attr( $settings['exad_modal_vimeo_video_url'] ); ?>" frameborder="0" allowfullscreen>
+									</iframe>
+								<?php } ?>
+								<?php if ( $settings['exad_modal_video_type'] === 'external_page' ) { ?>
+									<iframe src="<?php echo esc_attr( $settings['exad_modal_external_page_url'] ); ?>">
+									</iframe>
+								<?php } ?>
+							<?php } ?>
 							<div class="exad-close-btn">
 								<span><i class="fa fa-times"></i></span>
 							</div>
