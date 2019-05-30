@@ -6636,7 +6636,6 @@ text-align: right;
 }
 
 .exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action {
-  width: 50%;
   display: inline-block;
   padding: 20px;
   text-transform: uppercase;
@@ -8163,7 +8162,19 @@ text-align: right;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 } */
-
+.exad-modal-item .exad-modal-content .exad-modal-element iframe{
+  display: block;
+}
+.exad-modal-item .exad-modal-content .exad-modal-element img{
+  display: block;
+}
+.exad-modal-button .exad-modal-image-action{
+  text-align: center;
+  display: inline-block;
+  padding: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
 /* Modal Style End */
 
 

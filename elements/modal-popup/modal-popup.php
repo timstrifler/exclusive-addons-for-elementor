@@ -263,17 +263,17 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'modal_on',
 				[
-					'label'   => __( 'Display Modal On', 'uael' ),
+					'label'   => __( 'Display Modal On', 'exclusive-addons-elementor' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'button',
 					'options' => [
-						'icon'      => __( 'Icon', 'uael' ),
-						'photo'     => __( 'Image', 'uael' ),
-						'text'      => __( 'Text', 'uael' ),
-						'button'    => __( 'Button', 'uael' ),
-						'custom'    => __( 'Custom Class', 'uael' ),
-						'custom_id' => __( 'Custom ID', 'uael' ),
-						'automatic' => __( 'Automatic', 'uael' ),
+						'icon'      => __( 'Icon', 'exclusive-addons-elementor' ),
+						'photo'     => __( 'Image', 'exclusive-addons-elementor' ),
+						'text'      => __( 'Text', 'exclusive-addons-elementor' ),
+						'button'    => __( 'Button', 'exclusive-addons-elementor' ),
+						'custom'    => __( 'Custom Class', 'exclusive-addons-elementor' ),
+						'custom_id' => __( 'Custom ID', 'exclusive-addons-elementor' ),
+						'automatic' => __( 'Automatic', 'exclusive-addons-elementor' ),
 					],
 				]
 			);
@@ -529,12 +529,38 @@ class Exad_Modal_Popup extends Widget_Base {
 			);
 
 			$this->add_control(
-				'btn_text',
+				'exad_modal_btn_width',
 				[
-					'label'       => __( 'Button Text', 'uael' ),
+					'label' => esc_html__( 'Width', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range' => [
+						'px' => [
+							'min' => 0,
+							'max' => 500,
+							'step' => 1,
+						],
+						'%' => [
+							'min' => 0,
+							'max' => 100,
+						],
+					],
+					'default' => [
+						'unit' => '%',
+						'size' => 50,
+					],
+					'selectors' => [
+						'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'width: {{SIZE}}{{UNIT}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'exad_modal_btn_text',
+				[
+					'label'       => __( 'Button Text', 'exclusive-addons-elementor' ),
 					'type'        => Controls_Manager::TEXT,
-					'default'     => __( 'Click Me', 'uael' ),
-					'placeholder' => __( 'Click Me', 'uael' ),
+					'default'     => __( 'Click Me', 'exclusive-addons-elementor' ),
 					'dynamic'     => [
 						'active' => true,
 					],
@@ -544,78 +570,157 @@ class Exad_Modal_Popup extends Widget_Base {
 				]
 			);
 
-			$this->add_responsive_control(
-				'btn_align',
+			$this->add_group_control(
+				Group_Control_Typography::get_type(),
 				[
-					'label'     => __( 'Alignment', 'uael' ),
+					'name' => 'exad_modal_btn_typhography',
+					'label' => __( 'Button Typography', 'exclusive-addons-elementor' ),
+					'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+					'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action span',
+					'condition'   => [
+						'modal_on' => 'button',
+					],
+				]
+			);
+
+			/**
+			 * display settings for button normal and hover
+			 */
+			$this->start_controls_tabs( 'exad_modal_btn_typhography_color',[
+				'separator' => 'before',
+			] );
+
+				$this->start_controls_tab( 'exad_modal_btn_typhography_color_normal_tab', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ),] );
+
+					$this->add_control(
+						'exad_modal_btn_typhography_color_normal',
+						[
+							'label' => __( 'Button Text Color', 'exclusive-addons-elementor' ),
+							'type' => Controls_Manager::COLOR,
+							'default' => '#222222',
+							'selectors' => [
+								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span' => 'color: {{VALUE}};',
+							],
+							'condition'   => [
+								'modal_on' => 'button',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Background::get_type(),
+						[
+							'name' => 'exad_modal_btn_background_normal',
+							'label' => __( 'Button Background', 'exclusive-addons-elementor' ),
+							'types' => [ 'classic', 'gradient' ],
+							'default' => '#3d3d3d',
+							'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action',
+							'condition'   => [
+								'modal_on' => 'button',
+							],
+						]
+					);
+					$this->add_group_control(
+						Group_Control_Border::get_type(),
+						[
+							'name' => 'exad_modal_btn_border_normal',
+							'label' => __( 'Border', 'exclusive-addons-elementor' ),
+							'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action',
+						]
+					);
+
+				$this->end_controls_tab();
+
+				$this->start_controls_tab( 'exad_modal_btn_typhography_color_hover_tab', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+					$this->add_control(
+						'exad_modal_btn_typhography_color_hover',
+						[
+							'label' => __( 'Button Text Color', 'exclusive-addons-elementor' ),
+							'type' => Controls_Manager::COLOR,
+							'default' => '#222222',
+							'selectors' => [
+								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover span' => 'color: {{VALUE}};',
+							],
+							'condition'   => [
+								'modal_on' => 'button',
+							],
+						]
+					);
+
+					$this->add_group_control(
+						Group_Control_Background::get_type(),
+						[
+							'name' => 'exad_modal_btn_background_hover',
+							'label' => __( 'Button Background', 'exclusive-addons-elementor' ),
+							'types' => [ 'classic', 'gradient' ],
+							'default' => '#3d3d3d',
+							'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover',
+							'condition'   => [
+								'modal_on' => 'button',
+							],
+						]
+					);
+					$this->add_group_control(
+						Group_Control_Border::get_type(),
+						[
+							'name' => 'exad_modal_btn_border_hover',
+							'label' => __( 'Border', 'exclusive-addons-elementor' ),
+							'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover',
+						]
+					);
+
+				$this->end_controls_tab();
+			$this->end_controls_tabs();
+
+			/**
+			 * display settings for button alignment
+			 */
+			$this->add_responsive_control(
+				'exad_modal_btn_align',
+				[
+					'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::CHOOSE,
 					'options'   => [
 						'left'    => [
-							'title' => __( 'Left', 'uael' ),
+							'title' => __( 'Left', 'exclusive-addons-elementor' ),
 							'icon'  => 'fa fa-align-left',
 						],
 						'center'  => [
-							'title' => __( 'Center', 'uael' ),
+							'title' => __( 'Center', 'exclusive-addons-elementor' ),
 							'icon'  => 'fa fa-align-center',
 						],
 						'right'   => [
-							'title' => __( 'Right', 'uael' ),
+							'title' => __( 'Right', 'exclusive-addons-elementor' ),
 							'icon'  => 'fa fa-align-right',
 						],
 						'justify' => [
-							'title' => __( 'Justified', 'uael' ),
+							'title' => __( 'Justified', 'exclusive-addons-elementor' ),
 							'icon'  => 'fa fa-align-justify',
 						],
 					],
 					'default'   => 'left',
+					'selectors'             => [
+						'{{WRAPPER}} .exad-modal-button' => 'text-align: {{VALUE}};',
+					],
 					'condition' => [
 						'modal_on' => 'button',
 					],
+					'separator' => 'before',
 					'toggle'    => false,
 				]
 			);
 
+			/**
+			 * Display Settings icon 
+			 */
 			$this->add_control(
-				'btn_size',
+				'exad_modal_btn_icon',
 				[
-					'label'     => __( 'Size', 'uael' ),
-					'type'      => Controls_Manager::SELECT,
-					'default'   => 'sm',
-					'options'   => [
-						'xs' => __( 'Extra Small', 'uael' ),
-						'sm' => __( 'Small', 'uael' ),
-						'md' => __( 'Medium', 'uael' ),
-						'lg' => __( 'Large', 'uael' ),
-						'xl' => __( 'Extra Large', 'uael' ),
-					],
-					'condition' => [
-						'modal_on' => 'button',
-					],
-				]
-			);
-
-			$this->add_responsive_control(
-				'btn_padding',
-				[
-					'label'      => __( 'Padding', 'uael' ),
-					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', 'em', '%' ],
-					'selectors'  => [
-						'{{WRAPPER}} .uael-modal-action-wrap a.elementor-button, {{WRAPPER}} .uael-modal-action-wrap .elementor-button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-					'condition'  => [
-						'modal_on' => 'button',
-					],
-				]
-			);
-
-			$this->add_control(
-				'btn_icon',
-				[
-					'label'       => __( 'Icon', 'uael' ),
+					'label'       => __( 'Icon', 'exclusive-addons-elementor' ),
 					'type'        => Controls_Manager::ICON,
 					'label_block' => true,
-					'default'     => '',
+					'default'     => 'fa fa-vimeo',
 					'condition'   => [
 						'modal_on' => 'button',
 					],
@@ -623,26 +728,26 @@ class Exad_Modal_Popup extends Widget_Base {
 			);
 
 			$this->add_control(
-				'btn_icon_align',
+				'exad_modal_btn_icon_align',
 				[
-					'label'     => __( 'Icon Position', 'uael' ),
+					'label'     => __( 'Icon Position', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::SELECT,
 					'default'   => 'left',
 					'options'   => [
-						'left'  => __( 'Before', 'uael' ),
-						'right' => __( 'After', 'uael' ),
+						'left'  => __( 'Before', 'exclusive-addons-elementor' ),
+						'right' => __( 'After', 'exclusive-addons-elementor' ),
 					],
 					'condition' => [
-						'btn_icon!' => '',
+						'exad_modal_btn_icon!' => '',
 						'modal_on'  => 'button',
 					],
 				]
 			);
 
 			$this->add_control(
-				'btn_icon_indent',
+				'exad_modal_btn_icon_indent',
 				[
-					'label'     => __( 'Icon Spacing', 'uael' ),
+					'label'     => __( 'Icon Spacing', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::SLIDER,
 					'range'     => [
 						'px' => [
@@ -650,12 +755,12 @@ class Exad_Modal_Popup extends Widget_Base {
 						],
 					],
 					'condition' => [
-						'btn_icon!' => '',
+						'exad_modal_btn_icon!' => '',
 						'modal_on'  => 'button',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .uael-modal-action-wrap .elementor-button .elementor-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
-						'{{WRAPPER}} .uael-modal-action-wrap .elementor-button .elementor-align-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span .exad-modal-action-left-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span .exad-modal-action-right-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
 					],
 				]
 			);
@@ -804,7 +909,12 @@ class Exad_Modal_Popup extends Widget_Base {
           	<div class="exad-modal-wrapper">
             	<div class="exad-modal-button">
               		<a href="#" <?php echo $this->get_render_attribute_string('exad_modal_action'); ?>>
-                		<span><i class="fa fa-vimeo"></i>Button</span>
+									<?php if( $settings['exad_modal_btn_icon_align'] === 'left' ) { ?>
+                		<span ><i class="exad-modal-action-left-icon <?php echo esc_attr( $settings['exad_modal_btn_icon'] ); ?>"></i><?php echo esc_attr( $settings['exad_modal_btn_text'] ); ?></span>
+									<?php } ?>
+									<?php if( $settings['exad_modal_btn_icon_align'] === 'right' ) { ?>
+                		<span><?php echo esc_attr( $settings['exad_modal_btn_text'] ); ?><i class="exad-modal-action-right-icon <?php echo esc_attr( $settings['exad_modal_btn_icon'] ); ?>"></i></span>
+									<?php } ?>
               		</a>
             	</div>
 			
