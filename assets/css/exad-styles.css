@@ -7032,7 +7032,7 @@ text-align: right;
 .exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span {
   display: block;
   font-size: 20px;
-  color: #fff;
+  /* color: #fff; */
 }
 
 .exad-modal.one .exad-modal-wrapper .exad-modal-item.youtube-modal {
@@ -8139,29 +8139,9 @@ text-align: right;
           transform: translate(-50%, -50%);
 } */
 
-/* .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #000000;
+.exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span{
   color: #fff;
 }
-
-.exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-} */
 .exad-modal-item .exad-modal-content .exad-modal-element iframe{
   display: block;
 }
@@ -8175,6 +8155,22 @@ text-align: right;
   text-transform: uppercase;
   text-decoration: none;
 }
+
+
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-body {
+  background: #fff;
+  box-shadow: 0px 55px 90px 0px rgba(0, 0, 0, 0.31);
+  padding: 30px;
+}
+
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-body p {
+  font-family: "Roboto", sans-serif;
+  color: #1b1b1b;
+  margin: 0;
+  font-size: 15px;
+}
+
+
 /* Modal Style End */
 
 

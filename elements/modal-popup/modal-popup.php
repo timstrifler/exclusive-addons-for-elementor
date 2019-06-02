@@ -880,7 +880,7 @@ class Exad_Modal_Popup extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selector' => [
-					'{{WRAPPER}} .exad-close-btn span'  => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-modal-wrapper .exad-modal-item.modal-vimeo .exad-modal-content .exad-modal-element .exad-close-btn span'  => 'color: {{VALUE}};',
 				],
 			]
 		);
