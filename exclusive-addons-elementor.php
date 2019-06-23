@@ -72,7 +72,7 @@ final class Exclusive_Addons_Elementor {
 	 * 
 	 * @return array
 	 */
-	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip', 'counter', 'logo-box', 'image-comparison', 'modal-popup', 'logo-carousel', 'image-hotspot', 'pricing-menu', 'filterable-gallery' ];
+	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip', 'counter', 'logo-box', 'image-comparison', 'modal-popup', 'logo-carousel', 'image-hotspot', 'pricing-menu', 'filterable-gallery', 'exclusive-alert', 'instagram-feed' ];
 
 	/**
 	 * Instance
@@ -274,6 +274,11 @@ final class Exclusive_Addons_Elementor {
 		if ( $is_activated_widget['filterable-gallery'] ) {
 			// Filterable Gallery
 			wp_enqueue_script( 'exad-gallery-isotope', EXAD_URL . 'assets/js/vendor/isotop.min.js', array( 'jquery' ), '1.0', true );
+		}
+
+		if ( $is_activated_widget['instagram-feed'] ) {
+			// Instagram Gallery
+			wp_enqueue_script( 'exad-instagram', EXAD_URL . 'assets/js/vendor/instagram.min.js', array( 'jquery' ), '1.0', true );
 		}
 		
 		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );
