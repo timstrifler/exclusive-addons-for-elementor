@@ -31,7 +31,21 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var pot = require('gulp-wp-pot');
 var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
 
+
+
+gulp.task('jsconcat', function() {
+    return gulp.src('./assets/js/elements/*.js')
+      .pipe(concat('exad-scripts.js'))
+      .pipe(gulp.dest('./assets/js'));
+});
+
+gulp.task('cssconcat', function() {
+    return gulp.src('./assets/css/elements/*.css')
+      .pipe(concat('exad-styles.css'))
+      .pipe(gulp.dest('./assets/css'));
+});
 
 /**
  * We're using PostCSS.

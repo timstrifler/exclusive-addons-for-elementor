@@ -21,6 +21,8 @@
     "cssnano": "latest",
     "del": "latest",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "latest",
     "gulp-uglify": "^3.0.2",
