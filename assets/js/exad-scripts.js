@@ -51,8 +51,6 @@
 				}
 			],
 	    });
-
-		
 	};
 
 	// Testimonial Carousel
@@ -477,7 +475,6 @@
 			],
 	    });	
 	};
-
 
 	var ModalPopup = function ($scope, $) {
         var $modalWrapper = $scope.find('.exad-modal').eq(0),
