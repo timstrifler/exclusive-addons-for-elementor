@@ -35,11 +35,11 @@ var concat = require('gulp-concat');
 
 
 
-gulp.task('jsconcat', function() {
-    return gulp.src('./assets/js/elements/*.js')
-      .pipe(concat('exad-scripts.js'))
-      .pipe(gulp.dest('./assets/js'));
-});
+// gulp.task('jsconcat', function() {
+//     return gulp.src('./assets/js/elements/*.js')
+//       .pipe(concat('exad-scripts.js'))
+//       .pipe(gulp.dest('./assets/js'));
+// });
 
 gulp.task('cssconcat', function() {
     return gulp.src('./assets/css/elements-css/*.css')
@@ -73,10 +73,9 @@ gulp.task('cssmin', function () {
     ];
 
     return gulp.src([
-            './admin/assets/**/*.css',
-            './assets/**/*.css'
+            './admin/assets/css/*.css',
+            './assets/css/*.css'
         ])
-        .pipe(postcss(plugins))
         .pipe(rename(function (path) {
             path.extname = ".min.css"
         }))
