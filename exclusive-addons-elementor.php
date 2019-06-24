@@ -72,7 +72,7 @@ final class Exclusive_Addons_Elementor {
 	 * 
 	 * @return array
 	 */
-	public static $exad_default_widgets = [ 'exclusive-card', 'countdown-timer', 'contact-form-7', 'exclusive-accordion', 'exclusive-tabs', 'exclusive-button', 'post-grid', 'post-timeline', 'team-member', 'team-carousel', 'testimonial-carousel', 'flipbox', 'infobox', 'pricing-table', 'progress-bar', 'exclusive-heading', 'dual-heading', 'post-carousel', 'google-maps', 'tooltip', 'counter', 'logo-box', 'image-comparison', 'modal-popup', 'logo-carousel', 'image-hotspot', 'pricing-menu', 'filterable-gallery', 'exclusive-alert', 'instagram-feed' ];
+	public static $exad_default_widgets = array(); 
 
 	/**
 	 * Instance
@@ -104,9 +104,11 @@ final class Exclusive_Addons_Elementor {
 	 */
 	public function __construct() {
 		$this->constants();
+		$this->exad_initiate_elements();
 		$this->includes();
 		add_action( 'init', [ $this, 'init' ] );
 		add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
+
 	}
 
 	/**
@@ -130,6 +132,23 @@ final class Exclusive_Addons_Elementor {
 		if ( ! defined( 'EXAD_ASSETS_URL' ) )
 			define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );	
 	}
+
+	/**
+	 * 
+	 * Initiate Elements name from folder created inside elements
+	 * 
+	 * @since 1.2.2
+	 */
+	public function exad_initiate_elements() {
+
+		foreach ( scandir(EXAD_PATH . 'elements') as $file ) {
+			if ( !is_dir(EXAD_PATH . '/' . $file) ) {
+				self::$exad_default_widgets[] = $file;
+			}
+		}
+
+	}
+
 
 	/**
 	 * 
