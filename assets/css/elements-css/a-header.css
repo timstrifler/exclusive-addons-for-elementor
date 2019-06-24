@@ -1,0 +1,11 @@
+.exclusive-addons-elementor {
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Style for removing Twenty Nineteen Theme heading border */
+  .exclusive-addons-elementor h1:not(.site-title):before, .exclusive-addons-elementor h2:before {
+    content: none;
+    background: none;
+    height: auto;
+    margin: 0;
+  }

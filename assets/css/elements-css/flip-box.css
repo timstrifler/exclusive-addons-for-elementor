@@ -1,0 +1,244 @@
+/* Flip Box Start */
+
+.exad-flip-box {
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    background-color: transparent;
+  }
+  
+  .exad-flip-box:hover .left-to-right {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  
+  .exad-flip-box:hover .left-to-right .exad-flip-box-front {
+    opacity: 0;
+  }
+  
+  .exad-flip-box:hover .right-to-left {
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+  }
+  
+  .exad-flip-box:hover .right-to-left .exad-flip-box-front {
+    opacity: 0;
+  }
+  
+  .exad-flip-box:hover .top-to-bottom {
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg);
+  }
+  
+  .exad-flip-box:hover .top-to-bottom .exad-flip-box-front {
+    opacity: 0;
+  }
+  
+  .exad-flip-box:hover .bottom-to-top {
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+  }
+  
+  .exad-flip-box:hover .bottom-to-top .exad-flip-box-front {
+    opacity: 0;
+  }
+  
+  .exad-flip-box:hover .top-to-bottom-angle {
+    -webkit-transform: rotate3d(1, 1, 0, -180deg);
+            transform: rotate3d(1, 1, 0, -180deg);
+  }
+  
+  .exad-flip-box:hover .top-to-bottom-angle .exad-flip-box-front {
+    opacity: 0;
+  }
+  
+  .exad-flip-box:hover .bottom-to-top-angle {
+    -webkit-transform: rotate3d(1, 1, 0, 180deg);
+            transform: rotate3d(1, 1, 0, 180deg);
+  }
+  
+  .exad-flip-box:hover .bottom-to-top-angle .exad-flip-box-front {
+    opacity: 0;
+  }
+  
+  .exad-flip-box:hover .exad-flip-box-inner.fade-in-out .exad-flip-box-front {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    z-index: 2;
+  }
+  
+  .exad-flip-box:hover .exad-flip-box-inner.fade-in-out .exad-flip-box-back {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    z-index: 3;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner {
+    position: relative;
+    transition: -webkit-transform 0.8s;
+    transition: transform 0.8s;
+    transition: transform 0.8s, -webkit-transform 0.8s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-front {
+    border-radius: 5px;
+    background: #F5F5F5;
+    padding: 30px 20px;
+    transition: all .4s ease;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image {
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 50%;
+   }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    color: #fff;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
+    font-size: 20px;
+    margin: 25px 0;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-description {
+    font-size: 14px;
+    color: #817e7e;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #8168ff;
+    padding: 30px 20px;
+    border-radius: 5px;
+    width: 100%;
+  
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-back i {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-title {
+    font-size: 20px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    margin: 6px auto;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
+    font-size: 14px;
+    color: #fff;
+    margin: 20px 0 30px 0;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
+    font-size: 14px;
+    text-decoration: none;
+    background: #fff;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #FF7F97;
+    transition: all .4s ease;
+    font-family: "Roboto", sans-serif;
+    display: inline-block;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action:hover {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.left-to-right .exad-flip-box-back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.right-to-left .exad-flip-box-back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.top-to-bottom .exad-flip-box-back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.bottom-to-top .exad-flip-box-back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg);
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.top-to-bottom-angle .exad-flip-box-front {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.top-to-bottom-angle .exad-flip-box-back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: rotate3d(1, 1, 0, 180deg);
+            transform: rotate3d(1, 1, 0, 180deg);
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.bottom-to-top-angle .exad-flip-box-front {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.bottom-to-top-angle .exad-flip-box-back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform: rotate3d(1, 1, 0, -180deg);
+            transform: rotate3d(1, 1, 0, -180deg);
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.fade-in-out .exad-flip-box-front {
+    transition: all .8s ease;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  
+  .exad-flip-box .exad-flip-box-inner.fade-in-out .exad-flip-box-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    transition: all .8s ease;
+  }
+  
+  /* Flip Box End */

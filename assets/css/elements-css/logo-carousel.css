@@ -1,0 +1,340 @@
+/* Logo Carousel Style Start */
+
+.exad-logo-carousel.one .exad-logo-carousel-element .exad-logo-carousel-item {
+    position: relative;
+    background: #fff;
+    min-height: 140px;
+    border-radius: 2px;
+    transition: all .3s ease;
+    cursor: pointer;
+    margin: 80px 15px;
+  }
+  
+  .exad-logo-carousel.one .exad-logo-carousel-element .exad-logo-carousel-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  
+  .exad-logo-carousel.one .exad-logo-carousel-element .exad-logo-carousel-item:hover {
+    box-shadow: 0px 12px 22px 0px rgba(18,34,66,0.1);
+  }
+  
+  .exad-logo-carousel.one .slick-dots {
+    width: auto;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 0 10px;
+  }
+  
+  .exad-logo-carousel.one .slick-dots li {
+    list-style: none;
+    float: left;
+    display: inline-table;
+  }
+  
+  .exad-logo-carousel.one .slick-dots li button {
+    width: 10px;
+    height: 10px;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: #DADADA;
+    -webkit-text-fill-color: transparent;
+    transition: .3s ease;
+    padding: 0;
+  }
+  
+  .exad-logo-carousel.one .slick-dots li button:hover {
+    background: #000000;
+  }
+  
+  .exad-logo-carousel.one .slick-dots li:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .exad-logo-carousel.one .slick-dots li.slick-active button {
+    background: #000000;
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .exad-logo-carousel-item {
+    background: #fff;
+    min-height: 140px;
+    position: relative;
+    border-radius: 4px;
+    transition: all .3s ease;
+    box-shadow: 0px 12px 22px 0px rgba(18,34,66,0.1);
+    cursor: pointer;
+    margin: 20px 15px 50px 15px;
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .exad-logo-carousel-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: .3;
+    transition: all .5s ease;
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .exad-logo-carousel-item:hover img {
+    opacity: 1;
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .slick-dots {
+    width: auto;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 0 10px;
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .slick-dots li {
+    list-style: none;
+    float: left;
+    display: inline-table;
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .slick-dots li button {
+    width: 40px;
+    height: 2px;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    -webkit-text-fill-color: transparent;
+    transition: .3s ease;
+    padding: 0;
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .slick-dots li button:hover {
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .slick-dots li:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .exad-logo-carousel.two .exad-logo-carousel-element .slick-dots li.slick-active button {
+  }
+  
+  .exad-logo-carousel.four .exad-logo-carousel-element .exad-logo-carousel-item {
+    position: relative;
+    min-height: 150px;
+    cursor: pointer;
+  }
+  
+  .exad-logo-carousel.four .exad-logo-carousel-element .exad-logo-carousel-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    transition: all .5s ease;
+  }
+  
+  .exad-logo-carousel.four .exad-logo-carousel-element .slick-dots {
+    width: auto;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 0 10px;
+    margin-top: 40px;
+  }
+  
+  .exad-logo-carousel.four .exad-logo-carousel-element .slick-dots li {
+    list-style: none;
+    float: left;
+    display: inline-table;
+  }
+  
+  .exad-logo-carousel.four .exad-logo-carousel-element .slick-dots li button {
+    width: 43px;
+    height: 2px;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    -webkit-text-fill-color: transparent;
+    transition: .3s ease;
+    padding: 0;
+  }
+  
+  .exad-logo-carousel.four .exad-logo-carousel-element .slick-dots li button:hover {
+  }
+  
+  .exad-logo-carousel.four .exad-logo-carousel-element .slick-dots li:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .exad-logo-carousel.four .exad-logo-carousel-element .slick-dots li.slick-active button {
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .exad-logo-carousel-item {
+    position: relative;
+    min-height: 140px;
+    border: 1px solid #E8E8E8;
+    border-radius: 2px;
+    background-color: white;
+    transition: all .3s ease;
+    cursor: pointer;
+    margin: 30px 15px;
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .exad-logo-carousel-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .exad-logo-carousel-item:hover {
+    border: 1px solid #387AFF;
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .slick-dots {
+    width: auto;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 0 10px;
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .slick-dots li {
+    list-style: none;
+    float: left;
+    display: inline-table;
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .slick-dots li button {
+    width: 10px;
+    height: 10px;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    -webkit-text-fill-color: transparent;
+    transition: .3s ease;
+    padding: 0;
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .slick-dots li button:hover {
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .slick-dots li:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .exad-logo-carousel.five .exad-logo-carousel-element .slick-dots li.slick-active button {
+  }
+  
+  .exad-logo-carousel.six .exad-logo-carousel-element .exad-logo-carousel-item {
+    position: relative;
+    min-height: 140px;
+    border: 2px solid #fff;
+    background-color: rgba(0, 0, 0, 0.42);
+    transition: all .3s ease;
+    cursor: pointer;
+    margin: 30px 15px;
+  }
+
+  .exad-logo-carousel.six .exad-logo-carousel-element .exad-logo-carousel-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  
+  .exad-logo-carousel.six .exad-logo-carousel-element .exad-logo-carousel-item:hover {
+    border: 2px solid transparent;
+  }
+  
+  .exad-logo-carousel.six .exad-logo-carousel-element .slick-dots {
+    width: auto;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 0 10px;
+    margin-top: 40px;
+  }
+  
+  .exad-logo-carousel.six .exad-logo-carousel-element .slick-dots li {
+    list-style: none;
+    float: left;
+    display: inline-table;
+  }
+  
+  .exad-logo-carousel.six .exad-logo-carousel-element .slick-dots li button {
+    width: 43px;
+    height: 2px;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    -webkit-text-fill-color: transparent;
+    transition: .3s ease;
+    padding: 0;
+  }
+  
+  .exad-logo-carousel.six .exad-logo-carousel-element .slick-dots li button:hover {
+  }
+  
+  .exad-logo-carousel.six .exad-logo-carousel-element .slick-dots li:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .exad-logo-carousel.six .exad-logo-carousel-element .slick-dots li.slick-active button {
+  }
+  .slick-dots{
+    position: initial;
+  }
+  
+  .exad-logo-carousel-element .exad-logo-carousel-prev, .exad-logo-carousel-element .exad-logo-carousel-next {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    background: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  
+  .exad-logo-carousel-element .exad-logo-carousel-prev i, .exad-logo-carousel-element .exad-logo-carousel-next i {
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: #fff;
+  }
+  
+  .exad-logo-carousel-element .exad-logo-carousel-prev:hover, .exad-logo-carousel-element .exad-logo-carousel-next:hover {
+    background: #fff;
+  }
+  
+  .exad-logo-carousel-element .exad-logo-carousel-prev:hover i, .exad-logo-carousel-element .exad-logo-carousel-next:hover i {
+    color: #000000;
+  }
+  
+  .exad-logo-carousel-element .exad-logo-carousel-prev {
+    z-index: 1;
+    top: 50%;
+    left: -80px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  
+  .exad-logo-carousel-element .exad-logo-carousel-next {
+    z-index: 1;
+    top: 50%;
+    right: -80px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  
+  /* Logo Carousel Style End */

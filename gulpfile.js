@@ -42,7 +42,7 @@ gulp.task('jsconcat', function() {
 });
 
 gulp.task('cssconcat', function() {
-    return gulp.src('./assets/css/elements/*.css')
+    return gulp.src('./assets/css/elements-css/*.css')
       .pipe(concat('exad-styles.css'))
       .pipe(gulp.dest('./assets/css'));
 });

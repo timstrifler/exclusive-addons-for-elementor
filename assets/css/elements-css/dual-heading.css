@@ -1,0 +1,42 @@
+/* Dual heading Start */
+
+.exad-dual-heading .exad-dual-heading-wrapper {
+    padding: 5px;
+  }
+  
+  .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-description{
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+    margin: 30px 0 0 0;
+    padding: 10px;
+  }
+  
+  .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon{
+    font-size: 36px;
+  }
+  
+  .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title{
+    font-size: 36px;
+    margin-top: 10px;
+  }
+  
+  .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a{
+    font-size: 30px;
+    color: #132c47;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a .first-heading,
+  .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a .second-heading{
+    padding: 15px 10px;
+  }
+  
+  .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title span {
+    color: #132c47;
+  }
+  
+  /* Dual heading End */

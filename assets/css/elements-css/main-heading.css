@@ -1,0 +1,104 @@
+/* Exclusive Heading Start */
+
+.exad-exclusive-heading .exad-exclusive-heading-wrapper {
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .exad-exclusive-heading .exad-exclusive-heading-title a {
+    text-decoration: none;
+  }
+  .exad-exclusive-heading .exad-exclusive-heading-title {
+    font-size: 48px;
+    margin: 0 auto 15px auto;
+  }
+  
+  .exad-exclusive-heading .exad-exclusive-heading-description {
+    font-size: 15px;
+    color: #8a8d91;
+    line-height: 26px;
+  }
+  
+  .exad-exclusive-heading .exad-heading-left {
+    text-align: left;
+  }
+  .exad-exclusive-heading .exad-heading-center {
+    text-align: center;
+  }
+  .exad-exclusive-heading .exad-heading-right {
+    text-align: right;
+  }
+  
+  
+  .exad-exclusive-heading.parallax .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
+    background: linear-gradient(90deg, #ff9d4e 0%, #fb5d86 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: "Roboto", sans-serif;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .exad-exclusive-heading.separator .exad-exclusive-heading-wrapper {
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .exad-exclusive-heading.separator .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
+    position: relative;
+  }
+  
+  .exad-exclusive-heading.separator .exad-heading-left .exad-exclusive-heading-title::before {
+    position: absolute;
+    width: 30%;
+    height: 2px;
+    content: '';
+    left: 0;
+    bottom: -20%;
+  }
+  
+  .exad-exclusive-heading.separator .exad-heading-center .exad-exclusive-heading-title::before {
+    position: absolute;
+    width: 20%;
+    height: 2px;
+    content: '';
+    left: 50%;
+    bottom: -20%;
+    -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+  }
+  
+  .exad-exclusive-heading.separator .exad-heading-right .exad-exclusive-heading-title::before {
+    position: absolute;
+    width: 30%;
+    height: 2px;
+    content: '';
+    right: 0;
+    bottom: -20%;
+  }
+  
+  .exad-exclusive-heading.text-as-bg .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .exad-exclusive-heading.text-as-bg .exad-exclusive-heading-wrapper .exad-exclusive-heading-title::before {
+    position: absolute;
+    content: attr(data-content);
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 100%;
+    color: #eaeff3;
+    z-index: -1;
+    letter-spacing: 3px;
+    line-height: 50px;
+  }
+  
+  .exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-heading-icon{
+    font-size: 36px;
+  }
+  
+  /* Exclusive Heading End */
