@@ -1,202 +1,202 @@
 /* Contact Form 7 Start */
 
 .exad-contact-form-7 .wpcf7 {
-    width: 100%;
-  }
-  
-  .exad-contact-form {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 40px;
-    background-color: white;
-    box-shadow: 0px 20px 40px 0px rgba(5, 12, 77, 0.2);
-    position: relative;
-    margin-bottom: 30px;
-  }
-  
-  .exad-contact-form::before {
-    height: 2px;
-    width: 100%;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  .exad-contact-form .exad-contact-form-title {
-    display: block;
-    width: 100%;
-    margin-bottom: 30px;
-    font-size: 30px;
-    color: #132c47;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-  }
-  
+  width: 100%;
+}
+
+.exad-contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0px 20px 40px 0px rgba(5, 12, 77, 0.2);
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.exad-contact-form::before {
+  height: 2px;
+  width: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.exad-contact-form .exad-contact-form-title {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #132c47;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.exad-contact-form .exad-contact-form-input-group {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+@media (max-width: 575px) {
   .exad-contact-form .exad-contact-form-input-group {
     width: 100%;
-    margin-bottom: 20px;
-    position: relative;
   }
-  
-  @media (max-width: 575px) {
-    .exad-contact-form .exad-contact-form-input-group {
-      width: 100%;
-    }
-  }
-  
-  .exad-contact-form-7 input[type="text"], .exad-contact-form-7 input[type="email"], .exad-contact-form-7 input[type="url"], .exad-contact-form-7 input[type="password"], .exad-contact-form-7 input[type="search"], .exad-contact-form-7 input[type="number"], .exad-contact-form-7 input[type="tel"], .exad-contact-form-7 input[type="range"], .exad-contact-form-7 input[type="date"], .exad-contact-form-7 input[type="month"], .exad-contact-form-7 input[type="week"], .exad-contact-form-7 input[type="time"], .exad-contact-form-7 input[type="datetime"], .exad-contact-form-7 input[type="datetime-local"], .exad-contact-form-7 input[type="color"], .exad-contact-form-7 textarea {
-    width: 100%;
-    height: 50px;
-    margin-bottom: 20px;
-  }
-  
-  .exad-contact-form-7 label {
-    display: block;
-  }
-  
-  .exad-contact-form-7 textarea {
-    height: auto;
-  }
-  
-  .exad-contact-form .exad-contact-form-input-group label {
-    display: inline-block;
-    position: relative;
-    margin-right: 20px;
-    margin-top: 20px;
-    padding: 0 0 0 25px;
-  }
-  
-  .exad-contact-form .exad-contact-form-input-group label input {
-    opacity: 0;
-    height: 0;
-    width: 0;
-    position: absolute;
-    cursor: pointer;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-  }
-  
-  .exad-contact-form .exad-contact-form-input-group label input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  .exad-contact-form .exad-contact-form-input-group label input:checked ~ .checkmark {
-    background-color: #4ce2bd;
-    border: none;
-  }
-  
-  /* .exad-contact-form .wpcf7-checkbox input[type="checkbox"] {
-    position: absolute;
-    left: -99999px;
-  }
-  
-  .exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label {
-    display: inline-block;
-    position: relative;
-    margin-right: 20px;
-    margin-top: 20px;
-    padding: 0 0 0 25px;
-    cursor: pointer;
-  }
-  
-  .exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 0;
-    height: 18px;
-    width: 18px;
-    background-color: #ffffff;
-    border: 1px solid #e3e6ec;
-    transition: opacity 0.3s linear,-webkit-transform 0.3s linear;
-    transition: transform 0.3s linear,opacity 0.3s linear;
-    transition: transform 0.3s linear,opacity 0.3s linear,-webkit-transform 0.3s linear;
-  }
-  
-  .exad-contact-form .wpcf7-checkbox input:checked + span.wpcf7-list-item-label::before {
-    background: #36d3ac;
-    border: 1px solid transparent;
-  }
-  
-  .exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label::after {
-    content: "\f00c";
-    font-family: FontAwesome;
-    position: absolute;
-    color: #fff;
-    top: 2px;
-    left: 3px;
-    font-size: 12px;
-    opacity: 0;
-    transition: opacity 0.3s linear,-webkit-transform 0.3s linear;
-    transition: transform 0.3s linear,opacity 0.3s linear;
-    transition: transform 0.3s linear,opacity 0.3s linear,-webkit-transform 0.3s linear;
-  }
-  .exad-contact-form .wpcf7-checkbox input:checked + span.wpcf7-list-item-label::after {
-    opacity: 1;
-  }
-  
-  .exad-contact-form.one .exad-contact-form-input-group-radio input[type="radio"] {
-    position: absolute;
-    left: -99999px;
-  }
-   */
-  .exad-contact-form .exad-contact-form-input-group label .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 18px;
-    width: 18px;
-    background-color: #fff;
-    border: 1px solid #e3e6ec;
-  }
-  
-  .exad-contact-form .exad-contact-form-input-group label .checkmark::after {
-    content: "\f00c";
-    font-family: FontAwesome;
-    position: absolute;
-    display: none;
-    color: #fff;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    font-size: 12px;
-  }
-  
-  .exad-contact-form-7 .wpcf7-form input[type="submit"] {
-    font-family: "Roboto", sans-serif;
-    background-color: #724cff;
-    border-width: 1px;
-    border-radius: 0px 0px 0px 0px;
-    border-style: solid;
-    text-transform: uppercase;
-    -webkit-box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.2);
-    box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.2);
-    transition: all .4s ease;
-  }
-  
-  .exad-contact-form-7 .wpcf7-form input[type="submit"]:hover {
-    background-color: #FFF;
-    color: #724cff;
-    border-color: #724cff;
-  }
-  
-  .exad-contact-form .exad-contact-form-input-action i {
-    margin-left: 10px;
-  }
-  
-  .exad-contact-form .exad-contact-form-input-action:hover {
-    color: #ff9c44;
-    background: #fff;
-    border: 1px solid #ff9c44;
-  }
-  
-  .exad-contact-form.two {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* Contact Form 7 End */
+}
+
+.exad-contact-form-7 input[type="text"], .exad-contact-form-7 input[type="email"], .exad-contact-form-7 input[type="url"], .exad-contact-form-7 input[type="password"], .exad-contact-form-7 input[type="search"], .exad-contact-form-7 input[type="number"], .exad-contact-form-7 input[type="tel"], .exad-contact-form-7 input[type="range"], .exad-contact-form-7 input[type="date"], .exad-contact-form-7 input[type="month"], .exad-contact-form-7 input[type="week"], .exad-contact-form-7 input[type="time"], .exad-contact-form-7 input[type="datetime"], .exad-contact-form-7 input[type="datetime-local"], .exad-contact-form-7 input[type="color"], .exad-contact-form-7 textarea {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.exad-contact-form-7 label {
+  display: block;
+}
+
+.exad-contact-form-7 textarea {
+  height: auto;
+}
+
+.exad-contact-form .exad-contact-form-input-group label {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 0 0 0 25px;
+}
+
+.exad-contact-form .exad-contact-form-input-group label input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+  cursor: pointer;
+  -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.exad-contact-form .exad-contact-form-input-group label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.exad-contact-form .exad-contact-form-input-group label input:checked ~ .checkmark {
+  background-color: #4ce2bd;
+  border: none;
+}
+
+/* .exad-contact-form .wpcf7-checkbox input[type="checkbox"] {
+  position: absolute;
+  left: -99999px;
+}
+
+.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 0 0 0 25px;
+  cursor: pointer;
+}
+
+.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #ffffff;
+  border: 1px solid #e3e6ec;
+  transition: opacity 0.3s linear,-webkit-transform 0.3s linear;
+  transition: transform 0.3s linear,opacity 0.3s linear;
+  transition: transform 0.3s linear,opacity 0.3s linear,-webkit-transform 0.3s linear;
+}
+
+.exad-contact-form .wpcf7-checkbox input:checked + span.wpcf7-list-item-label::before {
+  background: #36d3ac;
+  border: 1px solid transparent;
+}
+
+.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label::after {
+  content: "\f00c";
+  font-family: FontAwesome;
+  position: absolute;
+  color: #fff;
+  top: 2px;
+  left: 3px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s linear,-webkit-transform 0.3s linear;
+  transition: transform 0.3s linear,opacity 0.3s linear;
+  transition: transform 0.3s linear,opacity 0.3s linear,-webkit-transform 0.3s linear;
+}
+.exad-contact-form .wpcf7-checkbox input:checked + span.wpcf7-list-item-label::after {
+  opacity: 1;
+}
+
+.exad-contact-form.one .exad-contact-form-input-group-radio input[type="radio"] {
+  position: absolute;
+  left: -99999px;
+}
+  */
+.exad-contact-form .exad-contact-form-input-group label .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border: 1px solid #e3e6ec;
+}
+
+.exad-contact-form .exad-contact-form-input-group label .checkmark::after {
+  content: "\f00c";
+  font-family: FontAwesome;
+  position: absolute;
+  display: none;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+.exad-contact-form-7 .wpcf7-form input[type="submit"] {
+  font-family: "Roboto", sans-serif;
+  background-color: #724cff;
+  border-width: 1px;
+  border-radius: 0px 0px 0px 0px;
+  border-style: solid;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.2);
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.2);
+  transition: all .4s ease;
+}
+
+.exad-contact-form-7 .wpcf7-form input[type="submit"]:hover {
+  background-color: #FFF;
+  color: #724cff;
+  border-color: #724cff;
+}
+
+.exad-contact-form .exad-contact-form-input-action i {
+  margin-left: 10px;
+}
+
+.exad-contact-form .exad-contact-form-input-action:hover {
+  color: #ff9c44;
+  background: #fff;
+  border: 1px solid #ff9c44;
+}
+
+.exad-contact-form.two {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Contact Form 7 End */

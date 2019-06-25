@@ -1,383 +1,383 @@
 /* Countdown Timer Start */
 .exad-countdown-timer-area {
-    background-color: #724cff;
-  }
-  
-  .exad-countdown-timer-area.transparent-version {
-    background-color: transparent;
-  }
-  
-  .exad-countdown-timer-area.image-version {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
-  
-  .exad-countdown-description {
-    text-align: center;
-    margin-bottom: 90px;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .exad-countdown-description h2 {
-    font-size: 40px;
-    color: #0a1724;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    margin-bottom: 23px;
-    position: relative;
-  }
-  
+  background-color: #724cff;
+}
+
+.exad-countdown-timer-area.transparent-version {
+  background-color: transparent;
+}
+
+.exad-countdown-timer-area.image-version {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.exad-countdown-description {
+  text-align: center;
+  margin-bottom: 90px;
+  position: relative;
+  z-index: 2;
+}
+
+.exad-countdown-description h2 {
+  font-size: 40px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin-bottom: 23px;
+  position: relative;
+}
+
+.exad-countdown-description p {
+  margin-bottom: 0;
+  padding: 0 300px;
+}
+
+.exad-countdown-description.style-1 {
+  color: #fff;
+}
+
+.exad-countdown-description.style-1 h2 {
+  color: #fff;
+}
+
+.exad-countdown-description.two {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.exad-countdown-description.two h2 {
+  padding-bottom: 23px;
+}
+
+.exad-countdown-description.two h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 143px;
+  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+  background: #ff704e;
+  background: linear-gradient(90deg, #ff704e 1%, #fb5d86 100%);
+}
+
+.exad-countdown-description.two p {
+  padding: 0;
+  color: #000;
+  padding-right: 120px;
+}
+
+.exad-countdown {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.exad-countdown.style-1 .exad-countdown-container {
+  background: #8168ff;
+  width: calc((100% / 4) - 23px);
+  padding: 17px 10px;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.exad-countdown .exad-countdown-container:last-child {
+  margin-right: 0px;
+}
+
+.exad-countdown .exad-countdown-container > span {
+  display: block;
+  line-height: 1;
+}
+
+.exad-countdown .exad-countdown-count {
+  margin-bottom: 16px;
+}
+
+.exad-countdown.style-1 .exad-countdown-count,
+.exad-countdown.style-1 .exad-countdown-title {
+  color: #fff;
+}
+
+.exad-countdown.style-2 {
+  padding: 20px;
+}
+
+.exad-countdown.style-2 .exad-countdown-container {
+  background-color: transparent;
+  margin-right: 0px;
+  width: 25%;
+  padding: 0px;
+}
+
+.exad-countdown.style-2 .exad-countdown-container:last-child .exad-countdown-count::after {
+  display: none;
+}
+
+.exad-countdown.style-2 .exad-countdown-count {
+  position: relative;
+}
+
+.exad-countdown.style-2 .exad-countdown-count::after {
+  content: ":";
+  font-family: "Roboto", sans-serif;
+  font-size: 80px;
+  font-weight: 100;
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 70px;
+}
+
+.exad-countdown .exad-countdown-count {
+  font-family: "Roboto", sans-serif;
+  font-size: 80px;
+  color: #000;
+  text-align: center;
+}
+
+.exad-countdown .exad-countdown-title {
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  text-align: center;
+}
+
+.exad-countdown-content-container.gradient-version {
+  background: #ff876b;
+  background: linear-gradient(-120deg, #ff876b 1%, #ff7e9f 100%);
+  text-align: center;
+  position: relative;
+  padding-top: 104px;
+  padding-bottom: 74px;
+  padding-left: 55px;
+  padding-right: 55px;
+  color: #fff;
+}
+
+.exad-countdown-content-container.gradient-version .exad-countdown-description {
+  margin-bottom: 116px;
+}
+
+.exad-countdown-content-container.gradient-version .exad-countdown-description h2 {
+  font-size: 100px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sup,
+.exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sub {
+  font-size: 30px;
+}
+
+.exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sub {
+  bottom: -45px;
+  left: -30px;
+}
+
+.exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sup {
+  vertical-align: top;
+  left: 42px;
+}
+
+.exad-countdown-content-container.gradient-version .exad-countdoen-watermark {
+  opacity: .1;
+  top: -51px;
+}
+
+.exad-countdown-content-container.gradient-version .exad-countdown-offer-limitation-title {
+  margin-bottom: 11px;
+}
+
+.exad-coundown-bg > svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.exad-coundown-bg > svg > path {
+  fill: rgba(255, 255, 255, 0.078);
+}
+
+.exad-countdoen-watermark {
+  font-size: 200px;
+  color: inherit;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  font-weight: 700;
+}
+
+.exad-countdown-offer-limitation-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 38px;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+.message {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.exad-countdown-banner {
+  padding: 194px 0;
+}
+
+.exad-countdown-banner .exad-countdown-description {
+  margin-bottom: 117px;
+}
+
+
+@media (max-width: 1200px) {
   .exad-countdown-description p {
-    margin-bottom: 0;
-    padding: 0 300px;
+    padding: 0 150px;
   }
-  
-  .exad-countdown-description.style-1 {
-    color: #fff;
+  .exad-countdown-content-container.modern {
+    padding: 15px 15px;
   }
-  
-  .exad-countdown-description.style-1 h2 {
-    color: #fff;
+  .exad-countdown-content-container.image-version {
+    padding: 15px;
   }
-  
+  .exad-countdown-content-container.image-version .exad-countdown-description {
+    margin-bottom: 70px;
+  }
+  .exad-countdown-content-container.gradient-version {
+    padding-top: 78px;
+    padding-bottom: 34px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .exad-countdown-content-container.gradient-version .exad-countdown-description {
+    margin-bottom: 54px;
+  }
+  .exad-countdown-content-container.gradient-version .exad-countdown-description h2 {
+    font-size: 70px;
+  }
+  .exad-countdown.three .exad-countdown-container .exad-countdown-count, .exad-countdown.four .exad-countdown-container .exad-countdown-count {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .exad-countdown-description p {
+    padding: 0 20px;
+  }
   .exad-countdown-description.two {
-    text-align: left;
-    margin-bottom: 0;
+    margin-bottom: 30px;
   }
-  
-  .exad-countdown-description.two h2 {
-    padding-bottom: 23px;
-  }
-  
-  .exad-countdown-description.two h2::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    width: 143px;
-    box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
-    background: #ff704e;
-    background: linear-gradient(90deg, #ff704e 1%, #fb5d86 100%);
-  }
-  
-  .exad-countdown-description.two p {
-    padding: 0;
-    color: #000;
-    padding-right: 120px;
-  }
-  
-  .exad-countdown {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .exad-countdown.style-1 .exad-countdown-container {
-    background: #8168ff;
-    width: calc((100% / 4) - 23px);
-    padding: 17px 10px;
-    margin-right: 30px;
-    text-align: center;
-  }
-  
-  .exad-countdown .exad-countdown-container:last-child {
-    margin-right: 0px;
-  }
-  
-  .exad-countdown .exad-countdown-container > span {
-    display: block;
-    line-height: 1;
-  }
-  
-  .exad-countdown .exad-countdown-count {
-    margin-bottom: 16px;
-  }
-  
-  .exad-countdown.style-1 .exad-countdown-count,
-  .exad-countdown.style-1 .exad-countdown-title {
-    color: #fff;
-  }
-  
   .exad-countdown.style-2 {
-    padding: 20px;
-  }
-  
-  .exad-countdown.style-2 .exad-countdown-container {
-    background-color: transparent;
-    margin-right: 0px;
-    width: 25%;
     padding: 0px;
   }
-  
-  .exad-countdown.style-2 .exad-countdown-container:last-child .exad-countdown-count::after {
+  .exad-countdown-content-container.image-version {
+    margin-bottom: 30px;
+  }
+  .exad-coundown-bg > svg,
+  .exad-countdoen-watermark {
     display: none;
   }
-  
-  .exad-countdown.style-2 .exad-countdown-count {
-    position: relative;
-  }
-  
-  .exad-countdown.style-2 .exad-countdown-count::after {
-    content: ":";
-    font-family: "Roboto", sans-serif;
-    font-size: 80px;
-    font-weight: 100;
-    position: absolute;
-    right: 0;
+  .exad-countdown.style-3 .label {
+    margin-top: 0;
     top: 0;
-    line-height: 70px;
+    color: white;
+    z-index: 10;
   }
-  
+}
+
+@media (max-width: 767px) {
+  .exad-countdown .exad-countdown-container {
+    width: calc((100% / 2) - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    padding: 23px 10px;
+  }
+  .exad-countdown .exad-countdown-container.gradient-version, .exad-countdown .exad-countdown-container.image-version, .exad-countdown .exad-countdown-container.modern {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .exad-countdown.style-2 .exad-countdown-count::after {
+    display: none;
+  }
+  .exad-countdown.style-2 .exad-countdown-container, .exad-countdown.three .exad-countdown-container, .exad-countdown.four .exad-countdown-container, .exad-countdown.five .exad-countdown-container {
+    width: calc((100% / 2) - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+  }
   .exad-countdown .exad-countdown-count {
     font-family: "Roboto", sans-serif;
-    font-size: 80px;
-    color: #000;
-    text-align: center;
+    font-size: 40px;
   }
-  
-  .exad-countdown .exad-countdown-title {
-    font-family: "Roboto", sans-serif;
-    color: #0a1724;
-    text-align: center;
+  .exad-countdown.style-3 .time {
+    margin-left: 0;
+    margin-bottom: 5px;
   }
-  
+}
+
+@media (max-width: 400px) {
+  .exad-countdown-banner {
+    padding: 97px 0;
+  }
+  .exad-countdown-banner .exad-countdown-description {
+    margin-bottom: 58.5px;
+  }
+  .exad-countdown-description.two p {
+    padding-right: 0px;
+  }
   .exad-countdown-content-container.gradient-version {
-    background: #ff876b;
-    background: linear-gradient(-120deg, #ff876b 1%, #ff7e9f 100%);
-    text-align: center;
-    position: relative;
-    padding-top: 104px;
-    padding-bottom: 74px;
-    padding-left: 55px;
-    padding-right: 55px;
-    color: #fff;
+    padding-top: 52px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  
   .exad-countdown-content-container.gradient-version .exad-countdown-description {
-    margin-bottom: 116px;
+    margin-bottom: 30px;
   }
-  
   .exad-countdown-content-container.gradient-version .exad-countdown-description h2 {
-    font-size: 100px;
-    font-weight: 700;
-    color: #fff;
+    font-size: 20px;
   }
-  
-  .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sup,
-  .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sub {
-    font-size: 30px;
-  }
-  
-  .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sub {
-    bottom: -45px;
-    left: -30px;
-  }
-  
   .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sup {
-    vertical-align: top;
-    left: 42px;
+    vertical-align: baseline;
+    left: 0;
+    top: 0;
   }
-  
-  .exad-countdown-content-container.gradient-version .exad-countdoen-watermark {
-    opacity: .1;
-    top: -51px;
-  }
-  
-  .exad-countdown-content-container.gradient-version .exad-countdown-offer-limitation-title {
-    margin-bottom: 11px;
-  }
-  
-  .exad-coundown-bg > svg {
-    position: absolute;
+  .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sub {
     bottom: 0;
     left: 0;
-    pointer-events: none;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
   }
-  
-  .exad-coundown-bg > svg > path {
-    fill: rgba(255, 255, 255, 0.078);
+  .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sub,
+  .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sup {
+    font-size: inherit;
   }
-  
-  .exad-countdoen-watermark {
-    font-size: 200px;
-    color: inherit;
-    line-height: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: block;
-    font-weight: 700;
+  .exad-countdown-content-container.image-version {
+    padding: 15px;
   }
-  
-  .exad-countdown-offer-limitation-title {
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff;
-    margin-bottom: 38px;
-    font-family: "Roboto", sans-serif;
-    position: relative;
-    z-index: 2;
+  .exad-countdown-content-container.image-version .exad-countdown-description {
+    margin-bottom: 30px;
   }
-  
-  .message {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 700;
-    width: 100%;
-    margin-bottom: 0;
+  .exad-countdown-content-container.image-version .exad-countdown-description p {
+    padding: 0px;
   }
-  
-  .exad-countdown-banner {
-    padding: 194px 0;
+  .exad-countdown-content-container.modern {
+    padding: 15px;
   }
-  
-  .exad-countdown-banner .exad-countdown-description {
-    margin-bottom: 117px;
-  }
-  
-  
-  @media (max-width: 1200px) {
-    .exad-countdown-description p {
-      padding: 0 150px;
-    }
-    .exad-countdown-content-container.modern {
-      padding: 15px 15px;
-    }
-    .exad-countdown-content-container.image-version {
-      padding: 15px;
-    }
-    .exad-countdown-content-container.image-version .exad-countdown-description {
-      margin-bottom: 70px;
-    }
-    .exad-countdown-content-container.gradient-version {
-      padding-top: 78px;
-      padding-bottom: 34px;
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    .exad-countdown-content-container.gradient-version .exad-countdown-description {
-      margin-bottom: 54px;
-    }
-    .exad-countdown-content-container.gradient-version .exad-countdown-description h2 {
-      font-size: 70px;
-    }
-    .exad-countdown.three .exad-countdown-container .exad-countdown-count, .exad-countdown.four .exad-countdown-container .exad-countdown-count {
-      font-size: 30px;
-    }
-  }
-  
-  @media (max-width: 991px) {
-    .exad-countdown-description p {
-      padding: 0 20px;
-    }
-    .exad-countdown-description.two {
-      margin-bottom: 30px;
-    }
-    .exad-countdown.style-2 {
-      padding: 0px;
-    }
-    .exad-countdown-content-container.image-version {
-      margin-bottom: 30px;
-    }
-    .exad-coundown-bg > svg,
-    .exad-countdoen-watermark {
-      display: none;
-    }
-    .exad-countdown.style-3 .label {
-      margin-top: 0;
-      top: 0;
-      color: white;
-      z-index: 10;
-    }
-  }
-  
-  @media (max-width: 767px) {
-    .exad-countdown .exad-countdown-container {
-      width: calc((100% / 2) - 20px);
-      margin-right: 10px;
-      margin-left: 10px;
-      margin-bottom: 20px;
-      padding: 23px 10px;
-    }
-    .exad-countdown .exad-countdown-container.gradient-version, .exad-countdown .exad-countdown-container.image-version, .exad-countdown .exad-countdown-container.modern {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    .exad-countdown.style-2 .exad-countdown-count::after {
-      display: none;
-    }
-    .exad-countdown.style-2 .exad-countdown-container, .exad-countdown.three .exad-countdown-container, .exad-countdown.four .exad-countdown-container, .exad-countdown.five .exad-countdown-container {
-      width: calc((100% / 2) - 20px);
-      margin-right: 10px;
-      margin-left: 10px;
-    }
-    .exad-countdown .exad-countdown-count {
-      font-family: "Roboto", sans-serif;
-      font-size: 40px;
-    }
-    .exad-countdown.style-3 .time {
-      margin-left: 0;
-      margin-bottom: 5px;
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .exad-countdown-banner {
-      padding: 97px 0;
-    }
-    .exad-countdown-banner .exad-countdown-description {
-      margin-bottom: 58.5px;
-    }
-    .exad-countdown-description.two p {
-      padding-right: 0px;
-    }
-    .exad-countdown-content-container.gradient-version {
-      padding-top: 52px;
-      padding-bottom: 30px;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-    .exad-countdown-content-container.gradient-version .exad-countdown-description {
-      margin-bottom: 30px;
-    }
-    .exad-countdown-content-container.gradient-version .exad-countdown-description h2 {
-      font-size: 20px;
-    }
-    .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sup {
-      vertical-align: baseline;
-      left: 0;
-      top: 0;
-    }
-    .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sub {
-      bottom: 0;
-      left: 0;
-    }
-    .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sub,
-    .exad-countdown-content-container.gradient-version .exad-countdown-description h2 > sup {
-      font-size: inherit;
-    }
-    .exad-countdown-content-container.image-version {
-      padding: 15px;
-    }
-    .exad-countdown-content-container.image-version .exad-countdown-description {
-      margin-bottom: 30px;
-    }
-    .exad-countdown-content-container.image-version .exad-countdown-description p {
-      padding: 0px;
-    }
-    .exad-countdown-content-container.modern {
-      padding: 15px;
-    }
-  }
-  
-  /* Countdown Timer End */
+}
+
+/* Countdown Timer End */

@@ -1,20 +1,20 @@
 /* Logo Box style start */
 
 .exad-logo .exad-logo-item {
-    position: relative;
-    border-radius: 2px;
-    transition: all .3s ease;
-    cursor: pointer;
-    text-align: center;
-  }
+  position: relative;
+  border-radius: 2px;
+  transition: all .3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.exad-logo .exad-logo-item img {
+  vertical-align: middle;
+}  
+
+
+.exad-logo .exad-logo-item:hover {
   
-  .exad-logo .exad-logo-item img {
-    vertical-align: middle;
-  }  
-  
-  
-  .exad-logo .exad-logo-item:hover {
-    
-  }
-  
-  /* Logo Box style end */
+}
+
+/* Logo Box style end */

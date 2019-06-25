@@ -47,43 +47,7 @@ gulp.task('cssconcat', function() {
       .pipe(gulp.dest('./assets/css'));
 });
 
-/**
- * We're using PostCSS.
- *
- * This autoprefixes and minifies all unminified
- * CSS files, and adds font-family properties
- * to all rules that contain object-fit,
- * required by object-fit-images
- * plugin, a polyfil for
- * object-fit for IE
- */
-// gulp.task('cssmin', function () {
-//     var plugins = [
-//         autoprefixer({
-//             browsers: [
-//                 'last 2 versions',
-//                 '> 1%',
-//                 'ie >= 9',
-//                 'Edge >= 14'
-//             ],
-//             cascade: false,
-//         }),
-//         objectfit(),
-//         cssnano({ zindex: false })
-//     ];
 
-//     return gulp.src([
-//             './admin/assets/css/*.css',
-//             './assets/css/*.css'
-//         ])
-//         .pipe(rename(function (path) {
-//             path.extname = ".min.css"
-//         }))
-//         .pipe(gulp.dest(function(file) {
-//             return file.base;
-//         }));
-        
-// });
 
 // Css Minimy
 gulp.task('cssmin', function() {
@@ -106,8 +70,8 @@ gulp.task('cssmin', function() {
  */
 gulp.task('jsmin', function () {
     return gulp.src([
-        'admin/assets/**/*.js',
-        'assets/**/*.js'
+        'admin/assets/js/*.js',
+        'assets/js/*.js'
         ])
         .pipe(uglify())
         .pipe(rename(function (path) {

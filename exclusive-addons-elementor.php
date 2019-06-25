@@ -255,8 +255,7 @@ final class Exclusive_Addons_Elementor {
 	public function exad_enqueue_scripts() {
 
 		$is_activated_widget = $this->activated_widgets();
-		// image comparision plugin twentytwenty css
-		wp_enqueue_style( 'exad-image-comparision-style', EXAD_URL . 'assets/css/twentytwenty.css' );
+		
 		// Main Styles
 		wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
 		
