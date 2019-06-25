@@ -23,7 +23,7 @@ var gulp = require('gulp');
 //var pjson = require('./package.json');
 var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
-var cssnano = require('cssnano');
+var cssnano = require('gulp-cssnano');
 var objectfit = require('postcss-object-fit-images');
 var zip = require('gulp-zip');
 var rename = require('gulp-rename');
@@ -57,34 +57,48 @@ gulp.task('cssconcat', function() {
  * plugin, a polyfil for
  * object-fit for IE
  */
-gulp.task('cssmin', function () {
-    var plugins = [
-        autoprefixer({
-            browsers: [
-                'last 2 versions',
-                '> 1%',
-                'ie >= 9',
-                'Edge >= 14'
-            ],
-            cascade: false,
-        }),
-        objectfit(),
-        cssnano({ zindex: false })
-    ];
+// gulp.task('cssmin', function () {
+//     var plugins = [
+//         autoprefixer({
+//             browsers: [
+//                 'last 2 versions',
+//                 '> 1%',
+//                 'ie >= 9',
+//                 'Edge >= 14'
+//             ],
+//             cascade: false,
+//         }),
+//         objectfit(),
+//         cssnano({ zindex: false })
+//     ];
 
+//     return gulp.src([
+//             './admin/assets/css/*.css',
+//             './assets/css/*.css'
+//         ])
+//         .pipe(rename(function (path) {
+//             path.extname = ".min.css"
+//         }))
+//         .pipe(gulp.dest(function(file) {
+//             return file.base;
+//         }));
+        
+// });
+
+// Css Minimy
+gulp.task('cssmin', function() {
     return gulp.src([
-            './admin/assets/css/*.css',
-            './assets/css/*.css'
+        './admin/assets/css/*.css',
+        './assets/css/*.css'
         ])
+        .pipe(cssnano())
         .pipe(rename(function (path) {
             path.extname = ".min.css"
         }))
         .pipe(gulp.dest(function(file) {
             return file.base;
         }));
-        
 });
-
 
 /**
  * Minifies all unminified javascript files,
