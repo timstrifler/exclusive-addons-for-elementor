@@ -271,8 +271,6 @@ class Exad_Modal_Popup extends Widget_Base {
 						'photo'     => __( 'Image', 'exclusive-addons-elementor' ),
 						'text'      => __( 'Text', 'exclusive-addons-elementor' ),
 						'button'    => __( 'Button', 'exclusive-addons-elementor' ),
-						'custom'    => __( 'Custom Class', 'exclusive-addons-elementor' ),
-						'custom_id' => __( 'Custom ID', 'exclusive-addons-elementor' ),
 						'automatic' => __( 'Automatic', 'exclusive-addons-elementor' ),
 					],
 				]
@@ -907,14 +905,21 @@ class Exad_Modal_Popup extends Widget_Base {
 		
 		<div class="exad-modal one">
           	<div class="exad-modal-wrapper">
+
             	<div class="exad-modal-button">
               		<a href="#" <?php echo $this->get_render_attribute_string('exad_modal_action'); ?>>
-									<?php if( $settings['exad_modal_btn_icon_align'] === 'left' ) { ?>
-                		<span ><i class="exad-modal-action-left-icon <?php echo esc_attr( $settings['exad_modal_btn_icon'] ); ?>"></i><?php echo esc_attr( $settings['exad_modal_btn_text'] ); ?></span>
-									<?php } ?>
-									<?php if( $settings['exad_modal_btn_icon_align'] === 'right' ) { ?>
-                		<span><?php echo esc_attr( $settings['exad_modal_btn_text'] ); ?><i class="exad-modal-action-right-icon <?php echo esc_attr( $settings['exad_modal_btn_icon'] ); ?>"></i></span>
-									<?php } ?>
+							<?php if( $settings['exad_modal_btn_icon_align'] === 'left' ) { ?>
+                		<span>
+							<i class="exad-modal-action-left-icon <?php echo esc_attr( $settings['exad_modal_btn_icon'] ); ?>"></i>
+							<?php echo esc_attr( $settings['exad_modal_btn_text'] ); ?>
+						</span>
+							<?php } ?>
+							<?php if( $settings['exad_modal_btn_icon_align'] === 'right' ) { ?>
+                		<span>
+							<?php echo esc_attr( $settings['exad_modal_btn_text'] ); ?>
+							<i class="exad-modal-action-right-icon <?php echo esc_attr( $settings['exad_modal_btn_icon'] ); ?>"></i
+						></span>
+							<?php } ?>
               		</a>
             	</div>
 			

@@ -47,7 +47,6 @@
 .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span {
   display: block;
   font-size: 20px;
-  color: #fff;
 }
 
 .exad-modal-item.youtube-modal {
@@ -1462,7 +1461,6 @@
 .exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span {
   display: block;
   font-size: 20px;
-  /* color: #fff; */
 }
 
 .exad-modal.one .exad-modal-wrapper .exad-modal-item.youtube-modal {
@@ -2570,7 +2568,7 @@
 } */
 
 .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span{
-  color: #fff;
+  color: #D6D6D6;
 }
 .exad-modal-item .exad-modal-content .exad-modal-element iframe{
   display: block;
@@ -2599,6 +2597,5 @@
   margin: 0;
   font-size: 15px;
 }
-
 
 /* Modal Style End */

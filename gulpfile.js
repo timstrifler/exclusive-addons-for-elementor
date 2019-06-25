@@ -20,7 +20,6 @@
  */
 
 var gulp = require('gulp');
-//var pjson = require('./package.json');
 var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
 var cssnano = require('gulp-cssnano');
