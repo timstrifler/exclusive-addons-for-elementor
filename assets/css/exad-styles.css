@@ -7801,6 +7801,8 @@ text-align: right;
   }
 }
 /* Post Timeline End */
+
+
 /* Pricing Menu Start */
 
 .pricing-list-background {
@@ -7852,6 +7854,10 @@ text-align: right;
   }
 }
 
+.exad-pricing-list {
+  font-family: "Roboto", sans-serif;
+}
+
 .exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item {
   display: flex;
   margin: 0 20px;
@@ -7886,14 +7892,11 @@ text-align: right;
   text-decoration: none;
   transition: all .3s ease;
   font-weight: 600;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   text-decoration: none;
 }
 
-.exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
-  margin: 20px 0 0 0;
-  line-height: 26px;
-}
 
 .exad-pricing-list.two .exad-pricing-list-wrapper {
   margin: 0 10px;
@@ -8455,15 +8458,9 @@ text-align: right;
   width: calc(100% - 100px);
 }
 
-.exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title {
-  text-decoration: none;
-  transition: all .3s ease;
-  font-weight: 600;
-  margin: 0;
-  text-decoration: none;
-}
 
-.exad-pricing-list.one .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
+.exad-pricing-list .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
+  font-size: 15px;
   margin: 20px 0 0 0;
   line-height: 26px;
 }
@@ -8499,14 +8496,6 @@ text-align: right;
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content {
   padding: 0 30px;
   width: calc(100% - 150px);
-}
-
-.exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-title {
-  text-decoration: none;
-  transition: all .3s ease;
-  font-weight: 600;
-  margin: 0;
-  text-decoration: none;
 }
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description {
