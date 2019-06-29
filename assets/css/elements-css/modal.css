@@ -1064,7 +1064,7 @@
   display: block;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action {
+.exad-modal-button .exad-modal-image-action {
   display: inline-block;
   padding: 20px;
   text-transform: uppercase;
@@ -1072,20 +1072,50 @@
   font-size: 15px;
   transition: all .3s ease;
   font-family: "Roboto", sans-serif;
+  position: relative;
+  border: 1px solid #222222;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn {
+.exad-modal-button .exad-modal-image-action::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  transition: all .3s ease;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.exad-modal-button .exad-modal-image-action:hover {
+  color: #000000;
+}
+
+.exad-modal-button .exad-modal-image-action:hover::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+}
+
+
+
+/* .exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn {
   background: #00BAF0;
   color: #fff;
   border: 1px solid transparent;
-}
+} */
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn span {
+/* .exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn span {
   margin-right: 10px;
   font-size: 20px;
-}
+} */
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn:hover {
+/* .exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn:hover {
   background: #fff;
   color: #00BAF0;
   border: 1px solid #00BAF0;
@@ -1354,7 +1384,7 @@
   background: #fff;
   color: #654cff;
   border: 1px solid #654cff;
-}
+} */
 
 .exad-modal.one .exad-modal-wrapper .exad-modal-item {
   position: fixed;
@@ -2576,13 +2606,13 @@
 .exad-modal-item .exad-modal-content .exad-modal-element img{
   display: block;
 }
-.exad-modal-button .exad-modal-image-action{
+/* .exad-modal-button .exad-modal-image-action{
   text-align: center;
   display: inline-block;
   padding: 20px;
   text-transform: uppercase;
   text-decoration: none;
-}
+} */
 
 
 .exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-body {
@@ -2599,3 +2629,33 @@
 }
 
 /* Modal Style End */
+
+.exad-button-wrapper.effect-3 .exad-button-action i {
+  margin-right: 10px;
+}
+
+.exad-button-wrapper.effect-3 .exad-button-action::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  transition: all .3s ease;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.exad-button-wrapper.effect-3 .exad-button-action:hover {
+  color: #000000;
+}
+
+.exad-button-wrapper.effect-3 .exad-button-action:hover::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+}
