@@ -198,7 +198,7 @@ final class Exclusive_Addons_Elementor {
 		
 		add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'exad_plugin_settings_action' ) );
 		// Enqueue Styles and Scripts
-		add_action( 'wp_enqueue_scripts', array( $this, 'exad_enqueue_scripts' ), 20 );
+		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'exad_enqueue_scripts' ), 20 );
 		// Elementor Editor Styles
 		add_action( 'elementor/editor/after_enqueue_styles', array( $this, 'exad_editor_styles' ) );
 		// Add Elementor Widgets
@@ -273,7 +273,7 @@ final class Exclusive_Addons_Elementor {
 		
 		if ( $is_activated_widget['countdown-timer'] ) {
 			// jQuery Countdown Js
-			wp_enqueue_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
 		}
 
 		if ( $is_activated_widget['image-comparison'] ) {
