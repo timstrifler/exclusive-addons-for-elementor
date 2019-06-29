@@ -564,12 +564,9 @@ class Exad_Team_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#f5f5f5',
+				'default' => '#a4a7aa',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a i' => 'color: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_team_carousel_preset' => '-social-left',
+					'{{WRAPPER}} .exad-team-carousel-wrapper .exad-team-member-social li a i' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -585,7 +582,7 @@ class Exad_Team_Carousel extends Widget_Base {
 			[
 				'label' => esc_html__( 'Hover Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#ff6d55',
+				'default' => '#917cff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
 				],
@@ -596,17 +593,14 @@ class Exad_Team_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_team_carousel_social_Hover_color_icon',
+			'exad_team_carousel_social_hover_color_icon',
 			[
 				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#f5f5f5',
+				'default' => '#8a8d91',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover i' => 'color: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_team_carousel_preset' => '-social-left',
-				],
+					'{{WRAPPER}} .exad-team-carousel-wrapper .exad-team-member-social li a:hover i' => 'color: {{VALUE}};',
+				]
 			]
 		);
 		
