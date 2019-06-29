@@ -4643,48 +4643,11 @@
   width: 100%;
 }
 
-.exad-modal-item.image-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.exad-modal-item.image-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  display: block;
-  font-size: 20px;
-  color: #fff;
-}
-
 .exad-modal-item.external-page-modal {
   opacity: 0;
   -webkit-transform: translate(-70%, -50%);
           transform: translate(-70%, -50%);
   transition: all .3s ease;
-}
-
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  background: #000000;
-  display: block;
-  border-radius: 100%;
-  color: #fff;
-}
-
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.image-gallery-modal {
@@ -4710,30 +4673,6 @@
 .exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element img {
   width: 33%;
   padding: 15px;
-}
-
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  background: #000000;
-  display: block;
-  border-radius: 100%;
-  color: #fff;
-}
-
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.content-only-modal {
@@ -4768,30 +4707,6 @@
   color: #1b1b1b;
   margin: 25px 0 0 0;
   font-size: 15px;
-}
-
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.content-modal {
@@ -4891,30 +4806,6 @@
   border: 1px solid #ffb561;
 }
 
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #2ED8E3;
-}
-
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
-}
-
 .exad-modal-item.image-content-modal {
   width: 35%;
   display: none;
@@ -4954,30 +4845,6 @@
   font-size: 15px;
 }
 
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .exad-modal-item.gallery-text-modal {
   width: 50%;
   height: auto;
@@ -4996,62 +4863,38 @@
   transition: all .3s ease;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element {
+.exad-modal-item .exad-modal-content .exad-modal-element {
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card {
   width: 33%;
   padding: 15px;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card img {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card img {
   width: 100%;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body {
   padding: 20px 0 0 0;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body h5 {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body h5 {
   margin: 0;
   font-family: "Roboto", sans-serif;
   color: #000000;
   font-size: 20px;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body p {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body p {
   font-family: "Roboto", sans-serif;
   color: #222222;
   font-size: 15px;
   margin: 10px 0 0 0;
   line-height: 26px;
-}
-
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #000000;
-  color: #fff;
-}
-
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.saved-section-modal {
@@ -5145,30 +4988,6 @@
   color: #fb5d86;
 }
 
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #25decf;
-}
-
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .exad-modal-item.saved-widget-modal {
   width: 40%;
   height: auto;
@@ -5242,30 +5061,6 @@
   border: 1px solid #ff9c44;
 }
 
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .exad-modal-item.normal-image-modal {
   width: 50%;
   height: auto;
@@ -5286,30 +5081,6 @@
 .exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element img {
   width: 100%;
   height: 100%;
-}
-
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.image-border-modal {
@@ -5338,30 +5109,6 @@
 .exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element img {
   width: 100%;
   height: 100%;
-}
-
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.custome-background-modal {
@@ -5397,30 +5144,6 @@
   height: 100%;
 }
 
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .exad-modal-item.no-overlay-modal {
   width: 50%;
   height: auto;
@@ -5449,29 +5172,6 @@
   height: 100%;
 }
 
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
 
 .exad-modal-item.active.modal-vimeo {
   opacity: 1;

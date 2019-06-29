@@ -338,33 +338,33 @@
   transition: all .3s ease;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element {
+.exad-modal-item .exad-modal-content .exad-modal-element {
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card {
   width: 33%;
   padding: 15px;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card img {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card img {
   width: 100%;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body {
   padding: 20px 0 0 0;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body h5 {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body h5 {
   margin: 0;
   font-family: "Roboto", sans-serif;
   color: #000000;
   font-size: 20px;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body p {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body p {
   font-family: "Roboto", sans-serif;
   color: #222222;
   font-size: 15px;
