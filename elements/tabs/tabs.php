@@ -10,7 +10,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Exclusive Tabs', 'exclusive-addons-elementor' );
+		return esc_html__( 'Tabs', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {
