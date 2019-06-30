@@ -238,7 +238,6 @@ final class Exclusive_Addons_Elementor {
 		return $links;
 	}
 
-
 	/**
 	 * 
 	 * Enqueue Elementor Editor Styles
@@ -444,10 +443,10 @@ final class Exclusive_Addons_Elementor {
 			if ( $activated_widgets[$widget] == true ) {
 				if ( $widget == 'contact-form-7' ) {
 					if ( function_exists( 'wpcf7' ) ) {
-						require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+						include_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
 					}	
 				} else {
-					require_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+					include_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
 				}
 			}
 		}
