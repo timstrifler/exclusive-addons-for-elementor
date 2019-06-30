@@ -21,6 +21,10 @@ class Exad_Google_Map extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
+	public function get_script_depends() {
+		return [ 'exad-google-map-api', 'exad-gmap3' ];
+	}
+
 	protected function _register_controls() {
 		/**
   		 * Google Map General Settings

@@ -18,7 +18,7 @@ class Exad_Progress_Bar extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'elementor-waypoints', 'exad-progress-bar' ];
+		return [ 'exad-waypoints', 'exad-progress-bar' ];
 	}
 
 	protected function _register_controls() {

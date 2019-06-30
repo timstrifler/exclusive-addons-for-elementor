@@ -18,6 +18,10 @@ class Exad_image_comparison extends Widget_Base {
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
     }
+
+    public function get_script_depends() {
+		return [ 'exad-image-comparison', 'exad-image-comparison-event' ];
+	}
     
 	protected function _register_controls() {
     /*

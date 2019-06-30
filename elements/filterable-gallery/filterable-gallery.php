@@ -28,9 +28,7 @@ class Exad_Filterable_Gallery extends Widget_Base
 
     public function get_script_depends()
     {
-        return [
-            'exad-scripts'
-        ];
+        return [ 'exad-gallery-isotope' ];
     }
 
     protected function _register_controls()

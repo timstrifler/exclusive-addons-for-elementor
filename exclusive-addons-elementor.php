@@ -261,14 +261,14 @@ final class Exclusive_Addons_Elementor {
 		
 		if ( $is_activated_widget['progress-bar'] ) {
 			// Progress Bar Js
-			wp_enqueue_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
 			// Waypoints Js
-			wp_enqueue_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
 		}
 		if ( $is_activated_widget['google-maps'] ) {
-			wp_enqueue_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );
+			wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );
 			// Gmap 3 Js
-			wp_enqueue_script( 'exad-gmap3', EXAD_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-gmap3', EXAD_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), '1.0', true );
 		}	
 		
 		if ( $is_activated_widget['countdown-timer'] ) {
@@ -278,23 +278,23 @@ final class Exclusive_Addons_Elementor {
 
 		if ( $is_activated_widget['image-comparison'] ) {
 			// jQuery image-comparison twentytwenty Js
-			wp_enqueue_script( 'exad-image-comparison', EXAD_URL . 'assets/js/vendor/jquery.twentytwenty.js', array( 'jquery' ), '1.0', true );
-			wp_enqueue_script( 'exad-image-comparison-event', EXAD_URL . 'assets/js/vendor/jquery.event.move.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-image-comparison', EXAD_URL . 'assets/js/vendor/jquery.twentytwenty.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-image-comparison-event', EXAD_URL . 'assets/js/vendor/jquery.event.move.js', array( 'jquery' ), '1.0', true );
 		}
 
 		if ( $is_activated_widget['counter'] ) {
 			// jQuery CounterUp Js
-			wp_enqueue_script( 'exad-counter', EXAD_URL . 'assets/js/vendor/jquery.counterup.min.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-counter', EXAD_URL . 'assets/js/vendor/jquery.counterup.min.js', array( 'jquery' ), '1.0', true );
 		}
 
 		if ( $is_activated_widget['filterable-gallery'] ) {
 			// Filterable Gallery
-			wp_enqueue_script( 'exad-gallery-isotope', EXAD_URL . 'assets/js/vendor/isotop.min.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-gallery-isotope', EXAD_URL . 'assets/js/vendor/isotop.min.js', array( 'jquery' ), '1.0', true );
 		}
 
 		if ( $is_activated_widget['instagram-feed'] ) {
 			// Instagram Gallery
-			wp_enqueue_script( 'exad-instagram', EXAD_URL . 'assets/js/vendor/instagram.min.js', array( 'jquery' ), '1.0', true );
+			wp_register_script( 'exad-instagram', EXAD_URL . 'assets/js/vendor/instagram.min.js', array( 'jquery' ), '1.0', true );
 		}
 		
 		wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );

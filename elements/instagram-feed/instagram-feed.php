@@ -14,7 +14,13 @@ class Exad_Instagram_Feed extends Widget_Base {
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
+  }
+  
+  public function get_script_depends() {
+		return [ 'exad-instagram' ];
 	}
+
+
 	protected function _register_controls() {
     /**
      * Instagram Feed Generel Option
