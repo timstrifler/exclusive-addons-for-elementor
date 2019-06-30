@@ -346,31 +346,28 @@ class Exad_Team_Member extends Widget_Base {
 		$this->start_controls_tab( 'exad_team_members_social_icon_tab', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
 
 		$this->add_control(
-			'exad_team_member_social_color_1',
+			'exad_team_carousel_social_color_1',
 			[
 				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a, {{WRAPPER}} .exad-team-member-rounded .exad-team-member-social li a' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_members_preset' => '-social-left',
+					'exad_team_members_preset' => [ '-social-left', '-rounded' ]
 				],
 			]
 		);
 
 		$this->add_control(
-			'exad_team_member_social_color_2',
+			'exad_team_carousel_social_color_icon',
 			[
-				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#272c44',
+				'default' => '#a4a7aa',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-rounded .exad-team-member-social li a' => 'background: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_team_members_preset' => '-rounded',
+					'{{WRAPPER}} .exad-team-item .exad-team-member-social li a i' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -380,35 +377,32 @@ class Exad_Team_Member extends Widget_Base {
 		$this->start_controls_tab( 'exad_team_members_social_icon_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
 
 		$this->add_control(
-			'exad_team_member_social_hover_color_1',
+			'exad_team_carousel_social_hover_color_1',
 			[
 				'label' => esc_html__( 'Hover Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#ff6d55',
+				'default' => '#917cff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover, {{WRAPPER}} .exad-team-member-rounded .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_members_preset' => '-social-left'
+					'exad_team_members_preset' => [ '-social-left', '-rounded' ]
 				],
 			]
 		);
 
 		$this->add_control(
-			'exad_team_member_social_hover_color_2',
+			'exad_team_carousel_social_hover_color_icon',
 			[
-				'label' => esc_html__( 'Hover Color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#ff6d55',
+				'default' => '#8a8d91',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-rounded .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_team_members_preset' => '-rounded'
-				],
+					'{{WRAPPER}} .exad-team-item .exad-team-member-social li a:hover i' => 'color: {{VALUE}};',
+				]
 			]
 		);
-		
+
 		$this->end_controls_tab();
 		
 		$this->end_controls_tabs();

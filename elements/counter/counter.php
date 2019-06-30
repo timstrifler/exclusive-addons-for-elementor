@@ -15,6 +15,12 @@ class Exad_Counter extends Widget_Base {
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
 	}
+
+	public function get_script_depends() {
+		return [ 'exad-counter' ];
+	}
+
+	
 	protected function _register_controls() {
 
 	/*
