@@ -7,7 +7,7 @@ class Exad_Dual_Heading extends Widget_Base {
 		return 'exad-exclusive-dual-heading';
 	}
 	public function get_title() {
-		return esc_html__( 'Ex Dual Heading', 'exclusive-addons-elementor' );
+		return esc_html__( 'Dual Heading', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-type-tool';

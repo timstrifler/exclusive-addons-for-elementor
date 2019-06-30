@@ -11,7 +11,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Exclusive Button', 'exclusive-addons-elementor' );
+		return esc_html__( 'Button', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {

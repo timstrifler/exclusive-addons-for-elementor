@@ -7,7 +7,7 @@ class Exad_Counter extends Widget_Base {
 		return 'exad-counter';
 	}
 	public function get_title() {
-		return esc_html__( 'Ex Counter', 'exclusive-addons-elementor' );
+		return esc_html__( 'Counter', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-counter';

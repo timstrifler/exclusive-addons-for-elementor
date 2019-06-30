@@ -8,7 +8,7 @@ class Exad_Card extends Widget_Base {
 		return 'exad-exclusive-card';
 	}
 	public function get_title() {
-		return esc_html__( 'Exclusive Card', 'exclusive-addons-elementor' );
+		return esc_html__( 'Card', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-image-box';

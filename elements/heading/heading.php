@@ -8,7 +8,7 @@ class Exad_Heading extends Widget_Base {
 		return 'exad-exclusive-heading';
 	}
 	public function get_title() {
-		return esc_html__( 'Exclusive Heading', 'exclusive-addons-elementor' );
+		return esc_html__( 'Heading', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-heading';

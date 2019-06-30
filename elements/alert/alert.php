@@ -8,7 +8,7 @@ class Exad_Alert extends Widget_Base {
 		return 'exad-exclusive-alert';
 	}
 	public function get_title() {
-		return esc_html__( 'Exclusive Alert', 'exclusive-addons-elementor' );
+		return esc_html__( 'Alert', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-alert';

@@ -29,7 +29,7 @@ class Exad_Contact_Form extends Widget_Base {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Ex Contact Form 7', 'exclusive-addons-elementor' );
+        return __( 'Contact Form 7', 'exclusive-addons-elementor' );
     }
 
     /**

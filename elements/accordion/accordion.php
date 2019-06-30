@@ -10,7 +10,7 @@ class Exclusive_Accordion extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Exclusive Accordion', 'exclusive-addons-elementor' );
+		return esc_html__( 'Accordion', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {

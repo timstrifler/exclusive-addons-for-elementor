@@ -3,7 +3,7 @@
     position: relative;
 }
 .elementor-element .icon .exad-element-icon::after {
-    content: "DC";
+    content: "Ex";
     font-size: 10px;
     opacity: 0.5;
     position: absolute;
