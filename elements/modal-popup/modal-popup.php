@@ -595,7 +595,7 @@ class Exad_Modal_Popup extends Widget_Base {
 						[
 							'label' => __( 'Button Text Color', 'exclusive-addons-elementor' ),
 							'type' => Controls_Manager::COLOR,
-							'default' => '#222222',
+							'default' => '#ffffff',
 							'selectors' => [
 								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span' => 'color: {{VALUE}};',
 							],
@@ -611,7 +611,6 @@ class Exad_Modal_Popup extends Widget_Base {
 							'name' => 'exad_modal_btn_background_normal',
 							'label' => __( 'Button Background', 'exclusive-addons-elementor' ),
 							'types' => [ 'classic', 'gradient' ],
-							'default' => '#3d3d3d',
 							'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action',
 							'condition'   => [
 								'modal_on' => 'button',
@@ -636,7 +635,7 @@ class Exad_Modal_Popup extends Widget_Base {
 						[
 							'label' => __( 'Button Text Color', 'exclusive-addons-elementor' ),
 							'type' => Controls_Manager::COLOR,
-							'default' => '#222222',
+							'default' => '#23a455',
 							'selectors' => [
 								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover span' => 'color: {{VALUE}};',
 							],
@@ -646,14 +645,15 @@ class Exad_Modal_Popup extends Widget_Base {
 						]
 					);
 
-					$this->add_group_control(
-						Group_Control_Background::get_type(),
+					$this->add_control(
+						'exad_modal_btn_background_hover',
 						[
-							'name' => 'exad_modal_btn_background_hover',
-							'label' => __( 'Button Background', 'exclusive-addons-elementor' ),
-							'types' => [ 'classic', 'gradient' ],
-							'default' => '#3d3d3d',
-							'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover',
+							'label' => __( 'Background', 'exclusive-addons-elementor' ),
+							'type' => Controls_Manager::COLOR,
+							'default' => '#ffffff',
+							'selectors' => [
+								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover::before' => 'background: {{VALUE}};',
+							],
 							'condition'   => [
 								'modal_on' => 'button',
 							],
@@ -697,7 +697,7 @@ class Exad_Modal_Popup extends Widget_Base {
 							'icon'  => 'fa fa-align-justify',
 						],
 					],
-					'default'   => 'left',
+					'default'   => 'center',
 					'selectors'             => [
 						'{{WRAPPER}} .exad-modal-button' => 'text-align: {{VALUE}};',
 					],
@@ -903,7 +903,7 @@ class Exad_Modal_Popup extends Widget_Base {
 
 	?>
 		
-		<div class="exad-modal one">
+		<div class="exad-modal">
           	<div class="exad-modal-wrapper">
 
             	<div class="exad-modal-button">

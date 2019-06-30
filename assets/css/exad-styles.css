@@ -4525,6 +4525,50 @@
 /* Exclusive Heading End */
 /* Modal Style Start */
 
+/* modal popup button*/
+
+.exad-modal-button .exad-modal-image-action {
+  display: inline-block;
+  padding: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all .3s ease;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  border: 1px solid #23a455;
+  text-align: center;
+  z-index: 1;
+  background: #23a455;
+}
+
+.exad-modal-button .exad-modal-image-action::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  transition: all .3s ease;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.exad-modal-button .exad-modal-image-action:hover span {
+  color: #000000;
+}
+
+.exad-modal-button .exad-modal-image-action:hover::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+}
+
+/* modal popup button*/
 .exad-modal-overlay {
   position: fixed;
   width: 100%;
@@ -4572,6 +4616,7 @@
 .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span {
   display: block;
   font-size: 20px;
+  color: #D6D6D6;
 }
 
 .exad-modal-item.youtube-modal {
@@ -4586,19 +4631,6 @@
   position: relative;
 }
 
-.exad-modal-item.youtube-modal .exad-modal-content .exad-close-btn {
-  position: absolute;
-  top: -30px;
-  right: -20px;
-  cursor: pointer;
-}
-
-.exad-modal-item.youtube-modal .exad-modal-content .exad-close-btn span {
-  display: block;
-  font-size: 20px;
-  color: #fff;
-}
-
 .exad-modal-item.image-modal {
   opacity: 0;
   transition: all .3s ease;
@@ -4611,48 +4643,11 @@
   width: 100%;
 }
 
-.exad-modal-item.image-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.exad-modal-item.image-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  display: block;
-  font-size: 20px;
-  color: #fff;
-}
-
 .exad-modal-item.external-page-modal {
   opacity: 0;
   -webkit-transform: translate(-70%, -50%);
           transform: translate(-70%, -50%);
   transition: all .3s ease;
-}
-
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  background: #000000;
-  display: block;
-  border-radius: 100%;
-  color: #fff;
-}
-
-.exad-modal-item.external-page-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.image-gallery-modal {
@@ -4678,30 +4673,6 @@
 .exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element img {
   width: 33%;
   padding: 15px;
-}
-
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  background: #000000;
-  display: block;
-  border-radius: 100%;
-  color: #fff;
-}
-
-.exad-modal-item.image-gallery-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.content-only-modal {
@@ -4736,30 +4707,6 @@
   color: #1b1b1b;
   margin: 25px 0 0 0;
   font-size: 15px;
-}
-
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.content-only-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.content-modal {
@@ -4859,30 +4806,6 @@
   border: 1px solid #ffb561;
 }
 
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #2ED8E3;
-}
-
-.exad-modal-item.content-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
-}
-
 .exad-modal-item.image-content-modal {
   width: 35%;
   display: none;
@@ -4922,30 +4845,6 @@
   font-size: 15px;
 }
 
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.image-content-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .exad-modal-item.gallery-text-modal {
   width: 50%;
   height: auto;
@@ -4964,62 +4863,38 @@
   transition: all .3s ease;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element {
+.exad-modal-item .exad-modal-content .exad-modal-element {
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card {
   width: 33%;
   padding: 15px;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card img {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card img {
   width: 100%;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body {
   padding: 20px 0 0 0;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body h5 {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body h5 {
   margin: 0;
   font-family: "Roboto", sans-serif;
   color: #000000;
   font-size: 20px;
 }
 
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body p {
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body p {
   font-family: "Roboto", sans-serif;
   color: #222222;
   font-size: 15px;
   margin: 10px 0 0 0;
   line-height: 26px;
-}
-
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #000000;
-  color: #fff;
-}
-
-.exad-modal-item.gallery-text-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.saved-section-modal {
@@ -5113,30 +4988,6 @@
   color: #fb5d86;
 }
 
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #25decf;
-}
-
-.exad-modal-item.saved-section-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .exad-modal-item.saved-widget-modal {
   width: 40%;
   height: auto;
@@ -5210,30 +5061,6 @@
   border: 1px solid #ff9c44;
 }
 
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.saved-widget-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .exad-modal-item.normal-image-modal {
   width: 50%;
   height: auto;
@@ -5254,30 +5081,6 @@
 .exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element img {
   width: 100%;
   height: 100%;
-}
-
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.normal-image-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.image-border-modal {
@@ -5306,30 +5109,6 @@
 .exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element img {
   width: 100%;
   height: 100%;
-}
-
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.image-border-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .exad-modal-item.custome-background-modal {
@@ -5365,30 +5144,6 @@
   height: 100%;
 }
 
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.custome-background-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 .exad-modal-item.no-overlay-modal {
   width: 50%;
   height: auto;
@@ -5417,29 +5172,6 @@
   height: 100%;
 }
 
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  cursor: pointer;
-}
-
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn span {
-  height: 50px;
-  width: 50px;
-  display: block;
-  border-radius: 100%;
-  background: #fff;
-  color: #000000;
-}
-
-.exad-modal-item.no-overlay-modal .exad-modal-content .exad-modal-element .exad-close-btn span i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
 
 .exad-modal-item.active.modal-vimeo {
   opacity: 1;
@@ -5589,331 +5321,24 @@
   display: block;
 }
 
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action {
-  display: inline-block;
-  padding: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 15px;
-  transition: all .3s ease;
+.exad-modal-item .exad-modal-content .exad-modal-element iframe{
+  display: block;
+}
+.exad-modal-item .exad-modal-content .exad-modal-element img{
+  display: block;
+}
+
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-body {
+  background: #fff;
+  box-shadow: 0px 55px 90px 0px rgba(0, 0, 0, 0.31);
+  padding: 30px;
+}
+
+.exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-body p {
   font-family: "Roboto", sans-serif;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn {
-  background: #00BAF0;
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.vimeo-btn:hover {
-  background: #fff;
-  color: #00BAF0;
-  border: 1px solid #00BAF0;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.youtube-btn {
-  background: #F61C0D;
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.youtube-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.youtube-btn:hover {
-  background: #fff;
-  color: #F61C0D;
-  border: 1px solid #F61C0D;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-btn {
-  background: #704AFF;
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-btn:hover {
-  background: #fff;
-  color: #704AFF;
-  border: 1px solid #704AFF;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.external-btn {
-  background: linear-gradient(90deg, #ff7e9f 0%, #ff876b 100%);
-  box-shadow: 0px 18px 43px 0px rgba(255, 129, 145, 0.36);
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.external-btn svg {
-  margin-right: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.external-btn svg path {
-  fill: #fff;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.external-btn:hover {
-  background: #fff;
-  color: #ff7e9f;
-  border: 1px solid #ff7e9f;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.external-btn:hover svg path {
-  fill: #ff7e9f;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-gallery-btn {
-  background: linear-gradient(41deg, #654cff 0%, #b073ee 100%);
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-gallery-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-gallery-btn:hover {
-  background: #fff;
-  color: #704AFF;
-  border: 1px solid #704AFF;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.content-only-btn {
-  background: linear-gradient(45deg, #017aff 0%, #01b9ff 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.content-only-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.content-only-btn:hover {
-  background: #fff;
-  color: #017aff;
-  border: 1px solid #017aff;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.content-btn {
-  background: linear-gradient(41deg, #654cff 0%, #b073ee 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.content-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.content-btn:hover {
-  background: #fff;
-  color: #654cff;
-  border: 1px solid #654cff;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-content-btn {
-  background: linear-gradient(41deg, #9ad1ff 0%, #7e8dff 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-content-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-content-btn:hover {
-  background: #fff;
-  color: #7e8dff;
-  border: 1px solid #7e8dff;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.gallery-text-btn {
-  background: linear-gradient(41deg, #fa6f93 0%, #f5944c 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.gallery-text-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.gallery-text-btn:hover {
-  background: #fff;
-  color: #fa6f93;
-  border: 1px solid #fa6f93;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.save-section-btn {
-  background: linear-gradient(41deg, #45e9d4 0%, #01b9ff 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.save-section-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.save-section-btn:hover {
-  background: #fff;
-  color: #01b9ff;
-  border: 1px solid #01b9ff;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.save-widget-btn {
-  background: linear-gradient(41deg, #ffc96b 0%, #ff967e 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.save-widget-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.save-widget-btn:hover {
-  background: #fff;
-  color: #ff967e;
-  border: 1px solid #ff967e;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.normal-image-btn {
-  background: linear-gradient(41deg, #017aff 0%, #01b9ff 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-  border-radius: 10px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.normal-image-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.normal-image-btn:hover {
-  background: #fff;
-  color: #017aff;
-  border: 1px solid #017aff;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-border-btn {
-  background: linear-gradient(41deg, #45e9d4 0%, #01b9ff 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-  border-radius: 10px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-border-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.image-border-btn:hover {
-  background: #fff;
-  color: #01b9ff;
-  border: 1px solid #01b9ff;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.custom-background-btn {
-  background: linear-gradient(41deg, #fa6f93 0%, #f5944c 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-  border-radius: 10px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.custom-background-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.custom-background-btn:hover {
-  background: #fff;
-  color: #fa6f93;
-  border: 1px solid #fa6f93;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.no-overlay-btn {
-  background: linear-gradient(41deg, #654cff 0%, #b073ee 100%);
-  color: #fff;
-  border: 1px solid transparent;
-  width: 70%;
-  padding: 40px 0;
-  border-radius: 10px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.no-overlay-btn span {
-  margin-right: 10px;
-  font-size: 20px;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-button .exad-modal-image-action.no-overlay-btn:hover {
-  background: #fff;
-  color: #654cff;
-  border: 1px solid #654cff;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-item {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-}
-
-/* .exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo {
-  opacity: 0;
-  -webkit-transform: translate(-50%, -60%);
-          transform: translate(-50%, -60%);
-  height: auto;
-  transition: all .3s ease;
-} */
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo.top-to-middle {
-  -webkit-transform: translate(-50%, -60%);
-          transform: translate(-50%, -60%);
-  transition: all .3s ease;
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.active.modal-vimeo.top-to-middle {
-  z-index: 2000;
-  opacity: 1;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.exad-modal.one .exad-modal-wrapper .exad-modal-item.modal-vimeo.bottom-to-middle {
-  -webkit-transform: translate(-50%, -30%);
-          transform: translate(-50%, -30%);
-  transition: all .3s ease;
+  color: #1b1b1b;
+  margin: 0;
+  font-size: 15px;
 }
 
 .exad-modal.one .exad-modal-wrapper .exad-modal-item.active.modal-vimeo.bottom-to-middle {
