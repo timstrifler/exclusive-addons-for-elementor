@@ -91,7 +91,8 @@ class Exad_Admin_Settings {
 	    if( ! empty( $exad_new_settings ) ) {
 			$exad_updated_settings = array_merge( $this->exad_get_settings, $exad_new_settings );
 			update_option( 'exad_save_settings', $exad_updated_settings );
-	    }
+        }
+        
 	    $this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
         
         ?>

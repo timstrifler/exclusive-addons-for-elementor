@@ -141,12 +141,15 @@ final class Exclusive_Addons_Elementor {
 	 */
 	public function exad_initiate_elements() {
 
-		foreach ( scandir(EXAD_PATH . 'elements') as $file ) {
-			if ( !is_dir(EXAD_PATH . '/' . $file) ) {
-				self::$exad_default_widgets[] = $file;
-			}
+		$dir = new RecursiveDirectoryIterator( EXAD_PATH . 'elements/' );
+		$child_dir = new RecursiveIteratorIterator($dir);
+		$files = new RegexIterator( $child_dir, '/^.+\.php$/i' );
+		
+		foreach( $files as $file ) {
+			$filename = basename( $file, '.php' );
+			self::$exad_default_widgets[] = $filename;
 		}
-
+		
 	}
 
 
