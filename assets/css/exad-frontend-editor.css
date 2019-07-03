@@ -2,6 +2,15 @@
 .elementor-element .icon {
     position: relative;
 }
+
+.elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element {
+    background-color: #826EFF;
+}
+
+.elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .icon, .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .title {
+    color: #FFF;
+} 
+
 .elementor-element .icon .exad-element-icon::after {
     content: "Ex";
     font-size: 10px;

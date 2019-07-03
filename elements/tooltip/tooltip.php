@@ -8,7 +8,7 @@ class Exad_Tooltip extends Widget_Base {
     }
     
     public function get_title() {
-        return __( 'Ex Tooltip', 'exclusive-addons-elementor' );
+        return __( 'Tooltip', 'exclusive-addons-elementor' );
     }
 
     public function get_icon() {

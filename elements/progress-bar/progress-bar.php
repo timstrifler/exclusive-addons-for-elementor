@@ -8,7 +8,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		return 'exad-progress-bar';
 	}
 	public function get_title() {
-		return esc_html__( 'Ex Progress Bar', 'exclusive-addons-elementor' );
+		return esc_html__( 'Progress Bar', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-skill-bar';

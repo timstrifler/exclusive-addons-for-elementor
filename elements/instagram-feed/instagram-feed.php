@@ -10,7 +10,7 @@ class Exad_Instagram_Feed extends Widget_Base {
 		return esc_html__( 'Instagram Feed', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'exad-element-icon eicon-instagram';
+		return 'exad-element-icon fa fa-instagram';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];

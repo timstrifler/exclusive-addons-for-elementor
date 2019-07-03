@@ -11,7 +11,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Ex Testimonial Carousel', 'exclusive-addons-elementor' );
+		return esc_html__( 'Testimonial Carousel', 'exclusive-addons-elementor' );
 	}
 
 	public function get_icon() {

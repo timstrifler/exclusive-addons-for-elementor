@@ -10,7 +10,7 @@ class Exad_Pricing_Menu extends Widget_Base {
 		return 'exad-pricing-menu';
 	}
 	public function get_title() {
-		return esc_html__( 'Ex Pricing Menu', 'exclusive-addons-elementor' );
+		return esc_html__( 'Pricing Menu', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-price-list';
