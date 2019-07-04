@@ -203,7 +203,7 @@ final class Exclusive_Addons_Elementor {
 		// Enqueue Styles and Scripts
 		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'exad_enqueue_scripts' ), 20 );
 		// Elementor Editor Styles
-		add_action( 'elementor/editor/after_enqueue_styles', array( $this, 'exad_editor_styles' ) );
+		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'exad_editor_scripts' ) );
 		// Add Elementor Widgets
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'exad_init_widgets' ) );
 		// Registering Elementor Widget Category
@@ -246,8 +246,9 @@ final class Exclusive_Addons_Elementor {
 	 * Enqueue Elementor Editor Styles
 	 * 
 	 */
-	public function exad_editor_styles() {
+	public function exad_editor_scripts() {
 		wp_enqueue_style( 'exad-frontend-editor', EXAD_URL . 'assets/css/exad-frontend-editor.css' );
+		wp_enqueue_script( 'exad-editor-script', EXAD_URL . 'assets/js/exad-editor-script.js', array( 'elementor-editor' ), '1.0', true );
 	}
 
 	/**

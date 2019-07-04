@@ -4,11 +4,11 @@
 }
 
 .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element {
-    background-color: #826EFF;
+    color: #826EFF;
 }
 
-.elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .icon, .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .title {
-    color: #FFF;
+.elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .icon, .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .title, .elementor-panel #elementor-panel-elements .exad-element-wrapper .icon, .elementor-panel #elementor-panel-elements .exad-element-wrapper .title {
+    color: #826EFF;
 } 
 
 .elementor-element .icon .exad-element-icon::after {
@@ -18,4 +18,5 @@
     position: absolute;
     right: 5px;
     top: 5px;
+    color: #826EFF;
 }
