@@ -3,7 +3,7 @@
  * Plugin Name: Exclusive Addons for Elementor - Pro
  * Plugin URI: http://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
- * Version: 1.2.2
+ * Version: 1.0
  * Author: DevsCred
  * Author URI: http://devscred.com/
  * Text Domain: exclusive-addons-elementor
@@ -31,7 +31,7 @@ final class Exclusive_Addons_Elementor {
 	 *
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.2.2';
+	const VERSION = '1.0';
 
 	/**
 	 * Minimum Elementor Version
