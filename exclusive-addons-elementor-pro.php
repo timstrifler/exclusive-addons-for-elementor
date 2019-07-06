@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Exclusive Addons for Elementor
+ * Plugin Name: Exclusive Addons for Elementor - Pro
  * Plugin URI: http://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
  * Version: 1.2.2
