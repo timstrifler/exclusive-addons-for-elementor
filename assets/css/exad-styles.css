@@ -9415,6 +9415,8 @@ ul.exad-pricing-table-features {
 }
 
 /* Exclusive Tabs End */
+
+
 /* Team Global Styles */
 .exad-team-item {
   margin-bottom: 32px;
@@ -9797,7 +9799,149 @@ ul.exad-pricing-table-features {
 }
 /* Content Hover End */
 
+/* Team Member Eight start */
 
+.exad-team-member-eight {
+  background: #F5F7FA;
+  border: 15px solid #fff;
+  border-radius: calc(2*15px);
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  transition: all .3s ease;
+}
+
+.exad-team-member-eight:hover {
+  box-shadow: 0px 27px 68px 0px rgba(19, 32, 58, 0.14);
+}
+
+.exad-team-member-eight:hover .exad-team-member-thumb img {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.exad-team-member-eight .exad-team-member-thumb {
+  height: 180px;
+  width: 180px;
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 13px solid #fff;
+  box-shadow: 0px 30px 46px 0px rgba(19, 32, 58, 0.08);
+}
+
+.exad-team-member-eight .exad-team-member-thumb img {
+  height: 100%;
+  width: 100%;
+  transition: all .3s ease;
+}
+
+.exad-team-member-eight .exad-team-member-content {
+  padding: 35% 10%;
+}
+
+.exad-team-member-eight .exad-team-member-content svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 0 0 15px 15px;
+}
+
+.exad-team-member-eight .exad-team-member-content svg path {
+  fill: #7C3BFF;
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-name {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #132C47;
+  margin-bottom: 10px;
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-designation {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: #7C3BFF;
+  font-weight: 600;
+  margin-bottom: 50px;
+  display: block;
+  position: relative;
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-designation::before {
+  position: absolute;
+  content: '';
+  width: 50%;
+  height: 1px;
+  background: #E5E5E5;
+  bottom: -25px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-about {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  color: #828486;
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-social {
+  margin: 0;
+  padding: 0;
+  z-index: 23;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 100%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-social li {
+  list-style: none;
+  display: inline-block;
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-social li:not(:last-child) {
+  margin-right: 5px;
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-social li a {
+  height: 35px;
+  width: 35px;
+  display: block;
+  background: #9662FF;
+  border-radius: 50%;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-social li a i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.exad-team-member-eight .exad-team-member-content .exad-team-member-social li a:hover {
+  background: #fff;
+  color: #9662FF;
+}
+
+/* Team member eight end */
 
 /* Style for Team Carousel */
 

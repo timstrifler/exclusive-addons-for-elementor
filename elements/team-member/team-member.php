@@ -206,6 +206,7 @@ class Exad_Team_Member extends Widget_Base {
 					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
 					'-rounded' => esc_html__( 'Rounded', 'exclusive-addons-elementor' ),
 					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
+					'-eight' => esc_html__( 'Pro Style 1', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
