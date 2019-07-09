@@ -9809,6 +9809,7 @@ ul.exad-pricing-table-features {
   margin-top: 80px;
   margin-bottom: 40px;
   transition: all .3s ease;
+  text-align: center;
 }
 
 .exad-team-member-eight:hover {
@@ -9900,7 +9901,7 @@ ul.exad-pricing-table-features {
   z-index: 23;
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: 5px;
   width: 100%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -9926,6 +9927,7 @@ ul.exad-pricing-table-features {
   color: #fff;
   text-decoration: none;
   transition: all .3s ease;
+  font-size: 16px;
 }
 
 .exad-team-member-eight .exad-team-member-content .exad-team-member-social li a i {
@@ -9942,6 +9944,215 @@ ul.exad-pricing-table-features {
 }
 
 /* Team member eight end */
+
+/* Team Member Nine start */
+
+.exad-team-member-nine {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  background: white;
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
+  margin-bottom: 30px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.exad-team-member-nine .exad-team-member-thumb {
+  width: 40%;
+}
+
+.exad-team-member-nine .exad-team-member-thumb img {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.exad-team-member-nine .exad-team-member-content {
+  width: 60%;
+  padding: 0 15px 0 30px;
+}
+
+.exad-team-member-nine .exad-team-member-content .exad-team-member-name {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: #132C47;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  margin: 0 0 10px 0;
+}
+
+.exad-team-member-nine .exad-team-member-content .exad-team-member-designation {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  color: #8A8D91;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  margin: 0 0 15px 0;
+  display: block;
+}
+
+.exad-team-member-nine .exad-team-member-content .exad-team-member-about {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  line-height: 26px;
+  color: #828486;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  margin: 0 0 25px 0;
+}
+
+.exad-team-member-nine .exad-team-member-content .exad-team-member-social {
+  margin: 0;
+  padding: 0;
+}
+
+.exad-team-member-nine .exad-team-member-content .exad-team-member-social li {
+  list-style: none;
+  display: inline-block;
+}
+
+.exad-team-member-nine .exad-team-member-content .exad-team-member-social li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.exad-team-member-nine .exad-team-member-content .exad-team-member-social li a {
+  color: #BE9DFF;
+  display: block;
+  text-decoration: none;
+  font-size: 18px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.exad-team-member-nine .exad-team-member-content .exad-team-member-social li a:hover {
+  color: #fff;
+}
+
+.exad-team-member-nine:hover {
+  background: #7C3BFF;
+}
+
+.exad-team-member-nine:hover .exad-team-member-content .exad-team-member-name {
+  color: #fff;
+}
+
+.exad-team-member-nine:hover .exad-team-member-content .exad-team-member-designation {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.exad-team-member-nine:hover .exad-team-member-content .exad-team-member-about {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Team member Nine end */
+
+/* Team member Ten Start */
+
+.exad-team-member-ten {
+  background: white;
+  padding: 40px 25px;
+  border-radius: 0 40px 0 40px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  text-align: center;
+}
+
+.exad-team-member-ten:hover {
+  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.1);
+}
+
+.exad-team-member-ten .exad-team-member-thumb {
+  border: 10px solid #fff;
+  box-shadow: 0px 15px 46px 0px rgba(19, 32, 58, 0.15);
+  border-radius: 50%;
+  overflow: hidden;
+  height: 170px;
+  width: 170px;
+  margin: 0 auto 35px auto;
+}
+
+.exad-team-member-ten .exad-team-member-thumb img {
+  height: 100%;
+  width: 100%;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #132C47;
+  font-family: "Roboto", sans-serif;
+  margin: 0 0 10px 0;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-designation {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FF5452;
+  display: block;
+  margin: 0 0 35px 0;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-about {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  color: #828486;
+  font-size: 15px;
+  line-height: 26px;
+  margin: 0 0 80px 0;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-about::before {
+  content: '';
+  position: absolute;
+  width: 60%;
+  bottom: -40px;
+  height: 1px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #e5e5e5;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-social {
+  margin: 0;
+  padding: 0;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-social li {
+  list-style: none;
+  display: inline-block;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-social li:not(:last-child) {
+  margin-right: 10px;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-social li a {
+  height: 38px;
+  width: 38px;
+  display: block;
+  background: #DCDCDC;
+  border-radius: 50%;
+  color: #fff;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-social li a i {
+  line-height: 38px;
+}
+
+.exad-team-member-ten .exad-team-member-content .exad-team-member-social li a:hover {
+  background: #272C44;
+}
+
+/* Team member Ten end */
 
 /* Style for Team Carousel */
 
