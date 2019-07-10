@@ -535,6 +535,16 @@ class Exad_Team_Member extends Widget_Base {
 	}
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+
+		$this->add_inline_editing_attributes( 'exad_team_member_name', 'none' );
+		$this->add_render_attribute( 'exad_team_member_name', 'class', 'exad-team-member-name' );
+
+		$this->add_inline_editing_attributes( 'exad_team_member_designation', 'none' );
+		$this->add_render_attribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
+
+		$this->add_inline_editing_attributes( 'exad_team_member_description', 'none' );
+		$this->add_render_attribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
+
 		$team_member_image = $this->get_settings_for_display( 'exad_team_member_image' );
 		$team_member_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'thumbnail', $settings );
 		if( empty( $team_member_image_url_src ) ) {
@@ -563,14 +573,12 @@ class Exad_Team_Member extends Widget_Base {
 				<div class="exad-team-member-content">
 					<?php if( $settings['exad_team_members_preset'] == '-eight' ) : ?>
 						<svg viewBox="0 0 370 160">
-              <path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
-            </svg>
+              				<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
+            			</svg>
 					<?php endif; ?>
-					<h2 class="exad-team-member-name"><?php echo $settings['exad_team_member_name']; ?></h2>
-					<span class="exad-team-member-designation"><?php echo $settings['exad_team_member_designation']; ?></span>
-					<p class="exad-team-member-about">
-						<?php echo $settings['exad_team_member_description']; ?>
-					</p>
+					<h2 <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>><?php echo $settings['exad_team_member_name']; ?></h2>
+					<span <?php echo $this->get_render_attribute_string( 'exad_team_member_designation' ); ?>><?php echo $settings['exad_team_member_designation']; ?></span>
+					<p <?php echo $this->get_render_attribute_string( 'exad_team_member_description' ); ?>><?php echo $settings['exad_team_member_description']; ?></p>
 					<?php if ( $settings['exad_team_member_enable_social_profiles'] == 'yes' ): ?>
 						<ul class="list-inline exad-team-member-social">
 							<?php foreach ( $settings['exad_team_member_social_profile_links'] as $item ) : ?>
@@ -591,6 +599,18 @@ class Exad_Team_Member extends Widget_Base {
 
 	protected function _content_template() {
 		?>
+
+		<# 
+		view.addInlineEditingAttributes( 'exad_team_member_name', 'none' );
+		view.addRenderAttribute( 'exad_team_member_name', 'class', 'exad-team-member-name' );
+
+		view.addInlineEditingAttributes( 'exad_team_member_designation', 'none' );
+		view.addRenderAttribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
+
+		view.addInlineEditingAttributes( 'exad_team_member_description', 'none' );
+		view.addRenderAttribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
+		#>
+
 		<div id="exad-team-member" class="exad-team-item">
 			<div class="exad-team-member{{ settings.exad_team_members_preset }}">
 				<div class="exad-team-member-thumb">
@@ -610,12 +630,12 @@ class Exad_Team_Member extends Widget_Base {
 				<div class="exad-team-member-content">
 					<# if ( settings.exad_team_members_preset == '-eight' ) { #>
 						<svg viewBox="0 0 370 160">
-              <path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
-            </svg>
+              				<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
+            			</svg>
 					<# } #>
-					<h2 class="exad-team-member-name">{{{ settings.exad_team_member_name }}}</h2>
-					<span class="exad-team-member-designation">{{{ settings.exad_team_member_designation }}}</span>
-					<p class="exad-team-member-about">{{{ settings.exad_team_member_description }}}</p>
+					<h2 {{{ view.getRenderAttributeString( 'exad_team_member_name' ) }}}>{{{ settings.exad_team_member_name }}}</h2>
+					<span {{{ view.getRenderAttributeString( 'exad_team_member_designation' ) }}}>{{{ settings.exad_team_member_designation }}}</span>
+					<p {{{ view.getRenderAttributeString( 'exad_team_member_description' ) }}}>{{{ settings.exad_team_member_description }}}</p>
 					<# if ( 'yes' == settings.exad_team_member_enable_social_profiles ) { #>
 						<ul class="list-inline exad-team-member-social">
 							<# _.each( settings.exad_team_member_social_profile_links, function( item, index ) { #>

@@ -9422,8 +9422,7 @@ ul.exad-pricing-table-features {
   margin-bottom: 32px;
 }
 .exad-team-member-name {
-  font-size: 22px;
-  font-family: "Roboto", sans-serif;
+  font-size: 24px;
   margin-bottom: 0;
   font-weight: 600;
 }
@@ -9432,10 +9431,10 @@ ul.exad-pricing-table-features {
   padding: 10px;
 }
 .exad-team-member-designation {
-  font-size: 15px;
+  font-size: 16px;
 }
 .exad-team-member-about {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 
@@ -9830,12 +9829,8 @@ ul.exad-pricing-table-features {
   color: #fff;
 }
 
-.exad-team-member-full-width-content-hover .exad-team-member-designation, .exad-team-member-full-width-content-hover .exad-team-member-about {
-  font-family: "Poppins", sans-serif;
-}
 
 .exad-team-member-full-width-content-hover .exad-team-member-name {
-  font-size: 22px;
   margin-bottom: 0;
 }
 
@@ -9951,16 +9946,12 @@ ul.exad-pricing-table-features {
 }
 
 .exad-team-member-eight .exad-team-member-content .exad-team-member-name {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
   font-weight: bold;
   color: #132C47;
   margin-bottom: 10px;
 }
 
 .exad-team-member-eight .exad-team-member-content .exad-team-member-designation {
-  font-family: "Open Sans", sans-serif;
-  font-size: 15px;
   color: #7C3BFF;
   font-weight: 600;
   margin-bottom: 50px;
@@ -9981,8 +9972,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-team-member-eight .exad-team-member-content .exad-team-member-about {
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
   line-height: 26px;
   color: #828486;
 }
@@ -10067,8 +10056,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-team-member-nine .exad-team-member-content .exad-team-member-name {
-  font-size: 22px;
-  font-family: "Poppins", sans-serif;
   font-weight: bold;
   color: #132C47;
   -webkit-transition: all .3s ease;
@@ -10077,8 +10064,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-team-member-nine .exad-team-member-content .exad-team-member-designation {
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
   color: #8A8D91;
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
@@ -10087,8 +10072,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-team-member-nine .exad-team-member-content .exad-team-member-about {
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
   line-height: 26px;
   color: #828486;
   -webkit-transition: all .3s ease;
@@ -10172,16 +10155,12 @@ ul.exad-pricing-table-features {
 }
 
 .exad-team-member-ten .exad-team-member-content .exad-team-member-name {
-  font-size: 24px;
   font-weight: bold;
   color: #132C47;
-  font-family: "Roboto", sans-serif;
   margin: 0 0 10px 0;
 }
 
 .exad-team-member-ten .exad-team-member-content .exad-team-member-designation {
-  font-family: "Open Sans", sans-serif;
-  font-size: 15px;
   font-weight: 600;
   color: #FF5452;
   display: block;
@@ -10190,9 +10169,7 @@ ul.exad-pricing-table-features {
 
 .exad-team-member-ten .exad-team-member-content .exad-team-member-about {
   position: relative;
-  font-family: "Poppins", sans-serif;
   color: #828486;
-  font-size: 15px;
   line-height: 26px;
   margin: 0 0 80px 0;
 }
@@ -10382,7 +10359,6 @@ ul.exad-pricing-table-features {
 }
 
 .exad-team-carousel-content-hover-title {
-  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
 
