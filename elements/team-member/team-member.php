@@ -206,6 +206,7 @@ class Exad_Team_Member extends Widget_Base {
 					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
 					'-rounded' => esc_html__( 'Rounded', 'exclusive-addons-elementor' ),
 					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
+					'-full-width-content-hover' => esc_html__( 'Full Width Content on Hover', 'exclusive-addons-elementor' ),
 					'-eight' => esc_html__( 'Pro Style 1', 'exclusive-addons-elementor' ),
 					'-nine' => esc_html__( 'Pro Style 2', 'exclusive-addons-elementor' ),
 					'-ten' => esc_html__( 'Pro Style 3', 'exclusive-addons-elementor' ),
@@ -238,7 +239,7 @@ class Exad_Team_Member extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-member-basic, {{WRAPPER}} .exad-team-member-circle, {{WRAPPER}} .exad-team-member-social-left, 
 					{{WRAPPER}} .exad-team-member-rounded, {{WRAPPER}} .exad-team-member-eight, {{WRAPPER}} .exad-team-member-nine, 
-					{{WRAPPER}} .exad-team-member-ten' => 'background: {{VALUE}};',
+					{{WRAPPER}} .exad-team-member-ten, {{WRAPPER}} .exad-team-member-full-width-content-hover .exad-team-member-content' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -283,11 +284,26 @@ class Exad_Team_Member extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name' => 'exad_team_members_border_image',
-				'label' => __( 'Image Border', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Image Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-team-member-ten .exad-team-member-thumb',
 				'condition' => [
 					'exad_team_members_preset' => ['-ten'],
 				]
+			]
+		);
+
+		$this->add_control(
+			'exad_team_members_padding_ten',
+			[
+				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-ten'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_team_members_preset' => ['-ten'],
+				],
 			]
 		);
 
@@ -453,10 +469,11 @@ class Exad_Team_Member extends Widget_Base {
 					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a,
 					{{WRAPPER}} .exad-team-member-rounded .exad-team-member-social li a,
 					{{WRAPPER}} .exad-team-member-eight .exad-team-member-content .exad-team-member-social li a,
-					{{WRAPPER}} .exad-team-member-ten .exad-team-member-content .exad-team-member-social li a' => 'background: {{VALUE}};',
+					{{WRAPPER}} .exad-team-member-ten .exad-team-member-content .exad-team-member-social li a,
+					{{WRAPPER}} .exad-team-member-full-width-content-hover .exad-team-member-social li a' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_members_preset' => [ '-social-left', '-rounded', '-eight', '-ten' ],
+					'exad_team_members_preset' => [ '-social-left', '-rounded', '-full-width-content-hover', '-eight', '-ten' ],
 				],
 			]
 		);
@@ -487,10 +504,11 @@ class Exad_Team_Member extends Widget_Base {
 					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover, 
 					{{WRAPPER}} .exad-team-member-rounded .exad-team-member-social li a:hover,
 					{{WRAPPER}} .exad-team-member-eight .exad-team-member-content .exad-team-member-social li a:hover,
-					{{WRAPPER}} .exad-team-member-ten .exad-team-member-content .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
+					{{WRAPPER}} .exad-team-member-ten .exad-team-member-content .exad-team-member-social li a:hover,
+					{{WRAPPER}} .exad-team-member-full-width-content-hover .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_members_preset' => [ '-social-left', '-rounded', '-eight', '-ten' ],
+					'exad_team_members_preset' => [ '-social-left', '-rounded', '-full-width-content-hover', '-eight', '-ten' ],
 				],
 			]
 		);

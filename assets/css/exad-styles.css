@@ -9799,6 +9799,98 @@ ul.exad-pricing-table-features {
 }
 /* Content Hover End */
 
+/* Team Member full width content hover start */
+.exad-team-member-full-width-content-hover {
+  position: relative;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-thumb img {
+  width: 100%;
+  display: block;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-content {
+  position: absolute;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  text-align: center;
+  padding: 40px 30px 30px;
+  background: rgba(0, 0, 0, 0.65);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-name, .exad-team-member-full-width-content-hover .exad-team-member-designation {
+  color: #fff;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-designation, .exad-team-member-full-width-content-hover .exad-team-member-about {
+  font-family: "Poppins", sans-serif;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-name {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-designation {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-about {
+  color: #caced4;
+  margin-bottom: 30px;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-social {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-social li {
+  display: inline-block;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-social li:not(:last-child) {
+  margin-right: 8px;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-social li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: rgba(19, 44, 71, 0.4);
+  color: #fff;
+  border-radius: 50%;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.exad-team-member-full-width-content-hover .exad-team-member-social li a i {
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.exad-team-member-full-width-content-hover.exad-team-member-social li a:hover {
+  color: #132c47;
+  background: #fff;
+}
+
+.exad-team-member-full-width-content-hover:hover .exad-team-member-content {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
+/* Team Member full width content hover end */
+
 /* Team Member Eight start */
 
 .exad-team-member-eight {
