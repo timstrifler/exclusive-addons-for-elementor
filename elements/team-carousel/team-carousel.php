@@ -233,6 +233,9 @@ class Exad_Team_Carousel extends Widget_Base {
 					'-circle' => esc_html__( 'Circle Gradient', 'exclusive-addons-elementor' ),
 					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
 					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
+					'-three' => esc_html__( 'Pro Style 1', 'exclusive-addons-elementor' ),
+					'-six' => esc_html__( 'Pro Style 2', 'exclusive-addons-elementor' ),
+					'-seven' => esc_html__( 'Pro Style 3', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
