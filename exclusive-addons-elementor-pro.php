@@ -206,28 +206,10 @@ final class Exclusive_Addons_Elementor {
 		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'exad_editor_scripts' ) );
 		// Add Elementor Widgets
 		add_action( 'elementor/widgets/widgets_registered', array( $this, 'exad_init_widgets' ) );
-		// Registering Elementor Widget Category
-		add_action( 'elementor/elements/categories_registered', array( $this, 'exad_register_category' ) );
 		// Add Body Class 
 		add_filter( 'body_class', array( $this, 'add_body_classes' ) );
 		// Load Plugin textdomain
 		load_plugin_textdomain( 'exclusive-addons-elementor' );
-
-	}
-	
-	/**
-	* Register Exclusive Elementor Addons category
-	*
-	*/
-	public function exad_register_category( $elements_manager ) {
-
-		$elements_manager->add_category(
-			'exclusive-addons-elementor',
-			[
-				'title' => __( 'Exclusive Addons', 'exclusive-addons-elementor' ),
-				'icon' => 'font',
-			]
-		);
 
 	}
 
@@ -482,6 +464,25 @@ function init_exclusive_addons() {
 }
 add_action( 'plugins_loaded', 'init_exclusive_addons' );
 	
+
+/**
+* Register Exclusive Elementor Addons category
+*
+*/
+function exad_register_category() {
+	
+	\Elementor\Plugin::instance()->elements_manager->add_category(
+		'exclusive-addons-elementor',
+		array(
+			'title' => esc_html__( 'Exclusive Addons', 'wpb-elementor-addons' ),
+		),
+		2
+	);
+
+
+}
+// Registering Elementor Widget Category
+add_action( 'elementor/init', 'exad_register_category' );
 
 /**
  * Plugin Redirect Option Added by register_activation_hook

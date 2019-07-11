@@ -4,19 +4,19 @@
 }
 
 .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element {
-    color: #826EFF;
+    color: #a28fff;
 }
 
 .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .icon, .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .title, .elementor-panel #elementor-panel-elements .exad-element-wrapper .icon, .elementor-panel #elementor-panel-elements .exad-element-wrapper .title {
-    color: #826EFF;
+    color: #a28fff;
 } 
 
-.elementor-element .icon .exad-element-icon::after {
+/* .elementor-element .icon .exad-element-icon::after {
     content: "Ex";
     font-size: 10px;
     opacity: 0.5;
     position: absolute;
     right: 5px;
     top: 5px;
-    color: #826EFF;
-}
+    color: #a28fff;
+} */
