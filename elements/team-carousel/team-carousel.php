@@ -236,6 +236,9 @@ class Exad_Team_Carousel extends Widget_Base {
 					'-three' => esc_html__( 'Pro Style 1', 'exclusive-addons-elementor' ),
 					'-six' => esc_html__( 'Pro Style 2', 'exclusive-addons-elementor' ),
 					'-seven' => esc_html__( 'Pro Style 3', 'exclusive-addons-elementor' ),
+					'-eight' => esc_html__( 'Pro Style 4', 'exclusive-addons-elementor' ),
+					'-nine' => esc_html__( 'Pro Style 5', 'exclusive-addons-elementor' ),
+					'-ten' => esc_html__( 'Pro Style 6', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -675,6 +678,11 @@ class Exad_Team_Carousel extends Widget_Base {
 	                  		<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo $member['exad_team_carousel_name']; ?>">
 	                	</div>
 	                	<div class="exad-team-member-content">
+							<?php if( $team_preset == '-eight' ) : ?>
+								<svg viewBox="0 0 370 160">
+									<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
+								</svg>
+							<?php endif; ?>
 		                	<h2 class="exad-team-member-name"><?php echo $member['exad_team_carousel_name']; ?></h2>
 		                	<span class="exad-team-member-designation"><?php echo $member['exad_team_carousel_designation']; ?></span>
 		                	<p class="exad-team-member-about">
