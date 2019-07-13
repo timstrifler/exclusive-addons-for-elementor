@@ -10318,10 +10318,12 @@ ul.exad-pricing-table-features {
   outline: 0;
 }
 
-/* //Slick Dots style start */
+/* Slick Dots style start */
 
 .exad-team-carousel-wrapper .slick-dots {
-  padding-top: 30px;
+  position: static;
+  bottom: 0;
+  padding-top: 0;
   padding-left: 0;
   margin-bottom: 0;
   text-align: center;
@@ -10356,7 +10358,7 @@ ul.exad-pricing-table-features {
   background: #f35029;
 }
 
-/* //Slick Dots style end */
+/* Slick Dots style end */
 .exad-team-carousel-content-hover {
   margin: 0 -15px;
 }
@@ -10516,7 +10518,7 @@ ul.exad-pricing-table-features {
   height: 40px;
   border-radius: 50%;
   background: #272c44;
-  opacity: .4;
+  /* opacity: .4; */
   -webkit-transition: .3s ease;
   transition: .3s ease;
 }
