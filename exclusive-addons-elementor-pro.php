@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Exclusive Addons for Elementor - Pro
+ * Plugin Name: Exclusive Addons Elementor - Pro
  * Plugin URI: http://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
  * Version: 1.0
@@ -106,9 +106,9 @@ final class Exclusive_Addons_Elementor {
 		$this->constants();
 		$this->exad_initiate_elements();
 		$this->includes();
-		add_action( 'init', [ $this, 'init' ] );
+		add_action( 'plugins_loaded', [ $this, 'init' ] );
 		add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
-
+		register_activation_hook( __FILE__ , array( $this, 'exad_plugin_redirect_option' ) );
 	}
 
 	/**
@@ -200,6 +200,8 @@ final class Exclusive_Addons_Elementor {
 		
 		
 		add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'exad_plugin_settings_action' ) );
+		// Registering Elementor Widget Category
+		add_action( 'elementor/elements/categories_registered', array( $this, 'exad_register_category' ) );
 		// Enqueue Styles and Scripts
 		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'exad_enqueue_scripts' ), 20 );
 		// Elementor Editor Styles
@@ -210,8 +212,34 @@ final class Exclusive_Addons_Elementor {
 		add_filter( 'body_class', array( $this, 'add_body_classes' ) );
 		// Load Plugin textdomain
 		load_plugin_textdomain( 'exclusive-addons-elementor' );
-
 	}
+
+	/**
+	 * 
+	 * Plugin Redirect Option Added by register_activation_hook
+	 * 
+	 */
+	public function exad_plugin_redirect_option() {
+		add_option( 'exad_do_update_redirect', true );
+	}
+
+
+	/**
+	 * 
+	 * Register Exclusive Elementor Addons category
+	 *
+	 */
+	public function exad_register_category( $elements_manager ) {
+
+		$elements_manager->add_category(
+			'exclusive-addons-elementor',
+			[
+				'title' => __( 'Exclusve Addons', 'exclusive-addons-elementor' ),
+				'icon' => 'font',
+			]
+		);
+	}
+
 
 	/**
 	 * 
@@ -459,36 +487,6 @@ final class Exclusive_Addons_Elementor {
  * 
  * Initilize Plugin Class
  */
-function init_exclusive_addons() {
-	return Exclusive_Addons_Elementor::instance();
-}
-add_action( 'plugins_loaded', 'init_exclusive_addons' );
-	
-
-/**
-* Register Exclusive Elementor Addons category
-*
-*/
-function exad_register_category() {
-	
-	\Elementor\Plugin::instance()->elements_manager->add_category(
-		'exclusive-addons-elementor',
-		array(
-			'title' => esc_html__( 'Exclusive Addons', 'wpb-elementor-addons' ),
-		),
-		2
-	);
+Exclusive_Addons_Elementor::instance();
 
 
-}
-// Registering Elementor Widget Category
-add_action( 'elementor/init', 'exad_register_category' );
-
-/**
- * Plugin Redirect Option Added by register_activation_hook
- * 
- */
-function exad_plugin_redirect_option() {
-	add_option( 'exad_do_update_redirect', true );
-}
-register_activation_hook( __FILE__ , 'exad_plugin_redirect_option' );
