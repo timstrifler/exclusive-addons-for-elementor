@@ -9959,21 +9959,10 @@ ul.exad-pricing-table-features {
   position: relative;
 }
 
-.exad-team-member-eight .exad-team-member-content .exad-team-member-designation::before {
-  position: absolute;
-  content: '';
-  width: 50%;
-  height: 1px;
-  background: #E5E5E5;
-  bottom: -25px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
 .exad-team-member-eight .exad-team-member-content .exad-team-member-about {
   line-height: 26px;
   color: #828486;
+  margin-bottom: 20px;
 }
 
 .exad-team-member-eight .exad-team-member-content .exad-team-member-social {
@@ -10171,20 +10160,9 @@ ul.exad-pricing-table-features {
   position: relative;
   color: #828486;
   line-height: 26px;
-  margin: 0 0 80px 0;
+  margin: 0 0 50px 0;
 }
 
-.exad-team-member-ten .exad-team-member-content .exad-team-member-about::before {
-  content: '';
-  position: absolute;
-  width: 60%;
-  bottom: -40px;
-  height: 1px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  background: #e5e5e5;
-}
 
 .exad-team-member-ten .exad-team-member-content .exad-team-member-social {
   margin: 0;

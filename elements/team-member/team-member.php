@@ -206,10 +206,10 @@ class Exad_Team_Member extends Widget_Base {
 					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
 					'-rounded' => esc_html__( 'Rounded', 'exclusive-addons-elementor' ),
 					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
-					'-full-width-content-hover' => esc_html__( 'Full Width Content on Hover', 'exclusive-addons-elementor' ),
 					'-eight' => esc_html__( 'Pro Style 1', 'exclusive-addons-elementor' ),
 					'-nine' => esc_html__( 'Pro Style 2', 'exclusive-addons-elementor' ),
 					'-ten' => esc_html__( 'Pro Style 3', 'exclusive-addons-elementor' ),
+					'-full-width-content-hover' => esc_html__( 'Pro Style 4', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -217,7 +217,7 @@ class Exad_Team_Member extends Widget_Base {
 		$this->add_control(
 			'exad_team_members_avatar_bg',
 			[
-				'label' => esc_html__( 'Avatar Background Color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Curved SVG Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#826EFF',
 				'selectors' => [
@@ -248,15 +248,15 @@ class Exad_Team_Member extends Widget_Base {
 		$this->end_controls_section();
 
 		/*
-		* Team Members Common Styling
+		* Team Members Border Styling
 		*/
 		$this->start_controls_section(
-			'exad_section_team_members_common_style',
+			'exad_section_team_members_border_style',
 			[
-				'label' => esc_html__( 'Common Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Border Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'exad_team_members_preset!' => ['-basic', '-circle','-social-left', '-rounded', '-content-hover', '-nine'],
+					'exad_team_members_preset!' => ['-basic', '-circle','-social-left', '-rounded', '-content-hover', '-full-width-content-hover', '-nine'],
 				],
 			]
 		);
@@ -334,22 +334,6 @@ class Exad_Team_Member extends Widget_Base {
 				],
 				'condition' => [
 					'exad_team_members_preset' => ['-eight'],
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_team_members_separator',
-			[
-				'label' => esc_html__( 'Separator Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'size_units' => [ 'px'],
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-ten .exad-team-member-content .exad-team-member-about::before,
-					{{WRAPPER}} .exad-team-member-eight .exad-team-member-content .exad-team-member-designation::before'=> 'background: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_team_members_preset' => ['-ten', '-eight'],
 				],
 			]
 		);
@@ -576,9 +560,9 @@ class Exad_Team_Member extends Widget_Base {
               				<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
             			</svg>
 					<?php endif; ?>
-					<h2 <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>><?php echo $settings['exad_team_member_name']; ?></h2>
-					<span <?php echo $this->get_render_attribute_string( 'exad_team_member_designation' ); ?>><?php echo $settings['exad_team_member_designation']; ?></span>
-					<p <?php echo $this->get_render_attribute_string( 'exad_team_member_description' ); ?>><?php echo $settings['exad_team_member_description']; ?></p>
+					<h2 <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>><?php echo esc_html( $settings['exad_team_member_name'] ); ?></h2>
+					<span <?php echo $this->get_render_attribute_string( 'exad_team_member_designation' ); ?>><?php echo esc_html( $settings['exad_team_member_designation'] ); ?></span>
+					<p <?php echo $this->get_render_attribute_string( 'exad_team_member_description' ); ?>><?php echo esc_html( $settings['exad_team_member_description'] ); ?></p>
 					<?php if ( $settings['exad_team_member_enable_social_profiles'] == 'yes' ): ?>
 						<ul class="list-inline exad-team-member-social">
 							<?php foreach ( $settings['exad_team_member_social_profile_links'] as $item ) : ?>
