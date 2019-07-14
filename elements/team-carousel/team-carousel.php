@@ -233,6 +233,13 @@ class Exad_Team_Carousel extends Widget_Base {
 					'-circle' => esc_html__( 'Circle Gradient', 'exclusive-addons-elementor' ),
 					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
 					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
+					'-three' => esc_html__( 'Pro Style 1', 'exclusive-addons-elementor' ),
+					'-six' => esc_html__( 'Pro Style 2', 'exclusive-addons-elementor' ),
+					'-seven' => esc_html__( 'Pro Style 3', 'exclusive-addons-elementor' ),
+					'-eight' => esc_html__( 'Pro Style 4', 'exclusive-addons-elementor' ),
+					'-nine' => esc_html__( 'Pro Style 5', 'exclusive-addons-elementor' ),
+					'-ten' => esc_html__( 'Pro Style 6', 'exclusive-addons-elementor' ),
+					'-five' => esc_html__( 'Pro Style 7', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -244,10 +251,11 @@ class Exad_Team_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#826EFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-circle .exad-team-member-thumb svg.team-avatar-bg' => 'fill: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-circle .exad-team-member-thumb svg.team-avatar-bg,
+					{{WRAPPER}} .exad-team-member-eight .exad-team-member-content svg path' => 'fill: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_carousel_preset' => '-circle',
+					'exad_team_carousel_preset' => ['-circle', '-eight'],
 				],
 			]
 		);
@@ -259,14 +267,124 @@ class Exad_Team_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f9f9f9',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-basic, {{WRAPPER}} .exad-team-member-circle, {{WRAPPER}} .exad-team-member-social-left, {{WRAPPER}} .exad-team-member-rounded' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-basic, {{WRAPPER}} .exad-team-member-circle, {{WRAPPER}} .exad-team-member-social-left,
+					 {{WRAPPER}} .exad-team-member-rounded, {{WRAPPER}} .exad-team-carousel-three .exad-team-carousel-three-inner,
+					 {{WRAPPER}} .exad-team-carousel-six .exad-team-carousel-six-inner .exad-team-member-content, {{WRAPPER}} .exad-team-carousel-seven .exad-team-carousel-seven-inner,
+					 {{WRAPPER}} .exad-team-member-eight, {{WRAPPER}} .exad-team-member-nine, {{WRAPPER}} .exad-team-member-ten' => 'background: {{VALUE}};',
 				],
 			]
 		);
 
-
 		$this->end_controls_section();
 
+		/*
+		* Team Carousel Common Styling
+		*/
+		$this->start_controls_section(
+			'exad_section_team_carousel_common_style',
+			[
+				'label' => esc_html__( 'Common Styles', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_team_carousel_preset!' => ['-circle','-social-left', '-content-hover', '-three', '-six', '-seven', '-nine'],
+				],
+			]
+		);
+
+		/**
+		 * For style Ten
+		 */
+
+		$this->add_control(
+			'exad_team_carousel_border_radius_ten',
+			[
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px'],
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-ten'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_team_carousel_preset' => ['-ten'],
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_team_carousel_border_image',
+				'label' => esc_html__( 'Image Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-team-member-ten .exad-team-member-thumb',
+				'condition' => [
+					'exad_team_carousel_preset' => ['-ten'],
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_team_carousel_padding_ten',
+			[
+				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-ten'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_team_carousel_preset' => ['-ten'],
+				],
+			]
+		);
+
+		/**
+		 * For style Eight
+		 */
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_team_carousel_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-team-member-eight, {{WRAPPER}} .exad-team-member-eight .exad-team-member-thumb',
+				'condition' => [
+					'exad_team_carousel_preset' => ['-eight'],
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_team_carousel_border_radius_eight',
+			[
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::NUMBER,
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-eight'=> 'border-radius: calc( 2 * {{VALUE}}px );',
+					'{{WRAPPER}} .exad-team-member-eight .exad-team-member-content svg'=> 'border-radius: 0 0 {{VALUE}}px {{VALUE}}px;',
+				],
+				'condition' => [
+					'exad_team_carousel_preset' => ['-eight'],
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_team_carousel_separator',
+			[
+				'label' => esc_html__( 'Separator Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'size_units' => [ 'px'],
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-ten .exad-team-member-content .exad-team-member-about::before,
+					{{WRAPPER}} .exad-team-member-eight .exad-team-member-content .exad-team-member-designation::before'=> 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_team_carousel_preset' => ['-eight', '-ten'],
+				],
+			]
+		);
+
+		$this->end_controls_section();
 
 		$this->start_controls_section(
             'section_team_carousel_name',
@@ -409,13 +527,28 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->start_controls_tab( 'exad_team_carousel_navigation_control', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
 
 		$this->add_control(
-			'exad_team_carousel_arrow_color',
+			'exad_team_carousel_arrow_background_color',
 			[
 				'label' => esc_html__( 'Arrow Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#b8bfc7',
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-carousel-prev, {{WRAPPER}} .exad-team-carousel-next' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_team_carousel_nav' => 'arrows',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_team_carousel_arrow_color',
+			[
+				'label' => esc_html__( 'Arrow color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-carousel-prev, {{WRAPPER}} .exad-team-carousel-next' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_team_carousel_nav' => 'arrows',
@@ -443,13 +576,28 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->start_controls_tab( 'exad_team_carousel_social_icon_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
 
 		$this->add_control(
-			'exad_team_carousel_arrow_hover_color',
+			'exad_team_carousel_arrow_hover_background_color',
 			[
-				'label' => esc_html__( 'Arrow Hover', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Arrow Background Hover', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#917cff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-carousel-prev:hover, {{WRAPPER}} .exad-team-carousel-next:hover' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_team_carousel_nav' => 'arrows',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_team_carousel_arrow_hover_color',
+			[
+				'label' => esc_html__( 'Arrow Color Hover', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-carousel-prev:hover, {{WRAPPER}} .exad-team-carousel-next:hover' => 'color: {{VALUE}};',
 				],
 				'condition' => [
 					'exad_team_carousel_nav' => 'arrows',
@@ -551,10 +699,14 @@ class Exad_Team_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFF',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a,
+					{{WRAPPER}} .exad-team-carousel-three .exad-team-carousel-three-inner .exad-team-member-three .exad-team-member-social li a,
+					{{WRAPPER}} .exad-team-carousel-six .exad-team-carousel-six-inner .exad-team-member-content .exad-team-member-social li a,
+					{{WRAPPER}} .exad-team-member-eight .exad-team-member-content .exad-team-member-social li a,
+					{{WRAPPER}} .exad-team-member-ten .exad-team-member-content .exad-team-member-social li a' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_carousel_preset' => '-social-left',
+					'exad_team_carousel_preset' => ['-social-left', '-three','-six', '-eight', '-ten'],
 				],
 			]
 		);
@@ -584,10 +736,14 @@ class Exad_Team_Carousel extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#917cff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-team-member-social-left .exad-team-member-social li a:hover,
+					{{WRAPPER}} .exad-team-carousel-three .exad-team-carousel-three-inner .exad-team-member-three .exad-team-member-social li a:hover,
+					{{WRAPPER}} .exad-team-carousel-six .exad-team-carousel-six-inner .exad-team-member-content .exad-team-member-social li a:hover,
+					{{WRAPPER}} .exad-team-member-eight .exad-team-member-content .exad-team-member-social li a:hover,
+					{{WRAPPER}} .exad-team-member-ten .exad-team-member-content .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_team_carousel_preset' => '-social-left'
+					'exad_team_carousel_preset' => ['-social-left', '-three', '-six', '-eight', '-ten']
 				],
 			]
 		);
@@ -672,6 +828,11 @@ class Exad_Team_Carousel extends Widget_Base {
 	                  		<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo $member['exad_team_carousel_name']; ?>">
 	                	</div>
 	                	<div class="exad-team-member-content">
+							<?php if( $team_preset == '-eight' ) : ?>
+								<svg viewBox="0 0 370 160">
+									<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
+								</svg>
+							<?php endif; ?>
 		                	<h2 class="exad-team-member-name"><?php echo $member['exad_team_carousel_name']; ?></h2>
 		                	<span class="exad-team-member-designation"><?php echo $member['exad_team_carousel_designation']; ?></span>
 		                	<p class="exad-team-member-about">
