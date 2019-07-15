@@ -41,12 +41,14 @@
 				  breakpoint: 1024,
 				  settings: {
 					slidesToShow: 2,
+					arrows: false,
 				  }
 				},
 				{
 				  breakpoint: 576,
 				  settings: {
 					slidesToShow: 1,
+					arrows: false,
 				  }
 				}
 			],

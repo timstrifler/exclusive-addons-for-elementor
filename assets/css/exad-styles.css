@@ -9624,6 +9624,7 @@ ul.exad-pricing-table-features {
 
 .exad-team-member-social-left .exad-team-member-thumb img {
   width: 100%;
+  display: block;
 }
 
 
@@ -9652,8 +9653,8 @@ ul.exad-pricing-table-features {
   height: 45px;
   color: #8a8d91;
   border-radius: 50%;
-  border: 1px solid #e0e0e0;
   transition: .3s ease;
+  font-size: 18px;
 }
 
 .exad-team-member-social-left .exad-team-member-social li a i {
@@ -9662,7 +9663,6 @@ ul.exad-pricing-table-features {
 
 .exad-team-member-social-left .exad-team-member-social li a:hover {
   color: #fff;
-  border-color: transparent;
 }
 
 .exad-team-member-social-left .exad-team-member-social li:not(:last-child) {
@@ -9710,8 +9710,9 @@ ul.exad-pricing-table-features {
   height: 40px;
   border-radius: 50%;
   background: #272c44;
-  opacity: .4;
+  /* opacity: .4; */
   transition: .3s ease;
+  font-size: 18px;
 }
 
 .exad-team-member-rounded .exad-team-member-social li:not(:last-child) {
@@ -10702,7 +10703,11 @@ ul.exad-pricing-table-features {
   margin: 30px 15px;
 }
 
-.exad-team-carousel-ten .exad-team-carousel-nine-inner:focus{
+.exad-team-carousel-nine .exad-team-carousel-nine-inner:hover{
+  outline: 0;
+}
+
+.exad-team-carousel-nine .exad-team-carousel-nine-inner:focus{
   outline: 0;
 }
 
