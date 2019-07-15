@@ -896,7 +896,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	}
 
 	protected function _content_template(){
-		?>
+	?>
 
 		<# 
 			view.addInlineEditingAttributes( 'exad_team_carousel_name', 'none' );
@@ -909,32 +909,32 @@ class Exad_Team_Carousel extends Widget_Base {
 			view.addRenderAttribute( 'exad_team_member_description', 'class', 'exad-team-member-about' ); -->
 
 			view.addRenderAttribute( 
-				'exad-team-carousel', 
-				[ 
-					'class' => [ 'exad-team-carousel-wrapper', 'exad-team-carousel' . settings.exad_team_carousel_preset ],
-					'data-team-preset' => settings.exad_team_carousel_preset,
-					'data-carousel-nav' => settings.exad_team_carousel_nav,
-					'data-slidestoshow' => settings.exad_team_per_view,
-					'data-slidestoscroll' => settings.exad_team_slides_to_scroll,
-					'data-speed' => settings.exad_team_transition_duration,
-				]
+				'exad_team_carousel', 
+				{ 
+					'class' : [ 'exad-team-carousel-wrapper', 'exad-team-carousel' + settings.exad_team_carousel_preset ],
+					'data-team-preset' : settings.exad_team_carousel_preset,
+					'data-carousel-nav' : settings.exad_team_carousel_nav,
+					'data-slidestoshow' : settings.exad_team_per_view,
+					'data-slidestoscroll' : settings.exad_team_slides_to_scroll,
+					'data-speed' : settings.exad_team_transition_duration
+				}
 			);
 
 			if ( settings.exad_team_autoplay == 'yes' ) {
-				view.addRenderAttribute( 'exad-team-carousel', 'data-autoplay', "true");
+				view.addRenderAttribute( 'exad-team-carousel', 'data-autoplay', 'true');
 				view.addRenderAttribute( 'exad-team-carousel', 'data-autoplayspeed', settings.exad_team_autoplay_speed );
 			}
 			
 			if ( settings.exad_team_pause == 'yes' ) {
-				view.addRenderAttribute( 'exad-team-carousel', 'data-pauseonhover', "true" );
+				view.addRenderAttribute( 'exad-team-carousel', 'data-pauseonhover', 'true' );
 			}
 
 			if ( settings.exad_team_loop == 'yes' ) {
-				view.addRenderAttribute( 'exad-team-carousel', 'data-loop', "true");
+				view.addRenderAttribute( 'exad-team-carousel', 'data-loop', 'true');
 			}
 		#>
 
-		<div {{{ view.getRenderAttributeString( 'exad-team-carousel' ) }}} >
+		<div {{{ view.getRenderAttributeString( 'exad_team_carousel' ) }}}>
 
 			<# _.each( settings.team_carousel_repeater, function( member, index ) { #>
 
@@ -952,7 +952,7 @@ class Exad_Team_Carousel extends Widget_Base {
 								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
 							</svg>
 						<# } #>
-						<img src="{{ team_carousel_image_url }}" class="circled" alt="{{ member.exad_team_carousel_name }}">
+						<img src="{{ member.exad_team_carousel_image.url }}" class="circled" alt="{{ member.exad_team_carousel_name }}">
 					</div>
 					<div class="exad-team-member-content">
 						<# if( settings.exad_team_carousel_preset == '-eight' ) { #>
@@ -1009,11 +1009,12 @@ class Exad_Team_Carousel extends Widget_Base {
 				</div>
 			</div>
 
-		<# } #>
+		<# } ); #>
 		</div>
 
 		<?php
 	}
+	
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Team_Carousel() );
