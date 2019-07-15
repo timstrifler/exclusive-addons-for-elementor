@@ -239,7 +239,6 @@ class Exad_Team_Carousel extends Widget_Base {
 					'-eight' => esc_html__( 'Pro Style 4', 'exclusive-addons-elementor' ),
 					'-nine' => esc_html__( 'Pro Style 5', 'exclusive-addons-elementor' ),
 					'-ten' => esc_html__( 'Pro Style 6', 'exclusive-addons-elementor' ),
-					'-five' => esc_html__( 'Pro Style 7', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -774,16 +773,6 @@ class Exad_Team_Carousel extends Widget_Base {
 		
 		$team_preset = $settings['exad_team_carousel_preset']; 
 
-		$this->add_inline_editing_attributes( 'exad_team_carousel_name', 'none' );
-		$this->add_render_attribute( 'exad_team_carousel_name', 'class', 'exad-team-member-name' );
-
-		// $this->add_inline_editing_attributes( 'exad_team_member_designation', 'none' );
-		// $this->add_render_attribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
-
-		// $this->add_inline_editing_attributes( 'exad_team_member_description', 'none' );
-		// $this->add_render_attribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
-
-
 		$this->add_render_attribute( 
 			'exad-team-carousel', 
 			[ 
@@ -842,7 +831,7 @@ class Exad_Team_Carousel extends Widget_Base {
 									<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
 								</svg>
 							<?php endif; ?>
-		                	<h2 <?php echo $this->get_render_attribute_string( 'exad_team_carousel_name' ); ?> ><?php echo $member['exad_team_carousel_name']; ?></h2>
+		                	<h2 class="exad-team-member-name" ><?php echo $member['exad_team_carousel_name']; ?></h2>
 		                	<span class="exad-team-member-designation"><?php echo $member['exad_team_carousel_designation']; ?></span>
 		                	<p class="exad-team-member-about">
 			                	<?php echo $member['exad_team_carousel_description']; ?>
@@ -894,127 +883,6 @@ class Exad_Team_Carousel extends Widget_Base {
 		</div>	
 	<?php	
 	}
-
-	protected function _content_template(){
-	?>
-
-		<# 
-			view.addInlineEditingAttributes( 'exad_team_carousel_name', 'none' );
-			view.addRenderAttribute( 'exad_team_carousel_name', 'class', 'exad-team-member-name' );
-
-			<!-- view.addInlineEditingAttributes( 'exad_team_member_designation', 'none' );
-			view.addRenderAttribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
-
-			view.addInlineEditingAttributes( 'exad_team_member_description', 'none' );
-			view.addRenderAttribute( 'exad_team_member_description', 'class', 'exad-team-member-about' ); -->
-
-			view.addRenderAttribute( 
-				'exad_team_carousel', 
-				{ 
-					'class' : [ 'exad-team-carousel-wrapper', 'exad-team-carousel' + settings.exad_team_carousel_preset ],
-					'data-team-preset' : settings.exad_team_carousel_preset,
-					'data-carousel-nav' : settings.exad_team_carousel_nav,
-					'data-slidestoshow' : settings.exad_team_per_view,
-					'data-slidestoscroll' : settings.exad_team_slides_to_scroll,
-					'data-speed' : settings.exad_team_transition_duration
-				}
-			);
-
-			if ( settings.exad_team_autoplay == 'yes' ) {
-				view.addRenderAttribute( 'exad-team-carousel', 'data-autoplay', 'true');
-				view.addRenderAttribute( 'exad-team-carousel', 'data-autoplayspeed', settings.exad_team_autoplay_speed );
-			}
-			
-			if ( settings.exad_team_pause == 'yes' ) {
-				view.addRenderAttribute( 'exad-team-carousel', 'data-pauseonhover', 'true' );
-			}
-
-			if ( settings.exad_team_loop == 'yes' ) {
-				view.addRenderAttribute( 'exad-team-carousel', 'data-loop', 'true');
-			}
-		#>
-
-		<div {{{ view.getRenderAttributeString( 'exad_team_carousel' ) }}}>
-
-			<# _.each( settings.team_carousel_repeater, function( member, index ) { #>
-
-			<div class="exad-team-carousel{{ settings.exad_team_carousel_preset }}-inner">
-				<div class="exad-team-member{{ settings.exad_team_carousel_preset }}">
-					<div class="exad-team-member-thumb">
-						<# if( settings.exad_team_carousel_preset == '-circle' ) { #>
-							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-							</svg>
-							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-							</svg>
-							<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-								<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-							</svg>
-						<# } #>
-						<img src="{{ member.exad_team_carousel_image.url }}" class="circled" alt="{{ member.exad_team_carousel_name }}">
-					</div>
-					<div class="exad-team-member-content">
-						<# if( settings.exad_team_carousel_preset == '-eight' ) { #>
-							<svg viewBox="0 0 370 160">
-								<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
-							</svg>
-						<# } #>
-						<h2 {{{ view.getRenderAttributeString( 'exad_team_carousel_name' ) }}} >{{{ member.exad_team_carousel_name }}}</h2>
-						<span class="exad-team-member-designation">{{{ member.exad_team_carousel_designation }}}</span>
-						<p class="exad-team-member-about">
-							{{{ member.exad_team_carousel_description }}}
-						</p>
-						<# if ( member.exad_team_carousel_enable_social_profiles == 'yes' ) { #>
-						<ul class="list-inline exad-team-member-social">
-							
-							<# if ( ! member.exad_team_carousel_facebook_link.url ) { #>
-								<# var target  = member.exad_team_carousel_facebook_link.is_external ? ' target="_blank"' : '' #>
-								<li>
-									<a href="{{{ member.exad_team_carousel_facebook_link.url }}}" {{{ target }}} ><i class="fa fa-facebook"></i></a>
-								</li>
-							<# } #>
-
-							<# if ( ! member.exad_team_carousel_twitter_link.url ) { #>
-								<# var target = member.exad_team_carousel_twitter_link.is_external ? ' target="_blank"' : '' #>
-								<li>
-									<a href="{{{ member.exad_team_carousel_twitter_link.url }}}" {{{ target }}} ><i class="fa fa-twitter"></i></a>
-								</li>
-							<# } #>
-
-							<# if ( ! member.exad_team_carousel_instagram_link.url ) { #>
-								<# var target = member.exad_team_carousel_instagram_link.is_external ? ' target="_blank"' : '' #>
-								<li>
-									<a href="{{{ member.exad_team_carousel_instagram_link.url }}}" {{{ target }}} ><i class="fa fa-instagram"></i></a>
-								</li>
-							<# } #>
-
-							<# if ( ! member.exad_team_carousel_linkedin_link.url  ) { #>
-								<# var target = member.exad_team_carousel_linkedin_link.is_external ? ' target="_blank"' : '' #>
-								<li>
-									<a href="{{{ member.exad_team_carousel_linkedin_link.url }}}" {{{ target }}} ><i class="fa fa-linkedin"></i></a>
-								</li>
-							<# } #>
-
-							<# if ( ! member.exad_team_carousel_dribbble_link.url ) { #>
-								<# var target = member.exad_team_carousel_dribbble_link.is_external ? ' target="_blank"' : '' #>
-								<li>
-									<a href="{{{ member.exad_team_carousel_dribbble_link.url }}}" {{{ target }}} ><i class="fa fa-dribbble"></i></a>
-								</li>
-							<# } #>
-							
-						</ul>
-						<# } #>
-					</div>
-				</div>
-			</div>
-
-		<# } ); #>
-		</div>
-
-		<?php
-	}
-	
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Team_Carousel() );
