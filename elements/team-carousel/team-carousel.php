@@ -807,8 +807,8 @@ class Exad_Team_Carousel extends Widget_Base {
 			$team_carousel_image = $member['exad_team_carousel_image'];
 			$team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_carousel_image['id'], 'thumbnail', $member );
 			if( empty( $team_carousel_image_url ) ) : $team_carousel_image_url = $team_carousel_image['url']; else: $team_carousel_image_url = $team_carousel_image_url; endif;
-
-				?>	
+			?>
+			
 				<div class="exad-team-carousel<?php echo $team_preset; ?>-inner">
 	            	<div class="exad-team-member<?php echo $team_preset; ?>">
 	                	<div class="exad-team-member-thumb">
@@ -831,50 +831,48 @@ class Exad_Team_Carousel extends Widget_Base {
 									<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
 								</svg>
 							<?php endif; ?>
-		                	<h2 class="exad-team-member-name" ><?php echo $member['exad_team_carousel_name']; ?></h2>
-		                	<span class="exad-team-member-designation"><?php echo $member['exad_team_carousel_designation']; ?></span>
-		                	<p class="exad-team-member-about">
-			                	<?php echo $member['exad_team_carousel_description']; ?>
-			                </p>
+		                	<h2 class="exad-team-member-name" ><?php echo esc_html( $member['exad_team_carousel_name'] ); ?></h2>
+		                	<span class="exad-team-member-designation"><?php echo esc_html( $member['exad_team_carousel_designation'] ); ?></span>
+		                	<p class="exad-team-member-about"><?php echo esc_html( $member['exad_team_carousel_description'] ); ?></p>
 		                	<?php if ( $member['exad_team_carousel_enable_social_profiles'] == 'yes' ): ?>
-							<ul class="list-inline exad-team-member-social">
-								
-								<?php if ( ! empty( $member['exad_team_carousel_facebook_link']['url'] ) ) : ?>
-									<?php $target = $member['exad_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
-									<li>
-										<a href="<?php echo esc_url( $member['exad_team_carousel_facebook_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-facebook"></i></a>
-									</li>
-								<?php endif; ?>
+								<ul class="list-inline exad-team-member-social">
+									
+									<?php if ( ! empty( $member['exad_team_carousel_facebook_link']['url'] ) ) : ?>
+										<?php $target = $member['exad_team_carousel_facebook_link']['is_external'] ? ' target="_blank"' : ''; ?>
+										<li>
+											<a href="<?php echo esc_url( $member['exad_team_carousel_facebook_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-facebook"></i></a>
+										</li>
+									<?php endif; ?>
 
-								<?php if ( ! empty( $member['exad_team_carousel_twitter_link']['url'] ) ) : ?>
-									<?php $target = $member['exad_team_carousel_twitter_link']['is_external'] ? ' target="_blank"' : ''; ?>
-									<li>
-										<a href="<?php echo esc_url( $member['exad_team_carousel_twitter_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-twitter"></i></a>
-									</li>
-								<?php endif; ?>
+									<?php if ( ! empty( $member['exad_team_carousel_twitter_link']['url'] ) ) : ?>
+										<?php $target = $member['exad_team_carousel_twitter_link']['is_external'] ? ' target="_blank"' : ''; ?>
+										<li>
+											<a href="<?php echo esc_url( $member['exad_team_carousel_twitter_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-twitter"></i></a>
+										</li>
+									<?php endif; ?>
 
-								<?php if ( ! empty( $member['exad_team_carousel_instagram_link']['url'] ) ) : ?>
-									<?php $target = $member['exad_team_carousel_instagram_link']['is_external'] ? ' target="_blank"' : ''; ?>
-									<li>
-										<a href="<?php echo esc_url( $member['exad_team_carousel_instagram_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-instagram"></i></a>
-									</li>
-								<?php endif; ?>
+									<?php if ( ! empty( $member['exad_team_carousel_instagram_link']['url'] ) ) : ?>
+										<?php $target = $member['exad_team_carousel_instagram_link']['is_external'] ? ' target="_blank"' : ''; ?>
+										<li>
+											<a href="<?php echo esc_url( $member['exad_team_carousel_instagram_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-instagram"></i></a>
+										</li>
+									<?php endif; ?>
 
-								<?php if ( ! empty( $member['exad_team_carousel_linkedin_link']['url'] ) ) : ?>
-									<?php $target = $member['exad_team_carousel_linkedin_link']['is_external'] ? ' target="_blank"' : ''; ?>
-									<li>
-										<a href="<?php echo esc_url( $member['exad_team_carousel_linkedin_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-linkedin"></i></a>
-									</li>
-								<?php endif; ?>
+									<?php if ( ! empty( $member['exad_team_carousel_linkedin_link']['url'] ) ) : ?>
+										<?php $target = $member['exad_team_carousel_linkedin_link']['is_external'] ? ' target="_blank"' : ''; ?>
+										<li>
+											<a href="<?php echo esc_url( $member['exad_team_carousel_linkedin_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-linkedin"></i></a>
+										</li>
+									<?php endif; ?>
 
-								<?php if ( ! empty( $member['exad_team_carousel_dribbble_link']['url'] ) ) : ?>
-									<?php $target = $member['exad_team_carousel_dribbble_link']['is_external'] ? ' target="_blank"' : ''; ?>
-									<li>
-										<a href="<?php echo esc_url( $member['exad_team_carousel_dribbble_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-dribbble"></i></a>
-									</li>
-								<?php endif; ?>
-								
-							</ul>
+									<?php if ( ! empty( $member['exad_team_carousel_dribbble_link']['url'] ) ) : ?>
+										<?php $target = $member['exad_team_carousel_dribbble_link']['is_external'] ? ' target="_blank"' : ''; ?>
+										<li>
+											<a href="<?php echo esc_url( $member['exad_team_carousel_dribbble_link']['url'] ); ?>"<?php echo $target; ?>><i class="fa fa-dribbble"></i></a>
+										</li>
+									<?php endif; ?>
+
+								</ul>
 							<?php endif; ?>
 						</div>
 	              	</div>

@@ -538,7 +538,7 @@ class Exad_Team_Member extends Widget_Base {
 		}
 
 		?>
-		<div id="exad-team-member-<?php echo esc_attr($this->get_id()); ?>" class="exad-team-item">
+		<div id="exad-team-member" class="exad-team-item">
 			<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>">
 				<div class="exad-team-member-thumb">
 					<?php if( $settings['exad_team_members_preset'] == '-circle' ) : ?>
