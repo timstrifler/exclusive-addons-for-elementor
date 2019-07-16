@@ -793,8 +793,8 @@ class Exad_Team_Carousel extends Widget_Base {
 			if( empty( $team_carousel_image_url ) ) : $team_carousel_image_url = $team_carousel_image['url']; else: $team_carousel_image_url = $team_carousel_image_url; endif;
 			?>
 			
-				<div class="exad-team-carousel<?php echo $team_preset; ?>-inner">
-	            	<div class="exad-team-member<?php echo $team_preset; ?>">
+				<div class="exad-team-carousel<?php echo esc_attr( $team_preset ); ?>-inner">
+	            	<div class="exad-team-member<?php echo esc_attr( $team_preset ); ?>">
 	                	<div class="exad-team-member-thumb">
 	                		<?php if( $team_preset == '-circle' ) : ?>
 								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
@@ -807,7 +807,7 @@ class Exad_Team_Carousel extends Widget_Base {
 									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
 								</svg>
 							<?php endif; ?>
-	                  		<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo $member['exad_team_carousel_name']; ?>">
+	                  		<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo esc_attr( $member['exad_team_carousel_name'] ); ?>">
 	                	</div>
 	                	<div class="exad-team-member-content">
 							<?php if( $team_preset == '-eight' ) : ?>

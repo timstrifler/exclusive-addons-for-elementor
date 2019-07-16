@@ -540,7 +540,7 @@ class Exad_Team_Member extends Widget_Base {
 
 		?>
 		<div id="exad-team-member" class="exad-team-item">
-			<div class="exad-team-member<?php echo $settings['exad_team_members_preset']; ?>">
+			<div class="exad-team-member<?php echo esct_attr( $settings['exad_team_members_preset'] ); ?>">
 				<div class="exad-team-member-thumb">
 					<?php if( $settings['exad_team_members_preset'] == '-circle' ) : ?>
 					<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
@@ -553,7 +553,7 @@ class Exad_Team_Member extends Widget_Base {
 						<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
 					</svg>
 					<?php endif; ?>
-					<img src="<?php echo esc_url($team_member_image_url); ?>" class="circled" alt="<?php echo $settings['exad_team_member_name']; ?>">
+					<img src="<?php echo esc_url($team_member_image_url); ?>" class="circled" alt="<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>">
 				</div>
 				<div class="exad-team-member-content">
 					<?php if( $settings['exad_team_members_preset'] == '-eight' ) : ?>
@@ -576,7 +576,7 @@ class Exad_Team_Member extends Widget_Base {
 							
 							<?php $target = $item['link']['is_external'] ? ' target="_blank"' : ''; ?>
 							<li>
-								<a href="<?php echo esc_attr( $item['link']['url'] ); ?>"<?php echo $target; ?>><i class="<?php echo esc_attr($item['social'] ); ?>"></i></a>
+								<a href="<?php echo esc_url( $item['link']['url'] ); ?>"<?php echo $target; ?>><i class="<?php echo esc_attr($item['social'] ); ?>"></i></a>
 							</li>
 							
 							<?php endforeach; ?>
