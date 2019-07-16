@@ -239,7 +239,8 @@ class Exad_Team_Member extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-member-basic, {{WRAPPER}} .exad-team-member-circle, {{WRAPPER}} .exad-team-member-social-left, 
 					{{WRAPPER}} .exad-team-member-rounded, {{WRAPPER}} .exad-team-member-eight, {{WRAPPER}} .exad-team-member-nine, 
-					{{WRAPPER}} .exad-team-member-ten, {{WRAPPER}} .exad-team-member-full-width-content-hover .exad-team-member-content' => 'background: {{VALUE}};',
+					{{WRAPPER}} .exad-team-member-ten, {{WRAPPER}} .exad-team-member-full-width-content-hover .exad-team-member-content,
+					{{WRAPPER}} .exad-team-member-content-hover .exad-team-member-content' => 'background: {{VALUE}};',
 				],
 			]
 		);
