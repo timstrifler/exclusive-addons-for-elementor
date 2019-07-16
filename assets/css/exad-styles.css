@@ -9444,8 +9444,20 @@ ul.exad-pricing-table-features {
   box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
 }
 
+.exad-team-member-basic .exad-team-member-thumb{
+  overflow: hidden;
+}
+
 .exad-team-member-basic .exad-team-member-thumb img {
   width: 100%;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  display: block;
+}
+
+.exad-team-member-basic:hover .exad-team-member-thumb img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .exad-team-member-basic .exad-team-member-content {
@@ -9760,20 +9772,9 @@ ul.exad-pricing-table-features {
   position: relative;
 }
 
-.exad-team-member-content-hover .exad-team-member-designation::before {
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 2px;
-  background: #132c47;
-  bottom: -12px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
 .exad-team-member-content-hover .exad-team-member-social {
   margin-bottom: 0;
+  padding: 0;
 }
 
 .exad-team-member-content-hover .exad-team-member-social li a {
@@ -9784,7 +9785,7 @@ ul.exad-pricing-table-features {
 }
 
 .exad-team-member-content-hover .exad-team-member-social li a i {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .exad-team-member-content-hover .exad-team-member-social li a:hover {
