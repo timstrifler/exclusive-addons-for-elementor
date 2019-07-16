@@ -201,15 +201,15 @@ class Exad_Team_Member extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => '-basic',
 				'options' => [
-					'-basic' => esc_html__( 'Basic', 'exclusive-addons-elementor' ),
-					'-circle' => esc_html__( 'Circle Gradient', 'exclusive-addons-elementor' ),
-					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
-					'-rounded' => esc_html__( 'Rounded', 'exclusive-addons-elementor' ),
-					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
-					'-eight' => esc_html__( 'Pro Style 1', 'exclusive-addons-elementor' ),
-					'-nine' => esc_html__( 'Pro Style 2', 'exclusive-addons-elementor' ),
-					'-ten' => esc_html__( 'Pro Style 3', 'exclusive-addons-elementor' ),
-					'-full-width-content-hover' => esc_html__( 'Pro Style 4', 'exclusive-addons-elementor' ),
+					'-basic' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+					'-circle' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+					'-social-left' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
+					'-rounded' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
+					'-content-hover' => esc_html__( 'Style 5', 'exclusive-addons-elementor' ),
+					'-eight' => esc_html__( 'Style 6 (Pro)', 'exclusive-addons-elementor' ),
+					'-nine' => esc_html__( 'Style 7 (Pro)', 'exclusive-addons-elementor' ),
+					'-ten' => esc_html__( 'Style 8 (Pro)', 'exclusive-addons-elementor' ),
+					'-full-width-content-hover' => esc_html__( 'Style 9 (Pro)', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -560,9 +560,15 @@ class Exad_Team_Member extends Widget_Base {
               				<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
             			</svg>
 					<?php endif; ?>
-					<h2 <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>><?php echo esc_html( $settings['exad_team_member_name'] ); ?></h2>
-					<span <?php echo $this->get_render_attribute_string( 'exad_team_member_designation' ); ?>><?php echo esc_html( $settings['exad_team_member_designation'] ); ?></span>
-					<p <?php echo $this->get_render_attribute_string( 'exad_team_member_description' ); ?>><?php echo esc_html( $settings['exad_team_member_description'] ); ?></p>
+					<?php if ( !empty( $settings['exad_team_member_name'] ) ) : ?>
+                        <h2 <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>><?php echo esc_html( $settings['exad_team_member_name'] ); ?></h2>
+					<?php endif; ?>
+					<?php if ( !empty( $settings['exad_team_member_designation'] ) ) : ?>
+                        <span <?php echo $this->get_render_attribute_string( 'exad_team_member_designation' ); ?>><?php echo esc_html( $settings['exad_team_member_designation'] ); ?></span>
+					<?php endif; ?>
+					<?php if ( !empty( $settings['exad_team_member_description'] ) ) : ?>
+                        <p <?php echo $this->get_render_attribute_string( 'exad_team_member_description' ); ?>><?php echo esc_html( $settings['exad_team_member_description'] ); ?></p>
+                    <?php endif; ?>
 					<?php if ( $settings['exad_team_member_enable_social_profiles'] == 'yes' ): ?>
 						<ul class="list-inline exad-team-member-social">
 							<?php foreach ( $settings['exad_team_member_social_profile_links'] as $item ) : ?>
@@ -617,9 +623,15 @@ class Exad_Team_Member extends Widget_Base {
               				<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
             			</svg>
 					<# } #>
-					<h2 {{{ view.getRenderAttributeString( 'exad_team_member_name' ) }}}>{{{ settings.exad_team_member_name }}}</h2>
-					<span {{{ view.getRenderAttributeString( 'exad_team_member_designation' ) }}}>{{{ settings.exad_team_member_designation }}}</span>
-					<p {{{ view.getRenderAttributeString( 'exad_team_member_description' ) }}}>{{{ settings.exad_team_member_description }}}</p>
+					<# if ( settings.exad_team_member_name != '' ) { #>
+						<h2 {{{ view.getRenderAttributeString( 'exad_team_member_name' ) }}}>{{{ settings.exad_team_member_name }}}</h2>
+					<# } #>
+					<# if ( settings.exad_team_member_designation != '' ) { #>
+						<span {{{ view.getRenderAttributeString( 'exad_team_member_designation' ) }}}>{{{ settings.exad_team_member_designation }}}</span>
+					<# } #>
+					<# if ( settings.exad_team_member_description != '' ) { #>
+						<p {{{ view.getRenderAttributeString( 'exad_team_member_description' ) }}}>{{{ settings.exad_team_member_description }}}</p>
+					<# } #>
 					<# if ( 'yes' == settings.exad_team_member_enable_social_profiles ) { #>
 						<ul class="list-inline exad-team-member-social">
 							<# _.each( settings.exad_team_member_social_profile_links, function( item, index ) { #>

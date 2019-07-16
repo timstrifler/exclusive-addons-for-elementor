@@ -230,15 +230,15 @@ class Exad_Team_Carousel extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => '-circle',
 				'options' => [
-					'-circle' => esc_html__( 'Circle Gradient', 'exclusive-addons-elementor' ),
-					'-social-left' => esc_html__( 'Social Left on Hover', 'exclusive-addons-elementor' ),
-					'-content-hover' => esc_html__( 'Content on Hover', 'exclusive-addons-elementor' ),
-					'-three' => esc_html__( 'Pro Style 1', 'exclusive-addons-elementor' ),
-					'-six' => esc_html__( 'Pro Style 2', 'exclusive-addons-elementor' ),
-					'-seven' => esc_html__( 'Pro Style 3', 'exclusive-addons-elementor' ),
-					'-eight' => esc_html__( 'Pro Style 4', 'exclusive-addons-elementor' ),
-					'-nine' => esc_html__( 'Pro Style 5', 'exclusive-addons-elementor' ),
-					'-ten' => esc_html__( 'Pro Style 6', 'exclusive-addons-elementor' ),
+					'-circle' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+					'-social-left' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+					'-content-hover' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
+					'-three' => esc_html__( 'Style 4 (Pro)', 'exclusive-addons-elementor' ),
+					'-six' => esc_html__( 'Style 5 (Pro)', 'exclusive-addons-elementor' ),
+					'-seven' => esc_html__( 'Style 6 (Pro)', 'exclusive-addons-elementor' ),
+					'-eight' => esc_html__( 'Style 7 (Pro)', 'exclusive-addons-elementor' ),
+					'-nine' => esc_html__( 'Style 8 (Pro)', 'exclusive-addons-elementor' ),
+					'-ten' => esc_html__( 'Style 9 (Pro)', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -815,9 +815,15 @@ class Exad_Team_Carousel extends Widget_Base {
 									<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
 								</svg>
 							<?php endif; ?>
-		                	<h2 class="exad-team-member-name" ><?php echo esc_html( $member['exad_team_carousel_name'] ); ?></h2>
-		                	<span class="exad-team-member-designation"><?php echo esc_html( $member['exad_team_carousel_designation'] ); ?></span>
-		                	<p class="exad-team-member-about"><?php echo esc_html( $member['exad_team_carousel_description'] ); ?></p>
+							<?php if ( !empty( $member['exad_team_carousel_name'] ) ) : ?>
+								<h2 class="exad-team-member-name" ><?php echo esc_html( $member['exad_team_carousel_name'] ); ?></h2>
+							<?php endif; ?>
+							<?php if ( !empty( $member['exad_team_carousel_designation'] ) ) : ?>
+								<span class="exad-team-member-designation"><?php echo esc_html( $member['exad_team_carousel_designation'] ); ?></span>
+							<?php endif; ?>
+							<?php if ( !empty( $member['exad_team_carousel_description'] ) ) : ?>
+								<p class="exad-team-member-about"><?php echo esc_html( $member['exad_team_carousel_description'] ); ?></p>
+							<?php endif; ?>
 		                	<?php if ( $member['exad_team_carousel_enable_social_profiles'] == 'yes' ): ?>
 								<ul class="list-inline exad-team-member-social">
 									
