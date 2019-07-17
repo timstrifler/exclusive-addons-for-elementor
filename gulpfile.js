@@ -36,14 +36,12 @@ var concat = require('gulp-concat');
 gulp.task('jsconcat', function() {
     return gulp.src('./assets/js/elements-js/*.js')
       .pipe(concat('exad-scripts.js'))
-      .pipe(uglify())
       .pipe(gulp.dest('./assets/js'));
 });
 
 gulp.task('cssconcat', function() {
     return gulp.src('./assets/css/elements-css/*.css')
       .pipe(concat('exad-styles.css'))
-      .pipe(cssnano())
       .pipe(gulp.dest('./assets/css'));
 });
 

@@ -90,8 +90,8 @@
 }
 
 .exad-alert.one .exad-alert-element.danger {
-  /* background: #FDEFEF; */
-}
+  background: #FDEFEF;
+} */
 
 .exad-alert.one .exad-alert-element.danger .exad-alert-element-icon span {
   color: #f05e5e;
