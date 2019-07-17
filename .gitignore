@@ -1,7 +1,5 @@
 elements/.DS_Store
 .DS_Store
-assets/css/elements-css
-assets/js/elements-js
 node_modules
 package-lock.json
 gulpfile.js
