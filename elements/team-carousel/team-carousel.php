@@ -236,7 +236,6 @@ class Exad_Team_Carousel extends Widget_Base {
 					'-style-four' => esc_html__( 'Style 4 (Pro)', 'exclusive-addons-elementor' ),
 					'-style-five' => esc_html__( 'Style 5', 'exclusive-addons-elementor' ),
 					'-style-six' => esc_html__( 'Style 6 (Pro)', 'exclusive-addons-elementor' ),
-					// '-nine' => esc_html__( 'Style 7 (Pro)', 'exclusive-addons-elementor' ),
 					'-style-seven' => esc_html__( 'Style 7 (Pro)', 'exclusive-addons-elementor' ),
 					'-style-eight' => esc_html__( 'Style 8 (Pro)', 'exclusive-addons-elementor' ),
 					'-style-nine' => esc_html__( 'Style 9 (Pro)', 'exclusive-addons-elementor' ),
