@@ -874,8 +874,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	}
 
 	protected function _content_template() {
-		
-		?>
+	?>
 		<#
 			view.addRenderAttribute( 
 				'exad-team-carousel', 
@@ -942,37 +941,37 @@ class Exad_Team_Carousel extends Widget_Base {
 								<ul class="list-inline exad-team-member-social">
 									
 									<# if (  member.exad_team_carousel_facebook_link.url != '' ) { #>
-										<!-- <# var target = member.exad_team_carousel_facebook_link.is_external ? ' target="_blank"' : '' #> -->
+										<# var target = member.exad_team_carousel_facebook_link.is_external ? ' target="_blank"' : '' #>
 										<li>
-											<a href="{{ member.exad_team_carousel_facebook_link.url }}"><i class="fa fa-facebook"></i></a>
+											<a href="{{ member.exad_team_carousel_facebook_link.url }}" {{{ target }}}><i class="fa fa-facebook"></i></a>
 										</li>
 									<# } #>
 
 									<# if (  member.exad_team_carousel_twitter_link.url != '' ) { #>
-										<!-- <# var target = member.exad_team_carousel_twitter_link.is_external ? ' target="_blank"' : '' #> -->
+										<# var target = member.exad_team_carousel_twitter_link.is_external ? ' target="_blank"' : '' #>
 										<li>
-											<a href="{{ member.exad_team_carousel_twitter_link.url }}"><i class="fa fa-twitter"></i></a>
+											<a href="{{ member.exad_team_carousel_twitter_link.url }}" {{{ target }}}><i class="fa fa-twitter"></i></a>
 										</li>
 									<# } #>
 
 									<# if (  member.exad_team_carousel_instagram_link.url != '' ) { #>
-										<!-- <# var target = member.exad_team_carousel_instagram_link.is_external ? ' target="_blank"' : '' #> -->
+										<# var target = member.exad_team_carousel_instagram_link.is_external ? ' target="_blank"' : '' #>
 										<li>
-											<a href="{{ member.exad_team_carousel_instagram_link.url }}"><i class="fa fa-instagram"></i></a>
+											<a href="{{ member.exad_team_carousel_instagram_link.url }}" {{{ target }}}><i class="fa fa-instagram"></i></a>
 										</li>
 									<# } #>
 
 									<# if (  member.exad_team_carousel_linkedin_link.url != '' ) { #>
-										<!-- <# var target = member.exad_team_carousel_linkedin_link.is_external ? ' target="_blank"' : '' #> -->
+										<# var target = member.exad_team_carousel_linkedin_link.is_external ? ' target="_blank"' : '' #>
 										<li>
-											<a href="{{ member.exad_team_carousel_linkedin_link.url }}"><i class="fa fa-linkedin"></i></a>
+											<a href="{{ member.exad_team_carousel_linkedin_link.url }}" {{{ target }}}><i class="fa fa-linkedin"></i></a>
 										</li>
 									<# } #>
 
 									<# if (  member.exad_team_carousel_dribbble_link.url != '' ) { #>
-										<!-- <# var target = member.exad_team_carousel_dribbble_link.is_external ? ' target="_blank"' : '' #> -->
+										<# var target = member.exad_team_carousel_dribbble_link.is_external ? ' target="_blank"' : '' #>
 										<li>
-											<a href="{{ member.exad_team_carousel_dribbble_link.url }}"><i class="fa fa-dribbble"></i></a>
+											<a href="{{ member.exad_team_carousel_dribbble_link.url }}" {{{ target }}}><i class="fa fa-dribbble"></i></a>
 										</li>
 									<# } #>
 
