@@ -757,15 +757,6 @@ class Exad_Team_Carousel extends Widget_Base {
 		
 		$team_preset = $settings['exad_team_carousel_preset']; 
 
-		// $this->add_inline_editing_attributes( 'exad_team_carousel_name', 'none' );
-		// $this->add_render_attribute( 'exad_team_carousel_name', 'class', 'exad-team-member-name' );
-
-		// $this->add_inline_editing_attributes( 'exad_team_member_designation', 'none' );
-		// $this->add_render_attribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
-
-		// $this->add_inline_editing_attributes( 'exad_team_member_description', 'none' );
-		// $this->add_render_attribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
-
 		$this->add_render_attribute( 
 			'exad-team-carousel', 
 			[ 
@@ -798,9 +789,6 @@ class Exad_Team_Carousel extends Widget_Base {
 
 			<?php foreach ( $settings['team_carousel_repeater'] as $key => $member ) : 
 
-			$this->add_inline_editing_attributes( 'exad_team_carousel_name-' . $key, 'none' );
-			$this->add_render_attribute( 'exad_team_carousel_name-' . $key, 'class', 'exad-team-member-name' );
-
 			$team_carousel_image = $member['exad_team_carousel_image'];
 			$team_carousel_image_url = Group_Control_Image_Size::get_attachment_image_src( $team_carousel_image['id'], 'thumbnail', $member );
 			if( empty( $team_carousel_image_url ) ) : $team_carousel_image_url = $team_carousel_image['url']; else: $team_carousel_image_url = $team_carousel_image_url; endif;
@@ -829,7 +817,7 @@ class Exad_Team_Carousel extends Widget_Base {
 								</svg>
 							<?php endif; ?>
 							<?php if ( !empty( $member['exad_team_carousel_name'] ) ) : ?>
-								<h2 <?php echo $this->get_render_attribute_string( 'exad_team_carousel_name-' . $key ); ?>><?php echo esc_html( $member['exad_team_carousel_name'] ); ?></h2>
+								<h2 class="exad-team-member-name"><?php echo esc_html( $member['exad_team_carousel_name'] ); ?></h2>
 							<?php endif; ?>
 							<?php if ( !empty( $member['exad_team_carousel_designation'] ) ) : ?>
 								<span class="exad-team-member-designation"><?php echo esc_html( $member['exad_team_carousel_designation'] ); ?></span>
@@ -914,16 +902,10 @@ class Exad_Team_Carousel extends Widget_Base {
 				view.addRenderAttribute( 'exad-team-carousel', 'data-loop', "true");
 			}
 
-		
-		
 		#>
 		<div {{{ view.getRenderAttributeString( 'exad-team-carousel' ) }}} >
 
-			<# _.each( settings.team_carousel_repeater, function( member, index ) { 
-				<!-- view.addRenderAttribute( 'exad_team_carousel_name', 'class', 'exad-team-member-name' ); -->
-				view.addInlineEditingAttributes( 'exad_team_carousel_name-' + index, 'none' );
-				view.addRenderAttribute( 'exad_team_carousel_name-' + index, 'class', 'exad-team-member-name' );
-				#>
+			<# _.each( settings.team_carousel_repeater, function( member, index ) { #>
 
 				<div class="exad-team-carousel{{ settings.exad_team_carousel_preset }}-inner">
 	            	<div class="exad-team-member{{ settings.exad_team_carousel_preset }}">
@@ -948,7 +930,7 @@ class Exad_Team_Carousel extends Widget_Base {
 								</svg>
 							<# } #>
 							<# if ( member.exad_team_carousel_name != '' ) { #>
-								<h2 {{{ view.getRenderAttributeString( 'exad_team_carousel_name-' + index ) }}}>{{{ member.exad_team_carousel_name }}}</h2>
+								<h2 class="exad-team-member-name">{{{ member.exad_team_carousel_name }}}</h2>
 							<# } #>
 							<# if (  member.exad_team_carousel_designation != '' ) { #>
 								<span class="exad-team-member-designation">{{{ member.exad_team_carousel_designation }}}</span>
