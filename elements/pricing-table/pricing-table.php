@@ -267,6 +267,7 @@ class Exad_Pricing_Table extends Widget_Base {
 					'-six' => esc_html__( 'Style 6', 'exclusive-addons-elementor' ),
 					'-seven' => esc_html__( 'Style 7', 'exclusive-addons-elementor' ),
 					'-eight' => esc_html__( 'Style 8', 'exclusive-addons-elementor' ),
+					'-nine' => esc_html__( 'Style 9', 'exclusive-addons-elementor' ),
 					'-ten' => esc_html__( 'Style 10', 'exclusive-addons-elementor' ),
 					// Going to change the name to four later (amendedment)
 				],
@@ -289,7 +290,13 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->start_controls_tabs( 'exad_svg_gradient_tabs' );
+		$this->start_controls_tabs( 'exad_svg_gradient_tabs' ,
+			[
+				'condition' => [
+					'exad_pricing_table_preset' => ['-five'],
+				]
+			]
+		);
 
 			// First Color Tab
 			$this->start_controls_tab( 'exad_pricing_table_svg_first', [ 'label' => esc_html__( 'First Color', 'exclusive-addons-elementor' ) ] );
@@ -301,7 +308,7 @@ class Exad_Pricing_Table extends Widget_Base {
 					'type' => Controls_Manager::COLOR,
 					'default' => '#fff',
 					'selectors' => [
-						'{{WRAPPER}} .exad-pricing-table-five.orange svg linearGradient .color-1' => 'stop-color: {{VALUE}};',
+						'{{WRAPPER}} .exad-pricing-table-five svg linearGradient .color-1' => 'stop-color: {{VALUE}};',
 					],
 				]
 			);
@@ -311,17 +318,17 @@ class Exad_Pricing_Table extends Widget_Base {
 			// Second Color Tab
 			$this->start_controls_tab( 'exad_pricing_table_svg_second', [ 'label' => esc_html__( 'Second Color', 'exclusive-addons-elementor' ) ] );
 
-			// $this->add_control(
-			// 	'exad_pricing_table_btn_hover_text_color',
-			// 	[
-			// 		'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
-			// 		'type' => Controls_Manager::COLOR,
-			// 		'default' => '#00C853',
-			// 		'selectors' => [
-			// 			'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action:hover' => 'color: {{VALUE}};',
-			// 		],
-			// 	]
-			// );
+			$this->add_control(
+				'exad_pricing_table_svg_second_color',
+				[
+					'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'default' => '#fff',
+					'selectors' => [
+						'{{WRAPPER}} .exad-pricing-table-five svg linearGradient .color-2' => 'stop-color: {{VALUE}};',
+					],
+				]
+			);
 
 			$this->end_controls_tab();
 
@@ -341,17 +348,50 @@ class Exad_Pricing_Table extends Widget_Base {
 				]
 			]
 		);
-
+				
 		$this->add_control(
 			'exad_pricing_table_bg_color',
 			[
 				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'seperator' => 'before',
 				'type' => Controls_Manager::COLOR,
 				'default' => '#FFFFFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-wrapper' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .exad-pricing-table-eight .exad-pricing-table-header svg path' => 'fill: {{VALUE}};',
 				],
+				'condition' => [
+					'exad_pricing_table_preset' => ['-one', '-two', '-three', '-five', '-six', '-seven', '-eight', '-ten'],
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_nine_bg_color',
+			[
+				'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'seperator' => 'before',
+				'type' => Controls_Manager::COLOR,
+				'default' => '#FFFFFF',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-nine .exad-pricing-table-content' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_pricing_table_preset' => ['-nine'],
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_pricing_table_background_image',
+				'label' => esc_html__( 'Background Image', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic'],
+				'selector' => '{{WRAPPER}} .exad-pricing-table-nine::before',
+				'condition' => [
+					'exad_pricing_table_preset' => '-nine'
+				]
 			]
 		);
 
@@ -483,6 +523,19 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_pricing_table_price_background',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient'],
+				'selector' => '{{WRAPPER}} .exad-pricing-table-five .exad-pricing-table-price',
+				'condition' => [
+					'exad_pricing_table_preset' => '-five',
+				]
+			]
+		);
+
 		$this->add_control(
 			'exad_pricing_table_pricing_color',
 			[
@@ -491,6 +544,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'default' => '#FFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing-table-five .exad-pricing-table-price p' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -500,6 +554,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
             'name' => 'exad_pricing_table_price_tag_typography',
 				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price',
+							'{{WRAPPER}} .exad-pricing-table-five .exad-pricing-table-price p',
 			]
 		);
 
@@ -569,9 +624,10 @@ class Exad_Pricing_Table extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-features' => 'border-color: {{VALUE}};',
 					'{{WRAPPER}} .exad-pricing-table-seven .exad-pricing-table-features::before' => 'background: {{VALUE}};',
+					// '{{WRAPPER}} .exad-pricing-table-nine .exad-pricing-table-features' => 'border-color: {{VALUE}};',
 				],
 				'condition' => [
-					'exad_pricing_table_preset' => ['-two', '-six', '-seven', '-ten'],
+					'exad_pricing_table_preset' => ['-two', '-six', '-seven', '-nine', '-ten'],
 				],
 			]
 		);
@@ -828,7 +884,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			<div class="exad-pricing-table-badge-wrapper">
 			<?php if ( $settings['exad_pricing_table_featured'] == 'yes' ) : ?>
 				<span class="exad-pricing-table-badge">
-					<?php if( $pricing_preset == '-one' || $pricing_preset == '-two' || $pricing_preset == '-three' || $pricing_preset == '-six' ) : ?>
+					<?php if( $pricing_preset == '-one' || $pricing_preset == '-two' || $pricing_preset == '-three' || $pricing_preset == '-five' || $pricing_preset == '-six' ) : ?>
 						<?php echo $settings['exad_pricing_table_featured_tag_text'] ?>
 					<?php endif; ?>
 					<?php if( $pricing_preset == '-ten' ) : ?>
@@ -896,7 +952,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			</div>
 			<a href="<?php echo esc_url( $settings['exad_pricing_table_btn_link']['url'] ); ?>" class="exad-pricing-table-action">
 			  <?php echo $settings['exad_pricing_table_btn']; ?>
-			  </a>
+			</a>
 		</div>
 		<?php endif; ?>
 
@@ -942,6 +998,41 @@ class Exad_Pricing_Table extends Widget_Base {
 			</ul>
 		</div>
 		<?php endif; ?>
+
+		<?php if ( $pricing_preset == '-nine' ) : ?>
+
+		<div class="exad-pricing-table-wrapper exad-pricing-table<?php echo esc_attr( $pricing_preset ); ?>">
+			<div class="exad-pricing-table-content">
+			<?php if ( $settings['exad_pricing_table_featured'] == 'yes' ) : ?>
+				<span class="exad-pricing-table-badge">
+					<?php if( $pricing_preset == '-nine' ) : ?>
+						<?php echo $settings['exad_pricing_table_featured_tag_text'] ?>
+					<?php endif; ?>
+				</span>
+				<?php endif; ?>
+				<h4 class="exad-pricing-table-title"><?php echo $settings['exad_pricing_table_title']; ?></h4>
+				<?php if ( !empty( $settings['exad_pricing_table_subtitle'] ) ) : ?>
+                    <p class="exad-pricing-table-subtitle"><?php echo esc_html( $settings['exad_pricing_table_subtitle'] ); ?></p>
+                <?php endif; ?>
+				<div class="exad-pricing-table-price">
+					<p>
+					<?php echo $settings['exad_pricing_table_price_cur'] ?><?php echo $settings['exad_pricing_table_price']; ?><span class="exad-price-period"><?php echo $settings['exad_pricing_table_period_separator']; ?><?php echo $settings['exad_pricing_table_price_by']; ?></span>
+					</p>
+				</div>
+				<ul class="exad-pricing-table-features">
+					<?php foreach( $settings['exad_pricing_table_items'] as $item ) : ?>
+						<li class="<?php echo ( 'yes' !== $item['exad_pricing_table_icon_mood'] ) ? 'exad-pricing-table-features-disable' : ''; ?>">
+							<span class="exad-pricing-li-icon"><i class="<?php echo esc_attr( $item['exad_pricing_table_list_icon'] ); ?>"></i></span>
+							<?php echo $item['exad_pricing_table_item']; ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+				<a href="<?php echo esc_url( $settings['exad_pricing_table_btn_link']['url'] ); ?>" class="exad-pricing-table-action">
+				  <?php echo $settings['exad_pricing_table_btn']; ?>
+				</a>
+			</div>
+		</div>
+		<?php endif; ?>
 		
 	<?php
 	}
@@ -954,7 +1045,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			<div class="exad-pricing-table-badge-wrapper">
 			<# if ( settings.exad_pricing_table_featured == 'yes' ) { #>
 				<span class="exad-pricing-table-badge">
-					<# if( settings.exad_pricing_table_preset == '-one' || settings.exad_pricing_table_preset == '-two' || settings.exad_pricing_table_preset == '-three' ||settings.exad_pricing_table_preset == '-six' ) { #>
+					<# if( settings.exad_pricing_table_preset == '-one' || settings.exad_pricing_table_preset == '-two' || settings.exad_pricing_table_preset == '-three' || settings.exad_pricing_table_preset == '-five' || settings.exad_pricing_table_preset == '-six' ) { #>
 						{{{ settings.exad_pricing_table_featured_tag_text }}}
 					<# } #>
 					<# if( settings.exad_pricing_table_preset == '-ten' ) { #>
@@ -962,6 +1053,41 @@ class Exad_Pricing_Table extends Widget_Base {
 					<# } #>
 				</span>
 			<# } #>
+				<# if ( settings.exad_pricing_table_preset === '-five' ) { #>
+					<svg xmlns="http://www.w3.org/2000/svg">
+						<defs>
+						<linearGradient id="a" x1="0%" x2="0%" y1="100%" y2="0%">
+							<stop offset="1%" class="color-1" />
+							<stop offset="100%" class="color-2" />
+						</linearGradient>
+						</defs>
+						<path fill-rule="evenodd" opacity=".471" fill="#FFF"
+						d="M0 0v107s87.864 104.803 186 119c98.862 14.303 208-41 208-41V0H0z" />
+						<path fill="url(#a)" d="M0 0v107s87.864 104.803 186 119c98.862 14.303 208-41 208-41V0H0z" />
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg">
+						<defs>
+						<linearGradient id="b" x1="0%" x2="0%" y1="100%" y2="0%">
+							<stop offset="1%" class="color-1" />
+							<stop offset="100%" class="color-2" />
+						</linearGradient>
+						</defs>
+						<path fill-rule="evenodd" opacity=".471" fill="#FFF"
+						d="M0 0v130s87.864 81.803 186 96c98.862 14.303 208-21 208-21V0H0z" />
+						<path fill="url(#b)" d="M0 0v130s87.864 81.803 186 96c98.862 14.303 208-21 208-21V0H0z" />
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg">
+						<defs>
+						<linearGradient id="c" x1="0%" x2="0%" y1="100%" y2="0%">
+							<stop offset="1%" class="color-1" />
+							<stop offset="100%" class="color-2" />
+						</linearGradient>
+						</defs>
+						<path fill-rule="evenodd" opacity=".471" fill="#FFF"
+						d="M0 0v153s87.864 58.803 186 73c98.862 14.303 208-1 208-1V0H0z" />
+						<path fill="url(#c)" d="M0 0v153s87.864 58.803 186 73c98.862 14.303 208-1 208-1V0H0z" />
+					</svg>
+				<# } #>
 				<h4 class="exad-pricing-table-title">{{{ settings.exad_pricing_table_title }}}</h4>
 				<# if (  settings.exad_pricing_table_subtitle != '' ) { #>
                     <p class="exad-pricing-table-subtitle">{{{ settings.exad_pricing_table_subtitle }}}</p>
@@ -1031,6 +1157,40 @@ class Exad_Pricing_Table extends Widget_Base {
 				</li>
 				<# }); #>
 			</ul>
+		</div>
+		<# } #>
+
+		<# if ( settings.exad_pricing_table_preset == '-nine' ) { #>
+		<div class="exad-pricing-table-wrapper exad-pricing-table{{ settings.exad_pricing_table_preset }}">
+			<div class="exad-pricing-table-content">
+			<# if ( settings.exad_pricing_table_featured == 'yes' ) { #>
+				<span class="exad-pricing-table-badge">
+					<# if( settings.exad_pricing_table_preset == '-nine' ) { #>
+						{{{ settings.exad_pricing_table_featured_tag_text }}}
+					<# } #>
+				</span>
+			<# } #>
+				<h4 class="exad-pricing-table-title">{{{ settings.exad_pricing_table_title }}}</h4>
+				<# if (  settings.exad_pricing_table_subtitle != '' ) { #>
+                    <p class="exad-pricing-table-subtitle">{{{ settings.exad_pricing_table_subtitle }}}</p>
+                <# } #>
+				<div class="exad-pricing-table-price">
+					<p>
+					{{{ settings.exad_pricing_table_price_cur }}}{{{ settings.exad_pricing_table_price }}}<span class="exad-price-period">{{{ settings.exad_pricing_table_period_separator }}}{{{ settings.exad_pricing_table_price_by }}}</span>
+					</p>
+				</div>
+				<ul class="exad-pricing-table-features">
+					<# _.each( settings.exad_pricing_table_items, function( features, index ) { 
+						var active = ( 'yes' !== features.exad_pricing_table_icon_mood ) ? 'exad-pricing-table-features-disable' : ''
+					#>
+					<li class="{{ active }}">
+						<span class="exad-pricing-li-icon"><i class="{{ features.exad_pricing_table_list_icon }}"></i></span>
+						{{{ features.exad_pricing_table_item }}}
+					</li>
+				<# }); #>
+				</ul>
+				<a href="{{ settings.exad_pricing_table_btn_link.url }}" class="exad-pricing-table-action">{{{ settings.exad_pricing_table_btn }}}</a>
+			</div>
 		</div>
 		<# } #>
 		
