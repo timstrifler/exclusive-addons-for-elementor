@@ -8201,6 +8201,133 @@ ul.exad-pricing-table-features {
   }
 }
 
+/*Advance tab five*/
+
+.exad-advance-tab.five .exad-advance-tab-nav {
+  margin: 0px;
+  padding: 0px;
+  display: -webkit-box;
+  display: flex;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li {
+  position: relative;
+  padding: 1em 1.5em;
+  -webkit-box-flex: 1;
+          flex: 1;
+  cursor: pointer;
+  -webkit-box-align: center;
+          align-items: center;
+  text-align: center;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+  background: #f7f7f7;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background: #e3e3e3;
+  right: 0;
+  top: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li:last-child::after {
+  opacity: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li::before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: #744fff;
+  top: 5px;
+  left: 0;
+  opacity: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li span {
+  font-size: 16px;
+  color: #0a1724;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li span i {
+  margin-right: 10px;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active {
+  background: #fff;
+  margin-top: -15px;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active:nth-child(n-1)::after {
+  opacity: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active::before {
+  opacity: 1;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active::after {
+  opacity: 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-nav li.active span {
+  color: #744fff;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content {
+  box-shadow: 0px 20px 40px 0px rgba(5, 12, 77, 0.1);
+  display: none;
+  padding: 40px 40px 50px 40px;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-title {
+  font-family: "Roboto", sans-serif;
+  color: #0a1724;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  margin: 30px 0 40px 0;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-action {
+  display: inline-block;
+  padding: 15px 40px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: -webkit-gradient(linear, left bottom, left top, from(#724cff), to(#8868fe));
+  background: linear-gradient(0deg, #724cff 0%, #8868fe 100%);
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-action i {
+  margin-left: 20px;
+}
+
+.exad-advance-tab.five .exad-advance-tab-content .exad-advance-tab-content-action:hover {
+  box-shadow: 0px 21px 35px 0px rgba(114, 76, 255, 0.27);
+}
+
+.exad-advance-tab.five .exad-advance-tab-content.active {
+  display: block;
+}
+
 /* Exclusive Tabs End */
 /* Style for Team Carousel */
 
