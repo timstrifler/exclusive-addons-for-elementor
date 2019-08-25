@@ -149,7 +149,67 @@ class Exad_Post_Grid extends Widget_Base {
 			]
 		);
 
-        $this->end_controls_section();
+		$this->end_controls_section();
+		
+		$this->start_controls_section(
+            'exad_section_post_grid_container',
+            [
+                'label' => __( 'Container Styles', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+		);
+		
+		$this->add_control(
+			'exad_grid_post_bg_color',
+			[
+				'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#f5f7fa',
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'background: {{VALUE}};',
+				]
+
+			]
+		);
+
+		$this->add_control(
+			'exad_post_grid_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px'],
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_post_grid_box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container',
+			]
+		);
+
+		$this->add_control(
+			'exad_grid_comment_hover_bg_color',
+			[
+				'label' => __( 'Comment Hover Background', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#ff704e',
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a:hover' => 'background: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_post_grid_preset' => '-one'
+				]
+			]
+		);
+
+		$this->end_controls_section();
+
 
         $this->start_controls_section(
             'exad_section_post_grid_presets',
@@ -172,33 +232,7 @@ class Exad_Post_Grid extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
-			'exad_grid_post_bg_color',
-			[
-				'label' => __( 'Post Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#f5f7fa',
-				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'background: {{VALUE}};',
-				]
-
-			]
-		);
-
-		$this->add_control(
-			'exad_grid_comment_hover_bg_color',
-			[
-				'label' => __( 'Comment Hover Background', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#ff704e',
-				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-one .exad-post-grid-author-action li a:hover' => 'background: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_post_grid_preset' => '-one'
-				]
-			]
-		);
+        
 
 		$this->end_controls_section();
 

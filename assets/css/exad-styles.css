@@ -5764,15 +5764,7 @@
   overflow: hidden;
   margin-bottom: 30px;
 }
-.exad-row-wrapper .exad-post-grid-one .exad-post-grid-container {
-  -webkit-border-radius: 15px;
-  border-radius: 15px;
-}
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-container {
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.2);
-  margin-bottom: 20px;
-}
 
 /* For Post Carousel style three */
 .exad-post-carousel .exad-post-grid-three .exad-post-grid-container {
