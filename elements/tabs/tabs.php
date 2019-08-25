@@ -133,6 +133,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 					  'two' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
 					  'three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
 					  'four' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
+					  'five' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
 				   ],
 				]
 		  	);
