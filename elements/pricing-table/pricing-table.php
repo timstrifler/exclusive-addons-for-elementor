@@ -73,7 +73,6 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => esc_html__( 'Featured?', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'description' => __( 'Works with Style 3', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
