@@ -7,5 +7,9 @@ var ExclusiveAlert = function( $scope, $ ) {
             e.preventDefault();
             alert.fadeOut(500);
         });
+        alert.find('.exad-alert-element-dismiss-button').click(function(e){
+            e.preventDefault();
+            alert.fadeOut(500);
+        });
     });
 };
