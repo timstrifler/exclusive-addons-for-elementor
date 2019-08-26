@@ -2,8 +2,6 @@
 namespace Elementor;
 
 class Exad_Countdown_Timer extends Widget_Base {
-	
-	//use ElementsCommonFunctions;
 
 	public function get_name() {
 		return 'exad-countdown-timer';
@@ -54,39 +52,34 @@ class Exad_Countdown_Timer extends Widget_Base {
 		 * Countdown Timer Styling Section
 		 */
 
+		// $this->start_controls_section(
+		// 	'exad_section_countdown_styles_preset',
+		// 	[
+		// 		'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+		// 		'tab' => Controls_Manager::TAB_STYLE
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'exad_countdown_preset',
+		// 	[
+		// 		'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
+		// 		'type' => Controls_Manager::SELECT,
+		// 		'default' => 'style-1',
+		// 		'options' => [
+		// 			'style-1' 	=> esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+		// 			'style-2' 	=> esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+		// 		],
+		// 	]
+		// );		
+
+		$this->end_controls_section();
+
 		$this->start_controls_section(
-			'exad_section_countdown_styles_preset',
+			'exad_section_countdown_container_style',
 			[
-				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
-			]
-		);
-
-		$this->add_control(
-			'exad_countdown_preset',
-			[
-				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'style-1',
-				'options' => [
-					'style-1' 	=> esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-					'style-2' 	=> esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_countdown_divider_color',
-			[
-				'label' => __( 'Divider Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#ffffff',
-				'selectors' => [
-					'{{WRAPPER}} .exad-countdown.style-2 .exad-countdown-count::after' => 'color: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_countdown_preset' => 'style-2',
-				],
 			]
 		);
 
@@ -97,25 +90,54 @@ class Exad_Countdown_Timer extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#8868fe',
 				'selectors' => [
-					'{{WRAPPER}} .exad-countdown.style-2' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-countdown' => 'background: {{VALUE}};',
 				],
-				'condition' => [
-					'exad_countdown_preset' => 'style-2',
+			]
+		);
+
+		$this->add_control(
+			'exad_countdown_before_border',
+			[
+				'type' => Controls_Manager::DIVIDER,
+				'style' => 'thin',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_countdown_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-countdown',
+			]
+		);
+
+		$this->add_control(
+			'exad_countdown_container_border_radius',
+			[
+				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+				],
+				'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'unit' => 'px',
+					'isLinked' => true,
 				],
 			]
 		);
 
 		$this->end_controls_section();
 
-
 		$this->start_controls_section(
 			'exad_section_countdown_box_style',
 			[
 				'label' => esc_html__( 'Box Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'exad_countdown_preset' => 'style-1',
-				],
 			]
 		);
 
@@ -127,10 +149,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 				'name' => 'exad_countdown_background',
 				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container',
-				'condition' => [
-					'exad_countdown_preset' => 'style-1',
-				],
+				'selector' => '{{WRAPPER}} .exad-countdown .exad-countdown-container',
 			]
 		);
 
@@ -140,9 +159,6 @@ class Exad_Countdown_Timer extends Widget_Base {
 				'name' => 'box_shadow',
 				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-countdown-container',
-				'condition' => [
-					'exad_countdown_preset' => 'style-1',
-				],
 			]
 		);
 
@@ -151,9 +167,6 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'type' => Controls_Manager::DIVIDER,
 				'style' => 'thin',
-				'condition' => [
-					'exad_countdown_preset' => 'style-1',
-				],
 			]
 		);
 
@@ -162,10 +175,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'name' => 'border',
 				'label' => __( 'Border', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container',
-				'condition' => [
-					'exad_countdown_preset' => 'style-1',
-				],
+				'selector' => '{{WRAPPER}} .exad-countdown .exad-countdown-container',
 			]
 		);
 
@@ -175,7 +185,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'selectors' => [
-					'{{WRAPPER}} .exad-countdown.style-1 .exad-countdown-container' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
+					'{{WRAPPER}} .exad-countdown .exad-countdown-container' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;',
 				],
 				'default' => [
 					'top' => 4,
@@ -185,12 +195,46 @@ class Exad_Countdown_Timer extends Widget_Base {
 					'unit' => 'px',
 					'isLinked' => true,
 				],
-				'condition' => [
-					'exad_countdown_preset' => 'style-1',
-				],
 			]
 		);
 
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'exad_section_countdown_divider_style',
+			[
+				'label' => esc_html__( 'Divider', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'exad_countdown_divider_enable',
+			[
+				'label' => __( 'Enable Divider', 'plugin-domain' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'On', 'your-plugin' ),
+				'label_off' => __( 'Off', 'your-plugin' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'exad_countdown_divider_color',
+			[
+				'label' => __( 'Divider Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#ffffff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown .exad-countdown-count::after' => 'color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_countdown_divider_enable' => 'yes'
+				]
+			]
+		);
 
 		$this->end_controls_section();
 		
@@ -266,7 +310,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_render_attribute(
 			'exad-countdown-timer-attribute',
 			[
-				'class'    => ['exad-countdown', esc_attr( $settings['exad_countdown_preset'] )],
+				'class'    => [ 'exad-countdown' ],
 				'data-day'	=> esc_attr__( 'Days', 'exclusive-addons-elementor' ),
 				'data-minutes' => esc_attr( 'Minutes', 'exclusive-addons-elementor' ),
 				'data-hours'	=> esc_attr__( 'Hours', 'exclusive-addons-elementor' ),

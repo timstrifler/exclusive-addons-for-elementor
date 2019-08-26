@@ -154,7 +154,7 @@ class Exad_Post_Grid extends Widget_Base {
 		$this->start_controls_section(
             'exad_section_post_grid_container',
             [
-                'label' => __( 'Container Styles', 'exclusive-addons-elementor' ),
+                'label' => __( 'Container', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
 		);
@@ -180,6 +180,7 @@ class Exad_Post_Grid extends Widget_Base {
 				'size_units' => [ 'px'],
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container .exad-post-grid-thumbnail'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0 0;'
 				],
 			]
 		);
@@ -210,6 +211,36 @@ class Exad_Post_Grid extends Widget_Base {
 
 		$this->end_controls_section();
 
+		// Image Styles
+		$this->start_controls_section(
+            'exad_section_post_grid_image_style',
+            [
+                'label' => __( 'Image', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+		$this->add_control(
+			'exad_section_post_grid_image_padding',
+			[
+				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%'],
+				'default' => [
+					'top' => '15',
+					'right' => '15',
+					'bottom' => '15',
+					'left' => '15',
+					'isLinked' => true,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container .exad-post-grid-thumbnail'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
 
         $this->start_controls_section(
             'exad_section_post_grid_presets',
@@ -232,7 +263,6 @@ class Exad_Post_Grid extends Widget_Base {
 			]
 		);
 
-        
 
 		$this->end_controls_section();
 
@@ -414,11 +444,8 @@ class Exad_Post_Grid extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#3ac772',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n-1)' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li:nth-child(2n-1)' => 'background: {{VALUE}};',
 				],
-				'condition' => [
-					'exad_post_grid_preset' => '-three'
-				]
 			]
 		);
 
@@ -429,13 +456,30 @@ class Exad_Post_Grid extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#8774ff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};',
 				],
-				'condition' => [
-					'exad_post_grid_preset' => '-three'
-				]
 			]
 		);
+
+		$this->add_control(
+			'exad_post_grid_category_padding',
+			[
+				'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%'],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'isLinked' => true,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li a'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(

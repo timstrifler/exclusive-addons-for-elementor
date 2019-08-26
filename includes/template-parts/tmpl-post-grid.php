@@ -9,6 +9,7 @@
             <ul class="exad-post-grid-category">
                 <?php Elementor\Exad_Helper::exad_get_categories_for_post(); ?>
             </ul>
+            <span class="exad-post-grid-read-time"><?php echo Elementor\Exad_Helper::exad_reading_time( get_the_content() ); ?></span>
             <h3>
                 <a href="<?php echo esc_url( get_permalink() ); ?>" class="exad-post-grid-title"><?php the_title(); ?></a>
             </h3>
@@ -17,6 +18,16 @@
                     <a href="<?php echo esc_url( get_permalink() ); ?>" class="exad-post-grid-author-date"><?php echo get_the_date('M d, Y'); ?></a>
                 </p>
             <?php endif; ?> 
+            <div class="exad-post-grid-author">
+                <ul class="exad-post-grid-author-action">
+                    <li>
+                        <a href="#"><i class="fa fa-calendar"></i><?php echo get_the_date('M d, Y'); ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php comments_link(); ?>"><i class="fa fa-comment-o"></i><?php echo get_comments_number(); ?><?php echo get_comments_number_text( '', ' comment', ' comments' ); ?></a>
+                    </li>
+                </ul>
+            </div>  
             <p class="exad-post-grid-description"><?php echo Elementor\Exad_Helper::exad_get_post_excerpt( get_the_ID(), $settings['exad_grid_excerpt_length'] ); ?></p>
             <?php if ( '-one' === $settings['exad_post_grid_preset'] ) : ?>
                 <div class="exad-post-grid-author">

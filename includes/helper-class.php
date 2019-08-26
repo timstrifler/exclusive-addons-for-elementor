@@ -199,6 +199,26 @@ class Exad_Helper {
     }
 
     /**
+     * READING TIME
+     *
+     * Calculate an approximate reading-time for a post.
+     *
+     * @param  string $content The content to be measured.
+     * @return  integer Reading-time in seconds.
+     */
+    function exad_reading_time( $content ) {
+        
+        $word_count = str_word_count( strip_tags( $content ) );
+        $readingtime = ceil($word_count / 200);
+    
+        $timer = " min read";
+        
+        $totalreadingtime = $readingtime . $timer;
+    
+        return $totalreadingtime;
+    }
+
+    /**
      * 
      * Return the Posts from Database
      *
