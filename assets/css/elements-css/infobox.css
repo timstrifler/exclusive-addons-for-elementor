@@ -1,8 +1,27 @@
 /* InfoBox Start */
 
+.exad-infobox-align-left {
+  text-align: left;
+}
+.exad-infobox-align-center {
+  text-align: center;
+}
+.exad-infobox-align-right {
+  text-align: right;
+}
+.exad-infobox-align-left .exad-infobox-icon {
+  margin-right: auto;
+}
+.exad-infobox-align-center .exad-infobox-icon {
+  margin: 0 auto;
+}
+.exad-infobox-align-right .exad-infobox-icon {
+  margin-left: auto;
+}
+
 .exad-infobox.one .exad-infobox-item {
   padding: 30px;
-  text-align: center;
+  /* text-align: center; */
   transition: all 0.3s ease;
 }
 
@@ -10,13 +29,12 @@
   height: 90px;
   width: 90px;
   background: #fff;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   border-radius: 50%;
   box-shadow: 0px 22px 59px 0px rgba(18, 34, 66, 0.2);
   position: relative;
   z-index: 1;
   transition: all .3s ease;
-  margin: 0 0 20px 0;
 }
 
 .exad-infobox.one .exad-infobox-item .exad-infobox-icon::before {
@@ -57,6 +75,7 @@
 
 .exad-infobox.one .exad-infobox-item .exad-infobox-content {
   /* padding: 30px 20px; */
+  /* padding: 20px 0 0 0; */
 }
 
 .exad-infobox-content-title {

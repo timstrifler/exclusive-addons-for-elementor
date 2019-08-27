@@ -125,29 +125,24 @@ class Exad_Infobox extends Widget_Base {
 		$this->add_control(
 			'exad_infobox_alignment',
             [
-                'label' => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
-                'type' => Controls_Manager::CHOOSE,
-                'label_block' => true,
-                'options' => [
-                    'left' => [
-                        'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-                        'icon' => 'fa fa-align-left',
-                    ],
-                    'center' => [
-                        'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
-                        'icon' => 'fa fa-align-center',
-                    ],
-                    'right' => [
-                        'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-                        'icon' => 'fa fa-align-right',
-                    ],
-                ],
-				'default' => 'center',
-				'label_block' => true,
-                'selectors' => [
-                    '{{WRAPPER}} .exad-infobox-item' => 'text-align: {{VALUE}};',
-                	],
-            ]
+				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'exad-infobox-align-left' => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'exad-infobox-align-center' => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'exad-infobox-align-right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
+				],
+				'default' => 'exad-infobox-align-center',
+			]
         );
 
 		$this->end_controls_section();
@@ -179,25 +174,25 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-            'exad_infobox_color_scheme',
-            [
-                'label' => __('Icon Color Scheme', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#5480ff',
-                'selectors' => [
-                    '{{WRAPPER}} .exad-infobox.one .exad-infobox-icon::before' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .exad-infobox.one .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.three .exad-infobox-item .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-infobox.one .exad-infobox-item:hover .exad-infobox-icon i' => 'color: #FFF',
-                    '{{WRAPPER}} .exad-infobox.two .exad-infobox-icon' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon, {{WRAPPER}} .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon, {{WRAPPER}} .exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon' => 'background: #FFF; border: 1px solid {{VALUE}};',
-					'{{WRAPPER}} .exad-infobox.three .exad-infobox-item:hover .exad-infobox-icon i' => 'color: #FFF',  /*new added line */
-                    '{{WRAPPER}} .exad-infobox.four .exad-infobox-icon, {{WRAPPER}} .exad-infobox.five .exad-infobox-icon' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .exad-infobox.five .exad-infobox-item' => 'border-bottom: 3px solid {{VALUE}};',
+		// $this->add_control(
+        //     'exad_infobox_color_scheme',
+        //     [
+        //         'label' => __('Icon Color Scheme', 'exclusive-addons-elementor'),
+        //         'type' => Controls_Manager::COLOR,
+        //         'default' => '#5480ff',
+        //         'selectors' => [
+        //             '{{WRAPPER}} .exad-infobox.one .exad-infobox-icon::before' => 'background: {{VALUE}};',
+        //             '{{WRAPPER}} .exad-infobox.one .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.three .exad-infobox-item .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon i, {{WRAPPER}} .exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}};',
+		// 			'{{WRAPPER}} .exad-infobox.one .exad-infobox-item:hover .exad-infobox-icon i' => 'color: #FFF',
+        //             '{{WRAPPER}} .exad-infobox.two .exad-infobox-icon' => 'background-color: {{VALUE}};',
+        //             '{{WRAPPER}} .exad-infobox.two .exad-infobox-item:hover .exad-infobox-icon, {{WRAPPER}} .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon, {{WRAPPER}} .exad-infobox.five .exad-infobox-item:hover .exad-infobox-icon' => 'background: #FFF; border: 1px solid {{VALUE}};',
+		// 			'{{WRAPPER}} .exad-infobox.three .exad-infobox-item:hover .exad-infobox-icon i' => 'color: #FFF',  /*new added line */
+        //             '{{WRAPPER}} .exad-infobox.four .exad-infobox-icon, {{WRAPPER}} .exad-infobox.five .exad-infobox-icon' => 'background: {{VALUE}};',
+        //             '{{WRAPPER}} .exad-infobox.five .exad-infobox-item' => 'border-bottom: 3px solid {{VALUE}};',
 
-                ],
-            ]
-        );
+        //         ],
+        //     ]
+        // );
 
         $this->add_group_control(
 			Group_Control_Background::get_type(),
@@ -211,6 +206,163 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_infobox_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-infobox-item',
+			]
+		);
+
+		$this->add_control(
+			'exad_infobox_border_radious',
+			[
+			  'label' => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+			  'type' => Controls_Manager::SLIDER,
+			  'default' => [
+				  'size' => 0,
+			  ],
+			  'range' => [
+				  'px' => [
+					  'max' => 100,
+				  ],
+			  ],
+			  'selectors' => [
+				  '{{WRAPPER}} .exad-infobox-item' => 'border-radius: {{SIZE}}px;',
+			  ],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_infobox_box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-infobox-item',
+			]
+		);
+
+		
+		$this->end_controls_section();
+
+		//icon style
+
+		$this->start_controls_section(
+            'section_infobox_icon',
+            [
+                'label' => __('Icon Style', 'exclusive-addons-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+		);
+
+		$this->add_control(
+			'exad_infobox_icon_border_radious',
+			[
+			  'label' => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+			  'type' => Controls_Manager::SLIDER,
+			  'default' => [
+				  'size' => 0,
+			  ],
+			  'range' => [
+				  'px' => [
+					  'max' => 100,
+				  ],
+			  ],
+			  'selectors' => [
+				  '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'border-radius: {{SIZE}}px;',
+			  ],
+			]
+		);
+
+		$this->add_control(
+			'exad_infobox_icon_margin_bottom',
+			[
+			  'label' => esc_html__( 'Margin Bottom', 'exclusive-addons-elementor' ),
+			  'type' => Controls_Manager::NUMBER,
+			  'selectors' => [
+				  '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'margin-bottom: {{VALUE}}px;',
+			  ],
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_infobox_icon_tabs' );
+			// Normal State Tab
+			$this->start_controls_tab( 'exad_infobox_icon_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_infobox_icon_background_color_normal',
+					[
+						'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#5480ff',
+						'selectors' => [
+							'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'background: {{VALUE}}',
+						]
+					]
+				);
+
+				$this->add_control(
+					'exad_infobox_icon_color_normal',
+					[
+						'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#ffffff',
+						'selectors' => [
+							'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon i' => 'color: {{VALUE}}',
+						]
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name' => 'exad_infobox_icon_border_normal',
+						'label' => __( 'Border', 'exclusive-addons-elementor' ),
+						'selector' => '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon',
+					]
+				);
+
+			$this->end_controls_tab();
+
+			// Hover State Tab
+			$this->start_controls_tab( 'exad_infobox_icon_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_infobox_icon_background_color_hover',
+					[
+						'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#ffffff',
+						'selectors' => [
+							'{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon' => 'background: {{VALUE}}',
+						]
+					]
+				);
+
+				$this->add_control(
+					'exad_infobox_icon_color_hover',
+					[
+						'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#5480ff',
+						'selectors' => [
+							'{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}}',
+						]
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name' => 'exad_infobox_icon_border_hover',
+						'label' => __( 'Border', 'exclusive-addons-elementor' ),
+						'selector' => '{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon',
+					]
+				);
+				
+			$this->end_controls_tab();
+        $this->end_controls_tabs();
 		
 		$this->end_controls_section();
 
@@ -293,7 +445,7 @@ class Exad_Infobox extends Widget_Base {
 		?>
 
 		<div id="exad-infobox-<?php echo esc_attr($this->get_id()); ?>" class="exad-infobox <?php echo esc_attr($settings['exad_infobox_preset']); ?>">
-          	<div class="exad-infobox-item">
+          	<div class="exad-infobox-item <?php echo esc_attr($settings['exad_infobox_alignment']); ?>">
 	            <div class="exad-infobox-icon">
 
 	            	<?php if( 'icon' == $settings['exad_infobox_img_or_icon'] ) : ?>
@@ -320,7 +472,7 @@ class Exad_Infobox extends Widget_Base {
 	protected function _content_template() {
 		?>
 		<div id="exad-infobox" class="exad-infobox {{ settings.exad_infobox_preset }}">
-          	<div class="exad-infobox-item">
+          	<div class="exad-infobox-item {{ settings.exad_infobox_alignment }}">
 	            <div class="exad-infobox-icon">
 
 	            	<# if( 'icon' == settings.exad_infobox_img_or_icon ) { #>
