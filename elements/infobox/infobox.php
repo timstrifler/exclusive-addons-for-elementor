@@ -122,6 +122,34 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_infobox_alignment',
+            [
+                'label' => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => true,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
+                        'icon' => 'fa fa-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
+                        'icon' => 'fa fa-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+                        'icon' => 'fa fa-align-right',
+                    ],
+                ],
+				'default' => 'center',
+				'label_block' => true,
+                'selectors' => [
+                    '{{WRAPPER}} .exad-infobox-item' => 'text-align: {{VALUE}};',
+                	],
+            ]
+        );
+
 		$this->end_controls_section();
 		
 

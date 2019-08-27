@@ -1,7 +1,7 @@
 /* InfoBox Start */
 
 .exad-infobox.one .exad-infobox-item {
-  padding: 30px 0 0 0;
+  padding: 30px;
   text-align: center;
   transition: all 0.3s ease;
 }
@@ -16,6 +16,7 @@
   position: relative;
   z-index: 1;
   transition: all .3s ease;
+  margin: 0 0 20px 0;
 }
 
 .exad-infobox.one .exad-infobox-item .exad-infobox-icon::before {
@@ -55,7 +56,7 @@
 }
 
 .exad-infobox.one .exad-infobox-item .exad-infobox-content {
-  padding: 30px 20px;
+  /* padding: 30px 20px; */
 }
 
 .exad-infobox-content-title {
