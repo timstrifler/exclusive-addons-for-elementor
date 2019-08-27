@@ -26,25 +26,12 @@ var cssnano = require('gulp-cssnano');
 var objectfit = require('postcss-object-fit-images');
 var zip = require('gulp-zip');
 var rename = require('gulp-rename');
+var watch = require('gulp-watch');
 var del = require('del');
 var runSequence = require('run-sequence');
 var pot = require('gulp-wp-pot');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
-
-
-gulp.task('jsconcat', function() {
-    return gulp.src('./assets/js/elements-js/*.js')
-      .pipe(concat('exad-scripts.js'))
-      .pipe(gulp.dest('./assets/js'));
-});
-
-gulp.task('cssconcat', function() {
-    return gulp.src('./assets/css/elements-css/*.css')
-      .pipe(concat('exad-styles.css'))
-      .pipe(gulp.dest('./assets/css'));
-});
-
 
 // Css Minimy
 gulp.task('cssmin', function() {
@@ -152,6 +139,33 @@ gulp.task('prod', function(callback) {
 });
 
 /**
+ * Concat Js
+ */
+gulp.task('jsconcat', function() {
+    return gulp.src('assets/js/elements-js/*.js')
+      .pipe(concat('exad-scripts.js'))
+      .pipe(gulp.dest('./assets/js'));
+});
+
+/**
+ * Concat Css
+ */
+gulp.task('cssconcat', function() {
+    return gulp.src('assets/css/elements-css/*.css')
+      .pipe(concat('exad-styles.css'))
+      .pipe(gulp.dest('./assets/css'));
+});
+
+/**
+ * Watch Gulp css and js concat
+ */
+
+gulp.task('watch', function () {
+    gulp.watch('assets/css/elements-css/*.css', ['cssconcat']);
+    gulp.watch('assets/js/elements-js/*.js', ['jsconcat']);
+});
+
+/**
  * Minifies and concatenates JS and CSS
  */
-gulp.task('default', ['cssmin', 'jsmin'] );
+gulp.task('default', ['cssconcat', 'jsconcat'] );

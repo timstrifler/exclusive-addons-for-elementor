@@ -236,6 +236,33 @@ class Exad_Countdown_Timer extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_countdown_divider_size',
+			[
+				'label' => __( 'Size', 'plugin-domain' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 50,
+						'max' => 150,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 80,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-count::after' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->end_controls_section();
 		
 		// Counter Styles
@@ -318,20 +345,35 @@ class Exad_Countdown_Timer extends Widget_Base {
 				'data-countdown' => esc_attr( $settings['exad_countdown_time'] ),
 			]
 		);
+		
+		if ( 'yes' === $settings['exad_countdown_divider_enable'] ) {
+			$this->add_render_attribute(
+				'exad-countdown-timer-attribute',
+				[
+					'class' => [ 'exad-countdown-divider' ],
+				]
+			);
+		}
 
 		?>
-		<div  id ="exad-countdown-<?php echo esc_attr( $this->get_id() ); ?>" class="exad-countdown-content-container">
+		<div class="exad-countdown-content-container">
 			<div <?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute') ?>></div>
 		</div>
 		<?php
 	}
 
 	protected function _content_template() {
-		?>
-		<div id="exad-countdown-timer" class="exad-countdown-content-container">
-			<div class="exad-countdown {{ settings.exad_countdown_preset }}" data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="{{ settings.exad_countdown_time }}"></div>
+	?>
+		<#
+		view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown' );
+		if ( 'yes' === settings.exad_countdown_divider_enable ) {
+			view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown-divider' );
+		}
+		#>
+		<div class="exad-countdown-content-container">
+			<div {{{ view.getRenderAttributeString( 'exad_countdown_timer_attribute' ) }}} data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="{{ settings.exad_countdown_time }}"></div>
 		</div>
-		<?php
+	<?php
 	}
 
 }
