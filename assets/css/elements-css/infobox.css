@@ -156,7 +156,7 @@
 }
 
 .exad-infobox.four .exad-infobox-item .exad-infobox-content {
-  flex-basis: calc(100% - 70px);
+  flex-basis: calc(100% - 100px);
   margin-left: 15px;
 }
 
@@ -175,42 +175,6 @@
 
 .exad-infobox.four .exad-infobox-item:hover .exad-infobox-icon i {
   color: #826EFF;
-}
-
-.exad-infobox.five {
-  margin-top: 50px;
-}
-
-.exad-infobox.five .exad-infobox-item {
-  border: 1px solid #e0e2e5;
-  text-align: center;
-}
-
-.exad-infobox.five .exad-infobox-item .exad-infobox-icon {
-  position: absolute;
-  height: 90px;
-  width: 90px;
-  top: 0%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all .3s ease;
-}
-
-.exad-infobox.five .exad-infobox-item .exad-infobox-icon i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: #fff;
-}
-
-.exad-infobox.five .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {
-  line-height: 2;
-}
-.exad-infobox.five .exad-infobox-item .exad-infobox-content .exad-infobox-content-title {
-  margin-top: 30px;
 }
 
 /* InfoBox End */
