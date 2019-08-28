@@ -143,7 +143,7 @@ class Exad_Infobox extends Widget_Base {
 				],
 				'default' => 'exad-infobox-align-center',
 			]
-        );
+		);
 
 		$this->end_controls_section();
 		
@@ -165,10 +165,10 @@ class Exad_Infobox extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'default' => 'one',
 				'options' => [
-					'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-					'two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-					'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-					'four' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
+					'one' => esc_html__( 'Simple Style', 'exclusive-addons-elementor' ),
+					// 'two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+					// 'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
+					'four' => esc_html__( 'Side Icon Box', 'exclusive-addons-elementor' ),
 					'five' => esc_html__( 'Style 5', 'exclusive-addons-elementor' ),
 				],
 			]
@@ -216,20 +216,37 @@ class Exad_Infobox extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_infobox_border_radious',
+			'exad_infobox_border_radius',
 			[
 			  'label' => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
-			  'type' => Controls_Manager::SLIDER,
+			  'type' => Controls_Manager::DIMENSIONS,
+			  'size_units' => [ 'px', '%' ],
 			  'default' => [
-				  'size' => 0,
-			  ],
-			  'range' => [
-				  'px' => [
-					  'max' => 100,
-				  ],
-			  ],
+				'top' => '0',
+				'right' => '0',
+				'bottom' => '0',
+				'left' => '0',
+				],
 			  'selectors' => [
-				  '{{WRAPPER}} .exad-infobox-item' => 'border-radius: {{SIZE}}px;',
+				  '{{WRAPPER}} .exad-infobox-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+			  ],
+			]
+		);
+
+		$this->add_control(
+			'exad_infobox_padding',
+			[
+			  'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+			  'type' => Controls_Manager::DIMENSIONS,
+			  'size_units' => [ 'px', '%' ],
+			  'default' => [
+				'top' => '30',
+				'right' => '30',
+				'bottom' => '30',
+				'left' => '30',
+				],
+			  'selectors' => [
+				  '{{WRAPPER}} .exad-infobox-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			  ],
 			]
 		);
@@ -246,6 +263,54 @@ class Exad_Infobox extends Widget_Base {
 		
 		$this->end_controls_section();
 
+		// transition style
+
+		$this->start_controls_section(
+            'section_infobox_transition_style',
+            [
+                'label' => __('Infofox Transition', 'exclusive-addons-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+		);
+
+		$this->add_control(
+			'exad_infobox_transition_top',
+            [
+				'label' => __( 'Infobox Transition Top', 'exclusive-addons-elementor' ),
+				'type' =>  Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'your-plugin' ),
+				'label_off' => __( 'Hide', 'your-plugin' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+        );
+		$this->add_control(
+			'exad_infobox_transition_zoom',
+            [
+				'label' => __( 'Infobox Transition Zoom', 'exclusive-addons-elementor' ),
+				'type' =>  Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'your-plugin' ),
+				'label_off' => __( 'Hide', 'your-plugin' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_infobox_transition_zoom_background',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .zoom-transition::before',
+				'condition' => [
+					'exad_infobox_transition_zoom' => 'no',
+				]
+			]
+        );
+
+		$this->end_controls_section();
+
 		//icon style
 
 		$this->start_controls_section(
@@ -257,12 +322,34 @@ class Exad_Infobox extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_infobox_icon_border_radious',
+			'exad_infobox_icon_height',
 			[
-			  'label' => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
-			  'type' => Controls_Manager::SLIDER,
-			  'default' => [
-				  'size' => 0,
+			  'label' => esc_html__( 'Height', 'exclusive-addons-elementor' ),
+			  'type' => Controls_Manager::NUMBER,
+			  'default' => '100',
+			  'selectors' => [
+				  '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'height: {{VALUE}}px;',
+			  ],
+			]
+		);
+		$this->add_control(
+			'exad_infobox_icon_width',
+			[
+			  'label' => esc_html__( 'Width', 'exclusive-addons-elementor' ),
+			  'type' => Controls_Manager::NUMBER,
+			  'default' => '100',
+			  'selectors' => [
+				  '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'width: {{VALUE}}px;',
+			  ],
+			]
+		);
+		$this->add_control(
+			'exad_infobox_icon_font_size',
+			[
+			  'label' => esc_html__( 'Icon Size', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+				  'size' => 50,
 			  ],
 			  'range' => [
 				  'px' => [
@@ -270,8 +357,35 @@ class Exad_Infobox extends Widget_Base {
 				  ],
 			  ],
 			  'selectors' => [
-				  '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'border-radius: {{SIZE}}px;',
+				  '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon i' => 'font-size: {{SIZE}}px;',
 			  ],
+			]
+		);
+
+		$this->add_control(
+			'exad_infobox_icon_border_radius',
+			[
+				'label' => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_infobox_icon_box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon',
 			]
 		);
 
@@ -280,6 +394,7 @@ class Exad_Infobox extends Widget_Base {
 			[
 			  'label' => esc_html__( 'Margin Bottom', 'exclusive-addons-elementor' ),
 			  'type' => Controls_Manager::NUMBER,
+			  'default' => '20',
 			  'selectors' => [
 				  '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'margin-bottom: {{VALUE}}px;',
 			  ],
@@ -394,7 +509,19 @@ class Exad_Infobox extends Widget_Base {
                 'name' => 'infobox_title_typography',
                 'selector' => '{{WRAPPER}} .exad-infobox-content-title',
             ]
-        );
+		);
+		
+		$this->add_control(
+			'exad_infobox_title_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .exad-infobox-content-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->end_controls_section();
 
@@ -425,7 +552,19 @@ class Exad_Infobox extends Widget_Base {
                 'name' => 'exad_description_typography',
                 'selector' => '{{WRAPPER}} .exad-infobox-content-description',
             ]
-        );
+		);
+		
+		$this->add_control(
+			'exad_infobox_description_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .exad-infobox-content-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->end_controls_section();
 		
@@ -433,8 +572,19 @@ class Exad_Infobox extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		
-		$infobox_image = $this->get_settings_for_display( 'exad_infobox_image' );
+		$infobox_image = $this->get_settings_for_display ( 'exad_infobox_image' );
 		$infobox_image_url = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
+
+		$this->add_render_attribute( 'exad_infobox_transition',[
+			'class' => ['exad-infobox-item', esc_attr($settings['exad_infobox_alignment']) ],
+		]);
+		if( $settings['exad_infobox_transition_top'] === 'yes' ){
+			$this->add_render_attribute( 'exad_infobox_transition', 'class', 'simple-transition' );
+		}
+
+		if( $settings['exad_infobox_transition_zoom'] === 'yes' ){
+			$this->add_render_attribute( 'exad_infobox_transition', 'class', 'zoom-transition' );
+		}
 
 		if ( empty( $infobox_image_url ) ) {
 			$infobox_image_url = $infobox_image['url'];
@@ -445,7 +595,7 @@ class Exad_Infobox extends Widget_Base {
 		?>
 
 		<div id="exad-infobox-<?php echo esc_attr($this->get_id()); ?>" class="exad-infobox <?php echo esc_attr($settings['exad_infobox_preset']); ?>">
-          	<div class="exad-infobox-item <?php echo esc_attr($settings['exad_infobox_alignment']); ?>">
+			  <div <?php echo $this->get_render_attribute_string( 'exad_infobox_transition' ); ?> >
 	            <div class="exad-infobox-icon">
 
 	            	<?php if( 'icon' == $settings['exad_infobox_img_or_icon'] ) : ?>
@@ -471,8 +621,21 @@ class Exad_Infobox extends Widget_Base {
 
 	protected function _content_template() {
 		?>
+		<#
+		view.addRenderAttribute( 'exad_infobox_transition','class' , ['exad-infobox-item', settings.exad_infobox_alignment]);
+		<!-- view.addRenderAttribute( 'exad_exclusive_button', 'class', [ 'exad-button-wrapper', settings.exclusive_button_effect ] ); -->
+
+		if( settings.exad_infobox_transition_top === 'yes' ){
+			view.addRenderAttribute( 'exad_infobox_transition', 'class', 'simple-transition' );
+		}
+
+		if( settings.exad_infobox_transition_zoom === 'yes' ){
+			view.addRenderAttribute( 'exad_infobox_transition', 'class', 'zoom-transition' );
+		}
+
+		#>
 		<div id="exad-infobox" class="exad-infobox {{ settings.exad_infobox_preset }}">
-          	<div class="exad-infobox-item {{ settings.exad_infobox_alignment }}">
+          	<div {{{ view.getRenderAttributeString( 'exad_infobox_transition' ) }}} >
 	            <div class="exad-infobox-icon">
 
 	            	<# if( 'icon' == settings.exad_infobox_img_or_icon ) { #>
