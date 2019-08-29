@@ -154,17 +154,15 @@ class Exad_Logo_Carousel extends Widget_Base {
 		'exad_logo_carousel_dots_border_radius',
 		[
 			'label' => esc_html__( 'Dots Border Radius', 'exclusive-addons-elementor' ),
-			'type' => Controls_Manager::SLIDER,
+			'type' => Controls_Manager::DIMENSIONS,
 			'default' => [
-				'size' => 0,
-			],
-			'range' => [
-				'px' => [
-					'max' => 40,
-				],
+				'top' => '0',
+				'right' => '0',
+				'bottom' => '0',
+				'left' => '0',
 			],
 			'selectors' => [
-				'{{WRAPPER}} .exad-logo-carousel .slick-dots li button' => 'border-Radius: {{SIZE}}px;',
+				'{{WRAPPER}} .exad-logo-carousel .slick-dots li button' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			],
 			'condition' => [
 				'exad_logo_carousel_nav' => 'dots',
@@ -347,17 +345,16 @@ class Exad_Logo_Carousel extends Widget_Base {
 		'exad_logo_carousel_item_radius',
 		[
 			'label' => esc_html__( 'Item Radius', 'exclusive-addons-elementor' ),
-			'type' => Controls_Manager::SLIDER,
+			'type' => Controls_Manager::DIMENSIONS,
 			'default' => [
-				'size' => 0,
-			],
-			'range' => [
-				'px' => [
-					'max' => 40,
-				],
+				'top' => '0',
+				'right' => '0',
+				'bottom' => '0',
+				'left' => '0',
+				'unit' => '0',
 			],
 			'selectors' => [
-				'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item' => 'border-Radius: {{SIZE}}px;',
+				'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			],
 		]
 	);
