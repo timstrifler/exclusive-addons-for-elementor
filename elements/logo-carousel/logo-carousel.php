@@ -7,7 +7,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 		return 'exad-logo-carousel';
 	}
 	public function get_title() {
-		return esc_html__( 'Logo Carousle', 'exclusive-addons-elementor' );
+		return esc_html__( 'Logo Carousel', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
 		return 'exad-element-icon eicon-media-carousel';
