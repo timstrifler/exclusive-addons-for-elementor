@@ -123,6 +123,192 @@ class Exad_Logo_Carousel extends Widget_Base {
 	);
 
 	$this->add_control(
+		'exad_logo_autoplay',
+		[
+			'label'     => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
+			'type'      => Controls_Manager::SWITCHER,
+			'separator' => 'before',
+			'default'   => 'no',
+		]
+	);
+
+	$this->add_control(
+		'exad_logo_autoplay_speed',
+		[
+			'label'     => esc_html__( 'Autoplay Speed', 'exclusive-addons-elementor' ),
+			'type'      => Controls_Manager::NUMBER,
+			'default'   => 5000,
+			'condition' => [
+				'exad_logo_autoplay' => 'yes',
+			],
+		]
+	);
+
+	$this->add_control(
+		'exad_logo_loop',
+		[
+			'label'   => esc_html__( 'Infinite Loop', 'exclusive-addons-elementor' ),
+			'type'    => Controls_Manager::SWITCHER,
+			'default' => 'yes',
+		]
+	);
+
+	$this->end_controls_section();
+
+	/*
+	* Logo Carousel Styling Section
+	*/
+
+	$this->start_controls_section(
+		'exad_logo_carousel_style_background',
+		[
+			'label' => esc_html__( 'General Style', 'exclusive-addons-elementor' ),
+			'tab' => Controls_Manager::TAB_STYLE
+		]
+	);
+
+	$this->add_control(
+		'exad_logo_carousel_item_radius',
+		[
+			'label' => esc_html__( 'Item Radius', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::DIMENSIONS,
+			'size_units' => [ 'px', '%', 'em' ],
+			'default' => [
+				'top' => '0',
+				'right' => '0',
+				'bottom' => '0',
+				'left' => '0',
+			],
+			'selectors' => [
+				'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+			],
+		]
+	);
+
+	$this->add_control(
+		'exad_logo_carousel_item_margin',
+		[
+			'label' => esc_html__( 'Item margin', 'exclusive-addons-elementor' ),
+			'type'           => Controls_Manager::DIMENSIONS,
+            'size_units'     => [ 'px'],
+            'separator' => 'before',
+			'selectors' => [
+				'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+			],
+		]
+	);
+
+	$this->start_controls_tabs( 'exad_logo_carousel_background_tabs' );
+
+		$this->start_controls_tab( 'exad_logo_carousel_background_control', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_logo_carousel_background',
+				[
+					'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item' => 'background: {{VALUE}};',
+					],
+				]
+			);
+			$this->add_control(
+				'exad_logo_carousel_opacity_normal',
+				[
+					'label' => __('Opacity', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::NUMBER,
+					'range' => [
+					'min' => 0,
+					'max' => 1
+				],
+					'selectors' => [
+						'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item img' => 'opacity: {{VALUE}};',
+					],
+				]
+			);
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' => 'exad_logo_carousel_border_normal',
+					'label' => __( 'Border', 'exclusive-addons-elementor' ),
+					'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item',
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' => 'exad_logo_carousel_shadow_normal',
+					'label' => __( 'Box Shadow', 'plugin-domain' ),
+					'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item',
+				]
+			);
+
+		$this->end_controls_tab();
+
+		$this->start_controls_tab( 'exad_logo_carousel_background_hover_control', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_logo_carousel_background_hover',
+				[
+					'label' => esc_html__( 'Background Hover', 'exclusive-addons-elementor' ),
+					'type' => Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item:hover' => 'background: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_control(
+				'exad_logo_carousel_opacity_hover',
+				[
+					'label' => __('Opacity', 'exclusive-addons-elementor'),
+					'type' => Controls_Manager::NUMBER,
+					'range' => [
+					'min' => 0,
+					'max' => 1
+				],
+					'selectors' => [
+						'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover img' => 'opacity: {{VALUE}};',
+					],
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name' => 'exad_logo_carousel_border_hover',
+					'label' => __( 'Border', 'exclusive-addons-elementor' ),
+					'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover',
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' => 'exad_logo_carousel_shadow_hover',
+					'label' => __( 'Box Shadow', 'plugin-domain' ),
+					'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover',
+				]
+			);
+
+		$this->end_controls_tab();
+
+	$this->end_controls_tabs();
+	
+	$this->end_controls_section();
+
+	// nav tab style
+
+	$this->start_controls_section(
+		'exad_logo_carousel_nav_tab_style',
+		[
+			'label' => esc_html__( 'Navigation Style', 'exclusive-addons-elementor' ),
+			'tab' => Controls_Manager::TAB_STYLE
+		]
+	);
+
+	$this->add_control(
 		'exad_logo_carousel_dots_height',
 		[
 			'label' => esc_html__( 'Dots Height', 'exclusive-addons-elementor' ),
@@ -155,6 +341,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 		[
 			'label' => esc_html__( 'Dots Border Radius', 'exclusive-addons-elementor' ),
 			'type' => Controls_Manager::DIMENSIONS,
+			'size_units' => [ 'px', '%', 'em' ],
 			'default' => [
 				'top' => '0',
 				'right' => '0',
@@ -296,198 +483,11 @@ class Exad_Logo_Carousel extends Widget_Base {
 		
 		$this->end_controls_tabs();
 	// nav style end
-	$this->add_control(
-		'exad_logo_autoplay',
-		[
-			'label'     => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
-			'type'      => Controls_Manager::SWITCHER,
-			'separator' => 'before',
-			'default'   => 'no',
-		]
-	);
 
-	$this->add_control(
-		'exad_logo_autoplay_speed',
-		[
-			'label'     => esc_html__( 'Autoplay Speed', 'exclusive-addons-elementor' ),
-			'type'      => Controls_Manager::NUMBER,
-			'default'   => 5000,
-			'condition' => [
-				'exad_logo_autoplay' => 'yes',
-			],
-		]
-	);
-
-	$this->add_control(
-		'exad_logo_loop',
-		[
-			'label'   => esc_html__( 'Infinite Loop', 'exclusive-addons-elementor' ),
-			'type'    => Controls_Manager::SWITCHER,
-			'default' => 'yes',
-		]
-	);
-
-	$this->end_controls_section();
-
-	/*
-	* Logo Carousel Styling Section
-	*/
-
-	$this->start_controls_section(
-		'exad_logo_carousel_style_background',
-		[
-			'label' => esc_html__( 'General Style', 'exclusive-addons-elementor' ),
-			'tab' => Controls_Manager::TAB_STYLE
-		]
-	);
-
-	$this->add_control(
-		'exad_logo_carousel_item_radius',
-		[
-			'label' => esc_html__( 'Item Radius', 'exclusive-addons-elementor' ),
-			'type' => Controls_Manager::DIMENSIONS,
-			'default' => [
-				'top' => '0',
-				'right' => '0',
-				'bottom' => '0',
-				'left' => '0',
-				'unit' => '0',
-			],
-			'selectors' => [
-				'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-			],
-		]
-	);
-
-	$this->add_control(
-		'exad_logo_carousel_item_margin',
-		[
-			'label' => esc_html__( 'Item margin', 'exclusive-addons-elementor' ),
-			'type'           => Controls_Manager::DIMENSIONS,
-            'size_units'     => [ 'px'],
-            'separator' => 'before',
-			'selectors' => [
-				'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-			],
-		]
-	);
-
-	$this->start_controls_tabs( 'exad_logo_carousel_background_tabs' );
-
-		$this->start_controls_tab( 'exad_logo_carousel_background_control', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
-
-			$this->add_control(
-				'exad_logo_carousel_background',
-				[
-					'label' => esc_html__( 'Background', 'exclusive-addons-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'selectors' => [
-						'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item' => 'background: {{VALUE}};',
-					],
-				]
-			);
-			$this->add_control(
-				'exad_logo_carousel_opacity_normal',
-				[
-					'label' => __('Opacity', 'exclusive-addons-elementor'),
-					'type' => Controls_Manager::NUMBER,
-					'range' => [
-					'min' => 0,
-					'max' => 1
-				],
-					'selectors' => [
-						'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item img' => 'opacity: {{VALUE}};',
-					],
-				]
-			);
-			$this->add_group_control(
-				Group_Control_Border::get_type(),
-				[
-					'name' => 'exad_logo_carousel_border_normal',
-					'label' => __( 'Border', 'exclusive-addons-elementor' ),
-					'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item',
-				]
-			);
-
-			$this->add_group_control(
-				Group_Control_Box_Shadow::get_type(),
-				[
-					'name' => 'exad_logo_carousel_shadow_normal',
-					'label' => __( 'Box Shadow', 'plugin-domain' ),
-					'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item',
-				]
-			);
-
-		$this->end_controls_tab();
-
-		$this->start_controls_tab( 'exad_logo_carousel_background_hover_control', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
-
-			$this->add_control(
-				'exad_logo_carousel_background_hover',
-				[
-					'label' => esc_html__( 'Background Hover', 'exclusive-addons-elementor' ),
-					'type' => Controls_Manager::COLOR,
-					'selectors' => [
-						'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item:hover' => 'background: {{VALUE}};',
-					],
-				]
-			);
-
-			$this->add_control(
-				'exad_logo_carousel_opacity_hover',
-				[
-					'label' => __('Opacity', 'exclusive-addons-elementor'),
-					'type' => Controls_Manager::NUMBER,
-					'range' => [
-					'min' => 0,
-					'max' => 1
-				],
-					'selectors' => [
-						'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover img' => 'opacity: {{VALUE}};',
-					],
-				]
-			);
-
-			$this->add_group_control(
-				Group_Control_Border::get_type(),
-				[
-					'name' => 'exad_logo_carousel_border_hover',
-					'label' => __( 'Border', 'exclusive-addons-elementor' ),
-					'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover',
-				]
-			);
-
-			$this->add_group_control(
-				Group_Control_Box_Shadow::get_type(),
-				[
-					'name' => 'exad_logo_carousel_shadow_hover',
-					'label' => __( 'Box Shadow', 'plugin-domain' ),
-					'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover',
-				]
-			);
-
-		$this->end_controls_tab();
-
-	$this->end_controls_tabs();
-
-	$this->add_group_control(
-		Group_Control_Border::get_type(),
-		[
-			'name' => 'exad_logo_carousel_border',
-			'label' => __( 'Border', 'exclusive-addons-elementor' ),
-			'selector' => '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-item',
-			'condition' => [
-				'exad_logo_carousel_preset' => 'six',
-			],
-
-		]
-	);
-	
 	$this->end_controls_section();
 	}
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$logo_carousel_preset = $settings['exad_logo_carousel_preset'];
 
 		$this->add_render_attribute( 
 			'exad_logo_carousel', 
