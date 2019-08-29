@@ -181,6 +181,12 @@ class Exad_Alert extends Widget_Base {
         'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
         'type' => Controls_Manager::DIMENSIONS,
         'size_units' => [ 'px', '%', 'em' ],
+        'default' => [
+          'top' => '20',
+          'right' => '20',
+          'bottom' => '20',
+          'left' => '20',
+        ],
 				'selectors' => [
 					'{{WRAPPER}} .exad-alert-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
