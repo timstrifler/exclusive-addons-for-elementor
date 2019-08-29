@@ -53,7 +53,7 @@ class Exad_Alert extends Widget_Base {
       [
           'label' => esc_html__( 'Enable Title', 'exclusive-addons-elementor' ),
           'type' => Controls_Manager::SWITCHER,
-          'default' => 'yes',
+          'default' => 'no',
           'return_value' => 'yes',
       ]
     );
@@ -358,6 +358,34 @@ class Exad_Alert extends Widget_Base {
         ]
       ]
     );
+    $this->add_control(
+      'exad_alert_dismiss_icon_pos_top',
+      [
+        'label' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
+        'type' => Controls_Manager::NUMBER,
+        'default' => '15',
+        'selectors' => [
+          '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => 'top: {{VALUE}}px;',
+        ],
+        'condition' => [
+          'exad_alert_close_button' => 'icon',
+        ]
+      ]
+    );
+    $this->add_control(
+      'exad_alert_dismiss_icon_pos_right',
+      [
+        'label' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+        'type' => Controls_Manager::NUMBER,
+        'default' => '0',
+        'selectors' => [
+          '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => 'right: {{VALUE}}px;',
+        ],
+        'condition' => [
+          'exad_alert_close_button' => 'icon',
+        ]
+      ]
+    );
 
     $this->start_controls_tabs( 'exad_alert_dismiss_button', 
       [
@@ -371,7 +399,7 @@ class Exad_Alert extends Widget_Base {
         [
           'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
           'type' => Controls_Manager::COLOR,
-          'default' => '#A1A5B5',
+          'default' => '#46C9F0',
           'selectors' => [
             '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'background: {{VALUE}};',
           ]
@@ -382,7 +410,7 @@ class Exad_Alert extends Widget_Base {
         [
           'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
           'type' => Controls_Manager::COLOR,
-          'default' => '#A1A5B5',
+          'default' => '#ffffff',
           'selectors' => [
             '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'color: {{VALUE}};',
           ],
@@ -414,6 +442,12 @@ class Exad_Alert extends Widget_Base {
           'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
           'type' => Controls_Manager::DIMENSIONS,
           'size_units' => [ 'px', '%', 'em' ],
+          'default' => [ 
+            'top' => '15',
+            'right' => '30',
+            'bottom' => '15',
+            'left' => '30',
+          ],
           'selectors' => [
             '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
           ],
@@ -449,7 +483,7 @@ class Exad_Alert extends Widget_Base {
         [
           'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
           'type' => Controls_Manager::COLOR,
-          'default' => '#A1A5B5',
+          'default' => '#f05e5e',
           'selectors' => [
             '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'background: {{VALUE}};',
           ],
@@ -464,7 +498,7 @@ class Exad_Alert extends Widget_Base {
         [
           'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
           'type' => Controls_Manager::COLOR,
-          'default' => '#A1A5B5',
+          'default' => '#ffffff',
           'selectors' => [
             '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'color: {{VALUE}};',
           ],
@@ -496,6 +530,12 @@ class Exad_Alert extends Widget_Base {
           'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
           'type' => Controls_Manager::DIMENSIONS,
           'size_units' => [ 'px', '%', 'em' ],
+          'default' => [
+            'top' => '15',
+            'right' => '30',
+            'bottom' => '15',
+            'left' => '30',
+          ],
           'selectors' => [
             '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
           ],
