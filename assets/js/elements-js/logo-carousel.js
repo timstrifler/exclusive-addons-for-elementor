@@ -18,6 +18,8 @@ var LogoCarousel = function ($scope, $) {
         var dots = true;
     }
 
+    console.log($logoCarouselWrapper);
+
     $logoCarouselWrapper.slick({
         infinite: $loop,
         slidesToShow: $slidesToShow,
