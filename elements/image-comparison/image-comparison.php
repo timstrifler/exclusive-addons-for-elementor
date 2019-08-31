@@ -159,6 +159,33 @@ class Exad_image_comparison extends Widget_Base {
 
     $this->end_controls_section();
 
+
+    /*
+    * Comparison Divider Style
+    */
+    $this->start_controls_section(
+        'exad_section_image_comparision_divider_styles',
+        [
+            'label' => esc_html__( 'Divider Styles', 'exclusive-addons-elementor' ),
+            'tab' => Controls_Manager::TAB_STYLE
+        ]
+    );
+    $this->add_control(
+        'exad_image_comparison_divider_style',
+        [
+            'label' => esc_html__( 'Divider Type', 'exclusive-addons-elementor' ),
+            'type' => Controls_Manager::SELECT,
+            'default' => 'one',
+            'options' => [
+                'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+                'three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+            ],
+        ]
+    );
+
+    $this->end_controls_section();
+
+
     /*
     * Image Comparison Option Style
     */
@@ -265,7 +292,7 @@ class Exad_image_comparison extends Widget_Base {
         }
 
     ?>
-    <div id="exad-image-comparision-<?php echo esc_attr( $this->get_id() ); ?>" class="exad-image-comparision <?php echo esc_attr( $settings['exad_image_comparison_preset'] ); ?>">
+    <div class="exad-image-comparision <?php echo esc_attr( $settings['exad_image_comparison_divider_style'] ); ?>">
         <div class="exad-image-comparision-element" <?php echo $this->get_render_attribute_string('exad_image_comparison_wrapper'); ?> >
             <img src="<?php echo esc_url( $comparison_image_url_one ); ?>">
             <img src="<?php echo esc_url( $comparison_image_url_two ); ?>">
@@ -287,7 +314,7 @@ class Exad_image_comparison extends Widget_Base {
         view.addRenderAttribute( 'exad_image_comparison', 'data-exad-no_overlay', settings.exad_no_overlay );
         #>
 
-        <div id="exad-image-comparision" class="exad-image-comparision {{ settings.exad_image_comparison_preset }}">
+        <div class="exad-image-comparision {{ settings.exad_image_comparison_divider_style }}">
             <div class="exad-image-comparision-element" {{{ view.getRenderAttributeString( 'exad_image_comparison' ) }}} >
                 <img src="{{ settings.exad_comparison_image_one.url }}">
                 <img src="{{ settings.exad_comparison_image_two.url }}">
