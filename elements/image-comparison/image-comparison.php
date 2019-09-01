@@ -161,24 +161,50 @@ class Exad_image_comparison extends Widget_Base {
 
 
     /*
-    * Comparison Divider Style
+    * Comparison Slider Style
     */
     $this->start_controls_section(
-        'exad_section_image_comparision_divider_styles',
+        'exad_section_image_comparision_slider_styles',
         [
-            'label' => esc_html__( 'Divider Styles', 'exclusive-addons-elementor' ),
+            'label' => esc_html__( 'Slider Styles', 'exclusive-addons-elementor' ),
             'tab' => Controls_Manager::TAB_STYLE
         ]
     );
     $this->add_control(
-        'exad_image_comparison_divider_style',
+        'exad_image_comparison_slider_type',
         [
-            'label' => esc_html__( 'Divider Type', 'exclusive-addons-elementor' ),
+            'label' => esc_html__( 'Slider Type', 'exclusive-addons-elementor' ),
             'type' => Controls_Manager::SELECT,
-            'default' => 'one',
+            'default' => 'vertical',
             'options' => [
-                'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-                'three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+                'vertical' => esc_html__( 'Horizontal', 'exclusive-addons-elementor' ),
+                'horizontal' => esc_html__( 'Vertical', 'exclusive-addons-elementor' ),
+            ],
+        ]
+    );
+
+    $this->add_control(
+        'exad_image_comparison_slider_type',
+        [
+            'label' => esc_html__( 'Slider Type', 'exclusive-addons-elementor' ),
+            'type' => Controls_Manager::SELECT,
+            'default' => 'vertical',
+            'options' => [
+                'vertical' => esc_html__( 'Horizontal', 'exclusive-addons-elementor' ),
+                'horizontal' => esc_html__( 'Vertical', 'exclusive-addons-elementor' ),
+            ],
+        ]
+    );
+
+    $this->add_control(
+        'exad_image_comparison_slider_handle',
+        [
+            'label' => esc_html__( 'Handle Style', 'exclusive-addons-elementor' ),
+            'type' => Controls_Manager::SELECT,
+            'default' => 'handle-style-1',
+            'options' => [
+                'handle-style-1' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+                'handle-style-2' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
             ],
         ]
     );
@@ -281,19 +307,18 @@ class Exad_image_comparison extends Widget_Base {
         }
 		
 		$this->add_render_attribute( 'exad_image_comparison_wrapper', [
+            'class' => [ 'exad-image-comparision-element', $settings['exad_image_comparison_slider_handle'] ],
 			'data-exad-before_label' => esc_attr( $settings['exad_before_label']),
 			'data-exad-after_label'	=> esc_attr($settings['exad_after_label']),
-			'data-exad-default_offset_pct' => esc_attr( $settings['exad_default_offset_pct'] ),
+            'data-exad-default_offset_pct' => esc_attr( $settings['exad_default_offset_pct'] ),
+            'data-exad-oriantation' => esc_attr( $settings['exad_image_comparison_slider_type'] ),
 			'data-exad-no_overlay' => $settings['exad_no_overlay']
         ]);
         
-        if ( $comparison_image_preset == 'two' ) {
-            $this->add_render_attribute( 'exad_image_comparison_wrapper', 'data-exad-oriantation', 'vertical' );
-        }
 
     ?>
-    <div class="exad-image-comparision <?php echo esc_attr( $settings['exad_image_comparison_divider_style'] ); ?>">
-        <div class="exad-image-comparision-element" <?php echo $this->get_render_attribute_string('exad_image_comparison_wrapper'); ?> >
+    <div class="exad-image-comparision <?php echo esc_attr( $settings['exad_image_comparison_preset'] ); ?>">
+        <div <?php echo $this->get_render_attribute_string('exad_image_comparison_wrapper'); ?> >
             <img src="<?php echo esc_url( $comparison_image_url_one ); ?>">
             <img src="<?php echo esc_url( $comparison_image_url_two ); ?>">
         </div>
@@ -304,18 +329,19 @@ class Exad_image_comparison extends Widget_Base {
 	protected function _content_template() {
     ?>    
         <#
-        if ( settings.exad_image_comparison_preset == 'two' ) {
-            view.addRenderAttribute( 'exad_image_comparison', 'data-exad-oriantation', 'vertical' );
-        }
         
+        view.addRenderAttribute( 'exad_image_comparison', 'class', 'exad-image-comparision-element' );
+        view.addRenderAttribute( 'exad_image_comparison', 'class', settings.exad_image_comparison_slider_handle );
         view.addRenderAttribute( 'exad_image_comparison', 'data-exad-before_label', settings.exad_before_label );
+        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-oriantation', settings.exad_image_comparison_slider_type );
         view.addRenderAttribute( 'exad_image_comparison', 'data-exad-after_label', settings.exad_after_label  );
         view.addRenderAttribute( 'exad_image_comparison', 'data-exad-default_offset_pct', settings.exad_default_offset_pct );
         view.addRenderAttribute( 'exad_image_comparison', 'data-exad-no_overlay', settings.exad_no_overlay );
+        
         #>
 
-        <div class="exad-image-comparision {{ settings.exad_image_comparison_divider_style }}">
-            <div class="exad-image-comparision-element" {{{ view.getRenderAttributeString( 'exad_image_comparison' ) }}} >
+        <div class="exad-image-comparision {{ settings.exad_image_comparison_preset }}">
+            <div {{{ view.getRenderAttributeString( 'exad_image_comparison' ) }}} >
                 <img src="{{ settings.exad_comparison_image_one.url }}">
                 <img src="{{ settings.exad_comparison_image_two.url }}">
             </div>
