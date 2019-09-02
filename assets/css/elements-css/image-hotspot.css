@@ -73,7 +73,7 @@
   box-shadow: 0px 25px 50px 0px rgba(255, 77, 111, 0.42);
 } */
 
-.exad-hotspot.one .exad-hotspot-item .exad-hotspot-dot:hover {
+.exad-hotspot.exad-hotspot-hover-scale .exad-hotspot-item .exad-hotspot-dot:hover {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
@@ -127,7 +127,7 @@
   cursor: pointer;
 }
 
-.exad-hotspot.exad-hotspot-glow-animation-test .exad-hotspot-item .exad-hotspot-dot::before {
+.exad-hotspot.exad-hotspot-glowing-border .exad-hotspot-item .exad-hotspot-dot::before {
   position: absolute;
   content: '';
   top: 0;

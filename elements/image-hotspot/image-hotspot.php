@@ -559,9 +559,8 @@ class Exad_Image_Hotspot extends Widget_Base
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#FFF',
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot' => 'color: {{VALUE}}',
-                ],
-                'description' => __( 'Applies to Style 1 & Style 2', 'exclusive-addons-elementor' )
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon i' => 'color: {{VALUE}}',
+                ]
             ]
         );
 
@@ -572,11 +571,10 @@ class Exad_Image_Hotspot extends Widget_Base
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#704AFF',
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hotspot.one .exad-hotspot-dot, {{WRAPPER}} .exad-hotspot.two .exad-hotspot-dot, {{WRAPPER}} .exad-hotspot.three .exad-hotspot-dot, {{WRAPPER}} .exad-hotspot.three .exad-hotspot-dot::before, {{WRAPPER}} .exad-hotspot.three .exad-hotspot-dot::before' => 'background: {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-dot-icon' => 'background: {{VALUE}}',
                     '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-dot::before' => 'border: .5px solid {{VALUE}}',
                     '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-dot::after' => 'border: 1px solid {{VALUE}}',
-                ],
-                'description' => __( 'Applies to Style 1, Style 2 & Style 3', 'exclusive-addons-elementor' )
+                ]
             ]
         );
 
@@ -628,7 +626,31 @@ class Exad_Image_Hotspot extends Widget_Base
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
-		);
+        );
+
+        $this->add_control(
+			'exad_hotspot_glowing_border',
+			[
+				'label' => __( 'Glowing Border', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'On', 'your-plugin' ),
+				'label_off' => __( 'Off', 'your-plugin' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+        );
+
+        $this->add_control(
+			'exad_hotspot_hover_effect',
+			[
+				'label' => __( 'Hover Effect', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'On', 'your-plugin' ),
+				'label_off' => __( 'Off', 'your-plugin' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+        );
 
         $this->add_responsive_control(
             'icon_padding',
@@ -745,8 +767,15 @@ class Exad_Image_Hotspot extends Widget_Base
 
         if ( 'yes' == $settings['exad_hotspot_glow_animation'] ) {
 			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-glow-animation' );
-        }  
-    
+        } 
+
+        if ( 'yes' == $settings['exad_hotspot_glowing_border'] ) {
+			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-glowing-border' );
+        } 
+
+        if ( 'yes' == $settings['exad_hotspot_hover_effect'] ) {
+			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-hover-scale' );
+        }
 
         ?>
 
