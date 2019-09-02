@@ -1318,13 +1318,13 @@ class Exad_Pricing_Table extends Widget_Base {
 	protected function _content_template() {
 	?>
 	<#
-		view.addRenderAttribute( 'exad_pricing_table_box_value', 'class' , ['exad-pricing-table-price']);
+		view.addRenderAttribute( 'exad_pricing_table_box_value', 'class', 'exad-pricing-table-price' );
 
 		if( settings.exad_pricing_table_price_box === 'yes' ){
 			view.addRenderAttribute( 'exad_pricing_table_box_value', 'class', 'price-box' );
 		}
 
-		view.addRenderAttribute( 'exad_pricing_table_features', 'class', ['exad-pricing-table-features']);
+		view.addRenderAttribute( 'exad_pricing_table_features', 'class', 'exad-pricing-table-features' );
 
 		if( settings.exad_pricing_table_list_border_bottom === 'yes' ){
 			view.addRenderAttribute( 'exad_pricing_table_features', 'class', 'list-border-bottom' );
@@ -1350,7 +1350,7 @@ class Exad_Pricing_Table extends Widget_Base {
                 <# } #>
 				<div {{{ view.getRenderAttributeString( 'exad_pricing_table_box_value' ) }}} >
 					<p>
-					{{{ settings.exad_pricing_table_price_cur }}}{{{ settings.exad_pricing_table_price }}}<span class="exad-price-period">{{{ settings.exad_pricing_table_period_separator }}}{{{ settings.exad_pricing_table_price_by }}}</span>
+					{{{ settings.exad_pricing_table_price_cur }}} {{{ settings.exad_pricing_table_price }}}<span class="exad-price-period">{{{ settings.exad_pricing_table_period_separator }}} {{{ settings.exad_pricing_table_price_by }}}</span>
 					</p>
 				</div>
 				<# if( settings.exad_pricing_table_header_type === 'curved-header' ) { #>
@@ -1404,14 +1404,14 @@ class Exad_Pricing_Table extends Widget_Base {
 			</a>
 			<# } #>
 			<ul {{{ view.getRenderAttributeString( 'exad_pricing_table_features' ) }}} >
-				<# _.each( settings.exad_pricing_table_items, function( features, index ) ) {
+				<# _.each( settings.exad_pricing_table_items, function( features, index ) {
 					var active = ( 'yes' !== features.exad_pricing_table_icon_mood ) ? 'exad-pricing-table-features-disable' : ''
 				#>
 					<li class="{{ active }}">
 						<span class="exad-pricing-li-icon"><i class="{{ features.exad_pricing_table_list_icon }}"></i></span>
 						{{{ features.exad_pricing_table_item }}}
 					</li>
-				<# }); #>
+				<# }) #>
 			</ul>
 			<# if( settings.exad_pricing_table_btn_position === 'bottom') { #>
 			<a href="{{{ settings.exad_pricing_table_btn_link.url }}}" class="exad-pricing-table-action">
