@@ -2,7 +2,6 @@
 
 .exad-hotspot.one .exad-hotspot-item .exad-hotspot-dot {
   position: absolute;
-  border-radius: 100%;
   z-index: 5;
   cursor: pointer;
   color: #fff;
@@ -10,7 +9,7 @@
   transition: all .3s ease;
 }
 
-.exad-hotspot.one .exad-hotspot-item .exad-hotspot-dot::before {
+.exad-hotspot.exad-hotspot-glow-animation .exad-hotspot-item .exad-hotspot-dot::before {
   position: absolute;
   content: '';
   height: 100%;
@@ -41,11 +40,9 @@
   fill: #fff;
 }
 
-.exad-hotspot.one .exad-hotspot-item .exad-hotspot-dot-icon {
-  box-shadow: 0px 25px 50px 0px rgba(112, 74, 255, 0.34);
+.exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
 }
 
 /* .exad-hotspot.one .exad-hotspot-item span.dot-two {
@@ -130,7 +127,7 @@
   cursor: pointer;
 }
 
-.exad-hotspot.two .exad-hotspot-item .exad-hotspot-dot::before {
+.exad-hotspot.exad-hotspot-glow-animation-test .exad-hotspot-item .exad-hotspot-dot::before {
   position: absolute;
   content: '';
   top: 0;
@@ -328,7 +325,7 @@
 .exad-hotspot.four .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-dot-icon {
 }
 
-.exad-hotspot.four .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-dot-icon i {
+.exad-hotspot.exad-hotspot-moving-animation .exad-hotspot-dot .exad-hotspot-dot-icon i {
   font-size: 36px;
   -webkit-transform-origin: left top;
           transform-origin: left top;

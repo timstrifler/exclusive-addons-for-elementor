@@ -111,7 +111,6 @@ class Exad_Image_Hotspot extends Widget_Base
                 'options'         => [
                     'icon'  => __('Icon', 'exclusive-addons-elementor'),
                     'text'  => __('Text', 'exclusive-addons-elementor'),
-                    'blank' => __('Blank', 'exclusive-addons-elementor'),
                 ],
             ]
         );
@@ -157,8 +156,12 @@ class Exad_Image_Hotspot extends Widget_Base
                         'step'    => 0.1,
                     ],
                 ],
+                'default' => [
+                    'unit' => '%',
+                    'size' => '50'
+                ],
                 'selectors'     => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}}' => 'left: {{SIZE}}%;',
+                    '{{WRAPPER}} {{CURRENT_ITEM}}' => 'left: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -175,8 +178,12 @@ class Exad_Image_Hotspot extends Widget_Base
                         'step'    => 0.1,
                     ],
                 ],
+                'default' => [
+                    'unit' => '%',
+                    'size' => '50'
+                ],
                 'selectors'     => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}}' => 'top: {{SIZE}}%;',
+                    '{{WRAPPER}} {{CURRENT_ITEM}}' => 'top: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -573,6 +580,56 @@ class Exad_Image_Hotspot extends Widget_Base
             ]
         );
 
+        $this->add_control(
+			'exad_hotspot_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'default'    => [
+                    'unit' => '%',
+                    'size' => '50'
+                ],
+				'selectors'             => [
+					'{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+        );
+
+        $this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_hotspot_box_shadow',
+				'label' => __( 'Box Shadow', 'plugin-domain' ),
+				'selector' => '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon',
+			]
+        );
+        
+
+        $this->add_control(
+			'exad_hotspot_moving_animation',
+			[
+				'label' => __( 'Moving Animation', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'On', 'your-plugin' ),
+				'label_off' => __( 'Off', 'your-plugin' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+        );
+        
+        $this->add_control(
+			'exad_hotspot_glow_animation',
+			[
+				'label' => __( 'Glowing Animation', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'On', 'your-plugin' ),
+				'label_off' => __( 'Off', 'your-plugin' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
         $this->add_responsive_control(
             'icon_padding',
             [
@@ -676,11 +733,24 @@ class Exad_Image_Hotspot extends Widget_Base
 
     protected function render() {
         $settings = $this->get_settings();
+
+        $this->add_render_attribute( 'exad_hotspot_attribute', [
+			'class'	=> [ 'exad-hotspot', $settings[ 'exad_hotspot_preset' ] ],
+		]);
+
         
+        if ( 'yes' == $settings['exad_hotspot_moving_animation'] ) {
+			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-moving-animation' );
+        }  
+
+        if ( 'yes' == $settings['exad_hotspot_glow_animation'] ) {
+			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-glow-animation' );
+        }  
+    
 
         ?>
 
-        <div class="exad-hotspot <?php echo esc_attr( $settings['exad_hotspot_preset'] ); ?>">
+        <div <?php echo $this->get_render_attribute_string( 'exad_hotspot_attribute' ); ?>">
             <img src="<?php echo esc_url( $settings['exad_hotspot_image']['url'] ); ?>">
 
             <?php foreach( $settings['exad_hotspots'] as $item ) { 
@@ -699,7 +769,7 @@ class Exad_Image_Hotspot extends Widget_Base
                         <div class="exad-hotspot-tooltip">
                             <h6><?php echo esc_html( $item['exad_tooltip_content'] ); ?></h6>
                         </div>
-                    </span>
+                    </div>
                 </div>
 
             <?php } ?>
