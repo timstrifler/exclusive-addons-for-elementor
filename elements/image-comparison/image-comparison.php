@@ -138,21 +138,23 @@ class Exad_image_comparison extends Widget_Base {
             'selector' => '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element',
         ]
     );
-    
-    
+
+
     $this->add_control(
         'exad_img_comparison_border_radius',
         [
-            'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::SLIDER,
-            'range' => [
-                'px' => [
-                    'min' => 0,
-                    'max' => 100,
-                ],
+            'label'       => __( 'Border Radius', 'exclusive-addons-elementor' ),
+            'type'        => Controls_Manager::DIMENSIONS,
+            'size_units'  => [ 'px', '%' ],
+            'default'     => [
+                'top' => '',
+                'right' => '',
+                'bottom' => '',
+                'left' => '',
+                'isLinked' => true,
             ],
-            'selectors' => [
-                '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element' => 'border-radius: {{SIZE}}{{UNIT}};',
+            'selectors'   => [
+                '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
             ],
         ]
     );
@@ -292,7 +294,6 @@ class Exad_image_comparison extends Widget_Base {
     $comparison_image_two = $this->get_settings_for_display( 'exad_comparison_image_two' );
 	$comparison_image_url_one_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_one['id'], 'thumbnail', $settings );
 	$comparison_image_url_two_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_two['id'], 'thumbnail_two', $settings );
-    $comparison_image_preset = $settings['exad_image_comparison_preset'];
 
 		if( empty( $comparison_image_url_one_src ) ) {
 			$comparison_image_url_one = $comparison_image_one['url']; 
@@ -317,7 +318,7 @@ class Exad_image_comparison extends Widget_Base {
         
 
     ?>
-    <div class="exad-image-comparision <?php echo esc_attr( $settings['exad_image_comparison_preset'] ); ?>">
+    <div class="exad-image-comparision">
         <div <?php echo $this->get_render_attribute_string('exad_image_comparison_wrapper'); ?> >
             <img src="<?php echo esc_url( $comparison_image_url_one ); ?>">
             <img src="<?php echo esc_url( $comparison_image_url_two ); ?>">
@@ -340,7 +341,7 @@ class Exad_image_comparison extends Widget_Base {
         
         #>
 
-        <div class="exad-image-comparision {{ settings.exad_image_comparison_preset }}">
+        <div class="exad-image-comparision">
             <div {{{ view.getRenderAttributeString( 'exad_image_comparison' ) }}} >
                 <img src="{{ settings.exad_comparison_image_one.url }}">
                 <img src="{{ settings.exad_comparison_image_two.url }}">
