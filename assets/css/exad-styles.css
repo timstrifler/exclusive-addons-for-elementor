@@ -5531,7 +5531,6 @@ text-align: right;
 
 .pricing-list-background .pricing-list-title {
   color: #fff;
-  font-family: "Roboto", sans-serif;
   position: relative;
 }
 
@@ -5625,7 +5624,6 @@ text-align: right;
   border-bottom-width: 2px;
   border-bottom-style: dashed;
   padding: 25px 0;
-  align-items: center;
 }
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item:last-child {
@@ -5858,7 +5856,6 @@ text-align: right;
 }
 
 .exad-pricing-list.six .exad-pricing-list-wrapper {
-  background: #f3f6f9;
   padding: 40px;
 }
 
@@ -6189,16 +6186,13 @@ text-align: right;
   line-height: 26px;
 }
 
-.exad-pricing-list.two .exad-pricing-list-wrapper {
-  margin: 0 10px;
-}
+
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item {
   display: flex;
   border-bottom-width: 2px;
   border-bottom-style: dashed;
   padding: 25px 0;
-  align-items: center;
 }
 
 .exad-pricing-list.two .exad-pricing-list-wrapper .exad-pricing-list-item:last-child {
