@@ -553,6 +553,30 @@ class Exad_Image_Hotspot extends Widget_Base
         );
 
         $this->add_control(
+            'exad_hotspot_height',
+            [
+                'label'                 => __('Height', 'exclusive-addons-elementor'),
+                'type'                  => Controls_Manager::NUMBER,
+                'default'               => '70',
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'height: {{VALUE}}px',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_hotspot_width',
+            [
+                'label'                 => __('Width', 'exclusive-addons-elementor'),
+                'type'                  => Controls_Manager::NUMBER,
+                'default'               => '70',
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'width: {{VALUE}}px',
+                ]
+            ]
+        );
+
+        $this->add_control(
             'exad_hotspot_color_normal',
             [
                 'label'                 => __('Color', 'exclusive-addons-elementor'),
@@ -722,7 +746,18 @@ class Exad_Image_Hotspot extends Widget_Base
         );
 
         $this->add_control(
-            'exad_hotspot_width',
+            'exad_hotspot_tooltip_text_distance',
+            [
+                'label'                 => __('Distance', 'exclusive-addons-elementor'),
+                'type'                  => Controls_Manager::NUMBER,
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip' => 'top: {{VALUE}}px',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'exad_tooltip_width',
             [
                 'label'         => __('Width', 'exclusive-addons-elementor'),
                 'type'          => Controls_Manager::SLIDER,
