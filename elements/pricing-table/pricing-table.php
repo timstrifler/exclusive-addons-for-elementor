@@ -81,7 +81,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->add_control(
 			'exad_pricing_table_featured_type',
 			[
-				'label' => esc_html__( 'Featured Type', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Badge Type', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'text-badge' => __( 'Text Badge', 'exclusive-addons-elementor' ),
@@ -107,20 +107,6 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_pricing_table_header_type',
-			[
-				'label' => esc_html__( 'Header Type', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'none',
-				'options' => [
-					'none' => __( 'None', 'exclusive-addons-elementor' ),
-					'curved-header' => __( 'Curved Header', 'exclusive-addons-elementor' ),
-					'svg-header' => __( 'SVG Header', 'exclusive-addons-elementor' ),
-				],
-			]
-		);
-
   		$this->end_controls_section();
 
 
@@ -132,18 +118,6 @@ class Exad_Pricing_Table extends Widget_Base {
   			[
   				'label' => esc_html__( 'Price', 'exclusive-addons-elementor' )
   			]
-		);
-		  
-		$this->add_control(
-			'exad_pricing_table_price_box',
-			[
-				'label' => esc_html__( 'Price Box', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
-				'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
 		);
 
 		$this->add_control(
@@ -254,7 +228,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->add_control(
 			'exad_pricing_table_btn_position',
 			[
-				'label' => esc_html__( 'Button Middle or Bottom', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Position', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'middle' => __( 'Middle', 'exclusive-addons-elementor' ),
@@ -267,7 +241,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->add_control(
 			'exad_pricing_table_btn',
 			[
-				'label' => esc_html__( 'Button Text', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Text', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => esc_html__( 'Choose Plan', 'exclusive-addons-elementor' ),
@@ -277,7 +251,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->add_control(
 			'exad_pricing_table_btn_link',
 			[
-				'label' => esc_html__( 'Button Link', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Link', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::URL,
 				'label_block' => true,
 				'default' => [
@@ -407,8 +381,22 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => esc_html__( 'Header', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'exad_pricing_table_header_type' => ['curved-header', 'svg-header'],
+				// 'condition' => [
+				// 	'exad_pricing_table_header_type' => ['curved-header', 'svg-header'],
+				// ],
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_header_type',
+			[
+				'label' => esc_html__( 'Header Type', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'none',
+				'options' => [
+					'none' => __( 'None', 'exclusive-addons-elementor' ),
+					'curved-header' => __( 'Curved Header', 'exclusive-addons-elementor' ),
+					'svg-header' => __( 'SVG Header', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -647,6 +635,18 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => esc_html__( 'Pricing', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_price_box',
+			[
+				'label' => esc_html__( 'Price Box', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
 			]
 		);
 
@@ -1051,11 +1051,12 @@ class Exad_Pricing_Table extends Widget_Base {
 				'label' => __( 'Transition Type', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
+					'none' =>  __( 'none', 'exclusive-addons-elementor' ),
 					'transition_top' =>  __( 'Transition Top', 'exclusive-addons-elementor' ),
 					'transition_bottom' => __( 'Transition Bottom', 'exclusive-addons-elementor' ),
 					'transition_zoom' => __( 'Transition Zoom', 'exclusive-addons-elementor' ),
 				],
-				'default' => 'transition_top',
+				'default' => 'none',
 			]
 		);
 
