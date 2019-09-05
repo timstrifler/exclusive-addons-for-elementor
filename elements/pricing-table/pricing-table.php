@@ -274,7 +274,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_tables_styles_presets',
 			[
-				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Container Styles', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -354,6 +354,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
+				'separator' => 'after',
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -362,9 +363,43 @@ class Exad_Pricing_Table extends Widget_Base {
 					'center' => [
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
 					]
 				],
 				'default' => 'center',
+			]
+		);
+
+		/**
+		 * -------------------------------------------
+		 * Style (Hover)
+		 * -------------------------------------------
+		 */
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_pricing_table_transition_shadow',
+				'label' => __( 'Hover Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper:hover',
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_transition_type',
+			[
+				'label' => __( 'Hover Style', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'none' =>  __( 'None', 'exclusive-addons-elementor' ),
+					'transition_top' =>  __( 'Transition Top', 'exclusive-addons-elementor' ),
+					'transition_bottom' => __( 'Transition Bottom', 'exclusive-addons-elementor' ),
+					'transition_zoom' => __( 'Transition Zoom', 'exclusive-addons-elementor' ),
+				],
+				'default' => 'none',
 			]
 		);
 
@@ -379,11 +414,8 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_title_header_settings',
 			[
-				'label' => esc_html__( 'Header', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Header Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
-				// 'condition' => [
-				// 	'exad_pricing_table_header_type' => ['curved-header', 'svg-header'],
-				// ],
 			]
 		);
 
@@ -392,11 +424,10 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label' => esc_html__( 'Header Type', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'none',
+				'default' => 'simple',
 				'options' => [
-					'none' => __( 'None', 'exclusive-addons-elementor' ),
+					'simple' => __( 'Simple', 'exclusive-addons-elementor' ),
 					'curved-header' => __( 'Curved Header', 'exclusive-addons-elementor' ),
-					'svg-header' => __( 'SVG Header', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -413,55 +444,6 @@ class Exad_Pricing_Table extends Widget_Base {
 				],
 			]
 		);
-
-		$this->start_controls_tabs( 'exad_pricing_table_header_svg_gradient',
-			[
-				'label' => esc_html__( 'Gradient Color', 'exclusive-addons-elementor' ),
-				'condition' => [
-					'exad_pricing_table_header_type' => 'svg-header',
-				]
-			]
-		);
-
-			// First Color Tab
-			$this->start_controls_tab( 'exad_pricing_table_header_svg_first', [ 'label' => esc_html__( 'First Color', 'exclusive-addons-elementor' ) ] );
-
-				$this->add_control(
-					'exad_pricing_table_header_svg_first_color',
-					[
-						'label' => esc_html__( 'COLOR', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .exad-pricing-table-header .exad-pricing-table-header-svg svg linearGradient .color-1' => 'stop-color: {{VALUE}};',
-						],
-						'condition' => [
-							'exad_pricing_table_header_type' => 'svg-header',
-						]
-					]
-				);
-
-			$this->end_controls_tab();
-
-			// Second Color Tab
-			$this->start_controls_tab( 'exad_pricing_table_header_svg_second', [ 'label' => esc_html__( 'Second Color', 'exclusive-addons-elementor' ) ] );
-
-				$this->add_control(
-					'exad_pricing_table_header_svg_second_color',
-					[
-						'label' => esc_html__( 'COLOR', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::COLOR,
-						'selectors' => [
-							'{{WRAPPER}} .exad-pricing-table-header .exad-pricing-table-header-svg svg linearGradient .color-2' => 'stop-color: {{VALUE}};',
-						],
-						'condition' => [
-							'exad_pricing_table_header_type' => 'svg-header',
-						]
-					]
-				);
-
-			$this->end_controls_tab();
-
-		$this->end_controls_tabs();
 
 		$this->add_control(
 			'exad_pricing_table_header_padding',
@@ -490,7 +472,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'default' => [
 					'top' => '0',
 					'right' => '0',
-					'bottom' => '50',
+					'bottom' => '20',
 					'left' => '0',
 				],
 				'selectors' => [
@@ -509,7 +491,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_title_style_settings',
 			[
-				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Title Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -571,7 +553,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_subheader_style_settings',
 			[
-				'label' => esc_html__( 'Sub Title', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Sub Title Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -633,7 +615,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_price_style_settings',
 			[
-				'label' => esc_html__( 'Pricing', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Pricing Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -798,7 +780,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_style_featured_list_settings',
 			[
-				'label' => esc_html__( 'Feature List', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Feature List Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -840,6 +822,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'label' => __( 'List Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
+				'separator' => 'before',
 				'default' => [
 					'top' => '10',
 					'right' => '0',
@@ -885,6 +868,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'label' => __( 'Feature Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
+				'separator' => 'before',
 				'default' => [
 					'top' => '30',
 					'right' => '0',
@@ -930,6 +914,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'label' => esc_html__( 'Disable item color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#a6a9ad',
+				'separator' => 'before',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-features li.exad-pricing-table-features-disable' => 'color: {{VALUE}};',
 				],
@@ -954,7 +939,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_featured_tag_settings',
 			[
-				'label' => esc_html__( 'Featured Badge', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Featured Badge Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'exad_pricing_table_featured' => 'yes'
@@ -1025,52 +1010,13 @@ class Exad_Pricing_Table extends Widget_Base {
 
 		/**
 		 * -------------------------------------------
-		 * Style (Transition)
-		 * -------------------------------------------
-		 */
-		$this->start_controls_section(
-			'exad_section_pricing_table_transition_settings',
-			[
-				'label' => esc_html__( 'Transition', 'exclusive-addons-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'exad_pricing_table_transition_shadow',
-				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper:hover',
-			]
-		);
-
-		$this->add_control(
-			'exad_pricing_table_transition_type',
-			[
-				'label' => __( 'Transition Type', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'options' => [
-					'none' =>  __( 'none', 'exclusive-addons-elementor' ),
-					'transition_top' =>  __( 'Transition Top', 'exclusive-addons-elementor' ),
-					'transition_bottom' => __( 'Transition Bottom', 'exclusive-addons-elementor' ),
-					'transition_zoom' => __( 'Transition Zoom', 'exclusive-addons-elementor' ),
-				],
-				'default' => 'none',
-			]
-		);
-
-		$this->end_controls_section();
-
-		/**
-		 * -------------------------------------------
 		 * Tab Style (Button Style)
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
 			'exad_section_pricing_table_btn_style_settings',
 			[
-				'label' => esc_html__( 'Button', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Button Style', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -1156,6 +1102,14 @@ class Exad_Pricing_Table extends Widget_Base {
 					'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action',
 				]
 			);
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' => 'exad_pricing_table_btn_box_shadow',
+					'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+					'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action',
+				]
+			);
 
 			
 			$this->end_controls_tab();
@@ -1196,11 +1150,20 @@ class Exad_Pricing_Table extends Widget_Base {
 				]
 			);
 
+			$this->add_group_control(
+				Group_Control_Box_Shadow::get_type(),
+				[
+					'name' => 'exad_pricing_table_btn_box_shadow_hover',
+					'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+					'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action:hover',
+				]
+			);
+
 			$this->end_controls_tab();
 
 		$this->end_controls_tabs();
 
-		$this->end_controls_section();	
+		$this->end_controls_section();
 
 	}
 
@@ -1250,43 +1213,6 @@ class Exad_Pricing_Table extends Widget_Base {
 					<div class="exad-pricing-table-header-curved">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 20">
 							<path class="st0" d="M0 20h185C70 20 0 0 0 0v20zM185 20h185V0s-70 20-185 20z" />
-						</svg>
-					</div>
-				<?php } ?>
-				<?php if( $settings['exad_pricing_table_header_type'] === 'svg-header' ) { ?>
-					<div class="exad-pricing-table-header-svg">
-						<svg xmlns="http://www.w3.org/2000/svg">
-							<defs>
-							<linearGradient id="a" x1="0%" x2="0%" y1="100%" y2="0%">
-								<stop offset="1%" class="color-1" />
-								<stop offset="100%" class="color-2" />
-							</linearGradient>
-							</defs>
-							<path fill-rule="evenodd" opacity=".471"
-							d="M0 0v107s87.864 104.803 186 119c98.862 14.303 208-41 208-41V0H0z" />
-							<path fill="url(#a)" d="M0 0v107s87.864 104.803 186 119c98.862 14.303 208-41 208-41V0H0z" />
-						</svg>
-						<svg xmlns="http://www.w3.org/2000/svg">
-							<defs>
-							<linearGradient id="b" x1="0%" x2="0%" y1="100%" y2="0%">
-								<stop offset="1%" class="color-1" />
-								<stop offset="100%" class="color-2" />
-							</linearGradient>
-							</defs>
-							<path fill-rule="evenodd" opacity=".471"
-							d="M0 0v130s87.864 81.803 186 96c98.862 14.303 208-21 208-21V0H0z" />
-							<path fill="url(#b)" d="M0 0v130s87.864 81.803 186 96c98.862 14.303 208-21 208-21V0H0z" />
-						</svg>
-						<svg xmlns="http://www.w3.org/2000/svg">
-							<defs>
-							<linearGradient id="c" x1="0%" x2="0%" y1="100%" y2="0%">
-								<stop offset="1%" class="color-1" />
-								<stop offset="100%" class="color-2" />
-							</linearGradient>
-							</defs>
-							<path fill-rule="evenodd" opacity=".471"
-							d="M0 0v153s87.864 58.803 186 73c98.862 14.303 208-1 208-1V0H0z" />
-							<path fill="url(#c)" d="M0 0v153s87.864 58.803 186 73c98.862 14.303 208-1 208-1V0H0z" />
 						</svg>
 					</div>
 				<?php } ?>
@@ -1358,43 +1284,6 @@ class Exad_Pricing_Table extends Widget_Base {
 					<div class="exad-pricing-table-header-curved">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 20">
 							<path class="st0" d="M0 20h185C70 20 0 0 0 0v20zM185 20h185V0s-70 20-185 20z" />
-						</svg>
-					</div>
-				<# } #>
-				<# if( settings.exad_pricing_table_header_type === 'svg-header' ) { #>
-					<div class="exad-pricing-table-header-svg">
-						<svg xmlns="http://www.w3.org/2000/svg">
-							<defs>
-							<linearGradient id="a" x1="0%" x2="0%" y1="100%" y2="0%">
-								<stop offset="1%" class="color-1" />
-								<stop offset="100%" class="color-2" />
-							</linearGradient>
-							</defs>
-							<path fill-rule="evenodd" opacity=".471"
-							d="M0 0v107s87.864 104.803 186 119c98.862 14.303 208-41 208-41V0H0z" />
-							<path fill="url(#a)" d="M0 0v107s87.864 104.803 186 119c98.862 14.303 208-41 208-41V0H0z" />
-						</svg>
-						<svg xmlns="http://www.w3.org/2000/svg">
-							<defs>
-							<linearGradient id="b" x1="0%" x2="0%" y1="100%" y2="0%">
-								<stop offset="1%" class="color-1" />
-								<stop offset="100%" class="color-2" />
-							</linearGradient>
-							</defs>
-							<path fill-rule="evenodd" opacity=".471"
-							d="M0 0v130s87.864 81.803 186 96c98.862 14.303 208-21 208-21V0H0z" />
-							<path fill="url(#b)" d="M0 0v130s87.864 81.803 186 96c98.862 14.303 208-21 208-21V0H0z" />
-						</svg>
-						<svg xmlns="http://www.w3.org/2000/svg">
-							<defs>
-							<linearGradient id="c" x1="0%" x2="0%" y1="100%" y2="0%">
-								<stop offset="1%" class="color-1" />
-								<stop offset="100%" class="color-2" />
-							</linearGradient>
-							</defs>
-							<path fill-rule="evenodd" opacity=".471"
-							d="M0 0v153s87.864 58.803 186 73c98.862 14.303 208-1 208-1V0H0z" />
-							<path fill="url(#c)" d="M0 0v153s87.864 58.803 186 73c98.862 14.303 208-1 208-1V0H0z" />
 						</svg>
 					</div>
 				<# } #>

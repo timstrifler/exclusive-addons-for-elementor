@@ -7475,7 +7475,11 @@ text-align: right;
 }
 
 .left .exad-pricing-table-features li{
-  justify-content: left;
+  justify-content: flex-start;
+}
+
+.left .price-box{
+  margin-right: auto;
 }
 
 .center{
@@ -7486,12 +7490,20 @@ text-align: right;
   justify-content: center;
 }
 
-.left .price-box{
-  margin-right: auto;
-}
-
 .center .price-box{
   margin: 0 auto;
+}
+
+.right{
+  text-align: right;
+}
+
+.right .exad-pricing-table-features li{
+  justify-content: flex-end;
+}
+
+.right .price-box{
+  margin-left: auto;
 }
 
 .exad-pricing-table-header {
@@ -7505,29 +7517,6 @@ text-align: right;
   bottom: 0;
   z-index: 1;
   width: 100%;
-}
-
-.exad-pricing-table-header .exad-pricing-table-header-curved svg path {
-  fill: #ff5985;
-}
-.exad-pricing-table-header .exad-pricing-table-header-svg{
-  position: absolute;
-  height: 233px;
-  width: 100%;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  transform: translateY(0);
-  transition: all .3s ease;
-}
-
-.exad-pricing-table-header .exad-pricing-table-header-svg svg{
-  z-index: -1;
-  position: absolute;
-  left: 0; top: 0;
-  width: 100%;
-  opacity: .47;
 }
 
 .exad-pricing-table-title{
@@ -7550,16 +7539,7 @@ text-align: right;
 .exad-pricing-table-price svg{
   position: absolute;
 }
-.exad-pricing-table-price svg:nth-child(1){
-  left: 0; top: 50%;
-  transform: translateY(-50%);
-}
-.exad-pricing-table-price svg:nth-child(2){
-  right: 0; top: 0;
-}
-.exad-pricing-table-price svg:nth-child(3){
-  right: 0; bottom: 0;
-}
+
 .exad-pricing-table-price p{
   margin: 0;
 }
@@ -7570,16 +7550,6 @@ text-align: right;
   transform: translate(-50%, -50%);
   margin: 0;
   line-height: 1;
-}
-
-.exad-pricing-table-header .exad-pricing-table-header-svg svg:nth-child(1){
-  height: 229px;
-}
-.exad-pricing-table-header .exad-pricing-table-header-svg svg:nth-child(2){
-  height: 230px;
-}
-.exad-pricing-table-header .exad-pricing-table-header-svg svg:nth-child(3){
-  height: 233px;
 }
 
 .exad-pricing-table-features{
@@ -7600,20 +7570,20 @@ text-align: right;
 }
 
 .exad-pricing-table-features li .exad-pricing-li-icon{
-  margin-right: 5px;
+  margin-right: 7px;
 }
 
 .exad-pricing-table-action {
-  color: #8a8d91;
-  padding: 15px 40px;
-  border: 1px solid #caccd2;
   text-decoration: none;
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
-  border-radius: 40px;
-  position: relative;
   z-index: 1;
   display: inline-block;
+  border: 1px solid;
+}
+
+.exad-pricing-table-action:hover {
+  border: 1px solid #00C853;
 }
 
 .exad-pricing-table-badge-wrapper {
@@ -7670,9 +7640,8 @@ text-align: right;
           transform: rotate(45deg) translate(40px, -22px);
   color: #ffffff;
   font-size: 12px;
-  font-weight: bold;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-weight: bold;
   z-index: 2;
 }
 
@@ -7684,11 +7653,6 @@ text-align: right;
   right: 30px;
   top: 0;
   z-index: 2;
-}
-
-.icon-badge i {
-  color: #fff;
-  font-size: 20px;
 }
 
 /* Pricing Table End */
