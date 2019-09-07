@@ -239,288 +239,11 @@ class Exad_Image_Hotspot extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'hotspot_pulse',
-            [
-                'label'                 => __('Glow Effect', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => 'yes',
-                'label_on'              => __('Yes', 'exclusive-addons-elementor'),
-                'label_off'             => __('No', 'exclusive-addons-elementor'),
-                'return_value'          => 'yes',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        /**
-         * Content Tab: Tooltip Settings
-         */
-        $this->start_controls_section(
-            'section_tooltip',
-            [
-                'label'                 => __('Tooltip Settings', 'exclusive-addons-elementor'),
-            ]
-        );
-
-        $this->add_control(
-            'tooltip_arrow',
-            [
-                'label'                 => __('Show Arrow', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::SWITCHER,
-                'default'               => 'yes',
-                'label_on'              => __('Yes', 'exclusive-addons-elementor'),
-                'label_off'             => __('No', 'exclusive-addons-elementor'),
-                'return_value'          => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'tooltip_size',
-            [
-                'label'                 => __('Size', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::SELECT,
-                'default'               => 'default',
-                'options'               => [
-                    'default'       => __('Default', 'exclusive-addons-elementor'),
-                    'tiny'          => __('Tiny', 'exclusive-addons-elementor'),
-                    'small'         => __('Small', 'exclusive-addons-elementor'),
-                    'large'         => __('Large', 'exclusive-addons-elementor')
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'tooltip_position',
-            [
-                'label'                 => __('Global Position', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::SELECT,
-                'default'               => 'top',
-                'options'               => [
-                    'top'           => __('Top', 'exclusive-addons-elementor'),
-                    'bottom'        => __('Bottom', 'exclusive-addons-elementor'),
-                    'left'          => __('Left', 'exclusive-addons-elementor'),
-                    'right'         => __('Right', 'exclusive-addons-elementor'),
-                    'top-left'      => __('Top Left', 'exclusive-addons-elementor'),
-                    'top-right'     => __('Top Right', 'exclusive-addons-elementor'),
-                    'bottom-left'   => __('Bottom Left', 'exclusive-addons-elementor'),
-                    'bottom-right'  => __('Bottom Right', 'exclusive-addons-elementor'),
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'tooltip_animation_in',
-            [
-                'label'                 => __('Animation In', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::SELECT2,
-                'default'               => '',
-                'options'               => [
-                    'bounce'            => __('Bounce', 'exclusive-addons-elementor'),
-                    'flash'             => __('Flash', 'exclusive-addons-elementor'),
-                    'pulse'             => __('Pulse', 'exclusive-addons-elementor'),
-                    'rubberBand'        => __('rubberBand', 'exclusive-addons-elementor'),
-                    'shake'             => __('Shake', 'exclusive-addons-elementor'),
-                    'swing'             => __('Swing', 'exclusive-addons-elementor'),
-                    'tada'              => __('Tada', 'exclusive-addons-elementor'),
-                    'wobble'            => __('Wobble', 'exclusive-addons-elementor'),
-                    'bounceIn'          => __('bounceIn', 'exclusive-addons-elementor'),
-                    'bounceInDown'      => __('bounceInDown', 'exclusive-addons-elementor'),
-                    'bounceInLeft'      => __('bounceInLeft', 'exclusive-addons-elementor'),
-                    'bounceInRight'     => __('bounceInRight', 'exclusive-addons-elementor'),
-                    'bounceInUp'        => __('bounceInUp', 'exclusive-addons-elementor'),
-                    'bounceOut'         => __('bounceOut', 'exclusive-addons-elementor'),
-                    'bounceOutDown'     => __('bounceOutDown', 'exclusive-addons-elementor'),
-                    'bounceOutLeft'     => __('bounceOutLeft', 'exclusive-addons-elementor'),
-                    'bounceOutRight'    => __('bounceOutRight', 'exclusive-addons-elementor'),
-                    'bounceOutUp'       => __('bounceOutUp', 'exclusive-addons-elementor'),
-                    'fadeIn'            => __('fadeIn', 'exclusive-addons-elementor'),
-                    'fadeInDown'        => __('fadeInDown', 'exclusive-addons-elementor'),
-                    'fadeInDownBig'     => __('fadeInDownBig', 'exclusive-addons-elementor'),
-                    'fadeInLeft'        => __('fadeInLeft', 'exclusive-addons-elementor'),
-                    'fadeInLeftBig'     => __('fadeInLeftBig', 'exclusive-addons-elementor'),
-                    'fadeInRight'       => __('fadeInRight', 'exclusive-addons-elementor'),
-                    'fadeInRightBig'    => __('fadeInRightBig', 'exclusive-addons-elementor'),
-                    'fadeInUp'          => __('fadeInUp', 'exclusive-addons-elementor'),
-                    'fadeInUpBig'       => __('fadeInUpBig', 'exclusive-addons-elementor'),
-                    'fadeOut'           => __('fadeOut', 'exclusive-addons-elementor'),
-                    'fadeOutDown'       => __('fadeOutDown', 'exclusive-addons-elementor'),
-                    'fadeOutDownBig'    => __('fadeOutDownBig', 'exclusive-addons-elementor'),
-                    'fadeOutLeft'       => __('fadeOutLeft', 'exclusive-addons-elementor'),
-                    'fadeOutLeftBig'    => __('fadeOutLeftBig', 'exclusive-addons-elementor'),
-                    'fadeOutRight'      => __('fadeOutRight', 'exclusive-addons-elementor'),
-                    'fadeOutRightBig'   => __('fadeOutRightBig', 'exclusive-addons-elementor'),
-                    'fadeOutUp'         => __('fadeOutUp', 'exclusive-addons-elementor'),
-                    'fadeOutUpBig'      => __('fadeOutUpBig', 'exclusive-addons-elementor'),
-                    'flip'              => __('flip', 'exclusive-addons-elementor'),
-                    'flipInX'           => __('flipInX', 'exclusive-addons-elementor'),
-                    'flipInY'           => __('flipInY', 'exclusive-addons-elementor'),
-                    'flipOutX'          => __('flipOutX', 'exclusive-addons-elementor'),
-                    'flipOutY'          => __('flipOutY', 'exclusive-addons-elementor'),
-                    'lightSpeedIn'      => __('lightSpeedIn', 'exclusive-addons-elementor'),
-                    'lightSpeedOut'     => __('lightSpeedOut', 'exclusive-addons-elementor'),
-                    'rotateIn'          => __('rotateIn', 'exclusive-addons-elementor'),
-                    'rotateInDownLeft'  => __('rotateInDownLeft', 'exclusive-addons-elementor'),
-                    'rotateInDownLeft'  => __('rotateInDownRight', 'exclusive-addons-elementor'),
-                    'rotateInUpLeft'    => __('rotateInUpLeft', 'exclusive-addons-elementor'),
-                    'rotateInUpRight'   => __('rotateInUpRight', 'exclusive-addons-elementor'),
-                    'rotateOut'         => __('rotateOut', 'exclusive-addons-elementor'),
-                    'rotateOutDownLeft' => __('rotateOutDownLeft', 'exclusive-addons-elementor'),
-                    'rotateOutDownLeft' => __('rotateOutDownRight', 'exclusive-addons-elementor'),
-                    'rotateOutUpLeft'   => __('rotateOutUpLeft', 'exclusive-addons-elementor'),
-                    'rotateOutUpRight'  => __('rotateOutUpRight', 'exclusive-addons-elementor'),
-                    'hinge'             => __('Hinge', 'exclusive-addons-elementor'),
-                    'rollIn'            => __('rollIn', 'exclusive-addons-elementor'),
-                    'rollOut'           => __('rollOut', 'exclusive-addons-elementor'),
-                    'zoomIn'            => __('zoomIn', 'exclusive-addons-elementor'),
-                    'zoomInDown'        => __('zoomInDown', 'exclusive-addons-elementor'),
-                    'zoomInLeft'        => __('zoomInLeft', 'exclusive-addons-elementor'),
-                    'zoomInRight'       => __('zoomInRight', 'exclusive-addons-elementor'),
-                    'zoomInUp'          => __('zoomInUp', 'exclusive-addons-elementor'),
-                    'zoomOut'           => __('zoomOut', 'exclusive-addons-elementor'),
-                    'zoomOutDown'       => __('zoomOutDown', 'exclusive-addons-elementor'),
-                    'zoomOutLeft'       => __('zoomOutLeft', 'exclusive-addons-elementor'),
-                    'zoomOutRight'      => __('zoomOutRight', 'exclusive-addons-elementor'),
-                    'zoomOutUp'         => __('zoomOutUp', 'exclusive-addons-elementor'),
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'tooltip_animation_out',
-            [
-                'label'                 => __('Animation Out', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::SELECT2,
-                'default'               => '',
-                'options'               => [
-                    'bounce'            => __('Bounce', 'exclusive-addons-elementor'),
-                    'flash'             => __('Flash', 'exclusive-addons-elementor'),
-                    'pulse'             => __('Pulse', 'exclusive-addons-elementor'),
-                    'rubberBand'        => __('rubberBand', 'exclusive-addons-elementor'),
-                    'shake'             => __('Shake', 'exclusive-addons-elementor'),
-                    'swing'             => __('Swing', 'exclusive-addons-elementor'),
-                    'tada'              => __('Tada', 'exclusive-addons-elementor'),
-                    'wobble'            => __('Wobble', 'exclusive-addons-elementor'),
-                    'bounceIn'          => __('bounceIn', 'exclusive-addons-elementor'),
-                    'bounceInDown'      => __('bounceInDown', 'exclusive-addons-elementor'),
-                    'bounceInLeft'      => __('bounceInLeft', 'exclusive-addons-elementor'),
-                    'bounceInRight'     => __('bounceInRight', 'exclusive-addons-elementor'),
-                    'bounceInUp'        => __('bounceInUp', 'exclusive-addons-elementor'),
-                    'bounceOut'         => __('bounceOut', 'exclusive-addons-elementor'),
-                    'bounceOutDown'     => __('bounceOutDown', 'exclusive-addons-elementor'),
-                    'bounceOutLeft'     => __('bounceOutLeft', 'exclusive-addons-elementor'),
-                    'bounceOutRight'    => __('bounceOutRight', 'exclusive-addons-elementor'),
-                    'bounceOutUp'       => __('bounceOutUp', 'exclusive-addons-elementor'),
-                    'fadeIn'            => __('fadeIn', 'exclusive-addons-elementor'),
-                    'fadeInDown'        => __('fadeInDown', 'exclusive-addons-elementor'),
-                    'fadeInDownBig'     => __('fadeInDownBig', 'exclusive-addons-elementor'),
-                    'fadeInLeft'        => __('fadeInLeft', 'exclusive-addons-elementor'),
-                    'fadeInLeftBig'     => __('fadeInLeftBig', 'exclusive-addons-elementor'),
-                    'fadeInRight'       => __('fadeInRight', 'exclusive-addons-elementor'),
-                    'fadeInRightBig'    => __('fadeInRightBig', 'exclusive-addons-elementor'),
-                    'fadeInUp'          => __('fadeInUp', 'exclusive-addons-elementor'),
-                    'fadeInUpBig'       => __('fadeInUpBig', 'exclusive-addons-elementor'),
-                    'fadeOut'           => __('fadeOut', 'exclusive-addons-elementor'),
-                    'fadeOutDown'       => __('fadeOutDown', 'exclusive-addons-elementor'),
-                    'fadeOutDownBig'    => __('fadeOutDownBig', 'exclusive-addons-elementor'),
-                    'fadeOutLeft'       => __('fadeOutLeft', 'exclusive-addons-elementor'),
-                    'fadeOutLeftBig'    => __('fadeOutLeftBig', 'exclusive-addons-elementor'),
-                    'fadeOutRight'      => __('fadeOutRight', 'exclusive-addons-elementor'),
-                    'fadeOutRightBig'   => __('fadeOutRightBig', 'exclusive-addons-elementor'),
-                    'fadeOutUp'         => __('fadeOutUp', 'exclusive-addons-elementor'),
-                    'fadeOutUpBig'      => __('fadeOutUpBig', 'exclusive-addons-elementor'),
-                    'flip'              => __('flip', 'exclusive-addons-elementor'),
-                    'flipInX'           => __('flipInX', 'exclusive-addons-elementor'),
-                    'flipInY'           => __('flipInY', 'exclusive-addons-elementor'),
-                    'flipOutX'          => __('flipOutX', 'exclusive-addons-elementor'),
-                    'flipOutY'          => __('flipOutY', 'exclusive-addons-elementor'),
-                    'lightSpeedIn'      => __('lightSpeedIn', 'exclusive-addons-elementor'),
-                    'lightSpeedOut'     => __('lightSpeedOut', 'exclusive-addons-elementor'),
-                    'rotateIn'          => __('rotateIn', 'exclusive-addons-elementor'),
-                    'rotateInDownLeft'  => __('rotateInDownLeft', 'exclusive-addons-elementor'),
-                    'rotateInDownLeft'  => __('rotateInDownRight', 'exclusive-addons-elementor'),
-                    'rotateInUpLeft'    => __('rotateInUpLeft', 'exclusive-addons-elementor'),
-                    'rotateInUpRight'   => __('rotateInUpRight', 'exclusive-addons-elementor'),
-                    'rotateOut'         => __('rotateOut', 'exclusive-addons-elementor'),
-                    'rotateOutDownLeft' => __('rotateOutDownLeft', 'exclusive-addons-elementor'),
-                    'rotateOutDownLeft' => __('rotateOutDownRight', 'exclusive-addons-elementor'),
-                    'rotateOutUpLeft'   => __('rotateOutUpLeft', 'exclusive-addons-elementor'),
-                    'rotateOutUpRight'  => __('rotateOutUpRight', 'exclusive-addons-elementor'),
-                    'hinge'             => __('Hinge', 'exclusive-addons-elementor'),
-                    'rollIn'            => __('rollIn', 'exclusive-addons-elementor'),
-                    'rollOut'           => __('rollOut', 'exclusive-addons-elementor'),
-                    'zoomIn'            => __('zoomIn', 'exclusive-addons-elementor'),
-                    'zoomInDown'        => __('zoomInDown', 'exclusive-addons-elementor'),
-                    'zoomInLeft'        => __('zoomInLeft', 'exclusive-addons-elementor'),
-                    'zoomInRight'       => __('zoomInRight', 'exclusive-addons-elementor'),
-                    'zoomInUp'          => __('zoomInUp', 'exclusive-addons-elementor'),
-                    'zoomOut'           => __('zoomOut', 'exclusive-addons-elementor'),
-                    'zoomOutDown'       => __('zoomOutDown', 'exclusive-addons-elementor'),
-                    'zoomOutLeft'       => __('zoomOutLeft', 'exclusive-addons-elementor'),
-                    'zoomOutRight'      => __('zoomOutRight', 'exclusive-addons-elementor'),
-                    'zoomOutUp'         => __('zoomOutUp', 'exclusive-addons-elementor'),
-                ],
-            ]
-        );
-
         $this->end_controls_section();
 
         /*-----------------------------------------------------------------------------------*/
         /*	STYLE TAB
         /*-----------------------------------------------------------------------------------*/
-
-        /**
-         * Style Tab: Image
-         */
-        $this->start_controls_section(
-            'exad_section_general_styles',
-            [
-                'label'                 => __('General Styles', 'exclusive-addons-elementor'),
-                'tab'                   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-			'exad_hotspot_preset',
-			[
-				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'one',
-				'options' => [
-					'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-					'two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-					'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-					'four' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
-				],
-			]
-		);
-
-        $this->add_responsive_control(
-            'image_width',
-            [
-                'label'                 => __('Width', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::SLIDER,
-                'range'                 => [
-                    'px' => [
-                        'min'   => 1,
-                        'max'   => 1200,
-                        'step'  => 1,
-                    ],
-                    '%' => [
-                        'min'   => 1,
-                        'max'   => 100,
-                        'step'  => 1,
-                    ],
-                ],
-                'size_units'            => ['px', '%'],
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-hot-spot-image' => 'width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
         /**
          * Style Tab: Hotspot
          */
@@ -596,8 +319,8 @@ class Exad_Image_Hotspot extends Widget_Base
                 'default'               => '#704AFF',
                 'selectors'             => [
                     '{{WRAPPER}} .exad-hotspot .exad-hotspot-dot-icon' => 'background: {{VALUE}}',
-                    '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-dot::before' => 'border: .5px solid {{VALUE}}',
-                    '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-dot::after' => 'border: 1px solid {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot.exad-hotspot-glowing-border .exad-hotspot-dot-icon::before' => 'border: .5px solid {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot.exad-hotspot-glowing-border .exad-hotspot-dot-icon::after' => 'border: 1px solid {{VALUE}}',
                 ]
             ]
         );
@@ -626,53 +349,20 @@ class Exad_Image_Hotspot extends Widget_Base
 				'selector' => '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon',
 			]
         );
-        
 
         $this->add_control(
-			'exad_hotspot_moving_animation',
+			'exad_hotspot_animation_type',
 			[
-				'label' => __( 'Moving Animation', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'On', 'your-plugin' ),
-				'label_off' => __( 'Off', 'your-plugin' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-        );
-        
-        $this->add_control(
-			'exad_hotspot_glow_animation',
-			[
-				'label' => __( 'Glowing Animation', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'On', 'your-plugin' ),
-				'label_off' => __( 'Off', 'your-plugin' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-        );
-
-        $this->add_control(
-			'exad_hotspot_glowing_border',
-			[
-				'label' => __( 'Glowing Border', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'On', 'your-plugin' ),
-				'label_off' => __( 'Off', 'your-plugin' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-        );
-
-        $this->add_control(
-			'exad_hotspot_hover_effect',
-			[
-				'label' => __( 'Hover Effect', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'On', 'your-plugin' ),
-				'label_off' => __( 'Off', 'your-plugin' ),
-				'return_value' => 'yes',
-				'default' => 'no',
+				'label' => __( 'Animation Type', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'none',
+                'options' => [
+                    'none' => 'None',
+                    'exad-hotspot-moving-animation' => 'Moving Animation',
+                    'exad-hotspot-glow-animation' => 'Glowing Animation',
+                    'exad-hotspot-glowing-border' => 'Glowing Border',
+                    'exad-hotspot-hover-scale' => 'Hover Scale',
+                ]
 			]
         );
 
@@ -711,9 +401,6 @@ class Exad_Image_Hotspot extends Widget_Base
                     '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip' => 'background: {{VALUE}}',
                     '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip::before' => 'border-color: {{VALUE}} transparent transparent transparent;',
                 ],
-                'condition'       => [
-                    'exad_hotspot_preset'   => 'one',
-                ],
             ]
         );
         $this->add_control(
@@ -726,9 +413,6 @@ class Exad_Image_Hotspot extends Widget_Base
                     '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6' => 'background: {{VALUE}}',
                     '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6::before' => 'border-color: {{VALUE}} transparent transparent transparent;',
                     '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6::before' => 'border-color: transparent transparent transparent {{VALUE}};',
-                ],
-                'condition'       => [
-                    'exad_hotspot_preset!'   => 'one',
                 ],
             ]
         );
@@ -750,6 +434,7 @@ class Exad_Image_Hotspot extends Widget_Base
             [
                 'label'                 => __('Distance', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::NUMBER,
+                'default' => '-100',
                 'selectors'             => [
                     '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip' => 'top: {{VALUE}}px',
                 ],
@@ -791,30 +476,8 @@ class Exad_Image_Hotspot extends Widget_Base
     protected function render() {
         $settings = $this->get_settings();
 
-        $this->add_render_attribute( 'exad_hotspot_attribute', [
-			'class'	=> [ 'exad-hotspot', $settings[ 'exad_hotspot_preset' ] ],
-		]);
-
-        
-        if ( 'yes' == $settings['exad_hotspot_moving_animation'] ) {
-			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-moving-animation' );
-        }  
-
-        if ( 'yes' == $settings['exad_hotspot_glow_animation'] ) {
-			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-glow-animation' );
-        } 
-
-        if ( 'yes' == $settings['exad_hotspot_glowing_border'] ) {
-			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-glowing-border' );
-        } 
-
-        if ( 'yes' == $settings['exad_hotspot_hover_effect'] ) {
-			$this->add_render_attribute( 'exad_hotspot_attribute', 'class', 'exad-hotspot-hover-scale' );
-        }
-
         ?>
-
-        <div <?php echo $this->get_render_attribute_string( 'exad_hotspot_attribute' ); ?>">
+        <div class="exad-hotspot <?php echo esc_attr( $settings['exad_hotspot_animation_type'] ); ?>" >
             <img src="<?php echo esc_url( $settings['exad_hotspot_image']['url'] ); ?>">
 
             <?php foreach( $settings['exad_hotspots'] as $item ) { 
@@ -825,9 +488,7 @@ class Exad_Image_Hotspot extends Widget_Base
                     <div <?php echo $this->get_render_attribute_string( 'exad_hotspot' ); ?>>
                         <?php
                             if ( $item['exad_hotspot_type'] == 'icon' ) {
-                                if ( $settings['exad_hotspot_preset'] == "one" || $settings['exad_hotspot_preset'] == "four" ) {
-                                    printf( '<div class="exad-hotspot-dot-icon"><i class="%1$s"></i></div>', esc_attr( $item['exad_hotspot_icon'] ) );
-                                }
+                                printf( '<div class="exad-hotspot-dot-icon"><i class="%1$s"></i></div>', esc_attr( $item['exad_hotspot_icon'] ) );
                             }
                         ?>
                         <div class="exad-hotspot-tooltip">
