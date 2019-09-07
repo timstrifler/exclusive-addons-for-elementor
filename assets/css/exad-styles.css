@@ -6740,22 +6740,169 @@ text-align: right;
 /* Pricing List End */
 /* Pricing Table Start */
 
-ul.exad-pricing-table-features {
-  list-style: none;
-}
-.exad-pricing-table-price {
-  line-height: 0;
+.left{
+  text-align: left;
 }
 
-.exad-pricing-table-one .exad-pricing-table-badge,
-.exad-pricing-table-two .exad-pricing-table-badge,
-.exad-pricing-table-three .exad-pricing-table-badge,
-.exad-pricing-table-six .exad-pricing-table-badge
- {
+.left .exad-pricing-table-features li{
+  justify-content: flex-start;
+}
+
+.left .price-box{
+  margin-right: auto;
+}
+
+.center{
+  text-align: center;
+}
+
+.center.exad-pricing-table-features li{
+  justify-content: center;
+}
+
+.center .price-box{
+  margin: 0 auto;
+}
+
+.right{
+  text-align: right;
+}
+
+.right .exad-pricing-table-features li{
+  justify-content: flex-end;
+}
+
+.right .price-box{
+  margin-left: auto;
+}
+
+.exad-pricing-table-header {
+  position: relative;
+  z-index: 1;
+}
+
+.exad-pricing-table-header .exad-pricing-table-header-curved svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.exad-pricing-table-title{
+  margin: 0 0 20px 0;
+  line-height: 1;
+}
+
+.exad-pricing-table-subtitle{
+  margin: 0 0 10px 0;
+  line-height: 1;
+}
+
+.price-box{
+  position: relative;
+}
+.exad-pricing-table-price{
+  line-height: 1;
+  position: relative;
+}
+.exad-pricing-table-price svg{
+  position: absolute;
+}
+
+.exad-pricing-table-price p{
+  margin: 0;
+}
+.price-box p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  line-height: 1;
+}
+
+.exad-pricing-table-features{
+  margin: 0;
+  padding: 0;
+}
+
+.exad-pricing-table-features li{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.list-border-bottom li:not(:last-child){
+  border-bottom: 1px solid #ff5985;
+}
+
+.exad-pricing-table-features li .exad-pricing-li-icon{
+  margin-right: 7px;
+}
+
+.exad-pricing-table-action {
+  text-decoration: none;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  z-index: 1;
+  display: inline-block;
+  border: 1px solid;
+}
+
+.exad-pricing-table-action:hover {
+  border: 1px solid #00C853;
+}
+
+.exad-pricing-table-badge-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.exad-pricing-table-wrapper{
+  transition: all .3s ease;
+}
+
+.transition_top{
+  transition: all .3s ease;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+.transition_top:hover{
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+}
+
+.transition_bottom{
+  transition: all .3s ease;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+.transition_bottom:hover{
+  transform: translateY(10px);
+  -webkit-transform: translateY(10px);
+}
+
+.transition_zoom{
+  transition: all .3s ease;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+}
+
+.transition_zoom:hover{
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+}
+
+.text-badge{
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #13c83a;
+  background: #13c83a;
   padding: 13px 50px;
   width: 160px;
     text-align: center;
@@ -6763,1110 +6910,19 @@ ul.exad-pricing-table-features {
           transform: rotate(45deg) translate(40px, -22px);
   color: #ffffff;
   font-size: 12px;
+  text-transform: uppercase;
   font-weight: bold;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  z-index: 2;
 }
 
-.exad-pricing-table-features li.exad-pricing-table-features-disable {
-  color: #a6a9ad;
-}
-
-.exad-pricing-table-one {
-  text-align: center;
-  position: relative;
-  margin: 20px auto 50px;
-  -webkit-box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
-  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
-  border-radius: 10px;
-}
-.exad-pricing-table-one .exad-pricing-table-badge-wrapper, .exad-pricing-table-two .exad-pricing-table-badge-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.exad-pricing-table-one .exad-pricing-table-badge-wrapper{
-  padding: 0 30px;
-}
-
-.exad-pricing-table-one .exad-pricing-table-title {
-  font-size: 20px;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin: 30px auto;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price {
-  position: relative;
-  width: 208px;
-  height: 208px;
-  margin: 0 auto;
-  margin-bottom: 45px;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price svg {
-  position: absolute;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(1) {
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(2) {
-  right: 0;
-  top: 0;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(3) {
-  right: 0;
-  bottom: 0;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price p {
-  line-height: 208px;
-  position: relative;
-  z-index: 1;
-  margin: 0;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price p span {
-  font-size: 20px;
-}
-
-.exad-pricing-table-one .exad-pricing-table-features {
-  padding-left: 0;
-  font-family: "Poppins", sans-serif;
-  color: #132c47;
-  margin-bottom: 50px;
-}
-
-.exad-pricing-table-one .exad-pricing-table-features li {
-  padding: 15px 0;
-}
-
-.exad-pricing-table-one .exad-pricing-table-features li:not(:last-child) {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-
-.exad-pricing-table-one .exad-pricing-table-features .exad-pricing-table-features-disable svg {
-  fill: #8a8d91 !important;
-}
-.entry-content .exad-pricing-table-one .exad-pricing-table-action , .entry-content .exad-pricing-table-two .exad-pricing-table-action
-, .entry-content .exad-pricing-table-three .exad-pricing-table-action , .entry-content .exad-pricing-table-six .exad-pricing-table-action{
-  text-decoration: none;
-}
-.exad-pricing-table-one .exad-pricing-table-action {
-  position: absolute;
-  display: block;
-  width: 80%;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%, 50%);
-          transform: translate(-50%, 50%);
-  background: #fff;
-  padding: 20px 0;
-  border-radius: 50px;
-  border-style: solid;
-  border-width: 1px;
-  text-transform: uppercase;
-  transition: all .3s ease;
-}
-
-.exad-pricing-table-two {
-  border: 1px solid #e0e2e5;
-}
-
-.exad-pricing-table-two .exad-pricing-table-badge-wrapper{
-  padding: 30px 30px 0 30px;
-}
-
-.exad-pricing-table-two .exad-pricing-table-title {
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
-  color: #8a8d91;
-  font-weight: 400;
-  margin-bottom: 40px;
-}
-
-.exad-pricing-table-one .exad-pricing-table-subtitle, .exad-pricing-table-two .exad-pricing-table-subtitle,
-.exad-pricing-table-three .exad-pricing-table-subtitle, .exad-pricing-table-six .exad-pricing-table-subtitle {
-  margin: 0 0 20px 0;
-  line-height: 1;
-}
-
-.exad-pricing-table-two .exad-pricing-table-price {
-  color: #132c47;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-  display: inline-block;
-  line-height: 1;
-}
-
-.exad-pricing-table-two .exad-pricing-table-price p {
-  margin: 0;
-}
-
-.exad-pricing-table-two .exad-pricing-table-price span {
-  font-size: 20px;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-two .exad-pricing-table-features {
-  padding-top: 20px;
-  padding-left: 30px;
-  font-family: "Poppins", sans-serif;
-  color: #132c47;
-  border-top: 1px solid #e5e5e5;
-}
-
-.exad-pricing-table-two .exad-pricing-table-features li {
-  font-size: 15px;
-  padding: 8px 0px;
-}
-
-.exad-pricing-table-two .exad-pricing-table-features li.exad-pricing-table-disabled {
-  color: #a6a9ad;
-}
-
-.exad-pricing-table-two .exad-pricing-table-action {
-  display: block;
-  width: 70%;
-  font-family: "Poppins", sans-serif;
-  padding: 15px 0;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 16px;
-  color: #fff;
-  border: 1px solid transparent;
-  transition: all .5s ease;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  margin-left: 30px;
-}
-
-.exad-pricing-table-two {
-  border-top-style: solid;
-  border-top-width: 4px;
-}
-
-.exad-pricing-table-three {
-  background: #ffffff;
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
-  padding: 45px 30px;
-  position: relative;
-  overflow: hidden;
-  margin: 20px 0;
-}
-
-.exad-pricing-table-three .exad-pricing-table-title {
-  font-size: 20px;
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
-  color: #8a8d91;
-  font-weight: 400;
-  margin: 0 0 40px 0;
-}
-
-.exad-pricing-table-three .exad-pricing-table-price {
-  color: #132c47;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-  display: inline-block;
-  line-height: 1;
-}
-
-.exad-pricing-table-three .exad-pricing-table-price p {
-  margin: 0;
-}
-
-.exad-pricing-table-three .exad-pricing-table-price span {
-  font-size: 20px;
-  color: #132c47;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-three .exad-pricing-table-description {
-  font-size: 15px;
-  color: #132c47;
-  line-height: 26px;
-  border-top: 1px solid #e5e5e5;
-  padding-top: 40px;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-three .exad-pricing-table-features {
-  padding-left: 0;
-  font-family: "Poppins", sans-serif;
-  color: #132c47;
-  list-style: none;
-  margin-bottom: 50px;
-}
-
-.exad-pricing-table-three .exad-pricing-table-features li {
-  font-size: 15px;
-  padding: 8px 0px;
-}
-
-.exad-pricing-table-three .exad-pricing-table-features li svg {
-  fill: #3ac772;
-}
-
-.exad-pricing-table-three .exad-pricing-table-action {
-  display: inline-block;
-  font-family: "Poppins", sans-serif;
-  padding: 15px 30px;
-  text-transform: uppercase;
-  background: #3ac772;
-  text-align: center;
-  font-size: 16px;
-  color: #fff;
-  border: 1px solid transparent;
-  transition: all .5s ease;
-  border-radius: 4px;
-}
-
-.exad-pricing-table-three .exad-pricing-table-action:hover {
-  color: #3ac772;
-  border: 1px solid #3ac772;
-  background: #ffffff;
-}
-
-/* Pricing table Five Style */
-
-.exad-pricing-table-five {
-  background: #fff;
-  text-align: center;
-  border-radius: 4px;
-  padding: 40px 0;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-}
-
-.exad-pricing-table-five:hover {
-  -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
-}
-
-.exad-pricing-table-five svg {
-  z-index: -1;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  opacity: .47;
-  height: 100%;
-}
-
-.exad-pricing-table-five svg:nth-child(1) {
-  height: 229px;
-}
-
-.exad-pricing-table-five svg:nth-child(2) {
-  height: 230px;
-}
-
-.exad-pricing-table-five svg:nth-child(3) {
-  height: 233px;
-}
-
-.exad-pricing-table-five .exad-pricing-table-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #21BDF7;
-  padding: 13px 50px;
-  -webkit-transform: rotate(45deg) translate(40px, -22px);
-          transform: rotate(45deg) translate(40px, -22px);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-five .exad-pricing-table-title {
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  text-transform: uppercase;
-  margin: 0 0 5px 0;
-  color: #fff;
-}
-
-.exad-pricing-table-five .exad-pricing-table-subtitle {
-  font-size: 15px;
-  display: block;
-  color: #fff;
-  opacity: .6;
-  margin: 0 0 40px 0;
-}
-
-.exad-pricing-table-five .exad-pricing-table-price {
-  width: 138px;
-  height: 138px;
-  text-align: center;
-  margin: 0 auto;
-  border: 8px solid #fff;
-  border-radius: 50%;
-}
-
-.exad-pricing-table-five .exad-pricing-table-price p {
-  color: #fff;
-  line-height: 122px;
-  margin: 0;
-}
-
-.exad-pricing-table-five .exad-pricing-table-price p span {
-  font-size: 22px;
-}
-
-.exad-pricing-table-five .exad-pricing-table-features {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 30px;
-}
-
-.exad-pricing-table-five .exad-pricing-table-features li {
-  color: #132c47;
-  padding: 12px 0;
-  font-size: 15px;
-}
-
-.exad-pricing-table-five .exad-pricing-table-features li.exad-pricing-table-feature-disabled {
-  color: #8a8d91;
-}
-
-.exad-pricing-table-five .exad-pricing-table-action {
-  color: #8a8d91;
-  padding: 20px 30px;
-  border: 1px solid #caccd2;
-  border-radius: 4px;
-  display: inline-block;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  text-decoration: none;
-  position: relative;
-}
-
-.exad-pricing-table-five .exad-pricing-table-action::before {
-  position: absolute;
-  content: '';
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  z-index: -1;
-  border-radius: 4px;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1%, #ff764c), to(#ff2d59));
-  background: linear-gradient(0deg, #ff764c 1%, #ff2d59 100%);
-}
-
-.exad-pricing-table-five .exad-pricing-table-action:hover {
-  color: #fff;
-  border: 1px solid transparent;
-}
-
-.exad-pricing-table-five .exad-pricing-table-action:hover::before {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-.exad-pricing-table-five.orange svg linearGradient .color-1 {
-  stop-color: #FF764C;
-}
-
-.exad-pricing-table-five.orange svg linearGradient .color-2 {
-  stop-color: #FF2D59;
-}
-
-.exad-pricing-table-five.orange .exad-pricing-table-price {
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1%, #ff764c), to(#ff2d59));
-  background: linear-gradient(0deg, #ff764c 1%, #ff2d59 100%);
-}
-
-.exad-pricing-table-five.orange .exad-pricing-table-action::before {
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1%, #ff764c), to(#ff2d59));
-  background: linear-gradient(0deg, #ff764c 1%, #ff2d59 100%);
-}
-
-.exad-pricing-table-five.violate svg linearGradient .color-1 {
-  stop-color: #9249FF;
-}
-
-.exad-pricing-table-five.violate svg linearGradient .color-2 {
-  stop-color: #724CFF;
-}
-
-.exad-pricing-table-five.violate .exad-pricing-table-price {
-  background: -webkit-gradient(linear, left bottom, left top, from(#9249ff), color-stop(99%, #724cff));
-  background: linear-gradient(0deg, #9249ff 0%, #724cff 99%);
-}
-
-.exad-pricing-table-five.teal svg linearGradient .color-1 {
-  stop-color: #34EDCC;
-}
-
-.exad-pricing-table-five.teal svg linearGradient .color-2 {
-  stop-color: #436CF1;
-}
-
-.exad-pricing-table-five.teal .exad-pricing-table-price {
-  background: -webkit-gradient(linear, left bottom, left top, from(#34edcc), to(#436cf1));
-  background: linear-gradient(0deg, #34edcc 0%, #436cf1 100%);
-}
-
-.exad-pricing-table-five.teal .exad-pricing-table-action::before {
-  background: -webkit-gradient(linear, left bottom, left top, from(#34edcc), to(#436cf1));
-  background: linear-gradient(0deg, #34edcc 0%, #436cf1 100%);
-}
-
-.exad-pricing-table-five.highlighted .exad-pricing-table-action {
-  background: -webkit-gradient(linear, left bottom, left top, from(#9249ff), color-stop(99%, #724cff));
-  background: linear-gradient(0deg, #9249ff 0%, #724cff 99%);
-  color: #fff;
-}
-
-.exad-pricing-table-five.highlighted .exad-pricing-table-action:hover {
-  border: 1px solid #caccd2;
-}
-
-/* Pricing Table Six Style */
-.exad-pricing-table-six {
-  border-radius: 4px;
-  background-color: #FFF;
-  text-align: center;
-  padding: 45px 30px;
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 60px;
-  -webkit-box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
-  box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
-}
-
-
-
-.exad-pricing-table-six .exad-pricing-table-title {
-  color: #724cff;
-  font-size: 30px;
-  font-weight: 400;
-  font-family: "Open Sans", sans-serif;
-}
-
-.exad-pricing-table-six .exad-pricing-table-price {
-  margin: 0;
-  font-weight: 300;
-  font-family: "Open Sans", sans-serif;
-  display: inline-block;
-}
-
-.exad-pricing-table-six .exad-pricing-table-features {
-  color: #132c47;
-  padding-left: 0;
-  padding-top: 30px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 100;
-  list-style: none;
-  margin-bottom: 50px;
-  border-top: 1px dashed #724cff;
-}
-
-.exad-pricing-table-six .exad-pricing-table-features li {
-  font-size: 15px;
-  padding: 6px 0px;
-}
-
-.exad-pricing-table-six .exad-pricing-table-action {
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  padding: 15px 30px;
-  text-transform: uppercase;
-  background: #724cff;
-  text-align: center;
-  font-size: 16px;
-  color: #FFF;
-  -webkit-box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
-  border: 1px solid #fff;
-  transition: all .3s ease;
-  border-radius: 4px;
-}
-
-.exad-pricing-table-six .exad-pricing-table-action:hover {
-  background: #fff;
-  color: #724cff;
-  border: 1px solid #724cff;
-}
-
-@media (max-width: 450px){
-  .exad-pricing-table-six .exad-pricing-table-price {
-    font-size: 40px;
-  }
-}
-
-/* pricing Table Seven Style */
-
-.exad-pricing-table-seven {
-  padding: 45px 30px;
-  text-align: center;
-  background: #fff;
-  box-shadow: 0px 20px 20px 0px rgba(26, 46, 85, 0.1);
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;
-}
-
-.exad-pricing-table-seven:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
-  box-shadow: 0px 25px 40px 0px rgba(26, 46, 85, 0.2);
-}
-
-.exad-pricing-table-seven .exad-pricing-table-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: -webkit-gradient(linear, right top, left top, from(#ff764c), to(#ff2d59));
-  background: linear-gradient(-90deg, #ff764c 0%, #ff2d59 100%);
-  padding: 13px 50px;
-  -webkit-transform: rotate(45deg) translate(40px, -22px);
-          transform: rotate(45deg) translate(40px, -22px);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-title {
-  font-size: 20px;
-  text-transform: uppercase;
-  color: #724cff;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-subtitle {
-  color: #848484;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  margin: 0 0 25px 0;
-  line-height: 1;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-price {
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  color: #724cff;
-  margin-bottom: 20px;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-action {
-  text-transform: uppercase;
-  font-size: 15px;
-  color: #8a8d91;
-  display: inline-block;
-  font-weight: 400;
-  padding: 20px 45px;
-  border-radius: 45px;
-  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
-  margin-bottom: 40px;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  text-decoration: none;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-action:hover {
-  background: #724cff;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-  color: #fff;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-features {
-  position: relative;
-  list-style: none;
-  padding: 0;
-  margin: 40px 0 0 0;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-features::before {
-  position: absolute;
-  content: '';
-  background: #e4e4e4;
-  width: 80%;
-  height: 1px;
-  top: -40px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.exad-pricing-table-seven .exad-pricing-table-features li {
-  color: #0a1724;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-features li:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.exad-pricing-table-seven .exad-pricing-table-features .exad-pricing-table-feature-disable {
-  color: #8a8d91;
-}
-
-.exad-pricing-table-seven.highlighted {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#9249ff), color-stop(99%, #724cff));
-  background-image: linear-gradient(0deg, #9249ff 0%, #724cff 99%);
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
-}
-
-.exad-pricing-table-seven.highlighted .exad-pricing-table-title {
-  color: #fff;
-}
-
-.exad-pricing-table-seven.highlighted .exad-pricing-table-subtitle {
-  color: #fff;
-  opacity: 0.6;
-}
-
-.exad-pricing-table-seven.highlighted .exad-pricing-table-price {
-  color: #fff;
-}
-
-.exad-pricing-table-seven.highlighted .exad-pricing-table-action {
-  background: #33c9ff;
-  color: #fff;
-}
-
-.exad-pricing-table-seven.highlighted li {
-  color: #fff;
-}
-
-.exad-pricing-table-seven.highlighted .exad-pricing-table-feature-disable {
-  color: #fff;
-  opacity: 0.6;
-}
-
-/* Pricing table eight style */
-
-.exad-pricing-table-eight {
-  background: #fff;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  padding-bottom: 40px;
-  transition: all .3s ease;
-}
-
-.exad-pricing-table-eight:hover {
-  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
-}
-
-.exad-pricing-table-eight .exad-pricing-table-badge {
+.icon-badge {
   position: absolute;
   padding: 15px 10px;
-  background: rgba(255, 255, 255, 0.25);
   border-radius: 0 0 40px 40px;
+  background: #13c83a;
   right: 30px;
   top: 0;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-badge i {
-  color: #fff;
-  font-size: 20px;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header {
-  padding-top: 40px;
-  position: relative;
-  margin-bottom: 60px;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header svg {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  width: 100%;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header svg path {
-  fill: #ff5985;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header::before {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: -webkit-gradient(linear, left bottom, left top, from(#9249ff), color-stop(99%, #653bff));
-  background: linear-gradient(0deg, #9249ff 0%, #653bff 99%);
-  left: 0;
-  top: 0;
-  z-index: -1;
-  opacity: 0.85;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header .exad-pricing-table-title {
-  font-size: 20px;
-  text-transform: uppercase;
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  margin: 0 0 10px 0;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header .exad-pricing-table-subtitle {
-  color: #fff;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  margin: 0 0 25px 0;
-  opacity: .6;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header .exad-pricing-table-price {
-  font-size: 60px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  color: #fff;
-  margin-bottom: -10px;
-  line-height: 1;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header .exad-pricing-table-price p{
-  margin: 0;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header .exad-pricing-table-action {
-  text-transform: uppercase;
-  font-size: 15px;
-  color: #fff;
-  display: inline-block;
-  font-weight: 400;
-  padding: 20px 45px;
-  border-radius: 45px;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  text-decoration: none;
-  background: #21bef6;
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
-  border: 5px solid #fff;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-header .exad-pricing-table-action:hover {
-  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.15);
-  -webkit-transform: scale(1.01) translateY(30px);
-          transform: scale(1.01) translateY(30px);
-}
-
-.exad-pricing-table-eight .exad-pricing-table-features {
-  list-style: none;
-  padding: 0;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-features li {
-  color: #0a1724;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-features li:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.exad-pricing-table-eight .exad-pricing-table-features .exad-pricing-table-feature-disable {
-  color: #8a8d91;
-}
-
-/* Pricing Table Nine Style */
-
-.exad-pricing-table-nine {
-  position: relative;
-  margin: 0 40px 80px 0;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-content {
-  position: relative;
-  background: #fff;
-  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
-  padding: 60px;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  overflow: hidden;
-}
-
-.exad-pricing-table-nine:hover .exad-pricing-table-content {
-  box-shadow: 0px 28px 59px 0px rgba(24, 27, 33, 0.3);
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
-}
-
-.exad-pricing-table-nine:hover::after {
-  opacity: .7;
-}
-
-.exad-pricing-table-nine::before {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: url("../images/pricing/pt-nine-bg.jpg");
-  background-size: cover;
-  background-position: center center;
-  z-index: -2;
-  top: 0;
-  left: 0;
-  -webkit-transform: translate(40px, 40px);
-          transform: translate(40px, 40px);
-}
-
-.exad-pricing-table-nine::after {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: #000;
-  opacity: .6;
-  left: 0;
-  top: 0;
-  -webkit-transform: translate(40px, 40px);
-          transform: translate(40px, 40px);
-  z-index: -1;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: -webkit-gradient(linear, right top, left top, from(#ff764c), to(#ff2d59));
-  background: linear-gradient(-90deg, #ff764c 0%, #ff2d59 100%);
-  padding: 13px 50px;
-  -webkit-transform: rotate(45deg) translate(40px, -22px);
-          transform: rotate(45deg) translate(40px, -22px);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-title {
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #8a8d91;
-  margin: 0 0 10px 0;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-price {
-  font-family: "Roboto", sans-serif;
-  line-height: 1;
-  color: #0a1724;
-  margin-bottom: 30px;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-price p {
-  margin: 0;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-features {
-  margin: 0 0 40px;
-  list-style: none;
-  padding: 30px 0 0;
-  border-width: 2px 0 0 0;
-  border-style: dashed;
-  border-color: #d8d8d8;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-features li {
-  color: #0a1724;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-features li:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-features li.exad-pricing-table-feature-disable {
-  color: #8a8d91;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-action {
-  color: #8a8d91;
-  text-transform: uppercase;
-  padding: 15px 40px;
-  border: 1px solid #caccd2;
-  text-decoration: none;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  display: block;
-  text-align: center;
-}
-
-.exad-pricing-table-nine .exad-pricing-table-action:hover {
-  color: #fff;
-  background: #3ac772;
-  border-color: #3ac772;
-}
-
-/* Pricing table ten style */
-
-.exad-pricing-table-ten {
-  position: relative;
-  margin: 0 40px 40px 0;
-  background: #fff;
-  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
-  text-align: center;
-  padding: 90px 50px;
-  border-radius: 140px 20px 140px 20px;
-  -webkit-transition: .3s ease;
-  transition: .3s ease;
-}
-
-.exad-pricing-table-ten::before {
-  position: absolute;
-  content: '';
-  background: #edf0f4;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  left: 0;
-  top: 0;
-  -webkit-transform: translate(40px, 40px);
-          transform: translate(40px, 40px);
-  border-radius: inherit;
-  -webkit-transition: .3s ease;
-  transition: .3s ease;
-}
-
-.exad-pricing-table-ten:hover {
-  box-shadow: 0px 28px 70px 0px rgba(24, 27, 33, 0.15);
-}
-
-.exad-pricing-table-ten:hover::before {
-  -webkit-transform: translate(30px, 30px);
-          transform: translate(30px, 30px);
-}
-
-.exad-pricing-table-ten .exad-pricing-table-badge {
-  position: absolute;
-  padding: 15px 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#ff764c), to(#ff2d59));
-  background: linear-gradient(0deg, #ff764c 0%, #ff2d59 100%);
-  border-radius: 0 0 40px 40px;
-  right: 30px;
-  top: 0;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-badge i {
-  color: #fff;
-  font-size: 20px;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-title {
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #8a8d91;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-price {
-  font-family: "Roboto", sans-serif;
-  line-height: 1;
-  color: #0a1724;
-  margin-bottom: 30px;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-price p{
-  margin: 0;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-features {
-  margin: 0 0 50px;
-  list-style: none;
-  padding: 30px 0 0;
-  border-width: 2px 0 0 0;
-  border-style: dashed;
-  border-color: #d8d8d8;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-features li {
-  color: #0a1724;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-features li:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-features li.exad-pricing-table-feature-disable {
-  color: #8a8d91;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-action {
-  color: #8a8d91;
-  text-transform: uppercase;
-  padding: 15px 40px;
-  border: 1px solid #caccd2;
-  text-decoration: none;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  border-radius: 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-action::before {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(1%, #ff764c), to(#ff2d59));
-  background: linear-gradient(0deg, #ff764c 1%, #ff2d59 100%);
-  left: 0;
-  top: 0;
-  z-index: -1;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
-
-.exad-pricing-table-ten .exad-pricing-table-action:hover {
-  color: #fff;
-  border-color: transparent;
-  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.15);
-}
-
-.exad-pricing-table-ten .exad-pricing-table-action:hover::before {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  z-index: 2;
 }
 
 /* Pricing Table End */
