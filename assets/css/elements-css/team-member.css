@@ -1,7 +1,7 @@
 /* Team Member Start */
 
 /* Team Global Styles */
-.exad-team-item {
+/* .exad-team-item {
   margin-bottom: 32px;
 }
 .exad-team-member-name {
@@ -18,11 +18,11 @@
 }
 .exad-team-member-about {
   font-size: 16px;
-}
+} */
 
 
 /* Team Member style one Start */
-
+/* 
 .exad-team-member-style-one {
   box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
 }
@@ -71,12 +71,12 @@
 
 .exad-team-member-style-one .exad-team-member-social li:not(:last-child) {
   margin-right: 15px;
-}
+} */
 /* style one End */
 
 
 /* Team Member style two Start */
-.exad-team-member-style-two {
+/* .exad-team-member-style-two {
   padding: 70px 40px 30px;
   box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
   text-align: center;
@@ -184,14 +184,14 @@
 .exad-team-member-style-two .exad-team-member-social li a:hover {
   color: #8a8d91;
   transition: .3s ease;
-}
+} */
 /* Team Member Circle End */
 
 
 
 /* Team Member style three Start */
 
-.exad-team-member-style-three {
+/* .exad-team-member-style-three {
   text-align: center;
   position: relative;
 }
@@ -274,12 +274,12 @@
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 1;
-}
+} */
 /* style three End */
 
 
 /* Team Member style four Start */
-
+/* 
 .exad-team-member-style-four {
   text-align: center;
 }
@@ -306,7 +306,7 @@
   border-radius: 50%;
   background: #272c44;
   /* opacity: .4; */
-  transition: .3s ease;
+  /* transition: .3s ease;
   font-size: 18px;
 }
 
@@ -320,14 +320,14 @@
 
 .exad-team-member-style-four .exad-team-member-social li a:hover {
   opacity: 1;
-}
+} */
 /* style four End */
 
 
 
 /* Team Member style five Start */
 
-.exad-team-member-style-five {
+/* .exad-team-member-style-five {
   position: relative;
 }
 
@@ -380,11 +380,11 @@
   opacity: 1;
   -webkit-transform: scale(1);
           transform: scale(1);
-}
+} */
 /* style five End */
 
 /* Team Member style nine start */
-.exad-team-member-style-nine {
+/* .exad-team-member-style-nine {
   position: relative;
 }
 
@@ -467,13 +467,13 @@
 .exad-team-member-style-nine:hover .exad-team-member-content {
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
-}
+} */
 
 /* Team Member style nine end */
 
 /* Team Member style six start */
 
-.exad-team-member-style-six {
+/* .exad-team-member-style-six {
   background: #F5F7FA;
   border: 15px solid #fff;
   border-radius: calc(2*15px);
@@ -596,13 +596,13 @@
 .exad-team-member-style-six .exad-team-member-content .exad-team-member-social li a:hover {
   background: #fff;
   color: #9662FF;
-}
+} */
 
 /* Team member style six end */
 
 /* Team Member style seven start */
 
-.exad-team-member-style-seven {
+/* .exad-team-member-style-seven {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -694,13 +694,13 @@
 
 .exad-team-member-style-seven:hover .exad-team-member-content .exad-team-member-about {
   color: rgba(255, 255, 255, 0.7);
-}
+} */
 
 /* Team member style seven end */
 
 /* Team member stye eight Start */
 
-.exad-team-member-style-eight {
+/* .exad-team-member-style-eight {
   background: white;
   padding: 40px 25px;
   border-radius: 0 40px 0 40px;
@@ -782,6 +782,109 @@
 
 .exad-team-member-style-eight .exad-team-member-content .exad-team-member-social li a:hover {
   background: #272C44;
+} */
+
+.left{
+  text-align: left;
+}
+.left .exad-team-member-thumb{
+  margin-right: auto;
+}
+
+.center{
+  text-align: center;
+}
+
+.center .exad-team-member-thumb{
+  margin: 0 auto;
+}
+
+.right{
+  text-align: right;
+}
+
+.right .exad-team-member-thumb{
+  margin-left: auto;
+}
+
+.position-left{
+  display: flex;
+  align-items: center;
+}
+.position-right{
+  display: flex;
+  align-items: center;
+}
+.position-left .exad-team-member-thumb{
+  width: 43%;
+}
+.position-left .exad-team-member-content{
+  width: 57%;
+}
+.position-right .exad-team-member-thumb{
+  width: 43%;
+  order: 2;
+}
+.position-right .exad-team-member-content{
+  width: 57%;
+  order: 1;
+}
+
+.exad-team-member{
+  overflow: hidden;
+}
+
+.exad-team-member-social{
+  margin: 0;
+  padding: 0;
+}
+
+.exad-team-member-social li{
+  list-style: none;
+  display: inline-block;
+  line-height: 1;
+}
+.exad-team-member-social li a{
+  display: block;
+  position: relative;
+}
+
+.exad-team-member-social li a i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.exad-team-member-thumb img{
+  height: 100% !important;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
+
+.exad-team-member-content{
+  position: relative;
+  z-index: 8;
+}
+
+.exad-team-member-name{
+  margin: 0;
+  line-height: 1;
+  font-size: 24px;
+}
+
+.exad-team-member-designation{
+  margin: 0;
+  line-height: 1;
+  font-size: 15px;
+}
+
+.exad-team-member-about{
+  margin: 0;
+  line-height: 1;
+  font-size: 14px;
 }
 
 /* Team member style eight end */
