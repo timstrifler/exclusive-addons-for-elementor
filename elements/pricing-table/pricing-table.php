@@ -274,7 +274,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_tables_styles_presets',
 			[
-				'label' => esc_html__( 'Container Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -300,10 +300,11 @@ class Exad_Pricing_Table extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
-					'top' => '30',
-					'right' => '30',
+					'top' => '0',
+					'right' => '0',
 					'bottom' => '30',
-					'left' => '30',
+					'left' => '0',
+					'linked' => false
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-badge-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -414,7 +415,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_title_header_settings',
 			[
-				'label' => esc_html__( 'Header Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Header', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -491,16 +492,8 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_title_style_settings',
 			[
-				'label' => esc_html__( 'Title Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
-			]
-		);
-
-		$this->add_control(
-			'exad_pricing_table_title_heading',
-			[
-				'label' => esc_html__( 'Title Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
 			]
 		);
 
@@ -553,16 +546,8 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_subheader_style_settings',
 			[
-				'label' => esc_html__( 'Sub Title Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Sub Title', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
-			]
-		);
-
-		$this->add_control(
-			'exad_pricing_table_title_subheading',
-			[
-				'label' => esc_html__( 'Subtitle Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
 			]
 		);
 
@@ -615,7 +600,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_price_style_settings',
 			[
-				'label' => esc_html__( 'Pricing Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Pricing', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -780,7 +765,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_style_featured_list_settings',
 			[
-				'label' => esc_html__( 'Feature List Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Feature List', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -939,7 +924,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_featured_tag_settings',
 			[
-				'label' => esc_html__( 'Featured Badge Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Featured Badge', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'exad_pricing_table_featured' => 'yes'
@@ -1016,7 +1001,7 @@ class Exad_Pricing_Table extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_pricing_table_btn_style_settings',
 			[
-				'label' => esc_html__( 'Button Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Button', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
