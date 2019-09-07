@@ -4942,13 +4942,6 @@
   margin-bottom: 30px;
 }
 
-.exad-row-wrapper .exad-post-grid-body .exad-post-grid-read-time {
-  display: block;
-  font-size: 15px;
-  margin-bottom: 15px;
-  color: #848484;
-}
-
 /* For Post Carousel style three */
 .exad-post-carousel .exad-post-grid-three .exad-post-grid-container {
   box-shadow: 0px 6px 16px -3px rgba(51, 77, 128, 0.2);
@@ -5087,19 +5080,22 @@
   padding: 0 10px;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body {
-  padding: 40px 30px;
-}
-
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category {
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category,
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data {
   margin: 0;
   padding: 0;
+}
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data {
+  margin-top: 30px;
+}
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li,
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li {
   display: inline-block;
+  list-style: none;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li {
-  list-style: none;
-  float: left;
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li {
+  flex: 1 1 0;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li a {
@@ -5108,6 +5104,16 @@
   font-size: 12px;
   display: block;
   text-decoration: none;
+}
+
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-author-avatar img {
+  border-radius: 100%;
+  margin-right: 12px; 
 }
 
 .exad-row-wrapper .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-action li:not(:last-child) {
@@ -5177,7 +5183,7 @@
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   line-height: 26px;
-  margin: 0 0 35px 0;
+  margin: 15px 0 15px 0;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action {
@@ -5201,6 +5207,73 @@
   flex: 0 0 16.66666%;
   max-width: 16.666666%;
   padding: 0 10px;
+}
+
+.exad-row-wrapper .exad-post-grid-body h3 {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.exad-row-wrapper .exad-post-grid-body .exad-post-grid-read-time {
+  display: inline-block;
+  font-size: 15px;
+  color: #848484;
+}
+
+.exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment li {
+  display: inline-block;
+}
+
+.exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment li:not(:last-child) {
+    padding-right: 20px;
+}
+
+.exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment li,
+.exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment li a {
+  color: #90929C;
+}
+
+.exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment li i.fa.fa-comment-o{
+  padding-right: 10px;
+}
+
+.exad-post-grid-container .exad-post-grid-body .exad-post-footer a {
+  display: inline-block;
+}
+.exad-post-grid-container.image-position-left,
+.exad-post-grid-container.image-position-right {
+  display: flex;
+}
+.exad-post-grid-container.image-position-left > figure,
+.exad-post-grid-container.image-position-left > div,
+.exad-post-grid-container.image-position-right > figure,
+.exad-post-grid-container.image-position-right > div {
+  flex-direction: column;
+}
+.exad-post-grid-container.image-position-left > figure,
+.exad-post-grid-container.image-position-right > figure {
+  width: 40%;
+}
+.exad-post-grid-container.image-position-left > div,
+.exad-post-grid-container.image-position-right > div {
+  width: 60%;
+}
+.exad-post-grid-container.image-position-left > figure img,
+.exad-post-grid-container.image-position-right > figure img {
+  height: 100%;
+  object-fit: cover;
+}
+.exad-post-grid-container.image-position-right > figure {
+  order: 2;
+}
+.exad-post-grid-container.image-position-right > div {
+  order: 1;
 }
 
 @media (max-width: 767px) {
