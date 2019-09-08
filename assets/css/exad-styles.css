@@ -8831,48 +8831,52 @@ ul.exad-pricing-table-features {
   /* Team carousel Styles end */
 /* Team Member Start */
 
-.left{
+.exad-left{
   text-align: left;
 }
-.left .exad-team-member-thumb{
+.exad-left .exad-team-member-thumb{
   margin-right: auto;
 }
 
-.center{
+.exad-center{
   text-align: center;
 }
 
-.center .exad-team-member-thumb{
+.exad-center .exad-team-member-thumb{
   margin: 0 auto;
 }
 
-.right{
+.exad-right{
   text-align: right;
 }
 
-.right .exad-team-member-thumb{
+.exad-right .exad-team-member-thumb{
   margin-left: auto;
 }
 
-.position-left{
+.exad-top-background{
+  clear: both;
+}
+
+.exad-position-left{
   display: flex;
   align-items: center;
 }
-.position-right{
+.exad-position-right{
   display: flex;
   align-items: center;
 }
-.position-left .exad-team-member-thumb{
+.exad-position-left .exad-team-member-thumb{
   width: 43%;
 }
-.position-left .exad-team-member-content{
+.exad-position-left .exad-team-member-content{
   width: 57%;
 }
-.position-right .exad-team-member-thumb{
+.exad-position-right .exad-team-member-thumb{
   width: 43%;
   order: 2;
 }
-.position-right .exad-team-member-content{
+.exad-position-right .exad-team-member-content{
   width: 57%;
   order: 1;
 }

@@ -262,20 +262,20 @@ class Exad_Team_Member extends Widget_Base {
 				'type' => Controls_Manager::CHOOSE,
 				// 'separator' => 'after',
 				'options' => [
-					'left' => [
+					'exad-left' => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-left',
 					],
-					'center' => [
+					'exad-center' => [
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-center',
 					],
-					'right' => [
+					'exad-right' => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-center',
 					]
 				],
-				'default' => 'center',
+				'default' => 'exad-center',
 			]
 		);
 
@@ -286,11 +286,11 @@ class Exad_Team_Member extends Widget_Base {
 				'type' => Controls_Manager::SELECT,
 				'separator' => 'after',
 				'options' => [
-					'position-top' => __( 'Top', 'exclusive-addons-elementor' ),
-					'position-left' => __( 'Left', 'exclusive-addons-elementor' ),
-					'position-right' => __( 'Right', 'exclusive-addons-elementor' ),
+					'exad-position-top' => __( 'Top', 'exclusive-addons-elementor' ),
+					'exad-position-left' => __( 'Left', 'exclusive-addons-elementor' ),
+					'exad-position-right' => __( 'Right', 'exclusive-addons-elementor' ),
 				],
-				'default' => 'position-top'
+				'default' => 'exad-position-top'
 			]
 		);
 
@@ -569,7 +569,7 @@ class Exad_Team_Member extends Widget_Base {
 				'name' => 'exad_team_member_top_background_color',
 				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .top-background',
+				'selector' => '{{WRAPPER}} .exad-top-background',
 			]
 		);
 
@@ -580,7 +580,7 @@ class Exad_Team_Member extends Widget_Base {
 				'type' => Controls_Manager::NUMBER,
 				'default' => '100',
 				'selectors' => [
-					'{{WRAPPER}} .top-background' => 'padding-top: {{VALUE}}px;',
+					'{{WRAPPER}} .exad-top-background' => 'padding-top: {{VALUE}}px;',
 				],
 			]
 		);
@@ -598,7 +598,7 @@ class Exad_Team_Member extends Widget_Base {
 					'left' => '0',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .top-background' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-top-background' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1104,7 +1104,7 @@ class Exad_Team_Member extends Widget_Base {
 		$this->add_render_attribute( 'exad_team_member_item', 'class', 'exad-team-item' );
 
 		if( $settings['exad_section_team_members_top_background'] === 'yes' ){
-			$this->add_render_attribute( 'exad_team_member_item', 'class', 'top-background' );
+			$this->add_render_attribute( 'exad_team_member_item', 'class', 'exad-top-background' );
 		}
 
 		$team_member_image = $this->get_settings_for_display( 'exad_team_member_image' );
@@ -1170,7 +1170,7 @@ class Exad_Team_Member extends Widget_Base {
 		view.addRenderAttribute( 'exad_team_member_item', 'class', 'exad-team-item' );
 
 		if( settings.exad_section_team_members_top_background === 'yes' ){
-			view.addRenderAttribute( 'exad_team_member_item', 'class', 'top-background' );
+			view.addRenderAttribute( 'exad_team_member_item', 'class', 'exad-top-background' );
 		}
 
 		#>
