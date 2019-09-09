@@ -4965,6 +4965,32 @@
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail {
+  position: relative;
+  z-index: -1;
+}
+
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail ul.exad-post-grid-category {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+}
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail ul.exad-post-grid-category.postion-bottom-left {
+  transform: translateY(-50%);
+  left: 20px;
+}
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail ul.exad-post-grid-category.postion-top-right {
+  top: 20px;
+  right: 20px;
+}
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail ul.exad-post-grid-category li {
+  display: inline-block;
+}
+
+.exad-post-grid-container ul.exad-post-grid-category li:not(:last-child) {
+  margin-right: 8px;
+}
 
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body {
   padding: 20px;
@@ -5049,6 +5075,10 @@
   float: left;
 }
 
+.exad-row-wrapper .exad-post-grid-body li.exad-post-date {
+    margin-top: -3px;
+}
+
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-action li a {
   height: 45px;
   width: 45px;
@@ -5080,13 +5110,17 @@
   padding: 0 10px;
 }
 
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body {
+  z-index: 9;
+}
+
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category,
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data {
   margin: 0;
   padding: 0;
 }
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data {
-  margin-top: 30px;
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category {
+  margin-bottom: 20px;  
 }
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li,
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li {
@@ -5098,10 +5132,9 @@
   flex: 1 1 0;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li a {
-  text-transform: uppercase;
+.exad-post-grid-container ul.exad-post-grid-category li a {
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   display: block;
   text-decoration: none;
 }
@@ -5110,6 +5143,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 10px;
 }
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-author-avatar img {
   border-radius: 100%;
@@ -5154,11 +5188,12 @@
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-title {
   font-family: "Roboto", sans-serif;
-  color: #0a1724;
-  font-size: 20px;
+  color: #1B1D26;
+  font-size: 22px;
   display: block;
   text-decoration: none;
-  margin-top: 25px;
+  margin-top: 15px;
+  font-weight: 500;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-title:hover {
@@ -5168,15 +5203,11 @@
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-author {
   margin: 15px 0 25px 0;
   font-size: 15px;
-  color: #848484;
   font-family: "Roboto", sans-serif;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-name,
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-date {
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
+.exad-row-wrapper .exad-post-grid-body .exad-post-data li {
+  color: #848484;  
 }
 
 .exad-row-wrapper .exad-post-grid-body .exad-post-grid-description {
@@ -5249,6 +5280,11 @@
 .exad-post-grid-container.image-position-left,
 .exad-post-grid-container.image-position-right {
   display: flex;
+}
+.exad-post-grid-container.image-position-left .exad-post-grid-thumbnail,
+.exad-post-grid-container.image-position-right .exad-post-grid-thumbnail {
+  z-index: 999;
+
 }
 .exad-post-grid-container.image-position-left > figure,
 .exad-post-grid-container.image-position-left > div,
