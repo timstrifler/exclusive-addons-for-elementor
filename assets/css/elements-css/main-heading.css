@@ -29,10 +29,12 @@
 }
 
 
-.exad-exclusive-heading .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
+.exad-exclusive-heading.parallax .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
+  background: linear-gradient(90deg, #ff9d4e 0%, #fb5d86 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  font-family: "Roboto", sans-serif;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -76,6 +78,7 @@
 }
 
 .exad-exclusive-heading.text-as-bg .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
+  font-family: "Roboto", sans-serif;
   position: relative;
   z-index: 1;
 }

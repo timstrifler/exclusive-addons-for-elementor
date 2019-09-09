@@ -320,7 +320,7 @@ class Exad_Heading extends Widget_Base {
 		$this->add_render_attribute( 
 			'exad_heading_attribute', 
 			[ 
-				'class' => [ 'exad-exclusive-heading' ],
+				'class' => [ 'exad-exclusive-heading', $settings['exad_heading_styles_preset'] ],
 				'id' => 'exad-heading'
 			]
 		);
