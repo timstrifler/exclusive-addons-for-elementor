@@ -45,7 +45,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->add_control(
 			'exad_progress_bar_value',
 			[
-				'label' => __( 'Value', 'exclusive-addons-elementor' ),
+				'label' => __( 'Percentage Value', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::NUMBER,
 				'min' => 0,
 				'max' => 100,
@@ -75,25 +75,9 @@ class Exad_Progress_Bar extends Widget_Base {
 					'line' => __('Line', 'exclusive-addons-elementor'),
 					'line-bubble' => __('Line Bubble', 'exclusive-addons-elementor'),
 					'circle' => __('Circle', 'exclusive-addons-elementor'),
-					'fan' => __('Fan', 'exclusive-addons-elementor')
+					'fan' => __('Half Circle', 'exclusive-addons-elementor')
 				],
 				'default' => 'line',
-			]
-		);
-
-		$this->add_control(
-			'exad_progress_bar_bubble_color',
-			[
-				'label' => __( 'Bubble Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#61ce70',
-				'selectors' => [
-					'{{WRAPPER}} [class*="exad-progress-bar-"].line-bubble .ldBar-label' => 'background: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_progress_bar_preset' => 'line-bubble'
-				]
-
 			]
 		);
 
@@ -196,7 +180,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->start_controls_section(
 			'exad_progress_bar_value_styles',
 			[
-				'label' => __('Value', 'exclusive-addons-elementor'),
+				'label' => __('Percentage Value', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -208,7 +192,7 @@ class Exad_Progress_Bar extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#000',
 				'selectors' => [
-					'{{WRAPPER}} [class*="exad-progress-bar-"] .ldBar-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-progress-bar .ldBar-label' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -216,9 +200,75 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-						'name' => 'value_typography',
-						'selector' => '{{WRAPPER}} .ldBar-label',
+					'name' => 'value_typography',
+					'selector' => '{{WRAPPER}} .exad-progress-bar .ldBar-label',
 				]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_progress_bar_background',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient'],
+				'selector' => '{{WRAPPER}} .exad-progress-bar .ldBar-label',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_progress_bar_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-progress-bar .ldBar-label',
+			]
+		);
+
+		$this->add_control(
+			'exad_progress_bar_radius',
+			[
+				'label' => __( 'Box Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '50',
+					'right' => '50',
+					'bottom' => '50',
+					'left' => '50',
+					'unit' => '%',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-progress-bar .ldBar-label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_progress_bar_padding_style',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'separator' => 'before',
+				'default' => [
+					'top' => '10',
+					'right' => '10',
+					'bottom' => '10',
+					'left' => '10',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-progress-bar .ldBar-label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_progress_bar_box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-progress-bar .ldBar-label',
+			]
 		);
 
 
@@ -231,7 +281,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->add_render_attribute( 
 			'exad-progress-bar', 
 			[ 
-				'class' => [ $settings['exad_progress_bar_preset'], 'exad-progress-bar-'. $this->get_id() ],
+				'class' => [ $settings['exad_progress_bar_preset'], 'exad-progress-bar', 'exad-progress-bar-' . $this->get_id() ],
 				'data-id' => $this->get_id(),
 				'data-type' => $settings['exad_progress_bar_preset'],
 				'data-progress-bar-value' => $settings['exad_progress_bar_value'],
@@ -275,9 +325,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		?>		
 		
 		<div <?php echo $this->get_render_attribute_string('exad-progress-bar') ?> data-progress-bar>
-			<h6 class="exad-progress-bar-title">
-		  		<?php echo $settings['exad_progress_bar_title'] ?>
-		  	</h6>
+			<h6 class="exad-progress-bar-title"><?php echo $settings['exad_progress_bar_title'] ?></h6>
 		</div>
 
 	<?php
