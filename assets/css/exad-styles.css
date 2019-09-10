@@ -4974,13 +4974,17 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.exad-post-grid-container .exad-post-grid-body {
+  position: relative;
+}
+.exad-post-grid-container .exad-post-grid-body ul.exad-post-grid-category.cat-pos-bottom-left {
+  transform: translateY(-50%);
+  top: 0;
   position: absolute;
 }
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail ul.exad-post-grid-category.postion-bottom-left {
-  transform: translateY(-50%);
-  left: 20px;
-}
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail ul.exad-post-grid-category.postion-top-right {
+  position: absolute;
   top: 20px;
   right: 20px;
 }
@@ -5075,10 +5079,6 @@
   float: left;
 }
 
-.exad-row-wrapper .exad-post-grid-body li.exad-post-date {
-    margin-top: -3px;
-}
-
 .exad-row-wrapper .exad-post-grid-one .exad-post-grid-body .exad-post-grid-author .exad-post-grid-author-action li a {
   height: 45px;
   width: 45px;
@@ -5128,8 +5128,8 @@
   list-style: none;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li {
-  flex: 1 1 0;
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li:not(last-child) {
+  padding-right: 15px;
 }
 
 .exad-post-grid-container ul.exad-post-grid-category li a {
@@ -5141,9 +5141,11 @@
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data {
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding-top: 10px;
+  align-items: center;
+}
+.exad-post-grid-container .exad-post-data.show-avatar-yes li.exad-post-date {
+  margin-top: -3px;
 }
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-author-avatar img {
   border-radius: 100%;
@@ -5186,13 +5188,16 @@
   opacity: 0.7;
 }
 
+.exad-post-grid-container .exad-post-grid-body h3 {
+  margin: 15px 0 5px 0;  
+}
+
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-title {
   font-family: "Roboto", sans-serif;
   color: #1B1D26;
   font-size: 22px;
   display: block;
   text-decoration: none;
-  margin-top: 15px;
   font-weight: 500;
 }
 
@@ -5238,11 +5243,6 @@
   flex: 0 0 16.66666%;
   max-width: 16.666666%;
   padding: 0 10px;
-}
-
-.exad-row-wrapper .exad-post-grid-body h3 {
-  margin-bottom: 5px;
-  font-weight: 500;
 }
 
 .exad-row-wrapper .exad-post-grid-body .exad-post-grid-read-time {
