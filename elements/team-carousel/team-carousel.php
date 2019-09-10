@@ -727,63 +727,6 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->end_controls_section();
 
 		/**
-		 * Top Background Style
-		 */
-
-        // $this->start_controls_section(
-        //     'exad_team_member_top_background',
-        //     [
-        //         'label' => __('Top Background', 'exclusive-addons-elementor'),
-		// 		'tab' => Controls_Manager::TAB_STYLE,
-		// 		'condition' => [
-		// 			'exad_section_team_members_top_background' => 'yes',
-		// 		],
-        //     ]
-        // );
-
-        // $this->add_group_control(
-		// 	Group_Control_Background::get_type(),
-		// 	[
-		// 		'name' => 'exad_team_member_top_background_color',
-		// 		'label' => __( 'Background', 'exclusive-addons-elementor' ),
-		// 		'types' => [ 'classic', 'gradient' ],
-		// 		'selector' => '{{WRAPPER}} .exad-top-background',
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'exad_team_member_top_background_padding_top',
-		// 	[
-		// 		'label' => __( 'Padding Top', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::NUMBER,
-		// 		'default' => '100',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-top-background' => 'padding-top: {{VALUE}}px;',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'exad_team_member_top_background_radius',
-		// 	[
-		// 		'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', '%', 'em' ],
-		// 		'default' => [
-		// 			'top' => '0',
-		// 			'right' => '0',
-		// 			'bottom' => '0',
-		// 			'left' => '0',
-		// 		],
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-top-background' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->end_controls_section();
-
-		/**
 		 * Call to action Style
 		 */
 
@@ -826,7 +769,7 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_team_member_cta_btn_padding',
 			[
-				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
@@ -1571,12 +1514,6 @@ class Exad_Team_Carousel extends Widget_Base {
 		
 		$this->add_render_attribute( 'exad_team_carousel_inner', 'class', 'exad-team-carousel-inner' );
 
-		// if( $settings['exad_section_team_members_top_background'] === 'yes' ){
-		// 	$this->add_render_attribute( 'exad_team_member_inner', 'class', 'exad-top-background' );
-		// }
-
-		
-
 	?>	
 		<div <?php echo $this->get_render_attribute_string( 'exad-team-carousel' ); ?>>
 
@@ -1655,7 +1592,7 @@ class Exad_Team_Carousel extends Widget_Base {
 	<?php	
 	}
 
-	/*protected function _content_template() {
+	protected function _content_template() {
 	?>
 		<#
 			view.addRenderAttribute( 
@@ -1683,33 +1620,19 @@ class Exad_Team_Carousel extends Widget_Base {
 				view.addRenderAttribute( 'exad-team-carousel', 'data-loop', "true");
 			}
 
+			view.addRenderAttribute( 'exad_team_carousel_inner', 'class', 'exad-team-carousel-inner' );
+
 		#>
 		<div {{{ view.getRenderAttributeString( 'exad-team-carousel' ) }}} >
 
 			<# _.each( settings.team_carousel_repeater, function( member, index ) { #>
-
-				<div class="exad-team-carousel{{ settings.exad_team_carousel_preset }}-inner">
-	            	<div class="exad-team-member{{ settings.exad_team_carousel_preset }}">
+			
+				<div {{{ view.getRenderAttributeString( 'exad_team_carousel_inner' ) }}} >
+	            	<div class="exad-team-member {{ settings.exad_team_carousel_content_alignment }} {{ settings.exad_team_member_content_image_position }}">
 	                	<div class="exad-team-member-thumb">
-	                		<# if( settings.exad_team_carousel_preset == '-style-two' ) { #>
-								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-								</svg>
-								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-								</svg>
-								<svg xmlns="http://www.w3.org/2000/svg" class="team-avatar-bg">
-									<path fill-rule="evenodd" opacity=".659" d="M61.922 0C95.654 0 123 27.29 123 60.953c0 33.664-27.346 60.953-61.078 60.953-33.733 0-61.078-27.289-61.078-60.953C.844 27.29 28.189 0 61.922 0z"/>
-								</svg>
-							<# } #>
-	                  		<img src="{{ member.exad_team_carousel_image.url }}" class="circled" alt="{{ member.exad_team_carousel_name }}">
+						<img src="{{ member.exad_team_carousel_image.url }}" class="circled" alt="{{ member.exad_team_carousel_name }}">
 	                	</div>
 	                	<div class="exad-team-member-content">
-							<# if( settings.exad_team_carousel_preset == '-style-six' ) { #>
-								<svg viewBox="0 0 370 160">
-									<path d="M370-.001s-114 120.999-370 73v140l370 .999V-.001z" />
-								</svg>
-							<# } #>
 							<# if ( member.exad_team_carousel_name != '' ) { #>
 								<h2 class="exad-team-member-name">{{{ member.exad_team_carousel_name }}}</h2>
 							<# } #>
@@ -1718,6 +1641,11 @@ class Exad_Team_Carousel extends Widget_Base {
 							<# } #>
 							<# if (  member.exad_team_carousel_description != '' ) { #>
 								<p class="exad-team-member-about">{{{ member.exad_team_carousel_description }}}</p>
+							<# } #>
+							<# if ( member.exad_section_team_carousel_cta_btn === 'yes' ) { #>
+								<a href="{{ member.exad_team_members_cta_btn_link.url }}" class="exad-team-member-cta">
+									{{{ member.exad_team_members_cta_btn_text }}}
+								</a>
 							<# } #>
 		                	<# if ( member.exad_team_carousel_enable_social_profiles == 'yes' ) { #>
 								<ul class="list-inline exad-team-member-social">
@@ -1763,9 +1691,9 @@ class Exad_Team_Carousel extends Widget_Base {
 	              	</div>
 	          	</div>
 			<# }); #>
-		</div>	
+		</div>
 	<?php	
-	}*/
+	}
 
 }
 
