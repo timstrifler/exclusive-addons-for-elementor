@@ -57,7 +57,7 @@ class Exad_Flip_Box extends Widget_Base {
 				'label'       => __( 'Description', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'dynamic'     => [ 'active' => true ],
-				'default'     => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'exclusive-addons-elementor' ),
+				'default'     => __( 'Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor. Add some more test in here.', 'exclusive-addons-elementor' ),
 				'placeholder' => __( 'Your Description', 'exclusive-addons-elementor' ),
 				'title'       => __( 'Input image text here', 'exclusive-addons-elementor' ),
 			]
@@ -133,82 +133,19 @@ class Exad_Flip_Box extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_flipbox_link_click',
-			[
-				'label'   => __( 'Apply Link On', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => [
-					'box'    => __( 'Whole Box', 'exclusive-addons-elementor' ),
-					'button' => __( 'Button Only', 'exclusive-addons-elementor' ),
-				],
-				'default'   => 'button',
-				'condition' => [
-					'link[url]!' => '',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_flipbox_button_size',
-			[
-				'label' => __( 'Size', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'sm',
-				'options' => [
-					'xs' => __( 'Extra Small', 'exclusive-addons-elementor' ),
-					'sm' => __( 'Small', 'exclusive-addons-elementor' ),
-					'md' => __( 'Medium', 'exclusive-addons-elementor' ),
-					'lg' => __( 'Large', 'exclusive-addons-elementor' ),
-					'xl' => __( 'Extra Large', 'exclusive-addons-elementor' ),
-				],
-				'condition' => [
-					'button_text!' => '',
-				],
-			]
-		);
-
-
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name'     => 'back_background',
-				'types'    => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .bdt-flip-box-back',
-			]
-		);
-
-		$this->add_control(
-			'back_background_overlay',
-			[
-				'label' => __( 'Background Overlay', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .bdt-flip-box-back .bdt-flip-box-layer-overlay' => 'background-color: {{VALUE}};',
-				],
-				'separator' => 'before',
-				'condition' => [
-					'back_background_image[id]!' => '',
-				],
-			]
-		);
-
 		$this->end_controls_section();
-
 
 		$this->start_controls_section(
 			'exad_section_flipbox_settings',
 			[
-				'label' => __( 'Flip Direction', 'exclusive-addons-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE
+				'label' => __( 'Flip Settings', 'exclusive-addons-elementor' ),
 			]
 		);
 
 		$this->add_control(
 			'exad_flipbox_style',
 			[
-				'label'   => __( 'Direction', 'exclusive-addons-elementor' ),
+				'label'   => __( 'Flip Direction', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'left-to-right',
 				'options' => [
@@ -221,6 +158,96 @@ class Exad_Flip_Box extends Widget_Base {
 					'fade-in-out'  => __( 'Fade In Out', 'exclusive-addons-elementor' ),
 				],
 				
+			]
+		);
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'exad_section_flipbox_container',
+			[
+				'label' => __( 'Container', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_flipbox_container_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-front, {{WRAPPER}} .exad-flip-box .exad-flip-box-back',
+			]
+		);
+
+		$this->add_control(
+			'exad_flipbox_border_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '5',
+					'right' => '5',
+					'bottom' => '5',
+					'left' => '5',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-front' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_flipbox_box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-front, {{WRAPPER}} .exad-flip-box .exad-flip-box-back',
+			]
+		);
+
+		$this->add_control(
+			'exad_flipbox_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20'
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-front' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_flipbox_content_alignment',
+			[
+				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'separator' => 'after',
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					]
+				],
+				'default' => 'center',
 			]
 		);
 
@@ -269,18 +296,18 @@ class Exad_Flip_Box extends Widget_Base {
 		/**
 		 * 
 		 */
-		$this->add_control(
-			'exad_flipbox_front_icon_bg',
-			[
-				'label' => esc_html__( 'Icon Background', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#826EFF',
-				'selectors' => [
-					'{{WRAPPER}} .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image' => 'background: {{VALUE}};',
-				],
+		// $this->add_control(
+		// 	'exad_flipbox_front_icon_bg',
+		// 	[
+		// 		'label' => esc_html__( 'Icon Background', 'exclusive-addons-elementor' ),
+		// 		'type' => Controls_Manager::COLOR,
+		// 		'default' => '#826EFF',
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image' => 'background: {{VALUE}};',
+		// 		],
 				
-			]
-		);
+		// 	]
+		// );
 
 		/**
 		 * Title
@@ -634,24 +661,31 @@ class Exad_Flip_Box extends Widget_Base {
 
 	protected function render() {
 
-   		$settings = $this->get_settings_for_display();
+		   $settings = $this->get_settings_for_display();
+		   
+		   $this->add_render_attribute(
+			   'exad_flipbox_attribute', 
+			   [
+				   'class' => [ 'exad-flip-box-inner', $settings[ 'exad_flipbox_content_alignment' ], $settings['exad_flipbox_style'] ]
+			   ]   
+		   );
 
 	?>
 
-	<div id="exad-flip-box" class="exad-flip-box">
-      	<div class="exad-flip-box-inner <?php echo esc_attr( $settings['exad_flipbox_style'] ); ?>">
+	<div class="exad-flip-box">
+      	<div <?php echo $this->get_render_attribute_string( 'exad_flipbox_attribute' ); ?>>
         	<div class="exad-flip-box-front">
           		<div class="exad-flip-box-front-image">
 	            	<i class="<?php echo esc_attr( $settings['exad_flipbox_front_icon'] ); ?>"></i>
         		</div>
-          		<h5 class="exad-flip-box-front-title"><?php echo $settings['exad_flipbox_front_title']; ?></h5>
+          		<h2 class="exad-flip-box-front-title"><?php echo $settings['exad_flipbox_front_title']; ?></h2>
 		        <p class="exad-flip-box-front-description">
 		            <?php echo $settings['exad_flipbox_front_description']; ?>
 		        </p>
         	</div>
 	        <div class="exad-flip-box-back">
 	          	<i class="<?php echo esc_attr( $settings['exad_flipbox_back_icon'] ); ?>"></i>
-	          	<h5 class="exad-flip-box-back-title"><?php echo $settings['exad_flipbox_back_title']; ?></h5>
+	          	<h2 class="exad-flip-box-back-title"><?php echo $settings['exad_flipbox_back_title']; ?></h2>
 		        <p class="exad-flip-box-back-description">
 		            <?php echo $settings['exad_flipbox_back_description']; ?>
 		        </p>
@@ -666,29 +700,29 @@ class Exad_Flip_Box extends Widget_Base {
 
 	protected function _content_template() {
 		?>
-		<div id="exad-flip-box" class="exad-flip-box">
-      	<div class="exad-flip-box-inner {{ settings.exad_flipbox_style }}">
-        	<div class="exad-flip-box-front">
-          		<div class="exad-flip-box-front-image">
-	            	<i class="{{ settings.exad_flipbox_front_icon }}"></i>
-        		</div>
-				<h5 class="exad-flip-box-front-title">{{{ settings.exad_flipbox_front_title }}}</h5>
-		        <p class="exad-flip-box-front-description">
-		            {{{ settings.exad_flipbox_front_description }}}
-		        </p>
-        	</div>
-	        <div class="exad-flip-box-back">
-	          	<i class="{{ settings.exad_flipbox_back_icon }}"></i>
-	          	<h5 class="exad-flip-box-back-title">{{{ settings.exad_flipbox_back_title }}}</h5>
-		        <p class="exad-flip-box-back-description">
-		            {{{ settings.exad_flipbox_back_description}}}
-		        </p>
-		        <a href="{{ settings.exad_flipbox_button_link.url }}" class="exad-flip-box-back-action">
-					{{{ settings.exad_flipbox_button_text }}}
-				</a>
-	        </div>
-      	</div>
-    </div>
+		<div class="exad-flip-box">
+			<div class="exad-flip-box-inner {{ settings.exad_flipbox_style }} {{ settings.exad_flipbox_content_alignment }}">
+				<div class="exad-flip-box-front">
+					<div class="exad-flip-box-front-image">
+						<i class="{{ settings.exad_flipbox_front_icon }}"></i>
+					</div>
+					<h2 class="exad-flip-box-front-title">{{{ settings.exad_flipbox_front_title }}}</h2>
+					<p class="exad-flip-box-front-description">
+						{{{ settings.exad_flipbox_front_description }}}
+					</p>
+				</div>
+				<div class="exad-flip-box-back">
+					<i class="{{ settings.exad_flipbox_back_icon }}"></i>
+					<h2 class="exad-flip-box-back-title">{{{ settings.exad_flipbox_back_title }}}</h2>
+					<p class="exad-flip-box-back-description">
+						{{{ settings.exad_flipbox_back_description}}}
+					</p>
+					<a href="{{ settings.exad_flipbox_button_link.url }}" class="exad-flip-box-back-action">
+						{{{ settings.exad_flipbox_button_text }}}
+					</a>
+				</div>
+			</div>
+		</div>
 	<?php
 	}
 }
