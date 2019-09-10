@@ -3907,13 +3907,22 @@
 .exad-exclusive-heading .exad-heading-left {
   text-align: left;
 }
+.exad-heading-left .exad-heading-separator{
+  margin-right: auto;
+}
 .exad-exclusive-heading .exad-heading-center {
   text-align: center;
+}
+.exad-heading-center .exad-heading-separator{
+  margin-left: auto;
+  margin-right: auto;
 }
 .exad-exclusive-heading .exad-heading-right {
   text-align: right;
 }
-
+.exad-heading-right .exad-heading-separator{
+  margin-left: auto;
+}
 
 .exad-exclusive-heading.parallax .exad-exclusive-heading-wrapper .exad-exclusive-heading-title {
   background: linear-gradient(90deg, #ff9d4e 0%, #fb5d86 100%);
