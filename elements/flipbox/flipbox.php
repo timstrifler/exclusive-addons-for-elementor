@@ -1,8 +1,6 @@
 <?php
 namespace Elementor;
 
-use Elementor\Modules\DynamicTags\Module as TagsModule;
-
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
 class Exad_Flip_Box extends Widget_Base {
@@ -202,7 +200,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_flipbox_settings',
 			[
-				'label' => __( 'General Styles', 'exclusive-addons-elementor' ),
+				'label' => __( 'Flip Direction', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -210,7 +208,7 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_style',
 			[
-				'label'   => __( 'Flip Style', 'exclusive-addons-elementor' ),
+				'label'   => __( 'Direction', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'left-to-right',
 				'options' => [
@@ -411,7 +409,7 @@ class Exad_Flip_Box extends Widget_Base {
 			[
 				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#fff',
+				'default' => '#826EFF',
 				'selectors' => [
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back i' => 'color: {{VALUE}};',
 				],
@@ -438,7 +436,7 @@ class Exad_Flip_Box extends Widget_Base {
 			[
 				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#FFF',
+				'default' => '#132c47',
 				'selectors' => [
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-title' => 'color: {{VALUE}};',
 				],
@@ -479,7 +477,7 @@ class Exad_Flip_Box extends Widget_Base {
 			[
 				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#FFF',
+				'default' => '#817e7e',
 				'selectors' => [
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-description' => 'color: {{VALUE}};',
 				],
@@ -532,6 +530,16 @@ class Exad_Flip_Box extends Widget_Base {
 			]
 		);
 		$this->start_controls_tabs( 'exad_cta_button_tabs' );
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'exad_flipbox_button_typography',
+				'label' => __( 'Typography', 'plugin-domain' ),
+				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action',
+			]
+		);
 
 			// Normal State Tab
 			$this->start_controls_tab( 'exad_flipbox_btn_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
@@ -630,7 +638,7 @@ class Exad_Flip_Box extends Widget_Base {
 
 	?>
 
-	<div id="exad-flip-box-<?php echo esc_attr($this->get_id()); ?>" class="exad-flip-box">
+	<div id="exad-flip-box" class="exad-flip-box">
       	<div class="exad-flip-box-inner <?php echo esc_attr( $settings['exad_flipbox_style'] ); ?>">
         	<div class="exad-flip-box-front">
           		<div class="exad-flip-box-front-image">

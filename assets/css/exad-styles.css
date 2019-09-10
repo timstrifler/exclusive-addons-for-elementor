@@ -2000,7 +2000,6 @@
   }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i {
-  font-size: 30px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2010,22 +2009,17 @@
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
-  font-size: 20px;
   margin: 25px 0;
-  font-family: "Roboto", sans-serif;
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-description {
-  font-size: 14px;
-  color: #817e7e;
-  font-family: "Roboto", sans-serif;
+  
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back {
   position: absolute;
   top: 0;
   left: 0;
-  background: #8168ff;
   padding: 30px 20px;
   border-radius: 5px;
   width: 100%;
@@ -2033,35 +2027,23 @@
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back i {
-  font-size: 30px;
-  color: #fff;
+  
   margin-bottom: 20px;
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-title {
-  font-size: 20px;
-  color: #fff;
-  font-family: "Roboto", sans-serif;
   margin: 6px auto;
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
-  font-size: 14px;
-  color: #fff;
   margin: 20px 0 30px 0;
-  font-family: "Roboto", sans-serif;
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
-  font-size: 14px;
+
   text-decoration: none;
-  background: #fff;
   padding: 10px 20px;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  color: #FF7F97;
   transition: all .4s ease;
-  font-family: "Roboto", sans-serif;
   display: inline-block;
 }
 
