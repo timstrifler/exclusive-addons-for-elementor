@@ -617,6 +617,19 @@
   }
 }
 
+
+
+
+
+
+
+
+
+
+.exad-accordion-items .exad-accordion-single-item .exad-accordion-content {
+    display: none;
+}
+
 /* Exclusive Accordion End */ 
 /* Exclusive alert style start*/
 .exad-alert .exad-alert-element {

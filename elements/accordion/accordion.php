@@ -33,58 +33,102 @@ class Exclusive_Accordion extends Widget_Base {
   				'label' => esc_html__( 'Contents', 'exclusive-addons-elementor' )
   			]
   		);
+
+  		$repeater = new Repeater();
+
+        $repeater->start_controls_tabs('exad_accordion_item_tabs');
+
+        $repeater->start_controls_tab('exad_accordion_item_content_tab', ['label' => __('Content', 'exclusive-addons-elementor')]);
+
+        $repeater->add_control(
+			'exad_exclusive_accordion_default_active', [
+				'label'        => esc_html__( 'Active as Default', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'return_value' => 'yes'
+			]
+		);
+
+        $repeater->add_control(
+			'exad_exclusive_accordion_icon_show', [
+				'label'        => esc_html__( 'Enable Title Icon', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
+				'return_value' => 'yes'
+			]
+		);
+		
+        $repeater->add_control(
+			'exad_exclusive_accordion_title_icon_updated', [
+				'label'            => esc_html__( 'Title Icon', 'exclusive-addons-elementor' ),
+				'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
+				'type'             => Controls_Manager::ICONS,
+				'default' 		   => [
+					'value'   => 'fas fa-star',
+					'library' => 'solid'
+				],
+				'condition' 	   => [
+					'exad_exclusive_accordion_icon_show' => 'yes'
+				]
+			]
+		);
+		
+        $repeater->add_control(
+			'exad_exclusive_accordion_title', [
+				'label'            => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
+				'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
+				'type'             => Controls_Manager::TEXT,
+				'default'          => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
+				'dynamic'          => [ 'active' => true ]
+			]
+		);
+		
+        $repeater->add_control(
+			'exad_exclusive_accordion_content', [
+				'label'            => esc_html__( 'Tab Content', 'exclusive-addons-elementor' ),
+				'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
+				'type'             => Controls_Manager::TEXTAREA,
+				'default'          => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'exclusive-addons-elementor' ),
+				'dynamic'          => [ 'active' => true ]
+			]
+		);
+
+        $repeater->end_controls_tab();
+
+   		$repeater->start_controls_tab('tab_content', ['label' => __('Style', 'exclusive-addons-elementor')]);
+
+        $repeater->add_control(
+            'color',
+            [
+				'label'     => __( 'Tab Title Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+	            'selectors' => [
+                    '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item h3 ' => 'color: {{VALUE}};'
+                ]
+            ]
+        );
+
+
+
+        $repeater->end_controls_tab();
+
+        $repeater->end_controls_tabs();
+
   		$this->add_control(
 			'exad_exclusive_accordion_tab',
 			[
-				'type'		=> Controls_Manager::REPEATER,
-				'seperator'	=> 'before',
+				'type' 		=> \Elementor\Controls_Manager::REPEATER,
+				// 'fields' 	=> $repeater->get_controls(),
+				'fields' 	=> array_values( $repeater->get_controls() ) ,
 				'default'	=> [
 					[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Tab Title 1', 'exclusive-addons-elementor' ) ],
 					[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Tab Title 2', 'exclusive-addons-elementor' ) ],
 					[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Tab Title 3', 'exclusive-addons-elementor' ) ],
 				],
-				'fields' => [
-					[
-						'name'		=> 'exad_exclusive_accordion_default_active',
-						'label'		=> esc_html__( 'Active as Default', 'exclusive-addons-elementor' ),
-						'type'		=> Controls_Manager::SWITCHER,
-						'default'	=> 'no',
-						'return_value' => 'yes',
-					],
-					[
-						'name'		=> 'exad_exclusive_accordion_icon_show',
-						'label'		=> esc_html__( 'Enable Icon', 'exclusive-addons-elementor' ),
-						'type'		=> Controls_Manager::SWITCHER,
-						'default'	=> 'yes',
-						'return_value' => 'yes',
-					],
-					[
-						'name'		=> 'exad_exclusive_accordion_title_icon',
-						'label'		=> esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-						'type'		=> Controls_Manager::ICON,
-						'default'	=> 'fa fa-anchor',
-						'condition' => [
-							'exad_exclusive_accordion_icon_show' => 'yes'
-						]
-					],
-					[
-						'name'		=> 'exad_exclusive_accordion_title',
-						'label'		=> esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
-						'type'		=> Controls_Manager::TEXT,
-						'default'	=> esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
-						'dynamic'	=> [ 'active' => true ]
-					],
-				  	[
-						'name'		=> 'exad_exclusive_accordion_content',
-						'label'		=> esc_html__( 'Tab Content', 'exclusive-addons-elementor' ),
-						'type'		=> Controls_Manager::TEXTAREA,
-						'default'	=> esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'exclusive-addons-elementor' ),
-						'dynamic'	=> [ 'active' => true ],
-					],
-				],
 				'title_field' => '{{exad_exclusive_accordion_title}}',
 			]
 		);
+
   		$this->end_controls_section();
 
 		/**
@@ -96,25 +140,25 @@ class Exclusive_Accordion extends Widget_Base {
 			'exad_section_exclusive_accordion_style_settings',
 			[
 				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
+				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
 		
-			$this->add_control(
-				'exad_exclusive_accordion_preset',
-				[
-				 'label'       	=> esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-				   'type' 			=> Controls_Manager::SELECT,
-				   'default' 		=> 'six',
-				   'label_block' 	=> false,
-				   'options' 		=> [
-						'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-					  	'two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-					  	'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-					  	'six' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
-				   ],
-				]
-		  	);
+		$this->add_control(
+			'exad_exclusive_accordion_preset',
+			[
+				'label'       => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'six',
+				'label_block' => false,
+			    'options' 	  => [
+						'one'   => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
+						'two'   => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
+						'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
+						'six'   => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
+			   ],
+			]
+	  	);
 		  
   		$this->end_controls_section();
 
@@ -144,9 +188,9 @@ class Exclusive_Accordion extends Widget_Base {
 				$this->add_control(
 					'exad_exclusive_accordion_tab_color',
 					[
-						'label'	=> esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-						'type'	=> Controls_Manager::COLOR,
-						'default'	=> '#FFF',
+						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#FFF',
 						'selectors' => [
 							'{{WRAPPER}} .exad-accordion .exad-accordion-title' => 'background: {{VALUE}};',
 						],
@@ -225,15 +269,7 @@ class Exclusive_Accordion extends Widget_Base {
 						]
 					]
 				);
-				/*$this->add_group_control(
-					Group_Control_Border::get_type(),
-					[
-						'name'		=> 'exad_exclusive_accordion_tab_border_hover',
-						'label'		=> esc_html__( 'Border', 'exclusive-addons-elementor' ),
-						'selector'	=> '{{WRAPPER}} .exad-exclusive-accordion .exad-accordion-list .exad-accordion-header.active',
-					]
-				); */
-				
+
 			$this->end_controls_tab();
 		$this->end_controls_tabs();
 		$this->end_controls_section();
@@ -292,43 +328,48 @@ class Exclusive_Accordion extends Widget_Base {
 		
 		$this->add_render_attribute( 'exad-exclusive-accordion', 'class', 'exad-exclusive-accordion' );
 		$this->add_render_attribute( 'exad-exclusive-accordion', 'id', 'exad-exclusive-accordion-'.esc_attr( $this->get_id() ));
-	?>
 	
-		<div class="exad-accordion <?php echo esc_attr( $settings['exad_exclusive_accordion_preset'] ); ?>">
-			<?php 
-				foreach( $settings['exad_exclusive_accordion_tab'] as $key => $accordion ) : 
+		echo '<div class="exad-accordion-items">';
+			foreach( $settings['exad_exclusive_accordion_tab'] as $key => $accordion ) : 
+				
+				$accordion_item_setting_key = $this->get_repeater_setting_key('exad_exclusive_accordion_title', 'exad_exclusive_accordion_tab', $key);
+
+				$accordion_class = ['exad-accordion-title'];
+
+				if ( $accordion['exad_exclusive_accordion_default_active'] == 'yes' ) {
+					$accordion_class[] = 'active-default';
+				}
+
+				$this->add_render_attribute( $accordion_item_setting_key, [
+					'class'		=> $accordion_class,
 					
-					$accordion_item_setting_key = $this->get_repeater_setting_key('exad_exclusive_accordion_title', 'exad_exclusive_accordion_tab', $key);
+				]);
 
-					$accordion_class = ['exad-accordion-title'];
+				echo '<div class="exad-accordion-single-item">';
+					echo '<div '.$this->get_render_attribute_string($accordion_item_setting_key).'>';
+						if ( isset( $accordion['exad_exclusive_accordion_icon_show'] ) && $accordion['exad_exclusive_accordion_icon_show'] == 'yes' ) :
+							$migrated = isset( $accordion['__fa4_migrated']['exad_exclusive_accordion_title_icon_updated'] );
+							$is_new   = empty( $accordion['exad_exclusive_accordion_title_icon'] );
 
-					if ( $accordion['exad_exclusive_accordion_default_active'] == 'yes' ) {
-						$accordion_class[] = 'active-default';
-					}
+							if ( $is_new || $migrated ) :
+								echo '<span>';
+									\Elementor\Icons_Manager::render_icon( $accordion['exad_exclusive_accordion_title_icon_updated'], [ 'aria-hidden' => 'true' ] );
+								echo '</span>';
+							else :
+						 		echo '<span><i class="'.esc_attr($accordion['exad_exclusive_accordion_title_icon']).'" aria-hidden="true"></i></span>';
+							endif;
+						endif; 
 
-					$this->add_render_attribute( $accordion_item_setting_key, [
-						'class'		=> $accordion_class,
-						
-					]);
-
-				?>
-				<div class="exad-accordion-<?php echo esc_attr( $settings['exad_exclusive_accordion_preset'] ); ?>">
-					<div <?php echo $this->get_render_attribute_string($accordion_item_setting_key); ?>>
-						<?php if ( isset( $accordion['exad_exclusive_accordion_icon_show'] ) && $accordion['exad_exclusive_accordion_icon_show'] == 'yes' ) : ?>
-							<span><i class="<?php echo esc_attr( $accordion['exad_exclusive_accordion_title_icon'] ); ?>"></i></span>
-						<?php endif; ?>
-						<h3><?php echo $accordion['exad_exclusive_accordion_title']; ?></h3>
-					</div>
-					<div class="exad-accordion-content">
-						<div class="exad-accordion-content-wrapper">
-							<p><?php echo $accordion['exad_exclusive_accordion_content']; ?></p>
-						</div>
-					</div>
-				</div>
-			<?php endforeach; ?>
-    	</div>
-	
-	<?php
+						echo '<h3>'.esc_html($accordion['exad_exclusive_accordion_title']).'</h3>';
+					echo '</div>';
+					echo '<div class="exad-accordion-content">';
+						echo '<div class="exad-accordion-content-wrapper">';
+							echo '<p>'.wp_kses_post($accordion['exad_exclusive_accordion_content']).'</p>';
+						echo '</div>';
+					echo '</div>';
+				echo '</div>';
+			endforeach;
+    	echo '</div>';
 	}
 
 }
