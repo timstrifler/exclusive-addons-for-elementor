@@ -135,30 +135,83 @@ class Exad_Post_Timeline extends Widget_Base {
 
 		
         $this->start_controls_section(
-            'exad_section_post_timeline_general',
+            'exad_section_post_timeline_post_container',
             [
-                'label' => __( 'General Styles', 'exclusive-addons-elementor' ),
+                'label' => __( 'Post Container', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
-        $this->add_control(
-			'exad_timeline_post_bg_color',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label' => __( 'Post Background Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default'=> '#FFFFFF',
-				'selectors' => [
-					'{{WRAPPER}} .exad-post-timeline-content' => 'background: {{VALUE}};',
-				]
-
+				'name' => 'exad_timeline_post_container_bg_color',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-post-timeline-content',
 			]
 		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_post_timeline_post_container_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'separator' => 'before',
+				'selector' => '{{WRAPPER}} .exad-post-timeline-content',
+			]
+		);
+
+		$this->add_control(
+			'exad_post_timeline_post_container_border_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '5',
+					'right' => '5',
+					'bottom' => '5',
+					'left' => '5',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_post_timeline_post_container_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '25',
+					'right' => '25',
+					'bottom' => '25',
+					'left' => '25',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_post_timeline_post_container_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-post-timeline-content',
+			]
+		);
+
 		
 		$this->add_control(
 			'exad_timeline_bullet_bg_color',
 			[
-				'label' => __( 'Bullet Background Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Bullet Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#A282FF',
 				'selectors' => [
@@ -171,7 +224,7 @@ class Exad_Post_Timeline extends Widget_Base {
         $this->add_control(
 			'exad_timeline_bullet_icon_color',
 			[
-				'label' => __( 'Bullet Icon Color', 'exclusive-addons-elementor' ),
+				'label' => __( 'Bullet Icon', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default'=> '#D1C1FF',
 				'selectors' => [
@@ -210,6 +263,96 @@ class Exad_Post_Timeline extends Widget_Base {
 
 		$this->end_controls_section();
 
+
+		$this->start_controls_section(
+            'exad_section_post_timeline_date_container',
+            [
+                'label' => __( 'Date Container', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+		);
+		
+		$this->add_control(
+			'exad_timeline_date_color',
+			[
+				'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default'=> '#424242',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-date' => 'color: {{VALUE}};',
+				]
+
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_timeline_date_container_bg_color',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-post-timeline-date',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_post_timeline_date_container_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'separator' => 'before',
+				'selector' => '{{WRAPPER}} .exad-post-timeline-date',
+			]
+		);
+
+		$this->add_control(
+			'exad_timeline_date_container_border_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '5',
+					'right' => '5',
+					'bottom' => '5',
+					'left' => '5',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-date' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_timeline_date_container_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '25',
+					'right' => '25',
+					'bottom' => '25',
+					'left' => '25',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-timeline-date' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_post_timeline_date_container_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-post-timeline-date',
+			]
+		);
+
+		$this->end_controls_section();
+
+
         $this->start_controls_section(
             'exad_post_timeline_title',
             [
@@ -217,15 +360,6 @@ class Exad_Post_Timeline extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
-
-		$this->add_control(
-			'exad_timeline_title_style',
-			[
-				'label' => __( 'Title Style', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::HEADING,
-				'separator' => 'before',
-			]
-		);
 
         $this->add_control(
 			'exad_timeline_title_color',
@@ -422,7 +556,7 @@ class Exad_Post_Timeline extends Widget_Base {
         ?>
 
 		<!-- Load More Button -->
-		<div class="exad-post-timeline one">
+		<div class="exad-post-timeline">
 
           	<?php Exad_Helper::exad_get_posts( $settings ); ?>
 
