@@ -1432,20 +1432,8 @@
 .exad-contact-form {
   display: flex;
   flex-wrap: wrap;
-  padding: 40px;
-  background-color: white;
-  box-shadow: 0px 20px 40px 0px rgba(5, 12, 77, 0.2);
   position: relative;
   margin-bottom: 30px;
-}
-
-.exad-contact-form::before {
-  height: 2px;
-  width: 100%;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .exad-contact-form .exad-contact-form-title {

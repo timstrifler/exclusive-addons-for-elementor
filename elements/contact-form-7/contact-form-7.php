@@ -176,18 +176,6 @@ class Exad_Contact_Form extends Widget_Base {
                 'selector' => '{{WRAPPER}} .exad-contact-form',
             ]
         );
-		
-        $this->add_control(
-            'exad_contact_container_border_top',
-            [
-                'label'                 => __( 'Border Top Color', 'exclusive-addons-elementor' ),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '#724cff',
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-contact-form::before' => 'background: {{VALUE}}',
-                ],
-            ]
-        );
 
   		$this->add_control(
   			'exad_contact_form_width',
@@ -232,6 +220,62 @@ class Exad_Contact_Form extends Widget_Base {
                     'left' => 40,
                     'unit' => 'px'
                 ]
+			]
+        );
+
+        $this->add_control(
+			'exad_cf7_container_margin',
+			[
+				'label' => esc_html__( 'Form Margin', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'separator' => 'after',
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .exad-contact-form' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+                'default' => [
+                    'top' => 0,
+                    'right' => 0,
+                    'bottom' => 0,
+                    'left' => 0,
+                    'unit' => 'px'
+                ]
+			]
+        );
+        
+        $this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_cf7_container_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-contact-form',
+			]
+		);
+
+		$this->add_control(
+			'exad_cf7_container_border_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-contact-form' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_cf7_container_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-contact-form',
 			]
 		);
 		
