@@ -1,5 +1,6 @@
 /* Exclusive Tabs Start */
 
+/* 
 .exad-advance-tab.two .exad-advance-tab-nav {
   margin: 0px;
   padding: 0px;
@@ -284,9 +285,9 @@
     border-width: 1px 1px 1px 1px;
   }
 }
-
+*/
 /*Advance tab five*/
-
+/*
 .exad-advance-tab.five .exad-advance-tab-nav {
   margin: 0px;
   padding: 0px;
@@ -410,6 +411,64 @@
 
 .exad-advance-tab.five .exad-advance-tab-content.active {
   display: block;
+} */
+
+.exad-advance-tab-nav {
+  margin: 0;
+  padding: 0;
 }
 
+.exad-advance-tab-nav li {
+  list-style: none;
+}
+
+.exad-tab-horizontal .exad-advance-tab-nav li{
+  display: inline-block;
+}
+
+.exad-tab-horizontal-full-width .exad-advance-tab-nav {
+  display: flex;
+}
+
+.exad-tab-align-left .exad-advance-tab-nav li {
+  text-align: left;
+}
+.exad-tab-align-center .exad-advance-tab-nav li {
+  text-align: center;
+}
+.exad-tab-align-right .exad-advance-tab-nav li {
+  text-align: right;
+}
+
+.exad-tab-align-left .exad-advance-tab-nav {
+  text-align: left;
+}
+.exad-tab-align-center .exad-advance-tab-nav {
+  text-align: center;
+}
+.exad-tab-align-right .exad-advance-tab-nav {
+  text-align: right;
+}
+
+.exad-tab-horizontal-full-width .exad-advance-tab-nav li {
+  flex: 1;
+}
+
+.exad-tab-vertical{
+  display: flex;
+}
+
+.exad-tab-vertical .exad-advance-tab-nav {
+  width: 30%;
+}
+
+.exad-tab-vertical .exad-advance-tab-content {
+  width: 70%;
+}
+.exad-advance-tab .exad-advance-tab-content.active {
+  display: block;
+}
+.exad-advance-tab .exad-advance-tab-content {
+  display: none;
+}
 /* Exclusive Tabs End */
