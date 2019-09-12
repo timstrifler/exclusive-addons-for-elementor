@@ -22,7 +22,7 @@
             endif;
 
             echo '<div class="exad-post-grid-body">';
-                if( 'yes' == $settings['exad_post_grid_show_category'] && 'postion-top-right' != $cat_position_over_image ) :
+                if('yes' == $settings['exad_post_grid_show_category'] && ('yes' == $settings['exad_post_grid_category_default_position'] || '-bottom-left' == $cat_position_over_image )) :
                     echo '<ul class="exad-post-grid-category cat-pos'.esc_attr($cat_position_over_image).'">';
                         Elementor\Exad_Helper::exad_get_categories_for_post();
                     echo '</ul>';
