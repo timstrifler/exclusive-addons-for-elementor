@@ -16,8 +16,6 @@
   text-align: right;
 }
 .exad-counter-wrapper .exad-counter-item .exad-counter-icon {
-  font-size: 24px;
-  color: #000000;
   line-height: 0;
   display: inline-block;
 }
@@ -25,7 +23,6 @@
   line-height: 1;
 }
 .exad-counter-wrapper .exad-counter-item .exad-counter-content h4{
-  font-size: 22px;
   margin: 0;
 }
 /* Counter Style End */

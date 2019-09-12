@@ -143,17 +143,27 @@ class Exad_Counter extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_counter_container',
 			[
-				'label' => esc_html__( 'Container Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_counter_background',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-counter-item',
 			]
 		);
 
 		$this->add_control(
 			'exad_counter_alignment',
 			[
-				'label' => esc_html__( 'Counter Alignment', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
-				'label_block' => true,
+				'separator' => 'after',
 				'options' => [
 					'exad-counter-left' => [
 						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
@@ -189,7 +199,36 @@ class Exad_Counter extends Widget_Base {
 					'{{WRAPPER}} .exad-counter-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
-        );
+		);
+
+		$this->add_control(
+			'exad_counter_container_margin',
+			[
+				'label'  => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'separator' => 'after',
+				'size_units' => [ 'px', 'em' ],
+                'default' => [
+					'top' => 0,
+					'right' => 0,
+					'bottom' => 0,
+					'left' => 0,
+					'isLinked' => true,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-counter-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_counter_container_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-counter-item',
+			]
+		);
         
         $this->add_control(
 			'exad_counter_radius',
@@ -211,11 +250,10 @@ class Exad_Counter extends Widget_Base {
         );
 
 		$this->add_group_control(
-			Group_Control_Background::get_type(),
+			Group_Control_Box_Shadow::get_type(),
 			[
-				'name' => 'exad_counter_background',
-				'label' => __( 'Background', 'exclusive-addons-elementor' ),
-				'types' => [ 'classic', 'gradient' ],
+				'name' => 'exad_counter_container_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-counter-item',
 			]
 		);
@@ -228,7 +266,7 @@ class Exad_Counter extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_counter_icon_style',
 			[
-				'label' => esc_html__( 'Icon Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -236,7 +274,7 @@ class Exad_Counter extends Widget_Base {
 		$this->add_control(
 			'exad_counter_icon_size',
 			[
-				'label' => esc_html__( 'Icon Size', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Size', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
@@ -259,11 +297,87 @@ class Exad_Counter extends Widget_Base {
 		$this->add_control(
 			'exad_counter_icon_color',
 			[
-				'label' => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-counter-item .exad-counter-icon' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_counter_icon_background',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-counter-item .exad-counter-icon',
+			]
+		);
+
+		$this->add_control(
+			'exad_counter_icon_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'separator' => 'before',
+				'default' => [
+					'top' => '10',
+					'right' => '10',
+					'bottom' => '10',
+					'left' => '10',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-counter-item .exad-counter-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_counter_icon_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'separator' => 'after',
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-counter-item .exad-counter-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_counter_icon_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-counter-item .exad-counter-icon',
+			]
+		);
+
+		$this->add_control(
+			'exad_counter_icon_border_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '50',
+					'right' => '50',
+					'bottom' => '50',
+					'left' => '50',
+					'unit' => '%',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-counter-item .exad-counter-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -276,7 +390,7 @@ class Exad_Counter extends Widget_Base {
 		$this->start_controls_section(
 			'exad_counter_number_style',
 			[
-				'label'                 => __( 'Number Style', 'exclusive-addons-elementor' ),
+				'label'                 => __( 'Number', 'exclusive-addons-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -301,6 +415,7 @@ class Exad_Counter extends Widget_Base {
 				'selector'              => '{{WRAPPER}} .exad-counter-item .exad-counter-data ',
 			]
 		);
+		
 
 		$this->add_control(
 			'exad_counter_number_margin',
@@ -329,7 +444,7 @@ class Exad_Counter extends Widget_Base {
 		$this->start_controls_section(
 			'exad_counter_suffix_style',
 			[
-				'label'  => __( 'Suffix Style', 'exclusive-addons-elementor' ),
+				'label'  => __( 'Suffix', 'exclusive-addons-elementor' ),
 				'tab'    => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -363,7 +478,7 @@ class Exad_Counter extends Widget_Base {
 		$this->start_controls_section(
 			'exad_counter_title_style',
 			[
-				'label'                 => __( 'Counter Title', 'exclusive-addons-elementor' ),
+				'label'                 => __( 'Title', 'exclusive-addons-elementor' ),
 				'tab'                   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -407,19 +522,19 @@ class Exad_Counter extends Widget_Base {
 
 	protected function render() {
         $settings = $this->get_settings_for_display();
-				$counter_image = $this->get_settings_for_display( 'exad_counter_image' );
-				$counter_layout = $this->get_settings_for_display( 'exad_counter_layout' );
-				$counter_image_url = Group_Control_Image_Size::get_attachment_image_src( $counter_image['id'], 'thumbnail', $settings );
+		$counter_image = $this->get_settings_for_display( 'exad_counter_image' );
+		$counter_layout = $this->get_settings_for_display( 'exad_counter_layout' );
+		$counter_image_url = Group_Control_Image_Size::get_attachment_image_src( $counter_image['id'], 'thumbnail', $settings );
 
-				if ( empty( $counter_image_url ) ) {
-					$counter_image_url = $counter_image['url'];
-				}  else {
-					$counter_image_url = $counter_image_url;
-				} 
+		if ( empty( $counter_image_url ) ) {
+			$counter_image_url = $counter_image['url'];
+		}  else {
+			$counter_image_url = $counter_image_url;
+		} 
 
     ?>
     <div id="exad-counter-<?php echo esc_attr($this->get_id()); ?>" class="exad-counter-wrapper">
-        <div class="exad-counter-item <?php echo esc_attr( $settings['exad_counter_alignment'] ); ?> ">
+        <div class="exad-counter-item <?php echo esc_attr( $settings['exad_counter_alignment'] ); ?>">
 			<?php if( 'img' == $settings['exad_counter_img_or_icon'] ) : ?>
 				<span class="exad-counter-icon">
 					<img src="<?php echo esc_url( $counter_image_url ); ?>">
@@ -446,10 +561,7 @@ class Exad_Counter extends Widget_Base {
 					<h4><?php echo esc_html( $settings['exad_counter_title'] ); ?></h4>
 				</div>
 				<div class="exad-counter-data">
-						<span class="exad-counter"  data-counter-speed="<?php echo esc_attr( $settings['exad_counter_speed'] ); ?>">
-								<?php echo esc_html( $settings['exad_counter_number'] ); ?>
-						</span>
-						<span class="exad-counter-suffix"><?php echo esc_html( $settings['exad_counter_suffix'] ); ?></span>
+					<span class="exad-counter"  data-counter-speed="<?php echo esc_attr( $settings['exad_counter_speed'] ); ?>"><?php echo esc_html( $settings['exad_counter_number'] ); ?></span><span class="exad-counter-suffix"><?php echo esc_html( $settings['exad_counter_suffix'] ); ?></span>
 				</div>
 			<?php endif; ?>
         </div>
@@ -460,7 +572,7 @@ class Exad_Counter extends Widget_Base {
 	protected function _content_template() {
 	?>
     <div id="exad-counter" class="exad-counter-wrapper">
-			<div class="exad-counter-item {{ settings.exad_counter_alignment }} ">
+			<div class="exad-counter-item {{ settings.exad_counter_alignment }}">
 				<# if( 'img' == settings.exad_counter_img_or_icon ) { #>
 					<span class="exad-counter-icon">
 						<img src="{{ settings.exad_counter_image.url }}">
@@ -487,10 +599,7 @@ class Exad_Counter extends Widget_Base {
 						<h4>{{{ settings.exad_counter_title }}}</h4>
 					</div>
 					<div class="exad-counter-data">
-						<span class="exad-counter"  data-counter-speed="{{ settings.exad_counter_speed }}">
-							{{{ settings.exad_counter_number }}}
-						</span>
-						<span class="exad-counter-suffix">{{{ settings.exad_counter_suffix }}}</span>
+						<span class="exad-counter"  data-counter-speed="{{ settings.exad_counter_speed }}">{{{ settings.exad_counter_number }}}</span><span class="exad-counter-suffix">{{{ settings.exad_counter_suffix }}}</span>
 					</div>
 				<# } #>
 			</div>
