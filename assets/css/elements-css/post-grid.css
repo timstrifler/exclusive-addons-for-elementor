@@ -257,42 +257,20 @@
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-title {
-  font-family: "Roboto", sans-serif;
-  color: #1B1D26;
-  font-size: 22px;
   display: block;
   text-decoration: none;
-  font-weight: 500;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-title:hover {
   color: #FF6F51;
 }
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-author {
-  margin: 15px 0 25px 0;
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
-}
-
 .exad-row-wrapper .exad-post-grid-body .exad-post-data li {
   color: #848484;  
 }
 
-.exad-row-wrapper .exad-post-grid-body .exad-post-grid-description {
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  line-height: 26px;
-  margin: 15px 0 15px 0;
-}
-
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-action {
-  border: 1px solid #e5e5e5;
-  background: #fff;
-  padding: 15px 30px;
   display: inline-block;
-  font-size: 15px;
-  font-family: "Roboto", sans-serif;
   text-decoration: none;
   transition: all .3s ease;
 }
@@ -311,8 +289,6 @@
 
 .exad-row-wrapper .exad-post-grid-body .exad-post-grid-read-time {
   display: inline-block;
-  font-size: 15px;
-  color: #848484;
 }
 
 .exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment {
