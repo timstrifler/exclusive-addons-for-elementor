@@ -817,9 +817,16 @@ class Exad_Post_Grid extends Widget_Base {
             [
                 'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::DIMENSIONS,
-                'size_units'    => [ 'px', 'em', '%' ],                 
+				'size_units'    => [ 'px', 'em', '%' ],
+				'default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '10',
+					'left' => '0',
+					'isLinked' => false
+				],                 
                 'selectors'     => [
-                        '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                        '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body ul.show-avatar-no' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -915,7 +922,14 @@ class Exad_Post_Grid extends Widget_Base {
             [
                 'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::DIMENSIONS,
-                'size_units'    => [ 'px', 'em', '%' ],                 
+				'size_units'    => [ 'px', 'em', '%' ],
+				'default' => [
+					'top' => '10',
+					'right' => '0',
+					'bottom' => '10',
+					'left' => '0',
+					'isLinked' => false
+				],               
                 'selectors'     => [
                         '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
