@@ -100,13 +100,283 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 					[
 						'name' => 'exad_exclusive_tab_content',
 						'label' => esc_html__( 'Tab Content', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::TEXTAREA,
+						'type' => Controls_Manager::WYSIWYG,
 						'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'exclusive-addons-elementor' ),
+					],
+					[
+						'name' => 'exad_exclusive_tab_detail_btn_switcher',
+						'label' => __( 'Details Button?', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::SWITCHER,
+						'default' => 'no',
+						'return_value' => 'yes',
+					],
+					[
+						'name' => 'exad_exclusive_tab_detail_btn',
+						'label' => __( 'Details Button Text', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::TEXT,
+						'default' => esc_html__( 'Read More', 'exclusive-addons-elementor' ),
+						'condition' => [
+							'exad_exclusive_tab_detail_btn_switcher' => 'yes',
+						],
+					],
+					[
+						'name' => 'exad_exclusive_tab_detail_btn_link',
+						'label' => __( 'Details Button Link', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::URL,
+						'default' => [
+							'url' => '#',
+							'is_external' => '',
+						],
+						'show_external' => true,
+						'condition' => [
+							'exad_exclusive_tab_detail_btn_switcher' => 'yes'
+						],
+					],
+					[
+						'name' => 'exad_exclusive_tab_image_show',
+						'label' => __( 'Image Show', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::SWITCHER,
+						'default' => 'no',
+						'return_value' => 'yes',
+					],
+					[
+						'name' => 'exad_exclusive_tab_image',
+						'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::MEDIA,
+						'condition' => [
+							'exad_exclusive_tab_image_show' => 'yes'
+						],
 					],
 				],
 				'title_field' => '{{exad_exclusive_tab_title}}',
 			]
 		);
+
+
+		// $repeater = new Repeater();
+
+        // $repeater->start_controls_tabs('exad_accordion_item_tabs');
+
+        // $repeater->start_controls_tab('exad_accordion_item_content_tab', ['label' => __('Content', 'exclusive-addons-elementor')]);
+
+        // $repeater->add_control(
+		// 	'exad_exclusive_accordion_default_active', [
+		// 		'label'        => esc_html__( 'Active as Default', 'exclusive-addons-elementor' ),
+		// 		'type'         => Controls_Manager::SWITCHER,
+		// 		'default'      => 'no',
+		// 		'return_value' => 'yes'
+		// 	]
+		// );
+
+        // $repeater->add_control(
+		// 	'exad_exclusive_accordion_icon_show', [
+		// 		'label'        => esc_html__( 'Enable Title Icon', 'exclusive-addons-elementor' ),
+		// 		'type'         => Controls_Manager::SWITCHER,
+		// 		'default'      => 'yes',
+		// 		'return_value' => 'yes'
+		// 	]
+		// );
+		
+        // $repeater->add_control(
+		// 	'exad_exclusive_accordion_title_icon_updated', [
+		// 		'label'            => esc_html__( 'Title Icon', 'exclusive-addons-elementor' ),
+		// 		'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
+		// 		'type'             => Controls_Manager::ICONS,
+		// 		'default' 		   => [
+		// 			'value'   => 'far fa-user-o',
+		// 			'library' => 'solid'
+		// 		],
+		// 		'condition' 	   => [
+		// 			'exad_exclusive_accordion_icon_show' => 'yes'
+		// 		]
+		// 	]
+		// );
+		
+        // $repeater->add_control(
+		// 	'exad_exclusive_accordion_title', [
+		// 		'label'            => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
+		// 		'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
+		// 		'type'             => Controls_Manager::TEXT,
+		// 		'default'          => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
+		// 		'dynamic'          => [ 'active' => true ]
+		// 	]
+		// );
+		
+        // $repeater->add_control(
+		// 	'exad_exclusive_accordion_content', [
+		// 		'label'            => esc_html__( 'Tab Content', 'exclusive-addons-elementor' ),
+		// 		'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
+		// 		'type'             => Controls_Manager::WYSIWYG,
+		// 		'default'          => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'exclusive-addons-elementor' )
+		// 	]
+		// );
+
+        // $repeater->add_control(
+        //     'exad_accordion_show_read_more_btn',
+        //     [
+        //         'label'        => esc_html__( 'Details Button?', 'exclusive-addons-elementor' ),
+        //         'type'         => Controls_Manager::SWITCHER,
+        //         'default'      => 'no',
+        //         'return_value' => 'yes',
+        //         'separator'	   => 'before'
+        //     ]
+        // );  
+
+        // $repeater->add_control(
+        //     'exad_accordion_read_more_btn_text',
+        //     [   
+        //         'label'         => esc_html__( 'Button Text', 'exclusive-addons-elementor' ),
+        //         'type'          => Controls_Manager::TEXT,
+        //         'placeholder'   => esc_html__('See Details', 'exclusive-addons-elementor'),
+        //         'default'       => esc_html__('See Details', 'exclusive-addons-elementor' ),
+        //         'condition'     => [
+        //             '.exad_accordion_show_read_more_btn' => 'yes'
+
+        //         ]
+        //     ]
+        // );
+
+        // $repeater->add_control(
+        //     'exad_accordion_read_more_btn_url',
+        //     [   
+        //         'label'         => esc_html__( 'Button Link', 'exclusive-addons-elementor' ),
+        //         'type'          => Controls_Manager::URL,
+        //         'default'       => [
+        //             'url'           => '#',
+        //             'is_external'   => '',
+        //         ],
+        //         'show_external'     => true,
+        //         'placeholder'       => esc_html__( 'http://your-link.com', 'exclusive-addons-elementor' ),
+        //         'label_block'       => false,  
+        //         'condition'     => [
+        //             '.exad_accordion_show_read_more_btn' => 'yes'
+
+        //         ]
+        //     ]
+        // );
+
+        // $repeater->end_controls_tab();
+
+   		// $repeater->start_controls_tab('exad_accordion_item_image_tab', ['label' => __('Image', 'exclusive-addons-elementor')]);
+
+        // $repeater->add_control(
+		// 	'exad_accordion_image', [
+		// 		'label'            => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
+		// 		'type'             => Controls_Manager::MEDIA,
+		// 	]
+		// );
+
+        // $repeater->end_controls_tab();
+
+   		// $repeater->start_controls_tab('exad_accordion_item_style_tab', ['label' => __('Style', 'exclusive-addons-elementor')]);
+
+        // $repeater->add_control(
+        //     'exad_accordion_each_item_container_style',
+        //     [
+        //         'label'         => esc_html__( 'Container', 'exclusive-addons-elementor' ),
+        //         'type'          => Controls_Manager::HEADING
+        //     ]
+        // );
+
+		// $repeater->add_control(
+		//     'exad_accordion_each_item_container_bg_color',
+		//     [
+		//         'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
+		//         'type'      => Controls_Manager::COLOR,
+		//         'selectors' => [
+		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item' => 'background-color: {{VALUE}};'
+		//         ]
+		//     ]
+		// );
+
+        // $repeater->add_control(
+        //     'exad_accordion_each_item_title_style',
+        //     [
+        //         'label'         => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+        //         'type'          => Controls_Manager::HEADING,
+        //         'separator'	    => 'before'
+        //     ]
+        // );
+
+		// $repeater->add_control(
+		//     'exad_accordion_each_item_title_color',
+		//     [
+		//         'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+		//         'type'      => Controls_Manager::COLOR,
+		//         'selectors' => [
+		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title h3' => 'color: {{VALUE}};'
+		//         ]
+		//     ]
+		// );
+
+		// $repeater->add_control(
+		//     'exad_accordion_each_item_title_bg_color',
+		//     [
+		//         'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
+		//         'type'      => Controls_Manager::COLOR,
+		//         'selectors' => [
+		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title' => 'background-color: {{VALUE}};'
+		//         ]
+		//     ]
+		// );
+
+		// $repeater->add_control(
+		//     'exad_accordion_each_item_title_hover_color',
+		//     [
+		//         'label'     => __( 'Hover Color', 'exclusive-addons-elementor' ),
+		//         'type'      => Controls_Manager::COLOR,
+		//         'selectors' => [
+		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title:hover h3' => 'color: {{VALUE}};'
+		//         ]
+		//     ]
+		// );
+
+		// $repeater->add_control(
+		//     'exad_accordion_each_item_title_hover_bg_color',
+		//     [
+		//         'label'     => __( 'Hover Background Color', 'exclusive-addons-elementor' ),
+		//         'type'      => Controls_Manager::COLOR,
+		//         'selectors' => [
+		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title:hover' => 'background-color: {{VALUE}};'
+		//         ]
+		//     ]
+		// );
+
+        // $repeater->add_control(
+        //     'exad_accordion_each_item_content_style',
+        //     [
+        //         'label'         => esc_html__( 'Content', 'exclusive-addons-elementor' ),
+        //         'type'          => Controls_Manager::HEADING,
+        //         'separator'	    => 'before'
+        //     ]
+        // );
+
+		// $repeater->add_group_control(
+		//     Group_Control_Border::get_type(),
+		//     [
+		//         'name'          => 'exad_accordion_each_item_container_border',
+		//         'label'         => __( 'Border', 'exclusive-addons-elementor' ),
+		//         'selector'      => '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item'
+		//     ]
+		// );
+
+        // $repeater->end_controls_tab();
+
+        // $repeater->end_controls_tabs();
+
+  		// $this->add_control(
+		// 	'exad_exclusive_accordion_tab',
+		// 	[
+		// 		'type' 		=> Controls_Manager::REPEATER,
+		// 		'fields' 	=> $repeater->get_controls(),
+		// 		'default'	=> [
+		// 			[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Title 1', 'exclusive-addons-elementor' ) ],
+		// 			[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Title 2', 'exclusive-addons-elementor' ) ],
+		// 			[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Title 3', 'exclusive-addons-elementor' ) ]
+		// 		],
+		// 		'title_field' => '{{exad_exclusive_accordion_title}}'
+		// 	]
+		// );
   		$this->end_controls_section();
 
   		/**
@@ -493,29 +763,42 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				],
 			]
 		);
-		
+
 	?>
 		<div <?php echo $this->get_render_attribute_string('exad_tab_wrapper'); ?> data-tabs>
 			
 			<ul class="exad-advance-tab-nav">
 			<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : ?>
 				<li class="<?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?>" data-tab>
-				<?php if( $settings['exad_exclusive_tabs_icon_show'] === 'yes' ) : 
-					if( $tab['exad_exclusive_tabs_icon_type'] === 'icon' ) : ?>
-						<i class="<?php echo esc_attr( $tab['exad_exclusive_tab_title_icon'] ); ?>"></i>
-					<?php elseif( $tab['exad_exclusive_tabs_icon_type'] === 'image' ) : ?>
-						<img src="<?php echo esc_attr( $tab['exad_exclusive_tab_title_image']['url'] ); ?>">
-					<?php endif; ?>
-				<?php endif; ?> 
-				<span class="exad-tab-title"><?php echo $tab['exad_exclusive_tab_title']; ?></span></li>
+					<?php if( $settings['exad_exclusive_tabs_icon_show'] === 'yes' ) : 
+						if( $tab['exad_exclusive_tabs_icon_type'] === 'icon' ) : ?>
+							<i class="<?php echo esc_attr( $tab['exad_exclusive_tab_title_icon'] ); ?>"></i>
+						<?php elseif( $tab['exad_exclusive_tabs_icon_type'] === 'image' ) : ?>
+							<img src="<?php echo esc_attr( $tab['exad_exclusive_tab_title_image']['url'] ); ?>">
+						<?php endif; ?>
+					<?php endif; ?> 
+					<span class="exad-tab-title"><?php echo $tab['exad_exclusive_tab_title']; ?></span>
+				</li>
 			<?php endforeach; ?>
 			</ul>
 			
 			
 			<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : $exad_find_default_tab[] = $tab['exad_exclusive_tab_show_as_default'];?>
 				<div class="exad-advance-tab-content <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?>">
-					<h3 class="exad-advance-tab-content-title"><?php echo $tab['exad_exclusive_tab_title']; ?></h3>
-					<p><?php echo esc_html( $tab['exad_exclusive_tab_content'] ); ?></p>
+					<div class="exad-advance-tab-content-element">
+						<h3 class="exad-advance-tab-content-title"><?php echo $tab['exad_exclusive_tab_title']; ?></h3>
+						<p><?php echo esc_html( $tab['exad_exclusive_tab_content'] ); ?></p>
+						<?php if ( $tab['exad_exclusive_tab_detail_btn_switcher'] === 'yes' ) { ?>
+							<a href="<?php echo esc_url( $tab['exad_exclusive_tab_detail_btn_link']['url'] ); ?>" class="exad-tab-btn">
+								<?php echo $tab['exad_exclusive_tab_detail_btn']; ?>
+							</a>
+						<?php } ?>
+					</div>
+					<?php if ( $tab['exad_exclusive_tab_image_show'] === 'yes' ) { ?>
+						<div class="exad-advance-tab-content-thumb">
+							<img src="<?php echo esc_attr( $tab['exad_exclusive_tab_image']['url'] ); ?>" alt="<?php echo esc_attr( $tab['exad_exclusive_tab_title'] ); ?>">
+						</div>
+					<?php } ?>
 				</div>
 			<?php endforeach; ?>
 			

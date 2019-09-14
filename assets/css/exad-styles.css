@@ -7458,7 +7458,13 @@ text-align: right;
   width: 70%;
 }
 .exad-advance-tab .exad-advance-tab-content.active {
-  display: block;
+  display: flex;
+}
+.exad-advance-tab .exad-advance-tab-content.active .exad-advance-tab-content-element {
+  width: 60%;
+}
+.exad-advance-tab .exad-advance-tab-content.active .exad-advance-tab-content-thumb {
+  width: 40%;
 }
 .exad-advance-tab .exad-advance-tab-content {
   display: none;
