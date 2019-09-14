@@ -4454,23 +4454,6 @@
 /* Modal Style End */
 /* post carousel style start */
 
-.exad-post-carousel.one {
-  position: relative;
-}
-
-
-.exad-post-carousel.one .exad-post-carousel-inner {
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.1);
-  margin: 0 15px 40px 15px;
-}
-
-
-.exad-post-carousel.one .exad-post-carousel-inner .exad-post-author .exad-post-author-action li a:hover {
-  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
-  color: #fff;
-  border: 1px solid transparent;
-}
-
 .exad-post-carousel .exad-post-carousel-prev,
 .exad-post-carousel .exad-post-carousel-next {
   position: absolute;
@@ -4508,23 +4491,6 @@
 
 .exad-post-carousel .exad-post-carousel-next {
   right: -70px;
-}
-
-.exad-post-carousel .exad-post-body .exad-post-action {
-  border: 1px solid #e5e5e5;
-  background: #fff;
-  padding: 15px 30px;
-  font-size: 15px;
-  color: #0a1724;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
-  transition: all .3s ease;
-}
-
-.exad-post-carousel .exad-post-carousel-inner .exad-post-body .exad-post-action:hover {
-  border: 1px solid transparent;
-  background: linear-gradient(90deg, #ff704e 0%, #fb5d86 100%);
-  color: #fff;
 }
 
 .exad-post-carousel .slick-dots {
