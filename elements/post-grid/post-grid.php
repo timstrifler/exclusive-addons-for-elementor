@@ -131,15 +131,6 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_grid_excerpt_length',
-            [
-				'label'   => __( 'Excerpt Words', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::NUMBER,
-				'default' => '20'
-            ]
-        );
-
-        $this->add_control(
 			'exad_post_grid_ignore_sticky',
 			[
 				'label'        => esc_html__( 'Ignore Sticky?', 'exclusive-addons-elementor' ),
@@ -150,12 +141,45 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
         $this->add_control(
-			'exad_post_grid_show_user_avatar',
+            'exad_post_grid_show_excerpt',
+            [
+                'label'        => esc_html__( 'Show Excerpt?', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );  
+
+        $this->add_control(
+            'exad_grid_excerpt_length',
+            [
+				'label'     => __( 'Excerpt Words', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => '25',
+				'condition' => [
+					'exad_post_grid_show_excerpt' => 'yes'
+				]
+            ]
+        );
+
+        $this->add_control(
+			'exad_post_grid_show_image',
 			[
-				'label'        => esc_html__( 'Show Avatar?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Show Image?', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
-				'default'      => 'no'
+				'default'      => 'yes'
+			]
+		);
+
+
+        $this->add_control(
+			'exad_post_grid_show_title',
+			[
+				'label'        => esc_html__( 'Show Title?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
 			]
 		);
 
@@ -177,12 +201,81 @@ class Exad_Post_Grid extends Widget_Base {
                 'placeholder'   => esc_html__('Read More', 'exclusive-addons-elementor'),
                 'default'       => esc_html__('Read More', 'exclusive-addons-elementor' ),
                 'condition'     => [
-                    '.exad_post_grid_show_read_more_btn'          => 'yes'
+                    '.exad_post_grid_show_read_more_btn' => 'yes'
 
                 ]
             ]
         );
 
+
+		$this->end_controls_section();
+
+        $this->start_controls_section(
+            'exad_section_post_grid_meta_options',
+            [
+                'label' => __( 'Post Meta', 'exclusive-addons-elementor' )
+            ]
+        );
+
+        $this->add_control(
+			'exad_post_grid_show_category',
+			[
+				'label'        => esc_html__( 'Show Category?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
+        $this->add_control(
+			'exad_post_grid_show_user_avatar',
+			[
+				'label'        => esc_html__( 'Show Avatar?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'no'
+			]
+		);
+
+        $this->add_control(
+			'exad_post_grid_show_user_name',
+			[
+				'label'        => esc_html__( 'Show Author Name?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
+        $this->add_control(
+			'exad_post_grid_show_date',
+			[
+				'label'        => esc_html__( 'Show Date?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
+        $this->add_control(
+			'exad_post_grid_show_read_time',
+			[
+				'label'        => esc_html__( 'Show Reading Time?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
+        $this->add_control(
+			'exad_post_grid_show_comment',
+			[
+				'label'        => esc_html__( 'Show Comment?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
 
 		$this->end_controls_section();
 		
@@ -193,13 +286,12 @@ class Exad_Post_Grid extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE
             ]
 		);
-		
+
 		$this->add_control(
 			'exad_grid_post_bg_color',
 			[
 				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#f5f7fa',
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'background: {{VALUE}};'
 				]
@@ -232,7 +324,7 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_responsive_control(
             'exad_post_grid_container_margin',
             [
-                'label'         => esc_html__( 'margin', 'exclusive-addons-elementor' ),
+                'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'default'       => [
                     'bottom'    => 20
@@ -250,8 +342,11 @@ class Exad_Post_Grid extends Widget_Base {
 		$this->start_controls_section(
             'exad_section_post_grid_image_style',
             [
-				'label' => __( 'Image', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'label'     => __( 'Image', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_post_grid_show_image' => 'yes'
+				]
             ]
         );
 
@@ -282,7 +377,7 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
             'exad_post_grid_image_align',
             [
-                'label'         => '<i class="fa fa-arrows"></i> ' . esc_html__( 'Image Position', 'exclusive-addons-elementor' ),
+                'label'         => esc_html__( 'Image Position', 'exclusive-addons-elementor' ),
                 'type'          => \Elementor\Controls_Manager::CHOOSE,
                 'options'       => [
                     'left'      => [
@@ -315,6 +410,31 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
 		$this->add_control(
+			'exad_post_grid_content_bg_color',
+			[
+				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#f5f7fa',
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body' => 'background-color: {{VALUE}};'
+				]
+
+			]
+		);
+
+        $this->add_responsive_control(
+            'exad_post_grid_content_margin',
+            [
+                'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::DIMENSIONS,
+                'size_units'    => [ 'px', 'em', '%' ],
+                'selectors'     => [
+                        '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+		$this->add_control(
 			'exad_post_grid_content_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
@@ -331,6 +451,15 @@ class Exad_Post_Grid extends Widget_Base {
 				]
 			]
 		);
+
+        $this->add_group_control(
+        	Group_Control_Border::get_type(),
+            [
+                'name'      => 'exad_post_grid_content_border',
+                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                'selector'  => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body'
+            ]
+        );
 
 		$this->add_control(
 			'exad_post_grid_content_box_border_radius',
@@ -355,48 +484,28 @@ class Exad_Post_Grid extends Widget_Base {
 
 		$this->end_controls_section();
 
-
-        $this->start_controls_section(
-            'exad_section_post_grid_presets',
-            [
-				'label' => __( 'General Styles', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
-            ]
-        );
-
-        $this->add_control(
-			'exad_post_grid_preset',
-			[
-				'label'   => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => '-one',
-				'options' => [
-					'-one'   => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-					'-three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' )
-				]
-			]
-		);
-
-
-		$this->end_controls_section();
-
         $this->start_controls_section(
             'exad_post_grid_title',
             [
-				'label' => __( 'Title', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'label'     => __( 'Title', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_post_grid_show_title' => 'yes'
+				]
             ]
         );
 
-		$this->add_control(
-			'exad_post_grid_title_style',
-			[
-				'label'     => __( 'Title Style', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before'
-			]
-		);
-
+        $this->add_responsive_control(
+            'exad_post_grid_title_margin',
+            [
+                'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::DIMENSIONS,
+                'size_units'    => [ 'px', 'em', '%' ],                 
+                'selectors'     => [
+                        '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body h3' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
 
 		$this->start_controls_tabs( 'exad_post_grid_title_tabs' );
 
@@ -478,7 +587,10 @@ class Exad_Post_Grid extends Widget_Base {
             'exad_post_grid_excerpt_style',
             [
 				'label' => __( 'Excerpt', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_post_grid_show_excerpt' => 'yes'
+				]
             ]
         );
 
@@ -522,13 +634,29 @@ class Exad_Post_Grid extends Widget_Base {
 				]
 			]
 		);
+
+        $this->add_responsive_control(
+            'exad_post_grid_excerpt_margin',
+            [
+                'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::DIMENSIONS,
+                'size_units'    => [ 'px', 'em', '%' ],                 
+                'selectors'     => [
+                        '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
             'exad_post_grid_category_style',
             [
 				'label' => __( 'Category', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_post_grid_show_category' => 'yes'
+				]
             ]
         );
 		$this->add_control(
@@ -541,13 +669,47 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
         $this->add_control(
+			'exad_post_grid_category_default_position',
+			[
+				'label'        => esc_html__( 'Category Position Default?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
+        $this->add_control(
+			'exad_post_grid_category_position_over_image',
+			[
+				'label'   => esc_html__( 'Category Position Over Image', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => '-bottom-left',
+				'options' => [
+					'-bottom-left' 	=> esc_html__( 'Bottom Left Corner', 'exclusive-addons-elementor' ),
+					'-top-right'   	=> esc_html__( 'Top Right Corner', 'exclusive-addons-elementor' )
+				],
+                'condition'     => [
+                    '.exad_post_grid_category_default_position!' => 'yes'
+                ]
+			]
+		);
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name'          => 'exad_post_grid_category_typography',
+                'selector'      => '{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li a'
+            ]
+        );
+
+        $this->add_control(
 			'exad_grid_category_color',
 			[
 				'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-category li a' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li a' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -590,18 +752,55 @@ class Exad_Post_Grid extends Widget_Base {
 					'isLinked' => true
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li a'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li a'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
 
-        $this->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
+        $this->add_responsive_control(
+            'exad_post_grid_category_all_item_margin',
             [
-                'name'          => 'exad_post_grid_category_typography',
-                'selector'      => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li a'
+                'label'         => esc_html__( 'Margin(Each Item)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::DIMENSIONS,
+                'size_units'    => [ 'px', 'em', '%' ],                 
+                'selectors'     => [
+                        '{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
+
+        $this->add_responsive_control(
+            'exad_post_grid_category_each_item_margin',
+            [
+                'label'         => esc_html__( 'Margin(All Items)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::DIMENSIONS,
+                'size_units'    => [ 'px', 'em', '%' ],                 
+                'selectors'     => [
+                        '{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+        	Group_Control_Border::get_type(),
+            [
+                'name'      => 'exad_post_grid_category_border',
+                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                'selector'  => '{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li'
+            ]
+        );
+
+		$this->add_control(
+			'exad_post_grid_category_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px'],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -612,47 +811,193 @@ class Exad_Post_Grid extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
+
+        $this->add_responsive_control(
+            'exad_post_grid_author_date_margin',
+            [
+                'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::DIMENSIONS,
+                'size_units'    => [ 'px', 'em', '%' ],                 
+                'selectors'     => [
+                        '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
 		$this->add_control(
-			'exad_grid_author_style',
+			'exad_grid_author_date_style',
 			[
-				'label'     => __( 'Author Style', 'exclusive-addons-elementor' ),
+				'label'     => __( 'Meta', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
 		);
 
         $this->add_control(
-			'exad_grid_author_text_color',
+			'exad_post_grid_show_meta',
 			[
-				'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Show meta Text?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
+        $this->add_control(
+			'exad_grid_author_date_color',
+			[
+				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#848484',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-author-name' => 'color: {{VALUE}};'
-				]
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-data li span' => 'color: {{VALUE}};'
+				],
+                'condition'     => [
+                    '.exad_post_grid_show_meta' => 'yes'
+
+                ]
 			]
 		);
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'          => 'exad_grid_author_date_typography',
+                'selector'      => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-data li span',
+                'condition'     => [
+                    '.exad_post_grid_show_meta' => 'yes'
+
+                ]
+            ]
+        );
 
 		$this->add_control(
 			'exad_grid_date_style',
 			[
-				'label'     => __( 'Date Style', 'exclusive-addons-elementor' ),
+				'label'     => __( 'Meta Link', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
 		);
 
         $this->add_control(
-			'exad_grid_date_text_color',
+			'exad_grid_author_date_link_color',
 			[
-				'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#848484',
 				'selectors' => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-author-date' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-data li span a' => 'color: {{VALUE}};'
 				]
 			]
 		);
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'          => 'exad_grid_author_date_link_typography',
+                'selector'      => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-data li span a'
+            ]
+        );
+
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+            'exad_post_grid_reading_time_comment_style',
+            [
+				'label' => __( 'Reading Time & Comment', 'exclusive-addons-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_post_grid_reading_time_comment_margin',
+            [
+                'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::DIMENSIONS,
+                'size_units'    => [ 'px', 'em', '%' ],                 
+                'selectors'     => [
+                        '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body ul.exad-post-grid-time-comment' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+		$this->add_control(
+			'exad_post_grid_reading_time_style',
+			[
+				'label'     => __( 'Reading Time', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'exad_post_grid_show_read_time' => 'yes'
+				]
+			]
+		);
+
+        $this->add_control(
+			'exad_post_grid_reading_time_color',
+			[
+				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#90929C',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body ul.exad-post-grid-time-comment li.exad-post-grid-read-time' => 'color: {{VALUE}};'
+				],
+				'condition' => [
+					'exad_post_grid_show_read_time' => 'yes'
+				]
+			]
+		);
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'          => 'exad_post_grid_reading_time_typography',
+                'selector'      => '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body ul.exad-post-grid-time-comment li.exad-post-grid-read-time',
+				'condition' => [
+					'exad_post_grid_show_read_time' => 'yes'
+				]
+            ]
+        );
+
+		$this->add_control(
+			'exad_post_grid_comment_style',
+			[
+				'label'     => __( 'Comment', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+				'condition' => [
+					'exad_post_grid_show_comment' => 'yes'
+				]
+			]
+		);
+
+        $this->add_control(
+			'exad_post_grid_comment_color',
+			[
+				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#90929C',
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body ul.exad-post-grid-time-comment li a.exad-post-grid-comment' => 'color: {{VALUE}};'
+				],
+				'condition' => [
+					'exad_post_grid_show_comment' => 'yes'
+				]
+			]
+		);
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+				'name'      => 'exad_post_grid_comment_typography',
+				'selector'  => '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body ul.exad-post-grid-time-comment li a.exad-post-grid-comment',
+				'condition' => [
+					'exad_post_grid_show_comment' => 'yes'
+				]
+            ]
+        );
+        
 		$this->end_controls_section();
 		
         /**
@@ -742,6 +1087,18 @@ class Exad_Post_Grid extends Widget_Base {
                 ]
             );
 
+			$this->add_control(
+				'exad_post_grid_details_button_border_radius',
+				[
+					'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px'],
+					'selectors'  => [
+						'{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					]
+				]
+			);
+
             $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
@@ -778,6 +1135,18 @@ class Exad_Post_Grid extends Widget_Base {
                 ]
             );
 
+			$this->add_control(
+				'exad_post_grid_details_button_border_radius_hover',
+				[
+					'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+					'type'       => Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px'],
+					'selectors'  => [
+						'{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a:hover'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					]
+				]
+			);
+
             $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
@@ -794,12 +1163,22 @@ class Exad_Post_Grid extends Widget_Base {
         $this->end_controls_section();
 	}
 
+    public function render_image( $image_id, $settings ) {
+        $image_size = $settings['image_size_size'];
+        if ( 'custom' === $image_size ) {
+            $image_src = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image_size', $settings );
+        } else {
+            $image_src = wp_get_attachment_image_src( $image_id, $image_size );
+            $image_src = $image_src[0];
+        }
+
+        return sprintf( '<img src="%s" alt="%s" />', esc_url($image_src), esc_html( get_post_meta( $image_id, '_wp_attachment_image_alt', true) ) );
+    }
 
 	protected function render() {
-        $settings = $this->get_settings_for_display();
-
-        $settings['template_type'] = $this->get_name();
-        $settings['post_args'] = Exad_Helper::exad_get_post_arguments($settings, 'exad_post_grid');
+		$settings                  = $this->get_settings_for_display();		
+		$settings['template_type'] = $this->get_name();
+		$settings['post_args']     = Exad_Helper::exad_get_post_arguments($settings, 'exad_post_grid');
 		
 		$this->add_render_attribute(
 			'exad_post_grid_wrapper',
@@ -815,7 +1194,7 @@ class Exad_Post_Grid extends Widget_Base {
 			]
 		);
 
-        ?>
+    ?>
 
 		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
         	<?php Exad_Helper::exad_get_posts( $settings ); ?>

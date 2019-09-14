@@ -206,7 +206,7 @@ class Exad_Helper {
      * @param  string $content The content to be measured.
      * @return  integer Reading-time in seconds.
      */
-    function exad_reading_time( $content ) {
+    public static function exad_reading_time( $content ) {
         
         $word_count = str_word_count( strip_tags( $content ) );
         $readingtime = ceil($word_count / 200);
