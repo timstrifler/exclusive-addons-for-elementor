@@ -7402,10 +7402,20 @@ text-align: right;
 
 .exad-advance-tab-nav li {
   list-style: none;
+  line-height: 1;
 }
 
-.exad-tab-horizontal .exad-advance-tab-nav li{
-  display: inline-block;
+.exad-tab-horizontal .exad-advance-tab-nav{
+  display: flex;
+}
+.exad-tab-horizontal.exad-tab-align-left .exad-advance-tab-nav{
+  justify-content: flex-start;
+}
+.exad-tab-horizontal.exad-tab-align-center .exad-advance-tab-nav{
+  justify-content: center;
+}
+.exad-tab-horizontal.exad-tab-align-right .exad-advance-tab-nav{
+  justify-content: flex-end;
 }
 
 .exad-tab-horizontal-full-width .exad-advance-tab-nav {

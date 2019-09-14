@@ -179,23 +179,99 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->add_control(
 			'exad_exclusive_tabs_navigation_alignment',
 			[
-				'label' => __( 'Alignment', 'plugin-domain' ),
+				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'exad-tab-align-left' => [
-						'title' => __( 'Left', 'plugin-domain' ),
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-left',
 					],
 					'exad-tab-align-center' => [
-						'title' => __( 'Center', 'plugin-domain' ),
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-center',
 					],
 					'exad-tab-align-right' => [
-						'title' => __( 'Right', 'plugin-domain' ),
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-align-right',
 					],
 				],
 				'default' => 'exad-tab-align-center',
+			]
+		);
+
+		// list style
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_exclusive_tabs_navigation_list_background',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'separator' => 'before',
+				'selector' => '{{WRAPPER}} .exad-advance-tab-nav li',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_exclusive_tabs_navigation_list_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-advance-tab-nav li',
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_navigation_list_border_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				], 
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_navigation_list_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '10',
+					'right' => '10',
+					'bottom' => '10',
+					'left' => '10',
+				], 
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_navigation_list_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				], 
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
