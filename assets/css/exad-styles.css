@@ -8458,7 +8458,6 @@ ul.exad-pricing-table-features {
   display: inline-block;
   transition: all .3s ease;
   line-height: 1;
-  font-size: 14px;
 }
 
 .exad-team-member-social{
@@ -8502,20 +8501,17 @@ ul.exad-pricing-table-features {
 .exad-team-member-name{
   margin: 0 0 20px 0;
   line-height: 1;
-  font-size: 24px;
 }
 
 .exad-team-member-designation{
   margin: 0 0 20px 0;
   line-height: 1;
-  font-size: 15px;
   display: block;
 }
 
 .exad-team-member-about{
   margin: 0 0 20px 0;
   line-height: 1;
-  font-size: 14px;
 }
 
 /* Team member style eight end */

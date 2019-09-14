@@ -279,21 +279,6 @@ class Exad_Team_Member extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_team_member_content_image_position',
-			[
-				'label' => __( 'Image Position', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'separator' => 'after',
-				'options' => [
-					'exad-position-top' => __( 'Top', 'exclusive-addons-elementor' ),
-					'exad-position-left' => __( 'Left', 'exclusive-addons-elementor' ),
-					'exad-position-right' => __( 'Right', 'exclusive-addons-elementor' ),
-				],
-				'default' => 'exad-position-top'
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -332,15 +317,6 @@ class Exad_Team_Member extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'exad_team_members_box_shadow',
-				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-team-member',
-			]
-		);
-
 		$this->add_control(
 			'exad_team_members_padding',
 			[
@@ -359,6 +335,33 @@ class Exad_Team_Member extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_team_members_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_team_members_box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-team-member',
+			]
+		);
+
 		$this->end_controls_section();
 
 		/**
@@ -370,6 +373,21 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'label' => esc_html__( 'Thumbnail', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'exad_team_member_content_image_position',
+			[
+				'label' => __( 'Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'separator' => 'after',
+				'options' => [
+					'exad-position-top' => __( 'Top', 'exclusive-addons-elementor' ),
+					'exad-position-left' => __( 'Left', 'exclusive-addons-elementor' ),
+					'exad-position-right' => __( 'Right', 'exclusive-addons-elementor' ),
+				],
+				'default' => 'exad-position-top'
 			]
 		);
 
@@ -464,13 +482,19 @@ class Exad_Team_Member extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_section_team_members_thumbnail_box_margin_top',
+			'exad_section_team_members_thumbnail_box_margin',
 			[
-				'label' => __( 'Margin Top', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => 0,
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-thumb' => 'margin-top: {{VALUE}}px;',
+					'{{WRAPPER}} .exad-team-member-thumb' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
 					'exad_section_team_members_thumbnail_box' => 'yes'
