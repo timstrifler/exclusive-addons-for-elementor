@@ -469,33 +469,27 @@ class Exad_Team_Member extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
+		$this->add_control(
+			'exad_section_team_members_thumbnail_box_margin_top',
 			[
-				'name' => 'exad_section_team_members_thumbnail_box_shadow',
-				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-team-member-thumb',
+				'label' => __( 'Margin Top', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => '0',
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-thumb' => 'margin-top: {{VALUE}}px;',
+				],
 				'condition' => [
 					'exad_section_team_members_thumbnail_box' => 'yes'
 				],
 			]
 		);
 
-		$this->add_control(
-			'exad_section_team_members_thumbnail_box_margin',
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
 			[
-				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'default' => [
-					'top' => '0',
-					'right' => '0',
-					'bottom' => '0',
-					'left' => '0',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-thumb' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
+				'name' => 'exad_section_team_members_thumbnail_box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-team-member-thumb',
 				'condition' => [
 					'exad_section_team_members_thumbnail_box' => 'yes'
 				],
@@ -546,7 +540,7 @@ class Exad_Team_Member extends Widget_Base {
 		$this->add_control(
 			'exad_section_team_members_content_margin',
 			[
-				'label' => __( 'margin', 'exclusive-addons-elementor' ),
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
@@ -557,6 +551,24 @@ class Exad_Team_Member extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-member-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_team_member_content_border_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-team-member-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
