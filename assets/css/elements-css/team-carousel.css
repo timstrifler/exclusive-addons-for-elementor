@@ -1,173 +1,59 @@
 /* Style for Team Carousel */
+  .exad-team-carousel-left{
+    text-align: left;
+  }
+  .exad-team-carousel-left .exad-team-member-thumb{
+    margin-right: auto;
+  }
+  
+  .exad-team-carousel-center{
+    text-align: center;
+  }
+  
+  .exad-team-carousel-center .exad-team-member-thumb{
+    margin: 0 auto;
+  }
+  
+  .exad-team-carousel-right{
+    text-align: right;
+  }
+  
+  .exad-right .exad-team-member-thumb{
+    margin-left: auto;
+  }
 
-.exad-team-carousel-content {
-    color: #8a8d91;
-  }
-  
-  .exad-team-carousel-style-two {
-    margin: 0 -15px;
-  }
-  
-  .exad-team-carousel-style-two-title {
-    margin-bottom: 50px;
-    position: relative;
-  }
-  
-  .exad-team-carousel-style-two-title:before {
-    content: '';
-    position: absolute;
-    width: 70px;
-    height: 2px;
-    background: #132c47;
-    bottom: -25px;
-    left: 0;
-  }
-  
-  .exad-team-carousel-style-two-arrow {
-    margin-top: 75px;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .exad-team-carousel-style-two-arrow li {
-    display: inline-block;
-  }
-  
-  .exad-team-carousel-style-two-arrow-prev, .exad-team-carousel-style-two-arrow-next {
-    display: block;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    background: #fff;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 25px;
-    transition: .3s ease;
-    margin-right: 20px;
-  }
-  
-  .exad-team-carousel-style-two-arrow-prev i, .exad-team-carousel-style-two-arrow-next i {
-    transition: .3s ease;
-    color: #eaecf2;
-    line-height: 60px;
-  }
-  
-  .exad-team-carousel-style-two-arrow-prev:hover, .exad-team-carousel-style-two-arrow-next:hover {
-    color: #132c47;
-    box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
-  }
-  
-  .exad-team-carousel-style-two-arrow-prev:hover i, .exad-team-carousel-style-two-arrow-next:hover i {
-    color: #132c47;
-  }
-  
-  .exad-team-carousel-style-two-inner {
-    margin: 20px 15px 38px;
-    outline: 0;
-  }
-  
-  .exad-team-carousel-style-three {
-    margin: 0 -15px;
-  }
-  
-  .exad-team-carousel-style-three-title {
-    font-weight: bold;
-    margin-bottom: 50px;
-    position: relative;
-  }
-  
-  .exad-team-carousel-style-three-title::before {
-    content: '';
-    position: absolute;
-    width: 145px;
-    height: 4px;
-    background: #f35029;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    bottom: -25px;
-  }
-  
-  .exad-team-carousel-style-three-inner {
-    margin: 20px 15px 20px 15px;
-    outline: 0;
-  }
-  
-  /* Slick Dots style start */
-  
   .exad-team-carousel-wrapper .slick-dots {
-    position: static;
-    bottom: 0;
-    padding-top: 0;
-    padding-left: 0;
-    margin-bottom: 0;
-    text-align: center;
+    width: auto;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin-top: 40px;
   }
   
   .exad-team-carousel-wrapper .slick-dots li {
-    display: inline-block;
+    list-style: none;
+    float: left;
+    display: inline-table;
+    line-height: 1;
   }
   
   .exad-team-carousel-wrapper .slick-dots li button {
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
     outline: 0;
-    padding: 5px;
     cursor: pointer;
     border: none;
-    border-radius: 50%;
-    background-color: #8a8d91;
     -webkit-text-fill-color: transparent;
     transition: .3s ease;
+    padding: 0;
+    border-radius: 0;
   }
-  
-  .exad-team-carousel-wrapper .slick-dots li button:hover {
-    background: #f35029;
-  }
-  
-  .exad-team-carousel-wrapper .slick-dots li:not(:last-child) {
-    margin-right: 15px;
-  }
-  
-  .exad-team-carousel-wrapper .slick-dots li.slick-active button {
-    background: #f35029;
-  }
-  
-  /* Slick Dots style end */
-  .exad-team-carousel-style-five {
-    margin: 0 -15px;
-  }
-  
-  .exad-team-carousel-style-five-title {
-    font-weight: 600;
-  }
-  
-  .exad-team-carousel-style-five-subtitle {
-    position: relative;
-    margin-bottom: 30px;
-  }
-  
-  .exad-team-carousel-style-five-subtitle::before {
-    position: absolute;
-    content: '';
-    width: 75px;
-    height: 3px;
-    background: #132c47;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    bottom: -25px;
-  }
-  
-  .exad-team-carousel-style-five-inner {
-    margin: 0 15px;
-  }
-  
-  .exad-team-carousel-style-five .slick-track {
-    display: flex;
-    align-items: flex-end;
-  }
-  
+
+  .exad-team-carousel-wrapper .slick-dots li:not(:last-child) button {
+    margin-right: 10px;
+  }  
+
   .exad-team-carousel-prev, .exad-team-carousel-next {
     position: absolute;
     width: 60px;
@@ -199,320 +85,6 @@
   
   .exad-team-carousel-next {
     right: -70px;
-  }
-  
-  /* Content Hover Carousel */
-  
-  .exad-team-carousel-content-h .slick-track {
-    display: flex;
-    align-items: flex-end;
-  }
-  
-  .exad-team-carousel-prev, .exad-team-carousel-next {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    background: #b8bfc7;
-    color: #fff;
-    display: block;
-    border-radius: 50%;
-    z-index: 2;
-    cursor: pointer;
-    transition: .3s ease;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
-  }
-  
-  .exad-team-carousel-prev i, .exad-team-carousel-next i {
-    line-height: 60px;
-  }
-  
-  .exad-team-carousel-prev:hover, .exad-team-carousel-next:hover {
-    background: #132c47;
-  }
-  
-  .exad-team-carousel-prev {
-    left: -70px;
-  }
-  
-  .exad-team-carousel-next {
-    right: -70px;
-  }
-  
-  /* Team carousel Three Style */
-  
-  .exad-team-carousel-style-four {
-    text-align: center;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner {
-    margin: 0 20px;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-thumb {
-    margin-bottom: 30px;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-thumb img {
-    width: 100%;
-    border-radius: 50%;
-    box-shadow: 0px 16px 15px 0px rgba(19, 32, 58, 0.18);
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-name {
-    font-size: 22px;
-    font-family: "Roboto", sans-serif;
-    margin: 0 0 5px 0;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-designation {
-    font-size: 15px;
-    display: inline-block;
-    margin-bottom: 25px;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-social {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-social li {
-    display: inline-block;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-social li:not(:last-child) {
-    margin-right: 8px;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-social li a {
-    color: #fff;
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #272c44;
-    /* opacity: .4; */
-    -webkit-transition: .3s ease;
-    transition: .3s ease;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-social li a i {
-    line-height: 40px;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner .exad-team-member-style-four .exad-team-member-social li a:hover {
-    opacity: 1;
-  }
-  
-  .exad-team-carousel-style-four .exad-team-carousel-style-four-inner:focus {
-    outline: 0;
-  }
-  
-  /* Team Carousel six style */
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner {
-    position: relative;
-    margin: 0 15px;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-thumb img {
-    width: 100%;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content {
-    position: absolute;
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%) scale(0);
-            transform: translate(-50%, -50%) scale(0);
-    -webkit-transform-origin: center center;
-            transform-origin: center center;
-    text-align: center;
-    padding: 40px 30px 30px;
-    background: rgba(0, 0, 0, 0.65);
-    -webkit-transition: .3s ease;
-    transition: .3s ease;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-name, .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-designation {
-    color: #fff;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-designation, .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-about {
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-name {
-    font-size: 22px;
-    margin-bottom: 0;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-designation {
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-about {
-    color: #caced4;
-    margin-bottom: 30px;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-social {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-social li {
-    display: inline-block;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-social li:not(:last-child) {
-    margin-right: 8px;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-social li a {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background: rgba(19, 44, 71, 0.4);
-    color: #fff;
-    border-radius: 50%;
-    -webkit-transition: .3s ease;
-    transition: .3s ease;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-social li a i {
-    line-height: 40px;
-    font-size: 14px;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner .exad-team-member-content .exad-team-member-social li a:hover {
-    color: #132c47;
-    background: #fff;
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner:hover .exad-team-member-content {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-            transform: translate(-50%, -50%) scale(1);
-  }
-  
-  .exad-team-carousel-style-nine .exad-team-carousel-style-nine-inner:focus {
-    outline: 0;
-  }
-  
-  /* Team Carousel Seven Style */
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner {
-    margin: 40px 20px;
-    background: #fff;
-    box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-thumb {
-    overflow: hidden;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-thumb img {
-    width: 100%;
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner:hover {
-    box-shadow: 0px 18px 40px 0px rgba(51, 77, 128, 0.15);
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner:hover .exad-team-member-thumb img {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner:focus {
-    outline: 0;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content {
-    padding: 25px 20px;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-name, .exad-team-member-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-designation, .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-about {
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-name {
-    font-size: 22px;
-    margin-bottom: 0;
-    font-weight: 700;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-designation {
-    font-size: 15px;
-    margin-bottom: 10px;
-    display: inline-block;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-about {
-    margin-bottom: 25px;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-social {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-social li {
-    display: inline-block;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-social li a {
-    color: #8a8d91;
-    display: block;
-    -webkit-transition: .3s ease;
-    transition: .3s ease;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-social li a:hover {
-    color: #132c47;
-  }
-  
-  .exad-team-carousel-style-one .exad-team-carousel-style-one-inner .exad-team-member-content .exad-team-member-social li:not(:last-child) {
-    margin-right: 15px;
-  }
-  
-  .exad-team-carousel-style-six .exad-team-carousel-style-six-inner{
-    margin: 100px 15px 50px;
-  }
-  
-  .exad-team-carousel-style-six .exad-team-carousel-style-six-inner:focus{
-    outline: 0;
-  }
-  
-  .exad-team-carousel-style-seven .exad-team-carousel-style-seven-inner{
-    margin: 30px 15px;
-  }
-  
-  .exad-team-carousel-style-seven .exad-team-carousel-style-seven-inner:hover{
-    outline: 0;
-  }
-  
-  .exad-team-carousel-style-seven .exad-team-carousel-style-seven-inner:focus{
-    outline: 0;
-  }
-  
-  .exad-team-carousel-style-eight .exad-team-carousel-style-eight-inner{
-    margin: 40px 25px;
-  }
-  
-  .exad-team-carousel-style-eight .exad-team-carousel-style-eight-inner:focus{
-    outline: 0;
   }
   
   /* Team carousel Styles end */
