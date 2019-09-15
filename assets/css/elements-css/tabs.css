@@ -479,12 +479,33 @@
   display: flex;
 }
 .exad-advance-tab .exad-advance-tab-content.active .exad-advance-tab-content-element {
-  width: 60%;
+  /* width: 70%; */
+  width: 100%;
 }
+
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-left .exad-advance-tab-content-element,
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-right .exad-advance-tab-content-element {
+  width: 70%;
+}
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-left .exad-advance-tab-content-thumb,
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-right .exad-advance-tab-content-thumb {
+  width: 30%;
+}
+
 .exad-advance-tab .exad-advance-tab-content.active .exad-advance-tab-content-thumb {
-  width: 40%;
+  width: 30%;
+}
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-left .exad-advance-tab-content-element {
+  order: 2
+}
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-left .exad-advance-tab-content-thumb {
+  order: 1;
 }
 .exad-advance-tab .exad-advance-tab-content {
   display: none;
+}
+.exad-tab-btn{
+  text-decoration: none;
+  transition: all .3s ease;
 }
 /* Exclusive Tabs End */
