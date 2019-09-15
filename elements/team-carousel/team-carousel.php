@@ -358,48 +358,13 @@ class Exad_Team_Carousel extends Widget_Base {
 		* Team Members Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_section_team_carousel_styles_preset',
+			'exad_section_team_carousel_styles_container',
 			[
 				'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
-		// $this->add_control(
-		// 	'exad_team_carousel_preset',
-		// 	[
-		// 		'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::SELECT,
-		// 		'default' => '-style-one',
-		// 		'options' => [
-		// 			'-style-one' => esc_html__( 'Style 1 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-		// 			'-style-three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-		// 			'-style-four' => esc_html__( 'Style 4 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-five' => esc_html__( 'Style 5', 'exclusive-addons-elementor' ),
-		// 			'-style-six' => esc_html__( 'Style 6 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-seven' => esc_html__( 'Style 7 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-eight' => esc_html__( 'Style 8 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-nine' => esc_html__( 'Style 9 (Pro)', 'exclusive-addons-elementor' ),
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'exad_team_carousel_avatar_bg',
-		// 	[
-		// 		'label' => esc_html__( 'Curved SVG Color', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'default' => '#826EFF',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-team-member-style-two .exad-team-member-thumb svg.team-avatar-bg,
-		// 			{{WRAPPER}} .exad-team-member-style-six .exad-team-member-content svg path' => 'fill: {{VALUE}};',
-		// 		],
-		// 		'condition' => [
-		// 			'exad_team_carousel_preset' => ['-style-two', '-style-six'],
-		// 		],
-		// 	]
-		// );
-
+		
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -1484,14 +1449,11 @@ class Exad_Team_Carousel extends Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		
-		$team_preset = $settings['exad_team_carousel_preset']; 
 
 		$this->add_render_attribute( 
 			'exad-team-carousel', 
 			[ 
-				'class' => [ 'exad-team-carousel-wrapper', 'exad-team-carousel' . $team_preset ],
-				'data-team-preset' => $team_preset,
+				'class' => [ 'exad-team-carousel-wrapper' ],
 				'data-carousel-nav' => $settings['exad_team_carousel_nav'],
 				'data-slidestoshow' => $settings['exad_team_per_view'],
 				'data-slidestoscroll' => $settings['exad_team_slides_to_scroll'],
@@ -1598,8 +1560,7 @@ class Exad_Team_Carousel extends Widget_Base {
 			view.addRenderAttribute( 
 				'exad-team-carousel', 
 				{
-					'class' : [ 'exad-team-carousel-wrapper', 'exad-team-carousel' + settings.exad_team_carousel_preset ],
-					'data-team-preset' : settings.exad_team_carousel_preset,
+					'class' : [ 'exad-team-carousel-wrapper' ],
 					'data-carousel-nav' : settings.exad_team_carousel_nav,
 					'data-slidestoshow' : settings.exad_team_per_view,
 					'data-slidestoscroll' : settings.exad_team_slides_to_scroll,
