@@ -1088,7 +1088,6 @@ class Exad_Team_Member extends Widget_Base {
 					[
 						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'default' => '#917cff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
 						],
