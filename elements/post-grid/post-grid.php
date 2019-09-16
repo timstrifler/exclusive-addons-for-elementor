@@ -100,7 +100,10 @@ class Exad_Post_Grid extends Widget_Base {
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Exad_Helper::exad_get_all_categories()
+				'options'     => Exad_Helper::exad_get_all_categories(),
+				'condition'   => [
+					'exad_post_grid_type' => 'post'
+				]
             ]
         );
 
@@ -112,7 +115,10 @@ class Exad_Post_Grid extends Widget_Base {
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Exad_Helper::exad_get_all_tags()
+				'options'     => Exad_Helper::exad_get_all_tags(),
+				'condition'   => [
+					'exad_post_grid_type' => 'post'
+				]
             ]
         );
 
@@ -248,6 +254,31 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
         $this->add_control(
+			'exad_post_grid_show_user_name_tag',
+			[
+				'label'        => esc_html__( 'Show Author Name Tag?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes',
+                'condition'     => [
+                    '.exad_post_grid_show_user_name' => 'yes'
+                ]
+			]
+		);
+
+        $this->add_control(
+            'exad_post_grid_user_name_tag',
+            [   
+                'label'         => esc_html__( 'Author Name Tag', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::TEXT,
+                'default'       => esc_html__('By: ', 'exclusive-addons-elementor' ),
+                'condition'     => [
+                    '.exad_post_grid_show_user_name_tag' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
 			'exad_post_grid_show_date',
 			[
 				'label'        => esc_html__( 'Show Date?', 'exclusive-addons-elementor' ),
@@ -256,6 +287,31 @@ class Exad_Post_Grid extends Widget_Base {
 				'default'      => 'yes'
 			]
 		);
+
+        $this->add_control(
+			'exad_post_grid_show_date_tag',
+			[
+				'label'        => esc_html__( 'Show Date Tag?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes',
+                'condition'     => [
+                    '.exad_post_grid_show_date' => 'yes'
+                ]
+			]
+		);
+
+        $this->add_control(
+            'exad_post_grid_date_tag',
+            [   
+                'label'         => esc_html__( 'Date Tag', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::TEXT,
+                'default'       => esc_html__('Date: ', 'exclusive-addons-elementor' ),
+                'condition'     => [
+                    '.exad_post_grid_show_date_tag' => 'yes'
+                ]
+            ]
+        );
 
         $this->add_control(
 			'exad_post_grid_show_read_time',
@@ -764,7 +820,7 @@ class Exad_Post_Grid extends Widget_Base {
                 'type'          => Controls_Manager::DIMENSIONS,
                 'size_units'    => [ 'px', 'em', '%' ],                 
                 'selectors'     => [
-                        '{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                        '{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li:not(:last-child)' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -841,16 +897,6 @@ class Exad_Post_Grid extends Widget_Base {
 		);
 
         $this->add_control(
-			'exad_post_grid_show_meta',
-			[
-				'label'        => esc_html__( 'Show meta Text?', 'exclusive-addons-elementor' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'return_value' => 'yes',
-				'default'      => 'yes'
-			]
-		);
-
-        $this->add_control(
 			'exad_grid_author_date_color',
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
@@ -858,11 +904,7 @@ class Exad_Post_Grid extends Widget_Base {
 				'default'   => '#848484',
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-data li span' => 'color: {{VALUE}};'
-				],
-                'condition'     => [
-                    '.exad_post_grid_show_meta' => 'yes'
-
-                ]
+				]
 			]
 		);
 
@@ -870,11 +912,7 @@ class Exad_Post_Grid extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'          => 'exad_grid_author_date_typography',
-                'selector'      => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-data li span',
-                'condition'     => [
-                    '.exad_post_grid_show_meta' => 'yes'
-
-                ]
+                'selector'      => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-data li span'
             ]
         );
 
