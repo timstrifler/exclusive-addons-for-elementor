@@ -48,7 +48,7 @@
                             if('yes' == $settings['exad_post_grid_show_date']) :
                                 echo '<li class="exad-post-date">';
                                     echo '<span>';
-                                        echo ('yes' == $settings['exad_post_grid_show_date_tag']) ? __('Date: ', 'exclusive-addons-elementor' ) : '' ;
+                                        echo ('yes' == $settings['exad_post_grid_show_date_tag']) ? esc_html($settings['exad_post_grid_date_tag']) : '' ;
                                         echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date('jS M Y').'</a>
                                     </span>';                           
                                 echo '</li>'; 
