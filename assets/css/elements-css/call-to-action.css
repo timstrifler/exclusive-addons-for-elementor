@@ -1,0 +1,91 @@
+/* CTA style start */
+
+h1.exad-call-to-action-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+ul.exad-call-to-action-buttons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.exad-call-to-action-buttons li:not(:last-child) {
+    margin-right: 20px;
+}
+.exad-call-to-action-buttons li {
+    display: inline-block;
+}
+a.exad-call-to-action-primary-btn {
+    padding: 15px 50px;
+    background: #fb4b15;
+    color: #fff;
+    display: block;
+    border: 1px solid #fb4b15;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+a.exad-call-to-action-primary-btn:hover {
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+a.exad-call-to-action-secondary-btn {
+    padding: 15px 50px;
+    background: transparent;
+    color: #7a56ff;
+    display: block;
+    border: 1px solid #7a56ff;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    font-size: 16px;
+}
+a.exad-call-to-action-secondary-btn:hover {
+    background: #7a56ff;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+.exad-call-to-action.skin-vertical {
+    text-align: center;
+    display: flex;
+}
+.exad-call-to-action.skin-vertical p.exad-call-to-action-subtitle {
+    margin-bottom: 50px;
+    font-size: 16px;
+}
+.exad-call-to-action.skin-horizontal .exad-call-to-action-content {
+    display: -webkit-box;
+     display: flex; 
+    -webkit-box-align: center;
+    align-items: center;
+}
+.exad-call-to-action.skin-horizontal .exad-call-to-action-content .exad-call-to-action-header {
+    width: 70%;
+}
+.exad-call-to-action.skin-horizontal .exad-call-to-action-content .exad-call-to-action-footer {
+    -webkit-box-flex: 1;
+    flex: 1;
+    text-align: right;
+}
+.exad-call-to-action.fixed-width-left {
+    justify-content: flex-start;
+}
+.exad-call-to-action.fixed-width-right {
+    justify-content: flex-end;
+}
+.exad-call-to-action.fixed-width-center {
+    justify-content: center;
+}
+i.exad-call-to-action-icon {
+    font-size: 40px;
+    color: #fb4b15;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* CTA style end */
