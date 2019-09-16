@@ -102,7 +102,10 @@ class Exad_Post_Carousel extends Widget_Base {
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Exad_Helper::exad_get_all_categories()
+				'options'     => Exad_Helper::exad_get_all_categories(),
+				'condition'   => [
+					'exad_post_carousel_type' => 'post'
+				]
             ]
         );
 
