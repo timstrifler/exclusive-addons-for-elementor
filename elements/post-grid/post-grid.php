@@ -100,7 +100,10 @@ class Exad_Post_Grid extends Widget_Base {
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Exad_Helper::exad_get_all_categories()
+				'options'     => Exad_Helper::exad_get_all_categories(),
+				'condition'   => [
+					'exad_post_grid_type' => 'post'
+				]
             ]
         );
 
@@ -112,7 +115,10 @@ class Exad_Post_Grid extends Widget_Base {
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Exad_Helper::exad_get_all_tags()
+				'options'     => Exad_Helper::exad_get_all_tags(),
+				'condition'   => [
+					'exad_post_grid_type' => 'post'
+				]
             ]
         );
 
