@@ -1078,13 +1078,10 @@ class Exclusive_Accordion extends Widget_Base {
 
         $settings   = $this->get_settings_for_display();
         
-        $this->add_inline_editing_attributes( 'exad_accordion_heading', 'none' );
         $this->add_render_attribute( 'exad_accordion_heading', 'class', 'exad-accordion-heading' );
 
-        $this->add_inline_editing_attributes( 'exad_accordion_details', 'basic' );
         $this->add_render_attribute( 'exad_accordion_details', 'class', 'exad-accordion-text' );
 
-        $this->add_inline_editing_attributes( 'exad_accordion_button', 'none' );
         $this->add_render_attribute( 'exad_accordion_button', 'class', 'exad-accordion-button' );
     
         echo '<div class="exad-accordion-items">';
