@@ -816,7 +816,13 @@ class Exclusive_Accordion extends Widget_Base {
             [
                 'label'                 => __('Padding', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => ['px', '%'],
+				'size_units'            => ['px', '%'],
+				'default'               => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20'
+				],
                 'selectors'             => [
                     '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
