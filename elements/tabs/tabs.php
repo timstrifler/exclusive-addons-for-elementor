@@ -133,250 +133,15 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 						],
 					],
 					[
-						'name' => 'exad_exclusive_tab_image_show',
-						'label' => __( 'Image Show', 'exclusive-addons-elementor' ),
-						'type' => Controls_Manager::SWITCHER,
-						'default' => 'no',
-						'return_value' => 'yes',
-					],
-					[
 						'name' => 'exad_exclusive_tab_image',
 						'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::MEDIA,
-						'condition' => [
-							'exad_exclusive_tab_image_show' => 'yes'
-						],
 					],
 				],
 				'title_field' => '{{exad_exclusive_tab_title}}',
 			]
 		);
 
-
-		// $repeater = new Repeater();
-
-        // $repeater->start_controls_tabs('exad_accordion_item_tabs');
-
-        // $repeater->start_controls_tab('exad_accordion_item_content_tab', ['label' => __('Content', 'exclusive-addons-elementor')]);
-
-        // $repeater->add_control(
-		// 	'exad_exclusive_accordion_default_active', [
-		// 		'label'        => esc_html__( 'Active as Default', 'exclusive-addons-elementor' ),
-		// 		'type'         => Controls_Manager::SWITCHER,
-		// 		'default'      => 'no',
-		// 		'return_value' => 'yes'
-		// 	]
-		// );
-
-        // $repeater->add_control(
-		// 	'exad_exclusive_accordion_icon_show', [
-		// 		'label'        => esc_html__( 'Enable Title Icon', 'exclusive-addons-elementor' ),
-		// 		'type'         => Controls_Manager::SWITCHER,
-		// 		'default'      => 'yes',
-		// 		'return_value' => 'yes'
-		// 	]
-		// );
-		
-        // $repeater->add_control(
-		// 	'exad_exclusive_accordion_title_icon_updated', [
-		// 		'label'            => esc_html__( 'Title Icon', 'exclusive-addons-elementor' ),
-		// 		'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
-		// 		'type'             => Controls_Manager::ICONS,
-		// 		'default' 		   => [
-		// 			'value'   => 'far fa-user-o',
-		// 			'library' => 'solid'
-		// 		],
-		// 		'condition' 	   => [
-		// 			'exad_exclusive_accordion_icon_show' => 'yes'
-		// 		]
-		// 	]
-		// );
-		
-        // $repeater->add_control(
-		// 	'exad_exclusive_accordion_title', [
-		// 		'label'            => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
-		// 		'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
-		// 		'type'             => Controls_Manager::TEXT,
-		// 		'default'          => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
-		// 		'dynamic'          => [ 'active' => true ]
-		// 	]
-		// );
-		
-        // $repeater->add_control(
-		// 	'exad_exclusive_accordion_content', [
-		// 		'label'            => esc_html__( 'Tab Content', 'exclusive-addons-elementor' ),
-		// 		'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
-		// 		'type'             => Controls_Manager::WYSIWYG,
-		// 		'default'          => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur.', 'exclusive-addons-elementor' )
-		// 	]
-		// );
-
-        // $repeater->add_control(
-        //     'exad_accordion_show_read_more_btn',
-        //     [
-        //         'label'        => esc_html__( 'Details Button?', 'exclusive-addons-elementor' ),
-        //         'type'         => Controls_Manager::SWITCHER,
-        //         'default'      => 'no',
-        //         'return_value' => 'yes',
-        //         'separator'	   => 'before'
-        //     ]
-        // );  
-
-        // $repeater->add_control(
-        //     'exad_accordion_read_more_btn_text',
-        //     [   
-        //         'label'         => esc_html__( 'Button Text', 'exclusive-addons-elementor' ),
-        //         'type'          => Controls_Manager::TEXT,
-        //         'placeholder'   => esc_html__('See Details', 'exclusive-addons-elementor'),
-        //         'default'       => esc_html__('See Details', 'exclusive-addons-elementor' ),
-        //         'condition'     => [
-        //             '.exad_accordion_show_read_more_btn' => 'yes'
-
-        //         ]
-        //     ]
-        // );
-
-        // $repeater->add_control(
-        //     'exad_accordion_read_more_btn_url',
-        //     [   
-        //         'label'         => esc_html__( 'Button Link', 'exclusive-addons-elementor' ),
-        //         'type'          => Controls_Manager::URL,
-        //         'default'       => [
-        //             'url'           => '#',
-        //             'is_external'   => '',
-        //         ],
-        //         'show_external'     => true,
-        //         'placeholder'       => esc_html__( 'http://your-link.com', 'exclusive-addons-elementor' ),
-        //         'label_block'       => false,  
-        //         'condition'     => [
-        //             '.exad_accordion_show_read_more_btn' => 'yes'
-
-        //         ]
-        //     ]
-        // );
-
-        // $repeater->end_controls_tab();
-
-   		// $repeater->start_controls_tab('exad_accordion_item_image_tab', ['label' => __('Image', 'exclusive-addons-elementor')]);
-
-        // $repeater->add_control(
-		// 	'exad_accordion_image', [
-		// 		'label'            => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
-		// 		'type'             => Controls_Manager::MEDIA,
-		// 	]
-		// );
-
-        // $repeater->end_controls_tab();
-
-   		// $repeater->start_controls_tab('exad_accordion_item_style_tab', ['label' => __('Style', 'exclusive-addons-elementor')]);
-
-        // $repeater->add_control(
-        //     'exad_accordion_each_item_container_style',
-        //     [
-        //         'label'         => esc_html__( 'Container', 'exclusive-addons-elementor' ),
-        //         'type'          => Controls_Manager::HEADING
-        //     ]
-        // );
-
-		// $repeater->add_control(
-		//     'exad_accordion_each_item_container_bg_color',
-		//     [
-		//         'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
-		//         'type'      => Controls_Manager::COLOR,
-		//         'selectors' => [
-		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item' => 'background-color: {{VALUE}};'
-		//         ]
-		//     ]
-		// );
-
-        // $repeater->add_control(
-        //     'exad_accordion_each_item_title_style',
-        //     [
-        //         'label'         => esc_html__( 'Title', 'exclusive-addons-elementor' ),
-        //         'type'          => Controls_Manager::HEADING,
-        //         'separator'	    => 'before'
-        //     ]
-        // );
-
-		// $repeater->add_control(
-		//     'exad_accordion_each_item_title_color',
-		//     [
-		//         'label'     => __( 'Color', 'exclusive-addons-elementor' ),
-		//         'type'      => Controls_Manager::COLOR,
-		//         'selectors' => [
-		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title h3' => 'color: {{VALUE}};'
-		//         ]
-		//     ]
-		// );
-
-		// $repeater->add_control(
-		//     'exad_accordion_each_item_title_bg_color',
-		//     [
-		//         'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
-		//         'type'      => Controls_Manager::COLOR,
-		//         'selectors' => [
-		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title' => 'background-color: {{VALUE}};'
-		//         ]
-		//     ]
-		// );
-
-		// $repeater->add_control(
-		//     'exad_accordion_each_item_title_hover_color',
-		//     [
-		//         'label'     => __( 'Hover Color', 'exclusive-addons-elementor' ),
-		//         'type'      => Controls_Manager::COLOR,
-		//         'selectors' => [
-		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title:hover h3' => 'color: {{VALUE}};'
-		//         ]
-		//     ]
-		// );
-
-		// $repeater->add_control(
-		//     'exad_accordion_each_item_title_hover_bg_color',
-		//     [
-		//         'label'     => __( 'Hover Background Color', 'exclusive-addons-elementor' ),
-		//         'type'      => Controls_Manager::COLOR,
-		//         'selectors' => [
-		//             '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title:hover' => 'background-color: {{VALUE}};'
-		//         ]
-		//     ]
-		// );
-
-        // $repeater->add_control(
-        //     'exad_accordion_each_item_content_style',
-        //     [
-        //         'label'         => esc_html__( 'Content', 'exclusive-addons-elementor' ),
-        //         'type'          => Controls_Manager::HEADING,
-        //         'separator'	    => 'before'
-        //     ]
-        // );
-
-		// $repeater->add_group_control(
-		//     Group_Control_Border::get_type(),
-		//     [
-		//         'name'          => 'exad_accordion_each_item_container_border',
-		//         'label'         => __( 'Border', 'exclusive-addons-elementor' ),
-		//         'selector'      => '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item'
-		//     ]
-		// );
-
-        // $repeater->end_controls_tab();
-
-        // $repeater->end_controls_tabs();
-
-  		// $this->add_control(
-		// 	'exad_exclusive_accordion_tab',
-		// 	[
-		// 		'type' 		=> Controls_Manager::REPEATER,
-		// 		'fields' 	=> $repeater->get_controls(),
-		// 		'default'	=> [
-		// 			[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Title 1', 'exclusive-addons-elementor' ) ],
-		// 			[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Title 2', 'exclusive-addons-elementor' ) ],
-		// 			[ 'exad_exclusive_accordion_title' => esc_html__( 'Accordion Title 3', 'exclusive-addons-elementor' ) ]
-		// 		],
-		// 		'title_field' => '{{exad_exclusive_accordion_title}}'
-		// 	]
-		// );
   		$this->end_controls_section();
 
   		/**
@@ -391,22 +156,6 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
-		
-		// $this->add_control(
-		// 	'exad_exclusive_tabs_preset',
-		// 	[
-		// 		'label'       	=> esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-		// 		'type' 			=> Controls_Manager::SELECT,
-		// 		'default' 		=> 'two',
-		// 		'label_block' 	=> false,
-		// 		'options' 		=> [
-		// 			'two' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-		// 			'three' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-		// 			'four' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-		// 			'five' => esc_html__( 'Style 4', 'exclusive-addons-elementor' ),
-		// 		],
-		// 	]
-		// );
 
 		$this->add_control(
 			'exad_exclusive_tabs_icon_show',
@@ -415,6 +164,24 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'return_value' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'exad_tab_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -445,11 +212,29 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				],
 			]
 		);
+
+		$this->add_control(
+			'exad_tab_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 		  
   		$this->end_controls_section();
   		/**
 		 * -------------------------------------------
-		 * Tab Style Exclusive Tabs Heading Style
+		 * Tab Style Exclusive Tabs Navigation Style
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
@@ -470,6 +255,17 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 					'exad-tab-horizontal' => esc_html__( 'Horizontal', 'exclusive-addons-elementor' ),
 					'exad-tab-horizontal-full-width' => esc_html__( 'Horizontal Full Width', 'exclusive-addons-elementor' ),
 					'exad-tab-vertical' => esc_html__( 'Vertical', 'exclusive-addons-elementor' ),
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_navigation_bg',
+			[
+				'label'       	=> esc_html__( 'Navigation Container Background', 'exclusive-addons-elementor' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav' => 'background: {{VALUE}};',
 				],
 			]
 		);
@@ -606,7 +402,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 						'name' => 'exad_exclusive_tabs_navigation_list_active_background',
 						'label' => __( 'Background', 'exclusive-addons-elementor' ),
 						'types' => [ 'classic', 'gradient' ],
-						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover',
+						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover, {{WRAPPER}} .exad-tab-triangle-right.active::before, {{WRAPPER}} .exad-tab-triangle-bottom.active::before',
 					]
 				);
 
@@ -632,14 +428,197 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 
 			$this->end_controls_tab();
 		$this->end_controls_tabs();
-		
+
+		$this->add_control(
+			'exad_exclusive_tabs_list_trangle',
+			[
+				'label' => esc_html__( 'Enable Arrow', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'separator' => 'before',
+				'return_value' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_list_trangle_position',
+			[
+				'label' => esc_html__( 'Arrow Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options'       => [
+                    'exad-tab-triangle-right'      => [
+                        'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+                        'icon'  => 'fa fa-angle-right'
+                    ],
+                    'exad-tab-triangle-bottom'     => [
+                        'title' => esc_html__( 'Bottom', 'exclusive-addons-elementor' ),
+                        'icon'  => 'fa fa-angle-down'
+                    ]
+                ],
+				'default' => 'yes',
+				'return_value' => 'yes',
+				'condition' => [
+					'exad_exclusive_tabs_list_trangle' => 'yes',
+				]
+			]
+		);
+
   		$this->end_controls_section();
 
   		/**
 		 * -------------------------------------------
+		 * Tab Style Exclusive Tabs Icon Style Style
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'exad_section_exclusive_tabs_tab_icon_style_settings',
+			[
+				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_icon_box_show',
+			[
+				'label' => esc_html__( 'Icon Box', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'no',
+				'return_value' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_icon_box_height',
+			[
+				'label' => esc_html__( 'Icon Box Height', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => '100',
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav li' => 'height: {{VALUE}}px;',
+				],
+				'condition' => [
+					'exad_exclusive_tabs_icon_box_show' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_icon_box_width',
+			[
+				'label' => esc_html__( 'Icon Box Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => '100',
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav li' => 'width: {{VALUE}}px;',
+				],
+				'condition' => [
+					'exad_exclusive_tabs_icon_box_show' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_icon_box_line_height',
+			[
+				'label' => esc_html__( 'Icon Line Height', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::NUMBER,
+				'default' => '50',
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'line-height: {{VALUE}}px;',
+				],
+				'condition' => [
+					'exad_exclusive_tabs_icon_box_show' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exclusive_tabs_navigation_icon_size',
+			[
+				'label' => __( 'Icon Size', 'plugin-domain' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 24,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_icon_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				], 
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_exclusive_tabs_icon_style_tabs' );
+			// Normal State Tab
+			$this->start_controls_tab( 'exad_exclusive_tabs_icon_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exclusive_tabs_navigation_icon_normal_color',
+					[
+						'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#0a1724',
+						'selectors' => [
+							'{{WRAPPER}} .exad-advance-tab-nav li i' => 'color: {{VALUE}};',
+						],
+					]
+				);
+				
+			$this->end_controls_tab();
+			
+			// Active State Tab
+
+			$this->start_controls_tab( 'exad_exclusive_tabs_icon_active', [ 'label' => esc_html__( 'Active', 'exclusive-addons-elementor' ) ] );
+				
+				$this->add_control(
+					'exclusive_tabs_navigation_icon_active_color',
+					[
+						'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#0a1724',
+						'selectors' => [
+							'{{WRAPPER}} .exad-advance-tab-nav li.active i, {{WRAPPER}} .exad-advance-tab-nav li:hover i' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
+
+		/**
+		 * -------------------------------------------
 		 * Tab Style Exclusive Tabs Content Style
 		 * -------------------------------------------
 		 */
+
 		$this->start_controls_section(
 			'exad_section_exclusive_tabs_tab_content_style_settings',
 			[
@@ -648,76 +627,149 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_tab_content_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-content-element' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
 		// $this->add_control(
-		// 	'exclusive_tabs_content_title_color',
+		// 	'exad_tab_content_width',
 		// 	[
-		// 		'label' => esc_html__( 'Title Color', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'default' => '#0a1724',
+		// 		'label' => __( 'Width(%)', 'exclusive-addons-elementor' ),
+		// 		'type' => Controls_Manager::NUMBER,
 		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content .exad-advance-tab-content-title' => 'color: {{VALUE}};',
+		// 			'{{WRAPPER}} .exad-advance-tab-content' => 'width: {{VALUE}}%;',
+		// 		],
+		// 		'condition' => [
+		// 			'exad_exclusive_tabs_oriantation' => 'exad-tab-vertical'
 		// 		],
 		// 	]
 		// );
-		// $this->add_group_control(
-		// 	Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'exad_exclusive_tabs_content_title_typography',
-		// 		'label' => esc_html__( 'Title Typography', 'exclusive-addons-elementor' ),
-		// 		'selector' => '{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content-title',
-		// 	]
-		// );
-		// $this->add_control(
-		// 	'exclusive_tabs_content_bg_color',
-		// 	[
-		// 		'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'default' => '#f9f9f9',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content ' => 'background-color: {{VALUE}};',
-		// 		],
-		// 	]
-		// );
-		// $this->add_control(
-		// 	'exclusive_tabs_content_text_color',
-		// 	[
-		// 		'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'default' => '#333',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content ' => 'color: {{VALUE}};',
-		// 		],
-		// 	]
-		// );
-		// $this->add_group_control(
-		// 	Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name' => 'exad_exclusive_tabs_content_typography',
-		// 		'label' => esc_html__( 'Text Typography', 'exclusive-addons-elementor' ),
-		// 		'selector' => '{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content p',
-		// 	]
-		// );
-		// $this->add_control(
-		// 	'exad_exclusive_tabs_content_padding',
-		// 	[
-		// 		'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', 'em', '%' ],
-		// 		'default' => [
-		// 			'top' => 40,
-		// 			'right' => 40,
-		// 			'bottom' => 40,
-		// 			'left' => 40,
-		// 			'isLinked' => true,
-		// 		],
-		// 		'selectors' => [
-	 	// 			'{{WRAPPER}} .exad-advance-tab .exad-advance-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-	 	// 		],
-		// 	]
-		// );
+
+		$this->end_controls_section();
+
+		/**
+		 * -------------------------------------------
+		 * Tab Style Exclusive Tabs Title Style
+		 * -------------------------------------------
+		 */
+
+		$this->start_controls_section(
+			'exad_section_exclusive_tabs_tab_title_style_settings',
+			[
+				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'exclusive_tabs_content_title_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#0a1724',
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-content-title' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'exad_exclusive_tabs_content_title_typography',
+				'label' => esc_html__( 'Typography', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-advance-tab-content-title',
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_title_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+				], 
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-content-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		/**
+		 * -------------------------------------------
+		 * Tab Style Exclusive Tabs Description Style
+		 * -------------------------------------------
+		 */
+
+		$this->start_controls_section(
+			'exad_section_exclusive_tabs_tab_description_style_settings',
+			[
+				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'exclusive_tabs_content_description_color',
+			[
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => '#0a1724',
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-content-description' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'exad_tabs_content_description_typography',
+				'label' => esc_html__( 'Typography', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-advance-tab-content-description',
+			]
+		);
+
+		$this->add_control(
+			'exad_exclusive_tabs_description_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+				], 
+				'selectors' => [
+					'{{WRAPPER}} .exad-advance-tab-content-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 		
-	
-		  $this->end_controls_section();
+		$this->end_controls_section();
 		  
 		/**
 		 * -------------------------------------------
@@ -949,7 +1001,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 			
 			<ul class="exad-advance-tab-nav">
 			<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : ?>
-				<li class="<?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?>" data-tab>
+				<li class="<?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_exclusive_tabs_list_trangle_position'] ); ?>" data-tab>
 					<?php if( $settings['exad_exclusive_tabs_icon_show'] === 'yes' ) : 
 						if( $tab['exad_exclusive_tabs_icon_type'] === 'icon' ) : ?>
 							<i class="<?php echo esc_attr( $tab['exad_exclusive_tab_title_icon'] ); ?>"></i>
@@ -963,18 +1015,20 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 			</ul>
 			
 			
-			<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : $exad_find_default_tab[] = $tab['exad_exclusive_tab_show_as_default'];?>
-				<div class="exad-advance-tab-content <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_tab_image_align'] ); ?>">
+			<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : $exad_find_default_tab[] = $tab['exad_exclusive_tab_show_as_default'];
+				$has_image = !empty( $tab['exad_exclusive_tab_image']['url'] ) ? 'yes' : 'no';
+			?>
+				<div class="exad-advance-tab-content exad-tab-image-has-<?php echo esc_attr($has_image); ?> <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_tab_image_align'] ); ?>">
 					<div class="exad-advance-tab-content-element">
 						<h3 class="exad-advance-tab-content-title"><?php echo $tab['exad_exclusive_tab_title']; ?></h3>
-						<p><?php echo esc_html( $tab['exad_exclusive_tab_content'] ); ?></p>
+						<p class="exad-advance-tab-content-description"><?php echo esc_html( $tab['exad_exclusive_tab_content'] ); ?></p>
 						<?php if ( $tab['exad_exclusive_tab_detail_btn_switcher'] === 'yes' ) { ?>
 							<a href="<?php echo esc_url( $tab['exad_exclusive_tab_detail_btn_link']['url'] ); ?>" class="exad-tab-btn">
 								<?php echo $tab['exad_exclusive_tab_detail_btn']; ?>
 							</a>
 						<?php } ?>
 					</div>
-					<?php if ( $tab['exad_exclusive_tab_image_show'] === 'yes' ) { ?>
+					<?php if ( ! empty( $tab['exad_exclusive_tab_image']['url'] ) ) { ?>
 						<div class="exad-advance-tab-content-thumb">
                             <?php echo $this->render_image( $tab, $settings ); ?>
 						</div>
@@ -987,6 +1041,11 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 	}
 	
 	/*protected function _content_template() {
+		<?php if ( $tab['exad_exclusive_tab_image_show'] === 'yes' ) { ?>
+						<div class="exad-advance-tab-content-thumb">
+                            <?php echo $this->render_image( $tab, $settings ); ?>
+						</div>
+					<?php } ?>
 		<img src="<?php echo esc_attr( $tab['exad_exclusive_tab_image']['url'] ); ?>" alt="<?php echo esc_attr( $tab['exad_exclusive_tab_title'] ); ?>">
 		?>
 		<div id="exad-advance-tabs" class="exad-advance-tab {{ settings.exad_exclusive_tabs_preset }}" data-tabs>
