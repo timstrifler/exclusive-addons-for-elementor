@@ -421,6 +421,7 @@
 .exad-advance-tab-nav li {
   list-style: none;
   line-height: 1;
+  transition: all .3s ease;
 }
 
 .exad-tab-horizontal .exad-advance-tab-nav{
