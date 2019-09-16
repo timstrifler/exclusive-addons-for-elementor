@@ -122,6 +122,20 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
+		$this->end_controls_section();
+		
+
+		/*
+		* Infobox Styling Section
+		*/
+		$this->start_controls_section(
+			'exad_section_infobox_styles_preset',
+			[
+				'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE
+			]
+		);
+
 		$this->add_control(
 			'exad_infobox_alignment',
             [
@@ -142,32 +156,6 @@ class Exad_Infobox extends Widget_Base {
 					],
 				],
 				'default' => 'exad-infobox-align-center',
-			]
-		);
-
-		$this->end_controls_section();
-		
-
-		/*
-		* Infobox Styling Section
-		*/
-		$this->start_controls_section(
-			'exad_section_infobox_styles_preset',
-			[
-				'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE
-			]
-		);
-		$this->add_control(
-			'exad_infobox_preset',
-			[
-				'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'one',
-				'options' => [
-					'one' => esc_html__( 'Simple Style', 'exclusive-addons-elementor' ),
-					'four' => esc_html__( 'Side Icon Infobox', 'exclusive-addons-elementor' ),
-				],
 			]
 		);
 
@@ -323,9 +311,32 @@ class Exad_Infobox extends Widget_Base {
 		$this->start_controls_section(
             'section_infobox_icon',
             [
-                'label' => __('Icon Style', 'exclusive-addons-elementor'),
+                'label' => __('Icon/Image', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
+		);
+
+		$this->add_control(
+			'exad_infobox_icon_position',
+			[
+				'label' => __( 'Position', 'plugin-domain' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'exad-infobox-icon-position-left' => [
+						'title' => __( 'Left', 'plugin-domain' ),
+						'icon' => 'fa fa-angle-left',
+					],
+					'exad-infobox-icon-position-center' => [
+						'title' => __( 'Center', 'plugin-domain' ),
+						'icon' => 'fa fa-angle-up',
+					],
+					'exad-infobox-icon-position-right' => [
+						'title' => __( 'Right', 'plugin-domain' ),
+						'icon' => 'fa fa-angle-right',
+					],
+				],
+				'default' => 'exad-infobox-icon-position-center',
+			]
 		);
 
 		$this->add_control(
@@ -595,7 +606,7 @@ class Exad_Infobox extends Widget_Base {
 		$infobox_image_url = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
 
 		$this->add_render_attribute( 'exad_infobox_transition',[
-			'class' => ['exad-infobox-item', esc_attr($settings['exad_infobox_alignment']) ],
+			'class' => ['exad-infobox-item', esc_attr($settings['exad_infobox_alignment']), esc_attr($settings['exad_infobox_icon_position']) ],
 		]);
 		if( $settings['exad_infobox_transition_top'] === 'yes' ){
 			$this->add_render_attribute( 'exad_infobox_transition', 'class', 'simple-transition' );
@@ -613,7 +624,7 @@ class Exad_Infobox extends Widget_Base {
 
 		?>
 
-		<div id="exad-infobox-<?php echo esc_attr($this->get_id()); ?>" class="exad-infobox <?php echo esc_attr($settings['exad_infobox_preset']); ?>">
+		<div id="exad-infobox-<?php echo esc_attr($this->get_id()); ?>" class="exad-infobox">
 			  <div <?php echo $this->get_render_attribute_string( 'exad_infobox_transition' ); ?> >
 	            <div class="exad-infobox-icon">
 
@@ -641,7 +652,7 @@ class Exad_Infobox extends Widget_Base {
 	protected function _content_template() {
 		?>
 		<#
-		view.addRenderAttribute( 'exad_infobox_transition','class' , ['exad-infobox-item', settings.exad_infobox_alignment]);
+		view.addRenderAttribute( 'exad_infobox_transition','class' , [ 'exad-infobox-item', settings.exad_infobox_alignment, settings.exad_infobox_icon_position ]);
 		<!-- view.addRenderAttribute( 'exad_exclusive_button', 'class', [ 'exad-button-wrapper', settings.exclusive_button_effect ] ); -->
 
 		if( settings.exad_infobox_transition_top === 'yes' ){
