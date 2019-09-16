@@ -58,21 +58,23 @@ class Exclusive_Accordion extends Widget_Base {
 			]
 		);
 		
-        $repeater->add_control(
-			'exad_exclusive_accordion_title_icon_updated', [
-				'label'            => esc_html__( 'Title Icon', 'exclusive-addons-elementor' ),
-				'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
-				'type'             => Controls_Manager::ICONS,
-				'default' 		   => [
-					'value'   => 'far fa-user-o',
-					'library' => 'solid'
+		$repeater->add_control(
+			'exad_exclusive_accordion_title_icon_updated',
+			[
+				'label'       => __( 'Icon', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'label_block' => true,
+				'default'     => [
+					'value'   => 'far fa-user',
+					'library' => 'fa-regular'
 				],
+				'fa4compatibility' => 'exad_exclusive_accordion_title_icon',
 				'condition' 	   => [
 					'exad_exclusive_accordion_icon_show' => 'yes'
 				]
 			]
 		);
-		
+
         $repeater->add_control(
 			'exad_exclusive_accordion_title', [
 				'label'            => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
@@ -814,7 +816,13 @@ class Exclusive_Accordion extends Widget_Base {
             [
                 'label'                 => __('Padding', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => ['px', '%'],
+				'size_units'            => ['px', '%'],
+				'default'               => [
+					'top' => '20',
+					'right' => '20',
+					'bottom' => '20',
+					'left' => '20'
+				],
                 'selectors'             => [
                     '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
@@ -1100,21 +1108,29 @@ class Exclusive_Accordion extends Widget_Base {
                 ]);
 
                 $has_image = !empty( $accordion['exad_accordion_image']['url'] ) ? 'yes' : 'no';
+				$migration_allowed = Icons_Manager::is_migration_allowed();
 
                 echo '<div class="exad-accordion-single-item elementor-repeater-item-'. $accordion['_id'].'">';
                     echo '<div '.$this->get_render_attribute_string($accordion_item_setting_key).'>';
-                        if ( isset( $accordion['exad_exclusive_accordion_icon_show'] ) && $accordion['exad_exclusive_accordion_icon_show'] == 'yes' ) :
-                            $migrated = isset( $accordion['__fa4_migrated']['exad_exclusive_accordion_title_icon_updated'] );
-                            $is_new   = empty( $accordion['exad_exclusive_accordion_title_icon'] );
 
-                            if ( $is_new || $migrated ) :
-                                echo '<span class="exad-tab-title-icon">';
-                                    Icons_Manager::render_icon( $accordion['exad_exclusive_accordion_title_icon_updated'], [ 'aria-hidden' => 'true' ] );
-                                echo '</span>';
-                            else :
-                                echo '<span class="exad-tab-title-icon"><i class="'.esc_attr($accordion['exad_exclusive_accordion_title_icon']).'" aria-hidden="true"></i></span>';
-                            endif;
-                        endif; 
+						// add old default
+						if ( ! isset( $accordion['exad_exclusive_accordion_title_icon'] ) && ! $migration_allowed ) {
+							$accordion['exad_exclusive_accordion_title_icon'] = isset( $fallback_defaults[ $index ] ) ? $fallback_defaults[ $index ] : 'fa fa-check';
+						}
+
+						$migrated = isset( $accordion['__fa4_migrated']['exad_exclusive_accordion_title_icon_updated'] );
+						$is_new = ! isset( $accordion['exad_exclusive_accordion_title_icon'] ) && $migration_allowed;
+						if ( ! empty( $accordion['exad_exclusive_accordion_title_icon'] ) || ( ! empty( $accordion['exad_exclusive_accordion_title_icon_updated']['value'] ) && $is_new ) && $accordion['exad_exclusive_accordion_icon_show'] == 'yes' ) :
+							if ( $is_new || $migrated ) :
+								echo '<span class="exad-tab-title-icon">';
+									Icons_Manager::render_icon( $accordion['exad_exclusive_accordion_title_icon_updated'], [ 'aria-hidden' => 'true' ] );
+								echo '</span>';   
+							else :
+								echo '<span class="exad-tab-title-icon">';
+									echo '<i class="'.esc_attr( $accordion['exad_exclusive_accordion_title_icon'] ).'" aria-hidden="true"></i>';
+								echo '</span>';
+							endif;
+						endif; 
 
                         echo '<h3 '.$this->get_render_attribute_string( 'exad_accordion_heading' ).'>'.esc_html($accordion['exad_exclusive_accordion_title']).'</h3>';
 
@@ -1174,6 +1190,9 @@ class Exclusive_Accordion extends Widget_Base {
         echo '</div>';
     }
 
+	public function on_import( $element ) {
+		return Icons_Manager::on_import_migration( $element, 'exad_exclusive_accordion_title_icon', 'exad_exclusive_accordion_title_icon_updated', true );
+	}
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exclusive_Accordion() );
