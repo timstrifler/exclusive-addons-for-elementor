@@ -46,34 +46,34 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_columns',
             [
-                'label' => esc_html__('Number of Columns', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SELECT,
+                'label'   => esc_html__('Number of Columns', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
                 'default' => 'exad-col-3',
                 'options' => [
                     'exad-col-1' => esc_html__('Single Column', 'exclusive-addons-elementor'),
                     'exad-col-2' => esc_html__('Two Columns',   'exclusive-addons-elementor'),
                     'exad-col-3' => esc_html__('Three Columns', 'exclusive-addons-elementor'),
                     'exad-col-4' => esc_html__('Four Columns',  'exclusive-addons-elementor'),
-                    'exad-col-5' => esc_html__('Five Columns',  'exclusive-addons-elementor'),
-                ],
+                    'exad-col-5' => esc_html__('Five Columns',  'exclusive-addons-elementor')
+                ]
             ]
         );
 
         $this->add_control(
             'exad_fg_grid_hover_style',
             [
-                'label' => esc_html__('Hover Style', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SELECT,
+                'label'   => esc_html__('Hover Style', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
                 'default' => 'exad-zoom-in',
                 'options' => [
-                    'exad-zoom-in'         => esc_html__('Zoom In', 'exclusive-addons-elementor'),
-                    'exad-slide-left'     => esc_html__('Slide In Left',   'exclusive-addons-elementor'),
-                    'exad-slide-right'     => esc_html__('Slide In Right', 'exclusive-addons-elementor'),
-                    'exad-slide-top'     => esc_html__('Slide In Top', 'exclusive-addons-elementor'),
-                    'exad-slide-bottom' => esc_html__('Slide In Bottom', 'exclusive-addons-elementor'),
+                    'exad-zoom-in'      => esc_html__('Zoom In', 'exclusive-addons-elementor'),
+                    'exad-slide-left'   => esc_html__('Slide In Left',   'exclusive-addons-elementor'),
+                    'exad-slide-right'  => esc_html__('Slide In Right', 'exclusive-addons-elementor'),
+                    'exad-slide-top'    => esc_html__('Slide In Top', 'exclusive-addons-elementor'),
+                    'exad-slide-bottom' => esc_html__('Slide In Bottom', 'exclusive-addons-elementor')
                 ],
                 'condition' => [
-                    'exad_fg_preset' => 'one',
+                    'exad_fg_preset' => 'one'
                 ]
             ]
         );
@@ -81,18 +81,18 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_section_fg_zoom_icon',
             [
-                'label' => esc_html__('Zoom Icon', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::ICON,
-                'default' => 'fa fa-search-plus',
+                'label'   => esc_html__('Zoom Icon', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::ICON,
+                'default' => 'fa fa-search-plus'
             ]
         );
 
         $this->add_control(
             'exad_section_fg_link_icon',
             [
-                'label' => esc_html__('Link Icon', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::ICON,
-                'default' => 'fa fa-link',
+                'label'   => esc_html__('Link Icon', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::ICON,
+                'default' => 'fa fa-link'
             ]
         );
 
@@ -111,30 +111,30 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_all_label_text',
             [
-                'label'        => esc_html__('Gallery All Label', 'exclusive-addons-elementor'),
-                'type'        => Controls_Manager::TEXT,
-                'default'    => 'All',
+                'label'   => esc_html__('Gallery All Label', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::TEXT,
+                'default' => 'All'
             ]
         );
 
         $this->add_control(
             'exad_fg_controls',
             [
-                'type' => Controls_Manager::REPEATER,
+                'type'      => Controls_Manager::REPEATER,
                 'seperator' => 'before',
-                'default' => [
-                    ['exad_fg_control' => 'Item'],
+                'default'   => [
+                    ['exad_fg_control' => 'Item']
                 ],
                 'fields' => [
                     [
-                        'name' => 'exad_fg_control',
-                        'label' => esc_html__('List Item', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::TEXT,
+                        'name'        => 'exad_fg_control',
+                        'label'       => esc_html__('List Item', 'exclusive-addons-elementor'),
+                        'type'        => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'default' => esc_html__('Item', 'exclusive-addons-elementor')
-                    ],
+                        'default'     => esc_html__('Item', 'exclusive-addons-elementor')
+                    ]
                 ],
-                'title_field' => '{{exad_fg_control}}',
+                'title_field' => '{{exad_fg_control}}'
             ]
         );
 
@@ -161,62 +161,62 @@ class Exad_Filterable_Gallery extends Widget_Base
                     ['exad_fg_gallery_item_name' => 'Gallery Item Name'],
                     ['exad_fg_gallery_item_name' => 'Gallery Item Name'],
                     ['exad_fg_gallery_item_name' => 'Gallery Item Name'],
-                    ['exad_fg_gallery_item_name' => 'Gallery Item Name'],
+                    ['exad_fg_gallery_item_name' => 'Gallery Item Name']
                 ],
                 'fields' => [
                     [
-                        'name' => 'exad_fg_gallery_item_name',
-                        'label' => esc_html__('Item Name', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::TEXT,
+                        'name'        => 'exad_fg_gallery_item_name',
+                        'label'       => esc_html__('Item Name', 'exclusive-addons-elementor'),
+                        'type'        => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'default' => esc_html__('Gallery item name', 'exclusive-addons-elementor')
+                        'default'     => esc_html__('Gallery item name', 'exclusive-addons-elementor')
                     ],
                     [
-                        'name' => 'exad_fg_gallery_item_content',
-                        'label' => esc_html__('Item Content', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::TEXTAREA,
+                        'name'        => 'exad_fg_gallery_item_content',
+                        'label'       => esc_html__('Item Content', 'exclusive-addons-elementor'),
+                        'type'        => Controls_Manager::TEXTAREA,
                         'label_block' => true,
-                        'default' => esc_html__('Lorem ipsum dolor sit amet.', 'exclusive-addons-elementor'),
+                        'default'     => esc_html__('Lorem ipsum dolor sit amet.', 'exclusive-addons-elementor')
                     ],
                     [
-                        'name' => 'exad_fg_gallery_control_name',
-                        'label' => esc_html__('Control Name', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::TEXT,
+                        'name'        => 'exad_fg_gallery_control_name',
+                        'label'       => esc_html__('Control Name', 'exclusive-addons-elementor'),
+                        'type'        => Controls_Manager::TEXT,
                         'label_block' => true,
                         'description' => esc_html__('User the gallery control name form Control Settings. use the exact name that matches with its associate name.', 'exclusive-addons-elementor')
                     ],
                     [
-                        'name' => 'exad_fg_gallery_img',
-                        'label' => esc_html__('Image', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::MEDIA,
+                        'name'    => 'exad_fg_gallery_img',
+                        'label'   => esc_html__('Image', 'exclusive-addons-elementor'),
+                        'type'    => Controls_Manager::MEDIA,
                         'default' => [
-                            'url' => ESSENTIAL_ADDONS_EL_URL . 'assets/img/flexia-preview.jpg',
-                        ],
+                            'url' => Utils::get_placeholder_image_src()
+                        ]
                     ],
                     [
-                        'name' => 'exad_fg_gallery_link',
-                        'label' => __('Gallery Link?', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::SWITCHER,
-                        'default' => 'true',
-                        'label_on' => esc_html__('Yes', 'exclusive-addons-elementor'),
-                        'label_off' => esc_html__('No', 'exclusive-addons-elementor'),
-                        'return_value' => 'true',
+                        'name'         => 'exad_fg_gallery_link',
+                        'label'        => __('Gallery Link?', 'exclusive-addons-elementor'),
+                        'type'         => Controls_Manager::SWITCHER,
+                        'default'      => 'true',
+                        'label_on'     => esc_html__('Yes', 'exclusive-addons-elementor'),
+                        'label_off'    => esc_html__('No', 'exclusive-addons-elementor'),
+                        'return_value' => 'true'
                     ],
                     [
-                        'name' => 'exad_fg_gallery_img_link',
-                        'type' => Controls_Manager::URL,
+                        'name'        => 'exad_fg_gallery_img_link',
+                        'type'        => Controls_Manager::URL,
                         'label_block' => true,
-                        'default' => [
-                            'url' => '#',
-                            'is_external' => '',
+                        'default'     => [
+                            'url'         => '#',
+                            'is_external' => ''
                         ],
                         'show_external' => true,
-                        'condition' => [
+                        'condition'   => [
                             'exad_fg_gallery_link' => 'true'
                         ]
                     ]
                 ],
-                'title_field' => '{{exad_fg_gallery_item_name}}',
+                'title_field' => '{{exad_fg_gallery_item_name}}'
             ]
         );
 
@@ -235,25 +235,25 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_show_popup',
             [
-                'label' => __('Show Popup', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => 'true',
-                'label_on' => esc_html__('Yes', 'exclusive-addons-elementor'),
-                'label_off' => esc_html__('No', 'exclusive-addons-elementor'),
-                'return_value' => 'true',
+                'label'        => __('Show Popup', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'true',
+                'label_on'     => esc_html__('Yes', 'exclusive-addons-elementor'),
+                'label_off'    => esc_html__('No', 'exclusive-addons-elementor'),
+                'return_value' => 'true'
             ]
         );
 
         $this->add_control(
             'exad_fg_show_popup_gallery',
             [
-                'label' => __('Show Popup Gallery', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SWITCHER,
-                'default' => 'true',
-                'label_on' => esc_html__('Yes', 'exclusive-addons-elementor'),
-                'label_off' => esc_html__('No', 'exclusive-addons-elementor'),
+                'label'        => __('Show Popup Gallery', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'true',
+                'label_on'     => esc_html__('Yes', 'exclusive-addons-elementor'),
+                'label_off'    => esc_html__('No', 'exclusive-addons-elementor'),
                 'return_value' => 'true',
-                'condition' => [
+                'condition'    => [
                     'exad_fg_show_popup' => 'true'
                 ]
             ]
@@ -270,93 +270,93 @@ class Exad_Filterable_Gallery extends Widget_Base
             'exad_section_fg_style_settings',
             [
                 'label' => esc_html__('General Style', 'exclusive-addons-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
             'exad_fg_preset',
             [
-                'label' => esc_html__('Preset', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SELECT,
+                'label'   => esc_html__('Preset', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
                 'options' => [
-					'one'  => __( 'One', 'exclusive-addons-elementor' ),
-					'two'  => __( 'Two', 'exclusive-addons-elementor' ),
-					'three'  => __( 'Three', 'exclusive-addons-elementor' ),
+                    'one'   => __( 'One', 'exclusive-addons-elementor' ),
+                    'two'   => __( 'Two', 'exclusive-addons-elementor' ),
+                    'three' => __( 'Three', 'exclusive-addons-elementor' )
 				],
-                'default' => 'one',
+                'default' => 'one'
             ]
         );
 
         $this->add_control(
             'exad_fg_bg_color',
             [
-                'label' => esc_html__('Background Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
+                'label'   => esc_html__('Background Color', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'background-color: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'background-color: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_responsive_control(
             'exad_fg_container_padding',
             [
-                'label' => esc_html__('Padding', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
                 'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                    '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
 
         $this->add_responsive_control(
             'exad_fg_container_margin',
             [
-                'label' => esc_html__('Margin', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => esc_html__('Margin', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'exad_fg_border',
-                'label' => esc_html__('Border', 'exclusive-addons-elementor'),
-                'selector' => '{{WRAPPER}} .exad-filter-gallery-wrapper',
+                'name'     => 'exad_fg_border',
+                'label'    => esc_html__('Border', 'exclusive-addons-elementor'),
+                'selector' => '{{WRAPPER}} .exad-filter-gallery-wrapper'
             ]
         );
 
         $this->add_control(
             'exad_fg_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SLIDER,
+                'label'   => esc_html__('Border Radius', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SLIDER,
                 'default' => [
-                    'size' => 0,
+                    'size' => 0
                 ],
-                'range' => [
-                    'px' => [
-                        'max' => 500,
-                    ],
+                'range'   => [
+                    'px'  => [
+                        'max' => 500
+                    ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'border-radius: {{SIZE}}px;',
-                ],
+                    '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'border-radius: {{SIZE}}px;'
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'exad_fg_shadow',
-                'selector' => '{{WRAPPER}} .exad-filter-gallery-wrapper',
+                'name'     => 'exad_fg_shadow',
+                'selector' => '{{WRAPPER}} .exad-filter-gallery-wrapper'
             ]
         );
 
@@ -371,45 +371,33 @@ class Exad_Filterable_Gallery extends Widget_Base
             'exad_section_fg_control_style_settings',
             [
                 'label' => esc_html__('Control Style', 'exclusive-addons-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
         $this->add_responsive_control(
             'exad_fg_control_padding',
             [
-                'label' => esc_html__('Padding', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .exad-gallery-menu .filter-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-gallery-menu .filter-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
-
-        // $this->add_responsive_control(
-        //     'exad_fg_control_margin',
-        //     [
-        //         'label' => esc_html__('Margin', 'exclusive-addons-elementor'),
-        //         'type' => Controls_Manager::DIMENSIONS,
-        //         'size_units' => ['px', 'em', '%'],
-        //         'selectors' => [
-        //             '{{WRAPPER}} .exad-filter-gallery-control ul li a.control' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-        //         ],
-        //     ]
-        // );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'exad_fg_control_typography',
-                'selector' => '{{WRAPPER}} .exad-gallery-menu .filter-item',
+                'name'     => 'exad_fg_control_typography',
+                'selector' => '{{WRAPPER}} .exad-gallery-menu .filter-item'
             ]
         );
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'exad_fg_control_shadow',
-                'selector' => '{{WRAPPER}} .exad-gallery-menu',
+                'name'      => 'exad_fg_control_shadow',
+                'selector'  => '{{WRAPPER}} .exad-gallery-menu',
                 'separator' => 'before'
             ]
         );
@@ -422,52 +410,52 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_control_normal_text_color',
             [
-                'label' => esc_html__('Text Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#444',
+                'label'     => esc_html__('Text Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#444',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-gallery-menu .filter-item' => 'color: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-gallery-menu .filter-item' => 'color: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_control(
             'exad_fg_control_normal_bg_color',
             [
-                'label' => esc_html__('Background Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '',
+                'label'     => esc_html__('Background Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-gallery-menu .filter-item' => 'background: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-gallery-menu .filter-item' => 'background: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'exad_fg_control_normal_border',
-                'label' => esc_html__('Border', 'exclusive-addons-elementor'),
-                'selector' => '{{WRAPPER}} .exad-gallery-menu .filter-item',
+                'name'     => 'exad_fg_control_normal_border',
+                'label'    => esc_html__('Border', 'exclusive-addons-elementor'),
+                'selector' => '{{WRAPPER}} .exad-gallery-menu .filter-item'
             ]
         );
 
         $this->add_control(
             'exad_fg_control_normal_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SLIDER,
+                'label'   => esc_html__('Border Radius', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 20
                 ],
-                'range' => [
+                'range'  => [
                     'px' => [
-                        'max' => 30,
-                    ],
+                        'max' => 30
+                    ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .exad-gallery-menu .filter-item' => 'border-radius: {{SIZE}}px;',
-                ],
+                    '{{WRAPPER}} .exad-gallery-menu .filter-item' => 'border-radius: {{SIZE}}px;'
+                ]
             ]
         );
 
@@ -479,62 +467,60 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_control_active_text_color',
             [
-                'label' => esc_html__('Text Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#fff',
+                'label'     => esc_html__('Text Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-gallery-menu .filter-item.is-checked' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .exad-gallery-menu .filter-item:hover' => 'color: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-gallery-menu .filter-item:hover'      => 'color: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_control(
             'exad_fg_control_active_bg_color',
             [
-                'label' => esc_html__('Background Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#3F51B5',
+                'label'     => esc_html__('Background Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#3F51B5',
                 'selectors' => [
                     '{{WRAPPER}} .exad-gallery-menu .filter-item.is-checked' => 'background: {{VALUE}};',
-                    '{{WRAPPER}} .exad-gallery-menu .filter-item:hover' => 'background: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-gallery-menu .filter-item:hover'      => 'background: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'exad_fg_control_active_border',
-                'label' => esc_html__('Border', 'exclusive-addons-elementor'),
-                'selector' => '{{WRAPPER}} .exad-gallery-menu .filter-item.is-checked',
+                'name'     => 'exad_fg_control_active_border',
+                'label'    => esc_html__('Border', 'exclusive-addons-elementor'),
+                'selector' => '{{WRAPPER}} .exad-gallery-menu .filter-item.is-checked'
             ]
         );
 
         $this->add_control(
             'exad_fg_control_active_border_radius',
             [
-                'label' => esc_html__('Border Radius', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::SLIDER,
+                'label'   => esc_html__('Border Radius', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SLIDER,
                 'default' => [
                     'size' => 20
                 ],
-                'range' => [
+                'range'  => [
                     'px' => [
-                        'max' => 30,
-                    ],
+                        'max' => 30
+                    ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .exad-gallery-menu .filter-item.is-checked' => 'border-radius: {{SIZE}}px;',
-                ],
+                    '{{WRAPPER}} .exad-gallery-menu .filter-item.is-checked' => 'border-radius: {{SIZE}}px;'
+                ]
             ]
         );
 
         $this->end_controls_tab();
 
         $this->end_controls_tabs();
-
-
 
         $this->end_controls_section();
 
@@ -547,23 +533,23 @@ class Exad_Filterable_Gallery extends Widget_Base
             'exad_section_fg_item_style_settings',
             [
                 'label' => esc_html__('Item Style', 'exclusive-addons-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_responsive_control(
             'exad_fg_item_container_padding',
             [
-                'label' => esc_html__('Padding', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
-                'selectors' => [
+                'selectors'  => [
                     '{{WRAPPER}} .exad-gallery-element .exad-gallery-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay' => 'top: {{TOP}}{{UNIT}}; right: {{TOP}}{{UNIT}}; bottom: {{TOP}}{{UNIT}}; left: {{TOP}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay' => 'top: {{TOP}}{{UNIT}}; right: {{TOP}}{{UNIT}}; bottom: {{TOP}}{{UNIT}}; left: {{TOP}}{{UNIT}};'
                 ],
                 'condition' => [
-                    'exad_fg_preset!' => 'two',
-                ],
+                    'exad_fg_preset!' => 'two'
+                ]
             ]
         );
 
@@ -577,27 +563,27 @@ class Exad_Filterable_Gallery extends Widget_Base
             'exad_section_fg_item_cap_style_settings',
             [
                 'label' => esc_html__('Item Caption Style', 'exclusive-addons-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE
+                'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
             'exad_fg_item_overlay_color',
             [
-                'label' => esc_html__('Overlay Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => 'rgba(0,0,0,0.7)',
+                'label'     => esc_html__('Overlay Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => 'rgba(0,0,0,0.7)',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay' => 'background-color: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay' => 'background-color: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_control(
             'exad_fg_item_caption_description',
             [
-                'label' => esc_html__('Description Style', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::HEADING,
+                'label'     => esc_html__('Description Style', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::HEADING,
                 'separator' => 'before'
             ]
         );
@@ -605,8 +591,8 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_item_caption_hover_icon',
             [
-                'label' => esc_html__('Icon Style', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::HEADING,
+                'label'     => esc_html__('Icon Style', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::HEADING,
                 'separator' => 'before'
             ]
         );
@@ -620,24 +606,24 @@ class Exad_Filterable_Gallery extends Widget_Base
                 $this->add_control(
                     'exad_fg_item_icon_normal_bg_color',
                     [
-                        'label' => esc_html__('Background Color', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::COLOR,
-                        'default' => '#ffffff',
+                        'label'     => esc_html__('Background Color', 'exclusive-addons-elementor'),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#ffffff',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a' => 'background: {{VALUE}};',
-                        ],
+                            '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a' => 'background: {{VALUE}};'
+                        ]
                     ]
                 );
         
                 $this->add_control(
                     'exad_fg_item_icon_normal_color',
                     [
-                        'label' => esc_html__('Color', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::COLOR,
-                        'default' => '#222222',
+                        'label'     => esc_html__('Color', 'exclusive-addons-elementor'),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#222222',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i' => 'color: {{VALUE}};',
-                        ],
+                            '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i' => 'color: {{VALUE}};'
+                        ]
                     ]
                 );
 
@@ -649,24 +635,24 @@ class Exad_Filterable_Gallery extends Widget_Base
                 $this->add_control(
                     'exad_fg_item_icon_hover_bg_color',
                     [
-                        'label' => esc_html__('Background Color', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::COLOR,
-                        'default' => '#222222',
+                        'label'     => esc_html__('Background Color', 'exclusive-addons-elementor'),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#222222',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a:hover' => 'background: {{VALUE}};',
-                        ],
+                            '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a:hover' => 'background: {{VALUE}};'
+                        ]
                     ]
                 );
         
                 $this->add_control(
                     'exad_fg_item_icon_hover_color',
                     [
-                        'label' => esc_html__('Color', 'exclusive-addons-elementor'),
-                        'type' => Controls_Manager::COLOR,
-                        'default' => '#fff',
+                        'label'     => esc_html__('Color', 'exclusive-addons-elementor'),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#fff',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a:hover i' => 'color: {{VALUE}};',
-                        ],
+                            '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a:hover i' => 'color: {{VALUE}};'
+                        ]
                     ]
                 );
             $this->end_controls_tab();
@@ -684,56 +670,56 @@ class Exad_Filterable_Gallery extends Widget_Base
             'exad_section_fg_item_content_style_settings',
             [
                 'label' => esc_html__('Item Content Style', 'exclusive-addons-elementor'),
-                'tab' => Controls_Manager::TAB_STYLE,
+                'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_control(
             'exad_fg_item_content_bg_color',
             [
-                'label' => esc_html__('Background Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#f2f2f2',
+                'label'     => esc_html__('Background Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#f2f2f2',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content' => 'background-color: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content' => 'background-color: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_responsive_control(
             'exad_fg_item_content_container_padding',
             [
-                'label' => esc_html__('Padding', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::DIMENSIONS,
+                'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name' => 'exad_fg_item_content_border',
-                'label' => esc_html__('Border', 'exclusive-addons-elementor'),
-                'selector' => '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content',
+                'name'     => 'exad_fg_item_content_border',
+                'label'    => esc_html__('Border', 'exclusive-addons-elementor'),
+                'selector' => '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content'
             ]
         );
 
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name' => 'exad_fg_item_content_shadow',
-                'selector' => '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content',
+                'name'     => 'exad_fg_item_content_shadow',
+                'selector' => '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content'
             ]
         );
 
         $this->add_control(
             'exad_fg_item_content_title_typography_settings',
             [
-                'label' => esc_html__('Title Typography', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::HEADING,
+                'label'     => esc_html__('Title Typography', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::HEADING,
                 'separator' => 'before'
             ]
         );
@@ -741,40 +727,40 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_item_content_title_color',
             [
-                'label' => esc_html__('Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#F56A6A',
+                'label'     => esc_html__('Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#F56A6A',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content .title a' => 'color: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content .title a' => 'color: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_control(
             'exad_fg_item_content_title_hover_color',
             [
-                'label' => esc_html__('Hover Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#3F51B5',
+                'label'     => esc_html__('Hover Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#3F51B5',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content .title a:hover' => 'color: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content .title a:hover' => 'color: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'exad_fg_item_content_title_typography',
-                'selector' => '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content .title a',
+                'name'     => 'exad_fg_item_content_title_typography',
+                'selector' => '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content .title a'
             ]
         );
 
         $this->add_control(
             'exad_fg_item_content_text_typography_settings',
             [
-                'label' => esc_html__('Content Typography', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::HEADING,
+                'label'     => esc_html__('Content Typography', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::HEADING,
                 'separator' => 'before'
             ]
         );
@@ -782,46 +768,46 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_item_content_text_color',
             [
-                'label' => esc_html__('Color', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::COLOR,
-                'default' => '#444',
+                'label'     => esc_html__('Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#444',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content p' => 'color: {{VALUE}};',
-                ],
+                    '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content p' => 'color: {{VALUE}};'
+                ]
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'exad_fg_item_content_text_typography',
-                'selector' => '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content p',
+                'name'     => 'exad_fg_item_content_text_typography',
+                'selector' => '{{WRAPPER}} .exad-filter-gallery-container.exad-cards .item-content p'
             ]
         );
 
         $this->add_responsive_control(
             'exad_fg_item_content_alignment',
             [
-                'label' => esc_html__('Content Alignment', 'exclusive-addons-elementor'),
-                'type' => Controls_Manager::CHOOSE,
+                'label'       => esc_html__('Content Alignment', 'exclusive-addons-elementor'),
+                'type'        => Controls_Manager::CHOOSE,
                 'label_block' => true,
-                'separator' => 'before',
-                'options' => [
-                    'left' => [
+                'separator'   => 'before',
+                'options'     => [
+                    'left'    => [
                         'title' => esc_html__('Left', 'exclusive-addons-elementor'),
-                        'icon' => 'fa fa-align-left',
+                        'icon'  => 'fa fa-align-left'
                     ],
-                    'center' => [
+                    'center'  => [
                         'title' => esc_html__('Center', 'exclusive-addons-elementor'),
-                        'icon' => 'fa fa-align-center',
+                        'icon'  => 'fa fa-align-center'
                     ],
-                    'right' => [
+                    'right'   => [
                         'title' => esc_html__('Right', 'exclusive-addons-elementor'),
-                        'icon' => 'fa fa-align-right',
-                    ],
+                        'icon'  => 'fa fa-align-right'
+                    ]
                 ],
                 'default' => 'left',
-                'prefix_class' => 'exad-fg-content-align-',
+                'prefix_class' => 'exad-fg-content-align-'
             ]
         );
 
@@ -832,7 +818,6 @@ class Exad_Filterable_Gallery extends Widget_Base
 		$sorter_class = strtolower( $string );
 		$sorter_class = preg_replace( '/[^a-z0-9_\s-]/', "", $sorter_class );
 		$sorter_class = preg_replace("/[\s-]+/", " ", $sorter_class);
-		// $sorter_class = preg_replace("/[\s_]/", "-", $sorter_class);
 
 		return $sorter_class;
 	}
@@ -841,59 +826,48 @@ class Exad_Filterable_Gallery extends Widget_Base
 
         $settings = $this->get_settings_for_display();
 
-        if ($settings['exad_fg_filter_animation_style'] == 'default') {
-            $fg_animation = 'fade translateZ(-100px)';
-        } elseif ($settings['exad_fg_filter_animation_style'] == 'effect-in') {
-            $fg_animation = 'fade translateY(-100%)';
-        } elseif ($settings['exad_fg_filter_animation_style'] == 'effect-out') {
-            $fg_animation = 'fade translateY(-100%)';
-        }
+        echo '<div class="exad-gallery '.esc_attr( $settings['exad_fg_preset'] ).'">';
+            echo '<div id="exad-gallery-one">';
+                echo '<div id="filters" class="exad-gallery-menu">';
+                    echo '<button class="filter-item is-checked" data-filter="*">'.__('All', 'exclusive-addons-elementor').'</button>';
 
-        ?>
-        <div class="exad-gallery <?php echo esc_attr( $settings['exad_fg_preset'] ); ?>">
-            <div id="exad-gallery-one">
-                <div id="filters" class="exad-gallery-menu">
-                    <button class="filter-item is-checked" data-filter="*">All</button>
+                    foreach( $settings['exad_fg_controls'] as $control ) :
+                        echo '<button class="filter-item" data-filter=".'.esc_attr( $control['exad_fg_control'] ).'">'.esc_attr( $control['exad_fg_control'] ).'</button>';
+                    endforeach;
+                echo '</div>';
 
-                    <?php foreach( $settings['exad_fg_controls'] as $control ) { ?>
-                        <button class="filter-item" data-filter=".<?php echo esc_attr( $control['exad_fg_control'] ); ?>"><?php echo esc_attr( $control['exad_fg_control'] ); ?></button>
-                    <?php } ?>
-                    
-                </div>
-                <div class="exad-gallery-element">
+                echo '<div class="exad-gallery-element">';
+                    foreach( $settings['exad_fg_gallery_items'] as $gallery ) :
+                        $sorter_class = $this->sorter_class( $gallery['exad_fg_gallery_control_name'] );
 
-                    <?php foreach( $settings['exad_fg_gallery_items'] as $gallery ) { 
+                        echo '<div class="exad-gallery-item '.$sorter_class. ' '.esc_attr( $settings['exad_fg_columns'] ).'">';
+                            echo '<img src="'.esc_url( $gallery['exad_fg_gallery_img']['url'] ).'" alt="Gallery-1">';
+                            echo '<div class="exad-gallery-item-overlay '.esc_attr( $settings['exad_fg_grid_hover_style'] ).'">';
+                                echo '<div class="exad-gallery-item-overlay-content">';
 
-                        $sorter_class = $this->sorter_class( $gallery['exad_fg_gallery_control_name'] ); ?>
+                                    if($settings['exad_fg_show_popup'] === 'true' ) :
+                                        echo '<a href="'.esc_url( $gallery['exad_fg_gallery_img']['url'] ).'" class="image-view-one">';
+                                            echo '<i class="'.esc_attr( $settings['exad_section_fg_zoom_icon'] ).'"></i>';
+                                        echo '</a>';
+                                    else :
+                                        echo '<a href="" class="image-view-one">';
+                                            echo '<i class="'.esc_attr( $settings['exad_section_fg_zoom_icon'] ).'"></i>';
+                                        echo '</a>';
+                                    endif; 
 
-                        <div class="exad-gallery-item <?php echo $sorter_class; ?> <?php echo esc_attr( $settings['exad_fg_columns'] ); ?>">
-                            <img src="<?php echo esc_url( $gallery['exad_fg_gallery_img']['url'] ); ?>" alt="Gallery-1">
-                            <div class="exad-gallery-item-overlay <?php echo esc_attr( $settings['exad_fg_grid_hover_style'] ) ?>">
-                                <div class="exad-gallery-item-overlay-content">
-                                    <?php if($settings['exad_fg_show_popup'] === 'true' ) { ?>
-                                        <a href="<?php echo esc_url( $gallery['exad_fg_gallery_img']['url'] ); ?>" class="image-view-one">
-                                            <i class="<?php echo esc_attr( $settings['exad_section_fg_zoom_icon'] ); ?>"></i>
-                                        </a>
-                                    <?php } 
-                                    else { ?>
-                                        <a href="" class="image-view-one">
-                                            <i class="<?php echo esc_attr( $settings['exad_section_fg_zoom_icon'] ); ?>"></i>
-                                        </a>
-                                    <?php } ?>
-                                    <a href="#"><i class="<?php echo esc_attr( $settings['exad_section_fg_link_icon'] ); ?>"></i></a>
-                                    <div class="exad-gallery-item-description">
-                                        <p><?php echo esc_html( $gallery['exad_fg_gallery_item_content']); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+                                    echo '<a href="#"><i class="'.esc_attr( $settings['exad_section_fg_link_icon'] ).'"></i></a>';
+                                    echo '<div class="exad-gallery-item-description">';
+                                        echo '<p>'.esc_html( $gallery['exad_fg_gallery_item_content']).'</p>';
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>';
+                    endforeach;
 
-                </div>
-            </div>
-        </div>
+                echo '</div>';
+            echo '</div>';
+        echo '</div>';
 
-<?php
 }
 
 protected function content_template() {}
