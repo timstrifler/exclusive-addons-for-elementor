@@ -157,13 +157,13 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_exclusive_tabs_icon_show',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label' => esc_html__( 'Enable Icon', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-				'return_value' => 'yes',
+				'name' => 'exad_tab_background',
+				'label' => __( 'Background', 'plugin-domain' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-advance-tab-content',
 			]
 		);
 
@@ -198,6 +198,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
+				'separator' => 'after',
 				'default' => [
 					'top' => '0',
 					'right' => '0',
@@ -207,16 +208,6 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-advance-tab-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'exad_tab_background',
-				'label' => __( 'Background', 'plugin-domain' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .exad-advance-tab-content',
 			]
 		);
 
@@ -542,7 +533,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_tabs_tab_icon_style_settings',
 			[
-				'label' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Navigation Icon', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -605,7 +596,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->add_control(
 			'exclusive_tabs_navigation_icon_size',
 			[
-				'label' => __( 'Icon Size', 'plugin-domain' ),
+				'label' => __( 'Icon Size', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -691,7 +682,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_tabs_tab_content_style_settings',
 			[
-				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Content Area', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -739,7 +730,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_tabs_tab_title_style_settings',
 			[
-				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Content Title', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -794,7 +785,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_tabs_tab_description_style_settings',
 			[
-				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Content Text', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -848,7 +839,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_tabs_tab_image_style_settings',
 			[
-				'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Content Image', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -891,7 +882,7 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_exclusive_tabs_tab_btn_style_settings',
 			[
-				'label' => esc_html__( 'Button', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Content Button', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -972,7 +963,23 @@ class Exad_Exclusive_Tabs extends Widget_Base {
             Group_Control_Border::get_type(),
                 [
                     'name'      => 'exad_tab_details_btn_normal_border',
-                    'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+					'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+					'fields_options' => [
+						'border' => [
+							'default' => 'solid',
+						],
+						'width' => [
+							'default' => [
+								'top' => '1',
+								'right' => '1',
+								'bottom' => '1',
+								'left' => '1',
+							],
+						],
+						'color' => [
+							'default' => '#6d6d6d',
+						],
+					],
                     'selector'  => '{{WRAPPER}} .exad-tab-btn'
                 ]
             );
@@ -1017,6 +1024,22 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 				[
 					'name'      => 'exad_tab_details_btn_hover_border',
 					'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+					'fields_options' => [
+						'border' => [
+							'default' => 'solid',
+						],
+						'width' => [
+							'default' => [
+								'top' => '1',
+								'right' => '1',
+								'bottom' => '1',
+								'left' => '1',
+							],
+						],
+						'color' => [
+							'default' => '#6d6d6d',
+						],
+					],
 					'selector'  => '{{WRAPPER}} .exad-tab-btn:hover'
 				]
 			);
@@ -1071,13 +1094,11 @@ class Exad_Exclusive_Tabs extends Widget_Base {
 			<ul class="exad-advance-tab-nav">
 			<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : ?>
 				<li class="<?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_exclusive_tabs_list_trangle_position'] ); ?>" data-tab>
-					<?php if( $settings['exad_exclusive_tabs_icon_show'] === 'yes' ) : 
-						if( $tab['exad_exclusive_tabs_icon_type'] === 'icon' ) : ?>
+						<?php if( $tab['exad_exclusive_tabs_icon_type'] === 'icon' ) : ?>
 							<i class="<?php echo esc_attr( $tab['exad_exclusive_tab_title_icon'] ); ?>"></i>
 						<?php elseif( $tab['exad_exclusive_tabs_icon_type'] === 'image' ) : ?>
 							<img src="<?php echo esc_attr( $tab['exad_exclusive_tab_title_image']['url'] ); ?>">
 						<?php endif; ?>
-					<?php endif; ?> 
 					<span class="exad-tab-title"><?php echo $tab['exad_exclusive_tab_title']; ?></span>
 				</li>
 			<?php endforeach; ?>
