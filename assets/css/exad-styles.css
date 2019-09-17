@@ -7046,10 +7046,14 @@ text-align: right;
 }
 
 .exad-advance-tab .exad-advance-tab-content.active {
+  display: block;
+}
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-left,
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-right{
   display: flex;
 }
-.exad-advance-tab .exad-advance-tab-content.active .exad-advance-tab-content-element {
-  /* width: 70%; */
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-left .exad-advance-tab-content-element,
+.exad-advance-tab .exad-advance-tab-content.active.exad-tab-image-right .exad-advance-tab-content-element {
   width: 100%;
 }
 
