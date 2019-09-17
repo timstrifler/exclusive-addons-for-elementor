@@ -280,7 +280,7 @@ class Exad_Image_Hotspot extends Widget_Base
             [
                 'label'                 => __('Height', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::NUMBER,
-                'default'               => '70',
+                'default'               => '50',
                 'selectors'             => [
                     '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'height: {{VALUE}}px',
                 ]
@@ -292,7 +292,7 @@ class Exad_Image_Hotspot extends Widget_Base
             [
                 'label'                 => __('Width', 'exclusive-addons-elementor'),
                 'type'                  => Controls_Manager::NUMBER,
-                'default'               => '70',
+                'default'               => '50',
                 'selectors'             => [
                     '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'width: {{VALUE}}px',
                 ]
@@ -331,9 +331,13 @@ class Exad_Image_Hotspot extends Widget_Base
 				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
+                'separator'  => 'before',
                 'default'    => [
-                    'unit' => '%',
-                    'size' => '50'
+                    'top'   => '50',
+                    'right' => '50',
+                    'bottom' => '50',
+                    'left'  => '50',
+                    'unit' => '%'
                 ],
 				'selectors'             => [
 					'{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -373,7 +377,7 @@ class Exad_Image_Hotspot extends Widget_Base
                 'type'                  => Controls_Manager::DIMENSIONS,
                 'size_units'            => ['px', '%'],
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hot-spot-wrap' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-dot-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -400,19 +404,6 @@ class Exad_Image_Hotspot extends Widget_Base
                 'selectors'             => [
                     '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip' => 'background: {{VALUE}}',
                     '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip::before' => 'border-color: {{VALUE}} transparent transparent transparent;',
-                ],
-            ]
-        );
-        $this->add_control(
-            'exad_hotspot_tooltip_bg_color_two',
-            [
-                'label'                 => __('Background Color', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::COLOR,
-                'default'               => '#fff',
-                'selectors'             => [
-                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6' => 'background: {{VALUE}}',
-                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6::before' => 'border-color: {{VALUE}} transparent transparent transparent;',
-                    '{{WRAPPER}} .exad-hotspot.two .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip h6::before' => 'border-color: transparent transparent transparent {{VALUE}};',
                 ],
             ]
         );
