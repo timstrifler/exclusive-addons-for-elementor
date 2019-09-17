@@ -92,9 +92,9 @@ class Exad_Heading extends Widget_Base {
 		* Heading Styling Section
 		*/
 		$this->start_controls_section(
-			'exad_section_heading_basic_style',
+			'exad_section_heading_general_style',
 			[
-				'label' => esc_html__( 'Basic Styles', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
