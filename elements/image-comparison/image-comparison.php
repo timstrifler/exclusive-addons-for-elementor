@@ -87,21 +87,8 @@ class Exad_image_comparison extends Widget_Base {
     $this->start_controls_section(
         'exad_section_image_comparision_styles_presets',
         [
-            'label' => esc_html__( 'General Styles', 'exclusive-addons-elementor' ),
+            'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
             'tab' => Controls_Manager::TAB_STYLE
-        ]
-    );
-    $this->add_control(
-        'exad_image_comparison_preset',
-        [
-            'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::SELECT,
-            'default' => 'one',
-            'options' => [
-                'one' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-                'two' => esc_html__( 'Style 2 (Horizontal)', 'exclusive-addons-elementor' ),
-                'three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-            ],
         ]
     );
 
@@ -168,7 +155,7 @@ class Exad_image_comparison extends Widget_Base {
     $this->start_controls_section(
         'exad_section_image_comparision_slider_styles',
         [
-            'label' => esc_html__( 'Slider Styles', 'exclusive-addons-elementor' ),
+            'label' => esc_html__( 'Slider', 'exclusive-addons-elementor' ),
             'tab' => Controls_Manager::TAB_STYLE
         ]
     );

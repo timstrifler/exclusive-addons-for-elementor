@@ -37,7 +37,7 @@
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-down-arrow::before {
   position: absolute;
-  content: '\f104';
+  content: '\f107';
   font-family: 'FontAwesome';
   left: 50%;
   top: 50%;
@@ -45,6 +45,20 @@
           transform: translate(-50%, -50%);
   color: #bebebe;
   font-size: 20px;
+  bottom: -40px;
+}
+
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-up-arrow::before {
+  position: absolute;
+  content: '\f106';
+  font-family: 'FontAwesome';
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #bebebe;
+  font-size: 20px;
+  bottom: -35px;
 }
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
@@ -65,18 +79,19 @@
   font-size: 20px;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element {
+.exad-image-comparision .exad-image-comparision-element {
   width: 100%;
   height: 700px;
   max-height: 700px;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element img {
+.exad-image-comparision .exad-image-comparision-element img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element .twentytwenty-handle {
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle {
   cursor: ns-resize;
 }
 

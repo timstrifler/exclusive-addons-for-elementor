@@ -188,13 +188,13 @@
 
 .twentytwenty-vertical .twentytwenty-handle:before {
   left: 50%;
-  margin-left: 22px;
+  margin-left: 15px;
   -webkit-box-shadow: 3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
   -moz-box-shadow: 3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
   box-shadow: 3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5); }
 .twentytwenty-vertical .twentytwenty-handle:after {
   right: 50%;
-  margin-right: 22px;
+  margin-right: 15px;
   -webkit-box-shadow: -3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
   -moz-box-shadow: -3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
   box-shadow: -3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5); }
@@ -3194,7 +3194,7 @@ i.exad-call-to-action-icon {
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-down-arrow::before {
   position: absolute;
-  content: '\f104';
+  content: '\f107';
   font-family: 'FontAwesome';
   left: 50%;
   top: 50%;
@@ -3202,6 +3202,20 @@ i.exad-call-to-action-icon {
           transform: translate(-50%, -50%);
   color: #bebebe;
   font-size: 20px;
+  bottom: -40px;
+}
+
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-up-arrow::before {
+  position: absolute;
+  content: '\f106';
+  font-family: 'FontAwesome';
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #bebebe;
+  font-size: 20px;
+  bottom: -35px;
 }
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
@@ -3222,18 +3236,19 @@ i.exad-call-to-action-icon {
   font-size: 20px;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element {
+.exad-image-comparision .exad-image-comparision-element {
   width: 100%;
   height: 700px;
   max-height: 700px;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element img {
+.exad-image-comparision .exad-image-comparision-element img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element .twentytwenty-handle {
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle {
   cursor: ns-resize;
 }
 

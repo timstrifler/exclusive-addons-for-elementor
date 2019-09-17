@@ -188,13 +188,13 @@
 
 .twentytwenty-vertical .twentytwenty-handle:before {
   left: 50%;
-  margin-left: 22px;
+  margin-left: 15px;
   -webkit-box-shadow: 3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
   -moz-box-shadow: 3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
   box-shadow: 3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5); }
 .twentytwenty-vertical .twentytwenty-handle:after {
   right: 50%;
-  margin-right: 22px;
+  margin-right: 15px;
   -webkit-box-shadow: -3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
   -moz-box-shadow: -3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
   box-shadow: -3px 0 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5); }
