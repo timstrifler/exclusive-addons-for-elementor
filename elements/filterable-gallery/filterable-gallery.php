@@ -99,7 +99,7 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_gallery_show_all_items_text',
             [
-                'label'        => __('Show All Items?', 'exclusive-addons-elementor'),
+                'label'        => __('Show text for all Items?', 'exclusive-addons-elementor'),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
                 'return_value' => 'yes'
