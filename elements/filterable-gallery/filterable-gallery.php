@@ -96,45 +96,25 @@ class Exad_Filterable_Gallery extends Widget_Base
             ]
         );
 
-        $this->end_controls_section();
-
-        /**
-         * Filter Gallery Control Settings
-         */
-        $this->start_controls_section(
-            'exad_section_fg_control_settings',
+        $this->add_control(
+            'exad_gallery_show_all_items_text',
             [
-                'label' => esc_html__('Gallery Control Settings', 'exclusive-addons-elementor')
+                'label'        => __('Show All Items?', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
             ]
         );
 
         $this->add_control(
-            'exad_fg_all_label_text',
+            'exad_gallery_all_items_text',
             [
-                'label'   => esc_html__('Gallery All Label', 'exclusive-addons-elementor'),
-                'type'    => Controls_Manager::TEXT,
-                'default' => 'All'
-            ]
-        );
-
-        $this->add_control(
-            'exad_fg_controls',
-            [
-                'type'      => Controls_Manager::REPEATER,
-                'seperator' => 'before',
-                'default'   => [
-                    ['exad_fg_control' => 'Item']
-                ],
-                'fields' => [
-                    [
-                        'name'        => 'exad_fg_control',
-                        'label'       => esc_html__('List Item', 'exclusive-addons-elementor'),
-                        'type'        => Controls_Manager::TEXT,
-                        'label_block' => true,
-                        'default'     => esc_html__('Item', 'exclusive-addons-elementor')
-                    ]
-                ],
-                'title_field' => '{{exad_fg_control}}'
+                'label'     => esc_html__('Text for All Item', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::TEXT,
+                'default'   => 'All',
+                'condition' => [
+                    'exad_gallery_show_all_items_text' => 'yes'
+                ]
             ]
         );
 
@@ -182,8 +162,7 @@ class Exad_Filterable_Gallery extends Widget_Base
                         'name'        => 'exad_fg_gallery_control_name',
                         'label'       => esc_html__('Control Name', 'exclusive-addons-elementor'),
                         'type'        => Controls_Manager::TEXT,
-                        'label_block' => true,
-                        'description' => esc_html__('User the gallery control name form Control Settings. use the exact name that matches with its associate name.', 'exclusive-addons-elementor')
+                        'label_block' => true
                     ],
                     [
                         'name'    => 'exad_fg_gallery_img',
@@ -291,9 +270,9 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_control(
             'exad_fg_bg_color',
             [
-                'label'   => esc_html__('Background Color', 'exclusive-addons-elementor'),
-                'type'    => Controls_Manager::COLOR,
-                'default' => '#fff',
+                'label'     => esc_html__('Background Color', 'exclusive-addons-elementor'),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#fff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'background-color: {{VALUE}};'
                 ]
@@ -306,7 +285,7 @@ class Exad_Filterable_Gallery extends Widget_Base
                 'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'em', '%'],
-                'selectors' => [
+                'selectors'  => [
                     '{{WRAPPER}} .exad-filter-gallery-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -814,14 +793,6 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->end_controls_section();
     }
 
-    public function sorter_class( $string ) {
-		$sorter_class = strtolower( $string );
-		$sorter_class = preg_replace( '/[^a-z0-9_\s-]/', "", $sorter_class );
-		$sorter_class = preg_replace("/[\s-]+/", " ", $sorter_class);
-
-		return $sorter_class;
-	}
-
     protected function render() {
 
         $settings = $this->get_settings_for_display();
@@ -829,18 +800,32 @@ class Exad_Filterable_Gallery extends Widget_Base
         echo '<div class="exad-gallery '.esc_attr( $settings['exad_fg_preset'] ).'">';
             echo '<div id="exad-gallery-one">';
                 echo '<div id="filters" class="exad-gallery-menu">';
-                    echo '<button class="filter-item is-checked" data-filter="*">'.__('All', 'exclusive-addons-elementor').'</button>';
+                    if(('yes' == $settings['exad_gallery_show_all_items_text']) && !empty($settings['exad_gallery_all_items_text'])):
+                        echo '<button class="filter-item is-checked" data-filter="*">'.esc_html($settings['exad_gallery_all_items_text']);
+                    endif;
+                    $exad_gallerycontrols                  = array_column($settings['exad_fg_gallery_items'], 'exad_fg_gallery_control_name');
+                    $exad_gallery_controls_comma_separated = implode(', ', $exad_gallerycontrols);
+                    $exad_gallery_controls_array           = explode(",",$exad_gallery_controls_comma_separated);
+                    $exad_gallery_controls_lowercase       = array_map('strtolower', $exad_gallery_controls_array);
+                    $exad_gallery_controls_remove_space    = array_filter(array_map('trim', $exad_gallery_controls_lowercase));
+                    $exad_gallery_controls_items           = array_unique($exad_gallery_controls_remove_space);
 
-                    foreach( $settings['exad_fg_controls'] as $control ) :
-                        echo '<button class="filter-item" data-filter=".'.esc_attr( $control['exad_fg_control'] ).'">'.esc_attr( $control['exad_fg_control'] ).'</button>';
+                    foreach( $exad_gallery_controls_items as $control ) :
+                        $control_attribute = preg_replace('#[ -]+#', '-', $control);
+                        echo '<button class="filter-item" data-filter=".'.esc_attr($control_attribute).'">'.esc_attr($control).'</button>';
                     endforeach;
                 echo '</div>';
 
                 echo '<div class="exad-gallery-element">';
                     foreach( $settings['exad_fg_gallery_items'] as $gallery ) :
-                        $sorter_class = $this->sorter_class( $gallery['exad_fg_gallery_control_name'] );
+                        $exad_controls       = $gallery['exad_fg_gallery_control_name'];
+                        $exad_controls_to_array       = explode(",",$exad_controls);
+                        $exad_controls_to_lowercase = array_map('strtolower', $exad_controls_to_array);
+                        $exad_controls_remove_space       = array_filter(array_map('trim', $exad_controls_to_lowercase));
+                        $exad_controls_space_replaced    = array_map(function($val) { return str_replace(' ', '-', $val); }, $exad_controls_remove_space);
+                        $exad_control       = implode (" ", $exad_controls_space_replaced);
 
-                        echo '<div class="exad-gallery-item '.$sorter_class. ' '.esc_attr( $settings['exad_fg_columns'] ).'">';
+                        echo '<div class="exad-gallery-item '.esc_attr($exad_control). ' '.esc_attr( $settings['exad_fg_columns'] ).'">';
                             echo '<img src="'.esc_url( $gallery['exad_fg_gallery_img']['url'] ).'" alt="Gallery-1">';
                             echo '<div class="exad-gallery-item-overlay '.esc_attr( $settings['exad_fg_grid_hover_style'] ).'">';
                                 echo '<div class="exad-gallery-item-overlay-content">';
@@ -857,7 +842,7 @@ class Exad_Filterable_Gallery extends Widget_Base
 
                                     echo '<a href="#"><i class="'.esc_attr( $settings['exad_section_fg_link_icon'] ).'"></i></a>';
                                     echo '<div class="exad-gallery-item-description">';
-                                        echo '<p>'.esc_html( $gallery['exad_fg_gallery_item_content']).'</p>';
+                                        echo '<p>'.wp_kses_post( $gallery['exad_fg_gallery_item_content']).'</p>';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
