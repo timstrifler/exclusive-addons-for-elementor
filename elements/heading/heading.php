@@ -367,9 +367,9 @@ class Exad_Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_separator_height',
 			[
-				'label' => esc_html__( 'Divider Height', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Height', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => '3',
+				'default' => '6',
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-separator' => 'height: {{VALUE}}px;',
 				],
@@ -379,7 +379,7 @@ class Exad_Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_separator_width',
 			[
-				'label' => esc_html__( 'Divider Width', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Width', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::NUMBER,
 				'default' => '100',
 				'selectors' => [
@@ -390,9 +390,9 @@ class Exad_Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_separator_background',
 			[
-				'label' => esc_html__( 'Divider Background', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#919090',
+				'default' => '#222222',
 				'separator' => 'after',
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-separator' => 'background: {{VALUE}};',
@@ -591,8 +591,10 @@ class Exad_Heading extends Widget_Base {
 		<#
 
 		if( settings.exad_heading_icon_box === 'yes' ){
-			view.addRenderAttribute( 'exad-exclusive-heading-wrapper', 'class', 'exad-heading-icon-box-yes');
+			view.addRenderAttribute( 'exad_exclusive_heading_wrapper', 'class', 'exad-heading-icon-box-yes');
 		}
+		view.addRenderAttribute( 'exad_exclusive_heading_wrapper', 'class', settings.exad_heading_title_alignment);
+		view.addRenderAttribute( 'exad_exclusive_heading_wrapper', 'class', settings.exad_heading_type);
 
 		view.addInlineEditingAttributes( 'exad_heading_title', 'none' );
 		view.addRenderAttribute( 'exad_heading_title', 'class', 'exad-exclusive-heading-title' );
@@ -601,7 +603,7 @@ class Exad_Heading extends Widget_Base {
 		view.addRenderAttribute( 'exad_heading_subheading', 'class', 'exad-exclusive-heading-description' );
 		#>
 		<div id="exad-heading" class="exad-exclusive-heading" >
-            <div class="exad-exclusive-heading-wrapper {{ settings.exad_heading_title_alignment }} {{ settings.exad_heading_type }}" >
+            <div {{{ view.getRenderAttributeString( 'exad_exclusive_heading_wrapper' ) }}}>
 				<# if ( settings.exad_heading_icon_show == 'yes' ) { #>
           			<span class="exad-heading-icon"><i class="{{ settings.exad_heading_icon }}"></i></span>
 				<# } #>
