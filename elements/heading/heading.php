@@ -178,21 +178,6 @@ class Exad_Heading extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_heading_icon_line_height',
-			[
-				'label' => __( 'Line Height', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => '100',
-				'selectors' => [
-					'{{WRAPPER}} .exad-heading-icon i' => 'line-height: {{VALUE}}px;',
-				],
-				'condition' => [
-					'exad_heading_icon_box' => 'yes',
-				]
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -356,6 +341,9 @@ class Exad_Heading extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-exclusive-heading-title a' => 'color: {{VALUE}};',
 				],
+				'condition' => [
+					'exad_heading_type' => ['exad-heading-simple', 'exad-heading-text-background'],
+				],
 			]
 		);
 
@@ -368,7 +356,7 @@ class Exad_Heading extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_heading_style_separator',
 			[
-				'label' => esc_html__( 'Separator', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Divider', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'exad_heading_separator' => 'yes',
@@ -379,9 +367,9 @@ class Exad_Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_separator_height',
 			[
-				'label' => esc_html__( 'Separator Height', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Divider Height', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => '2',
+				'default' => '3',
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-separator' => 'height: {{VALUE}}px;',
 				],
@@ -391,9 +379,9 @@ class Exad_Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_separator_width',
 			[
-				'label' => esc_html__( 'Separator Width', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Divider Width', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => '50',
+				'default' => '100',
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-separator' => 'width: {{VALUE}}px;',
 				],
@@ -402,9 +390,9 @@ class Exad_Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_separator_background',
 			[
-				'label' => esc_html__( 'Separator Background', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Divider Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#e3e3e3',
+				'default' => '#919090',
 				'separator' => 'after',
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-separator' => 'background: {{VALUE}};',
@@ -416,9 +404,42 @@ class Exad_Heading extends Widget_Base {
 			'exad_heading_separator_margin_top',
 			[
 				'label' => __( 'Margin Top', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-heading-separator' => 'margin-top: {{VALUE}}px;',
+					'{{WRAPPER}} .exad-heading-separator' => 'margin-top: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_heading_separator_margin_bottom',
+			[
+				'label' => __( 'Margin Bottom', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-heading-separator' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -531,11 +552,16 @@ class Exad_Heading extends Widget_Base {
 			]
 		);
 
-		$this->add_inline_editing_attributes( 'exad_exclusive_heading_title', 'none' );
-		$this->add_render_attribute( 'exad_exclusive_heading_title', 'class', 'exad-exclusive-heading-title' );
+		if( $settings['exad_heading_icon_box'] === 'yes' ){
+			$this->add_render_attribute( 'exad_exclusive_heading_wrapper', 'class', 'exad-heading-icon-box-yes');
+		}
 
-		$this->add_inline_editing_attributes( 'exad_exclusive_heading_description', 'none' );
-		$this->add_render_attribute( 'exad_exclusive_heading_description', 'class', 'exad-exclusive-heading-description' );
+
+		$this->add_inline_editing_attributes( 'exad_heading_title', 'none' );
+		$this->add_render_attribute( 'exad_heading_title', 'class', 'exad-exclusive-heading-title' );
+
+		$this->add_inline_editing_attributes( 'exad_heading_subheading', 'none' );
+		$this->add_render_attribute( 'exad_heading_subheading', 'class', 'exad-exclusive-heading-description' );
 
 
         ?>
@@ -545,14 +571,14 @@ class Exad_Heading extends Widget_Base {
 				<?php if ( $settings['exad_heading_icon_show'] == 'yes' ) : ?>
           			<span class="exad-heading-icon"><i class="<?php echo esc_attr( $settings['exad_heading_icon'] ); ?>"></i></span>
 				<?php endif; ?>
-                <h1 data-content="<?php echo esc_attr( $settings['exad_heading_title'] ); ?>" <?php echo $this->get_render_attribute_string( 'exad_exclusive_heading_title' ); ?>>
+                <h1 data-content="<?php echo esc_attr( $settings['exad_heading_title'] ); ?>" <?php echo $this->get_render_attribute_string( 'exad_heading_title' ); ?>>
                     <a href="<?php echo esc_url( $settings['exad_heading_title_link']['url'] ); ?>"><?php echo esc_html( $settings['exad_heading_title'] ); ?></a>
 				</h1>
 				<?php if ( $settings['exad_heading_separator'] == 'yes' ) : ?>
 					<div class="exad-heading-separator"></div>
 				<?php endif; ?>
                 <?php if ( $settings['exad_heading_subheading'] != "" ) : ?>
-                    <p <?php echo $this->get_render_attribute_string( 'exad_exclusive_heading_description' ); ?> ><?php echo esc_html( $settings['exad_heading_subheading'] ); ?></p>
+                    <p <?php echo $this->get_render_attribute_string( 'exad_heading_subheading' ); ?> ><?php echo esc_html( $settings['exad_heading_subheading'] ); ?></p>
                 <?php endif; ?>
             </div>
         </div>
@@ -563,25 +589,30 @@ class Exad_Heading extends Widget_Base {
 	protected function _content_template() {
 		?>
 		<#
-		view.addInlineEditingAttributes( 'exad_exclusive_heading_title', 'none' );
-		view.addRenderAttribute( 'exad_exclusive_heading_title', 'class', 'exad-exclusive-heading-title' );
 
-		view.addInlineEditingAttributes( 'exad_exclusive_heading_description', 'none' );
-		view.addRenderAttribute( 'exad_exclusive_heading_description', 'class', 'exad-exclusive-heading-description' );
+		if( settings.exad_heading_icon_box === 'yes' ){
+			view.addRenderAttribute( 'exad-exclusive-heading-wrapper', 'class', 'exad-heading-icon-box-yes');
+		}
+
+		view.addInlineEditingAttributes( 'exad_heading_title', 'none' );
+		view.addRenderAttribute( 'exad_heading_title', 'class', 'exad-exclusive-heading-title' );
+
+		view.addInlineEditingAttributes( 'exad_heading_subheading', 'none' );
+		view.addRenderAttribute( 'exad_heading_subheading', 'class', 'exad-exclusive-heading-description' );
 		#>
 		<div id="exad-heading" class="exad-exclusive-heading" >
             <div class="exad-exclusive-heading-wrapper {{ settings.exad_heading_title_alignment }} {{ settings.exad_heading_type }}" >
 				<# if ( settings.exad_heading_icon_show == 'yes' ) { #>
           			<span class="exad-heading-icon"><i class="{{ settings.exad_heading_icon }}"></i></span>
 				<# } #>
-                <h1 data-content="{{ settings.exad_heading_title }}" {{{ view.getRenderAttributeString( 'exad_exclusive_heading_title' ) }}}>
+                <h1 data-content="{{ settings.exad_heading_title }}" {{{ view.getRenderAttributeString( 'exad_heading_title' ) }}}>
                     <a href="{{ settings.exad_heading_title_link.url }}">{{{ settings.exad_heading_title }}}</a>
 				</h1>
 				<# if ( settings.exad_heading_separator == 'yes' ) { #>
 					<div class="exad-heading-separator"></div>
 				<# } #>
                 <# if ( settings.exad_heading_subheading != "" ) { #>
-                    <p {{{ view.getRenderAttributeString( 'exad_exclusive_heading_description' ) }}}>{{{ settings.exad_heading_subheading }}}</p>
+                    <p {{{ view.getRenderAttributeString( 'exad_heading_subheading' ) }}}>{{{ settings.exad_heading_subheading }}}</p>
 				<# } #>
             </div>
         </div>
