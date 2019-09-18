@@ -306,7 +306,8 @@ class Exad_Image_Hotspot extends Widget_Base
                 'type'                  => Controls_Manager::COLOR,
                 'default'               => '#FFF',
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon i' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon i, 
+                    {{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon span' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -482,9 +483,16 @@ class Exad_Image_Hotspot extends Widget_Base
                                 printf( '<div class="exad-hotspot-dot-icon"><i class="%1$s"></i></div>', esc_attr( $item['exad_hotspot_icon'] ) );
                             }
                         ?>
-                        <div class="exad-hotspot-tooltip">
-                            <h6><?php echo esc_html( $item['exad_tooltip_content'] ); ?></h6>
-                        </div>
+                        <?php
+                            if ( $item['exad_hotspot_type'] == 'text' ) {
+                                printf( '<div class="exad-hotspot-dot-icon"><span>%1$s</span></div>', esc_attr( $item['exad_hotspot_text'] ) );
+                            }
+                        ?>
+                        <?php if ( $item['exad_tooltip'] == 'yes' ) { ?>
+                            <div class="exad-hotspot-tooltip">
+                                <h6><?php echo esc_html( $item['exad_tooltip_content'] ); ?></h6>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
 

@@ -77,6 +77,15 @@
   z-index: 6;
 }
 
+.exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
 .exad-hotspot.exad-hotspot-hover-scale .exad-hotspot-item .exad-hotspot-dot:hover {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
