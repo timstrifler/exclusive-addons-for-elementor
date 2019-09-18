@@ -10,6 +10,7 @@
   margin: 0;
 }
 
+
 /* Twenty Twenty plugin for Image Comparison */
 
 .twentytwenty-horizontal .twentytwenty-handle:before, .twentytwenty-horizontal .twentytwenty-handle:after, .twentytwenty-vertical .twentytwenty-handle:before, .twentytwenty-vertical .twentytwenty-handle:after {
@@ -217,4 +218,5 @@
 .twentytwenty-down-arrow {
   border-top: 6px solid white;
   bottom: 50%;
-  margin-bottom: -17px; }
+  margin-bottom: -21px; 
+}

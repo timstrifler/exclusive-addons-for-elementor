@@ -173,19 +173,6 @@ class Exad_image_comparison extends Widget_Base {
     );
 
     $this->add_control(
-        'exad_image_comparison_slider_type',
-        [
-            'label' => esc_html__( 'Slider Type', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::SELECT,
-            'default' => 'vertical',
-            'options' => [
-                'vertical' => esc_html__( 'Horizontal', 'exclusive-addons-elementor' ),
-                'horizontal' => esc_html__( 'Vertical', 'exclusive-addons-elementor' ),
-            ],
-        ]
-    );
-
-    $this->add_control(
         'exad_image_comparison_slider_handle',
         [
             'label' => esc_html__( 'Handle Style', 'exclusive-addons-elementor' ),
@@ -314,28 +301,6 @@ class Exad_image_comparison extends Widget_Base {
     <?php
 	}
 
-	protected function _content_template() {
-    ?>    
-        <#
-        
-        view.addRenderAttribute( 'exad_image_comparison', 'class', 'exad-image-comparision-element' );
-        view.addRenderAttribute( 'exad_image_comparison', 'class', settings.exad_image_comparison_slider_handle );
-        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-before_label', settings.exad_before_label );
-        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-oriantation', settings.exad_image_comparison_slider_type );
-        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-after_label', settings.exad_after_label  );
-        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-default_offset_pct', settings.exad_default_offset_pct );
-        view.addRenderAttribute( 'exad_image_comparison', 'data-exad-no_overlay', settings.exad_no_overlay );
-        
-        #>
-
-        <div class="exad-image-comparision">
-            <div {{{ view.getRenderAttributeString( 'exad_image_comparison' ) }}} >
-                <img src="{{ settings.exad_comparison_image_one.url }}">
-                <img src="{{ settings.exad_comparison_image_two.url }}">
-            </div>
-        </div>
-    <?php    
-    }
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_image_comparison() );
