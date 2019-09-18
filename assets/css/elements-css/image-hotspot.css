@@ -97,15 +97,12 @@
 
 .exad-hotspot .exad-hotspot-item .exad-hotspot-tooltip {
   position: absolute;
-  top: -100px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   border-radius: 5px;
   padding: 10px 20px;
   opacity: 0;
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
   transition: all .3s ease;
 }
 

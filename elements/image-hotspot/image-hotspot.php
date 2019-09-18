@@ -270,7 +270,8 @@ class Exad_Image_Hotspot extends Widget_Base
                 ],
                 'size_units'            => ['px'],
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-dot-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-dot-icon i,
+                    {{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-dot-icon span' => 'font-size: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -279,10 +280,20 @@ class Exad_Image_Hotspot extends Widget_Base
             'exad_hotspot_height',
             [
                 'label'                 => __('Height', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::NUMBER,
-                'default'               => '50',
+                'type'                  => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 50,
+				],
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'height: {{VALUE}}px',
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'height: {{SIZE}}{{UNIT}}',
                 ]
             ]
         );
@@ -291,10 +302,20 @@ class Exad_Image_Hotspot extends Widget_Base
             'exad_hotspot_width',
             [
                 'label'                 => __('Width', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::NUMBER,
-                'default'               => '50',
+                'type'                  => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 50,
+				],
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'width: {{VALUE}}px',
+                    '{{WRAPPER}} .exad-hotspot .exad-hotspot-item .exad-hotspot-dot-icon' => 'width: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -424,11 +445,21 @@ class Exad_Image_Hotspot extends Widget_Base
         $this->add_control(
             'exad_hotspot_tooltip_text_distance',
             [
-                'label'                 => __('Distance', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::NUMBER,
-                'default' => '-100',
+                'label' => __('Distance', 'exclusive-addons-elementor'),
+                'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 400,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 65,
+				],
                 'selectors'             => [
-                    '{{WRAPPER}} .exad-hotspot-item .exad-hotspot-dot .exad-hotspot-tooltip' => 'top: {{VALUE}}px',
+                    '{{WRAPPER}} .exad-hotspot-tooltip' => 'bottom: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
