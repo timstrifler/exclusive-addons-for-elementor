@@ -91,10 +91,6 @@
   object-fit: cover;
 }
 
-.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle {
-  cursor: ns-resize;
-}
-
 .exad-image-comparision.handle-style-2 .exad-image-comparision-element {
   width: 100%;
   height: 700px;
