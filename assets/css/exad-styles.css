@@ -2416,6 +2416,9 @@ i.exad-call-to-action-icon {
   text-align: center;
 }
 
+.exad-gallery-items .exad-gallery-image {
+    position: relative;
+}
 .exad-gallery-menu {
   display: inline-block;
 }
@@ -2458,25 +2461,35 @@ i.exad-call-to-action-icon {
 
 .exad-gallery-items .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  bottom: 15px;
-  right: 15px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background: rgba(114, 76, 255, 0.8);
   transition: all .3s ease;
 }
 
 .exad-gallery-items .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content {
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.exad-gallery-items .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content .exad-fg-icons {
+  position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 1;
-  display: inline-block;
+  transform: translate(-50%, -50%);
   width: 100%;
 }
-
+.exad-gallery-items .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content .exad-gallery-item-content {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 .exad-gallery-items .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a {
   height: 60px;
   width: 60px;
@@ -2486,6 +2499,18 @@ i.exad-call-to-action-icon {
   display: inline-block;
   transition: all .3s ease;
   border-radius: 100%;
+}
+
+.exad-gallery-items .exad-gallery-item-content.below-image {
+  display: flex;
+  flex-direction: column;
+}
+.exad-gallery-items .exad-gallery-item-content h2 {
+  margin: 10px 0px 10px 0px;
+}
+
+.exad-gallery-items .exad-gallery-item-content p {
+  margin: 10px 0px 10px 0px;
 }
 
 .exad-gallery-items .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i {
