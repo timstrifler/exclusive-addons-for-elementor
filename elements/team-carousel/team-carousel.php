@@ -364,52 +364,7 @@ class Exad_Team_Carousel extends Widget_Base {
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
-		// $this->add_control(
-		// 	'exad_team_carousel_preset',
-		// 	[
-		// 		'label' => esc_html__( 'Style Preset', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::SELECT,
-		// 		'default' => '-style-one',
-		// 		'options' => [
-		// 			'-style-one' => esc_html__( 'Style 1 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-two' => esc_html__( 'Style 2', 'exclusive-addons-elementor' ),
-		// 			'-style-three' => esc_html__( 'Style 3', 'exclusive-addons-elementor' ),
-		// 			'-style-four' => esc_html__( 'Style 4 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-five' => esc_html__( 'Style 5', 'exclusive-addons-elementor' ),
-		// 			'-style-six' => esc_html__( 'Style 6 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-seven' => esc_html__( 'Style 7 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-eight' => esc_html__( 'Style 8 (Pro)', 'exclusive-addons-elementor' ),
-		// 			'-style-nine' => esc_html__( 'Style 9 (Pro)', 'exclusive-addons-elementor' ),
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_control(
-		// 	'exad_team_carousel_avatar_bg',
-		// 	[
-		// 		'label' => esc_html__( 'Curved SVG Color', 'exclusive-addons-elementor' ),
-		// 		'type' => Controls_Manager::COLOR,
-		// 		'default' => '#826EFF',
-		// 		'selectors' => [
-		// 			'{{WRAPPER}} .exad-team-member-style-two .exad-team-member-thumb svg.team-avatar-bg,
-		// 			{{WRAPPER}} .exad-team-member-style-six .exad-team-member-content svg path' => 'fill: {{VALUE}};',
-		// 		],
-		// 		'condition' => [
-		// 			'exad_team_carousel_preset' => ['-style-two', '-style-six'],
-		// 		],
-		// 	]
-		// );
-
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'exad_team_carousel_bg',
-				'label' => __( 'Background', 'exclusive-addons-elementor' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .exad-team-member',
-			]
-		);
-
+	
 		$this->add_control(
 			'exad_team_carousel_content_alignment',
 			[
@@ -433,18 +388,14 @@ class Exad_Team_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_team_member_content_image_position',
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label' => __( 'Image Position', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'separator' => 'after',
-				'options' => [
-					'exad-position-top' => __( 'Top', 'exclusive-addons-elementor' ),
-					'exad-position-left' => __( 'Left', 'exclusive-addons-elementor' ),
-					'exad-position-right' => __( 'Right', 'exclusive-addons-elementor' ),
-				],
-				'default' => 'exad-position-top'
+				'name' => 'exad_team_carousel_bg',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-team-member',
 			]
 		);
 
@@ -473,15 +424,6 @@ class Exad_Team_Carousel extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-member' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name' => 'exad_team_carousel_box_shadow',
-				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-team-member',
 			]
 		);
 
@@ -521,22 +463,46 @@ class Exad_Team_Carousel extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'exad_team_carousel_box_shadow',
+				'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-team-member',
+			]
+		);
+
 		$this->end_controls_section();
 
 		/**
-		 * For Thumbnail style
+		 * For Image style
 		 */
 
 		$this->start_controls_section(
 			'exad_section_team_members_thumbnail_style',
 			[
-				'label' => esc_html__( 'Thumbnail', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
 
 		$this->add_control(
-			'exad_section_team_members_thumbnail_box',
+			'exad_team_carousel_content_image_position',
+			[
+				'label' => __( 'Image Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'separator' => 'after',
+				'options' => [
+					'exad-position-top' => __( 'Top', 'exclusive-addons-elementor' ),
+					'exad-position-left' => __( 'Left', 'exclusive-addons-elementor' ),
+					'exad-position-right' => __( 'Right', 'exclusive-addons-elementor' ),
+				],
+				'default' => 'exad-position-top'
+			]
+		);
+
+		$this->add_control(
+			'exad_section_team_carousel_thumbnail_box',
 			[
 				'label' => __( 'Image Box', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
@@ -681,7 +647,7 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_section_team_members_content_margin',
 			[
-				'label' => __( 'margin', 'exclusive-addons-elementor' ),
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
@@ -733,7 +699,7 @@ class Exad_Team_Carousel extends Widget_Base {
         $this->start_controls_section(
             'exad_team_member_cta_btn_style',
             [
-                'label' => __('Call to action', 'exclusive-addons-elementor'),
+                'label' => __('Call To Action', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
             ]
 		);
@@ -1078,12 +1044,12 @@ class Exad_Team_Carousel extends Widget_Base {
 		
 		$this->end_controls_tab();
 
-		$this->start_controls_tab( 'exad_team_carousel_social_icon_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+		$this->start_controls_tab( 'exad_team_carousel_social_icon_hover', [ 'label' => esc_html__( 'Active/Hover', 'exclusive-addons-elementor' ) ] );
 
 		$this->add_control(
 			'exad_team_carousel_arrow_hover_background_color',
 			[
-				'label' => esc_html__( 'Arrow Background Hover', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Arrow Background', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#917cff',
 				'selectors' => [
@@ -1098,7 +1064,7 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_team_carousel_arrow_hover_color',
 			[
-				'label' => esc_html__( 'Arrow Color Hover', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Arrow Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
@@ -1125,9 +1091,9 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_team_carousel_dot_hover_color',
 			[
-				'label' => esc_html__( 'Dot Hover', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Dot Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#8a8d91',
+				'default' => '#917cff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-carousel-wrapper .slick-dots li.slick-active button, {{WRAPPER}} .exad-team-carousel-wrapper .slick-dots li button:hover' => 'background: {{VALUE}};',
 				],
@@ -1322,30 +1288,6 @@ class Exad_Team_Carousel extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
 		);
-		
-		$this->add_control(
-			'exad_team_carousel_social_box_height',
-			[
-				'label' => __( 'Height', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => 50,
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social li a'=> 'height: {{VALUE}}px;',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_team_carousel_social_box_width',
-			[
-				'label' => __( 'Width', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => 50,
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social li a'=> 'width: {{VALUE}}px;',
-				],
-			]
-		);
 
 		$this->add_control(
 			'exad_team_carousel_social_icon_size',
@@ -1362,7 +1304,7 @@ class Exad_Team_Carousel extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 24,
+					'size' => 18,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-member-social li a i' => 'font-size: {{SIZE}}{{UNIT}};',
@@ -1389,12 +1331,20 @@ class Exad_Team_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_team_carousel_social_box_margin_right',
+			'exad_team_carousel_social_padding',
 			[
-				'label' => __( 'Margin Right', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'separator' => 'after',
+				'default' => [
+					'top' => '15',
+					'right' => '15',
+					'bottom' => '15',
+					'left' => '15',
+				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social li:not(:last-child) a' => 'margin-right: {{VALUE}}px;',
+					'{{WRAPPER}} .exad-team-member-social li a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1445,7 +1395,6 @@ class Exad_Team_Carousel extends Widget_Base {
 					[
 						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'default' => '#917cff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
 						],

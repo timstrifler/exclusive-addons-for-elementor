@@ -78,18 +78,6 @@ class Exad_Team_Member extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_section_team_members_top_background',
-			[
-				'label' => __( 'background Top', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
-				'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-
-		$this->add_control(
 			'exad_section_team_members_cta_btn',
 			[
 				'label' => __( 'Call To Action', 'exclusive-addons-elementor' ),
@@ -369,9 +357,9 @@ class Exad_Team_Member extends Widget_Base {
 		 */
 
 		$this->start_controls_section(
-			'exad_section_team_members_thumbnail_style',
+			'exad_section_team_members_image_style',
 			[
-				'label' => esc_html__( 'Thumbnail', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -582,63 +570,6 @@ class Exad_Team_Member extends Widget_Base {
 			]
 		);
 		
-		$this->end_controls_section();
-
-		/**
-		 * Top Background Style
-		 */
-
-        $this->start_controls_section(
-            'exad_team_member_top_background',
-            [
-                'label' => __('Top Background', 'exclusive-addons-elementor'),
-				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'exad_section_team_members_top_background' => 'yes',
-				],
-            ]
-        );
-
-        $this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'exad_team_member_top_background_color',
-				'label' => __( 'Background', 'exclusive-addons-elementor' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .exad-top-background',
-			]
-		);
-
-		$this->add_control(
-			'exad_team_member_top_background_padding_top',
-			[
-				'label' => __( 'Padding Top', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => '100',
-				'selectors' => [
-					'{{WRAPPER}} .exad-top-background' => 'padding-top: {{VALUE}}px;',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_team_member_top_background_radius',
-			[
-				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'default' => [
-					'top' => '0',
-					'right' => '0',
-					'bottom' => '0',
-					'left' => '0',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-top-background' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
 		$this->end_controls_section();
 
 		/**
@@ -966,29 +897,6 @@ class Exad_Team_Member extends Widget_Base {
             ]
 		);
 		
-		$this->add_control(
-			'exad_section_team_members_social_box_height',
-			[
-				'label' => __( 'Height', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => 50,
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social li a'=> 'height: {{VALUE}}px;',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_section_team_members_social_box_width',
-			[
-				'label' => __( 'Width', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => 50,
-				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social li a'=> 'width: {{VALUE}}px;',
-				],
-			]
-		);
 
 		$this->add_control(
 			'exad_team_members_social_icon_size',
@@ -1005,7 +913,7 @@ class Exad_Team_Member extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 24,
+					'size' => 18,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-team-member-social li a i' => 'font-size: {{SIZE}}{{UNIT}};',
@@ -1032,12 +940,20 @@ class Exad_Team_Member extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_team_members_social_box_margin_right',
+			'exad_team_member_social_padding',
 			[
-				'label' => __( 'Margin Right', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'separator' => 'after',
+				'default' => [
+					'top' => '15',
+					'right' => '15',
+					'bottom' => '15',
+					'left' => '15',
+				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-team-member-social li:not(:last-child) a' => 'margin-right: {{VALUE}}px;',
+					'{{WRAPPER}} .exad-team-member-social li a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -1088,7 +1004,6 @@ class Exad_Team_Member extends Widget_Base {
 					[
 						'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
-						'default' => '#917cff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-team-member-social li a:hover' => 'background: {{VALUE}};',
 						],
@@ -1138,10 +1053,6 @@ class Exad_Team_Member extends Widget_Base {
 
 
 		$this->add_render_attribute( 'exad_team_member_item', 'class', 'exad-team-item' );
-
-		if( $settings['exad_section_team_members_top_background'] === 'yes' ){
-			$this->add_render_attribute( 'exad_team_member_item', 'class', 'exad-top-background' );
-		}
 
 		$team_member_image = $this->get_settings_for_display( 'exad_team_member_image' );
 		$team_member_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'thumbnail', $settings );
@@ -1204,10 +1115,6 @@ class Exad_Team_Member extends Widget_Base {
 		view.addRenderAttribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
 
 		view.addRenderAttribute( 'exad_team_member_item', 'class', 'exad-team-item' );
-
-		if( settings.exad_section_team_members_top_background === 'yes' ){
-			view.addRenderAttribute( 'exad_team_member_item', 'class', 'exad-top-background' );
-		}
 
 		#>
 
