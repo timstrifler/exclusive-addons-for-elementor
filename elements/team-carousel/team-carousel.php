@@ -991,7 +991,7 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_team_carousel_arrow_color',
 			[
-				'label' => esc_html__( 'Arrow color', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Arrow Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
