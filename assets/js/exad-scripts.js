@@ -371,6 +371,42 @@ var ModalPopup = function ($scope, $) {
     // 	$('.exad-modal-item').removeClass('active');
     // });	
 };
+
+/**
+ * News Ticker
+ */  
+let ExadNewsTicker = function( $scope, $ ) {
+
+    var $exad_news_ticker = $scope.find(".exad-news-ticker");
+
+    if ( $.isFunction($.fn.breakingNews) ) {  
+        $exad_news_ticker.each(function() {
+            let t             = $(this),
+            auto              = t.data("autoplay") ? !0 : !1,
+            the_effect        = t.data("animation") ? t.data("animation") : '',                                   
+            fixed_bottom      = t.data("bottom_fixed") ? t.data("bottom_fixed") : '',                                   
+            pause_on_hover    = t.data("pause_on_hover") ? t.data("pause_on_hover") : '',                                   
+            animation_speed   = t.data("animation_speed") ? t.data("animation_speed") : '',                                   
+            autoplay_interval = t.data("autoplay_interval") ? t.data("autoplay_interval") : '',                                   
+            ticker_height     = t.data("ticker_height") ? t.data("ticker_height") : '',                                   
+            direction         = t.data("direction") ? t.data("direction") : ''; 
+
+            $(this).breakingNews({
+                position: fixed_bottom,
+                play: auto,
+                direction: direction,
+                scrollSpeed: animation_speed,
+                stopOnHover: pause_on_hover,
+                effect: the_effect,
+                delayTimer: autoplay_interval,                    
+                height: ticker_height,
+                fontSize: "default",
+                themeColor: "default",
+                background: "default",                       
+            });    
+        });
+    }
+};
 // Post Carousel 
 var PostCarousel = function($scope, $) {
     var $postCarouselWrapper = $scope.find('.exad-post-carousel').eq(0),
@@ -638,6 +674,7 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-filterable-gallery.default', FilterableGallery);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-alert.default', ExclusiveAlert);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-instagram-feed.default', InstagramGallery);
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-news-ticker.default', ExadNewsTicker );
     //elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
 });	
 
