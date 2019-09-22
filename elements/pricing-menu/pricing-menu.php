@@ -190,6 +190,89 @@ class Exad_Pricing_Menu extends Widget_Base {
         ]
     );
     $this->end_controls_section();
+
+
+    /**
+     * Pricing Menu Container
+     */
+    $this->start_controls_section(
+        'exad_section_pricing_menu_container',
+      [
+        'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
+        'tab' => Controls_Manager::TAB_STYLE,
+      ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Background::get_type(),
+        [
+            'name' => 'exad_price_list_container_bg',
+            'label' => __( 'Background', 'exclusive-addons-elementor' ),
+            'types' => [ 'classic', 'gradient' ],
+            'selector' => '{{WRAPPER}} .exad-pricing-list .exad-pricing-list-wrapper',
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Border::get_type(),
+        [
+            'name' => 'exad_pricing_menu_container_border',
+            'selector' => '{{WRAPPER}} .exad-pricing-list .exad-pricing-list-wrapper',
+        ]
+    );
+
+
+    $this->add_control(
+        'exad_pricing_menu_con_border_radius',
+        [
+            'label'       => __( 'Border Radius', 'exclusive-addons-elementor' ),
+            'type'        => Controls_Manager::DIMENSIONS,
+            'size_units'  => [ 'px', '%' ],
+            'default'     => [
+                'top' => '',
+                'right' => '',
+                'bottom' => '',
+                'left' => '',
+                'isLinked' => true,
+            ],
+            'selectors'   => [
+                '{{WRAPPER}} .exad-pricing-list .exad-pricing-list-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+            ],
+        ]
+    );
+
+    $this->add_control(
+        'exad_pricing_menu_con_padding',
+        [
+            'label' => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+            'type' => Controls_Manager::DIMENSIONS,
+            'size_units' => [ 'px', '%' ],
+            'default' => [
+                'top' => 15,
+                'right' => 15,
+                'bottom' => 15,
+                'left' => 15,
+                'unit' => 'px',
+                'isLinked' => true,
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .exad-pricing-list .exad-pricing-list-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            ],
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Box_Shadow::get_type(),
+        [
+            'name' => 'exad_pricing_menu_con_shadow',
+            'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+            'selector' => '{{WRAPPER}} .exad-pricing-list .exad-pricing-list-wrapper',
+        ]
+    );
+
+    $this->end_controls_section();
+
+
     /**
      * Pricing menu Title style
      */
@@ -349,16 +432,12 @@ class Exad_Pricing_Menu extends Widget_Base {
                         <div class="exad-pricing-list-item-content">
                             <?php if( $settings['exad_pricing_menu_preset'] === 'six' ) { ?>
                                 <div class="exad-pricing-list-item-content-element">
-                                    <a href="#" class="exad-pricing-list-item-content-title">
-                                        <?php echo $list['exad_pricing_menu_title'] ?>
-                                    </a>
+                                    <a href="#" class="exad-pricing-list-item-content-title"><?php echo $list['exad_pricing_menu_title'] ?></a>
                                     <span class="exad-pricing-list-item-content-conntector"></span>
                                 </div>
                             <?php } 
                             else { ?>
-                                <a href="#" class="exad-pricing-list-item-content-title">
-                                    <?php echo $list['exad_pricing_menu_title'] ?>
-                                </a>
+                                <a href="#" class="exad-pricing-list-item-content-title"><?php echo $list['exad_pricing_menu_title'] ?></a>
                             <?php } ?>
                             <p class="exad-pricing-list-item-content-description">
                                 <?php echo $list['exad_pricing_menu_description'] ?>
