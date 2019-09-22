@@ -3,15 +3,6 @@
     position: relative;
 }
 
-.elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element {
-    color: #826EFF;
-}
-
-.elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .icon, .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .title, .elementor-panel #elementor-panel-elements .exad-element-wrapper .icon, .elementor-panel #elementor-panel-elements .exad-element-wrapper .title {
-    color: #826EFF;
-}
-
-
 .elementor-element .icon .exad-element-icon::after {
     content: "Ex";
     position: absolute;
