@@ -1,4 +1,4 @@
-/* Exclusive News Ticker Start */
+ Exclusive News Ticker Start */
 .exad-news-ticker{
   display: block;
   width: 100%;
@@ -23,21 +23,38 @@
   right: 0;
   bottom: 0;
 }
-.exad-news-ticker .bn-label{
+.exad-news-ticker .exad-bn-label{
   left: 0;
   top: 0;
   bottom: 0;
   height: 100%;
   position: absolute;
-  background-color: #5545FF;
   text-align: center;
-  color: #FFF;
-  font-weight: bold;
   z-index: 3;
-  padding: 0 15px;
   white-space: nowrap;
   display: flex;
   align-items: center;
+}
+.exad-news-ticker .exad-bn-label .exad-nt-label {
+  padding: 0 15px;
+  color: #FFF;
+}
+.exad-news-ticker .exad-bn-label .exad-nt-label,
+.exad-news-ticker .exad-bn-label.yes-small .exad-nt-label:after {
+  background-color: #5545FF;  
+}
+.exad-news-ticker .exad-bn-label.yes-small .exad-nt-label {
+  position: relative;
+}
+.exad-news-ticker .exad-bn-label.yes-small .exad-nt-label:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  z-index: -1;
 }
 .exad-news-ticker .exad-nt-news{
   position: absolute;
@@ -132,34 +149,44 @@
   font-weight: bold;
 }
 .exad-news-ticker .exad-nt-controls{
-  width: auto;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  position: absolute;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    width: auto;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 0 0 0 20px;
+    position: absolute;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.exad-news-ticker[data-direction="rtl"] .exad-nt-controls{
+  flex-direction: row-reverse;
+  padding: 0 20px 0 0;
+}
+.exad-news-ticker[data-direction="rtl"] .exad-bn-label.yes-small .exad-nt-label:after{
+  left: -4%;
+  right: inherit;
 }
 .exad-news-ticker .exad-nt-controls button{
   width: 30px;
-  padding: inherit;
-  float: left;
-  height: 100%;
+  padding: 0;
+  margin-right: 5px;
+  border: inherit;
+  height: 30px;
   cursor: pointer;
-  border:none;
-  border-left: solid 1px #EEE;
   text-align: center;
-  background-color: #f6f6f6;
   outline: none;
   border-radius: 0;
-}
-.exad-news-ticker .exad-nt-controls button:hover{
-  background-color: #EEE;
+  width: 30px;
+  border: 0;
 }
 
 .exad-news-ticker .bn-arrow {
@@ -197,12 +224,20 @@
   transform: rotate(135deg);
   left: 3px;
 }
-.exad-news-ticker .bn-arrow::after{
-  border-color: #999999;
+/*.exad-news-ticker[data-direction="rtl"] .bn-arrow.bn-next {
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+  left: 3px;
 }
-.exad-news-ticker .bn-arrow::before{
-  background-color: #999999;
-}
+.exad-news-ticker[data-direction="rtl"] .bn-arrow.bn-prev {
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+  left:-3px;
+}*/
 .exad-news-ticker .bn-play{
   position: relative;
   background: #999999;
@@ -239,7 +274,6 @@
   width: 2px;
   height: 100%;
   left: 3px;
-  background-color: #999999;
 }
 .exad-news-ticker .bn-pause::after{
   position: absolute;
@@ -247,12 +281,11 @@
   width: 2px;
   height: 100%;
   left: -3px;
-  background-color: #999999;
 }
 .exad-news-ticker.bn-direction-rtl{
   direction: rtl;
 }
-.exad-news-ticker.bn-direction-rtl .bn-label{
+.exad-news-ticker.bn-direction-rtl .exad-bn-label{
   left: auto;
   right: 0;
 }
@@ -275,7 +308,6 @@
   border-left: none;
   border-right: solid 1px #EEE;
 }
-
 .exad-news-ticker.bn-effect-scroll .exad-nt-news ul{
   display: block;
   width: 100%;
@@ -293,4 +325,4 @@
 .exad-news-ticker.bn-effect-scroll.bn-direction-rtl .exad-nt-news ul li{
   float: right;
 }
-/* Exclusive News Ticker End */
+/* Exclusive News Ticker End 
