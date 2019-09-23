@@ -3,9 +3,6 @@ namespace Elementor;
 
 class Exad_Post_Carousel extends Widget_Base {
 
-	private $lightbox_slide_index;
-	private $slide_prints_count = 0;
-
 	public function get_name() {
 		return 'exad-post-carousel';
 	}
@@ -30,7 +27,7 @@ class Exad_Post_Carousel extends Widget_Base {
         $this->start_controls_section(
             'exad_section_post_carousel_filters',
             [
-                'label' => __( 'Post Settings', 'exclusive-addons-elementor' ),
+                'label' => __( 'Settings', 'exclusive-addons-elementor' ),
             ]
         );
         
@@ -254,11 +251,11 @@ class Exad_Post_Carousel extends Widget_Base {
         $this->add_control(
             'exad_post_carousel_show_user_name_tag',
             [
-                'label'        => esc_html__( 'Show Author Name Tag?', 'exclusive-addons-elementor' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'return_value' => 'yes',
-                'default'      => 'yes',
-                'condition'     => [
+				'label'        => esc_html__( 'Show Author Name Tag?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes',
+				'condition'    => [
                     '.exad_post_carousel_show_user_name' => 'yes'
                 ]
             ]
@@ -349,8 +346,8 @@ class Exad_Post_Carousel extends Widget_Base {
 				'options' => [
 					'arrows' => esc_html__( 'Arrows', 'exclusive-addons-elementor' ),
 					'dots'   => esc_html__( 'Dots', 'exclusive-addons-elementor' ),
-					'both'   => esc_html__( 'Both of them', 'exclusive-addons-elementor' ),
-					'none'   => esc_html__( 'None of them', 'exclusive-addons-elementor' )
+					'both'   => esc_html__( 'Arrows and Dots', 'exclusive-addons-elementor' ),
+					'none'   => esc_html__( 'None', 'exclusive-addons-elementor' )
 					
 				],
 			]
@@ -718,8 +715,8 @@ class Exad_Post_Carousel extends Widget_Base {
 		$this->start_controls_section(
             'exad_post_carousel_excerpt_style',
             [
-				'label' => __( 'Excerpt', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label'     => __( 'Excerpt', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'exad_post_carousel_show_excerpt' => 'yes'
 				]
@@ -784,8 +781,8 @@ class Exad_Post_Carousel extends Widget_Base {
 		$this->start_controls_section(
             'exad_post_carousel_category_style',
             [
-				'label' => __( 'Category', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label'     => __( 'Category', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'exad_post_carousel_show_category' => 'yes'
 				]
@@ -939,14 +936,14 @@ class Exad_Post_Carousel extends Widget_Base {
         $this->add_responsive_control(
             'exad_post_carousel_author_date_margin',
             [
-                'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => [ 'px', 'em', '%' ],
-				'default' => [
-					'top' => '10',
-					'right' => '0',
-					'bottom' => '10',
-					'left' => '0',
+				'label'      => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'default'    => [
+					'top'      => '10',
+					'right'    => '0',
+					'bottom'   => '10',
+					'left'     => '0',
 					'isLinked' => false
 				],                 
                 'selectors'     => [
@@ -1026,14 +1023,14 @@ class Exad_Post_Carousel extends Widget_Base {
         $this->add_responsive_control(
             'exad_post_carousel_reading_time_comment_margin',
             [
-                'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::DIMENSIONS,
-				'size_units'    => [ 'px', 'em', '%' ],
-				'default' => [
-					'top' => '10',
-					'right' => '0',
-					'bottom' => '10',
-					'left' => '0',
+				'label'      => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', 'em', '%' ],
+				'default'    => [
+					'top'      => '10',
+					'right'    => '0',
+					'bottom'   => '10',
+					'left'     => '0',
 					'isLinked' => false
 				],               
                 'selectors'     => [
@@ -1419,11 +1416,11 @@ class Exad_Post_Carousel extends Widget_Base {
 		$this->add_render_attribute(
 			'exad_post_carousel_wrapper',
 			[
-				'id'    => "exad-post-carousel-{$this->get_id()}",
-				'class' => "exad-row-wrapper exad-post-carousel",
-                'data-carousel-column' => intval( $settings['exad_post_carousel_column_no'] ),
-				'data-post-carousel-nav' => $settings['exad_post_carousel_nav'],
-				'data-post-carousel-speed' => $settings['exad_post_carousel_transition_duration'],
+				'id'                       => "exad-post-carousel-{$this->get_id()}",
+				'class'                    => "exad-row-wrapper exad-post-carousel",
+				'data-carousel-column'     => intval( $settings['exad_post_carousel_column_no'] ),
+				'data-post-carousel-nav'   => $settings['exad_post_carousel_nav'],
+				'data-post-carousel-speed' => $settings['exad_post_carousel_transition_duration']
 
 			]
 		);
