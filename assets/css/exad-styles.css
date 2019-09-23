@@ -7170,8 +7170,36 @@ text-align: right;
 
 .exad-testimonial-designation{
   margin: 0;
+  display: block;
 }
 
+.exad-testimonial-reviewer-image-pos-left,
+.exad-testimonial-reviewer-image-pos-right{
+  display: flex;
+  align-items: center;
+}
+
+.exad-testimonial-reviewer-image-pos-right .exad-testimonial-thumb{
+  order: 2;
+}
+
+.exad-testimonial-reviewer-image-pos-right .exad-testimonial-reviewer{
+  order: 1;
+}
+
+.exad-testimonial-content-wrapper-arrow{
+  position: relative;
+}
+
+.exad-testimonial-content-wrapper-arrow::before{
+  position: absolute;
+  content: '';
+  height: 15px;
+  width: 15px;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+}
 /* Testimonial style end */
 /* Testimonial Carousel Basic */
 .exad-testimonial-carousel-wrapper .exad-testimonial-carousel-quote {
