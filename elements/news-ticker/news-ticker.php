@@ -167,8 +167,16 @@ class ExadNewsTicker extends Widget_Base {
             'exad_news_ticker_height',
             [   
                 'label'         => esc_html__( 'Height', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::NUMBER,
-                'default'       => '70'
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => 70
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 20,
+                        'max'   => 100
+                    ],
+                ]
             ]
         ); 
 
@@ -756,7 +764,7 @@ class ExadNewsTicker extends Widget_Base {
         $label          = $settings['exad_news_ticker_label'];
         $show_label     = $settings['exad_news_ticker_show_label'];
         $direction      = $settings['exad_news_ticker_animation_direction'];
-        $ticker_height  = $settings['exad_news_ticker_height'];
+        $ticker_height  = $settings['exad_news_ticker_height']['size'];
         $autoplay       = $settings['exad_news_ticker_autoplay'];
         $bottom_fixed   = $settings['exad_news_ticker_set_bottom_fixed'];
         $animation_type = $settings['exad_news_ticker_animation_type'];
