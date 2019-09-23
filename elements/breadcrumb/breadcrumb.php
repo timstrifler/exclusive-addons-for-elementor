@@ -30,22 +30,6 @@ class Exad_Breadcrumbs extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
-            'exad_breadcrumbs_skin_type',
-            [
-                'label'     => esc_html__( 'Skin Type', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::SELECT,
-                'default'   => 'one',
-                'options'   => [
-                    'one'        => esc_html__( 'Skin 1',   'exclusive-addons-elementor' ),
-                    'two'        => esc_html__( 'Skin 2', 'exclusive-addons-elementor' ),
-                    'three'      => esc_html__( 'Skin 3', 'exclusive-addons-elementor' ),
-                    'four'       => esc_html__( 'Skin 4', 'exclusive-addons-elementor' ),
-                    'five'       => esc_html__( 'Skin 5', 'exclusive-addons-elementor' )
-                ]
-            ]
-        );
-
 		$this->add_control(
 			'exad_breadcrumbs_home_text',
 			[
@@ -679,7 +663,7 @@ class Exad_Breadcrumbs extends Widget_Base {
 
 	}
 
-   	public function exad_breadcrumbs($hometext, $skinType, $withIcon, $homeIcon, $otherIcon) {
+   	public function exad_breadcrumbs($hometext, $withIcon, $homeIcon, $otherIcon) {
   
 		$delimiter = '&raquo;';
 		$name = esc_html($hometext); //text for the 'Home' link
@@ -697,7 +681,7 @@ class Exad_Breadcrumbs extends Widget_Base {
 
 		if ( !is_home() && !is_front_page() || is_paged() ) {
 		  
-		    echo '<ul class="exad-breadcrumb-'.esc_attr($skinType).'">';		  
+		    echo '<ul class="exad-breadcrumb-items">';		  
 			    global $post;
 			    $home = get_bloginfo('url');
 			    echo '<li class="exad-breadcrumb-item"><a href="' . $home . '">'.$homeIcon. $name . '</a></li>';
@@ -796,7 +780,6 @@ class Exad_Breadcrumbs extends Widget_Base {
 
    		$settings = $this->get_settings_for_display();
    		$homeText = $settings['exad_breadcrumbs_home_text'];
-   		$skinType = $settings['exad_breadcrumbs_skin_type'];
    		$withIcon = $settings['exad_breadcrumbs_with_icon'];
 		$homeIcon = '';
 		$otherIcon = '';
@@ -805,13 +788,8 @@ class Exad_Breadcrumbs extends Widget_Base {
    			$otherIcon = $settings['exad_breadcrumbs_other_icon'];
 		}  
 
- 		$this->exad_breadcrumbs($homeText, $skinType, $withIcon, $homeIcon, $otherIcon);
+ 		$this->exad_breadcrumbs($homeText, $withIcon, $homeIcon, $otherIcon);
 
-	}
-
-	protected function _content_template() {
-		
- 		$this->exad_breadcrumbs($homeText, $skinType, $withIcon, $homeIcon, $otherIcon);
 	}
 }
 
