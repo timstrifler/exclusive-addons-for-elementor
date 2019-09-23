@@ -10,13 +10,20 @@ var PostCarousel = function($scope, $) {
         $pauseOnHover = ($postCarouselWrapper.data("pauseonhover") !== undefined) ? $postCarouselWrapper.data("pauseonhover") : false;
 
     // Post Carousel 
-    if ($postCarouselNav == "arrows" ) {
+    if ($postCarouselNav == "both" ) {
+        var arrows = true;
+        var dots = true;
+    } else if ($postCarouselNav == "arrows" ) {
         var arrows = true;
         var dots = false;
+    } else if ($postCarouselNav == "dots" ) {
+        var arrows = false;
+        var dots = true;
     } else {
         var arrows = false;
         var dots = true;
     }
+    
     // post Carousel one
     $postCarouselWrapper.slick({
         slidesToShow: $postCarouselColumn,
