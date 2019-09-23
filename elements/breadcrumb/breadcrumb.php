@@ -129,91 +129,29 @@ class Exad_Breadcrumbs extends Widget_Base {
 			    global $post;
 			    $home = get_bloginfo('url');
 			    echo '<li class="exad-breadcrumb-item"><a href="' . $home . '">'.$homeIcon. $name . '</a></li>';
-			  
-			    if ( is_category() ) {
-					global $wp_query;
-					$cat_obj = $wp_query->get_queried_object();
-					$thisCat = $cat_obj->term_id;
-					$thisCat = get_category($thisCat);
-					$parentCat = get_category($thisCat->parent);
-					if ($thisCat->parent != 0) echo(get_category_parents($parentCat, TRUE));
-					echo $currentBefore . 'Archive by category &#39;';
-					single_cat_title();
-					echo '&#39;' . $currentAfter;
-			  
-			    } elseif ( is_day() ) {
-			      	echo '<li class="exad-breadcrumb-item"><a href="' . get_year_link(get_the_time('Y')) . '">'.$otherIcon. get_the_time('Y') . '</a></li>';
-			      	echo '<li class="exad-breadcrumb-item"><a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">'.$otherIcon . get_the_time('F') . '</a></li>';
-			      	echo $currentBefore . get_the_time('d') . $currentAfter;
-			  
-			    } elseif ( is_month() ) {
-			      	echo '<li class="exad-breadcrumb-item"><a href="' . get_year_link(get_the_time('Y')) . '">'.$otherIcon . get_the_time('Y') . '</a></li>';
-			      	echo $currentBefore . get_the_time('F') . $currentAfter;
-			  
-			    } elseif ( is_year() ) {
-			      	echo $currentBefore . get_the_time('Y') . $currentAfter;
-			  
-			    } 
 
-			    // elseif ( is_single() && !is_attachment() ) {
-			    //   $cat = get_the_category(); $cat = $cat[0];
-			    //   echo get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
-			    //   echo $currentBefore;
-			    //   the_title();
-			    //   echo $currentAfter;
-			  
-			    // } 
-
-			    elseif ( is_attachment() ) {
-					$parent = get_post($post->post_parent);
-					$cat = get_the_category($parent->ID); $cat = $cat[0];
-					echo get_category_parents($cat, TRUE);
-					echo '<li class="exad-breadcrumb-item"><a href="' . get_permalink($parent) . '">'.$otherIcon . $parent->post_title . '</a></li>';
-					echo $currentBefore;
-					the_title();
-					echo $currentAfter;
-			  
-			    } elseif ( is_page() && !$post->post_parent ) {
-					echo $currentBefore;
-					the_title();
-					echo $currentAfter;
-			  
-			    } elseif ( is_page() && $post->post_parent ) {
-			      	$parent_id  = $post->post_parent;
-			      	$breadcrumbs = array();
-			      	while ($parent_id) {
-				        $page = get_page($parent_id);
-				        $breadcrumbs[] = '<li class="exad-breadcrumb-item"><a href="' . get_permalink($page->ID) . '">'.$otherIcon . get_the_title($page->ID) . '</a></li>';
-				        $parent_id  = $page->post_parent;
-			      	}
-					$breadcrumbs = array_reverse($breadcrumbs);
-					foreach ($breadcrumbs as $crumb) echo $crumb;
-					echo $currentBefore;
-					the_title();
-					echo $currentAfter;
-			  
-			    } elseif ( is_search() ) {
-			      	echo $currentBefore . 'Search results for &#39;' . get_search_query() . '&#39;' . $currentAfter;
-			  
-			    } elseif ( is_tag() ) {
-			     	echo $currentBefore . 'Posts tagged &#39;';
-			     	single_tag_title();
-			     	echo '&#39;' . $currentAfter;
-			  
-			    } elseif ( is_author() ) {
-			       	global $author;
-			      	$userdata = get_userdata($author);
-			      	echo $currentBefore . __('Articles posted by ', 'exclusive-addons-elementor' ) . $userdata->display_name . $currentAfter;
-			  
-			    } elseif ( is_404() ) {
-			      	echo $currentBefore . __('Error 404', 'exclusive-addons-elementor' ) . $currentAfter;
-			    }
-			  
-			    if ( get_query_var('paged') ) {
-			      	if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
-			      	echo __('Page') . ' ' . get_query_var('paged');
-			      	if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
-			    }
+				if ( Plugin::$instance->editor->is_edit_mode() || is_page() || is_single() ) {
+					if ( !$post->post_parent ) {
+						echo $currentBefore;
+						the_title();
+						echo $currentAfter;
+				  
+					} elseif ( $post->post_parent ) {
+						  $parent_id  = $post->post_parent;
+						  $breadcrumbs = array();
+						  while ($parent_id) {
+							$page = get_page($parent_id);
+							$breadcrumbs[] = '<li class="exad-breadcrumb-item"><a href="' . get_permalink($page->ID) . '">'.$otherIcon . get_the_title($page->ID) . '</a></li>';
+							$parent_id  = $page->post_parent;
+						  }
+						$breadcrumbs = array_reverse($breadcrumbs);
+						foreach ($breadcrumbs as $crumb) echo $crumb;
+						echo $currentBefore;
+						the_title();
+						echo $currentAfter;
+				  
+					}
+				}
 		  
 	    	echo '</ul>';
   
