@@ -2,7 +2,38 @@ ul.exad-breadcrumb-items {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: inline-flex;
 }
 ul.exad-breadcrumb-items li {
   display: inline-block;
+  position: relative;
 }
+ul.exad-breadcrumb-items li.exad-breadcrumb-item {
+    padding-right: 22px;
+}
+ul.exad-breadcrumb-items li.exad-breadcrumb-item.arrow-yes:not(:last-child)::before {
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    border-color: #797c80;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%) rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+
+/*
+ul.exad-breadcrumb-items li.exad-breadcrumb-item:not(:first-child) {
+    border-right: 10px solid blue;
+}*/
+
+
+
+
+
+
+
