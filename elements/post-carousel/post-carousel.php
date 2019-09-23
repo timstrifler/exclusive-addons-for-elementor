@@ -417,18 +417,6 @@ class Exad_Post_Carousel extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_post_carousel_post_bg_color',
-            [
-                'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'background: {{VALUE}};'
-                ]
-
-            ]
-        );
-
-        $this->add_control(
             'exad_post_carousel_radius',
             [
                 'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
