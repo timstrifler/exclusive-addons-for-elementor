@@ -95,4 +95,20 @@
   transform: translateX(-50%) rotate(45deg);
   border-style: solid;
 }
+
+.exad-testimonial-ratings{
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.exad-testimonial-ratings li{
+  list-style: none;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* .exad-testimonial-ratings li.exad-testimonial-ratings-active i{
+  color: aquamarine;
+} */
 /* Testimonial style end */

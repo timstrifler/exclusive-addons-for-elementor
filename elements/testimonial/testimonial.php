@@ -70,6 +70,35 @@ class Exad_Testimonial extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_testimonial_enable_rating',
+			[
+				'label' => esc_html__( 'Display Rating?', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'no',
+			]
+		);
+
+
+		$this->add_control(
+		  	'exad_testimonial_rating_number',
+		  	[
+				'label'       => __( 'Rating Number', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 5,
+				'options' => [
+					1 => __( '1', 'exclusive-addons-elementor' ),
+					2 => __( '2', 'exclusive-addons-elementor' ),
+					3 => __( '3', 'exclusive-addons-elementor' ),
+					4 => __( '4', 'exclusive-addons-elementor' ),
+					5 => __( '5', 'exclusive-addons-elementor' ),
+				],
+				'condition' => [
+					'exad_testimonial_enable_rating' => 'yes',
+				],
+		  	]
+		);
+
 		$this-> end_controls_section();
 
 		/**
@@ -518,6 +547,122 @@ class Exad_Testimonial extends Widget_Base {
 		$this-> end_controls_section();
 
 		/**
+		 * Testimonial Rating Style Section
+		 */
+		$this->start_controls_section(
+			'exad_testimonial_rating_style',
+			[
+				'label' => esc_html__( 'Rating', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_testimonial_enable_rating' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_rating_size',
+			[
+				'label' => __( 'Icon Size', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-ratings li i' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_rating_icon_margin',
+			[
+				'label' => __( 'Icon Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 30,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 5,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-ratings li:not(:last-child) i' => 'margin-right: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_rating_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-ratings' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_testimonial_rating_tabs' );
+
+			// normal state rating
+			$this->start_controls_tab( 'exad_testimonial_rating_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_testimonial_rating_normal_color',
+					[
+						'label' => __( 'Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#222222',
+						'selectors' => [
+							'{{WRAPPER}} .exad-testimonial-ratings li i' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+
+			// hover state rating
+			$this->start_controls_tab( 'exad_testimonial_rating_active', [ 'label' => esc_html__( 'Active', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_testimonial_rating_active_color',
+					[
+						'label' => __( 'Color', 'exclusive-addons-elementor' ),
+						'type' => Controls_Manager::COLOR,
+						'default' => '#ff5b84',
+						'selectors' => [
+							'{{WRAPPER}} .exad-testimonial-ratings li.exad-testimonial-ratings-active i' => 'color: {{VALUE}};',
+						],
+					]
+				);
+
+			$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+		$this-> end_controls_section();
+
+		/**
 		 * Testimonial Description Style Section
 		 */
 		$this->start_controls_section(
@@ -824,6 +969,24 @@ class Exad_Testimonial extends Widget_Base {
 
 		$this-> end_controls_section();
 	}
+
+	protected function render_testimonial_rating( $ratings, $settings ) {
+	?>
+		<ul class="exad-testimonial-ratings">
+			<?php 
+				for( $i = 1; $i <= 5; $i++ ) {
+					if( $settings['exad_testimonial_rating_number'] >= $i ) {
+						$rating_active_class = 'class="exad-testimonial-ratings-active"';
+					} else {
+						$rating_active_class = '';
+					}
+					echo '<li ' . $rating_active_class . '><i class="fa fa-star-o"></i></li>';
+				}
+			?>
+        </ul>
+
+    <?php    
+	}
 			
 	protected function render() {
 		$settings = $this->get_settings_for_display();
@@ -865,6 +1028,9 @@ class Exad_Testimonial extends Widget_Base {
 					<?php if ( !empty( $settings['exad_testimonial_description'] ) ) { ?>
 						<p <?php echo $this->get_render_attribute_string( 'exad_testimonial_description' ); ?> ><?php echo esc_html( $settings['exad_testimonial_description'] ) ?></p>
 					<?php } ?>
+					<?php if ( $settings['exad_testimonial_enable_rating'] === 'yes' ) { ?>
+						<?php $this->render_testimonial_rating( $ratings, $settings ); ?>
+					<?php } ?>
 					<?php if ( !empty( $settings['exad_testimonial_name'] ) ) { ?>
 						<h4 <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?> ><?php echo esc_html( $settings['exad_testimonial_name'] ) ?></h4>
 					<?php } ?>
@@ -881,6 +1047,9 @@ class Exad_Testimonial extends Widget_Base {
 				<div <?php echo $this->get_render_attribute_string( 'exad_testimonial_content_wrapper' ); ?> >
 					<?php if ( !empty( $settings['exad_testimonial_description'] ) ) { ?>
 						<p <?php echo $this->get_render_attribute_string( 'exad_testimonial_description' ); ?> ><?php echo esc_html( $settings['exad_testimonial_description'] ) ?></p>
+						<?php if ( $settings['exad_testimonial_enable_rating'] === 'yes' ) { ?>
+							<?php $this->render_testimonial_rating( $ratings, $settings ); ?>
+						<?php } ?>
 					<?php } ?>
 				</div>
 				<div class="exad-testimonial-reviewer-wrapper <?php echo esc_attr( $settings['exad_testimonial_reviewer_image_position'] ); ?>">
