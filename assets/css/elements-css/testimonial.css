@@ -81,6 +81,7 @@
 
 .exad-testimonial-content-wrapper-arrow{
   position: relative;
+  z-index: 1;
 }
 
 .exad-testimonial-content-wrapper-arrow::before{
@@ -89,7 +90,9 @@
   height: 15px;
   width: 15px;
   left: 50%;
-  bottom: -6px;
+  bottom: -7px;
+  border-radius: 0px 0px 5px 0px;
   transform: translateX(-50%) rotate(45deg);
+  border-style: solid;
 }
 /* Testimonial style end */
