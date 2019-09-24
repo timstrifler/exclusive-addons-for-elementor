@@ -283,6 +283,11 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 				wp_register_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
 			}
 
+			if ( $is_activated_widget['image-magnifier'] ) {
+				// Image magnifier Js
+				wp_register_script( 'exad-image-magnifier', EXAD_URL . 'assets/js/vendor/drift.js', array( 'jquery' ), '1.0', true );
+			}
+
 			if ( $is_activated_widget['image-comparison'] ) {
 				// jQuery image-comparison twentytwenty Js
 				wp_register_script( 'exad-image-comparison', EXAD_URL . 'assets/js/vendor/jquery.twentytwenty.js', array( 'jquery' ), '1.0', true );
