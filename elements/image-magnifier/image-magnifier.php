@@ -19,8 +19,8 @@ class Exad_Image_Magnifier extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
     }
 
-    public function get_script_depends() {
-		return [ 'exad-image-magnifier' ];
+    public function get_keywords() {
+		return [ 'magnify', 'zoom', 'magnifier', 'image' ];
 	}
     
 	protected function _register_controls() {
@@ -35,9 +35,9 @@ class Exad_Image_Magnifier extends Widget_Base {
     );
 
     $this->add_control(
-        'exad_comparison_image_one',
+        'exad_magnify_image',
         [
-            'label' => esc_html__( 'Image One', 'exclusive-addons-elementor' ),
+            'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
             'type' => Controls_Manager::MEDIA,
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
@@ -56,27 +56,6 @@ class Exad_Image_Magnifier extends Widget_Base {
         ]
     );
     
-
-    $this->add_control(
-        'exad_comparison_image_two',
-        [
-            'label' => esc_html__( 'Image Two', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::MEDIA,
-            'default' => [
-                'url' => Utils::get_placeholder_image_src(),
-            ],
-        ]
-    );
-    $this->add_group_control(
-        Group_Control_Image_Size::get_type(),
-        [
-            'name' => 'thumbnail_two',
-            'default' => 'full',
-            'condition' => [
-                'exad_comparison_image_two[url]!' => '',
-            ],
-        ]
-    );
 
 
     $this->end_controls_section();
@@ -222,21 +201,13 @@ class Exad_Image_Magnifier extends Widget_Base {
 
     $settings = $this->get_settings_for_display();
     $comparison_image_one = $this->get_settings_for_display( 'exad_comparison_image_one' );
-    $comparison_image_two = $this->get_settings_for_display( 'exad_comparison_image_two' );
 	$comparison_image_url_one_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_one['id'], 'thumbnail', $settings );
-	$comparison_image_url_two_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_two['id'], 'thumbnail_two', $settings );
 
 		if( empty( $comparison_image_url_one_src ) ) {
 			$comparison_image_url_one = $comparison_image_one['url']; 
 		} else { 
 			$comparison_image_url_one = $comparison_image_url_one_src;
 		}
-
-		if( empty( $comparison_image_url_two_src ) ) {
-			$comparison_image_url_two = $comparison_image_two['url']; 
-		} else { 
-			$comparison_image_url_two = $comparison_image_url_two_src;
-        }
 		
 		$this->add_render_attribute( 'exad_image_magnifier_wrapper', [
             'class' => [ 'exad-image-magnifier', $settings['exad_image_magnifier_slider_handle'] ],
@@ -251,14 +222,10 @@ class Exad_Image_Magnifier extends Widget_Base {
     ?>
     
     <!-- Lets make a simple image magnifier -->
-    <div class="magnify">
-     
-        <div class="large"></div>
-         
-         <img class="small" src="<?php echo esc_url( $comparison_image_url_one ); ?>"/>
-        
+    <div class="exad-image-magnify">
+        <div class="exad-magnify-large"></div>
+        <img class="exad-magnify-small" src="<?php echo esc_url( $comparison_image_url_one ); ?>" />
     </div>
-
 
     <?php
 	}

@@ -255,11 +255,9 @@ var ImageHotspot = function ($scope, $) {
 
     var ImageMagnifier = function($scope, $) {
     
-    $(document).ready(function(){
-
-        var $magnify = $scope.find('.magnify').eq(0),
-        $large = $magnify.find('.large'),
-        $small = $magnify.find('.small');
+        var $magnify = $scope.find('.exad-image-magnify').eq(0),
+            $large = $magnify.find('.exad-magnify-large'),
+            $small = $magnify.find('.exad-magnify-small');
         
 
         var native_width = 0;
@@ -273,8 +271,8 @@ var ImageHotspot = function ($scope, $) {
                 //are available, the script will show the zoomed version.
                 if(!native_width && !native_height)
                 {
-                    //This will create a new image object with the same image as that in .small
-                    //We cannot directly get the dimensions from .small because of the 
+                    //This will create a new image object with the same image as that in .exad-magnify-small
+                    //We cannot directly get the dimensions from .exad-magnify-small because of the 
                     //width specified to 200px in the html. To get the actual dimensions we have
                     //created this image object.
                     var image_object = new Image();
@@ -289,11 +287,11 @@ var ImageHotspot = function ($scope, $) {
                 else
                 {
                     //x/y coordinates of the mouse
-                    //This is the position of .magnify with respect to the document.
+                    //This is the position of .exad-image-magnify with respect to the document.
                     var magnify_offset = $(this).offset();
-                    //We will deduct the positions of .magnify from the mouse positions with
+                    //We will deduct the positions of .exad-image-magnify from the mouse positions with
                     //respect to the document to get the mouse positions with respect to the 
-                    //container(.magnify)
+                    //container(.exad-image-magnify)
                     var mx = e.pageX - magnify_offset.left;
                     var my = e.pageY - magnify_offset.top;
                     
@@ -308,8 +306,8 @@ var ImageHotspot = function ($scope, $) {
                     }
                     if($large.is(":visible"))
                     {
-                        //The background position of .large will be changed according to the position
-                        //of the mouse over the .small image. So we will get the ratio of the pixel
+                        //The background position of .exad-magnify-large will be changed according to the position
+                        //of the mouse over the .exad-magnify-small image. So we will get the ratio of the pixel
                         //under the mouse pointer with respect to the image and use that to position the 
                         //large image inside the magnifying glass
                         var rx = Math.round(mx/$small.width()*native_width - $large.width()/2)*-1;
@@ -328,7 +326,7 @@ var ImageHotspot = function ($scope, $) {
                     }
                 }
             })
-        });    
+         
     };
 
 
