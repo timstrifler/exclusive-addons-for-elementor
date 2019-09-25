@@ -577,7 +577,6 @@ var TestimonialCarousel = function ($scope, $) {
     var $testimonialCarouselWrapper = $scope.find('.exad-testimonial-carousel-wrapper').eq(0),
     $carousel_nav = $testimonialCarouselWrapper.data("carousel-nav"),
     $loop = ($testimonialCarouselWrapper.data("loop") !== undefined) ? $testimonialCarouselWrapper.data("loop") : false,
-    $responsiveTestimonial =  ( $testimonialCarouselWrapper.data("testimonial-preset") == '-circle' ) ? 2 : 1,
     $slidesToShow = ($testimonialCarouselWrapper.data("slidestoshow") !== undefined) ? $testimonialCarouselWrapper.data("slidestoshow") : 1,
     $slidesToScroll = ($testimonialCarouselWrapper.data("slidestoscroll") !== undefined) ? $testimonialCarouselWrapper.data("slidestoscroll") : 1,
     $autoPlay = ($testimonialCarouselWrapper.data("autoplay") !== undefined) ? $testimonialCarouselWrapper.data("autoplay") : false,
@@ -612,16 +611,18 @@ var TestimonialCarousel = function ($scope, $) {
         rows: 0,
         responsive: [
             {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: $responsiveTestimonial,
-                },
-            },	
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                arrows: false,
+              }
+            },
             {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 1,
-                }
+              breakpoint: 576,
+              settings: {
+                slidesToShow: 1,
+                arrows: false,
+              }
             }
         ],
     });	

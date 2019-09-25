@@ -851,10 +851,20 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			'exad_testimonial_carousel_nav_dots_height',
 			[
 				'label' => esc_html__( 'Height', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => '10',
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-carousel .slick-dots li button' => 'height: {{VALUE}}px;',
+					'{{WRAPPER}} .exad-testimonial-carousel .slick-dots li button' => 'height: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'exad_testimonial_carousel_nav' => 'dots',
@@ -866,10 +876,20 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			'exad_testimonial_carousel_nav_dots_width',
 			[
 				'label' => esc_html__( 'Width', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'default' => '10',
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-carousel .slick-dots li button' => 'width: {{VALUE}}px;',
+					'{{WRAPPER}} .exad-testimonial-carousel .slick-dots li button' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
 					'exad_testimonial_carousel_nav' => 'dots',
