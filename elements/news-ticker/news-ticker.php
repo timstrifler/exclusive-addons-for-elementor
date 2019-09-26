@@ -311,7 +311,7 @@ class ExadNewsTicker extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#ffffff',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-news-ticker .exad-bn-label .exad-nt-label' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-news-ticker .exad-bn-label' => 'color: {{VALUE}};'
                 ]              
             ]
         );
@@ -321,7 +321,7 @@ class ExadNewsTicker extends Widget_Base {
             [
                 'name'      => 'exad_news_ticker_label_bg_color',
                 'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .exad-news-ticker .exad-bn-label .exad-nt-label,{{WRAPPER}} .exad-news-ticker .exad-bn-label.yes-small .exad-nt-label:after'            
+                'selector'  => '{{WRAPPER}} .exad-news-ticker .exad-bn-label,{{WRAPPER}} .exad-news-ticker .exad-bn-label.yes-small:after'            
             ]
         );
 
@@ -329,7 +329,7 @@ class ExadNewsTicker extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'          => 'exad_news_ticker_label_typography',
-                'selector'      => '{{WRAPPER}} .exad-news-ticker .exad-bn-label .exad-nt-label'
+                'selector'      => '{{WRAPPER}} .exad-news-ticker .exad-bn-label'
             ]
         );
 
@@ -343,7 +343,7 @@ class ExadNewsTicker extends Widget_Base {
                     'size'      => 15
                 ],
                 'selectors'     => [
-                    '{{WRAPPER}} .exad-news-ticker .exad-bn-label .exad-nt-label' => 'padding: 0 {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-news-ticker .exad-bn-label' => 'padding: 0 {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -353,7 +353,7 @@ class ExadNewsTicker extends Widget_Base {
             [
                 'name'           => 'exad_news_ticker_label_border',
                 'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-bn-label .exad-nt-label'
+                'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-bn-label'
             ]
         );
 
@@ -364,7 +364,7 @@ class ExadNewsTicker extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px'],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-news-ticker .exad-bn-label .exad-nt-label'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-news-ticker .exad-bn-label'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -598,7 +598,7 @@ class ExadNewsTicker extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px'],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-news-ticker .exad-nt-controls'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-news-ticker .exad-nt-controls' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
