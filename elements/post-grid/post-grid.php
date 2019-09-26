@@ -132,7 +132,6 @@ class Exad_Post_Grid extends Widget_Base {
 					'asc'  => 'Ascending',
 					'desc' => 'Descending'
                 ]
-
             ]
         );
 
