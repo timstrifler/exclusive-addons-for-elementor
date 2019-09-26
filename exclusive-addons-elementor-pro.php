@@ -201,6 +201,8 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 				return;
 			}
 			
+			// Placeholder image replacement
+			add_filter( 'elementor/utils/get_placeholder_image_src', array( $this, 'exad_set_placeholder_image' ), 30 );
 			
 			add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'exad_plugin_settings_action' ) );
 			// Registering Elementor Widget Category
@@ -243,6 +245,14 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 			$settings_link = sprintf( '<a href="admin.php?page=exad-settings">' . __( 'Settings', 'exclusive-addons-elementor' ) . '</a>' );
 			array_push( $links, $settings_link );
 			return $links;
+		}
+
+		/**
+		 * 
+		 * Placeholder Image
+		 */
+		public function exad_set_placeholder_image() {
+			return EXAD_ASSETS_URL . 'img/placeholder.jpg';
 		}
 
 		/**
