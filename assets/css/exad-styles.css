@@ -220,6 +220,7 @@
   bottom: 50%;
   margin-bottom: -21px; 
 }
+/* Exclusive Accordion Start */ 
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title {
   position: relative;
   display: flex;
@@ -366,6 +367,7 @@
 } */
 
 /* Exclusive alert style end*/
+/* Breadcrumbs style start */
 ul.exad-breadcrumb-items {
   margin: 0;
   padding: 0;
@@ -376,36 +378,22 @@ ul.exad-breadcrumb-items li {
   display: inline-block;
   position: relative;
 }
-ul.exad-breadcrumb-items li.exad-breadcrumb-item {
-    padding-right: 22px;
+ul.exad-breadcrumb-items li.exad-breadcrumb-item a {
+	display: inline-block;
 }
-ul.exad-breadcrumb-items li.exad-breadcrumb-item.arrow-yes:not(:last-child)::before {
-    position: absolute;
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-width: 1px 1px 0 0;
-    border-style: solid;
-    border-color: #797c80;
-    right: 0;
-    top: 50%;
-    -webkit-transform: translateY(-50%) rotate(45deg);
-    transform: translateY(-50%) rotate(45deg);
+ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow {
+	position: absolute;
+	content: '';
+	right: 0;
+	top: 6px;
+	-webkit-transform: translate(50%,-50%);
+	transform: translate(50%,-50%); 
+	top: 50%;
+	z-index: 1;
+	text-align: center;
 }
 
-
-/*
-ul.exad-breadcrumb-items li.exad-breadcrumb-item:not(:first-child) {
-    border-right: 10px solid blue;
-}*/
-
-
-
-
-
-
-
-
+/* Breadcrumbs style end */
 /* Exclusive Button Start */
 
 /* Global Styles for Buttons */

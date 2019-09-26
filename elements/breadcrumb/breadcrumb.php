@@ -83,6 +83,18 @@ class Exad_Breadcrumbs extends Widget_Base {
             ]
         ); 
 	
+		$this->add_control(
+			'exad_breadcrumbs_separate_arrow',
+			[
+				'label'     => __( 'Separate Arrow', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::ICON,
+				'default'   => 'fa fa-angle-right',
+				'condition' => [
+                    'exad_breadcrumbs_separate_with_arrow' => 'yes'
+                ]
+			]
+		);
+
 		$this->end_controls_section();
 
         $this->start_controls_section(
@@ -124,6 +136,14 @@ class Exad_Breadcrumbs extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'          => 'exad_breadcrumbs_item_typography',
+                'selector'      => '{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item a'
+            ]
+        );
+
         $this->add_responsive_control(
             'exad_breadcrumbs_item_padding',
             [
@@ -137,7 +157,7 @@ class Exad_Breadcrumbs extends Widget_Base {
 					'left'   => '15'
 				],
                 'selectors'   => [
-                        '{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item a, {{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item.last-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -307,6 +327,36 @@ class Exad_Breadcrumbs extends Widget_Base {
         $this->end_controls_tabs();
 
 		$this->add_control(
+			'exad_breadcrumbs_item_icon_style',
+			[
+				'label'     => __( 'Icon', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+                'condition' => [
+                	'exad_breadcrumbs_with_icon' => 'yes'
+                ]
+			]
+		);
+
+        $this->add_responsive_control(
+            'exad_breadcrumbs_item_icon_padding',
+            [
+				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,            
+				'size_units' => [ 'px', 'em', '%' ],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '15',
+					'bottom' => '0',
+					'left'   => '0'
+				],
+                'selectors'   => [
+                    '{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-breadcrumb-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+		$this->add_control(
 			'exad_breadcrumbs_item_arrow_separator_style',
 			[
 				'label'     => __( 'Arrow Separator', 'exclusive-addons-elementor' ),
@@ -318,13 +368,61 @@ class Exad_Breadcrumbs extends Widget_Base {
 			]
 		);
 
+	    $this->add_responsive_control(
+      		'exad_breadcrumbs_item_arrow_separator_size',
+      		[
+				'label'    => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+				'type'     => Controls_Manager::SLIDER,
+		        'range'   => [
+		          	'px'  => [
+		              	'max' => 100
+		          	]
+		        ],
+		        'selectors' => [
+		          	'{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow' => 'width: {{SIZE}}px; height: {{SIZE}}px; line-height: {{SIZE}}px;'
+		        ],
+				'condition' => [
+                	'exad_breadcrumbs_separate_with_arrow' => 'yes'
+                ]
+	      	]
+	    );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'          => 'exad_breadcrumbs_item_arrow_separator_typography',
+                'selector'      => '{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow',                
+                'exclude' => [
+                    'text_transform', 'font_family' // font_size, font_weight, text_transform, font_style, text_decoration, line_height, letter_spacing
+                ],
+                'condition'         => [
+                    'exad_breadcrumbs_separate_with_arrow' => 'yes'
+                ]  
+            ]
+        );
+
         $this->add_control(
-			'exad_breadcrumbs_item_color_arrow_separator_color',
+			'exad_breadcrumbs_item_arrow_separator_color',
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item.arrow-yes' => 'color: {{VALUE}};'
+					'{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow' => 'color: {{VALUE}};'
+				],
+				'default'	=> '#797c80',
+				'condition' => [
+                	'exad_breadcrumbs_separate_with_arrow' => 'yes'
+                ]
+			]
+		);
+
+        $this->add_control(
+			'exad_breadcrumbs_item_arrow_separator_bg_color',
+			[
+				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow' => 'background-color: {{VALUE}};'
 				],
 				'condition' => [
                 	'exad_breadcrumbs_separate_with_arrow' => 'yes'
@@ -332,20 +430,53 @@ class Exad_Breadcrumbs extends Widget_Base {
 			]
 		);
 
+        $this->add_group_control(
+        	Group_Control_Border::get_type(),
+            [
+                'name'      => 'exad_breadcrumbs_item_arrow_separator_border',
+                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                'selector'  => '{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow',
+				'condition' => [
+                	'exad_breadcrumbs_separate_with_arrow' => 'yes'
+                ]
+            ]
+        );
+
+		$this->add_control(
+			'exad_breadcrumbs_item_arrow_separator_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px'],
+				'selectors'  => [
+					'{{WRAPPER}} ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				],
+				'condition'  => [
+                	'exad_breadcrumbs_separate_with_arrow' => 'yes'
+                ]
+			]
+		);
+
+
 		$this->end_controls_section();
 	}
 
-   	public function exadBreadcrumbs($hometext, $withIcon, $homeIcon, $otherIcon, $arrow_separate) {
+   	public function exadBreadcrumbs($hometext, $withIcon, $homeIcon, $otherIcon, $arrow_separate, $arrow_icon) {
   
-		$delimiter = '&raquo;';
-		$name = esc_html($hometext); //text for the 'Home' link
+		$name = $hometext; //text for the 'Home' link
 
-		if($withIcon == 'yes'){
-			$homeIcon = '<i class="'.esc_attr($homeIcon).'"></i>';
-			$otherIcon = '<i class="'.esc_attr($otherIcon).'"></i>';
+		if('yes' == $withIcon){
+			$homeIcon   = '<i class="exad-breadcrumb-icon '.esc_attr($homeIcon).'"></i>';
+			$otherIcon  = '<i class="exad-breadcrumb-icon '.esc_attr($otherIcon).'"></i>';
 		} else {			
-			$homeIcon = '';
-			$otherIcon = '';
+			$homeIcon   = '';
+			$otherIcon  = '';
+		}
+
+		if( 'yes' == $arrow_separate){
+			$arrow_icon = '<i class="exad-arrow '.esc_attr($arrow_icon).'"></i>';
+		} else {
+			$arrow_icon = '';
 		}
 
 		$currentBefore = '<li class="exad-breadcrumb-item last-item active">'.$otherIcon;
@@ -356,7 +487,7 @@ class Exad_Breadcrumbs extends Widget_Base {
 		    echo '<ul class="exad-breadcrumb-items">';		  
 			    global $post;
 			    $home = get_bloginfo('url');
-			    echo '<li class="exad-breadcrumb-item first-item arrow-'.esc_attr($arrow_separate).'"><a href="' . $home . '">'.$homeIcon. $name . '</a></li>';
+			    echo '<li class="exad-breadcrumb-item first-item"><a href="'.esc_url($home).'">'.$homeIcon. esc_html($name) .'</a>'.$arrow_icon.'</li>';
 
 				if ( Plugin::$instance->editor->is_edit_mode() || is_page() || is_single() ) {
 					if ( !$post->post_parent ) {
@@ -369,7 +500,7 @@ class Exad_Breadcrumbs extends Widget_Base {
 						$breadcrumbs = array();
 						while ($parent_id) {
 							$page = get_page($parent_id);
-							$breadcrumbs[] = '<li class="exad-breadcrumb-item inner-items arrow-'.esc_attr($arrow_separate).'"><a href="' . get_permalink($page->ID) . '">'.$otherIcon . get_the_title($page->ID) . '</a></li>';
+							$breadcrumbs[] = '<li class="exad-breadcrumb-item inner-items"><a href="' . get_permalink($page->ID) . '">'.$otherIcon . get_the_title($page->ID) . '</a>'.$arrow_icon.'</li>';
 							$parent_id  = $page->post_parent;
 						}
 						$breadcrumbs = array_reverse($breadcrumbs);
@@ -388,21 +519,23 @@ class Exad_Breadcrumbs extends Widget_Base {
 
 	protected function render() {
 
-		$settings  = $this->get_settings_for_display();
-		$homeText  = $settings['exad_breadcrumbs_home_text'];
-		$withIcon  = $settings['exad_breadcrumbs_with_icon'];
-		$homeIcon  = '';
-		$otherIcon = '';
+		$settings   = $this->get_settings_for_display();
+		$homeText   = $settings['exad_breadcrumbs_home_text'];
+		$withIcon   = $settings['exad_breadcrumbs_with_icon'];
+		$homeIcon   = '';
+		$otherIcon  = '';
+		$arrow_icon = '';
 		$arrow_separate = '';
 		if('yes' == $settings['exad_breadcrumbs_separate_with_arrow']){
 			$arrow_separate = 'yes';
+			$arrow_icon     = $settings['exad_breadcrumbs_separate_arrow'];
 		}
 		if( 'yes' == $withIcon){
 			$homeIcon = $settings['exad_breadcrumbs_home_icon'];
    			$otherIcon = $settings['exad_breadcrumbs_other_icon'];
 		}  
 
- 		$this->exadBreadcrumbs($homeText, $withIcon, $homeIcon, $otherIcon, $arrow_separate);
+ 		$this->exadBreadcrumbs($homeText, $withIcon, $homeIcon, $otherIcon, $arrow_separate, $arrow_icon);
 
 	}
 }
