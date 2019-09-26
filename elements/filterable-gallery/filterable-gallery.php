@@ -613,6 +613,37 @@ class Exad_Filterable_Gallery extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'exad_fg_item_icon_size',
+            [
+                'label'         => esc_html__('Size', 'exclusive-addons-elementor'),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => 40
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 80
+                    ]
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                ] 
+            ]
+        );   
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'          => 'exad_fg_item_icon_typography',
+                'selector'      => '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i',                
+                'exclude' => [
+                    'text_transform', 'font_family' // font_size, font_weight, text_transform, font_style, text_decoration, line_height, letter_spacing
+                ]
+            ]
+        );
+
         // Tabs
         $this->start_controls_tabs('exad_fg_item_icon_tabs');
 
