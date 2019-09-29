@@ -113,19 +113,6 @@ class Exad_Testimonial extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_testimonial_design',
-			[
-				'label' => __( 'Design', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => 'default',
-				'options' => [
-					'default'  => __( 'Default', 'exclusive-addons-elementor' ),
-					'image-with-reviewer'  => __( 'Image With Reviewer', 'exclusive-addons-elementor' ),
-				],
-			]
-		);
-
-		$this->add_control(
 			'exad_testimonial_container_alignment',
 			[
 				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
@@ -190,10 +177,10 @@ class Exad_Testimonial extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
-					'top' => '0',
-					'right' => '0',
-					'bottom' => '0',
-					'left' => '0',
+					'top' => '10',
+					'right' => '10',
+					'bottom' => '10',
+					'left' => '10',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -244,52 +231,40 @@ class Exad_Testimonial extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_image_position',
 			[
-				'label' => __( 'Position', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
+				'label' => __( 'Image Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'exad-image-top',
 				'options' => [
-					'exad-testimonial-image-pos-left' => [
-						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-left',
-					],
-					'exad-testimonial-image-pos-center' => [
-						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-up',
-					],
-					'exad-testimonial-image-pos-right' => [
-						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-right',
-					]
-				],
-				'default' => 'exad-testimonial-image-pos-center',
-				'condition' => [
-					'exad_testimonial_design' => 'default',
+					'exad-image-top'  => __( 'Image Top', 'exclusive-addons-elementor' ),
+					'exad-image-middle'  => __( 'Image Middle', 'exclusive-addons-elementor' ),
+					'exad-image-bottom'  => __( 'Image bottom', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
 
 		$this->add_control(
-			'exad_testimonial_reviewer_image_position',
+			'exad_testimonial_image_alignment',
 			[
-				'label' => __( 'Position', 'exclusive-addons-elementor' ),
+				'label' => __( 'Image Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
-					'exad-testimonial-reviewer-image-pos-up' => [
-						'title' => __( 'Up', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-up',
-					],
-					'exad-testimonial-reviewer-image-pos-left' => [
+					'exad-testimonial-image-align-left' => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon' => 'fa fa-angle-left',
 					],
-					'exad-testimonial-reviewer-image-pos-bottom' => [
-						'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-down',
+					'exad-testimonial-image-align-center' => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-angle-up',
 					],
+					'exad-testimonial-image-align-right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-angle-right',
+					]
 				],
-				'default' => 'exad-testimonial-reviewer-image-pos-up',
+				'default' => 'exad-testimonial-image-align-center',
 				'condition' => [
-					'exad_testimonial_design' => 'image-with-reviewer',
-				],
+					'exad_testimonial_image_position' => ['exad-image-top', 'exad-image-middle'],
+				]
 			]
 		);
 
@@ -349,8 +324,8 @@ class Exad_Testimonial extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-thumb'=> 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-testimonial-reviewer-image-pos-left .exad-testimonial-thumb'=> 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-testimonial-reviewer-image-pos-left .exad-testimonial-reviewer'=> 'width: calc( 100% - {{SIZE}}{{UNIT}} );',
+					'{{WRAPPER}} .exad-testimonial-image-align-left .exad-testimonial-thumb, {{WRAPPER}} .exad-testimonial-image-align-right .exad-testimonial-thumb'=> 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-testimonial-image-align-left .exad-testimonial-reviewer, {{WRAPPER}} .exad-testimonial-image-align-right .exad-testimonial-reviewer'=> 'width: calc( 100% - {{SIZE}}{{UNIT}} );',
 				],
 				'condition' => [
 					'exad_testimonial_image_box' => 'yes'
@@ -378,8 +353,8 @@ class Exad_Testimonial extends Widget_Base {
 				'size_units' => [ 'px', '%', 'em' ],
 				'separator' => 'after',
 				'default' => [
-					'top' => '0',
-					'right' => '0',
+					'top' => '10',
+					'right' => '10',
 					'bottom' => '0',
 					'left' => '0',
 				],
@@ -451,7 +426,7 @@ class Exad_Testimonial extends Widget_Base {
 				'label' => esc_html__( 'Rivewer', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'exad_testimonial_design' => 'image-with-reviewer',
+					'exad_testimonial_image_position' => ['exad-image-middle', 'exad-image-bottom'],
 				]
 			]
 		);
@@ -492,6 +467,32 @@ class Exad_Testimonial extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_testimonial_reviewer_spacing',
+			[
+				'label' => __( 'Spacing', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper.exad-testimonial-image-align-left .exad-testimonial-reviewer' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper.exad-testimonial-image-align-right .exad-testimonial-reviewer' => 'padding-right: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_testimonial_image_alignment' => ['exad-testimonial-image-align-left', 'exad-testimonial-image-align-right'],
+				]
+			]
+		);
+
 		$this-> end_controls_section();
 
 		/**
@@ -503,8 +504,18 @@ class Exad_Testimonial extends Widget_Base {
 				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'exad_testimonial_design' => 'default',
+					'exad_testimonial_image_position' => 'exad-image-top',
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_testimonial_content_background',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-testimonial-content',
 			]
 		);
 
@@ -521,7 +532,7 @@ class Exad_Testimonial extends Widget_Base {
 					'left' => '30',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-testimonial-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -539,7 +550,7 @@ class Exad_Testimonial extends Widget_Base {
 					'left' => '0',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-testimonial-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
 		);
@@ -683,7 +694,7 @@ class Exad_Testimonial extends Widget_Base {
 				'return_value' => 'yes',
 				'default' => 'no',
 				'condition' => [
-					'exad_testimonial_design' => 'image-with-reviewer',
+					'exad_testimonial_image_position' => ['exad-image-middle', 'exad-image-bottom'],
 				]
 			]
 		);
@@ -765,7 +776,7 @@ class Exad_Testimonial extends Widget_Base {
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-testimonial-content-wrapper, {{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before',
 				'condition' => [
-					'exad_testimonial_design' => 'image-with-reviewer',
+					'exad_testimonial_image_position' => ['exad-image-middle', 'exad-image-bottom'],
 				]
 			]
 		);
@@ -825,7 +836,7 @@ class Exad_Testimonial extends Widget_Base {
 					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
-					'exad_testimonial_design' => 'image-with-reviewer',
+					'exad_testimonial_image_position' => ['exad-image-middle', 'exad-image-bottom'],
 				]
 			]
 		);
@@ -837,7 +848,7 @@ class Exad_Testimonial extends Widget_Base {
 				'label' => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-testimonial-content-wrapper',
 				'condition' => [
-					'exad_testimonial_design' => 'image-with-reviewer',
+					'exad_testimonial_image_position' => ['exad-image-middle', 'exad-image-bottom'],
 				]
 			]
 		);
@@ -858,7 +869,7 @@ class Exad_Testimonial extends Widget_Base {
 					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 				'condition' => [
-					'exad_testimonial_design' => 'image-with-reviewer',
+					'exad_testimonial_image_position' => ['exad-image-middle', 'exad-image-bottom'],
 				]
 			]
 		);
@@ -987,7 +998,7 @@ class Exad_Testimonial extends Widget_Base {
 
     <?php    
 	}
-			
+
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
@@ -1016,15 +1027,15 @@ class Exad_Testimonial extends Widget_Base {
 		}
 	?>
 
-	<?php if( $settings['exad_testimonial_design'] === 'default' ) { ?>
+	<?php if( $settings['exad_testimonial_image_position'] === 'exad-image-top' ) { ?>
 		<div class="exad-testimonial-wrapper <?php echo esc_attr( $settings['exad_testimonial_container_alignment'] ); ?>">
-			<div class="exad-testimonial-wrapper-inner <?php echo esc_attr( $settings['exad_testimonial_image_position'] ); ?>">
+			<div class="exad-testimonial-wrapper-inner <?php echo esc_attr( $settings['exad_testimonial_image_alignment'] ); ?>">
 				<?php if ( !empty( $testimonial_image_url ) ) { ?>
 					<div class="exad-testimonial-thumb">
 						<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>">
 					</div>
 				<?php } ?>
-				<div class="exad-testimonial-content-wrapper">
+				<div class="exad-testimonial-content">
 					<?php if ( !empty( $settings['exad_testimonial_description'] ) ) { ?>
 						<p <?php echo $this->get_render_attribute_string( 'exad_testimonial_description' ); ?> ><?php echo esc_html( $settings['exad_testimonial_description'] ) ?></p>
 					<?php } ?>
@@ -1041,7 +1052,8 @@ class Exad_Testimonial extends Widget_Base {
 			</div>
 		</div>
 	<?php } ?>
-	<?php if( $settings['exad_testimonial_design'] === 'image-with-reviewer' ) { ?>
+
+	<?php if( $settings['exad_testimonial_image_position'] === 'exad-image-middle' ) { ?>
 		<div class="exad-testimonial-wrapper <?php echo esc_attr( $settings['exad_testimonial_container_alignment'] ); ?>">
 			<div class="exad-testimonial-wrapper-inner">
 				<div <?php echo $this->get_render_attribute_string( 'exad_testimonial_content_wrapper' ); ?> >
@@ -1052,133 +1064,55 @@ class Exad_Testimonial extends Widget_Base {
 						<?php } ?>
 					<?php } ?>
 				</div>
-				<div class="exad-testimonial-reviewer-wrapper <?php echo esc_attr( $settings['exad_testimonial_reviewer_image_position'] ); ?>">
-					<?php if( $settings['exad_testimonial_reviewer_image_position'] === 'exad-testimonial-reviewer-image-pos-up' || $settings['exad_testimonial_reviewer_image_position'] === 'exad-testimonial-reviewer-image-pos-left' ) { ?>
-						<?php if ( !empty( $testimonial_image_url ) ) { ?>
-							<div class="exad-testimonial-thumb">
-								<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>">
-							</div>
-						<?php } ?>
-						<div class="exad-testimonial-reviewer">
-							<?php if ( !empty( $settings['exad_testimonial_name'] ) ) { ?>
-								<h4 <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?> ><?php echo esc_html( $settings['exad_testimonial_name'] ) ?></h4>
-							<?php } ?>
-							<?php if ( !empty( $settings['exad_testimonial_designation'] ) ) { ?>
-								<span <?php echo $this->get_render_attribute_string( 'exad_testimonial_designation' ); ?> ><?php echo esc_html( $settings['exad_testimonial_designation'] ) ?></span>
-							<?php } ?>
+				<div class="exad-testimonial-reviewer-wrapper <?php echo esc_attr( $settings['exad_testimonial_image_alignment'] ); ?>">
+					<?php if ( !empty( $testimonial_image_url ) ) { ?>
+						<div class="exad-testimonial-thumb">
+							<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>">
 						</div>
 					<?php } ?>
-
-					<?php if( $settings['exad_testimonial_reviewer_image_position'] === 'exad-testimonial-reviewer-image-pos-bottom' ) { ?>
-						<div class="exad-testimonial-reviewer">
-							<?php if ( !empty( $settings['exad_testimonial_name'] ) ) { ?>
-								<h4 <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?> ><?php echo esc_html( $settings['exad_testimonial_name'] ) ?></h4>
-							<?php } ?>
-							<?php if ( !empty( $settings['exad_testimonial_designation'] ) ) { ?>
-								<span <?php echo $this->get_render_attribute_string( 'exad_testimonial_designation' ); ?> ><?php echo esc_html( $settings['exad_testimonial_designation'] ) ?></span>
-							<?php } ?>
-						</div>
-						<?php if ( !empty( $testimonial_image_url ) ) { ?>
-							<div class="exad-testimonial-thumb">
-								<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>">
-							</div>
+					<div class="exad-testimonial-reviewer">
+						<?php if ( !empty( $settings['exad_testimonial_name'] ) ) { ?>
+							<h4 <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?> ><?php echo esc_html( $settings['exad_testimonial_name'] ) ?></h4>
 						<?php } ?>
-					<?php } ?>
+						<?php if ( !empty( $settings['exad_testimonial_designation'] ) ) { ?>
+							<span <?php echo $this->get_render_attribute_string( 'exad_testimonial_designation' ); ?> ><?php echo esc_html( $settings['exad_testimonial_designation'] ) ?></span>
+						<?php } ?>
+					</div>
 				</div>
 			</div>
 		</div>
 	<?php } ?>
 
-	<?php
-	}
-
-	protected function _content_template() {
-	?>
-	<#
-		view.addInlineEditingAttributes( 'exad_testimonial_description', 'none' );
-		view.addRenderAttribute( 'exad_testimonial_description', 'class', 'exad-testimonial-description' );
-
-		view.addInlineEditingAttributes( 'exad_testimonial_name', 'none' );
-		view.addRenderAttribute( 'exad_testimonial_name', 'class', 'exad-testimonial-name' );
-
-		view.addInlineEditingAttributes( 'exad_testimonial_designation', 'none' );
-		view.addRenderAttribute( 'exad_testimonial_designation', 'class', 'exad-testimonial-designation' );
-
-		view.addRenderAttribute( 'exad_testimonial_content_wrapper', 'class', 'exad-testimonial-content-wrapper' );
-
-		if ( settings.exad_testimonial_description_arrow_enable === 'yes'){
-			view.addRenderAttribute( 'exad_testimonial_content_wrapper', 'class', 'exad-testimonial-content-wrapper-arrow' );
-		}
-	#>
-
-	<# if( settings.exad_testimonial_design === 'default' ) { #>
-		<div class="exad-testimonial-wrapper {{ settings.exad_testimonial_container_alignment }}">
-			<div class="exad-testimonial-wrapper-inner {{ settings.exad_testimonial_image_position }}">
-				<# if ( settings.exad_testimonial_image.url != '' ) { #>
-					<div class="exad-testimonial-thumb">
-						<img src="{{ settings.exad_testimonial_image.url }}" alt="{{ settings.exad_testimonial_name }}">
-					</div>
-				<# } #>
-				<div class="exad-testimonial-content-wrapper">
-					<# if ( settings.exad_testimonial_description != '' ) { #>
-						<p {{{ view.getRenderAttributeString( 'exad_testimonial_description' ) }}} >{{{ settings.exad_testimonial_description }}}</p>
-					<# } #>
-					<# if ( settings.exad_testimonial_name != '' ) { #>
-						<h4 {{{ view.getRenderAttributeString( 'exad_testimonial_name' ) }}} >{{{ settings.exad_testimonial_name }}}</h4>
-					<# } #>
-					<# if ( settings.exad_testimonial_designation != '' ) { #>
-						<span {{{ view.getRenderAttributeString( 'exad_testimonial_designation' ) }}} >{{{ settings.exad_testimonial_designation }}}</span>
-					<# } #>
-				</div>
-			</div>
-		</div>
-	<# } #>
-
-	<# if( settings.exad_testimonial_design === 'image-with-reviewer' ) { #>
-		<div class="exad-testimonial-wrapper {{ settings.exad_testimonial_container_alignment }}">
+	<?php if( $settings['exad_testimonial_image_position'] === 'exad-image-bottom' ) { ?>
+		<div class="exad-testimonial-wrapper <?php echo esc_attr( $settings['exad_testimonial_container_alignment'] ); ?>">
 			<div class="exad-testimonial-wrapper-inner">
-				<div {{{view.getRenderAttributeString( 'exad_testimonial_content_wrapper' ) }}} >
-					<# if ( settings.exad_testimonial_description != '' ) { #>
-						<p {{{ view.getRenderAttributeString( 'exad_testimonial_description' ) }}} >{{{ settings.exad_testimonial_description }}}</p>
-					<# } #>
+				<div <?php echo $this->get_render_attribute_string( 'exad_testimonial_content_wrapper' ); ?> >
+					<?php if ( !empty( $settings['exad_testimonial_description'] ) ) { ?>
+						<p <?php echo $this->get_render_attribute_string( 'exad_testimonial_description' ); ?> ><?php echo esc_html( $settings['exad_testimonial_description'] ) ?></p>
+						<?php if ( $settings['exad_testimonial_enable_rating'] === 'yes' ) { ?>
+							<?php $this->render_testimonial_rating( $ratings, $settings ); ?>
+						<?php } ?>
+					<?php } ?>
 				</div>
-				<div class="exad-testimonial-reviewer-wrapper {{ settings.exad_testimonial_reviewer_image_position }}">
-					<# if( settings.exad_testimonial_reviewer_image_position === 'exad-testimonial-reviewer-image-pos-up' || settings.exad_testimonial_reviewer_image_position === 'exad-testimonial-reviewer-image-pos-left' ) { #>
-						<# if ( settings.exad_testimonial_image.url != '' ) { #>
-							<div class="exad-testimonial-thumb">
-								<img src="{{ settings.exad_testimonial_image.url }}" alt="{{ settings.exad_testimonial_name }}">
-							</div>
-						<# } #>
-						<div class="exad-testimonial-reviewer">
-							<# if ( settings.exad_testimonial_name != '' ) { #>
-								<h4 {{{ view.getRenderAttributeString( 'exad_testimonial_name' ) }}} >{{{ settings.exad_testimonial_name }}}</h4>
-							<# } #>
-							<# if ( settings.exad_testimonial_designation != '' ) { #>
-								<span {{{ view.getRenderAttributeString( 'exad_testimonial_designation' ) }}} >{{{ settings.exad_testimonial_designation }}}</span>
-							<# } #>
+				<div class="exad-testimonial-reviewer-wrapper">
+					<div class="exad-testimonial-reviewer">
+						<?php if ( !empty( $settings['exad_testimonial_name'] ) ) { ?>
+							<h4 <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?> ><?php echo esc_html( $settings['exad_testimonial_name'] ) ?></h4>
+						<?php } ?>
+						<?php if ( !empty( $settings['exad_testimonial_designation'] ) ) { ?>
+							<span <?php echo $this->get_render_attribute_string( 'exad_testimonial_designation' ); ?> ><?php echo esc_html( $settings['exad_testimonial_designation'] ) ?></span>
+						<?php } ?>
+					</div>
+					<?php if ( !empty( $testimonial_image_url ) ) { ?>
+						<div class="exad-testimonial-thumb">
+							<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>">
 						</div>
-					<# } #>
-
-					<# if( settings.exad_testimonial_reviewer_image_position === 'exad-testimonial-reviewer-image-pos-bottom' ) { #>
-						<div class="exad-testimonial-reviewer">
-							<# if ( settings.exad_testimonial_name != '' ) { #>
-								<h4 {{{ view.getRenderAttributeString( 'exad_testimonial_name' ) }}} >{{{ settings.exad_testimonial_name }}}</h4>
-							<# } #>
-							<# if ( settings.exad_testimonial_designation != '' ) { #>
-								<span {{{ view.getRenderAttributeString( 'exad_testimonial_designation' ) }}} >{{{ settings.exad_testimonial_designation }}}</span>
-							<# } #>
-						</div>
-						<# if ( settings.exad_testimonial_image.url != '' ) { #>
-							<div class="exad-testimonial-thumb">
-								<img src="{{ settings.exad_testimonial_image.url }}" alt="{{ settings.exad_testimonial_name }}">
-							</div>
-						<# } #>
-					<# } #>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
-	<# } #>
-
+	<?php } ?>
+	
 	<?php
 	}
 }
