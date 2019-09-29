@@ -495,6 +495,18 @@ var ProgressBar = function ($scope, $){
         offset: 'bottom-in-view'
     });
 };
+// slider js starts here. 
+var ExadSlider = function($scope, $) {
+    var $ExadSliderWrapper = $scope.find('.exad-slider').eq(0);
+    
+    $ExadSliderWrapper.slick({
+		slidesToShow: 1,
+		arrows: true,
+		autoplay: false,
+		dots: true
+    });
+};
+// slider js ends here.
 // Exclusive Tabs script
 var ExclusiveTabs = function($scope, $) {
     var $tabsWrapper = $scope.find('[data-tabs]').eq(0);
@@ -645,6 +657,7 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-filterable-gallery.default', FilterableGallery);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-alert.default', ExclusiveAlert);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-instagram-feed.default', InstagramGallery);
+    elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-slider.default', ExadSlider);
     //elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
 });	
 
