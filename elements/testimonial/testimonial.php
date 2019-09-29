@@ -231,13 +231,13 @@ class Exad_Testimonial extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_image_position',
 			[
-				'label' => __( 'Image Position', 'exclusive-addons-elementor' ),
+				'label' => __( 'Position', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'exad-image-top',
 				'options' => [
-					'exad-image-top'  => __( 'Image Top', 'exclusive-addons-elementor' ),
-					'exad-image-middle'  => __( 'Image Middle', 'exclusive-addons-elementor' ),
-					'exad-image-bottom'  => __( 'Image bottom', 'exclusive-addons-elementor' ),
+					'exad-image-top'  => __( 'Top', 'exclusive-addons-elementor' ),
+					'exad-image-middle'  => __( 'Middle', 'exclusive-addons-elementor' ),
+					'exad-image-bottom'  => __( 'bottom', 'exclusive-addons-elementor' ),
 				],
 			]
 		);
@@ -245,7 +245,7 @@ class Exad_Testimonial extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_image_alignment',
 			[
-				'label' => __( 'Image Alignment', 'exclusive-addons-elementor' ),
+				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'exad-testimonial-image-align-left' => [
