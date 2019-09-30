@@ -47,6 +47,17 @@ var ExclusiveAlert = function( $scope, $ ) {
         });
     });
 };
+// Animated text script start
+var AnimatedText = function( $scope, $ ) {
+  var typed = new Typed('#typed', {
+    strings: ['Some <i>strings</i> with', 'Some <strong>HTML</strong>', 'Chars &times; &copy;'],
+    loop: true,
+    typeSpeed: 50,
+    backSpeed: 50,
+    // shuffle: true,
+  });
+};
+// Animated text script end
 // Exclusive Button 
 var ExclusiveButton = function($scope, $) {
     // position on hover a button in button style seven
@@ -645,6 +656,7 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-filterable-gallery.default', FilterableGallery);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-alert.default', ExclusiveAlert);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-instagram-feed.default', InstagramGallery);
+    elementorFrontend.hooks.addAction('frontend/element_ready/exad-animated-text.default', AnimatedText);
     //elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
 });	
 

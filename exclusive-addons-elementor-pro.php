@@ -313,6 +313,11 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 				// Instagram Gallery
 				wp_register_script( 'exad-instagram', EXAD_URL . 'assets/js/vendor/instagram.min.js', array( 'jquery' ), '1.0', true );
 			}
+
+			if ( $is_activated_widget['animated-text'] ) {
+				// Instagram Gallery
+				wp_register_script( 'exad-animated-text', EXAD_URL . 'assets/js/vendor/typed.min.js', array( 'jquery' ), '1.0', true );
+			}
 			
 			wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );
 			
