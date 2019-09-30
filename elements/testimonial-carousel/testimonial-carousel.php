@@ -297,6 +297,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			[
 				'name' => 'exad_testimonial_carousel_container_background',
 				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'separator' => 'before',
 				'types' => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-testimonial-wrapper',
 			]
@@ -357,6 +358,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 					'bottom' => '0',
 					'left' => '0',
 				],
+				'separator' => 'before',
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -460,7 +462,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'exad_testimonial_carousel_image_style',
 			[
-				'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Reviewer Image', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -499,6 +501,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 					]
 				],
 				'default' => 'exad-testimonial-image-align-center',
+				'separator' => 'after',
 				'condition' => [
 					'exad_testimonial_carousel_image_position' => ['exad-image-top', 'exad-image-middle'],
 				]
@@ -649,84 +652,6 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'condition' => [
 					'exad_testimonial_carousel_image_box' => 'yes'
 				],
-			]
-		);
-
-		$this-> end_controls_section();
-
-		/**
-		 * Testimonial Riviewer Style Section
-		 */
-		$this->start_controls_section(
-			'exad_testimonial_carousel_reviewer_style',
-			[
-				'label' => esc_html__( 'Rivewer', 'exclusive-addons-elementor' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'exad_testimonial_carousel_image_position' => ['exad-image-middle', 'exad-image-bottom'],
-				]
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_carousel_reviewer_margin',
-			[
-				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'default' => [
-					'top' => '0',
-					'right' => '0',
-					'bottom' => '0',
-					'left' => '0',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_carousel_reviewer_padding',
-			[
-				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'default' => [
-					'top' => '0',
-					'right' => '0',
-					'bottom' => '0',
-					'left' => '0',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_carousel_reviewer_spacing',
-			[
-				'label' => __( 'Spacing', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 20,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper.exad-testimonial-image-align-left .exad-testimonial-reviewer' => 'padding-left: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper.exad-testimonial-image-align-right .exad-testimonial-reviewer' => 'padding-right: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'exad_testimonial_carousel_image_alignment' => ['exad-testimonial-image-align-left', 'exad-testimonial-image-align-right'],
-				]
 			]
 		);
 
@@ -1131,7 +1056,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'exad_testimonial_carousel_description_style',
 			[
-				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Testimonial', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1151,81 +1076,13 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_testimonial_carousel_description_arrow_position',
-			[
-				'label' => __( 'Arrow Position (Left to right) ', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 1000,
-					],
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => '%',
-					'size' => 50,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'left: {{SIZE}}{{UNIT}};',
-				],
-				'condition' => [
-					'exad_testimonial_carousel_description_arrow_enable' => 'yes',
-				]
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_carousel_description_arrow_boeder_width',
-			[
-				'label' => __( 'Arrow Border Width', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 10,
-					],
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'border-width: 0 {{SIZE}}{{UNIT}} {{SIZE}}{{UNIT}} 0;',
-				],
-				'condition' => [
-					'exad_testimonial_carousel_description_arrow_enable' => 'yes',
-				]
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_carousel_description_arrow_boeder_color',
-			[
-				'label' => __( 'Arrow Border Color ', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => 'transparent',
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'border-color: {{VALUE}};',
-				],
-				'condition' => [
-					'exad_testimonial_carousel_description_arrow_enable' => 'yes',
-				]
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
 				'name' => 'exad_testimonial_carousel_description_background',
 				'label' => __( 'Background', 'exclusive-addons-elementor' ),
 				'types' => [ 'classic', 'gradient' ],
+				'separator' => 'before',
 				'selector' => '{{WRAPPER}} .exad-testimonial-content-wrapper, {{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before',
 				'condition' => [
 					'exad_testimonial_carousel_image_position' => ['exad-image-middle', 'exad-image-bottom'],
@@ -1251,45 +1108,6 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-description' => 'color: {{VALUE}};',
 				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_carousel_description_margin',
-			[
-				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'default' => [
-					'top' => '0',
-					'right' => '0',
-					'bottom' => '20',
-					'left' => '0',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_carousel_description_padding',
-			[
-				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'default' => [
-					'top' => '0',
-					'right' => '0',
-					'bottom' => '0',
-					'left' => '0',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-				'condition' => [
-					'exad_testimonial_carousel_image_position' => ['exad-image-middle', 'exad-image-bottom'],
-				]
 			]
 		);
 
@@ -1326,6 +1144,291 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_testimonial_carousel_description_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '20',
+					'left' => '0',
+				],
+				'separator' => 'before',
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_description_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_testimonial_carousel_image_position' => ['exad-image-middle', 'exad-image-bottom'],
+				]
+			]
+		);
+
+		$this-> end_controls_section();
+
+		/**
+		 * Testimonial arrow style Section
+		 */
+
+		$this->start_controls_section(
+			'exad_testimonial_carousel_arrow_style_section',
+			[
+				'label' => esc_html__( 'Arrow', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_testimonial_carousel_description_arrow_enable' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_description_arrow_height',
+			[
+				'label' => __( 'Height', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 15,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_description_arrow_width',
+			[
+				'label' => __( 'Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 15,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_description_arrow_position_left',
+			[
+				'label' => __( 'Position (Left to right)', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 50,
+				],
+				'separator' => 'before',
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'left: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_description_arrow_position_bottom',
+			[
+				'label' => __( 'Position (Bottom)', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => -50,
+						'max' => 0,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => -7,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_description_arrow_boeder_width',
+			[
+				'label' => __( 'Border Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 10,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 1,
+				],
+				'separator' => 'before',
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'border-width: 0 {{SIZE}}{{UNIT}} {{SIZE}}{{UNIT}} 0;',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_description_arrow_boeder_color',
+			[
+				'label' => __( 'Border Color ', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'default' => 'transparent',
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'border-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_description_arrow_boeder_radius',
+			[
+				'label' => __( 'Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 20,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 0,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'border-radius: 0 0 {{SIZE}}{{UNIT}} 0;',
+				],
+			]
+		);
+
+		$this-> end_controls_section();
+
+		/**
+		 * Testimonial Riviewer Style Section
+		 */
+		$this->start_controls_section(
+			'exad_testimonial_carousel_reviewer_style',
+			[
+				'label' => esc_html__( 'Rivewer', 'exclusive-addons-elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_testimonial_carousel_image_position' => ['exad-image-middle', 'exad-image-bottom'],
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_reviewer_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_reviewer_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_carousel_reviewer_spacing',
+			[
+				'label' => __( 'Spacing', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper.exad-testimonial-image-align-left .exad-testimonial-reviewer' => 'padding-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-testimonial-reviewer-wrapper.exad-testimonial-image-align-right .exad-testimonial-reviewer' => 'padding-right: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_testimonial_carousel_image_alignment' => ['exad-testimonial-image-align-left', 'exad-testimonial-image-align-right'],
+				]
+			]
+		);
+
 		$this-> end_controls_section();
 
 		/**
@@ -1334,7 +1437,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'exad_testimonial_carousel_title_style',
 			[
-				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Reviewer Title', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -1386,7 +1489,7 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$this->start_controls_section(
 			'exad_testimonial_carousel_designation_style',
 			[
-				'label' => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Reviewer Designation', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);

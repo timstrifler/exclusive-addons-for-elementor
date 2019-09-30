@@ -94,11 +94,6 @@
 .exad-testimonial-content-wrapper-arrow::before{
   position: absolute;
   content: '';
-  height: 15px;
-  width: 15px;
-  left: 50%;
-  bottom: -7px;
-  border-radius: 0px 0px 5px 0px;
   transform: translateX(-50%) rotate(45deg);
   border-style: solid;
 }
