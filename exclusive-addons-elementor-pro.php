@@ -299,6 +299,11 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 				wp_register_script( 'exad-gallery-isotope', EXAD_URL . 'assets/js/vendor/isotop.min.js', array( 'jquery' ), '1.0', true );
 			}
 
+			if ( $is_activated_widget['modal-popup'] ) {
+				// Filterable Gallery
+				wp_register_script( 'exad-magnific-popup', EXAD_URL . 'assets/js/vendor/jquery.magnific-popup.min.js', array( 'jquery' ), '1.0', true );
+			}
+
 			if ( $is_activated_widget['instagram-feed'] ) {
 				// Instagram Gallery
 				wp_register_script( 'exad-instagram', EXAD_URL . 'assets/js/vendor/instagram.min.js', array( 'jquery' ), '1.0', true );

@@ -904,7 +904,7 @@ class Exad_Modal_Popup extends Widget_Base {
             	echo '<div class="exad-modal-button">';
 					$this->add_render_attribute( 'link', [
 						'class'                        => 'exad-modal-image-action image-modal',
-						'data-elementor-open-lightbox' => 'default'
+						//'data-elementor-open-lightbox' => 'default'
 					] );
 
 					if ( Plugin::$instance->editor->is_edit_mode() ) :
@@ -954,18 +954,18 @@ class Exad_Modal_Popup extends Widget_Base {
 						echo '<a '.$this->get_render_attribute_string( 'link' ).'>';
 					endif;
 
-					if( $settings['exad_modal_btn_icon_align'] === 'left' ) {
-                		echo '<span>';
-							echo '<i class="exad-modal-action-left-icon '.esc_attr( $settings['exad_modal_btn_icon'] ).'"></i>';
-								echo esc_html( $settings['exad_modal_btn_text'] );
-						echo '</span>';
-					}
-					if( $settings['exad_modal_btn_icon_align'] === 'right' ) {
-                		echo '<span>';
-							echo esc_html( $settings['exad_modal_btn_text'] );
-							echo '<i class="exad-modal-action-right-icon '.esc_attr( $settings['exad_modal_btn_icon'] ).'"></i>';
-						echo '</span>';
-					} 
+					// if( $settings['exad_modal_btn_icon_align'] === 'left' ) {
+                	// 	echo '<span>';
+					// 		echo '<i class="exad-modal-action-left-icon '.esc_attr( $settings['exad_modal_btn_icon'] ).'"></i>';
+					// 			echo esc_html( $settings['exad_modal_btn_text'] );
+					// 	echo '</span>';
+					// }
+					// if( $settings['exad_modal_btn_icon_align'] === 'right' ) {
+                	// 	echo '<span>';
+					// 		echo esc_html( $settings['exad_modal_btn_text'] );
+					// 		echo '<i class="exad-modal-action-right-icon '.esc_attr( $settings['exad_modal_btn_icon'] ).'"></i>';
+					// 	echo '</span>';
+					// } 
               		echo '</a>';
               		
             	echo '</div>';
