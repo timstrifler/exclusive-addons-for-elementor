@@ -25,14 +25,64 @@ class Exad_Animated_Text extends Widget_Base {
 		return [ 'animated-text' ];
 	}
 
-	protected function render() {
-	?>
-		<div id="typed-strings">
-			<p>Typed.js is a <strong>JavaScript</strong> library.</p>
-			<p>It <em>types</em> out sentences.</p>
-		</div>
-		<span id="typed"></span>
+	protected function _register_controls() {
+    /*
+    * Animated Text Content
+    */
+    $this->start_controls_section(
+        'exad_section_animated_text_content',
+        [
+            'label' => esc_html__( 'Content', 'exclusive-addons-elementor' )
+        ]
+	);
+	
+	$this->add_control(
+        'exad_animated_text_before_text',
+        [
+			'label' => esc_html__( 'Before Animated Text', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::TEXTAREA,
+        ]
+	);
+	
+	$this->add_control(
+        'exad_first_string',
+        [
+			'label' => esc_html__( 'First Text', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::TEXT,
+        ]
+	);
+	
+	$this->add_control(
+        'exad_second_string',
+        [
+			'label' => esc_html__( 'Second Text', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::TEXT,
+        ]
+	);
+	
+	$this->add_control(
+        'exad_animated_text_after_text',
+        [
+			'label' => esc_html__( 'After Animated Text', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::TEXTAREA,
+        ]
+	);
 
+    $this->end_controls_section();
+	}
+
+	protected function render() {
+
+		$settings = $this->get_settings_for_display();
+	?>
+		<div id="typed-strings" data-first_string='<?php echo esc_attr( $settings['exad_first_string'] ); ?>' 
+		data-second_string='<?php echo esc_attr( $settings['exad_second_string'] ); ?>' >
+			<div>
+				<?php echo esc_attr( $settings['exad_animated_text_before_text'] ); ?>
+					<span id="typed"></span>
+				<?php echo esc_attr( $settings['exad_animated_text_after_text'] ); ?>
+			</div>
+		</div>
 	<?php
 	}
 }
