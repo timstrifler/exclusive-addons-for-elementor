@@ -15,6 +15,11 @@ class Exad_Modal_Popup extends Widget_Base {
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
 	}
+
+	public function get_keywords() {
+		return [ 'modal', 'lightbox', 'popup' ];
+	}
+
 	protected function _register_controls() {
 
 		/**
@@ -23,7 +28,7 @@ class Exad_Modal_Popup extends Widget_Base {
 		$this->start_controls_section(
 			'exad_modal_content_section',
 			[
-				'label' => __( 'Modal Popup Content', 'exclusive-addons-elementor' )
+				'label' => __( 'Contents', 'exclusive-addons-elementor' )
 			]
 		);
 
