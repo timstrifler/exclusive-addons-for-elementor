@@ -281,6 +281,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 				wp_register_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
 				// Waypoints Js
 				wp_register_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
+				wp_register_script( 'exad-wow-js', EXAD_URL . 'assets/js/vendor/wow.min.js', array( 'jquery' ), '1.1.3', true );
 			}
 			if ( $is_activated_widget['google-maps'] ) {
 				wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );

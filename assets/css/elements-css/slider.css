@@ -1,3 +1,129 @@
+/*Exad Slider starts here*/
+
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+@-webkit-keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLeft;
+}
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
 .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 	height: 100vh;
 }
@@ -47,7 +173,6 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 	width: 100%;
 	color: #fff;
 	display: -webkit-box;
-	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 	background-repeat: no-repeat;
@@ -58,46 +183,10 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 	bottom: 0;
 	right: 0;
 }
-.exad-slider.hor-center .exad-slide-inner {
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.exad-slider.ver-middle .exad-slide-inner {
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-.exad-slider.hor-left .exad-slide-inner {
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-}
-.exad-slider.hor-right .exad-slide-inner {
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-}
-.exad-slider.ver-bottom .exad-slide-inner {
-    -webkit-box-align: end;
-    -webkit-align-items: flex-end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-}
-.exad-slider.ver-top .exad-slide-inner {
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-}
 .exad-slide-content {
 	position: relative;
-    z-index: 1;
-    width: 100%;
+  z-index: 1;
+  width: 100%;
 }
 .exad-slide-content h2 {
 	font-size: 30px;
@@ -111,73 +200,149 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 }
 .exad-slider .slick-next, 
 .exad-slider .slick-prev {
-    z-index: 1;
-    font-size: 0;
-    line-height: 0;
-    position: absolute;
-    top: 50%;
-    display: block;
-    padding: 0;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: transparent;
-    border: none;
-    outline: none;
-    background: none;
+  z-index: 1;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: none;
 }
 .exad-slider .slick-prev {
-    left: 0px;
+  left: 0px;
 }
 .exad-slider .slick-next {
-    right: 0px;
+  right: 0px;
 }
 .exad-slider .slick-prev:before {
-    content: "\e89f";
+  content: "\e89f";
 }
 .exad-slider .slick-next:before {
-    content: "\e89e";
+  content: "\e89e";
 }
 .exad-slider .slick-next:before, 
 .exad-slider .slick-prev:before {
-    background: rgba(255, 255, 255, .3);
-    padding: 30px 10px;
-    font-family: eicons;
-    font-size: 35px;
-    line-height: 1;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    opacity: 1;
+  background: rgba(255, 255, 255, .3);
+  padding: 30px 10px;
+  font-family: eicons;
+  font-size: 35px;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 1;
 }
-.exad-slider ul.slick-dots {
-    bottom: 15px;
-    position: absolute;
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-align: center;
-    line-height: 1;
+.exad-slider.dot-bullet ul.slick-dots {
+  bottom: 15px;
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
 }
-.exad-slider ul.slick-dots li {
-    position: relative;
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    background: rgba(255, 255, 255, .3);
-    border-radius: 100%;
+.exad-slider.dot-bullet ul.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, .3);
+  border-radius: 100%;
 }
-.exad-slider ul.slick-dots li.slick-active {
+.exad-slider.dot-bullet ul.slick-dots li.slick-active {
 	background: rgba(255, 255, 255, 1);
 }
-.exad-slider ul.slick-dots li:not(:last-child) {
-    margin-right: 10px;
+.exad-slider.dot-bullet ul.slick-dots li:not(:last-child) {
+  margin-right: 10px;
 }
-.exad-slider ul.slick-dots li button {
-    display: none;
+.exad-slider.dot-bullet ul.slick-dots li button {
+  display: none;
+}
+.exad-slider.dot-image ul.slick-dots {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.exad-slider.dot-image ul.slick-dots li {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.exad-slider .slick-dots {
+    display: flex;
+}
+.exad-slider .slick-dots li {
+  flex: 1;
+}
+.exad-slider .slick-dots li a {
+  height: 70px;
+  display: block;
+}
+.exad-slider .slick-dots li a img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.exad-slider.dot-image ul li:first-child {
+  margin-left: 0px !important;
+}
+.exad-slider.dot-image ul li:last-child {
+  margin-right: 0px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.slick-active.slick-current .exad-slider-progressbar-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 7px;
+    -webkit-animation: exadSliderProgressbar 5000ms ease-in-out;
+    -moz-animation: exadSliderProgressbar 5000ms ease-in-out;
+    -ms-animation: exadSliderProgressbar 5000ms ease-in-out;
+    animation: exadSliderProgressbar 5000ms ease-in-out;
+    background-color: rgba(255, 255, 255, .7);
+    z-index: 99;
+
+}
+@-webkit-keyframes exadSliderProgressbar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes exadSliderProgressbar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/*Exad Slider ends here*/

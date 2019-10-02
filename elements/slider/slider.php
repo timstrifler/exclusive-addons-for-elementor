@@ -23,7 +23,7 @@ class ExclusiveSliderItem extends Widget_Base {
 	}
 
     public function get_script_depends() {
-        return [ 'jquery-slick' ];
+        return [ 'exad-waypoints', 'jquery-slick', 'exad-wow-js' ];
     }
 
     protected function _register_controls() {
@@ -117,467 +117,130 @@ class ExclusiveSliderItem extends Widget_Base {
 
         // custom style for single slide item
         $sliderItem->add_control(
-            'custom_style',
+            'exad_single_slider_custom_style',
             [
                 'label'         => __( 'Custom', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => __( 'Yes', 'exclusive-addons-elementor' ),
-                'label_off'     => __( 'No', 'exclusive-addons-elementor' ),
                 'return_value'  => 'yes',
                 'description'   => __( 'Set custom style that will only affect this specific slide item.', 'exclusive-addons-elementor' )
             ]
         );
+		
+		$sliderItem->add_control(
+	        'exad_single_slider_horizontal_position',
+	        [
+	            'label'       => __( 'Horizontal Position', 'exclusive-addons-elementor' ),
+	            'type'        => Controls_Manager::CHOOSE,
+	            'label_block' => false,
+	            'options'     => [
+	                'flex-start' => [
+	                    'title'  => __( 'Left', 'exclusive-addons-elementor' ),
+	                    'icon'   => 'eicon-h-align-left'
+	                ],
+	                'center'     => [
+	                    'title'  => __( 'Center', 'exclusive-addons-elementor' ),
+	                    'icon'   => 'eicon-h-align-center'
+	                ],
+	                'flex-end'   => [
+	                    'title'  => __( 'Right', 'exclusive-addons-elementor' ),
+	                    'icon'   => 'eicon-h-align-right'
+	                ]
+	            ],
+	            'selectors'      => [
+	                '{{WRAPPER}} .exad-slider {{CURRENT_ITEM}} .exad-slide-inner' => 'justify-content: {{VALUE}}; -webkit-justify-content: {{VALUE}};'
+	            ],
+	            'condition'     => [
+	                'exad_single_slider_custom_style' => 'yes'
+	            ]
+	        ]
+	    );
 
         $sliderItem->add_control(
-            'mt_single_slider_content_vertical_position',
+         	'exad_single_slider_vertical_position',
+         	[
+             	'label'       => __( 'Vertical Position', 'exclusive-addons-elementor' ),
+             	'type'        => Controls_Manager::CHOOSE,
+             	'label_block' => false,
+             	'options'     => [
+	                'flex-start' => [
+	                    'title'  => __( 'Top', 'exclusive-addons-elementor' ),
+	                    'icon'   => 'eicon-v-align-top'
+	                ],
+	                'center'    => [
+	                    'title' => __( 'Middle', 'exclusive-addons-elementor' ),
+	                    'icon'  => 'eicon-v-align-middle'
+	                ],
+	                'flex-end'  => [
+	                    'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
+	                    'icon'  => 'eicon-v-align-bottom'
+	                ]
+	            ],
+	            'selectors'     => [
+	                '{{WRAPPER}} .exad-slider {{CURRENT_ITEM}} .exad-slide-inner' => 'align-items: {{VALUE}}; -webkit-align-items: {{VALUE}};'
+	            ],
+	            'condition'     => [
+	                'exad_single_slider_custom_style' => 'yes'
+	            ]
+	        ]
+        );
+
+		$sliderItem->add_control(
+			'exad_single_slider_text_align',
+			[
+				'label'       => __( 'Text Align', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'options'     => [
+					'left'      => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon'  => 'fa fa-align-left'
+					],
+					'center'    => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon'  => 'fa fa-align-center'
+					],
+					'right'     => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon'  => 'fa fa-align-right'
+					]
+				],
+				'selectors'     => [
+					'{{WRAPPER}} .exad-slider {{CURRENT_ITEM}} .exad-slide-inner' => 'text-align: {{VALUE}}'
+				],
+	            'condition'     => [
+	                'exad_single_slider_custom_style' => 'yes'
+	            ]
+			]
+		);
+
+        $sliderItem->add_control(
+            'exad_slider_title_style',
             [
-                'label'         => __( 'Vertical Position', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::CHOOSE,
-                'label_block'   => false,
-                'default'       => 'middle',
-                'options'       => [
-                    'top'       => [
-                        'title' => __( 'Top', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-v-align-top',
-                    ],
-                    'middle'    => [
-                        'title' => __( 'Middle', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-v-align-middle',
-                    ],
-                    'bottom'    => [
-                        'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-v-align-bottom',
-                    ],
-                ],
-                'selectors'     => [
-                    '{{WRAPPER}} .tt-slider-area {{CURRENT_ITEM}} .nivo-slide-inner' => 'vertical-align: {{VALUE}}',
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
+				'label' => esc_html__( 'Animation', 'exclusive-addons-elementor' ),
+				'type'  => Controls_Manager::HEADING,
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
                 ]
             ]
         );
 
-        // single slide item text align
-        $sliderItem->add_control(
-            'mt_single_slider_content_text_align',
+  		$sliderItem->add_control(
+            'exad_single_slider_title_animation',
             [
-                'label'         => __( 'Text Align', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::CHOOSE,
-                'label_block'   => false,
-                'options'       => [
-                    'left'      => [
-                        'title' => __( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-left',
-                    ],
-                    'center'    => [
-                        'title' => __( 'Center', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-center',
-                    ],
-                    'right'     => [
-                        'title' => __( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-right',
-                    ],
-                ],
-                'default'       => 'center',
-                'selectors'     => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .nivo-slide-inner' => 'text-align: {{VALUE}}',
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item transition effect
-        $sliderItem->add_control(
-            'slider_effect',
-            [
-                'label'         => __( 'Transition Effect', 'exclusive-addons-elementor' ),
-                'description'   => __( 'Select transition for this slide.', 'exclusive-addons-elementor' ),
+                'label'         => __( 'Title', 'nivo-slider-elementor' ),
+                'description'   => __( 'Select title animation style for this slide only.', 'nivo-slider-elementor' ),
                 'type'          => Controls_Manager::SELECT,
+                'default'       => 'slideInDown',
                 'options'       => [
-                    ''                   => __('None', 'exclusive-addons-elementor'),
-                    'random'             => __('random', 'exclusive-addons-elementor'),
-                    'sliceDown'          => __('sliceDown', 'exclusive-addons-elementor'),
-                    'sliceDownLeft'      => __('sliceDownLeft', 'exclusive-addons-elementor'),
-                    'sliceUp'            => __('sliceUp', 'exclusive-addons-elementor'),
-                    'sliceUpLeft'        => __('sliceUpLeft', 'exclusive-addons-elementor'),
-                    'sliceUpDown'        => __('sliceUpDown', 'exclusive-addons-elementor'),
-                    'sliceUpDownLeft'    => __('sliceUpDownLeft', 'exclusive-addons-elementor'),
-                    'fold'               => __('fold', 'exclusive-addons-elementor'),
-                    'fade'               => __('fade', 'exclusive-addons-elementor'),
-                    'slideInRight'       => __('slideInRight', 'exclusive-addons-elementor'),
-                    'slideInLeft'        => __('slideInLeft', 'exclusive-addons-elementor'),
-                    'boxRandom'          => __('boxRandom', 'exclusive-addons-elementor'),
-                    'boxRain'            => __('boxRain', 'exclusive-addons-elementor'),
-                    'boxRainReverse'     => __('boxRainReverse', 'exclusive-addons-elementor'),
-                    'boxRainGrow'        => __('boxRainGrow', 'exclusive-addons-elementor'),
-                    'boxRainGrowReverse' => __('boxRainGrowReverse', 'exclusive-addons-elementor')
+                    ''              => __('None', 'nivo-slider-elementor'),
+                    'slideInUp'     => __('slideInUp', 'nivo-slider-elementor'),
+                    'slideInDown'   => __('slideInDown', 'nivo-slider-elementor'),
+                    'slideInLeft'   => __('slideInLeft', 'nivo-slider-elementor'),
+                    'slideInRight'  => __('slideInRight', 'nivo-slider-elementor')
                 ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item title atimation effect
-        $sliderItem->add_control(
-            'mt_single_slide_item_title_animation_effect',
-            [
-                'label'         => __( 'Title Animation', 'exclusive-addons-elementor' ),
-                'description'   => __( 'Select title animation style for this slide only.', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::SELECT,
-                'default'       => 'fadeInDown',
-                'options'       => [
-                    ''              => __('None', 'exclusive-addons-elementor'),
-                    'fadeIn'        => __('fadeIn', 'exclusive-addons-elementor'),
-                    'fadeInDown'    => __('fadeInDown', 'exclusive-addons-elementor'),
-                    'fadeInLeft'    => __('fadeInLeft', 'exclusive-addons-elementor'),
-                    'fadeInRight'   => __('fadeInRight', 'exclusive-addons-elementor'),
-                    'fadeInUp'      => __('fadeInUp', 'exclusive-addons-elementor'),
-                    'zoomIn'        => __('zoomIn', 'exclusive-addons-elementor'),
-                    'zoomInDown'    => __('zoomInDown', 'exclusive-addons-elementor'),
-                    'zoomInLeft'    => __('zoomInLeft', 'exclusive-addons-elementor'),
-                    'zoomInRight'   => __('zoomInRight', 'exclusive-addons-elementor'),
-                    'slideInUp'     => __('slideInUp', 'exclusive-addons-elementor'),
-                    'slideInDown'   => __('slideInDown', 'exclusive-addons-elementor'),
-                    'slideInLeft'   => __('slideInLeft', 'exclusive-addons-elementor'),
-                    'slideInRight'  => __('slideInRight', 'exclusive-addons-elementor'),
-                    'bounce'        => __('bounce', 'exclusive-addons-elementor'),
-                    'bounceIn'      => __('bounceIn', 'exclusive-addons-elementor'),
-                    'bounceInDown'  => __('bounceInDown', 'exclusive-addons-elementor'),
-                    'bounceInLeft'  => __('bounceInLeft', 'exclusive-addons-elementor'),
-                    'bounceInRight' => __('bounceInRight', 'exclusive-addons-elementor'),
-                    'bounceInUp'    => __('bounceInUp', 'exclusive-addons-elementor'),
-                    'rotateIn'      => __('rotateIn', 'exclusive-addons-elementor'),
-                    'flip'          => __('flip', 'exclusive-addons-elementor'),
-                    'flipInX'       => __('flipInX', 'exclusive-addons-elementor'),
-                    'flipInY'       => __('flipInY', 'exclusive-addons-elementor'),
-                    'pulse'         => __('pulse', 'exclusive-addons-elementor')
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item details atimation effect
-        $sliderItem->add_control(
-            'mt_single_slide_item_details_animation_effect',
-            [
-                'label'         => __( 'Details Animation', 'exclusive-addons-elementor' ),
-                'description'   => __( 'Select details animation style for this slide only.', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::SELECT,
-                'default'       => 'fadeInDown',
-                'options'       => [
-                    ''              => __('None', 'exclusive-addons-elementor'),
-                    'fadeIn'        => __('fadeIn', 'exclusive-addons-elementor'),
-                    'fadeInDown'    => __('fadeInDown', 'exclusive-addons-elementor'),
-                    'fadeInLeft'    => __('fadeInLeft', 'exclusive-addons-elementor'),
-                    'fadeInRight'   => __('fadeInRight', 'exclusive-addons-elementor'),
-                    'fadeInUp'      => __('fadeInUp', 'exclusive-addons-elementor'),
-                    'zoomIn'        => __('zoomIn', 'exclusive-addons-elementor'),
-                    'zoomInDown'    => __('zoomInDown', 'exclusive-addons-elementor'),
-                    'zoomInLeft'    => __('zoomInLeft', 'exclusive-addons-elementor'),
-                    'zoomInRight'   => __('zoomInRight', 'exclusive-addons-elementor'),
-                    'slideInUp'     => __('slideInUp', 'exclusive-addons-elementor'),
-                    'slideInDown'   => __('slideInDown', 'exclusive-addons-elementor'),
-                    'slideInLeft'   => __('slideInLeft', 'exclusive-addons-elementor'),
-                    'slideInRight'  => __('slideInRight', 'exclusive-addons-elementor'),
-                    'bounce'        => __('bounce', 'exclusive-addons-elementor'),
-                    'bounceIn'      => __('bounceIn', 'exclusive-addons-elementor'),
-                    'bounceInDown'  => __('bounceInDown', 'exclusive-addons-elementor'),
-                    'bounceInLeft'  => __('bounceInLeft', 'exclusive-addons-elementor'),
-                    'bounceInRight' => __('bounceInRight', 'exclusive-addons-elementor'),
-                    'bounceInUp'    => __('bounceInUp', 'exclusive-addons-elementor'),
-                    'rotateIn'      => __('rotateIn', 'exclusive-addons-elementor'),
-                    'flip'          => __('flip', 'exclusive-addons-elementor'),
-                    'flipInX'       => __('flipInX', 'exclusive-addons-elementor'),
-                    'flipInY'       => __('flipInY', 'exclusive-addons-elementor'),
-                    'pulse'         => __('pulse', 'exclusive-addons-elementor')
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-
-        // single slide item button atimation effect
-        $sliderItem->add_control(
-            'mt_single_slide_item_button_animation_effect',
-            [
-                'label'         => __( 'Button Animation', 'exclusive-addons-elementor' ),
-                'description'   => __( 'Select button animation style for this slide only.', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::SELECT,
-                'default'       => 'fadeInDown',
-                'options'       => [
-                    ''              => __('None', 'exclusive-addons-elementor'),
-                    'fadeIn'        => __('fadeIn', 'exclusive-addons-elementor'),
-                    'fadeInDown'    => __('fadeInDown', 'exclusive-addons-elementor'),
-                    'fadeInLeft'    => __('fadeInLeft', 'exclusive-addons-elementor'),
-                    'fadeInRight'   => __('fadeInRight', 'exclusive-addons-elementor'),
-                    'fadeInUp'      => __('fadeInUp', 'exclusive-addons-elementor'),
-                    'zoomIn'        => __('zoomIn', 'exclusive-addons-elementor'),
-                    'zoomInDown'    => __('zoomInDown', 'exclusive-addons-elementor'),
-                    'zoomInLeft'    => __('zoomInLeft', 'exclusive-addons-elementor'),
-                    'zoomInRight'   => __('zoomInRight', 'exclusive-addons-elementor'),
-                    'slideInUp'     => __('slideInUp', 'exclusive-addons-elementor'),
-                    'slideInDown'   => __('slideInDown', 'exclusive-addons-elementor'),
-                    'slideInLeft'   => __('slideInLeft', 'exclusive-addons-elementor'),
-                    'slideInRight'  => __('slideInRight', 'exclusive-addons-elementor'),
-                    'bounce'        => __('bounce', 'exclusive-addons-elementor'),
-                    'bounceIn'      => __('bounceIn', 'exclusive-addons-elementor'),
-                    'bounceInDown'  => __('bounceInDown', 'exclusive-addons-elementor'),
-                    'bounceInLeft'  => __('bounceInLeft', 'exclusive-addons-elementor'),
-                    'bounceInRight' => __('bounceInRight', 'exclusive-addons-elementor'),
-                    'bounceInUp'    => __('bounceInUp', 'exclusive-addons-elementor'),
-                    'rotateIn'      => __('rotateIn', 'exclusive-addons-elementor'),
-                    'flip'          => __('flip', 'exclusive-addons-elementor'),
-                    'flipInX'       => __('flipInX', 'exclusive-addons-elementor'),
-                    'flipInY'       => __('flipInY', 'exclusive-addons-elementor'),
-                    'pulse'         => __('pulse', 'exclusive-addons-elementor')
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item heading color
-        $sliderItem->add_control(
-            'heading_color',
-            [
-                'label'         => __( 'Heading Color', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::COLOR,
-                'default'       => '#ffffff',
-                'selectors'     => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .nivo-slide-inner h4' => 'color: {{VALUE}}',
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item details color
-        $sliderItem->add_control(
-            'details_color',
-            [
-                'label'         => __( 'Details Color', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::COLOR,
-                'default'       => '#ffffff',
-                'selectors'     => [
-                    '{{WRAPPER}} {{CURRENT_ITEM}} .nivo-slide-inner p' => 'color: {{VALUE}}',
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item button color
-        $sliderItem->add_control(
-            'mt_single_slide_button_text_color',
-            [
-                'label'         => __( 'Button Text Color', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::COLOR,
-                'default'       => '#ffffff',
-                'selectors'     => [
-                    '{{WRAPPER}} .tt-slider-area {{CURRENT_ITEM}} .slider-btn a' => 'color: {{VALUE}}',
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item button background color
-        $sliderItem->add_control(
-            'mt_single_slide_button_background_color',
-            [
-                'label'         => __( 'Button Background Color', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::COLOR,
-                'selectors'     => [
-                    '{{WRAPPER}} .tt-slider-area {{CURRENT_ITEM}} .slider-btn a' => 'background-color: {{VALUE}}',
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item button border color
-        $sliderItem->add_control(
-            'mt_single_slide_button_border_color',
-            [
-                'label'     => __( 'Button Border Color', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#766556',
-                'selectors' => [
-                    '{{WRAPPER}} .tt-slider-area {{CURRENT_ITEM}} .slider-btn a' => 'border-color: {{VALUE}};'
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ]                
-            ]
-        );
-
-        // single slide item button hover color
-        $sliderItem->add_control(
-            'mt_single_slide_button_hover_text_color',
-            [
-                'label'         => __( 'Button Text Color(hover)', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::COLOR,
-                'default'       => '#ffffff',
-                'selectors'     => [
-                    '{{WRAPPER}} .tt-slider-area {{CURRENT_ITEM}} .slider-btn a:hover' => 'color: {{VALUE}};',
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-
-        // single slide item button hover background color
-        $sliderItem->add_control(
-            'mt_single_slide_button_hover_background_color',
-            [
-                'label'         => __( 'Button Background Color(hover)', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::COLOR,
-                'default'       => '#766556',
-                'selectors'     => [
-                    '{{WRAPPER}} .tt-slider-area {{CURRENT_ITEM}} .slider-btn a:hover' => 'background-color: {{VALUE}};',
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
-                ],
-            ]
-        );
-
-        // single slide item button hover border color
-        $sliderItem->add_control(
-            'mt_single_slide_button_hover_border_color',
-            [
-                'label'     => __( 'Button Border Color(hover)', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#766556',
-                'selectors' => [
-                    '{{WRAPPER}} .tt-slider-area {{CURRENT_ITEM}} .slider-btn a:hover' => 'border-color: {{VALUE}};'
-                ],
-                'conditions'    => [
-                    'terms'     => [
-                        [
-                            'name'      => 'custom_style',
-                            'operator'  => '==',
-                            'value'     => 'yes',
-                        ],
-                    ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
                 ]
-            ]
-        );
-
-        // single slide item heading typography
-         $sliderItem->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
-            [
-                'label'         => __( 'Heading Typography', 'exclusive-addons-elementor' ),
-                'name'          => 'slider_heading_typography',
-                'scheme'        => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-                'default'       => '#ffffff', 
-                'selector'      => '{{WRAPPER}} {{CURRENT_ITEM}} .nivo-slide-inner h4'
-            ]
-        );
-
-        // single slide item content typography
-         $sliderItem->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
-            [
-                'label'         => __( 'Details Typography', 'exclusive-addons-elementor' ),
-                'name'          => 'slider_details_typography',
-                'scheme'        => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
-                'default'       => '#ffffff', 
-                'selector'      => '{{WRAPPER}} {{CURRENT_ITEM}} .nivo-slide-inner p'
             ]
         );
 
@@ -603,7 +266,6 @@ class ExclusiveSliderItem extends Widget_Base {
                     [
 						'exad_slider_title' => __( 'Slider Title 3', 'exclusive-addons-elementor' ),
 						'exad_slider_bg'    => '#3F51B5'
-						// 'exad_slider_bg'    => '#EC407A'
                     ]
                 ],
                 'fields'            => array_values( $sliderItem->get_controls() ),
@@ -632,7 +294,24 @@ class ExclusiveSliderItem extends Widget_Base {
                     'both'   => esc_html__( 'Arrows and Dots', 'exclusive-addons-elementor' ),
                     'none'   => esc_html__( 'None', 'exclusive-addons-elementor' )
                     
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_dots_type',
+            [
+                'label'   => esc_html__( 'Dots Type', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'dot-bullet',
+                'options' => [
+                    'dot-bullet' => esc_html__( 'Bullet', 'exclusive-addons-elementor' ),
+                    'dot-image'  => esc_html__( 'Image', 'exclusive-addons-elementor' )
+                    
                 ],
+                'condition' => [
+                    'exad_slider_nav' => [ 'both', 'dots']
+                ]
             ]
         );
 
@@ -646,11 +325,12 @@ class ExclusiveSliderItem extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_slider_pause',
+            'exad_slider_pause_on_hover',
             [
-                'label'     => esc_html__( 'Pause on Hover', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::SWITCHER,
-                'default'   => 'yes',
+				'label'        => esc_html__( 'Pause on Hover', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'no',
+				'return_value' => 'yes',
                 'condition' => [
                     'exad_slider_autoplay' => 'yes'
                 ]
@@ -705,11 +385,25 @@ class ExclusiveSliderItem extends Widget_Base {
         );
 
         $this->add_control(
+            'exad_slider_progress_bar',
+            [
+                'type'          => Controls_Manager::SWITCHER,
+                'label'         => __( 'Slider Progress Bar?', 'exclusive-addons-elementor' ),
+                'default'       => 'no',
+                'return_value'  => 'yes',
+                'description'   => __('Progress bar in slider.', 'exclusive-addons-elementor')
+            ]
+        );
+
+        $this->add_control(
             'exad_slider_autoplay_speed',
             [
                 'label'     => esc_html__( 'Autoplay Speed(ms)', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 5000,
+				'selectors'  => [
+					'{{WRAPPER}} .slick-active.slick-current .exad-slider-progressbar-active' => 'animation: exadSliderProgressbar {{SIZE}}ms ease-in-out;-moz-animation: exadSliderProgressbar {{SIZE}}ms ease-in-out;-ms-animation: exadSliderProgressbar {{SIZE}}ms ease-in-out;-webkit-animation: exadSliderProgressbar {{SIZE}}ms ease-in-out;'
+				],
                 'condition' => [
                     'exad_slider_autoplay' => 'yes'
                 ]
@@ -721,7 +415,7 @@ class ExclusiveSliderItem extends Widget_Base {
             [
                 'label'   => esc_html__( 'Transition Speed(ms)', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::NUMBER,
-                'default' => 1000
+                'default' => 1000,
             ]
         );
 
@@ -852,52 +546,29 @@ class ExclusiveSliderItem extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'exad_slider_margin_in_centermode',
-			[
-				'label' => __( 'Center Mode Margin', 'exclusive-addons-elementor' ),
-				'type'  => Controls_Manager::SLIDER,
-				'range' => [
-					'px'    => [
-						'min' => 0,
-						'max' => 1000
-					],
-					'%' 	=> [
-						'min' => 0,
-						'max' => 100
-					]
-				],
-				'size_units' => ['px', '%' ],
-				'selectors'  => [
-					'{{WRAPPER}} .exad-each-slider-item.slick-slide' => 'margin: 0 {{SIZE}}{{UNIT}};'
-				],
-				'condition'  => [
-					'exad_slider_enable_center_mode' => 'yes',
-					'exad_slider_enable_fade!' => 'yes'
-				]
-			]
-		);
-
 		$this->add_control(
 			'exad_slider_horizontal_position',
 			[
 				'label'       => __( 'Horizontal Position', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'default'     => 'hor-center',
+				'default'     => 'center',
 				'options'     => [
-					'hor-left'   => [
+					'flex-start'   => [
 						'title'  => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon'   => 'eicon-h-align-left'
 					],
-					'hor-center' => [
+					'center' => [
 						'title'  => __( 'Center', 'exclusive-addons-elementor' ),
 						'icon'   => 'eicon-h-align-center'
 					],
-					'hor-right'  => [
+					'flex-end'  => [
 						'title'  => __( 'Right', 'exclusive-addons-elementor' ),
 						'icon'   => 'eicon-h-align-right'
 					]
+				],
+				'selectors'     => [
+					'{{WRAPPER}} .exad-slider .exad-slide-inner' => 'justify-content: {{VALUE}}; -webkit-justify-content: {{VALUE}};'
 				]
 			]
 		);
@@ -908,20 +579,23 @@ class ExclusiveSliderItem extends Widget_Base {
 				'label'       => __( 'Vertical Position', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => false,
-				'default'     => 'ver-middle',
+				'default'     => 'center',
 				'options'     => [
-					'ver-top'    => [
+					'flex-start'    => [
 						'title'  => __( 'Top', 'exclusive-addons-elementor' ),
 						'icon'   => 'eicon-v-align-top'
 					],
-					'ver-middle' => [
+					'center' => [
 						'title'  => __( 'Middle', 'exclusive-addons-elementor' ),
 						'icon'   => 'eicon-v-align-middle'
 					],
-					'ver-bottom' => [
+					'flex-end' => [
 						'title'  => __( 'Bottom', 'exclusive-addons-elementor' ),
 						'icon'   => 'eicon-v-align-bottom'
 					]
+				],
+				'selectors'     => [
+					'{{WRAPPER}} .exad-slider .exad-slide-inner' => 'align-items: {{VALUE}}; -webkit-align-items: {{VALUE}};'
 				]
 			]
 		);
@@ -971,6 +645,23 @@ class ExclusiveSliderItem extends Widget_Base {
             ]
         );
 
+  		$this->add_control(
+            'exad_slider_title_animation',
+            [
+                'label'         => __( 'Animation', 'nivo-slider-elementor' ),
+                'description'   => __( 'Select title animation style for this slide only.', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'slideInDown',
+                'options'       => [
+                    ''              => __('None', 'nivo-slider-elementor'),
+                    'slideInUp'     => __('slideInUp', 'nivo-slider-elementor'),
+                    'slideInDown'   => __('slideInDown', 'nivo-slider-elementor'),
+                    'slideInLeft'   => __('slideInLeft', 'nivo-slider-elementor'),
+                    'slideInRight'  => __('slideInRight', 'nivo-slider-elementor')
+                ]
+            ]
+        );
+
 		$this->add_control(
 		    'exad_slider_title_color',
 		    [
@@ -1005,10 +696,10 @@ class ExclusiveSliderItem extends Widget_Base {
         $this->add_responsive_control(
             'exad_slider_title_padding',
             [
-                'label'                 => __('Padding', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => ['px', '%'],
-                'selectors'             => [
+				'label'      => __('Padding', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
                     '{{WRAPPER}} .exad-slide-content h2' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -1017,9 +708,15 @@ class ExclusiveSliderItem extends Widget_Base {
         $this->add_responsive_control(
             'exad_slider_title_margin',
             [
-                'label'                 => __('Margin', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => ['px', '%'],
+				'label'      => __('Margin', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+              	'default'       => [
+                    'top'       => 0,
+                    'right'     => 0,
+                    'bottom'    => 20,
+                    'left'      => 0
+                ], 
                 'selectors'             => [
                     '{{WRAPPER}} .exad-slide-content h2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
@@ -1325,14 +1022,339 @@ class ExclusiveSliderItem extends Widget_Base {
 
         $this->end_controls_section(); 
 
+        $this->start_controls_section(
+            'exad_slider_progressbar_style_section',
+            [
+                'label'         => __('Progressbar', 'exclusive-addons-elementor'),
+                'tab'           => Controls_Manager::TAB_STYLE,
+                'condition'    => [
+                    'terms'     => [
+                        [
+                            'name'      => 'exad_slider_progress_bar',
+                            'operator'  => '==',
+                            'value'     => 'yes'
+                        ]
+                    ]
+                ]                
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_progressbar_color',
+            [
+                'label'         => __( 'Color', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::COLOR,
+                'default'       => 'rgba(255, 255, 255, .7)',
+                'selectors'     => [
+                    '{{WRAPPER}} .slick-active.slick-current .exad-slider-progressbar-active' => 'background-color: {{VALUE}}'
+                ]
+
+            ]
+        ); 
+
+        $this->add_control(
+            'exad_slider_progressbar_height',
+            [
+                'label'         => __( 'Height', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => 7,
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 1,
+                        'max'   => 20,
+                        'step'  => 1
+                    ],
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .slick-active.slick-current .exad-slider-progressbar-active' => 'height: {{SIZE}}{{UNIT}};',
+                ],  
+                'description'   => __( 'Default: 7px.', 'exclusive-addons-elementor' )            
+            ]
+        ); 
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'exad_slider_arrow_controls_style_section',
+            [
+                'label'         => __('Arrow Controls', 'exclusive-addons-elementor' ),
+                'tab'           => Controls_Manager::TAB_STYLE,
+                'condition'    => [
+                    'exad_slider_nav'       => ['arrows', 'both']
+                ]               
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_arrows_style',
+            [
+				'label'      => esc_html__( 'Arrows', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::HEADING
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_arrows_size',
+            [
+                'label'         => __( 'Size', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => 35,
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 1,
+                        'max'   => 70,
+                        'step'  => 1
+                    ],
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before' => 'font-size: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        ); 
+
+        $this->add_responsive_control(
+            'exad_slider_arrow_padding',
+            [
+                'label'         => __( 'Padding', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::DIMENSIONS,
+                'default'       => [
+                    'top'       => 30,
+                    'right'     => 10,
+                    'bottom'    => 30,
+                    'left'      => 10
+                ],                
+                'size_units'    => [ 'px', 'em', '%' ],
+                'selectors'     => [
+                        '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+		$this->start_controls_tabs( 'exad_slider_arrows_style_tabs' );
+
+        	// normal state tab
+        	$this->start_controls_tab( 'exad_slider_arrow_normal_style', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+		        $this->add_control(
+		            'exad_slider_arrows_color',
+		            [
+		                'label'         => __( 'Color', 'exclusive-addons-elementor' ),
+		                'type'          => Controls_Manager::COLOR,
+		                'default'       => '#ffffff',
+		                'selectors'     => [
+		                    '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before' => 'color: {{VALUE}}'
+		                ]          
+		            ]
+		        );
+
+		        $this->add_control(
+		            'exad_slider_arrows_bg_color',
+		            [
+		                'label'         => __( 'Background Color', 'exclusive-addons-elementor' ),
+		                'type'          => Controls_Manager::COLOR,
+		                'default'       => 'rgba(255, 255, 255, .3)',
+		                'selectors'     => [
+		                    '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before' => 'background-color: {{VALUE}}'
+		                ]            
+		            ]
+		        );
+
+		        $this->add_group_control(
+		        	Group_Control_Border::get_type(),
+		            [
+		                'name'      => 'exad_slider_arrows_border',
+		                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+		                'selector'  => '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before'
+		            ]
+		        );
+
+
+				$this->add_control(
+					'exad_slider_arrows_border_radius',
+					[
+						'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+						'type'       => Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px'],
+						'selectors'  => [
+							'{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+
+
+        	// hover state tab
+        	$this->start_controls_tab( 'exad_slider_arrow_hover_style', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+		        $this->add_control(
+		            'exad_slider_arrows_hover_color',
+		            [
+		                'label'         => __( 'Color', 'exclusive-addons-elementor' ),
+		                'type'          => Controls_Manager::COLOR,
+		                'default'       => '#ffffff',
+		                'selectors'     => [
+		                    '{{WRAPPER}} .exad-slider .slick-next:hover:before,{{WRAPPER}} .exad-slider .slick-prev:hover:before' => 'color: {{VALUE}}'
+		                ]          
+		            ]
+		        );
+
+		        $this->add_control(
+		            'exad_slider_arrows_hover_bg_color',
+		            [
+		                'label'         => __( 'Background Color', 'exclusive-addons-elementor' ),
+		                'type'          => Controls_Manager::COLOR,
+		                'default'       => 'rgba(255, 255, 255, .3)',
+		                'selectors'     => [
+		                    '{{WRAPPER}} .exad-slider .slick-next:hover:before,{{WRAPPER}} .exad-slider .slick-prev:hover:before' => 'background-color: {{VALUE}}'
+		                ]          
+		            ]
+		        );
+
+		        $this->add_group_control(
+		        	Group_Control_Border::get_type(),
+		            [
+		                'name'      => 'exad_slider_arrows_hover_border',
+		                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+		                'selector'  => '{{WRAPPER}} .exad-slider .slick-next:hover:before,{{WRAPPER}} .exad-slider .slick-prev:hover:before'
+		            ]
+		        );
+
+
+				$this->add_control(
+					'exad_slider_arrows_hover_border_radius',
+					[
+						'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+						'type'       => Controls_Manager::DIMENSIONS,
+						'size_units' => [ 'px'],
+						'selectors'  => [
+							'{{WRAPPER}} .exad-slider .slick-next:hover:before,{{WRAPPER}} .exad-slider .slick-prev:hover:before'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'exad_slider_dot_image_controls_style_section',
+            [
+                'label'     => __('Dots Thumbnail', 'exclusive-addons-elementor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'exad_slider_nav'       => ['dots', 'both'],
+                    'exad_slider_dots_type' => 'dot-image'
+                ]                
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_slider_dot_image_padding',
+            [
+                'label'      => __('Padding', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-slider.dot-image ul.slick-dots li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_slider_dot_image_margin',
+            [
+                'label'      => __('Margin', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'default'       => [
+                    'top'       => 10,
+                    'right'     => 10,
+                    'bottom'    => 0,
+                    'left'      => 10
+                ], 
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-slider.dot-image ul.slick-dots li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_slider_dot_image_height',
+            [
+                'label'  => __( 'Height', 'exclusive-addons-elementor' ),
+                'type'   => Controls_Manager::SLIDER,
+                'range'  => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 5000
+                    ]
+                ],
+                'default'  => [
+                    'size' => 100,
+                    'unit' => 'px'
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-slider .slick-dots li a' => 'height: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_slider_dot_image_width',
+            [
+                'label'  => __( 'Width', 'exclusive-addons-elementor' ),
+                'type'   => Controls_Manager::SLIDER,
+                'range'  => [
+                    'px' => [
+                        'min' => 50,
+                        'max' => 5000
+                    ]
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-slider .slick-dots li a' => 'width: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_dot_image_border_radius',
+            [
+                'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px'],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-slider .slick-dots li a img'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->end_controls_section();
+
     }
   
     protected function render() {
-		$settings             = $this->get_settings_for_display();
-		$exadSliderControls   = ['exad-slider'];
-		$exadSliderControls[] = $settings['exad_slider_horizontal_position'];
-		$exadSliderControls[] = $settings['exad_slider_vertical_position'];
-		$exadSliderControls[] = $settings['exad_slider_full_screen_size'] == 'yes' ? 'fullscreen' : '';
+		$settings              = $this->get_settings_for_display();
+		$exadSliderProgressbar = $settings['exad_slider_progress_bar'];
+		$pauseOnHover          = $settings['exad_slider_pause_on_hover'];
+
+		$exadSliderControls    = ['exad-slider'];
+		$exadSliderControls[]  = $settings['exad_slider_full_screen_size'] == 'yes' ? 'fullscreen' : '';
+
+		$title_animation   = $settings['exad_slider_title_animation'];
+
+		$bar   = ( $exadSliderProgressbar == 'yes' ) ? 'active' : 'inactive';
+
+        if ( ( 'both' || 'dots' ) == $settings['exad_slider_nav'] ) {
+            $exadSliderControls[] = $settings['exad_slider_dots_type'];
+            $this->add_render_attribute( 'exad_slider_controls', 'data-dots-type', $settings['exad_slider_dots_type'] );
+        }
 
         $this->add_render_attribute(
             'exad_slider_controls',
@@ -1344,12 +1366,10 @@ class ExclusiveSliderItem extends Widget_Base {
             ]
         );
 
-
-
         if ( 'yes' == $settings['exad_slider_autoplay'] ) {
             $this->add_render_attribute( 'exad_slider_controls', 'data-autoplay', "true" );
             $this->add_render_attribute( 'exad_slider_controls', 'data-autoplayspeed', $settings['exad_slider_autoplay_speed'] );
-	        if ( 'yes' == $settings['exad_slider_pause'] ) {
+	        if ( 'yes' == $settings['exad_slider_pause_on_hover'] ) {
 	            $this->add_render_attribute( 'exad_slider_controls', 'data-pauseonhover', "true" );
 	        }
         }
@@ -1370,15 +1390,21 @@ class ExclusiveSliderItem extends Widget_Base {
 	        }        	
         }
 
+
 		if(is_array($settings['exad_slides'])):
 			echo '<div '.$this->get_render_attribute_string( 'exad_slider_controls' ).'">';
 				foreach($settings['exad_slides'] as $each_slide):
-					echo '<div class="exad-each-slider-item elementor-repeater-item-'.esc_attr($each_slide['_id']).'">';
+                    $each_title_animation = $each_slide['exad_single_slider_title_animation'];
+                    if( empty($each_title_animation) ){
+                        $each_title_animation = $title_animation_type;
+                    }
+					echo '<div class="exad-each-slider-item elementor-repeater-item-'.esc_attr($each_slide['_id']).'" data-image="'.esc_url($each_slide['exad_slider_img']['url']).'">';
+						echo '<div class="exad-slider-progressbar-'.esc_attr($bar).'"></div>';
 						echo '<div class="exad-slide-bg"></div>';
 						echo '<div class="exad-slide-inner">';
 							echo '<div class="exad-slide-content">';
-								echo $each_slide['exad_slider_title'] ? '<h2>'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
-								echo $each_slide['exad_slider_details'] ? wpautop(wp_kses_post($each_slide['exad_slider_details'])) : '';
+								echo $each_slide['exad_slider_title'] ? '<h2 class="wow animated '.esc_attr($each_title_animation).'" data-wow-duration=".5s" data-wow-delay=".5s">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+								echo $each_slide['exad_slider_details'] ? '<p class="wow animated slideInUp" data-wow-duration="1s" data-wow-delay=".5s">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
 
 								if ( ! empty( $each_slide['exad_slider_button_text'] ) ) :
 								    if ( $each_slide['exad_slider_button_url']['url'] ) {
@@ -1395,7 +1421,7 @@ class ExclusiveSliderItem extends Widget_Base {
 								        $target .= ' rel= nofollow ';
 								    }
 								    echo '<div class="exad-slider-btn">';
-								        echo '<a '.$href.esc_attr($target).'>'.esc_html($each_slide['exad_slider_button_text']).'</a>';
+								        echo '<a class="wow animated slideInUp" data-wow-duration="1.5s" data-wow-delay=".5s" '.$href.esc_attr($target).'>'.esc_html($each_slide['exad_slider_button_text']).'</a>';
 								    echo '</div>';
 								endif;
 

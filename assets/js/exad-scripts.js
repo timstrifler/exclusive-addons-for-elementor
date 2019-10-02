@@ -506,6 +506,7 @@ var ExadSlider = function($scope, $) {
     centermode             = (ExadSliderControls.data("centermode") !== undefined) ? ExadSliderControls.data("centermode") : false,
     loop                   = (ExadSliderControls.data("loop") !== undefined) ? ExadSliderControls.data("loop") : false,
     autoplaySpeed          = (ExadSliderControls.data("autoplayspeed") !== undefined) ? ExadSliderControls.data("autoplayspeed") : '',
+    dotsType               = (ExadSliderControls.data("dots-type") !== undefined) ? ExadSliderControls.data("dots-type") : '',
     centerModePadding      = (ExadSliderControls.data("centermode-padding") !== undefined) ? ExadSliderControls.data("centermode-padding") : '',
     transitionSpeed        = ExadSliderControls.data("slider-speed");
     
@@ -528,7 +529,7 @@ var ExadSlider = function($scope, $) {
     } else {
     	var verticalSwipe = false;
     }
-    
+
     ExadSliderControls.slick({
         slidesToShow: 1,
         arrows: arrows,
@@ -542,7 +543,18 @@ var ExadSlider = function($scope, $) {
         pauseOnHover: pauseOnHover,
         infinite: loop,
         autoplaySpeed: autoplaySpeed,
-        speed: transitionSpeed
+        speed: transitionSpeed,
+        customPaging: function (slider, i) {
+            if( dotsType == 'dot-image' ){
+                var image = $(slider.$slides[i]).data('image');
+                return '<a><img src="' + image + '"></a>';
+            }
+            return;
+        }
+
+
+
+
     });
 };
 // slider js ends here.
