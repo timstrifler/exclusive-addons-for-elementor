@@ -15,7 +15,9 @@ class Exad_Modal_Popup extends Widget_Base {
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
 	}
-
+	public function get_script_depends() {
+		return [ 'exad-magnific-popup' ];
+	}
 	public function get_keywords() {
 		return [ 'modal', 'lightbox', 'popup' ];
 	}
@@ -142,40 +144,10 @@ class Exad_Modal_Popup extends Widget_Base {
 					'default'     => 'https://www.youtube.com/embed/D7ovwGioN9E',
 					'placeholder' => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
 					'title'       => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
-					'condition'   => [
-						'exad_modal_content' => 'youtube'
-                    ]
                 ]
             );
-            $this->add_control(
-                'exad_modal_vimeo_video_url',
-                [
-					'label'       => __( 'Provide Vimeo Video URL', 'exclusive-addons-elementor' ),
-					'type'        => Controls_Manager::TEXT,
-					'label_block' => true,
-					'default'     => 'https://player.vimeo.com/video/180565514?api=1&player_id=vimeoplayer',
-					'placeholder' => __( 'Place Vimeo Video URL', 'exclusive-addons-elementor' ),
-					'title'       => __( 'Place Vimeo Video URL', 'exclusive-addons-elementor' ),
-					'condition'   => [
-						'exad_modal_content'    => 'vimeo',
-                    ]
-                ]
-            );
-            $this->add_control(
-                'exad_modal_external_page_url',
-                [
-					'label'       => __( 'Provide External Page URL', 'exclusive-addons-elementor' ),
-					'type'        => Controls_Manager::TEXT,
-					'label_block' => true,
-					'default'     => 'http://exclusiveaddons.com/',
-					'placeholder' => __( 'Place External Page URL', 'exclusive-addons-elementor' ),
-					'title'       => __( 'Place External Page URL', 'exclusive-addons-elementor' ),
-					'condition'   => [
-						'exad_modal_content'    => 'youtube',
-						'exad_modal_video_type' => 'external_page'
-                    ]
-                ]
-            );
+            
+            
             $this->add_control(
                 'exad_modal_video_width',
                 [
@@ -231,17 +203,16 @@ class Exad_Modal_Popup extends Widget_Base {
                         '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe' => 'height: {{SIZE}}{{UNIT}};'
                     ],
                     'condition' => [
-                        'exad_modal_content' => 'video'
+                        'exad_modal_content' => 'youtube'
                     ]
                 ]
             );
 
 
-
 		$this->end_controls_section();
 
 		$this->start_controls_section(
-			'modal',
+			'exad_modal_display_settings',
 			[
 				'label' => __( 'Display Settings', 'exclusive-addons-elementor' )
 			]
@@ -266,7 +237,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'icon',
 				[
-					'label'     => __( 'Icon', 'uael' ),
+					'label'     => __( 'Icon', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::ICON,
 					'default'   => 'fa fa-home',
 					'condition' => [
@@ -278,7 +249,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'icon_size',
 				[
-					'label'     => __( 'Size', 'uael' ),
+					'label'     => __( 'Size', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::SLIDER,
 					'default'   => [
 						'size'  => 60
@@ -300,7 +271,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'icon_color',
 				[
-					'label'     => __( 'Icon Color', 'uael' ),
+					'label'     => __( 'Icon Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'scheme'    => [
 						'type'  => Scheme_Color::get_type(),
@@ -318,7 +289,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'icon_hover_color',
 				[
-					'label'     => __( 'Icon Hover Color', 'uael' ),
+					'label'     => __( 'Icon Hover Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'scheme'    => [
 						'type'  => Scheme_Color::get_type(),
@@ -336,7 +307,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'photo',
 				[
-					'label'     => __( 'Image', 'uael' ),
+					'label'     => __( 'Image', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::MEDIA,
 					'default'   => [
 						'url'   => Utils::get_placeholder_image_src()
@@ -353,7 +324,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'img_size',
 				[
-					'label'     => __( 'Size', 'uael' ),
+					'label'     => __( 'Size', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::SLIDER,
 					'default'   => [
 						'size'  => 60
@@ -375,9 +346,9 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'modal_text',
 				[
-					'label'     => __( 'Text', 'uael' ),
+					'label'     => __( 'Text', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::TEXT,
-					'default'   => __( 'Click Here', 'uael' ),
+					'default'   => __( 'Click Here', 'exclusive-addons-elementor' ),
 					'dynamic'   => [
 						'active' => true
 					],
@@ -402,9 +373,9 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'modal_custom',
 				[
-					'label'       => __( 'Class', 'uael' ),
+					'label'       => __( 'Class', 'exclusive-addons-elementor' ),
 					'type'        => Controls_Manager::TEXT,
-					'description' => __( 'Add your custom class without the dot. e.g: my-class', 'uael' ),
+					'description' => __( 'Add your custom class without the dot. e.g: my-class', 'exclusive-addons-elementor' ),
 					'condition'   => [
 						'modal_on' => 'custom'
 					]
@@ -414,9 +385,9 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'modal_custom_id',
 				[
-					'label'       => __( 'Custom ID', 'uael' ),
+					'label'       => __( 'Custom ID', 'exclusive-addons-elementor' ),
 					'type'        => Controls_Manager::TEXT,
-					'description' => __( 'Add your custom id without the Pound key. e.g: my-id', 'uael' ),
+					'description' => __( 'Add your custom id without the Pound key. e.g: my-id', 'exclusive-addons-elementor' ),
 					'condition'   => [
 						'modal_on' => 'custom_id'
 					]
@@ -426,12 +397,12 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'exit_intent',
 				[
-					'label'        => __( 'Exit Intent', 'uael' ),
+					'label'        => __( 'Exit Intent', 'exclusive-addons-elementor' ),
 					'type'         => Controls_Manager::SWITCHER,
 					'default'      => 'no',
 					'return_value' => 'yes',
-					'label_off'    => __( 'No', 'uael' ),
-					'label_on'     => __( 'Yes', 'uael' ),
+					'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+					'label_on'     => __( 'Yes', 'exclusive-addons-elementor' ),
 					'condition'    => [
 						'modal_on' => 'automatic'
 					],
@@ -444,12 +415,12 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'after_second',
 				[
-					'label'        => __( 'After Few Seconds', 'uael' ),
+					'label'        => __( 'After Few Seconds', 'exclusive-addons-elementor' ),
 					'type'         => Controls_Manager::SWITCHER,
 					'default'      => 'no',
 					'return_value' => 'yes',
-					'label_off'    => __( 'No', 'uael' ),
-					'label_on'     => __( 'Yes', 'uael' ),
+					'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+					'label_on'     => __( 'Yes', 'exclusive-addons-elementor' ),
 					'condition'    => [
 						'modal_on' => 'automatic'
 					],
@@ -462,7 +433,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'after_second_value',
 				[
-					'label'     => __( 'Load After Seconds', 'uael' ),
+					'label'     => __( 'Load After Seconds', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::SLIDER,
 					'default'   => [
 						'size' => 1
@@ -480,12 +451,12 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'enable_cookies',
 				[
-					'label'        => __( 'Enable Cookies', 'uael' ),
+					'label'        => __( 'Enable Cookies', 'exclusive-addons-elementor' ),
 					'type'         => Controls_Manager::SWITCHER,
 					'default'      => 'no',
 					'return_value' => 'yes',
-					'label_off'    => __( 'No', 'uael' ),
-					'label_on'     => __( 'Yes', 'uael' ),
+					'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+					'label_on'     => __( 'Yes', 'exclusive-addons-elementor' ),
 					'condition'    => [
 						'modal_on' => 'automatic'
 					],
@@ -498,7 +469,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_control(
 				'close_cookie_days',
 				[
-					'label'     => __( 'Do Not Show After Closing (days)', 'uael' ),
+					'label'     => __( 'Do Not Show After Closing (days)', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::SLIDER,
 					'default'   => [
 						'size' => 1
@@ -753,19 +724,19 @@ class Exad_Modal_Popup extends Widget_Base {
 			$this->add_responsive_control(
 				'all_align',
 				[
-					'label'     => __( 'Alignment', 'uael' ),
+					'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::CHOOSE,
 					'options'   => [
 						'left'  => [
-							'title' => __( 'Left', 'uael' ),
+							'title' => __( 'Left', 'exclusive-addons-elementor' ),
 							'icon'  => 'fa fa-align-left'
 						],
 						'center' => [
-							'title' => __( 'Center', 'uael' ),
+							'title' => __( 'Center', 'exclusive-addons-elementor' ),
 							'icon'  => 'fa fa-align-center'
 						],
 						'right'  => [
-							'title' => __( 'Right', 'uael' ),
+							'title' => __( 'Right', 'exclusive-addons-elementor' ),
 							'icon'  => 'fa fa-align-right'
 						]
 					],
@@ -874,10 +845,11 @@ class Exad_Modal_Popup extends Widget_Base {
 	}
 
 	protected function render() { 
+
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 'exad_modal_action', [
-			'class' => 'exad-modal-image-action',
+			'class' => 'exad-modal-trigger',
 		] );
 
 		if ( $settings['exad_modal_content'] == 'image' ) {
@@ -895,7 +867,7 @@ class Exad_Modal_Popup extends Widget_Base {
 		}
 	?>
 
-		<a <?php echo $this->get_render_attribute_string( 'exad_modal_action' ); ?>>Open popup</a>
+		<a <?php echo $this->get_render_attribute_string( 'exad_modal_action' ); ?>>Open Popup</a>
 
 	<?php	
 	}

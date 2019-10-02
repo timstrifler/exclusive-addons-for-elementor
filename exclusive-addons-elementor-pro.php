@@ -262,7 +262,9 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 		public function exad_enqueue_scripts() {
 
 			$is_activated_widget = $this->activated_widgets();
-			
+
+			wp_enqueue_style( 'exad-magnific-popup-style', EXAD_URL . 'assets/css/magnific-popup.css' );
+
 			// Main Styles
 			wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
 			
@@ -300,7 +302,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 			}
 
 			if ( $is_activated_widget['modal-popup'] ) {
-				// Filterable Gallery
+				// Modal Popup
 				wp_register_script( 'exad-magnific-popup', EXAD_URL . 'assets/js/vendor/jquery.magnific-popup.min.js', array( 'jquery' ), '1.0', true );
 			}
 
