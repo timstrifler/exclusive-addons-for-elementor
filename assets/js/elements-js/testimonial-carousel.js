@@ -4,7 +4,7 @@ var TestimonialCarousel = function ($scope, $) {
     $carousel_nav = $testimonialCarouselWrapper.data("carousel-nav"),
     $loop = ($testimonialCarouselWrapper.data("loop") !== undefined) ? $testimonialCarouselWrapper.data("loop") : false,
     $slidesToShow = ($testimonialCarouselWrapper.data("slidestoshow") !== undefined) ? $testimonialCarouselWrapper.data("slidestoshow") : 1,
-    $slidesToScroll = ($testimonialCarouselWrapper.data("slidestoscroll") !== undefined) ? $testimonialCarouselWrapper.data("slidestoscroll") : 1,
+    $slidesToScroll = $testimonialCarouselWrapper.data("slidestoscroll"),
     $autoPlay = ($testimonialCarouselWrapper.data("autoplay") !== undefined) ? $testimonialCarouselWrapper.data("autoplay") : false,
     $autoplaySpeed = ($testimonialCarouselWrapper.data("autoplayspeed") !== undefined) ? $testimonialCarouselWrapper.data("autoplayspeed") : false,
     $transitionSpeed = $testimonialCarouselWrapper.data("speed"),

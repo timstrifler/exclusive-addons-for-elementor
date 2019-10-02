@@ -224,6 +224,10 @@ class Exad_Testimonial extends Widget_Base {
 
 		$this-> end_controls_section();
 
+		/**
+		 * testimonial Review Image style
+		 */
+
 		$this->start_controls_section(
 			'exad_testimonial_image_style',
 			[
