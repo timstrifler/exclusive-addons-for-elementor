@@ -41,23 +41,20 @@ class Exad_Animated_Text extends Widget_Base {
         [
 			'label' => esc_html__( 'Before Animated Text', 'exclusive-addons-elementor' ),
 			'type' => Controls_Manager::TEXTAREA,
+			'default'     => esc_html__( "This is ", 'exclusive-addons-elementor' ),
         ]
 	);
-	
+
 	$this->add_control(
-        'exad_first_string',
-        [
-			'label' => esc_html__( 'First Text', 'exclusive-addons-elementor' ),
-			'type' => Controls_Manager::TEXT,
-        ]
-	);
-	
-	$this->add_control(
-        'exad_second_string',
-        [
-			'label' => esc_html__( 'Second Text', 'exclusive-addons-elementor' ),
-			'type' => Controls_Manager::TEXT,
-        ]
+		'exad_animated_text_animated_heading',
+		[
+			'label'       => esc_html__( 'Animated Text', 'exclusive-addons-elementor' ),
+			'type'        => Controls_Manager::TEXTAREA,
+			'placeholder' => esc_html__( 'Enter your title', 'exclusive-addons-elementor' ),
+			'description' => esc_html__( 'Write animated heading here with comma separated.', 'exclusive-addons-elementor' ),
+			'default'     => esc_html__( "Animated,Morphing,Awesome", 'exclusive-addons-elementor' ),
+			'dynamic'     => [ 'active' => true ],
+		]
 	);
 	
 	$this->add_control(
@@ -65,26 +62,80 @@ class Exad_Animated_Text extends Widget_Base {
         [
 			'label' => esc_html__( 'After Animated Text', 'exclusive-addons-elementor' ),
 			'type' => Controls_Manager::TEXTAREA,
+			'default'     => esc_html__( "Heading", 'exclusive-addons-elementor' ),
         ]
 	);
 
-    $this->end_controls_section();
+	$this->add_control(
+		'exad_animated_text_animated_heading_tag',
+		[
+			'label'   => esc_html__( 'HTML Tag', 'exclusive-addons-elementor' ),
+			'type'    => Controls_Manager::SELECT,
+			'options' => element_pack_title_tags(),
+			'default' => 'h2',
+		]
+	);
+
+	$this->end_controls_section();
+	
+	/*
+    * Animated Text Settings
+    */
+    $this->start_controls_section(
+        'exad_section_animated_text_settings',
+        [
+            'label' => esc_html__( 'Settings', 'exclusive-addons-elementor' )
+        ]
+	);
+
+	$this->end_controls_section();
+	
 	}
 
 	protected function render() {
 
 		$settings = $this->get_settings_for_display();
+		$id = $this->get_id();
+		$type_heading = explode(",", esc_html($settings['exad_animated_text_animated_heading']) );
+
+		// $header_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['exad_animated_text_animated_heading_tag'], $this->get_render_attribute_string( 'typed_animated_string' ) );
+
+		$this->add_render_attribute( 'typed_animated_string', 'class', 'typed-strings' );
+
+		$this->add_render_attribute( 'typed_animated_string', 'data-type_string', json_encode($type_heading) );	
+		// var_dump($type_heading);
 	?>
-		<div id="typed-strings" data-first_string='<?php echo esc_attr( $settings['exad_first_string'] ); ?>' 
-		data-second_string='<?php echo esc_attr( $settings['exad_second_string'] ); ?>' >
-			<div>
-				<?php echo esc_attr( $settings['exad_animated_text_before_text'] ); ?>
-					<span id="typed"></span>
-				<?php echo esc_attr( $settings['exad_animated_text_after_text'] ); ?>
-			</div>
-		</div>
+
+	<div class="exad-animated-text">
+		<<?php echo ($settings['exad_animated_text_animated_heading_tag']); ?> <?php echo $this->get_render_attribute_string( 'typed_animated_string' ) ?> >
+			<span class="exad-animated-text-pre-heading"><?php echo esc_attr( $settings['exad_animated_text_before_text'] ); ?></span>
+				<span id="exad-animated-text-<?php echo $id; ?>" class="exad-animated-text-animated-heading"></span>
+			<span class="bdt-post-heading"><?php echo esc_attr( $settings['exad_animated_text_after_text'] ); ?></span>
+		</<?php echo ($settings['exad_animated_text_animated_heading_tag']); ?>>
+	</div>
 	<?php
 	}
+
+	/*protected function render() {
+
+		$settings = $this->get_settings_for_display();
+		$id = $this->get_id();
+		$type_heading = explode(",", esc_html($settings['exad_animated_text_animated_heading']) );
+
+		$this->add_render_attribute( 'typed_animated_string', 'class', 'typed-strings' );
+
+		$this->add_render_attribute( 'typed_animated_string', 'data-type_string', json_encode($type_heading) );	
+		// var_dump($type_heading);
+	?>
+	<div class="exad-animated-text">
+		<div <?php echo $this->get_render_attribute_string( 'typed_animated_string' ) ?> >
+			<?php echo esc_attr( $settings['exad_animated_text_before_text'] ); ?>
+				<span id="typed-text"></span>
+			<?php echo esc_attr( $settings['exad_animated_text_after_text'] ); ?>
+		</div>
+	</div>
+	<?php
+	}*/
 }
 
 
