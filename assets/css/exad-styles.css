@@ -5771,6 +5771,15 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 	position: relative;
 	overflow: hidden;
 }
+.exad-each-slider-item.slick-slide .exad-slider-bg-overlay {
+  position: absolute;
+  /*content: '';*/
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+}
 .exad-slide-bg {
 	background-size: cover;
 	-webkit-flex-basis: 100%;

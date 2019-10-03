@@ -146,6 +146,15 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 	position: relative;
 	overflow: hidden;
 }
+.exad-each-slider-item.slick-slide .exad-slider-bg-overlay {
+  position: absolute;
+  /*content: '';*/
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+}
 .exad-slide-bg {
 	background-size: cover;
 	-webkit-flex-basis: 100%;
@@ -253,19 +262,15 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 .exad-slider.dot-bullet ul.slick-dots li {
   position: relative;
   display: inline-block;
-  width: 10px;
-  height: 10px;
   margin: 0;
   padding: 0;
   cursor: pointer;
-  background: rgba(255, 255, 255, .3);
-  border-radius: 100%;
 }
 .exad-slider.dot-bullet ul.slick-dots li.slick-active {
 	background: rgba(255, 255, 255, 1);
 }
-.exad-slider.dot-bullet ul.slick-dots li:not(:last-child) {
-  margin-right: 10px;
+.exad-slider.dot-bullet ul.slick-dots li:last-child {
+  margin-right: 0px !important;
 }
 .exad-slider.dot-bullet ul.slick-dots li button {
   display: none;
@@ -283,6 +288,9 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 }
 .exad-slider .slick-dots {
     display: flex;
+}
+.exad-slider.dot-hide .slick-dots {
+  display: none;
 }
 .exad-slider .slick-dots li {
   flex: 1;
@@ -302,18 +310,6 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 .exad-slider.dot-image ul li:last-child {
   margin-right: 0px !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 .slick-active.slick-current .exad-slider-progressbar-active {
     position: absolute;
     top: 0;
@@ -335,7 +331,6 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
         width: 100%;
     }
 }
-
 @keyframes exadSliderProgressbar {
     from {
         width: 0;

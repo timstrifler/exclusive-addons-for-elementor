@@ -64,6 +64,43 @@ class ExclusiveSliderItem extends Widget_Base {
             ]
         );
 
+
+
+
+
+
+
+
+        $sliderItem->add_control(
+            'exad_slider_bg_overlay',
+            [
+                'label'        => __( 'Background Overlay', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'no',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_slider_bg_overlay_color',
+            [
+                'label'      => __( 'Color', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::COLOR,
+                'default'    => 'rgba(0,0,0,0.5)',
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'exad_slider_bg_overlay',
+                            'value' => 'yes'
+                        ]
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} {{CURRENT_ITEM}} .exad-slider-bg-overlay' => 'background-color: {{VALUE}}'
+                ]
+            ]
+        );
+
         $sliderItem->end_controls_tab();
 
         $sliderItem->start_controls_tab( 'exad_slider_content', [ 'label' => __( 'Content', 'exclusive-addons-elementor' ) ] );
@@ -1337,6 +1374,170 @@ class ExclusiveSliderItem extends Widget_Base {
 
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'exad_slider_dot_bullet_controls_style_section',
+            [
+                'label'     => __('Dots Bullet', 'exclusive-addons-elementor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'exad_slider_nav'       => ['dots', 'both'],
+                    'exad_slider_dots_type' => 'dot-bullet'
+                ]                
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_slider_dot_bullet_margin',
+            [
+                'label'      => __('Margin', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'default'       => [
+                    'top'       => 0,
+                    'right'     => 10,
+                    'bottom'    => 0,
+                    'left'      => 0
+                ], 
+                'selectors'             => [
+                    '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+
+        $this->start_controls_tabs( 'exad_slider_dot_bullet_style_tabs' );
+
+        // normal state tab
+        $this->start_controls_tab( 'exad_slider_dot_bullet_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+            $this->add_responsive_control(
+                'exad_slider_dot_bullet_size',
+                [
+                    'label'  => __( 'Size', 'exclusive-addons-elementor' ),
+                    'type'   => Controls_Manager::SLIDER,
+                    'range'  => [
+                        'px' => [
+                            'min' => 10,
+                            'max' => 100
+                        ]
+                    ],
+                    'default'  => [
+                        'size' => 10,
+                        'unit' => 'px'
+                    ],
+                    'selectors'  => [
+                        '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
+                    ]
+                ]
+            );
+
+            $this->add_control(
+                'exad_slider_dot_bullet_color',
+                [
+                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'type'      => Controls_Manager::COLOR,
+                    'default'   => 'rgba(255, 255, 255, .3)',
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li' => 'background-color: {{VALUE}};'
+                    ]
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'            => 'exad_slider_dot_bullet_border',
+                    'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                    'selector'        => '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li',
+                ]
+            );
+
+            $this->add_control(
+                'exad_slider_dot_bullet_border_radius',
+                [
+                    'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+                    'type'       => Controls_Manager::DIMENSIONS,
+                    'default'    => [
+                        'top'    => 100,
+                        'right'  => 100,
+                        'bottom' => 100,
+                        'left'   => 100,
+                        'unit'   => '%'
+                    ],                
+                    'size_units'    => [ 'px', 'em', '%' ],
+                    'selectors'  => [
+                        '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    ]
+                ]
+            );
+
+            $this->end_controls_tab();
+
+            // active state tab
+            $this->start_controls_tab( 'exad_slider_dot_bullet_active', [ 'label' => esc_html__( 'Active', 'exclusive-addons-elementor' ) ] );
+
+            $this->add_responsive_control(
+                'exad_slider_dot_bullet_active_size',
+                [
+                    'label'  => __( 'Size', 'exclusive-addons-elementor' ),
+                    'type'   => Controls_Manager::SLIDER,
+                    'range'  => [
+                        'px' => [
+                            'min' => 10,
+                            'max' => 100
+                        ]
+                    ],
+                    'selectors'  => [
+                        '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li.slick-active' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
+                    ]
+                ]
+            );
+
+            $this->add_control(
+                'exad_slider_dot_bullet_active_color',
+                [
+                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'type'      => Controls_Manager::COLOR,
+                    'default'   => 'rgba(255, 255, 255, 1)',
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li.slick-active' => 'background-color: {{VALUE}};'
+                    ]
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'            => 'exad_slider_dot_bullet_active_border',
+                    'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                    'selector'        => '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li.slick-active',
+                ]
+            );
+
+            $this->add_control(
+                'exad_slider_dot_bullet_active_border_radius',
+                [
+                    'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+                    'type'       => Controls_Manager::DIMENSIONS,
+                    'default'    => [
+                        'top'    => 100,
+                        'right'  => 100,
+                        'bottom' => 100,
+                        'left'   => 100,
+                        'unit'   => '%'
+                    ],                
+                    'size_units'    => [ 'px', 'em', '%' ],
+                    'selectors'  => [
+                        '{{WRAPPER}} .exad-slider.dot-bullet ul.slick-dots li.slick-active'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    ]
+                ]
+            );
+
+            $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
     }
   
     protected function render() {
@@ -1353,7 +1554,8 @@ class ExclusiveSliderItem extends Widget_Base {
 
         if ( ( 'both' || 'dots' ) == $settings['exad_slider_nav'] ) {
             $exadSliderControls[] = $settings['exad_slider_dots_type'];
-            $this->add_render_attribute( 'exad_slider_controls', 'data-dots-type', $settings['exad_slider_dots_type'] );
+        } else {
+            $exadSliderControls[] = 'dot-hide';
         }
 
         $this->add_render_attribute(
@@ -1390,6 +1592,9 @@ class ExclusiveSliderItem extends Widget_Base {
 	        }        	
         }
 
+        if ( ( 'dots' == $settings['exad_slider_nav'] ) || ( 'both' == $settings['exad_slider_nav'] ) ) {
+            $this->add_render_attribute( 'exad_slider_controls', 'data-dots-type', $settings['exad_slider_dots_type'] );
+        }
 
 		if(is_array($settings['exad_slides'])):
 			echo '<div '.$this->get_render_attribute_string( 'exad_slider_controls' ).'">';
@@ -1400,6 +1605,9 @@ class ExclusiveSliderItem extends Widget_Base {
                     }
 					echo '<div class="exad-each-slider-item elementor-repeater-item-'.esc_attr($each_slide['_id']).'" data-image="'.esc_url($each_slide['exad_slider_img']['url']).'">';
 						echo '<div class="exad-slider-progressbar-'.esc_attr($bar).'"></div>';
+                        if ( 'yes' === $each_slide['exad_slider_bg_overlay'] ) {
+                            echo '<div class="exad-slider-bg-overlay"></div>';
+                        }
 						echo '<div class="exad-slide-bg"></div>';
 						echo '<div class="exad-slide-inner">';
 							echo '<div class="exad-slide-content">';
