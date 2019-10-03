@@ -2822,8 +2822,8 @@ i.exad-call-to-action-icon {
 }
 
 /* Exclusive Heading End */
-/* Modal Style Start */
 
+<<<<<<< HEAD
 /* modal popup button*/
 
 .exad-modal-button .exad-modal-image-action {
@@ -3960,6 +3960,11 @@ i.exad-call-to-action-icon {
 .exad-news-ticker.bn-effect-scroll .exad-nt-news ul{
   display: block;
   width: 100%;
+=======
+/* post carousel style start */
+
+.exad-post-carousel.one {
+>>>>>>> origin/modal-by-zabid
   position: relative;
 }
 .exad-news-ticker.bn-effect-scroll .exad-nt-news ul li{
