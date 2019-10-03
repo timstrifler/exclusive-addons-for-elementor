@@ -8,17 +8,23 @@ var TestimonialCarousel = function ($scope, $) {
     $autoPlay = ($testimonialCarouselWrapper.data("autoplay") !== undefined) ? $testimonialCarouselWrapper.data("autoplay") : false,
     $autoplaySpeed = ($testimonialCarouselWrapper.data("autoplayspeed") !== undefined) ? $testimonialCarouselWrapper.data("autoplayspeed") : false,
     $transitionSpeed = $testimonialCarouselWrapper.data("speed"),
-    $dots = ($testimonialCarouselWrapper.data("carousel-dot") !== undefined) ? $testimonialCarouselWrapper.data("carousel-dot") : false,
     $pauseOnHover = ($testimonialCarouselWrapper.data("pauseonhover") !== undefined) ? $testimonialCarouselWrapper.data("pauseonhover") : false,
     $centerMode = ($testimonialCarouselWrapper.data("centermode") !== undefined) ? $testimonialCarouselWrapper.data("centermode") : false;
-
-    if ($carousel_nav == "arrows" ) {
+	
+	if ($carousel_nav == "both" ) {
+        var arrows = true;
+        var dots = true;
+    } else if ($carousel_nav == "arrows" ) {
         var arrows = true;
         var dots = false;
-    } else {
+    } else if ($carousel_nav == "nav-dots" ) {
         var arrows = false;
         var dots = true;
+    } else if ($carousel_nav == "none" ) {
+        var arrows = false;
+        var dots = false;
     }
+
 
     $testimonialCarouselWrapper.slick({
         infinite: $loop,
