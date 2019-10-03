@@ -940,7 +940,7 @@ class ExclusiveSliderItem extends Widget_Base {
             $this->add_control(
                 'exad_slider_btn_normal_text_color',
                 [
-                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#ffffff',
                     'selectors' => [
@@ -1014,7 +1014,7 @@ class ExclusiveSliderItem extends Widget_Base {
             $this->add_control(
                 'exad_slider_btn_hover_text_color',
                 [
-                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .exad-slide-content a:hover' => 'color: {{VALUE}};'
@@ -1030,6 +1030,15 @@ class ExclusiveSliderItem extends Widget_Base {
                     'selectors' => [
                         '{{WRAPPER}} .exad-slide-content a:hover' => 'background: {{VALUE}};'
                     ]
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'            => 'exad_slider_btn_hover_border',
+                    'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                    'selector'        => '{{WRAPPER}} .exad-slide-content a:hover',
                 ]
             );
 
