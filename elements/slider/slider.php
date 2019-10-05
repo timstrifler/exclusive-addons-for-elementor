@@ -23,7 +23,7 @@ class ExclusiveSliderItem extends Widget_Base {
 	}
 
     public function get_script_depends() {
-        return [ 'exad-waypoints', 'jquery-slick', 'exad-wow-js' ];
+        return [ 'jquery-slick', 'exad-slick-animation' ];
     }
 
     protected function _register_controls() {
@@ -163,6 +163,19 @@ class ExclusiveSliderItem extends Widget_Base {
             ]
         );
 		
+
+        $sliderItem->add_control(
+            'exad_single_slider_title_position',
+            [
+                'label'     => esc_html__( 'Position', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
 		$sliderItem->add_control(
 	        'exad_single_slider_horizontal_position',
 	        [
@@ -251,11 +264,12 @@ class ExclusiveSliderItem extends Widget_Base {
 		);
 
         $sliderItem->add_control(
-            'exad_slider_title_style',
+            'exad_single_slider_animation',
             [
-				'label' => esc_html__( 'Animation', 'exclusive-addons-elementor' ),
-				'type'  => Controls_Manager::HEADING,
-                'condition'    => [
+                'label'     => esc_html__( 'Animation', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'condition' => [
                     'exad_single_slider_custom_style' => 'yes'
                 ]
             ]
@@ -498,7 +512,8 @@ class ExclusiveSliderItem extends Widget_Base {
 				],
 				'size_units' => [ 'px', 'vh', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-each-slider-item.slick-slide' => 'height: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .slick-slide .exad-each-slider-item' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-each-slider-item.slick-slide' => 'height: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					'exad_slider_full_screen_size!' => 'yes'
@@ -1610,7 +1625,7 @@ class ExclusiveSliderItem extends Widget_Base {
 				foreach($settings['exad_slides'] as $each_slide):
                     $each_title_animation = $each_slide['exad_single_slider_title_animation'];
                     if( empty($each_title_animation) ){
-                        $each_title_animation = $title_animation_type;
+                        $each_title_animation = $title_animation;
                     }
 					echo '<div class="exad-each-slider-item elementor-repeater-item-'.esc_attr($each_slide['_id']).'" data-image="'.esc_url($each_slide['exad_slider_img']['url']).'">';
 						echo '<div class="exad-slider-progressbar-'.esc_attr($bar).'"></div>';
@@ -1620,7 +1635,10 @@ class ExclusiveSliderItem extends Widget_Base {
 						echo '<div class="exad-slide-bg"></div>';
 						echo '<div class="exad-slide-inner">';
 							echo '<div class="exad-slide-content">';
-								echo $each_slide['exad_slider_title'] ? '<h2 class="wow animated '.esc_attr($each_title_animation).'" data-wow-duration=".5s" data-wow-delay=".5s">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+								// echo $each_slide['exad_slider_title'] ? '<h2 class="wow animated '.esc_attr($each_title_animation).'" data-wow-duration=".5s" data-wow-delay=".5s">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+
+echo $each_slide['exad_slider_title'] ? '<h2 data-animation-in="slideInUp" data-delay-in="2" data-duration-in="2" data-animation-out="slideInDown" data-delay-out="2" data-duration-out="2">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+                                
 								echo $each_slide['exad_slider_details'] ? '<p class="wow animated slideInUp" data-wow-duration="1s" data-wow-delay=".5s">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
 
 								if ( ! empty( $each_slide['exad_slider_button_text'] ) ) :

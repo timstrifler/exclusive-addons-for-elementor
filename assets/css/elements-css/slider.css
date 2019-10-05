@@ -124,13 +124,13 @@
   animation-name: slideInRight;
 }
 
-.exad-slider.fullscreen .exad-each-slider-item.slick-slide {
+.exad-slider.fullscreen .exad-each-slider-item {
 	height: 100vh;
 }
-body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
+body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
 	height: calc(100vh - 32px);
 }
-.exad-each-slider-item.slick-slide {
+.exad-each-slider-item {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -146,9 +146,8 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
 	position: relative;
 	overflow: hidden;
 }
-.exad-each-slider-item.slick-slide .exad-slider-bg-overlay {
+.exad-each-slider-item .exad-slider-bg-overlay {
   position: absolute;
-  /*content: '';*/
   height: 100%;
   width: 100%;
   top: 0;
@@ -247,6 +246,10 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item.slick-slide {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   opacity: 1;
+}
+.exad-slider .slick-prev:hover,
+.exad-slider .slick-next:hover {
+  background-color: inherit; 
 }
 .exad-slider.dot-bullet ul.slick-dots {
   bottom: 15px;
