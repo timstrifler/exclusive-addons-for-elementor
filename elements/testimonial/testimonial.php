@@ -42,11 +42,21 @@ class Exad_Testimonial extends Widget_Base {
 				],
 			]
 		);
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'testimonial_thumbnail',
+				'default' => 'full',
+				'condition' => [
+					'exad_testimonial_image[url]!' => '',
+				],
+			]
+		);
 
 		$this->add_control(
 			'exad_testimonial_description',
 			[
-				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Testimonial', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'default' => esc_html__( 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore odio sint harum quasi maiores nobis dignissimos illo doloremque blanditiis illum!', 'exclusive-addons-elementor' ),
 			]
@@ -384,19 +394,6 @@ class Exad_Testimonial extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_testimonial_description_arrow_enable',
-			[
-				'label' => __( 'Show Arrow', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
-				'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-				'separator' => 'after',
-			]
-		);
-
-		$this->add_control(
 			'exad_testimonial_description_bg_color',
 			[
 				'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
@@ -533,6 +530,20 @@ class Exad_Testimonial extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_testimonial_description_arrow_enable',
+			[
+				'label' => __( 'Show Arrow', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+				'separator' => 'before',
+			]
+		);
+
+
 		$this-> end_controls_section();
 
 		/**
@@ -600,9 +611,9 @@ class Exad_Testimonial extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default' => [
-					'top' => '0',
+					'top' => '20',
 					'right' => '0',
-					'bottom' => '20',
+					'bottom' => '0',
 					'left' => '0',
 				],
 				'selectors' => [
@@ -610,6 +621,7 @@ class Exad_Testimonial extends Widget_Base {
 				],
 			]
 		);
+		
 
 		$this->start_controls_tabs( 'exad_testimonial_rating_tabs' );
 
@@ -813,12 +825,12 @@ class Exad_Testimonial extends Widget_Base {
 		$this-> end_controls_section();
 	}
 
-	protected function render_testimonial_rating( $ratings, $settings ) {
+	protected function render_testimonial_rating( $ratings ) {
 	?>
 		<ul class="exad-testimonial-ratings">
 			<?php 
 				for( $i = 1; $i <= 5; $i++ ) {
-					if( $settings['exad_testimonial_rating_number'] >= $i ) {
+					if( $ratings >= $i ) {
 						$rating_active_class = 'class="exad-testimonial-ratings-active"';
 					} else {
 						$rating_active_class = '';
@@ -834,7 +846,7 @@ class Exad_Testimonial extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		$testimonial_image = $this->get_settings_for_display( 'exad_testimonial_image' );
-		$testimonial_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $testimonial_image['id'], 'thumbnail', $settings );
+		$testimonial_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $testimonial_image['id'], 'testimonial_thumbnail', $settings );
 
 		if( empty( $testimonial_image_url_src ) ) {
 			$testimonial_image_url = $testimonial_image['url']; 
@@ -864,7 +876,7 @@ class Exad_Testimonial extends Widget_Base {
 					<?php if ( !empty( $settings['exad_testimonial_description'] ) ) { ?>
 						<p <?php echo $this->get_render_attribute_string( 'exad_testimonial_description' ); ?> ><?php echo esc_html( $settings['exad_testimonial_description'] ) ?></p>
 						<?php if ( $settings['exad_testimonial_enable_rating'] === 'yes' ) { ?>
-							<?php $this->render_testimonial_rating( $ratings, $settings ); ?>
+							<?php $this->render_testimonial_rating( $settings['exad_testimonial_rating_number'] ); ?>
 						<?php } ?>
 					<?php } ?>
 				</div>
@@ -872,7 +884,7 @@ class Exad_Testimonial extends Widget_Base {
 					<?php if( $settings['exad_testimonial_container_alignment'] === 'exad-testimonial-align-left' || $settings['exad_testimonial_container_alignment'] === 'exad-testimonial-align-center' || $settings['exad_testimonial_container_alignment'] === 'exad-testimonial-align-right' ) { ?>
 						<?php if ( !empty( $testimonial_image_url ) ) { ?>
 							<div class="exad-testimonial-thumb">
-								<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>">
+								<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_testimonial_name'] ); ?>">
 							</div>
 						<?php } ?>
 						<div class="exad-testimonial-reviewer">
@@ -896,7 +908,7 @@ class Exad_Testimonial extends Widget_Base {
 						</div>
 						<?php if ( !empty( $testimonial_image_url ) ) { ?>
 							<div class="exad-testimonial-thumb">
-								<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>">
+								<img src="<?php echo esc_url($testimonial_image_url); ?>" alt="<?php echo esc_attr( $settings['exad_testimonial_name'] ); ?>">
 							</div>
 						<?php } ?>
 					<?php } ?>
