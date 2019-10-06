@@ -65,12 +65,6 @@ class ExclusiveSliderItem extends Widget_Base {
         );
 
 
-
-
-
-
-
-
         $sliderItem->add_control(
             'exad_slider_bg_overlay',
             [
@@ -1051,9 +1045,9 @@ class ExclusiveSliderItem extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Border::get_type(),
                 [
-                    'name'            => 'exad_slider_btn_hover_border',
-                    'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                    'selector'        => '{{WRAPPER}} .exad-slide-content a:hover',
+                    'name'     => 'exad_slider_btn_hover_border',
+                    'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                    'selector' => '{{WRAPPER}} .exad-slide-content a:hover'
                 ]
             );
 
@@ -1086,9 +1080,9 @@ class ExclusiveSliderItem extends Widget_Base {
         $this->start_controls_section(
             'exad_slider_progressbar_style_section',
             [
-                'label'         => __('Progressbar', 'exclusive-addons-elementor'),
-                'tab'           => Controls_Manager::TAB_STYLE,
-                'condition'    => [
+                'label'     => __('Progressbar', 'exclusive-addons-elementor'),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
                     'terms'     => [
                         [
                             'name'      => 'exad_slider_progress_bar',
@@ -1140,9 +1134,9 @@ class ExclusiveSliderItem extends Widget_Base {
         $this->start_controls_section(
             'exad_slider_arrow_controls_style_section',
             [
-                'label'         => __('Arrow Controls', 'exclusive-addons-elementor' ),
-                'tab'           => Controls_Manager::TAB_STYLE,
-                'condition'    => [
+                'label'     => __('Arrow Controls', 'exclusive-addons-elementor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
+                'condition' => [
                     'exad_slider_nav'       => ['arrows', 'both']
                 ]               
             ]
@@ -1172,25 +1166,49 @@ class ExclusiveSliderItem extends Widget_Base {
                     ],
                 ],
                 'selectors'     => [
-                    '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before' => 'font-size: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before' => 'font-size: {{SIZE}}{{UNIT}};',
                 ]
             ]
-        ); 
+        );
 
-        $this->add_responsive_control(
-            'exad_slider_arrow_padding',
+        $this->add_control(
+            'exad_slider_arrow_width',
             [
-                'label'         => __( 'Padding', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::DIMENSIONS,
+                'label'         => __( 'Width', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
                 'default'       => [
-                    'top'       => 30,
-                    'right'     => 10,
-                    'bottom'    => 30,
-                    'left'      => 10
-                ],                
-                'size_units'    => [ 'px', 'em', '%' ],
+                    'size'      => 55,
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 1,
+                        'max'   => 200,
+                        'step'  => 1
+                    ],
+                ],
                 'selectors'     => [
-                        '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-slider .slick-next,{{WRAPPER}} .exad-slider .slick-prev' => 'width: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_arrow_height',
+            [
+                'label'         => __( 'Height', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => 95,
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 1,
+                        'max'   => 200,
+                        'step'  => 1
+                    ],
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-slider .slick-next,{{WRAPPER}} .exad-slider .slick-prev' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};',
                 ]
             ]
         );
@@ -1219,7 +1237,7 @@ class ExclusiveSliderItem extends Widget_Base {
 		                'type'          => Controls_Manager::COLOR,
 		                'default'       => 'rgba(255, 255, 255, .3)',
 		                'selectors'     => [
-		                    '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before' => 'background-color: {{VALUE}}'
+		                    '{{WRAPPER}} .exad-slider .slick-next,{{WRAPPER}} .exad-slider .slick-prev' => 'background-color: {{VALUE}}'
 		                ]            
 		            ]
 		        );
@@ -1229,10 +1247,9 @@ class ExclusiveSliderItem extends Widget_Base {
 		            [
 		                'name'      => 'exad_slider_arrows_border',
 		                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-		                'selector'  => '{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before'
+		                'selector'  => '{{WRAPPER}} .exad-slider .slick-next,{{WRAPPER}} .exad-slider .slick-prev'
 		            ]
 		        );
-
 
 				$this->add_control(
 					'exad_slider_arrows_border_radius',
@@ -1241,8 +1258,14 @@ class ExclusiveSliderItem extends Widget_Base {
 						'type'       => Controls_Manager::DIMENSIONS,
 						'size_units' => [ 'px'],
 						'selectors'  => [
-							'{{WRAPPER}} .exad-slider .slick-next:before,{{WRAPPER}} .exad-slider .slick-prev:before'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-						]
+							'{{WRAPPER}} .exad-slider .slick-next,{{WRAPPER}} .exad-slider .slick-prev'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+						],
+                        'default'       => [
+                            'top'       => 0,
+                            'right'     => 0,
+                            'bottom'    => 0,
+                            'left'      => 0
+                        ] 
 					]
 				);
 
@@ -1257,7 +1280,6 @@ class ExclusiveSliderItem extends Widget_Base {
 		            [
 		                'label'         => __( 'Color', 'exclusive-addons-elementor' ),
 		                'type'          => Controls_Manager::COLOR,
-		                'default'       => '#ffffff',
 		                'selectors'     => [
 		                    '{{WRAPPER}} .exad-slider .slick-next:hover:before,{{WRAPPER}} .exad-slider .slick-prev:hover:before' => 'color: {{VALUE}}'
 		                ]          
@@ -1269,9 +1291,8 @@ class ExclusiveSliderItem extends Widget_Base {
 		            [
 		                'label'         => __( 'Background Color', 'exclusive-addons-elementor' ),
 		                'type'          => Controls_Manager::COLOR,
-		                'default'       => 'rgba(255, 255, 255, .3)',
 		                'selectors'     => [
-		                    '{{WRAPPER}} .exad-slider .slick-next:hover:before,{{WRAPPER}} .exad-slider .slick-prev:hover:before' => 'background-color: {{VALUE}}'
+		                    '{{WRAPPER}} .exad-slider .slick-next:hover,{{WRAPPER}} .exad-slider .slick-prev:hover' => 'background-color: {{VALUE}}'
 		                ]          
 		            ]
 		        );
@@ -1281,7 +1302,7 @@ class ExclusiveSliderItem extends Widget_Base {
 		            [
 		                'name'      => 'exad_slider_arrows_hover_border',
 		                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-		                'selector'  => '{{WRAPPER}} .exad-slider .slick-next:hover:before,{{WRAPPER}} .exad-slider .slick-prev:hover:before'
+		                'selector'  => '{{WRAPPER}} .exad-slider .slick-next:hover,{{WRAPPER}} .exad-slider .slick-prev:hover'
 		            ]
 		        );
 
@@ -1293,7 +1314,7 @@ class ExclusiveSliderItem extends Widget_Base {
 						'type'       => Controls_Manager::DIMENSIONS,
 						'size_units' => [ 'px'],
 						'selectors'  => [
-							'{{WRAPPER}} .exad-slider .slick-next:hover:before,{{WRAPPER}} .exad-slider .slick-prev:hover:before'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+							'{{WRAPPER}} .exad-slider .slick-next:hover,{{WRAPPER}} .exad-slider .slick-prev:hover'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 						]
 					]
 				);
@@ -1635,9 +1656,9 @@ class ExclusiveSliderItem extends Widget_Base {
 						echo '<div class="exad-slide-bg"></div>';
 						echo '<div class="exad-slide-inner">';
 							echo '<div class="exad-slide-content">';
-								// echo $each_slide['exad_slider_title'] ? '<h2 class="wow animated '.esc_attr($each_title_animation).'" data-wow-duration=".5s" data-wow-delay=".5s">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+								echo $each_slide['exad_slider_title'] ? '<h2 class="wow animated '.esc_attr($each_title_animation).'" data-wow-duration=".5s" data-wow-delay=".5s">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
 
-echo $each_slide['exad_slider_title'] ? '<h2 data-animation-in="slideInUp" data-delay-in="2" data-duration-in="2" data-animation-out="slideInDown" data-delay-out="2" data-duration-out="2">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+// echo $each_slide['exad_slider_title'] ? '<h2 data-animation-in="slideInUp" data-delay-in="2" data-duration-in="2" data-animation-out="slideInDown" data-delay-out="2" data-duration-out="2">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
                                 
 								echo $each_slide['exad_slider_details'] ? '<p class="wow animated slideInUp" data-wow-duration="1s" data-wow-delay=".5s">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
 

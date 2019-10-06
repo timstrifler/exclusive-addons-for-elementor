@@ -152,27 +152,18 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
   width: 100%;
   top: 0;
   left: 0;
-
 }
 .exad-slide-bg {
-	background-size: cover;
 	-webkit-flex-basis: 100%;
 	-ms-flex-preferred-size: 100%;
 	flex-basis: 100%;
 	width: 100%;
+	background-size: cover;
 	-webkit-background-size: cover;
-	background-position: 50%;
+	background-position: center center;
 	background-repeat: no-repeat;
 	min-width: 100%;
 	min-height: 100%;
-	-webkit-transition-property: -webkit-transform;
-	transition-property: -webkit-transform;
-	-o-transition-property: transform;
-	transition-property: transform;
-	transition-property: transform,-webkit-transform;
-	-webkit-transition-duration: 10s;
-	-o-transition-duration: 10s;
-	transition-duration: 10s;
 }
 .exad-slide-inner {
 	-webkit-flex-basis: 100%;
@@ -222,7 +213,7 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
   color: transparent;
   border: none;
   outline: none;
-  background: none;
+  background: rgba(255, 255, 255, .3);
 }
 .exad-slider .slick-prev {
   left: 0px;
@@ -238,8 +229,6 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
 }
 .exad-slider .slick-next:before, 
 .exad-slider .slick-prev:before {
-  background: rgba(255, 255, 255, .3);
-  padding: 30px 10px;
   font-family: eicons;
   font-size: 35px;
   color: #fff;
