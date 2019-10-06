@@ -6387,11 +6387,11 @@ text-align: right;
 
 .exad-testimonial-content-wrapper-arrow::before{
   position: absolute;
-  content: '';
-  transform: translateX(-50%) rotate(45deg);
-  border-style: solid;
-  height: 10px;
-  width: 10px;
+  content: "\f0d7";
+  font-family: FontAwesome;
+  transform: translateX(-50%);
+  font-size: 25px;
+  line-height: 1;
 }
 
 .exad-testimonial-content-wrapper-arrow{
@@ -6401,22 +6401,22 @@ text-align: right;
 
 .exad-testimonial-wrapper.exad-testimonial-align-center .exad-testimonial-content-wrapper-arrow::before{
   left: 50%;
-  bottom: -6px;
+  bottom: -15px;
 }
 
 .exad-testimonial-wrapper.exad-testimonial-align-bottom .exad-testimonial-content-wrapper-arrow::before{
   left: 50%;
-  bottom: -6px;
+  bottom: -15px;
 }
 
 .exad-testimonial-wrapper.exad-testimonial-align-left .exad-testimonial-content-wrapper-arrow::before{
   left: 40px;
-  bottom: -5px;
+  bottom: -15px;
 }
 
 .exad-testimonial-wrapper.exad-testimonial-align-right .exad-testimonial-content-wrapper-arrow::before{
   right: 25px;
-  bottom: -6px;
+  bottom: -15px;
 }
 
 .exad-testimonial-wrapper.exad-testimonial-image-aside{

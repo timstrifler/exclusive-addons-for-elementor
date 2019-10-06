@@ -400,8 +400,8 @@ class Exad_Testimonial extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'background-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -423,42 +423,6 @@ class Exad_Testimonial extends Widget_Base {
 				'default' => '#222222',
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-description' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_description_border_width',
-			[
-				'label' => __( 'Border Width', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 5,
-					],
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 0,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'border-style: solid; border-width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'border-style: solid; border-width: 0 {{SIZE}}{{UNIT}} {{SIZE}}{{UNIT}} 0;',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_testimonial_description_border_color',
-			[
-				'label' => __( 'Border Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '#e5e5e5',
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'border-color: {{VALUE}};',
-					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'border-color: {{VALUE}};',
 				],
 			]
 		);
