@@ -39,9 +39,9 @@ class Exad_Animated_Text extends Widget_Base {
 	$this->add_control(
         'exad_animated_text_before_text',
         [
-			'label' => esc_html__( 'Before Animated Text', 'exclusive-addons-elementor' ),
+			'label' => esc_html__( 'Before Text', 'exclusive-addons-elementor' ),
 			'type' => Controls_Manager::TEXTAREA,
-			'default'     => esc_html__( "This is ", 'exclusive-addons-elementor' ),
+			'default'     => esc_html__( "This is", 'exclusive-addons-elementor' ),
         ]
 	);
 
@@ -52,7 +52,7 @@ class Exad_Animated_Text extends Widget_Base {
 			'type'        => Controls_Manager::TEXTAREA,
 			'placeholder' => esc_html__( 'Enter your title', 'exclusive-addons-elementor' ),
 			'description' => esc_html__( 'Write animated heading here with comma separated.', 'exclusive-addons-elementor' ),
-			'default'     => esc_html__( "Animated,Morphing,Awesome", 'exclusive-addons-elementor' ),
+			'default'     => esc_html__( "Exclusive,Addons,Elementor", 'exclusive-addons-elementor' ),
 			'dynamic'     => [ 'active' => true ],
 		]
 	);
@@ -60,9 +60,9 @@ class Exad_Animated_Text extends Widget_Base {
 	$this->add_control(
         'exad_animated_text_after_text',
         [
-			'label' => esc_html__( 'After Animated Text', 'exclusive-addons-elementor' ),
+			'label' => esc_html__( 'After Text', 'exclusive-addons-elementor' ),
 			'type' => Controls_Manager::TEXTAREA,
-			'default'     => esc_html__( "Heading", 'exclusive-addons-elementor' ),
+			'default'     => esc_html__( "For You.", 'exclusive-addons-elementor' ),
         ]
 	);
 
@@ -70,22 +70,392 @@ class Exad_Animated_Text extends Widget_Base {
 		'exad_animated_text_animated_heading_tag',
 		[
 			'label'   => esc_html__( 'HTML Tag', 'exclusive-addons-elementor' ),
-			'type'    => Controls_Manager::SELECT,
-			'options' => element_pack_title_tags(),
-			'default' => 'h2',
+			'type'    => Controls_Manager::CHOOSE,
+			'default' => 'h3',
+			'options' => [
+				'h1' => [
+					'title' => __( 'H1', 'exclusive-addons-elementor' ),
+					'icon' => 'eicon-editor-h1',
+				],
+				'h2' => [
+					'title' => __( 'H2', 'exclusive-addons-elementor' ),
+					'icon' => 'eicon-editor-h2',
+				],
+				'h3' => [
+					'title' => __( 'H3', 'exclusive-addons-elementor' ),
+					'icon' => 'eicon-editor-h3',
+				],
+				'h4' => [
+					'title' => __( 'H4', 'exclusive-addons-elementor' ),
+					'icon' => 'eicon-editor-h4',
+				],
+				'h5' => [
+					'title' => __( 'H5', 'exclusive-addons-elementor' ),
+					'icon' => 'eicon-editor-h5',
+				],
+				'h6' => [
+					'title' => __( 'H6', 'exclusive-addons-elementor' ),
+					'icon' => 'eicon-editor-h6',
+				],
+			],
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_animated_heading_alignment',
+		[
+			'label'   => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'exad-animated-text-align-left' => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'exad-animated-text-align-center' => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'exad-animated-text-align-right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
+				],
+			'default' => 'exad-animated-text-align-center',
 		]
 	);
 
 	$this->end_controls_section();
-	
+
+	/*
+    * Animated Text Container Style
+    */
+    $this->start_controls_section(
+        'exad_section_animated_text_animation_tyle',
+        [
+			'label' => esc_html__( 'Animation', 'exclusive-addons-elementor' ),
+			'tab' => Controls_Manager::TAB_STYLE,
+        ]
+	);
+
+	$this->add_control(
+		'exad_animated_text_animated_heading_animated_type',
+		[
+			'label'   => esc_html__( 'Animation Type', 'exclusive-addons-elementor' ),
+			'type'    => Controls_Manager::SELECT,
+			'default' => 'exad-morphed-animation',
+			'options' => [
+				'exad-typed-animation' => __( 'Typed', 'exclusive-addons-elementor' ),
+				'exad-morphed-animation' => __( 'Animate', 'exclusive-addons-elementor' ),
+			],
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_animated_heading_animation_style',
+		[
+			'label'   => esc_html__( 'Animation Style', 'exclusive-addons-elementor' ),
+			'type'    => Controls_Manager::SELECT,
+			'default'     => 'fadeIn',
+			'options' => [
+				'fadeIn' => __( 'Fade In', 'exclusive-addons-elementor' ),
+				'fadeInUp' => __( 'Fade In Up', 'exclusive-addons-elementor' ),
+				'fadeInDown' => __( 'Fade In Down', 'exclusive-addons-elementor' ),
+				'fadeInLeft' => __( 'Fade In Left', 'exclusive-addons-elementor' ),
+				'fadeInRight' => __( 'Fade In Right', 'exclusive-addons-elementor' ),
+				'zoomIn' => __( 'Zoom In', 'exclusive-addons-elementor' ),
+				'zoomInUp' => __( 'Zoom In Up', 'exclusive-addons-elementor' ),
+				'zoomInDown' => __( 'Zoom In Down', 'exclusive-addons-elementor' ),
+				'zoomInLeft' => __( 'Zoom In Left', 'exclusive-addons-elementor' ),
+				'zoomInRight' => __( 'Zoom In Right', 'exclusive-addons-elementor' ),
+				'slideInDown' => __( 'Slide In Down', 'exclusive-addons-elementor' ),
+				'slideInUp' => __( 'Slide In Up', 'exclusive-addons-elementor' ),
+				'slideInLeft' => __( 'Slide In Left', 'exclusive-addons-elementor' ),
+				'slideInRight' => __( 'Slide In Right', 'exclusive-addons-elementor' ),
+				'bounce' => __( 'Bounce', 'exclusive-addons-elementor' ),
+				'bounceIn' => __( 'Bounce In', 'exclusive-addons-elementor' ),
+				'bounceInUp' => __( 'Bounce In Up', 'exclusive-addons-elementor' ),
+				'bounceInDown' => __( 'Bounce In Down', 'exclusive-addons-elementor' ),
+				'bounceInLeft' => __( 'Bounce In Left', 'exclusive-addons-elementor' ),
+				'bounceInRight' => __( 'Bounce In Right', 'exclusive-addons-elementor' ),
+				'flash' => __( 'Flash', 'exclusive-addons-elementor' ),
+				'pulse' => __( 'Pulse', 'exclusive-addons-elementor' ),
+				'rotateIn' => __( 'Rotate In', 'exclusive-addons-elementor' ),
+				'rotateInDownLeft' => __( 'Rotate In Down Left', 'exclusive-addons-elementor' ),
+				'rotateInDownRight' => __( 'Rotate In Down Right', 'exclusive-addons-elementor' ),
+				'rotateInUpRight' => __( 'rotate In Up Right', 'exclusive-addons-elementor' ),
+				'rotateIn' => __( 'Rotate In', 'exclusive-addons-elementor' ),
+				'rollIn' => __( 'Roll In', 'exclusive-addons-elementor' ),
+				'lightSpeedIn' => __( 'Light Speed In', 'exclusive-addons-elementor' ),
+			],
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-morphed-animation',
+			]
+		]
+	);
+
+	$this->end_controls_section();
+
 	/*
     * Animated Text Settings
     */
     $this->start_controls_section(
         'exad_section_animated_text_settings',
         [
-            'label' => esc_html__( 'Settings', 'exclusive-addons-elementor' )
+			'label' => esc_html__( 'Settings', 'exclusive-addons-elementor' ),
+			'tab' => Controls_Manager::TAB_STYLE,
         ]
+	);
+
+	$this->add_control(
+		'exad_animated_text_animation_speed',
+		[
+			'label' => __( 'Animation Speed', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::NUMBER,
+			'default'   => 1000,
+			'min'       => 100,
+			'max'       => 10000,
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-morphed-animation',
+			]
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_type_speed',
+		[
+			'label' => __( 'Type Speed', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::NUMBER,
+			'default'   => 60,
+			'min'       => 10,
+			'max'       => 200,
+			'step'      => 10,
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation',
+			]
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_start_delay',
+		[
+			'label' => __( 'Start Delay', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::NUMBER,
+			'default'   => 1000,
+			'min'       => 1000,
+			'max'       => 10000,
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation',
+			]
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_back_type_speed',
+		[
+			'label' => __( 'Back Type Speed', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::NUMBER,
+			'default'   => 60,
+			'min'       => 10,
+			'max'       => 200,
+			'step'      => 10,
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation',
+			]
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_back_delay',
+		[
+			'label' => __( 'Back Delay', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::NUMBER,
+			'default'   => 1000,
+			'min'       => 1000,
+			'max'       => 10000,
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation',
+			]
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_loop',
+		[
+			'label' => __( 'Loop', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
+			'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation',
+			]
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_show_cursor',
+		[
+			'label' => __( 'Show Cursor', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
+			'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation',
+			]
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_fade_out',
+		[
+			'label' => __( 'Fade Out', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
+			'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation',
+			]
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_smart_backspace',
+		[
+			'label' => __( 'Smart Backspace', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
+			'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+			'condition' => [
+				'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation',
+			]
+		]
+	);
+
+	$this->end_controls_section();
+
+	/*
+    * Animated Text pre animated Text Style
+	*/
+    $this->start_controls_section(
+        'exad_pre_animated_text_style',
+        [
+			'label' => esc_html__( 'Pre Animated text', 'exclusive-addons-elementor' ),
+			'tab' => Controls_Manager::TAB_STYLE,
+        ]
+	);
+
+	$this->add_group_control(
+		Group_Control_Typography::get_type(),
+		[
+			'name' => 'exad_pre_animated_text_typography',
+			'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+			'selector' => '{{WRAPPER}} .exad-animated-text-pre-heading',
+		]
+	);
+
+	$this->add_control(
+		'exad_pre_animated_text_color',
+		[
+			'label'   => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::COLOR,
+			'default' => '#222222',
+			'selectors' => [
+				'{{WRAPPER}} .exad-animated-text-pre-heading' => 'color: {{VALUE}}',
+			],
+		]
+	);
+
+	$this->end_controls_section();
+
+	/*
+    * Animated Text animated Text Style
+    */
+    $this->start_controls_section(
+        'exad_animated_text_style',
+        [
+			'label' => esc_html__( 'Animated text', 'exclusive-addons-elementor' ),
+			'tab' => Controls_Manager::TAB_STYLE,
+        ]
+	);
+
+	$this->add_group_control(
+		Group_Control_Typography::get_type(),
+		[
+			'name' => 'exad_animated_text_typography',
+			'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+			'selector' => '{{WRAPPER}} .exad-animated-text-animated-heading',
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_color',
+		[
+			'label'   => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::COLOR,
+			'default' => '#FF6B6B',
+			'selectors' => [
+				'{{WRAPPER}} .exad-animated-text-animated-heading' => 'color: {{VALUE}}',
+			],
+		]
+	);
+
+	$this->add_control(
+		'exad_animated_text_spacing',
+		[
+			'label' => __( 'Spacing', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::SLIDER,
+			'size_units' => [ 'px'],
+			'range' => [
+				'px' => [
+					'min' => 0,
+					'max' => 50,
+				],
+			],
+			'selectors' => [
+				'{{WRAPPER}} .exad-animated-text-animated-heading' => 'margin-left: {{SIZE}}{{UNIT}}; margin-right: {{SIZE}}{{UNIT}}',
+			],
+		]
+	);
+
+	$this->end_controls_section();
+
+	/*
+    * Animated Text post animated Text Style
+    */
+    $this->start_controls_section(
+        'exad_post_animated_text_style',
+        [
+			'label' => esc_html__( 'Post Animated text', 'exclusive-addons-elementor' ),
+			'tab' => Controls_Manager::TAB_STYLE,
+        ]
+	);
+
+	$this->add_group_control(
+		Group_Control_Typography::get_type(),
+		[
+			'name' => 'exad_post_animated_text_typography',
+			'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+			'selector' => '{{WRAPPER}} .exad-animated-text-post-heading',
+		]
+	);
+
+	$this->add_control(
+		'exad_post_animated_text_color',
+		[
+			'label'   => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+			'type' => Controls_Manager::COLOR,
+			'default' => '#222222',
+			'selectors' => [
+				'{{WRAPPER}} .exad-animated-text-post-heading' => 'color: {{VALUE}}',
+			],
+		]
 	);
 
 	$this->end_controls_section();
@@ -98,44 +468,54 @@ class Exad_Animated_Text extends Widget_Base {
 		$id = $this->get_id();
 		$type_heading = explode(",", esc_html($settings['exad_animated_text_animated_heading']) );
 
-		// $header_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', $settings['exad_animated_text_animated_heading_tag'], $this->get_render_attribute_string( 'typed_animated_string' ) );
+		$this->add_render_attribute( 'exad_typed_animated_string', 'class', 'exad-typed-strings' );
 
-		$this->add_render_attribute( 'typed_animated_string', 'class', 'typed-strings' );
+		$this->add_render_attribute( 'exad_typed_animated_string',
+			[
+				'data-type_string' => json_encode($type_heading),
+				'data-heading_animation' => $settings['exad_animated_text_animated_heading_animated_type'],
+			]
+		);
+		if($settings['exad_animated_text_animated_heading_animated_type'] === 'exad-typed-animation'){
+			$this->add_render_attribute( 'exad_typed_animated_string',
+				[
+					'data-type_speed' => $settings['exad_animated_text_type_speed'],
+					'data-back_type_speed' => $settings['exad_animated_text_back_type_speed'],
+					'data-loop' => $settings['exad_animated_text_loop'],
+					'data-show_cursor' => $settings['exad_animated_text_show_cursor'],
+					'data-fade_out' => $settings['exad_animated_text_fade_out'],
+					'data-smart_backspace' => $settings['exad_animated_text_smart_backspace'],
+					'data-start_delay' => $settings['exad_animated_text_start_delay'],
+					'data-back_delay' => $settings['exad_animated_text_back_delay'],
+				]
+			);
+		}
+		
+		
+		if($settings['exad_animated_text_animated_heading_animated_type'] === 'exad-morphed-animation'){
+			$this->add_render_attribute( 'exad_typed_animated_string',
+				[
+					'data-animation_style' => $settings['exad_animated_text_animated_heading_animation_style'],
+					'data-animation_speed' => $settings['exad_animated_text_animation_speed'],
+				]
+			);
+		}
+		?>
 
-		$this->add_render_attribute( 'typed_animated_string', 'data-type_string', json_encode($type_heading) );	
-		// var_dump($type_heading);
-	?>
-
-	<div class="exad-animated-text">
-		<<?php echo ($settings['exad_animated_text_animated_heading_tag']); ?> <?php echo $this->get_render_attribute_string( 'typed_animated_string' ) ?> >
+	<div class="exad-animated-text <?php echo ($settings['exad_animated_text_animated_heading_alignment']); ?>" >
+		<<?php echo ($settings['exad_animated_text_animated_heading_tag']); ?> <?php echo $this->get_render_attribute_string( 'exad_typed_animated_string' ) ?> >
 			<span class="exad-animated-text-pre-heading"><?php echo esc_attr( $settings['exad_animated_text_before_text'] ); ?></span>
+			<?php if( $settings['exad_animated_text_animated_heading_animated_type'] === 'exad-typed-animation' ) { ?>
 				<span id="exad-animated-text-<?php echo $id; ?>" class="exad-animated-text-animated-heading"></span>
-			<span class="bdt-post-heading"><?php echo esc_attr( $settings['exad_animated_text_after_text'] ); ?></span>
+			<?php } ?>
+			<?php if( $settings['exad_animated_text_animated_heading_animated_type'] === 'exad-morphed-animation' ) { ?>
+				<span id="exad-animated-text-<?php echo $id; ?>" class="exad-animated-text-animated-heading"><?php echo( $settings['exad_animated_text_animated_heading'] ); ?></span>
+			<?php } ?>
+			<span class="exad-animated-text-post-heading"><?php echo esc_attr( $settings['exad_animated_text_after_text'] ); ?></span>
 		</<?php echo ($settings['exad_animated_text_animated_heading_tag']); ?>>
 	</div>
 	<?php
 	}
-
-	/*protected function render() {
-
-		$settings = $this->get_settings_for_display();
-		$id = $this->get_id();
-		$type_heading = explode(",", esc_html($settings['exad_animated_text_animated_heading']) );
-
-		$this->add_render_attribute( 'typed_animated_string', 'class', 'typed-strings' );
-
-		$this->add_render_attribute( 'typed_animated_string', 'data-type_string', json_encode($type_heading) );	
-		// var_dump($type_heading);
-	?>
-	<div class="exad-animated-text">
-		<div <?php echo $this->get_render_attribute_string( 'typed_animated_string' ) ?> >
-			<?php echo esc_attr( $settings['exad_animated_text_before_text'] ); ?>
-				<span id="typed-text"></span>
-			<?php echo esc_attr( $settings['exad_animated_text_after_text'] ); ?>
-		</div>
-	</div>
-	<?php
-	}*/
 }
 
 
