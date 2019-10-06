@@ -1656,11 +1656,13 @@ class ExclusiveSliderItem extends Widget_Base {
 						echo '<div class="exad-slide-bg"></div>';
 						echo '<div class="exad-slide-inner">';
 							echo '<div class="exad-slide-content">';
-								echo $each_slide['exad_slider_title'] ? '<h2 class="wow animated '.esc_attr($each_title_animation).'" data-wow-duration=".5s" data-wow-delay=".5s">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+								// echo $each_slide['exad_slider_title'] ? '<h2 class="wow animated '.esc_attr($each_title_animation).'" data-wow-duration=".5s" data-wow-delay=".5s">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
 
-// echo $each_slide['exad_slider_title'] ? '<h2 data-animation-in="slideInUp" data-delay-in="2" data-duration-in="2" data-animation-out="slideInDown" data-delay-out="2" data-duration-out="2">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
-                                
-								echo $each_slide['exad_slider_details'] ? '<p class="wow animated slideInUp" data-wow-duration="1s" data-wow-delay=".5s">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
+// echo $each_slide['exad_slider_title'] ? '<h2 data-animation-in="fadeIn" data-delay-in="1" data-duration-in="1" data-animation-out="fadeInDown" data-delay-out="1" data-duration-out="1">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+?>
+                            <h2 data-animation-in="fadeInDown" data-delay-in=".4" data-duration-in=".4" data-animation-out="fadeOutUp" data-delay-out="3" data-duration-out=".5">Registration</h2>
+                                <?php
+								// echo $each_slide['exad_slider_details'] ? '<p class="wow animated slideInUp" data-wow-duration="1s" data-wow-delay=".5s">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
 
 								if ( ! empty( $each_slide['exad_slider_button_text'] ) ) :
 								    if ( $each_slide['exad_slider_button_url']['url'] ) {
@@ -1677,7 +1679,7 @@ class ExclusiveSliderItem extends Widget_Base {
 								        $target .= ' rel= nofollow ';
 								    }
 								    echo '<div class="exad-slider-btn">';
-								        echo '<a class="wow animated slideInUp" data-wow-duration="1.5s" data-wow-delay=".5s" '.$href.esc_attr($target).'>'.esc_html($each_slide['exad_slider_button_text']).'</a>';
+								        // echo '<a class="animated slideInUp" data-wow-duration="1.5s" data-wow-delay=".5s" '.$href.esc_attr($target).'>'.esc_html($each_slide['exad_slider_button_text']).'</a>';
 								    echo '</div>';
 								endif;
 

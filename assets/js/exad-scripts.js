@@ -552,6 +552,8 @@ var ExadSlider = function($scope, $) {
             return;
         }
     });
+
+    ExadSliderControls.slickAnimation();
 };
 // slider js ends here.
 // Exclusive Tabs script
