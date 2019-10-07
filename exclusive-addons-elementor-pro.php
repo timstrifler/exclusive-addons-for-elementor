@@ -15,6 +15,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+/**
+ * Initialize the tracker
+ *
+ * @return void
+ */
+function appsero_init_tracker_appsero_test() {
+
+    if ( ! class_exists( 'Appsero\Client' ) ) {
+      require_once __DIR__ . '/appsero/src/Client.php';
+    }
+
+    $client = new Appsero\Client( '90188a4c-1afe-4efd-9f12-caf0970eb5ba', 'Exclusive Addons Elementor', __FILE__ );
+
+    // Active insights
+    $client->insights()->init();
+
+    // Active automatic updater
+    $client->updater();
+
+    // Active license page and checker
+    $args = array(
+        'type'       => 'options',
+        'menu_title' => 'Exclusive Addons Elementor',
+        'page_title' => 'Exclusive Addons Elementor License Settings',
+        'menu_slug'  => 'exad-settings',
+    );
+    $client->license()->add_settings_page( $args );
+}
+
+appsero_init_tracker_appsero_test();
+
 if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 
 
