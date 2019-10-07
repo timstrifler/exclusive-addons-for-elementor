@@ -269,23 +269,348 @@ class ExclusiveSliderItem extends Widget_Base {
             ]
         );
 
-  		$sliderItem->add_control(
+        $sliderItem->add_control(
             'exad_single_slider_title_animation',
             [
-                'label'         => __( 'Title', 'nivo-slider-elementor' ),
-                'description'   => __( 'Select title animation style for this slide only.', 'nivo-slider-elementor' ),
+                'label'     => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'condition' => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
+  		$sliderItem->add_control(
+            'exad_single_slider_title_animation_in',
+            [
+                'label'         => __( 'Animation In', 'nivo-slider-elementor' ),
                 'type'          => Controls_Manager::SELECT,
-                'default'       => '',
+                'default'       => 'default',
                 'options'       => [
-                    ''              => __('None', 'nivo-slider-elementor'),
-                    'slideInUp'     => __('slideInUp', 'nivo-slider-elementor'),
-                    'slideInDown'   => __('slideInDown', 'nivo-slider-elementor'),
-                    'slideInLeft'   => __('slideInLeft', 'nivo-slider-elementor'),
-                    'slideInRight'  => __('slideInRight', 'nivo-slider-elementor')
+                    ''             => __('None', 'nivo-slider-elementor'),
+                    'default'      => __('Default', 'nivo-slider-elementor'),
+                    'fadeIn'       => __('fadeIn', 'nivo-slider-elementor'),
+                    'fadeInUp'     => __('fadeInUp', 'nivo-slider-elementor'),
+                    'fadeInDown'   => __('fadeInDown', 'nivo-slider-elementor'),
+                    'fadeInLeft'   => __('fadeInLeft', 'nivo-slider-elementor'),
+                    'fadeInRight'  => __('fadeInRight', 'nivo-slider-elementor'),
+                    'slideInUp'    => __('slideInUp', 'nivo-slider-elementor'),
+                    'slideInDown'  => __('slideInDown', 'nivo-slider-elementor'),
+                    'slideInLeft'  => __('slideInLeft', 'nivo-slider-elementor'),
+                    'slideInRight' => __('slideInRight', 'nivo-slider-elementor')
                 ],
                 'condition'    => [
                     'exad_single_slider_custom_style' => 'yes'
                 ]
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_title_animation_out',
+            [
+                'label'         => __( 'Animation Out', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'default',
+                'options'       => [
+                    ''              => __('None', 'nivo-slider-elementor'),
+                    'default'       => __('Default', 'nivo-slider-elementor'),
+                    'fadeOut'       => __('fadeOut', 'nivo-slider-elementor'),
+                    'fadeOutUp'     => __('fadeOutUp', 'nivo-slider-elementor'),
+                    'fadeOutDown'   => __('fadeOutDown', 'nivo-slider-elementor'),
+                    'fadeOutLeft'   => __('fadeOutLeft', 'nivo-slider-elementor'),
+                    'fadeOutRight'  => __('fadeOutRight', 'nivo-slider-elementor'),
+                    'slideOutUp'    => __('slideOutUp', 'nivo-slider-elementor'),
+                    'slideOutDown'  => __('slideOutDown', 'nivo-slider-elementor'),
+                    'slideOutLeft'  => __('slideOutLeft', 'nivo-slider-elementor'),
+                    'slideOutRight' => __('slideOutRight', 'nivo-slider-elementor')
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_title_animation_delay_in',
+            [
+                'label'         => __( 'Delay In', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
+            ]
+        ); 
+
+        $sliderItem->add_control(
+            'exad_single_slider_title_animation_duration_in',
+            [
+                'label'         => __( 'Duration In(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_title_animation_duration_out',
+            [
+                'label'         => __( 'Duration Out(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_details_animation',
+            [
+                'label'     => esc_html__( 'Details', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'condition' => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_details_animation_in',
+            [
+                'label'         => __( 'Animation In', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'default',
+                'options'       => [
+                    ''             => __('None', 'nivo-slider-elementor'),
+                    'default'      => __('Default', 'nivo-slider-elementor'),
+                    'fadeIn'       => __('fadeIn', 'nivo-slider-elementor'),
+                    'fadeInUp'     => __('fadeInUp', 'nivo-slider-elementor'),
+                    'fadeInDown'   => __('fadeInDown', 'nivo-slider-elementor'),
+                    'fadeInLeft'   => __('fadeInLeft', 'nivo-slider-elementor'),
+                    'fadeInRight'  => __('fadeInRight', 'nivo-slider-elementor'),
+                    'slideInUp'    => __('slideInUp', 'nivo-slider-elementor'),
+                    'slideInDown'  => __('slideInDown', 'nivo-slider-elementor'),
+                    'slideInLeft'  => __('slideInLeft', 'nivo-slider-elementor'),
+                    'slideInRight' => __('slideInRight', 'nivo-slider-elementor')
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_details_animation_out',
+            [
+                'label'         => __( 'Animation Out', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'default',
+                'options'       => [
+                    ''              => __('None', 'nivo-slider-elementor'),
+                    'default'       => __('Default', 'nivo-slider-elementor'),
+                    'fadeOut'       => __('fadeOut', 'nivo-slider-elementor'),
+                    'fadeOutUp'     => __('fadeOutUp', 'nivo-slider-elementor'),
+                    'fadeOutDown'   => __('fadeOutDown', 'nivo-slider-elementor'),
+                    'fadeOutLeft'   => __('fadeOutLeft', 'nivo-slider-elementor'),
+                    'fadeOutRight'  => __('fadeOutRight', 'nivo-slider-elementor'),
+                    'slideOutUp'    => __('slideOutUp', 'nivo-slider-elementor'),
+                    'slideOutDown'  => __('slideOutDown', 'nivo-slider-elementor'),
+                    'slideOutLeft'  => __('slideOutLeft', 'nivo-slider-elementor'),
+                    'slideOutRight' => __('slideOutRight', 'nivo-slider-elementor')
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_details_animation_delay_in',
+            [
+                'label'         => __( 'Delay In', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
+            ]
+        ); 
+
+        $sliderItem->add_control(
+            'exad_single_slider_details_animation_duration_in',
+            [
+                'label'         => __( 'Duration In(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_details_animation_duration_out',
+            [
+                'label'         => __( 'Duration Out(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_button_animation',
+            [
+                'label'     => esc_html__( 'Button', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'condition' => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_button_animation_in',
+            [
+                'label'         => __( 'Animation In', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'default',
+                'options'       => [
+                    ''             => __('None', 'nivo-slider-elementor'),
+                    'default'      => __('Default', 'nivo-slider-elementor'),
+                    'fadeIn'       => __('fadeIn', 'nivo-slider-elementor'),
+                    'fadeInUp'     => __('fadeInUp', 'nivo-slider-elementor'),
+                    'fadeInDown'   => __('fadeInDown', 'nivo-slider-elementor'),
+                    'fadeInLeft'   => __('fadeInLeft', 'nivo-slider-elementor'),
+                    'fadeInRight'  => __('fadeInRight', 'nivo-slider-elementor'),
+                    'slideInUp'    => __('slideInUp', 'nivo-slider-elementor'),
+                    'slideInDown'  => __('slideInDown', 'nivo-slider-elementor'),
+                    'slideInLeft'  => __('slideInLeft', 'nivo-slider-elementor'),
+                    'slideInRight' => __('slideInRight', 'nivo-slider-elementor')
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_button_animation_out',
+            [
+                'label'         => __( 'Animation Out', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'default',
+                'options'       => [
+                    ''              => __('None', 'nivo-slider-elementor'),
+                    'default'       => __('Default', 'nivo-slider-elementor'),
+                    'fadeOut'       => __('fadeOut', 'nivo-slider-elementor'),
+                    'fadeOutUp'     => __('fadeOutUp', 'nivo-slider-elementor'),
+                    'fadeOutDown'   => __('fadeOutDown', 'nivo-slider-elementor'),
+                    'fadeOutLeft'   => __('fadeOutLeft', 'nivo-slider-elementor'),
+                    'fadeOutRight'  => __('fadeOutRight', 'nivo-slider-elementor'),
+                    'slideOutUp'    => __('slideOutUp', 'nivo-slider-elementor'),
+                    'slideOutDown'  => __('slideOutDown', 'nivo-slider-elementor'),
+                    'slideOutLeft'  => __('slideOutLeft', 'nivo-slider-elementor'),
+                    'slideOutRight' => __('slideOutRight', 'nivo-slider-elementor')
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_button_animation_delay_in',
+            [
+                'label'         => __( 'Delay In', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
+            ]
+        ); 
+
+        $sliderItem->add_control(
+            'exad_single_slider_button_animation_duration_in',
+            [
+                'label'         => __( 'Duration In(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
+            ]
+        );
+
+        $sliderItem->add_control(
+            'exad_single_slider_button_animation_duration_out',
+            [
+                'label'         => __( 'Duration Out(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ],
+                'condition'    => [
+                    'exad_single_slider_custom_style' => 'yes'
+                ]  
             ]
         );
 
@@ -691,23 +1016,6 @@ class ExclusiveSliderItem extends Widget_Base {
             ]
         );
 
-  		$this->add_control(
-            'exad_slider_title_animation',
-            [
-                'label'         => __( 'Animation', 'nivo-slider-elementor' ),
-                'description'   => __( 'Select title animation style for this slide only.', 'nivo-slider-elementor' ),
-                'type'          => Controls_Manager::SELECT,
-                'default'       => 'slideInDown',
-                'options'       => [
-                    ''              => __('None', 'nivo-slider-elementor'),
-                    'slideInUp'     => __('slideInUp', 'nivo-slider-elementor'),
-                    'slideInDown'   => __('slideInDown', 'nivo-slider-elementor'),
-                    'slideInLeft'   => __('slideInLeft', 'nivo-slider-elementor'),
-                    'slideInRight'  => __('slideInRight', 'nivo-slider-elementor')
-                ]
-            ]
-        );
-
 		$this->add_control(
 		    'exad_slider_title_color',
 		    [
@@ -798,6 +1106,103 @@ class ExclusiveSliderItem extends Widget_Base {
 				'selector' => '{{WRAPPER}} .exad-slide-content h2'
 			]
 		);
+
+        $this->add_control(
+            'exad_slider_title_animation_in',
+            [
+                'label'         => __( 'Animation In', 'nivo-slider-elementor' ),
+                'description'   => __( 'Select title animation style for this slide only.', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'fadeInDown',
+                'options'       => [
+                    ''             => __('None', 'nivo-slider-elementor'),
+                    'fadeIn'       => __('fadeIn', 'nivo-slider-elementor'),
+                    'fadeInUp'     => __('fadeInUp', 'nivo-slider-elementor'),
+                    'fadeInDown'   => __('fadeInDown', 'nivo-slider-elementor'),
+                    'fadeInLeft'   => __('fadeInLeft', 'nivo-slider-elementor'),
+                    'fadeInRight'  => __('fadeInRight', 'nivo-slider-elementor'),
+                    'slideInUp'    => __('slideInUp', 'nivo-slider-elementor'),
+                    'slideInDown'  => __('slideInDown', 'nivo-slider-elementor'),
+                    'slideInLeft'  => __('slideInLeft', 'nivo-slider-elementor'),
+                    'slideInRight' => __('slideInRight', 'nivo-slider-elementor')
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_title_animation_out',
+            [
+                'label'         => __( 'Animation Out', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'fadeOutDown',
+                'options'       => [
+                    ''              => __('None', 'nivo-slider-elementor'),
+                    'fadeOut'       => __('fadeOut', 'nivo-slider-elementor'),
+                    'fadeOutUp'     => __('fadeOutUp', 'nivo-slider-elementor'),
+                    'fadeOutDown'   => __('fadeOutDown', 'nivo-slider-elementor'),
+                    'fadeOutLeft'   => __('fadeOutLeft', 'nivo-slider-elementor'),
+                    'fadeOutRight'  => __('fadeOutRight', 'nivo-slider-elementor'),
+                    'slideOutUp'    => __('slideOutUp', 'nivo-slider-elementor'),
+                    'slideOutDown'  => __('slideOutDown', 'nivo-slider-elementor'),
+                    'slideOutLeft'  => __('slideOutLeft', 'nivo-slider-elementor'),
+                    'slideOutRight' => __('slideOutRight', 'nivo-slider-elementor')
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_title_animation_delay_in',
+            [
+                'label'         => __( 'Delay In', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => .1,
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ]  
+            ]
+        ); 
+
+        $this->add_control(
+            'exad_slider_title_animation_duration_in',
+            [
+                'label'         => __( 'Duration In(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => .5
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 3,
+                        'step'  => .1
+                    ]
+                ]  
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_title_animation_duration_out',
+            [
+                'label'         => __( 'Duration Out(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => 1
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 3,
+                        'step'  => .1
+                    ]
+                ]  
+            ]
+        );
 
         $this->add_control(
             'exad_slider_details_style',
@@ -893,6 +1298,103 @@ class ExclusiveSliderItem extends Widget_Base {
 			]
 		);
 
+        $this->add_control(
+            'exad_slider_details_animation_in',
+            [
+                'label'         => __( 'Animation In', 'nivo-slider-elementor' ),
+                'description'   => __( 'Select title animation style for this slide only.', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'fadeInDown',
+                'options'       => [
+                    ''             => __('None', 'nivo-slider-elementor'),
+                    'fadeIn'       => __('fadeIn', 'nivo-slider-elementor'),
+                    'fadeInUp'     => __('fadeInUp', 'nivo-slider-elementor'),
+                    'fadeInDown'   => __('fadeInDown', 'nivo-slider-elementor'),
+                    'fadeInLeft'   => __('fadeInLeft', 'nivo-slider-elementor'),
+                    'fadeInRight'  => __('fadeInRight', 'nivo-slider-elementor'),
+                    'slideInUp'    => __('slideInUp', 'nivo-slider-elementor'),
+                    'slideInDown'  => __('slideInDown', 'nivo-slider-elementor'),
+                    'slideInLeft'  => __('slideInLeft', 'nivo-slider-elementor'),
+                    'slideInRight' => __('slideInRight', 'nivo-slider-elementor')
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_details_animation_out',
+            [
+                'label'         => __( 'Animation Out', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'fadeOutDown',
+                'options'       => [
+                    ''              => __('None', 'nivo-slider-elementor'),
+                    'fadeOut'       => __('fadeOut', 'nivo-slider-elementor'),
+                    'fadeOutUp'     => __('fadeOutUp', 'nivo-slider-elementor'),
+                    'fadeOutDown'   => __('fadeOutDown', 'nivo-slider-elementor'),
+                    'fadeOutLeft'   => __('fadeOutLeft', 'nivo-slider-elementor'),
+                    'fadeOutRight'  => __('fadeOutRight', 'nivo-slider-elementor'),
+                    'slideOutUp'    => __('slideOutUp', 'nivo-slider-elementor'),
+                    'slideOutDown'  => __('slideOutDown', 'nivo-slider-elementor'),
+                    'slideOutLeft'  => __('slideOutLeft', 'nivo-slider-elementor'),
+                    'slideOutRight' => __('slideOutRight', 'nivo-slider-elementor')
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_details_animation_delay_in',
+            [
+                'label'         => __( 'Delay In', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => .1,
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ]  
+            ]
+        ); 
+
+        $this->add_control(
+            'exad_slider_details_animation_duration_in',
+            [
+                'label'         => __( 'Duration In(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => .5
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ]  
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_details_animation_duration_out',
+            [
+                'label'         => __( 'Duration Out(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => 1
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ]  
+            ]
+        );
+
         $this->end_controls_section();
 
 		$this->start_controls_section(
@@ -938,6 +1440,103 @@ class ExclusiveSliderItem extends Widget_Base {
             [
                 'name'          => 'exad_slider_btn_typography',
                 'selector'      => '{{WRAPPER}} .exad-slide-content a'
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_button_animation_in',
+            [
+                'label'         => __( 'Animation In', 'nivo-slider-elementor' ),
+                'description'   => __( 'Select title animation style for this slide only.', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'fadeInDown',
+                'options'       => [
+                    ''             => __('None', 'nivo-slider-elementor'),
+                    'fadeIn'       => __('fadeIn', 'nivo-slider-elementor'),
+                    'fadeInUp'     => __('fadeInUp', 'nivo-slider-elementor'),
+                    'fadeInDown'   => __('fadeInDown', 'nivo-slider-elementor'),
+                    'fadeInLeft'   => __('fadeInLeft', 'nivo-slider-elementor'),
+                    'fadeInRight'  => __('fadeInRight', 'nivo-slider-elementor'),
+                    'slideInUp'    => __('slideInUp', 'nivo-slider-elementor'),
+                    'slideInDown'  => __('slideInDown', 'nivo-slider-elementor'),
+                    'slideInLeft'  => __('slideInLeft', 'nivo-slider-elementor'),
+                    'slideInRight' => __('slideInRight', 'nivo-slider-elementor')
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_button_animation_out',
+            [
+                'label'         => __( 'Animation Out', 'nivo-slider-elementor' ),
+                'type'          => Controls_Manager::SELECT,
+                'default'       => 'fadeOutDown',
+                'options'       => [
+                    ''              => __('None', 'nivo-slider-elementor'),
+                    'fadeOut'       => __('fadeOut', 'nivo-slider-elementor'),
+                    'fadeOutUp'     => __('fadeOutUp', 'nivo-slider-elementor'),
+                    'fadeOutDown'   => __('fadeOutDown', 'nivo-slider-elementor'),
+                    'fadeOutLeft'   => __('fadeOutLeft', 'nivo-slider-elementor'),
+                    'fadeOutRight'  => __('fadeOutRight', 'nivo-slider-elementor'),
+                    'slideOutUp'    => __('slideOutUp', 'nivo-slider-elementor'),
+                    'slideOutDown'  => __('slideOutDown', 'nivo-slider-elementor'),
+                    'slideOutLeft'  => __('slideOutLeft', 'nivo-slider-elementor'),
+                    'slideOutRight' => __('slideOutRight', 'nivo-slider-elementor')
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_button_animation_delay_in',
+            [
+                'label'         => __( 'Delay In', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => .1,
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ]  
+            ]
+        ); 
+
+        $this->add_control(
+            'exad_slider_button_animation_duration_in',
+            [
+                'label'         => __( 'Duration In(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => .5
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ]  
+            ]
+        );
+
+        $this->add_control(
+            'exad_slider_button_animation_duration_out',
+            [
+                'label'         => __( 'Duration Out(second)', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'default'       => [
+                    'size'      => 1
+                ],
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => .1
+                    ]
+                ]  
             ]
         );
 
@@ -1589,11 +2188,29 @@ class ExclusiveSliderItem extends Widget_Base {
 		$settings              = $this->get_settings_for_display();
 		$exadSliderProgressbar = $settings['exad_slider_progress_bar'];
 		$pauseOnHover          = $settings['exad_slider_pause_on_hover'];
+        $autoplaySpeed         = $settings['exad_slider_autoplay_speed'];
+        $autoplaySpeedInSecond = ($settings['exad_slider_autoplay_speed'] / 1000);
 
 		$exadSliderControls    = ['exad-slider'];
 		$exadSliderControls[]  = $settings['exad_slider_full_screen_size'] == 'yes' ? 'fullscreen' : '';
 
-		$title_animation   = $settings['exad_slider_title_animation'];
+        $title_animation_in  = $settings['exad_slider_title_animation_in'];
+        $title_animation_out = $settings['exad_slider_title_animation_out'];
+        $title_delay_in      = $settings['exad_slider_title_animation_delay_in']['size'];
+        $title_duration_in   = $settings['exad_slider_title_animation_duration_in']['size'];
+        $title_duration_out  = $settings['exad_slider_title_animation_duration_out']['size'];
+
+        $details_animation_in  = $settings['exad_slider_details_animation_in'];
+        $details_animation_out = $settings['exad_slider_details_animation_out'];
+        $details_delay_in      = $settings['exad_slider_details_animation_delay_in']['size'];
+        $details_duration_in   = $settings['exad_slider_details_animation_duration_in']['size'];
+        $details_duration_out  = $settings['exad_slider_details_animation_duration_out']['size'];
+
+        $button_animation_in  = $settings['exad_slider_button_animation_in'];
+        $button_animation_out = $settings['exad_slider_button_animation_out'];
+        $button_delay_in      = $settings['exad_slider_button_animation_delay_in']['size'];
+        $button_duration_in   = $settings['exad_slider_button_animation_duration_in']['size'];
+        $button_duration_out  = $settings['exad_slider_button_animation_duration_out']['size'];
 
 		$bar   = ( $exadSliderProgressbar == 'yes' ) ? 'active' : 'inactive';
 
@@ -1644,10 +2261,72 @@ class ExclusiveSliderItem extends Widget_Base {
 		if(is_array($settings['exad_slides'])):
 			echo '<div '.$this->get_render_attribute_string( 'exad_slider_controls' ).'">';
 				foreach($settings['exad_slides'] as $each_slide):
-                    $each_title_animation = $each_slide['exad_single_slider_title_animation'];
-                    if( empty($each_title_animation) ){
-                        $each_title_animation = $title_animation;
+                    $each_title_animation_in  = $each_slide['exad_single_slider_title_animation_in'];
+                    $each_title_animation_out = $each_slide['exad_single_slider_title_animation_out'];
+                    $each_title_delay_in      = $each_slide['exad_single_slider_title_animation_delay_in']['size'];
+                    $each_title_duration_in   = $each_slide['exad_single_slider_title_animation_duration_in']['size'];
+                    $each_title_duration_out  = $each_slide['exad_single_slider_title_animation_duration_out']['size'];
+                    if( 'default' == $each_title_animation_in ){
+                        $each_title_animation_in = $title_animation_in;
                     }
+                    if( 'default' == $each_title_animation_out ){
+                        $each_title_animation_out = $title_animation_out;
+                    }
+                    if( empty($each_title_delay_in) ){
+                        $each_title_delay_in = $title_delay_in;
+                    }
+                    if( empty($each_title_duration_in) ){
+                        $each_title_duration_in = $title_duration_in;
+                    }
+                    if( empty($each_title_duration_out) ){
+                        $each_title_duration_out = $title_duration_out;
+                    }
+                    $title_delay_out = $autoplaySpeedInSecond - ($each_title_delay_in + $each_title_duration_in + $each_title_duration_out);
+
+                    $each_details_animation_in  = $each_slide['exad_single_slider_details_animation_in'];
+                    $each_details_animation_out = $each_slide['exad_single_slider_details_animation_out'];
+                    $each_details_delay_in      = $each_slide['exad_single_slider_details_animation_delay_in']['size'];
+                    $each_details_duration_in   = $each_slide['exad_single_slider_details_animation_duration_in']['size'];
+                    $each_details_duration_out  = $each_slide['exad_single_slider_details_animation_duration_out']['size'];
+                    if( 'default' == $each_details_animation_in ){
+                        $each_details_animation_in = $details_animation_in;
+                    }
+                    if( 'default' == $each_details_animation_out ){
+                        $each_details_animation_out = $details_animation_out;
+                    }
+                    if( empty($each_details_delay_in) ){
+                        $each_details_delay_in = $details_delay_in;
+                    }
+                    if( empty($each_details_duration_in) ){
+                        $each_details_duration_in = $details_duration_in;
+                    }
+                    if( empty($each_details_duration_out) ){
+                        $each_details_duration_out = $details_duration_out;
+                    }
+                    $details_delay_out = $autoplaySpeedInSecond - ($each_details_delay_in + $each_details_duration_in + $each_details_duration_out);
+
+                    $each_button_animation_in  = $each_slide['exad_single_slider_button_animation_in'];
+                    $each_button_animation_out = $each_slide['exad_single_slider_button_animation_out'];
+                    $each_button_delay_in      = $each_slide['exad_single_slider_button_animation_delay_in']['size'];
+                    $each_button_duration_in   = $each_slide['exad_single_slider_button_animation_duration_in']['size'];
+                    $each_button_duration_out  = $each_slide['exad_single_slider_button_animation_duration_out']['size'];
+                    if( 'default' == $each_button_animation_in ){
+                        $each_button_animation_in = $button_animation_in;
+                    }
+                    if( 'default' == $each_button_animation_out ){
+                        $each_button_animation_out = $button_animation_out;
+                    }
+                    if( empty($each_button_delay_in) ){
+                        $each_button_delay_in = $button_delay_in;
+                    }
+                    if( empty($each_button_duration_in) ){
+                        $each_button_duration_in = $button_duration_in;
+                    }
+                    if( empty($each_button_duration_out) ){
+                        $each_button_duration_out = $button_duration_out;
+                    }
+                    $button_delay_out = $autoplaySpeedInSecond - ($each_button_delay_in + $each_button_duration_in + $each_button_duration_out);
+
 					echo '<div class="exad-each-slider-item elementor-repeater-item-'.esc_attr($each_slide['_id']).'" data-image="'.esc_url($each_slide['exad_slider_img']['url']).'">';
 						echo '<div class="exad-slider-progressbar-'.esc_attr($bar).'"></div>';
                         if ( 'yes' === $each_slide['exad_slider_bg_overlay'] ) {
@@ -1656,9 +2335,9 @@ class ExclusiveSliderItem extends Widget_Base {
 						echo '<div class="exad-slide-bg"></div>';
 						echo '<div class="exad-slide-inner">';
 							echo '<div class="exad-slide-content">';
-								echo $each_slide['exad_slider_title'] ? '<h2 data-animation-in="fadeInDown" data-delay-in=".4" data-duration-in=".4" data-animation-out="fadeOutDown" data-delay-out="3" data-duration-out=".5">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
+                                echo $each_slide['exad_slider_title'] ? '<h2 data-animation-in="'.esc_attr($each_title_animation_in).'" data-delay-in="'.esc_attr($each_title_delay_in).'" data-duration-in="'.esc_attr($each_title_duration_in).'" data-animation-out="'.esc_attr($each_title_animation_out).'" data-delay-out="'.esc_attr($title_delay_out).'" data-duration-out="'.esc_attr($each_title_duration_out).'">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
 
-								echo $each_slide['exad_slider_details'] ? '<p data-animation-in="fadeInDown" data-delay-in=".4" data-duration-in=".4" data-animation-out="fadeOutDown" data-delay-out="3" data-duration-out=".5">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
+								// echo $each_slide['exad_slider_details'] ? '<p data-animation-in="'.esc_attr($each_details_animation_in).'" data-delay-in=".4" data-duration-in=".4" data-animation-out="'.esc_attr($each_details_animation_out).'" data-delay-out="'.esc_attr($details_delay_out).'" data-duration-out=".5">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
 
 								if ( ! empty( $each_slide['exad_slider_button_text'] ) ) :
 								    if ( $each_slide['exad_slider_button_url']['url'] ) {
@@ -1675,7 +2354,7 @@ class ExclusiveSliderItem extends Widget_Base {
 								        $target .= ' rel= nofollow ';
 								    }
 								    echo '<div class="exad-slider-btn">';
-								        echo '<a data-animation-in="fadeInDown" data-delay-in=".4" data-duration-in=".4" data-animation-out="fadeOutDown" data-delay-out="3" data-duration-out=".5" '.$href.esc_attr($target).'>'.esc_html($each_slide['exad_slider_button_text']).'</a>';
+								        // echo '<a data-animation-in="'.esc_attr($each_button_animation_in).'" data-delay-in=".4" data-duration-in=".4" data-animation-out="'.esc_attr($each_button_animation_out).'" data-delay-out="'.esc_attr($button_delay_out).'" data-duration-out=".5" '.$href.esc_attr($target).'>'.esc_html($each_slide['exad_slider_button_text']).'</a>';
 								    echo '</div>';
 								endif;
 

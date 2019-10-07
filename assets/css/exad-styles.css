@@ -6061,7 +6061,7 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
 
 
 
-
+/*
 
 
 @charset "UTF-8";
@@ -7437,7 +7437,7 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
   to {
     opacity: 1;
   }
-}
+}*/
 
 .fadeIn {
   -webkit-animation-name: fadeIn;
