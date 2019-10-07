@@ -1347,7 +1347,7 @@ class ExclusiveSliderItem extends Widget_Base {
                 'label'         => __( 'Delay In', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::SLIDER,
                 'default'       => [
-                    'size'      => .1,
+                    'size'      => .2,
                 ],
                 'range'         => [
                     'px'        => [
@@ -1492,7 +1492,7 @@ class ExclusiveSliderItem extends Widget_Base {
                 'label'         => __( 'Delay In', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::SLIDER,
                 'default'       => [
-                    'size'      => .1,
+                    'size'      => .3,
                 ],
                 'range'         => [
                     'px'        => [
@@ -2337,7 +2337,7 @@ class ExclusiveSliderItem extends Widget_Base {
 							echo '<div class="exad-slide-content">';
                                 echo $each_slide['exad_slider_title'] ? '<h2 data-animation-in="'.esc_attr($each_title_animation_in).'" data-delay-in="'.esc_attr($each_title_delay_in).'" data-duration-in="'.esc_attr($each_title_duration_in).'" data-animation-out="'.esc_attr($each_title_animation_out).'" data-delay-out="'.esc_attr($title_delay_out).'" data-duration-out="'.esc_attr($each_title_duration_out).'">'.esc_html($each_slide['exad_slider_title']).'</h2>' : '';
 
-								// echo $each_slide['exad_slider_details'] ? '<p data-animation-in="'.esc_attr($each_details_animation_in).'" data-delay-in=".4" data-duration-in=".4" data-animation-out="'.esc_attr($each_details_animation_out).'" data-delay-out="'.esc_attr($details_delay_out).'" data-duration-out=".5">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
+								echo $each_slide['exad_slider_details'] ? '<p data-animation-in="'.esc_attr($each_details_animation_in).'" data-delay-in="'.esc_attr($each_details_delay_in).'" data-duration-in="'.esc_attr($each_details_duration_in).'" data-animation-out="'.esc_attr($each_details_animation_out).'" data-delay-out="'.esc_attr($details_delay_out).'" data-duration-out="'.esc_attr($each_details_duration_out).'">'.wp_kses_post($each_slide['exad_slider_details']).'</p>' : '';
 
 								if ( ! empty( $each_slide['exad_slider_button_text'] ) ) :
 								    if ( $each_slide['exad_slider_button_url']['url'] ) {
@@ -2354,7 +2354,7 @@ class ExclusiveSliderItem extends Widget_Base {
 								        $target .= ' rel= nofollow ';
 								    }
 								    echo '<div class="exad-slider-btn">';
-								        // echo '<a data-animation-in="'.esc_attr($each_button_animation_in).'" data-delay-in=".4" data-duration-in=".4" data-animation-out="'.esc_attr($each_button_animation_out).'" data-delay-out="'.esc_attr($button_delay_out).'" data-duration-out=".5" '.$href.esc_attr($target).'>'.esc_html($each_slide['exad_slider_button_text']).'</a>';
+								        echo '<a data-animation-in="'.esc_attr($each_button_animation_in).'" data-delay-in="'.esc_attr($each_button_delay_in).'" data-duration-in="'.esc_attr($each_button_duration_in).'" data-animation-out="'.esc_attr($each_button_animation_out).'" data-delay-out="'.esc_attr($button_delay_out).'" data-duration-out="'.esc_attr($each_button_duration_out).'" '.$href.esc_attr($target).'>'.esc_html($each_slide['exad_slider_button_text']).'</a>';
 								    echo '</div>';
 								endif;
 
