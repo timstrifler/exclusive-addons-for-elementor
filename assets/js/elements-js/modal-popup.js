@@ -35,9 +35,9 @@ var ModalPopup = function ($scope, $) {
 			
 			var $overlay = $(this).data("exad-overlay");
             $('.exad-modal-item').css('display', 'block');
-            setTimeout(() => {
-                $(modal).addClass('active');
-            }, 100);
+            // setTimeout(() => {
+            //     $(modal).addClass('active');
+            // }, 100);
 			if ( $overlay == "yes" ) {
 				$modalOverlay.addClass('active');
 			}

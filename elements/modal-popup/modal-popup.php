@@ -151,21 +151,51 @@ class Exad_Modal_Popup extends Widget_Base {
                 ]
             );
 
-            $this->add_control(
+            // $this->add_control(
+            //     'exad_modal_youtube_video_url',
+            //     [
+			// 		'label'       => __( 'Provide Youtube Video URL', 'exclusive-addons-elementor' ),
+			// 		'type'        => Controls_Manager::URL,
+			// 		'label_block' => true,
+			// 		'default'     => 'https://www.youtube.com/embed/D7ovwGioN9E',
+			// 		'placeholder' => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
+			// 		'title'       => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
+			// 		'condition' => [
+            //             'exad_modal_video_type' => 'youtube'
+            //         ]
+            //     ]
+			// );
+
+			$this->add_control(
                 'exad_modal_youtube_video_url',
                 [
-					'label'       => __( 'Provide Youtube Video URL', 'exclusive-addons-elementor' ),
-					'type'        => Controls_Manager::URL,
-					'label_block' => true,
-					'default'     => 'https://www.youtube.com/embed/D7ovwGioN9E',
-					'placeholder' => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
-					'title'       => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
-					'condition' => [
+                    'label' => __( 'Provide Youtube Video URL', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::TEXT,
+                    'label_block' => true,
+                    // 'default' => 'https://www.youtube.com/embed/D7ovwGioN9E',
+                    'placeholder' => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
+                    'title' => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
+                    'condition' => [
                         'exad_modal_video_type' => 'youtube'
-                    ]
+                    ],
                 ]
             );
-            
+
+			
+            // $this->add_control(
+            //     'exad_modal_vimeo_video_url',
+            //     [
+			// 		'label'       => __( 'Provide Vimeo Video URL', 'exclusive-addons-elementor' ),
+			// 		'type'        => Controls_Manager::URL,
+			// 		'label_block' => true,
+			// 		'default'     => '',
+			// 		'placeholder' => __( 'Place Vimeo Video URL', 'exclusive-addons-elementor' ),
+			// 		'title'       => __( 'Place Vimeo Video URL', 'exclusive-addons-elementor' ),
+			// 		'condition' => [
+            //             'exad_modal_video_type' => 'vimeo'
+            //         ]
+            //     ]
+            // );
             
             $this->add_control(
                 'exad_modal_video_width',
@@ -192,7 +222,7 @@ class Exad_Modal_Popup extends Widget_Base {
                         '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe' => 'width: {{SIZE}}{{UNIT}};'
                     ],
                     'condition' => [
-                        'exad_modal_video_type' => 'youtube'
+                        'exad_modal_content' => 'video'
                     ]
                 ]
             );
@@ -222,7 +252,7 @@ class Exad_Modal_Popup extends Widget_Base {
                         '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe' => 'height: {{SIZE}}{{UNIT}};'
                     ],
                     'condition' => [
-                        'exad_modal_video_type' => 'youtube'
+                        'exad_modal_content' => 'video'
                     ]
                 ]
             );
@@ -700,9 +730,52 @@ class Exad_Modal_Popup extends Widget_Base {
 	<?php	
 	}*/
 
+	public function get_video_embed( $settings, $node_id ) {
+			// preg_match('/(foo)(bar)(baz)/', 'foobarbaz', $matches, PREG_OFFSET_CAPTURE);
+			// print_r($matches);
+
+		// if ( '' == $settings['exad_modal_youtube_video_url'] ) {
+		// 	return '';
+		// }
+
+		// $url    = $settings['exad_modal_youtube_video_url'];
+		// $vid_id = '';
+
+		// $video_data  = $this->get_url( $embed_param, $node_id );
+
+		// $params = [];
+
+		// if ( preg_match( '/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches ) ) {
+		// 	$vid_id = $matches[1];
+		// }
+
+		// $html .= '<iframe data-id="' . $vid_id . ' src="https://www.youtube.com/embed/' . $vid_id . $video_data . '"></ifame>';
+		// var_dump ($html);
+
+
+			
+		
+			// var_dump( $vidid[0] )  ;
+	}
+
 	protected function render() { 
 		$settings = $this->get_settings_for_display();
 
+		$url    = $settings['exad_modal_youtube_video_url'];
+		var_dump($url);
+
+		preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $matches);
+
+		$youtube_id = $matches[1];
+
+		// echo '---------';
+		// var_dump($url);
+
+		// $urlParts   = explode('/', $url);
+		// $vidid      = explode( '&', str_replace('watch?v=', '', end($urlParts) ) );
+		// $code = $vidid[0];
+
+		// var_dump($urlParts);
 
 		// $this->add_render_attribute( 'exad_modal_content', [
 		// 	'id' => 'exad-modal-' . $this->get_id(),
@@ -788,11 +861,11 @@ class Exad_Modal_Popup extends Widget_Base {
 							<?php } ?>
 							<?php if ( $settings['exad_modal_content'] === 'video' ) { ?>
 								<?php if ( $settings['exad_modal_video_type'] === 'youtube' ) { ?>
-									<iframe src="<?php echo esc_attr( $settings['exad_modal_youtube_video_url'] ); ?>" frameborder="0" allowfullscreen>
+									<iframe src="https://www.youtube.com/embed/<?php echo $youtube_id; ?>" frameborder="0" allowfullscreen>
 									</iframe>
 								<?php } ?>
 								<?php if ( $settings['exad_modal_video_type'] === 'vimeo' ) { ?>
-									<iframe src="<?php echo esc_attr( $settings['exad_modal_vimeo_video_url'] ); ?>" frameborder="0" allowfullscreen>
+									<iframe src="<?php echo esc_url( $settings['exad_modal_vimeo_video_url']['url'] ); ?>" frameborder="0" allowfullscreen>
 									</iframe>
 								<?php } ?>
 								<?php if ( $settings['exad_modal_video_type'] === 'external_page' ) { ?>
