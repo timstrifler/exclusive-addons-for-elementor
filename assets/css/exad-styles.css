@@ -367,6 +367,31 @@
 } */
 
 /* Exclusive alert style end*/
+/* animatex text style start*/
+
+/* morphext style start*/
+.morphext > .animated {
+  display: inline-block;
+}
+/* morphext style end*/
+
+.exad-animated-text-align-left{
+  text-align: left;
+}
+
+.exad-animated-text-align-center{
+  text-align: center;
+}
+
+.exad-animated-text-align-right{
+  text-align: right;
+}
+
+.exad-typed-strings{
+  margin: 0;
+}
+
+/* animatex text style end*/
 /* Breadcrumbs style start */
 ul.exad-breadcrumb-items {
   margin: 0;

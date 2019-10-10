@@ -324,6 +324,10 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 			if ( $is_activated_widget['news-ticker'] ) {
 				// news ticker
 				wp_register_script( 'exad-news-ticker', EXAD_URL . 'assets/js/vendor/exad-news-ticker.min.js', array( 'jquery' ), '1.0', true );
+			}	
+			if ( $is_activated_widget['animated-text'] ) {
+				// Instagram Gallery
+				wp_register_script( 'exad-animated-text', EXAD_URL . 'assets/js/vendor/typed.min.js', array( 'jquery' ), '1.0', true );
 			}
 			
 			wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );
