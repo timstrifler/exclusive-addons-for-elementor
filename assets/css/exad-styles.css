@@ -1646,6 +1646,47 @@ i.exad-call-to-action-icon {
   margin: 0;
 }
 /* Counter Style End */
+.exad-dual-button{
+    display: table;
+}
+.exad-dual-button.exad-dual-button-align-left{
+    margin-right: auto;
+}
+.exad-dual-button.exad-dual-button-align-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.exad-dual-button.exad-dual-button-align-right{
+    margin-left: auto;
+}
+.exad-dual-button-action{
+    display: inline-block;
+    text-decoration: none;
+}
+.exad-dual-button-primary {
+    border: 1px solid #000000;
+    position: relative;
+}
+.exad-dual-button-connector{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    -ms-transform: translate(50%, -50%); 
+    -webkit-transform: translate(50%, -50%);
+}
+.exad-dual-button-connector span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); 
+    -webkit-transform: translate(-50%, -50%);
+    line-height: 1;
+}
+.exad-dual-button-secondary {
+    border: 1px solid #000000;
+}
 /* Dual heading Start */
 
 .exad-dual-heading .exad-dual-heading-wrapper {
