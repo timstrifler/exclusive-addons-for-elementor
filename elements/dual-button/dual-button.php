@@ -37,7 +37,7 @@ class Exad_Dual_Button extends Widget_Base {
                         'label' => esc_html__( 'Text', 'exclusive-addons-elementor' ),
                         'type' => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'default' => esc_html__( 'Primary', 'exclusive-addons-elementor' ),
+                        'default' => esc_html__( 'Primary Button', 'exclusive-addons-elementor' ),
                     ]
                 );
 
@@ -68,7 +68,7 @@ class Exad_Dual_Button extends Widget_Base {
                 $this->add_control(
                     'exad_dual_button_primary_button_icon_position',
                     [
-                        'label' => __( 'Position', 'exclusive-addons-elementor' ),
+                        'label' => __( 'Icon Position', 'exclusive-addons-elementor' ),
                         'type' => Controls_Manager::CHOOSE,
                         'options' => [
                             'exad-icon-pos-left' => [
@@ -121,7 +121,7 @@ class Exad_Dual_Button extends Widget_Base {
                     [
                         'label' => esc_html__( 'Text', 'exclusive-addons-elementor' ),
                         'type' => Controls_Manager::TEXT,
-                        'default' => esc_html__( 'Or', 'exclusive-addons-elementor' ),
+                        'default' => esc_html__( 'OR', 'exclusive-addons-elementor' ),
                         'condition' => [
                             'exad_dual_button_connector_switch' => 'yes',
                             'exad_dual_button_connector_type' => 'text',
@@ -155,7 +155,7 @@ class Exad_Dual_Button extends Widget_Base {
                         'label' => esc_html__( 'Text', 'exclusive-addons-elementor' ),
                         'type' => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'default' => esc_html__( 'Secondary', 'exclusive-addons-elementor' ),
+                        'default' => esc_html__( 'Secondary Button', 'exclusive-addons-elementor' ),
                     ]
                 );
 
@@ -186,7 +186,7 @@ class Exad_Dual_Button extends Widget_Base {
                 $this->add_control(
                     'exad_dual_button_secondary_button_icon_position',
                     [
-                        'label' => __( 'Position', 'exclusive-addons-elementor' ),
+                        'label' => __( 'Icon Position', 'exclusive-addons-elementor' ),
                         'type' => Controls_Manager::CHOOSE,
                         'options' => [
                             'exad-icon-pos-left' => [
@@ -249,10 +249,10 @@ class Exad_Dual_Button extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px' ],
                 'default' => [
-                    'top' => '20',
-                    'right' => '30',
-                    'bottom' => '20',
-                    'left' => '30',
+                    'top' => '15',
+                    'right' => '40',
+                    'bottom' => '15',
+                    'left' => '40',
                     'unit' => 'px',
                 ],
 				'selectors' => [
@@ -272,6 +272,10 @@ class Exad_Dual_Button extends Widget_Base {
 						'min' => -3,
 						'max' => 100,
 					],
+                ],
+                'default' => [
+					'unit' => 'px',
+					'size' => -3,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-dual-button-primary' => 'margin-right: {{SIZE}}{{UNIT}};',
@@ -293,17 +297,14 @@ class Exad_Dual_Button extends Widget_Base {
             ]
         );
 
-        // $this->add_control(
-        //     'exad_dual_button_primary_button_background',
-        //     [
-        //         'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-        //         'type' => Controls_Manager::COLOR,
-        //         'default' => '#d6d6d6',
-        //         'selectors' => [
-        //             '{{WRAPPER}} .exad-dual-button-primary' => 'background: {{VALUE}};',
-        //         ],
-        //     ]
-        // );
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'exad_container_primary_button_typography',
+				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+                'selector' => '{{WRAPPER}} .exad-dual-button-primary span',
+			]
+        );
         
         $this->add_control(
 			'exad_dual_button_primary_button_radius',
@@ -319,7 +320,12 @@ class Exad_Dual_Button extends Widget_Base {
                     'unit' => 'px',
                 ],
 				'selectors' => [
-					'{{WRAPPER}} .exad-dual-button-primary' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-dual-button-primary, 
+                    {{WRAPPER}} .exad-dual-button-primary.effect-1::before,
+                    {{WRAPPER}} .exad-dual-button-primary.effect-2::before,
+                    {{WRAPPER}} .exad-dual-button-primary.effect-3::before,
+                    {{WRAPPER}} .exad-dual-button-primary.effect-4::before,
+                    {{WRAPPER}} .exad-dual-button-primary.effect-6::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
@@ -337,10 +343,134 @@ class Exad_Dual_Button extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-dual-button-primary' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-dual-button-primary .exad-icon-pos-left i' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-dual-button-primary .exad-icon-pos-right i' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
-		);
+        );
+        
+        $this->add_control(
+            'exad_dual_button_primary_button_animation',
+            [
+                'label' => esc_html__( 'Hover Effect', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'effect-5',
+                'options' => [
+                    'effect-1' => __( 'Effect 1', 'exclusive-addons-elementor' ),
+                    'effect-2' => __( 'Effect 2', 'exclusive-addons-elementor' ),
+                    'effect-3' => __( 'Effect 3', 'exclusive-addons-elementor' ),
+                    'effect-4' => __( 'Effect 4', 'exclusive-addons-elementor' ),
+                    'effect-5' => __( 'Effect 5', 'exclusive-addons-elementor' ),
+                    'effect-6' => __( 'Effect 6', 'exclusive-addons-elementor' ),
+                ],
+            ]
+        );
+
+        $this->start_controls_tabs( 'exad_dual_button_primary_button_tabs' );
+
+            $this->start_controls_tab( 'exad_dual_button_primary_button_noemal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+                $this->add_control(
+                    'exad_dual_button_primary_button_normal_bg',
+                    [
+                        'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                        'type' => Controls_Manager::COLOR,
+                        'default' => '#122c91',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-1' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-2' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-3' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-4' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-5' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-6' => 'background: {{VALUE}};',
+                        ],
+                    ]
+                );
+
+                $this->add_control(
+                    'exad_dual_button_primary_button_normal_text_color',
+                    [
+                        'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+                        'type' => Controls_Manager::COLOR,
+                        'default' => '#ffffff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-dual-button-primary' => 'color: {{VALUE}};',
+                        ],
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name' => 'exad_dual_button_primary_button_normal_border',
+                        'label' => __( 'Border', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-dual-button-primary',
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Box_Shadow::get_type(),
+                    [
+                        'name' => 'exad_dual_button_primary_button_normal_box_shadow',
+                        'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-dual-button-primary',
+                    ]
+                );
+
+            $this->end_controls_tab();
+
+            $this->start_controls_tab( 'exad_dual_button_primary_button_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+                $this->add_control(
+                    'exad_dual_button_primary_button_hover_bg',
+                    [
+                        'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                        'type' => Controls_Manager::COLOR,
+                        'default' => '#374fad',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-1::before' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-2::before' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-3::before' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-4::before' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-5:hover' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-primary.effect-6::before' => 'background: {{VALUE}};',
+                        ],
+                    ]
+                );
+
+                $this->add_control(
+                    'exad_dual_button_primary_button_hover_text_color',
+                    [
+                        'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+                        'type' => Controls_Manager::COLOR,
+                        'default' => '#ffffff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-dual-button-primary:hover' => 'color: {{VALUE}};',
+                        ],
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name' => 'exad_dual_button_primary_button_hover_border',
+                        'label' => __( 'Border', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-dual-button-primary:hover',
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Box_Shadow::get_type(),
+                    [
+                        'name' => 'exad_dual_button_primary_button_hover_box_shadow',
+                        'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-dual-button-primary:hover',
+                    ]
+                );
+
+            $this->end_controls_tab();
+
+	    $this->end_controls_tabs();
 
         $this->end_controls_section();
 
@@ -444,7 +574,7 @@ class Exad_Dual_Button extends Widget_Base {
             [
                 'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#ffffff',
+                'default' => '#ff5b87',
                 'selectors' => [
                     '{{WRAPPER}} .exad-dual-button-connector' => 'background: {{VALUE}};',
                 ],
@@ -456,7 +586,7 @@ class Exad_Dual_Button extends Widget_Base {
             [
                 'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#d6d6d6',
+                'default' => '#ffffff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-dual-button-connector span' => 'color: {{VALUE}};',
                 ],
@@ -470,11 +600,11 @@ class Exad_Dual_Button extends Widget_Base {
 				'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'default' => [
-                    'top' => '0',
-                    'right' => '0',
-                    'bottom' => '0',
-                    'left' => '0',
-                    'unit' => 'px',
+                    'top' => '50',
+                    'right' => '50',
+                    'bottom' => '50',
+                    'left' => '50',
+                    'unit' => '%',
                 ],
 				'selectors' => [
 					'{{WRAPPER}} .exad-dual-button-connector' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -501,6 +631,194 @@ class Exad_Dual_Button extends Widget_Base {
 		);
 
         $this->end_controls_section();
+
+        /*
+        * Exad Dual Button secondary Button Style
+        */
+        $this->start_controls_section(
+            'exad_container_secondary_button_style',
+            [
+                'label' => esc_html__( 'secondary Button', 'exclusive-addons-elementor' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'exad_container_secondary_button_typography',
+				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+                'selector' => '{{WRAPPER}} .exad-dual-button-secondary span',
+			]
+        );
+        
+        $this->add_control(
+			'exad_dual_button_secondary_button_radius',
+			[
+				'label' => __( 'Border radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'top' => '0',
+                    'right' => '0',
+                    'bottom' => '0',
+                    'left' => '0',
+                    'unit' => 'px',
+                ],
+				'selectors' => [
+                    '{{WRAPPER}} .exad-dual-button-secondary,
+                    {{WRAPPER}} .exad-dual-button-secondary.effect-1::before,
+                    {{WRAPPER}} .exad-dual-button-secondary.effect-2::before,
+                    {{WRAPPER}} .exad-dual-button-secondary.effect-3::before,
+                    {{WRAPPER}} .exad-dual-button-secondary.effect-4::before,
+                    {{WRAPPER}} .exad-dual-button-secondary.effect-6::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_dual_button_secondary_button_icon_margin',
+			[
+				'label' => __( 'Icon Space', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-dual-button-secondary .exad-icon-pos-left i' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-dual-button-secondary .exad-icon-pos-right i' => 'margin-left: {{SIZE}}{{UNIT}};',
+				],
+			]
+        );
+        
+        $this->add_control(
+            'exad_dual_button_secondary_button_animation',
+            [
+                'label' => esc_html__( 'Hover Effect', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'effect-5',
+                'options' => [
+                    'effect-1' => __( 'Effect 1', 'exclusive-addons-elementor' ),
+                    'effect-2' => __( 'Effect 2', 'exclusive-addons-elementor' ),
+                    'effect-3' => __( 'Effect 3', 'exclusive-addons-elementor' ),
+                    'effect-4' => __( 'Effect 4', 'exclusive-addons-elementor' ),
+                    'effect-5' => __( 'Effect 5', 'exclusive-addons-elementor' ),
+                    'effect-6' => __( 'Effect 6', 'exclusive-addons-elementor' ),
+                ],
+            ]
+        );
+
+        $this->start_controls_tabs( 'exad_dual_button_secondary_button_tabs' );
+
+            $this->start_controls_tab( 'exad_dual_button_secondary_button_noemal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+                $this->add_control(
+                    'exad_dual_button_secondary_button_normal_bg',
+                    [
+                        'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                        'type' => Controls_Manager::COLOR,
+                        'default' => '#2a6fdb',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-1' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-2' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-3' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-4' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-5' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-6' => 'background: {{VALUE}};',
+                        ],
+                    ]
+                );
+
+                $this->add_control(
+                    'exad_dual_button_secondary_button_normal_text_color',
+                    [
+                        'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+                        'type' => Controls_Manager::COLOR,
+                        'default' => '#ffffff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-dual-button-secondary' => 'color: {{VALUE}};',
+                        ],
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name' => 'exad_dual_button_secondary_button_normal_border',
+                        'label' => __( 'Border', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-dual-button-secondary',
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Box_Shadow::get_type(),
+                    [
+                        'name' => 'exad_dual_button_secondary_button_normal_box_shadow',
+                        'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-dual-button-secondary',
+                    ]
+                );
+
+            $this->end_controls_tab();
+
+            $this->start_controls_tab( 'exad_dual_button_secondary_button_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+                $this->add_control(
+                    'exad_dual_button_secondary_button_hover_bg',
+                    [
+                        'label' => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                        'type' => Controls_Manager::COLOR,
+                        'default' => '#5695f7',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-1::before' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-2::before' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-3::before' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-4::before' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-5:hover' => 'background: {{VALUE}};',
+                            '{{WRAPPER}} .exad-dual-button-secondary.effect-6::before' => 'background: {{VALUE}};',
+                        ],
+                    ]
+                );
+
+                $this->add_control(
+                    'exad_dual_button_secondary_button_hover_text_color',
+                    [
+                        'label' => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+                        'type' => Controls_Manager::COLOR,
+                        'default' => '#ffffff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-dual-button-secondary:hover' => 'color: {{VALUE}};',
+                        ],
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name' => 'exad_dual_button_secondary_button_hover_border',
+                        'label' => __( 'Border', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-dual-button-secondary:hover',
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Box_Shadow::get_type(),
+                    [
+                        'name' => 'exad_dual_button_secondary_button_hover_box_shadow',
+                        'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-dual-button-secondary:hover',
+                    ]
+                );
+
+            $this->end_controls_tab();
+
+	    $this->end_controls_tabs();
+
+        $this->end_controls_section();
     }
 
     protected function render() {
@@ -512,8 +830,8 @@ class Exad_Dual_Button extends Widget_Base {
     ?>
         <div <?php echo $this->get_render_attribute_string( 'exad_dual_button' ); ?>>
           <div class="exad-dual-button-wrapper">
-            <a href="<?php echo esc_attr( $settings['exad_dual_button_primary_button_url']['url'] ); ?>" class="exad-dual-button-primary exad-dual-button-action">
-                <span>
+            <a href="<?php echo esc_attr( $settings['exad_dual_button_primary_button_url']['url'] ); ?>" class="exad-dual-button-primary exad-dual-button-action <?php echo($settings['exad_dual_button_primary_button_animation']) ?>">
+                <span class="<?php echo( $settings['exad_dual_button_primary_button_icon_position'] ); ?>">
                     <?php if ( $settings['exad_dual_button_primary_button_icon_position'] === 'exad-icon-pos-left' ) { ?>
                         <?php Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] ); ?>
                         <?php echo esc_attr( $settings['exad_dual_button_primary_button_text'] ); ?>
@@ -536,8 +854,8 @@ class Exad_Dual_Button extends Widget_Base {
                     </div>
                 <?php } ?>
             </a>
-            <a href="<?php echo esc_attr( $settings['exad_dual_button_secondary_button_url']['url'] ); ?>" class="exad-dual-button-secondary exad-dual-button-action">
-                <span>
+            <a href="<?php echo esc_attr( $settings['exad_dual_button_secondary_button_url']['url'] ); ?>" class="exad-dual-button-secondary exad-dual-button-action <?php echo($settings['exad_dual_button_secondary_button_animation']) ?>">
+                <span class="<?php echo( $settings['exad_dual_button_secondary_button_icon_position'] ); ?>">
                     <?php if ( $settings['exad_dual_button_secondary_button_icon_position'] === 'exad-icon-pos-left' ) { ?>
                         <?php Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] ); ?>
                         <?php echo esc_attr( $settings['exad_dual_button_secondary_button_text'] ); ?>
@@ -551,33 +869,55 @@ class Exad_Dual_Button extends Widget_Base {
           </div>
         </div>
     <?php
-	}
-    /*protected function render() {
-        $settings = $this->get_settings_for_display();
-
-        $this->add_render_attribute( 'exad_dual_button', 'class', 'exad-dual-button' );
-        $this->add_render_attribute( 'exad_dual_button', 'class', $settings['exad_dual_button_container_alignment'] );
-
+    }
+    
+    /*protected function _content_template() {
     ?>
-        <div <?php echo $this->get_render_attribute_string( 'exad_dual_button' ); ?>>
-          <div class="exad-dual-button-wrapper">
-            <a href="#" class="exad-dual-button-primary exad-dual-button-action">Get Now
-                <?php if( $settings['exad_modal_btn_icon_align'] === 'left' ) { ?>
-                    <span>
-                        <i class="exad-modal-action-left-icon <?php echo esc_attr( $settings['exad_modal_btn_icon'] ); ?>"></i>
-                        <?php echo esc_attr( $settings['exad_modal_btn_text'] ); ?>
+    <#
+        view.addRenderAttribute( 'exad_dual_button', 'class', 'exad-dual-button' );
+        view.addRenderAttribute( 'exad_dual_button', 'class', settings.exad_dual_button_container_alignment );
+    #>
+
+        <div {{{ view.getRenderAttributeString( 'exad_dual_button' ) }}}>
+            <div class="exad-dual-button-wrapper">
+                <a href="{{ settings.exad_dual_button_primary_button_url.url }}" class="exad-dual-button-primary exad-dual-button-action {{ settings.exad_dual_button_primary_button_animation }}">
+                    <span class="{{ settings.exad_dual_button_primary_button_icon_position }}">
+                        <# if ( settings.exad_dual_button_primary_button_icon_position === 'exad-icon-pos-left' ) { #>
+                           {{{ iconHTML.value }}}
+                           <i class="{{ settings.exad_dual_button_primary_button_icon }}"></i>
+                            {{{ settings.exad_dual_button_primary_button_text }}}
+                        <# } #>
+                        <# if ( settings.exad_dual_button_primary_button_icon_position === 'exad-icon-pos-right' ) { #>
+                            {{{ settings.exad_dual_button_primary_button_text }}}
+                            {{{ iconHTML.value }}}
+                        <# }#>
                     </span>
-				<?php } ?>
-                <?php if( $settings['exad_modal_btn_icon_align'] === 'right' ) { ?>
-                    <span>
-                        <?php echo esc_attr( $settings['exad_modal_btn_text'] ); ?>
-                        <i class="exad-modal-action-right-icon <?php echo esc_attr( $settings['exad_modal_btn_icon'] ); ?>"></i>
+                    <# if ( settings.exad_dual_button_connector_switch === 'yes' ) { #>
+                        <div class="exad-dual-button-connector">
+                            <span>
+                                <# if ( settings.exad_dual_button_connector_type === 'text' ) { #>
+                                    {{{ settings.exad_dual_button_connector_text }}}
+                                <# } #>
+                                <# if ( settings.exad_dual_button_connector_type === 'icon' ) { #>
+                                    {{{ iconHTML.value }}}
+                                <# } #>
+                            </span>
+                        </div>
+                    <# } #>
+                </a>
+                <a href="{{ settings.exad_dual_button_secondary_button_url.url }}" class="exad-dual-button-secondary exad-dual-button-action {{ settings.exad_dual_button_secondary_button_animation }}">
+                    <span class="{{ settings.exad_dual_button_secondary_button_icon_position }}">
+                        <# if ( settings.exad_dual_button_secondary_button_icon_position === 'exad-icon-pos-left' ) { #>
+                            {{{ iconHTML.value }}}
+                            {{{ settings.exad_dual_button_secondary_button_text }}}
+                        <# } #>
+                        <# if ( settings.exad_dual_button_secondary_button_icon_position === 'exad-icon-pos-right' ) { #>
+                            {{{ settings.exad_dual_button_secondary_button_text }}}
+                            {{{ iconHTML.value }}}
+                        <# } #>
                     </span>
-                <?php } ?>
-            </a>
-            <div class="exad-dual-button-connector"><span>OR</span></div>
-            <a href="#" class="exad-dual-button-secondary exad-dual-button-action">Pre Order</a>
-          </div>
+                </a>
+            </div>
         </div>
     <?php
 	}*/
