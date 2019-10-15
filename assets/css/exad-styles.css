@@ -1646,6 +1646,8 @@ i.exad-call-to-action-icon {
   margin: 0;
 }
 /* Counter Style End */
+/* Exad Dual Button Style Start */
+
 .exad-dual-button{
     display: table;
 }
@@ -1812,6 +1814,8 @@ i.exad-call-to-action-icon {
     width: 100%;
     z-index: -1;
 }
+
+/* Exad Dual Button Style end */
 /* Dual heading Start */
 
 .exad-dual-heading .exad-dual-heading-wrapper {

@@ -1,3 +1,5 @@
+/* Exad Dual Button Style Start */
+
 .exad-dual-button{
     display: table;
 }
@@ -164,3 +166,5 @@
     width: 100%;
     z-index: -1;
 }
+
+/* Exad Dual Button Style end */
