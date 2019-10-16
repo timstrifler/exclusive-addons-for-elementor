@@ -46,7 +46,7 @@ class Exad_Modal_Popup extends Widget_Base {
 						'html_content'  => __( 'HTML Content', 'exclusive-addons-elementor' ),
 						'youtube'       => __( 'Youtube Video', 'exclusive-addons-elementor' ),
 						'vimeo'       => __( 'Vimeo Video', 'exclusive-addons-elementor' ),
-						'external-video'       => __( 'External Video', 'exclusive-addons-elementor' ),
+						'external-video'       => __( 'Self Hosted Video', 'exclusive-addons-elementor' ),
 						'external_page'      => __( 'External Page', 'exclusive-addons-elementor' ),
 					]
 				]
@@ -67,6 +67,17 @@ class Exad_Modal_Popup extends Widget_Base {
 						'active' => true
                     ],
                     'condition' => [
+                        'exad_modal_content' => 'image'
+                    ]
+				]
+			);
+
+			$this->add_group_control(
+				Group_Control_Image_Size::get_type(),
+				[
+					'name' => 'thumbnail',
+					'default' => 'full',
+					'condition' => [
                         'exad_modal_content' => 'image'
                     ]
 				]
@@ -307,7 +318,7 @@ class Exad_Modal_Popup extends Widget_Base {
 		$this->add_control(
 			'exad_modal_overlay_click_close',
 			[
-				'label'        => __( 'Close on Overlay Click', 'exclusive-addons-elementor' ),
+				'label'        => __( 'Close While Clicked Outside', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'ON', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'OFF', 'exclusive-addons-elementor' ),
@@ -387,14 +398,14 @@ class Exad_Modal_Popup extends Widget_Base {
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%' ],
 					'default' => [
-						'top' => '10',
-						'right' => '10',
-						'bottom' => '10',
-						'left' => '10',
+						'top' => '50',
+						'right' => '50',
+						'bottom' => '50',
+						'left' => '50',
 						'unit' => 'px',
 					],
 					'selectors' => [
-						'{{WRAPPER}} .exad-modal-image-action' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .exad-modal-image-action, {{WRAPPER}} .exad-modal-image-action::before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
@@ -444,7 +455,7 @@ class Exad_Modal_Popup extends Widget_Base {
 						[
 							'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'default'   => '#23a455',
+							'default'   => '#3655b3',
 							'selectors' => [
 								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'background: {{VALUE}};'
 							],
@@ -456,7 +467,23 @@ class Exad_Modal_Popup extends Widget_Base {
 						[
 							'name'     => 'exad_modal_btn_border_normal',
 							'label'    => __( 'Border', 'exclusive-addons-elementor' ),
-							'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action'
+							'fields_options' => [
+								'border' => [
+									'default' => 'solid',
+								],
+								'width' => [
+									'default' => [
+										'top' => '1',
+										'right' => '1',
+										'bottom' => '1',
+										'left' => '1',
+									],
+								],
+								'color' => [
+									'default' => '#3655b3',
+								],
+							],
+							'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action',
 						]
 					);
 
@@ -469,7 +496,7 @@ class Exad_Modal_Popup extends Widget_Base {
 						[
 							'label'     => __( 'Button Text Color', 'exclusive-addons-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'default'   => '#23a455',
+							'default'   => '#3655b3',
 							'selectors' => [
 								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover span' => 'color: {{VALUE}};'
 							],
@@ -483,7 +510,7 @@ class Exad_Modal_Popup extends Widget_Base {
 							'type'      => Controls_Manager::COLOR,
 							'default'   => '#ffffff',
 							'selectors' => [
-								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover' => 'background: {{VALUE}};'
+								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:before' => 'background: {{VALUE}};'
 							],
 						]
 					);
@@ -785,6 +812,14 @@ class Exad_Modal_Popup extends Widget_Base {
 	protected function render() { 
 		$settings = $this->get_settings_for_display();
 
+		$modal_image = $this->get_settings_for_display( 'exad_modal_image' );
+		$modal_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $modal_image['id'], 'thumbnail', $settings );
+		if( empty( $modal_image_url_src ) ) {
+			$modal_image_url = $modal_image['url']; 
+		} else { 
+			$modal_image_url = $modal_image_url_src;
+		}
+
 		if($settings['exad_modal_content'] === 'youtube'){
 			$url    = $settings['exad_modal_youtube_video_url'];
 	
@@ -843,7 +878,7 @@ class Exad_Modal_Popup extends Widget_Base {
              		<div class="exad-modal-content">
                 		<div class="exad-modal-element <?php echo ( $settings['exad_modal_image_gallery_column'] ); ?>">
 							<?php if ( $settings['exad_modal_content'] === 'image' ) { ?>
-								<img src="<?php echo $settings['exad_modal_image']['url']; ?>" />
+								<img src="<?php echo esc_url($modal_image_url); ?>" />
 							<?php } ?>
 							<?php if ( $settings['exad_modal_content'] === 'image-gallery' ) { ?>
 								<?php foreach ( $settings['exad_modal_image_gallery_repeater'] as $gallery ) : ?>

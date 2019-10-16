@@ -8,6 +8,30 @@
     position: relative;
     text-align: center;
     z-index: 1;
+    overflow: hidden;
+  }
+
+  .exad-modal-button .exad-modal-image-action:before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+  }
+
+  .exad-modal-button .exad-modal-image-action:hover::before {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+    z-index: -1;
   }
 
   .top-to-middle {
