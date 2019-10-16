@@ -279,6 +279,7 @@ class Exad_Dual_Button extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-dual-button-primary' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-dual-button-primary .exad-dual-button-connector' => 'right: calc( -3px - {{SIZE}}{{UNIT}} );',
 					'{{WRAPPER}} .exad-dual-button-secondary' => 'margin-left: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -638,7 +639,7 @@ class Exad_Dual_Button extends Widget_Base {
         $this->start_controls_section(
             'exad_container_secondary_button_style',
             [
-                'label' => esc_html__( 'secondary Button', 'exclusive-addons-elementor' ),
+                'label' => esc_html__( 'Secondary Button', 'exclusive-addons-elementor' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
