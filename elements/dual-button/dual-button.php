@@ -37,7 +37,7 @@ class Exad_Dual_Button extends Widget_Base {
                         'label' => esc_html__( 'Text', 'exclusive-addons-elementor' ),
                         'type' => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'default' => esc_html__( 'Primary Button', 'exclusive-addons-elementor' ),
+                        'default' => esc_html__( 'Primary', 'exclusive-addons-elementor' ),
                     ]
                 );
 
@@ -155,7 +155,7 @@ class Exad_Dual_Button extends Widget_Base {
                         'label' => esc_html__( 'Text', 'exclusive-addons-elementor' ),
                         'type' => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'default' => esc_html__( 'Secondary Button', 'exclusive-addons-elementor' ),
+                        'default' => esc_html__( 'Secondary', 'exclusive-addons-elementor' ),
                     ]
                 );
 
@@ -250,9 +250,9 @@ class Exad_Dual_Button extends Widget_Base {
                 'size_units' => [ 'px' ],
                 'default' => [
                     'top' => '15',
-                    'right' => '40',
+                    'right' => '30',
                     'bottom' => '15',
-                    'left' => '40',
+                    'left' => '30',
                     'unit' => 'px',
                 ],
 				'selectors' => [
