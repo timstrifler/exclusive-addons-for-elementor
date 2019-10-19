@@ -398,10 +398,10 @@ class Exad_Modal_Popup extends Widget_Base {
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%' ],
 					'default' => [
-						'top' => '50',
-						'right' => '50',
-						'bottom' => '50',
-						'left' => '50',
+						'top' => '6',
+						'right' => '6',
+						'bottom' => '6',
+						'left' => '6',
 						'unit' => 'px',
 					],
 					'selectors' => [
@@ -455,7 +455,7 @@ class Exad_Modal_Popup extends Widget_Base {
 						[
 							'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 							'type'      => Controls_Manager::COLOR,
-							'default'   => '#3655b3',
+							'default'   => '#7448F6',
 							'selectors' => [
 								'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'background: {{VALUE}};'
 							],
@@ -566,7 +566,7 @@ class Exad_Modal_Popup extends Widget_Base {
 					'label'       => __( 'Icon', 'exclusive-addons-elementor' ),
 					'type'        => Controls_Manager::ICON,
 					'label_block' => true,
-					'default'     => 'fa fa-vimeo',
+					'default'     => 'fa fa-wordpress',
 				]
 			);
 
