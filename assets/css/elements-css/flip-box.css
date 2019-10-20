@@ -89,14 +89,18 @@
   transition: all .5s cubic-bezier(.17,.67,.47,1.18);
 }
 
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image {
+  position: relative;
+}
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i {
-  background: #826eff;
-  padding: 20px;
-  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
-  margin: 25px 0;
+  margin: 0;
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back {
@@ -108,7 +112,7 @@
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back i {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-title {
@@ -116,21 +120,15 @@
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
-  margin: 20px 0 30px 0;
+  margin: 0;
 }
 
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
-
   text-decoration: none;
-  padding: 10px 20px;
-  transition: all .5s cubic-bezier(.17,.67,.47,1.18);
+  transition: all .3s ease;
   display: inline-block;
-}
-
-.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action:hover {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .exad-flip-box .exad-flip-box-inner.left-to-right .exad-flip-box-back {
@@ -213,6 +211,7 @@
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   min-height: 280px;
+  background: #ffffff;
 }
 
 .exad-flip-box .exad-flip-box-inner.three-d-flip .exad-flip-box-front .exad-flip-box-front-content {
@@ -243,6 +242,7 @@
   min-height: 280px;
   height: auto;
   width: 100%;
+  background: #ffffff;
 }
 
 .exad-flip-box .exad-flip-box-inner.three-d-flip .exad-flip-box-back .exad-flip-box-back-content {
@@ -275,6 +275,17 @@
           transform: rotateY(0);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+}
+
+.exad-flip-box-inner.left .exad-flip-box-front-image{
+  margin-right: auto;
+}
+.exad-flip-box-inner.center .exad-flip-box-front-image{
+  margin-left: auto;
+  margin-right: auto;
+}
+.exad-flip-box-inner.right .exad-flip-box-front-image{
+  margin-left: auto;
 }
 
 /* Flip Box End */
