@@ -367,9 +367,9 @@ var ModalPopup = function ($scope, $) {
         var $modalItem = $(this).parents().eq(2);
         $modalOverlay.removeClass('active');
         $modalItem.removeClass('active');
-        setTimeout(() => {
-            $('.exad-modal-item').css('display', 'none');
-        }, 2000);
+        // setTimeout(() => {
+        //     $('.exad-modal-item').css('display', 'none');
+        // }, 500);
 
         var $modal_iframe 		= $modalWrapper.find( 'iframe' ),
             $modal_video_tag 	= $modalWrapper.find( 'video' );
