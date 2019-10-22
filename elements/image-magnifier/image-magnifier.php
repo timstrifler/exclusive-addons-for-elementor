@@ -139,7 +139,7 @@ class Exad_Image_Magnifier extends Widget_Base {
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 175,
+                'size' => 150,
             ],
             'selectors' => [
                 '{{WRAPPER}} .exad-magnify-large' => 'height: {{SIZE}}{{UNIT}};',
@@ -161,7 +161,7 @@ class Exad_Image_Magnifier extends Widget_Base {
             ],
             'default' => [
                 'unit' => 'px',
-                'size' => 175,
+                'size' => 150,
             ],
             'selectors' => [
                 '{{WRAPPER}} .exad-magnify-large' => 'width: {{SIZE}}{{UNIT}};',
@@ -174,6 +174,22 @@ class Exad_Image_Magnifier extends Widget_Base {
         [
             'name' => 'exad_image_magnefic_glass_border',
             'label' => __( 'Border', 'exclusive-addons-elementor' ),
+            'fields_options' => [
+                'border' => [
+                    'default' => 'solid',
+                ],
+                'width' => [
+                    'default' => [
+                        'top' => '1',
+                        'right' => '1',
+                        'bottom' => '1',
+                        'left' => '1',
+                    ],
+                ],
+                'color' => [
+                    'default' => '#CCC',
+                ],
+            ],
             'selector' => '{{WRAPPER}} .exad-magnify-large',
         ]
     );
@@ -185,10 +201,11 @@ class Exad_Image_Magnifier extends Widget_Base {
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%' ],
             'default' => [
-                'top' => '0',
-                'right' => '0',
-                'bottom' => '0',
-                'left' => '0',
+                'top' => '50',
+                'right' => '50',
+                'bottom' => '50',
+                'left' => '50',
+                'unit' => '%'
             ],
             'selectors' => [
                 '{{WRAPPER}} .exad-magnify-large' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -212,33 +229,24 @@ class Exad_Image_Magnifier extends Widget_Base {
 
 	protected function render() {
 
-    $settings = $this->get_settings_for_display();
-    $magnify_image = $this->get_settings_for_display( 'exad_magnify_image' );
-	$magnify_image_src_url = Group_Control_Image_Size::get_attachment_image_src( $magnify_image['id'], 'thumbnail', $settings );
+        $settings = $this->get_settings_for_display();
+        $magnify_image = $this->get_settings_for_display( 'exad_magnify_image' );
+        $magnify_image_src_url = Group_Control_Image_Size::get_attachment_image_src( $magnify_image['id'], 'thumbnail', $settings );
 
-		if( empty( $magnify_image_src_url ) ) {
-			$magnify_image_url = $magnify_image['url']; 
-		} else { 
-			$magnify_image_url = $magnify_image_src_url;
-		}
-		
-		$this->add_render_attribute( 'exad_image_magnifier_wrapper', [
-            'class' => [ 'exad-image-magnifier', $settings['exad_image_magnifier_slider_handle'] ],
-			'data-exad-before_label' => esc_attr( $settings['exad_before_label']),
-			'data-exad-after_label'	=> esc_attr($settings['exad_after_label']),
-            'data-exad-default_offset_pct' => esc_attr( $settings['exad_default_offset_pct'] ),
-            'data-exad-oriantation' => esc_attr( $settings['exad_image_magnifier_handle_type'] ),
-			'data-exad-no_overlay' => $settings['exad_no_overlay']
-        ]);
+            if( empty( $magnify_image_src_url ) ) {
+                $magnify_image_url = $magnify_image['url']; 
+            } else { 
+                $magnify_image_url = $magnify_image_src_url;
+            }
+            
+
+        ?>
         
-
-    ?>
-    
-    <!-- Lets make a simple image magnifier -->
-    <div class="exad-image-magnify">
-        <div class="exad-magnify-large"></div>
-        <img class="exad-magnify-small" src="<?php echo esc_url( $magnify_image_url ); ?>" />
-    </div>
+        <!-- Lets make a simple image magnifier -->
+        <div class="exad-image-magnify">
+            <div class="exad-magnify-large"></div>
+            <img class="exad-magnify-small" src="<?php echo esc_url( $magnify_image_url ); ?>" />
+        </div>
 
     <?php
 	}
