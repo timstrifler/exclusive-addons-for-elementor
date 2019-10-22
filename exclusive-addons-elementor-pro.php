@@ -283,6 +283,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 				wp_register_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
 				// Waypoints Js
 				wp_register_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
+				wp_register_script( 'exad-wow-js', EXAD_URL . 'assets/js/vendor/wow.min.js', array( 'jquery' ), '1.1.3', true );
 			}
 			if ( $is_activated_widget['google-maps'] ) {
 				wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );
@@ -321,6 +322,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 				wp_register_script( 'exad-instagram', EXAD_URL . 'assets/js/vendor/instagram.min.js', array( 'jquery' ), '1.0', true );
 			}
 
+<<<<<<< HEAD
 			if ( $is_activated_widget['news-ticker'] ) {
 				// news ticker
 				wp_register_script( 'exad-news-ticker', EXAD_URL . 'assets/js/vendor/exad-news-ticker.min.js', array( 'jquery' ), '1.0', true );
@@ -328,6 +330,11 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 			if ( $is_activated_widget['animated-text'] ) {
 				// Instagram Gallery
 				wp_register_script( 'exad-animated-text', EXAD_URL . 'assets/js/vendor/typed.min.js', array( 'jquery' ), '1.0', true );
+=======
+			if ( $is_activated_widget['slider'] ) {
+				// slick slider slick animation
+				wp_register_script( 'exad-slick-animation', EXAD_URL . 'assets/js/vendor/slick-animation.min.js', array( 'jquery' ), '1.0', true );
+>>>>>>> origin/slider-by-zabid
 			}
 			
 			wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );

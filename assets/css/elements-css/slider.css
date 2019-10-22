@@ -1,0 +1,291 @@
+/*Exad Slider starts here*/
+.exad-slider.fullscreen .exad-each-slider-item {
+	height: 100vh;
+}
+body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
+	height: calc(100vh - 32px);
+}
+.exad-each-slider-item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+.exad-each-slider-item .exad-slider-bg-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.exad-slide-bg {
+	-webkit-flex-basis: 100%;
+	-ms-flex-preferred-size: 100%;
+	flex-basis: 100%;
+	width: 100%;
+	background-size: cover;
+	-webkit-background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	min-width: 100%;
+	min-height: 100%;
+}
+.exad-slide-inner {
+	-webkit-flex-basis: 100%;
+	-ms-flex-preferred-size: 100%;
+	flex-basis: 100%;
+	width: 100%;
+	color: #fff;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.exad-slide-content {
+	position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.exad-slide-content h2 {
+	font-size: 30px;
+}
+.exad-slide-content p {
+	font-size: 18px;
+}
+.exad-slide-content a {
+	font-size: 15px;
+	display: inline-block;
+}
+.exad-slider .slick-next, 
+.exad-slider .slick-prev {
+  z-index: 1;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  padding: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, .3);
+}
+.exad-slider .slick-prev {
+  left: 0px;
+}
+.exad-slider .slick-next {
+  right: 0px;
+}
+.exad-slider .slick-prev:before {
+  content: "\e89f";
+}
+.exad-slider .slick-next:before {
+  content: "\e89e";
+}
+.exad-slider .slick-next:before, 
+.exad-slider .slick-prev:before {
+  font-family: eicons;
+  font-size: 35px;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 1;
+}
+.exad-slider .slick-prev:hover,
+.exad-slider .slick-next:hover {
+  background-color: inherit; 
+}
+.exad-slider.dot-bullet ul.slick-dots {
+  bottom: 15px;
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+.exad-slider.dot-bullet ul.slick-dots li {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.exad-slider.dot-bullet ul.slick-dots li.slick-active {
+	background: rgba(255, 255, 255, 1);
+}
+.exad-slider.dot-bullet ul.slick-dots li:last-child {
+  margin-right: 0px !important;
+}
+.exad-slider.dot-bullet ul.slick-dots li button {
+  display: none;
+}
+.exad-slider.dot-image ul.slick-dots {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.exad-slider.dot-image ul.slick-dots li {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.exad-slider .slick-dots {
+    display: flex;
+}
+.exad-slider.dot-hide .slick-dots {
+  display: none;
+}
+.exad-slider .slick-dots li {
+  flex: 1;
+}
+.exad-slider .slick-dots li a {
+  height: 70px;
+  display: block;
+}
+.exad-slider .slick-dots li a img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.exad-slider.dot-image ul li:first-child {
+  margin-left: 0px !important;
+}
+.exad-slider.dot-image ul li:last-child {
+  margin-right: 0px !important;
+}
+/*exad slider animation*/
+.slick-active.slick-current .exad-slider-progressbar-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 7px;
+    -webkit-animation: exadSliderProgressbar 5000ms ease-in-out;
+    -moz-animation: exadSliderProgressbar 5000ms ease-in-out;
+    -ms-animation: exadSliderProgressbar 5000ms ease-in-out;
+    animation: exadSliderProgressbar 5000ms ease-in-out;
+    background-color: rgba(255, 255, 255, .7);
+    z-index: 99;
+
+}
+@-webkit-keyframes exadSliderProgressbar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes exadSliderProgressbar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@media (print), (prefers-reduced-motion: reduce) {
+  .animated {
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    -webkit-transition-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/*Exad Slider ends here*/
