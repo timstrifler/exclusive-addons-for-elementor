@@ -109,13 +109,28 @@ class Exad_Flip_Box extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_flipbox_enable_button',
+			[
+				'label' => __( 'Enable Button', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
 			'exad_flipbox_button_text',
 			[
 				'label'     => __( 'Button Text', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => [ 'active' => true ],
 				'default'   => __( 'Click Here', 'exclusive-addons-elementor' ),
-				'separator' => 'before',
+				'condition' => [
+					'exad_flipbox_enable_button' => 'yes',
+				]
 			]
 		);
 
@@ -129,7 +144,10 @@ class Exad_Flip_Box extends Widget_Base {
         			'url' => '#',
         			'is_external' => '',
      			],
-     			'show_external' => true,
+				'show_external' => true,
+				'condition' => [
+					'exad_flipbox_enable_button' => 'yes',
+				]
 			]
 		);
 
@@ -179,27 +197,23 @@ class Exad_Flip_Box extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_3d_height',
 			[
-				'label' => __( '3D height', 'exclusive-addons-elementor' ),
+				'label' => __( 'Height', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
 						'max' => 1000,
-						'step' => 5,
 					],
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 290,
+					'size' => 300,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-flip-box .exad-flip-box-inner.three-d-flip .exad-flip-box-front,
-					{{WRAPPER}} .exad-flip-box .exad-flip-box-inner.three-d-flip .exad-flip-box-back' => 'min-height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-inner .exad-flip-box-front,
+					{{WRAPPER}} .exad-flip-box .exad-flip-box-inner .exad-flip-box-back' => 'min-height: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
-					'exad_flipbox_style' => 'three-d-flip',
-				]
 			]
 		);
 
@@ -966,7 +980,9 @@ class Exad_Flip_Box extends Widget_Base {
 					<p class="exad-flip-box-back-description">
 						<?php echo $settings['exad_flipbox_back_description']; ?>
 					</p>
-					<a href="<?php echo esc_url( $settings['exad_flipbox_button_link']['url'] ); ?>" class="exad-flip-box-back-action"><?php echo $settings['exad_flipbox_button_text']; ?></a>
+					<?php if( $settings['exad_flipbox_enable_button'] === 'yes' ) { ?>
+						<a href="<?php echo esc_url( $settings['exad_flipbox_button_link']['url'] ); ?>" class="exad-flip-box-back-action"><?php echo $settings['exad_flipbox_button_text']; ?></a>
+					<?php } ?>
 				</div>
 	        </div>
       	</div>
@@ -1000,9 +1016,11 @@ class Exad_Flip_Box extends Widget_Base {
 						<p class="exad-flip-box-back-description">
 							{{{ settings.exad_flipbox_back_description}}}
 						</p>
-						<a href="{{ settings.exad_flipbox_button_link.url }}" class="exad-flip-box-back-action">
-							{{{ settings.exad_flipbox_button_text }}}
-						</a>
+						<# if( settings.exad_flipbox_enable_button === 'yes' ) { #>
+							<a href="{{ settings.exad_flipbox_button_link.url }}" class="exad-flip-box-back-action">
+								{{{ settings.exad_flipbox_button_text }}}
+							</a>
+						<# } #>
 					</div>
 				</div>
 			</div>

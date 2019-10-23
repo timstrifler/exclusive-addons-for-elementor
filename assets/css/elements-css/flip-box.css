@@ -89,6 +89,14 @@
   transition: all .5s cubic-bezier(.17,.67,.47,1.18);
 }
 
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image {
   position: relative;
 }
