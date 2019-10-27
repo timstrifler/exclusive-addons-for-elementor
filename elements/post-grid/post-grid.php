@@ -49,14 +49,14 @@ class Exad_Post_Grid extends Widget_Base {
             [
 				'label'   => __( 'Posts Per Page', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
-				'default' => '4'
+				'default' => '9'
             ]
 		);
 
 		$this->add_control(
             'exad_post_grid_column_no',
             [
-				'label'   => __( 'Number of Columns', 'exclusive-addons-elementor' ),
+				'label'   => __( 'Columns', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => '3',
 				'options' => [
@@ -140,6 +140,8 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label'        => esc_html__( 'Ignore Sticky?', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -148,8 +150,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
             'exad_post_grid_show_excerpt',
             [
-                'label'        => esc_html__( 'Show Excerpt?', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Excerpt.', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SWITCHER,
+                'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
                 'default'      => 'yes',
                 'return_value' => 'yes'
             ]
@@ -170,8 +174,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_image',
 			[
-				'label'        => esc_html__( 'Show Image?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Image.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -181,8 +187,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_title',
 			[
-				'label'        => esc_html__( 'Show Title?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Title.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -191,8 +199,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
             'exad_post_grid_show_read_more_btn',
             [
-                'label'        => esc_html__( 'Details Button?', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Details Button.', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SWITCHER,
+                'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
                 'default'      => 'yes',
                 'return_value' => 'yes'
             ]
@@ -225,8 +235,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_category',
 			[
-				'label'        => esc_html__( 'Show Category?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Category.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -235,8 +247,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_user_avatar',
 			[
-				'label'        => esc_html__( 'Show Avatar?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Avatar.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'no'
 			]
@@ -245,8 +259,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_user_name',
 			[
-				'label'        => esc_html__( 'Show Author Name?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Author Name.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -255,8 +271,10 @@ class Exad_Post_Grid extends Widget_Base {
 		$this->add_control(
             'exad_post_grid_show_user_name_tag',
             [
-                'label'        => esc_html__( 'Show Author Name Tag?', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Author Name Tag.', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SWITCHER,
+                'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
                 'condition'    => [
@@ -280,8 +298,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_user_name_tag',
 			[
-				'label'        => esc_html__( 'Show Author Name Tag?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Author Name Tag.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
                 'condition'     => [
@@ -305,8 +325,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_date',
 			[
-				'label'        => esc_html__( 'Show Date?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Date.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -315,8 +337,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_date_tag',
 			[
-				'label'        => esc_html__( 'Show Date Tag?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Date Tag.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
                 'condition'     => [
@@ -340,8 +364,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_read_time',
 			[
-				'label'        => esc_html__( 'Show Reading Time?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Reading Time.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -350,8 +376,10 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_comment',
 			[
-				'label'        => esc_html__( 'Show Comment?', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Comment.', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
@@ -494,7 +522,7 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#f5f7fa',
+				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body' => 'background-color: {{VALUE}};'
 				]
@@ -558,6 +586,20 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'name'     => 'exad_post_grid_content_box_shadow',
 				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+				'fields_options' => [
+                    'box_shadow_type' => [ 
+                        'default' =>'yes' 
+                    ],
+                    'box_shadow'  => [
+                        'default' => [
+                            'horizontal' => 0,
+                            'vertical'   => 10,
+                            'blur'       => 30,
+                            'spread'     => 0,
+                            'color'      => 'rgba(0, 0, 0, 0.1)'
+                        ]
+                    ]
+                ],
 				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body'
 			]
 		);

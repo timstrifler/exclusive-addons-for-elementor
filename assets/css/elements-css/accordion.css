@@ -6,6 +6,7 @@
 }
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title h3 {
   width: 100%;
+  font-size: 15px;
 }
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title:hover {
   cursor: pointer;
@@ -15,8 +16,7 @@
     margin-left: 15px;
 }
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon {
-    position: relative;
-    margin-right: 15px;
+  position: relative;
 }
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-icon i,
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-inactive-icon i,
@@ -58,5 +58,14 @@
 }
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper .exad-accordion-button a {
   display: inline-block;
+}
+@media only screen and (max-width: 767px) {
+  .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper {
+    flex-direction: column;
+  }
+  .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper.has-image-yes .exad-accordion-text,
+  .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper.has-image-yes .exad-accordion-image {
+    width: 100%;
+  }
 }
 /* Exclusive Accordion End */ 

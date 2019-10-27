@@ -448,21 +448,21 @@ class Exad_Woo_Products extends Widget_Base {
     }
 
 	protected function render() {
-		$settings = $this->get_settings_for_display();
-		$skinType = $settings['exad_woo_product_skin_type'];
-        $contentType = $settings['exad_woo_product_content_type'];
-        $excerptLength = $settings['exad_woo_product_excerpt_length'];
-		$starRating = $settings['exad_woo_product_star_rating'];
-        $orderby   = $settings['exad_woo_order_by'];
-        $order     = $settings['exad_woo_order'];
-        $product_per_page  = $settings['product_per_page'];   
+        $settings           = $this->get_settings_for_display();
+        $skinType           = $settings['exad_woo_product_skin_type'];
+        $contentType        = $settings['exad_woo_product_content_type'];
+        $excerptLength      = $settings['exad_woo_product_excerpt_length'];
+        $starRating         = $settings['exad_woo_product_star_rating'];
+        $orderby            = $settings['exad_woo_order_by'];
+        $order              = $settings['exad_woo_order'];
+        $product_per_page   = $settings['product_per_page'];   
         $product_in_ids     = $settings['product_in_ids'] ? explode( ',', $settings['product_in_ids'] ) : null;
         $product_not_in_ids = $settings['product_not_in_ids'] ? explode( ',', $settings['product_not_in_ids'] ) : null; 
 
         $this->add_render_attribute( 
             'exad-woo-product-wrapper', 
             [ 
-                'class' => [ 'exad-woo-product-wrapper', 'content-type-'.$contentType ]
+                'class' => [ 'exad-woo-product-wrapper', 'content-type-'.esc_attr($contentType) ]
             ]
         );
 
