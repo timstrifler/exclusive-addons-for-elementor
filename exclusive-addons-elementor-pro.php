@@ -66,6 +66,8 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 		 */
 		private static $_instance = null;
 
+		public $appsero = null;
+
 		/**
 		 * 
 		 * Static property that consists all the default widget names
@@ -249,10 +251,13 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 				require_once __DIR__ . '/vendor/appsero/src/Client.php';
 			}
 
-			$client = new Appsero\Client( '74b80636-5fd5-4e65-a526-935acc9f260e', 'Exclusive Addons Elementor', __FILE__ );
+			$client = new Appsero\Client( '74b80636-5fd5-4e65-a526-935acc9f260e', 'Exclusive Addons Elementor - Pro', __FILE__ );
 
 			// Active insights
 			$client->insights()->init();
+
+			// Active automatic updater
+			$client->updater();
 
 		}
 
