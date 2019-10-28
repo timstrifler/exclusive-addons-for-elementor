@@ -727,7 +727,7 @@ class Exad_Modal_Popup extends Widget_Base {
 		$this->add_control(
 			'exad_modal_transition',
 			[
-				'label'   => __( 'Animated Style', 'exclusive-addons-elementor' ),
+				'label'   => __( 'Style', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SELECT,
 				'default' => 'top-to-middle',
 				'options' => [
@@ -737,7 +737,7 @@ class Exad_Modal_Popup extends Widget_Base {
 					'left-to-middle'   => __( 'Left To Middle', 'exclusive-addons-elementor' ),
 					'zoom-in'          => __( 'Zoom In', 'exclusive-addons-elementor' ),
 					'zoom-out'         => __( 'Zoom Out', 'exclusive-addons-elementor' ),
-					'left-rotate'         => __( 'Rotatation', 'exclusive-addons-elementor' ),
+					'left-rotate'      => __( 'Rotation', 'exclusive-addons-elementor' ),
 				]
 			]
 		);
