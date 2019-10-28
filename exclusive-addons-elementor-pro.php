@@ -11,6 +11,8 @@
  * License: GPL3
  */
 
+namespace Exclusive_Addons\Elementor;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -66,6 +68,8 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 		 */
 		private static $_instance = null;
 
+		public $appsero = null;
+
 		/**
 		 * 
 		 * Static property that consists all the default widget names
@@ -109,6 +113,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 			$this->constants();
 			$this->exad_initiate_elements();
 			$this->includes();
+			$this->exclusive_addons_appsero_init();
 			add_action( 'plugins_loaded', [ $this, 'init' ] );
 			add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
 			
@@ -234,6 +239,28 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 					'icon' => 'font',
 				]
 			);
+		}
+
+
+		/**
+		 * Initialize the tracker
+		 *
+		 * @return void
+		 */
+		protected function exclusive_addons_appsero_init() {
+
+			if ( ! class_exists( 'Appsero\Client' ) ) {
+				require_once __DIR__ . '/vendor/appsero/src/Client.php';
+			}
+
+			$client = new Appsero\Client( '74b80636-5fd5-4e65-a526-935acc9f260e', 'Exclusive Addons Elementor - Pro', __FILE__ );
+
+			// Active insights
+			$client->insights()->init();
+
+			// Active automatic updater
+			$client->updater();
+
 		}
 
 
@@ -511,7 +538,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 	 * 
 	 * Initilize Plugin Class
 	 */
-	Exclusive_Addons_Elementor::instance();
+	\Exclusive_Addons\Elementor\Exclusive_Addons_Elementor::instance();
 
 
 	/**
