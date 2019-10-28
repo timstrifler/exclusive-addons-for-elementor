@@ -833,6 +833,7 @@ class Exad_CTA extends Widget_Base {
         }
 
         echo '<div '.$this->get_render_attribute_string( 'exad-call-to-action-wrapper' ).'>';
+            do_action('exad_cta_wrapper_before');
 		    echo '<div class="exad-call-to-action-content">';
 			    echo '<div class="exad-call-to-action-header">';
                     if( !empty($settings['exad_cta_icon']['value'] ) ){
@@ -881,6 +882,7 @@ class Exad_CTA extends Widget_Base {
                     echo '</ul>';
 			    echo '</div>';
 		    echo '</div>';
+            do_action('exad_cta_wrapper_after');
 		echo '</div>';
 
 	}

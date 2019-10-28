@@ -6,28 +6,23 @@ if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
 class Exad_Filterable_Gallery extends Widget_Base
 {
 
-    public function get_name()
-    {
+    public function get_name(){
         return 'exad-filterable-gallery';
     }
 
-    public function get_title()
-    {
+    public function get_title(){
         return esc_html__('Filterable Gallery', 'exclusive-addons-elementor');
     }
 
-    public function get_icon()
-    {
+    public function get_icon(){
         return 'exad-element-icon eicon-gallery-grid';
     }
 
-    public function get_categories()
-    {
+    public function get_categories(){
         return ['exclusive-addons-elementor'];
     }
 
-    public function get_script_depends()
-    {
+    public function get_script_depends(){
         return [ 'exad-gallery-isotope' ];
     }
 
@@ -229,10 +224,8 @@ class Exad_Filterable_Gallery extends Widget_Base
                         'type'        => Controls_Manager::URL,
                         'label_block' => true,
                         'default'     => [
-                            'url'         => '#',
-                            'is_external' => ''
-                        ],
-                        'show_external' => true
+                            'url'     => '#'
+                        ]
                     ]
                 ],
                 'title_field' => '{{exad_fg_gallery_item_title}}'
@@ -253,7 +246,7 @@ class Exad_Filterable_Gallery extends Widget_Base
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'           => 'exad_fg_container_shadow',
-                'selector'       => '{{WRAPPER}} .exad-gallery-item'
+                'selector'       => '{{WRAPPER}} .exad-gallery-content-wrapper'
             ]
         );
 
@@ -616,13 +609,23 @@ class Exad_Filterable_Gallery extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_fg_item_icon_size',
             [
-                'label'         => esc_html__('Size', 'exclusive-addons-elementor'),
-                'type'          => Controls_Manager::SLIDER,
-                'default'       => [
-                    'size'      => 40
+                'label'      => esc_html__('Size', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'default'    => [
+                    'size' => 60,
+                    'unit' => 'px'
+                ],
+                'tablet_default' => [
+                    'size' => 50,
+                    'unit' => 'px'
+                ],
+                'mobile_default' => [
+                    'size' => 40,
+                    'unit' => 'px'
                 ],
                 'range'         => [
                     'px'        => [
@@ -631,7 +634,7 @@ class Exad_Filterable_Gallery extends Widget_Base
                     ]
                 ],
                 'selectors'     => [
-                    '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
                 ] 
             ]
         );   
@@ -639,9 +642,9 @@ class Exad_Filterable_Gallery extends Widget_Base
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'          => 'exad_fg_item_icon_typography',
-                'selector'      => '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i',                
-                'exclude' => [
+                'name'     => 'exad_fg_item_icon_typography',
+                'selector' => '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i',                
+                'exclude'  => [
                     'text_transform', 'font_family'
                 ]
             ]
@@ -765,7 +768,7 @@ class Exad_Filterable_Gallery extends Widget_Base
                 'default'    => [
                     'top'    => 0,
                     'right'  => 20,
-                    'bottom' => 0,
+                    'bottom' => 15,
                     'left'   => 20,
                     'unit'   => 'px'
                 ],
@@ -957,10 +960,12 @@ class Exad_Filterable_Gallery extends Widget_Base
         $show_title   = $settings['exad_fg_show_title'];
         $show_details = $settings['exad_fg_show_details'];
 
+        do_action('exad_fg_wrapper_before');
         echo '<div class="exad-gallery-items">';
             echo '<div id="exad-gallery-one">';
                 if( 'yes' == $settings['exad_fg_show_constrols'] ):
                     echo '<div id="filters" class="exad-gallery-menu">';
+                        do_action('exad_fg_controls_wrapper_before');
                         if(!empty($settings['exad_fg_all_items_text'])):
                             echo '<button class="filter-item is-checked" data-filter="*">'.esc_html($settings['exad_fg_all_items_text']);
                         endif;
@@ -975,6 +980,7 @@ class Exad_Filterable_Gallery extends Widget_Base
                             $control_attribute = preg_replace('#[ -]+#', '-', $control);
                             echo '<button class="filter-item" data-filter=".'.esc_attr($control_attribute).'">'.esc_attr($control).'</button>';
                         endforeach;
+                        do_action('exad_fg_controls_wrapper_after');
                     echo '</div>';
                 endif;
 
@@ -987,89 +993,98 @@ class Exad_Filterable_Gallery extends Widget_Base
                         $exad_controls_space_replaced = array_map(function($val) { return str_replace(' ', '-', $val); }, $exad_controls_remove_space);
                         $exad_control                 = implode (" ", $exad_controls_space_replaced);
 
+                        do_action('exad_fg_item_wrapper_before');
                         echo '<div class="exad-gallery-item '.esc_attr($exad_control). ' '.esc_attr( $settings['exad_fg_columns'] ).'">';
-                            echo '<div class="exad-gallery-image">';
-                                echo '<img src="'.esc_url( $gallery['exad_fg_gallery_img']['url'] ).'" alt="'.Control_Media::get_image_alt( $gallery['exad_fg_gallery_img'] ).'">';
-                                echo '<div class="exad-gallery-item-overlay '.esc_attr( $settings['exad_fg_grid_hover_style'] ).'">';
-                                    echo '<div class="exad-gallery-item-overlay-content">';
+                            echo '<div class="exad-gallery-content-wrapper">';
+                                echo '<div class="exad-gallery-image">';
+                                    echo '<img src="'.esc_url( $gallery['exad_fg_gallery_img']['url'] ).'" alt="'.Control_Media::get_image_alt( $gallery['exad_fg_gallery_img'] ).'">';
+                                    echo '<div class="exad-gallery-item-overlay '.esc_attr( $settings['exad_fg_grid_hover_style'] ).'">';
+                                        echo '<div class="exad-gallery-item-overlay-content">';
 
-                                        if( 'none' != $settings['exad_fg_show_icons'] ) :
-                                            echo '<div class="exad-fg-icons">';
-                                                if( ( 'popup' == $settings['exad_fg_show_icons'] || 'both' == $settings['exad_fg_show_icons'] ) && !empty($settings['exad_section_fg_zoom_icon']) ) :
+                                            if( 'none' != $settings['exad_fg_show_icons'] ) :
+                                                echo '<div class="exad-fg-icons">';
+                                                    if( ( 'popup' == $settings['exad_fg_show_icons'] || 'both' == $settings['exad_fg_show_icons'] ) && !empty($settings['exad_section_fg_zoom_icon']) ) :
 
-                                                    $link_key = 'link_' . $index;
-                                                    $this->add_render_attribute( $link_key, [
-                                                        'href' => esc_url( $gallery['exad_fg_gallery_img']['url'] ),
-                                                        'data-elementor-open-lightbox' => 'default',
-                                                        'data-elementor-lightbox-slideshow' => $this->get_id(),
-                                                        'data-elementor-lightbox-index' => $index
-                                                    ] );
-                                                    if ( Plugin::$instance->editor->is_edit_mode() ) {
+                                                        $link_key = 'link_' . $index;
                                                         $this->add_render_attribute( $link_key, [
-                                                            'class' => 'elementor-clickable'
+                                                            'href' => esc_url( $gallery['exad_fg_gallery_img']['url'] ),
+                                                            'data-elementor-open-lightbox' => 'default',
+                                                            'data-elementor-lightbox-slideshow' => $this->get_id(),
+                                                            'data-elementor-lightbox-index' => $index
                                                         ] );
-                                                    }
+                                                        if ( Plugin::$instance->editor->is_edit_mode() ) {
+                                                            $this->add_render_attribute( $link_key, [
+                                                                'class' => 'elementor-clickable'
+                                                            ] );
+                                                        }
 
-                                                    echo '<a ' . $this->get_render_attribute_string( $link_key ) . '>';
-                                                        Icons_Manager::render_icon( $settings['exad_section_fg_zoom_icon'], [ 'aria-hidden' => 'true' ] );
-                                                    echo '</a>';
-                                                endif; 
+                                                        echo '<a ' . $this->get_render_attribute_string( $link_key ) . '>';
+                                                            Icons_Manager::render_icon( $settings['exad_section_fg_zoom_icon'], [ 'aria-hidden' => 'true' ] );
+                                                        echo '</a>';
+                                                    endif; 
 
-                                                if( ( 'link' == $settings['exad_fg_show_icons'] || 'both' == $settings['exad_fg_show_icons'] )  && !empty($settings['exad_section_fg_link_icon']) ) :
-                                                    if ( $gallery['exad_fg_gallery_img_link']['url'] ) {
-                                                        $href = 'href="'.esc_url($gallery['exad_fg_gallery_img_link']['url']).'"';
-                                                    } else {
-                                                        $href = '';
-                                                    }
-                                                    if ( $gallery['exad_fg_gallery_img_link']['is_external'] === 'on' ) {
-                                                        $target = ' target= _blank';
-                                                    } else {
-                                                        $target = '';
-                                                    }
-                                                    if ( $gallery['exad_fg_gallery_img_link']['nofollow'] === 'on' ) {
-                                                        $target .= ' rel= nofollow ';
-                                                    }
-                                                    echo '<a '.$href.esc_attr($target).'>';
-                                                        Icons_Manager::render_icon( $settings['exad_section_fg_link_icon'], [ 'aria-hidden' => 'true' ] );
-                                                    echo '</a>';
-                                                endif;
-                                            echo '</div>'; 
-                                        endif; 
+                                                    if( ( 'link' == $settings['exad_fg_show_icons'] || 'both' == $settings['exad_fg_show_icons'] )  && !empty($settings['exad_section_fg_link_icon']) ) :
+                                                        if ( $gallery['exad_fg_gallery_img_link']['url'] ) {
+                                                            $href = 'href="'.esc_url($gallery['exad_fg_gallery_img_link']['url']).'"';
+                                                        } else {
+                                                            $href = '';
+                                                        }
+                                                        if ( $gallery['exad_fg_gallery_img_link']['is_external'] === 'on' ) {
+                                                            $target = ' target= _blank';
+                                                        } else {
+                                                            $target = '';
+                                                        }
+                                                        if ( $gallery['exad_fg_gallery_img_link']['nofollow'] === 'on' ) {
+                                                            $target .= ' rel= nofollow ';
+                                                        }
+                                                        echo '<a '.$href.esc_attr($target).'>';
+                                                            Icons_Manager::render_icon( $settings['exad_section_fg_link_icon'], [ 'aria-hidden' => 'true' ] );
+                                                        echo '</a>';
+                                                    endif;
+                                                echo '</div>'; 
+                                            endif; 
 
-                                        if('over-image' == $settings['exad_fg_grid_content_position'] && ('yes' == $show_title || 'yes' == $show_details)):
-                                            echo '<div class="exad-gallery-item-content">';
-                                                if( 'yes' == $show_title && !empty( $gallery['exad_fg_gallery_item_title'] ) ):
-                                                    echo '<h2>'.esc_html($gallery['exad_fg_gallery_item_title']).'</h2>';
-                                                endif;
-                                                if( 'yes' == $show_details && !empty( $gallery['exad_fg_gallery_item_content'] ) ):
-                                                    echo '<p>'.wp_kses_post( $gallery['exad_fg_gallery_item_content']).'</p>';
-                                                endif;
-                                            echo '</div>';
-                                        endif;
+                                            if('over-image' == $settings['exad_fg_grid_content_position'] && ('yes' == $show_title || 'yes' == $show_details)):
+                                                echo '<div class="exad-gallery-item-content">';
+                                                    do_action('exad_fg_content_wrapper_before');
+                                                    if( 'yes' == $show_title && !empty( $gallery['exad_fg_gallery_item_title'] ) ):
+                                                        echo '<h2>'.esc_html($gallery['exad_fg_gallery_item_title']).'</h2>';
+                                                    endif;
+                                                    if( 'yes' == $show_details && !empty( $gallery['exad_fg_gallery_item_content'] ) ):
+                                                        echo '<p>'.wp_kses_post( $gallery['exad_fg_gallery_item_content']).'</p>';
+                                                    endif;
+                                                    do_action('exad_fg_content_wrapper_after');
+                                                echo '</div>';
+                                            endif;
+                                        echo '</div>';
                                     echo '</div>';
                                 echo '</div>';
-                            echo '</div>';
 
-                            if('below-image' == $settings['exad_fg_grid_content_position'] && ('yes' == $show_title || 'yes' == $show_details)):
-                                echo '<div class="exad-gallery-item-content below-image">';
-                                    if( 'yes' == $show_title && !empty( $gallery['exad_fg_gallery_item_title'] ) ):
-                                        echo '<h2>'.esc_html($gallery['exad_fg_gallery_item_title']).'</h2>';
-                                    endif;
-                                    if( 'yes' == $show_details && !empty( $gallery['exad_fg_gallery_item_content'] ) ):
-                                        echo '<p>'.wp_kses_post( $gallery['exad_fg_gallery_item_content']).'</p>';
-                                    endif;
-                                echo '</div>';
-                            endif;
+                                if('below-image' == $settings['exad_fg_grid_content_position'] && ('yes' == $show_title || 'yes' == $show_details)):
+                                    echo '<div class="exad-gallery-item-content below-image">';
+                                        do_action('exad_fg_content_wrapper_before');
+                                        if( 'yes' == $show_title && !empty( $gallery['exad_fg_gallery_item_title'] ) ):
+                                            echo '<h2>'.esc_html($gallery['exad_fg_gallery_item_title']).'</h2>';
+                                        endif;
+                                        if( 'yes' == $show_details && !empty( $gallery['exad_fg_gallery_item_content'] ) ):
+                                            echo '<p>'.wp_kses_post( $gallery['exad_fg_gallery_item_content']).'</p>';
+                                        endif;
+                                        do_action('exad_fg_content_wrapper_after');
+                                    echo '</div>';
+                                endif;
+                            echo '</div>';
                         echo '</div>';
+                        do_action('exad_fg_item_wrapper_after');
                     endforeach;
 
                 echo '</div>';
             echo '</div>';
         echo '</div>';
+        do_action('exad_fg_wrapper_after');
 
-}
+    }
 
-protected function content_template() {}
+    protected function content_template() {}
 
 }
 

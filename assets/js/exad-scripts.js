@@ -457,7 +457,7 @@ let ExadNewsTicker = function( $scope, $ ) {
             $(this).breakingNews({
                 position: fixed_bottom,
                 play: auto,
-                // direction: direction,
+                direction: direction,
                 scrollSpeed: animation_speed,
                 stopOnHover: pause_on_hover,
                 effect: the_effect,
@@ -465,7 +465,7 @@ let ExadNewsTicker = function( $scope, $ ) {
                 height: ticker_height,
                 fontSize: "default",
                 themeColor: "default",
-                background: "default",                       
+                background: "default"             
             });    
         });
     }

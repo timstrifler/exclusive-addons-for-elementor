@@ -1193,7 +1193,9 @@ class Exclusive_Accordion extends Widget_Base {
         $this->add_render_attribute( 'exad_accordion_button', 'class', 'exad-accordion-button' );
     
         echo '<div class="exad-accordion-items">';
+        	do_action('exad_accordion_wrapper_before');
             foreach( $settings['exad_exclusive_accordion_tab'] as $key => $accordion ) : 
+            	do_action('exad_accordion_each_item_wrapper_before');
                 
                 $accordion_item_setting_key = $this->get_repeater_setting_key('exad_exclusive_accordion_title', 'exad_exclusive_accordion_tab', $key);
 
@@ -1270,7 +1272,9 @@ class Exclusive_Accordion extends Widget_Base {
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';
+                do_action('exad_accordion_each_item_wrapper_after');
             endforeach;
+            do_action('exad_accordion_wrapper_after');
         echo '</div>';
     }
 }
