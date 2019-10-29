@@ -149,9 +149,9 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 		 */
 		public function exad_initiate_elements() {
 
-			$dir = new RecursiveDirectoryIterator( EXAD_PATH . 'elements/' );
-			$child_dir = new RecursiveIteratorIterator($dir);
-			$files = new RegexIterator( $child_dir, '/^.+\.php$/i' );
+			$dir = new \RecursiveDirectoryIterator( EXAD_PATH . 'elements/' );
+			$child_dir = new \RecursiveIteratorIterator($dir);
+			$files = new \RegexIterator( $child_dir, '/^.+\.php$/i' );
 			
 			foreach( $files as $file ) {
 				$filename = basename( $file, '.php' );
@@ -249,11 +249,11 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 		 */
 		protected function exclusive_addons_appsero_init() {
 
-			if ( ! class_exists( 'Appsero\Client' ) ) {
+			if ( ! class_exists( '\Appsero\Client' ) ) {
 				require_once __DIR__ . '/vendor/appsero/src/Client.php';
 			}
 
-			$client = new Appsero\Client( '74b80636-5fd5-4e65-a526-935acc9f260e', 'Exclusive Addons Elementor - Pro', __FILE__ );
+			$client = new \Appsero\Client( '74b80636-5fd5-4e65-a526-935acc9f260e', 'Exclusive Addons Elementor - Pro', __FILE__ );
 
 			// Active insights
 			$client->insights()->init();
