@@ -11,7 +11,7 @@
  * License: GPL3
  */
 
-namespace Exclusive_Addons\Elementor;
+namespace ExclusiveAddons\Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -538,7 +538,7 @@ if ( ! class_exists( 'Base' ) ) {
 	 * 
 	 * Initilize Plugin Class
 	 */
-	\Exclusive_Addons\Elementor\Base::instance();
+	\ExclusiveAddons\Elementor\Base::instance();
 
 
 	/**

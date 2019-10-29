@@ -3,13 +3,13 @@
  * Dashboard Settings Page
  */
 
-namespace Exclusive_Addons\Elementor\Dashboard;
+namespace ExclusiveAddons\Elementor\Dashboard;
 
 if( ! defined( 'ABSPATH' ) ) {
     exit(); // Exit if accessed directly
 }
 
-use \Exclusive_Addons\Elementor\Base;
+use \ExclusiveAddons\Elementor\Base;
 
 class Admin_Settings {
 
@@ -340,4 +340,4 @@ class Admin_Settings {
 
 }
 
-new \Exclusive_Addons\Elementor\Dashboard\Admin_Settings();
+new \ExclusiveAddons\Elementor\Dashboard\Admin_Settings();
