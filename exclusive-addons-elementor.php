@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Exclusive Addons Elementor - Pro
+ * Plugin Name: Exclusive Addons Elementor
  * Plugin URI: http://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
- * Version: 1.0
+ * Version: 2.0
  * Author: DevsCred
  * Author URI: http://devscred.com/
  * Text Domain: exclusive-addons-elementor
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
+if ( ! class_exists( 'Base' ) ) {
 
 
 	/**
@@ -27,7 +27,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	final class Exclusive_Addons_Elementor {
+	final class Base {
 
 		/**
 		 * Plugin Version
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 		 *
 		 * @var string The plugin version.
 		 */
-		const VERSION = '1.0';
+		const VERSION = '2.0';
 
 		/**
 		 * Minimum Elementor Version
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 		 * @access private
 		 * @static
 		 *
-		 * @var Exclusive_Addons_Elementor The single instance of the class.
+		 * @var Base The single instance of the class.
 		 */
 		private static $_instance = null;
 
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 		 * @access public
 		 * @static
 		 *
-		 * @return Exclusive_Addons_Elementor An instance of the class.
+		 * @return Base An instance of the class.
 		 */
 		public static function instance() {
 
@@ -538,7 +538,7 @@ if ( ! class_exists( 'Exclusive_Addons_Elementor' ) ) {
 	 * 
 	 * Initilize Plugin Class
 	 */
-	\Exclusive_Addons\Elementor\Exclusive_Addons_Elementor::instance();
+	\Exclusive_Addons\Elementor\Base::instance();
 
 
 	/**

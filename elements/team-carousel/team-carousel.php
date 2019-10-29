@@ -1471,7 +1471,7 @@ class Exad_Team_Carousel extends Widget_Base {
 			?>
 			
 				<div <?php echo $this->get_render_attribute_string( 'exad_team_carousel_inner' ); ?> >
-	            	<div class="exad-team-member <?php echo esc_attr( $settings['exad_team_carousel_content_alignment'] ); ?> <?php echo esc_attr( $settings['exad_team_member_content_image_position'] ); ?>">
+	            	<div class="exad-team-member <?php echo esc_attr( $settings['exad_team_carousel_content_alignment'] ); ?>">
 	                	<div class="exad-team-member-thumb">
 	                  		<img src="<?php echo esc_url($team_carousel_image_url); ?>" class="circled" alt="<?php echo esc_attr( $member['exad_team_carousel_name'] ); ?>">
 	                	</div>

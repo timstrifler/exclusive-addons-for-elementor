@@ -3,11 +3,15 @@
  * Dashboard Settings Page
  */
 
+namespace Exclusive_Addons\Elementor\Dashboard;
+
 if( ! defined( 'ABSPATH' ) ) {
     exit(); // Exit if accessed directly
 }
 
-class Exad_Admin_Settings {
+use \Exclusive_Addons\Elementor\Base;
+
+class Admin_Settings {
 
 	/**
 	 * Defaults Settings
@@ -84,7 +88,7 @@ class Exad_Admin_Settings {
 		);
 		wp_localize_script( 'exad-admin-js', 'js_exad_settings', $js_info );
 
-	    $this->exad_default_settings = array_fill_keys( Exclusive_Addons_Elementor::$exad_default_widgets, true );
+	    $this->exad_default_settings = array_fill_keys( Base::$exad_default_widgets, true );
 	    $this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
 	    $exad_new_settings = array_diff_key( $this->exad_default_settings, $this->exad_get_settings );
 
@@ -250,7 +254,8 @@ class Exad_Admin_Settings {
                                 </div>
                                 <div class="exad-dashboard-checkbox-container">
 
-                                <?php foreach( Exclusive_Addons_Elementor::$exad_default_widgets as $widget ) : ?>        
+                                <?php sort(Base::$exad_default_widgets); ?>
+                                <?php foreach( Base::$exad_default_widgets as $widget ) : ?>
                                     <?php if ( isset( $widget ) ) : ?>            
                                         <div class="exad-dashboard-checkbox">
                                             <div class="exad-dashboard-checkbox-text">
@@ -316,7 +321,7 @@ class Exad_Admin_Settings {
 
 		$this->exad_settings = [];
 
-		foreach( Exclusive_Addons_Elementor::$exad_default_widgets as $value ){
+		foreach( Base::$exad_default_widgets as $value ){
 			if( isset( $settings[ $value ] ) ) {
 				$this->exad_settings[ $value ] = 1;
 			} else {
@@ -335,4 +340,4 @@ class Exad_Admin_Settings {
 
 }
 
-new Exad_Admin_Settings();
+new \Exclusive_Addons\Elementor\Dashboard\Admin_Settings();
