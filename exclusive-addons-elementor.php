@@ -131,6 +131,10 @@ if ( ! class_exists( 'Base' ) ) {
 			define( 'EXAD_PBNAME', plugin_basename(__FILE__) );
 			if ( ! defined( 'EXAD_PATH' ) )
 				define( 'EXAD_PATH', plugin_dir_path( __FILE__ ) );
+			if ( ! defined( 'EXAD_ADMIN' ) )
+				define( 'EXAD_ADMIN', plugin_dir_path( __FILE__ ) . 'admin/' );	
+				if ( ! defined( 'EXAD_ADMIN_URL' ) )
+				define( 'EXAD_ADMIN_URL', plugins_url( '/', __FILE__ ) . 'admin/' );	
 			if ( ! defined( 'EXAD_ELEMENTS' ) )
 				define( 'EXAD_ELEMENTS', plugin_dir_path( __FILE__ ) . 'elements/' );
 			if ( ! defined( 'EXAD_TEMPLATES' ) )
