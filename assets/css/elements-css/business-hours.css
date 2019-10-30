@@ -1,0 +1,11 @@
+.business-date {
+    overflow: hidden;
+    clear: both;
+}
+
+span.single-business-date {
+    float: left;
+}
+span.single-business-time {
+    float: right;
+}
