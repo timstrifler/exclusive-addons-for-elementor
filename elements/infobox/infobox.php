@@ -243,8 +243,8 @@ class Exad_Infobox extends Widget_Base {
             [
 				'label' => __( 'Transition Top', 'exclusive-addons-elementor' ),
 				'type' =>  Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'your-plugin' ),
-				'label_off' => __( 'Hide', 'your-plugin' ),
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -254,8 +254,8 @@ class Exad_Infobox extends Widget_Base {
             [
 				'label' => __( 'Transition Zoom', 'exclusive-addons-elementor' ),
 				'type' =>  Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'your-plugin' ),
-				'label_off' => __( 'Hide', 'your-plugin' ),
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]

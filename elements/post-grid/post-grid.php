@@ -1181,7 +1181,7 @@ class Exad_Post_Grid extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => 'transparent',
+                    'default'   => 'rgba(0,0,0,0)',
                     'selectors' => [
                         '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a' => 'background: {{VALUE}};'
                     ]

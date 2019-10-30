@@ -363,8 +363,8 @@ class Exad_Modal_Popup extends Widget_Base {
 				[
 					'label'        => __( 'Overlay', 'plugin-domain' ),
 					'type'         => Controls_Manager::SWITCHER,
-					'label_on'     => __( 'Show', 'your-plugin' ),
-					'label_off'    => __( 'Hide', 'your-plugin' ),
+					'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+					'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
 					'return_value' => 'yes',
 					'default'      => 'yes'
 				]

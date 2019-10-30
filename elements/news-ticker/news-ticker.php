@@ -385,7 +385,9 @@ class ExadNewsTicker extends Widget_Base {
             'exad_news_ticker_show_label_icon',
             [
                 'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Show Label Icon?', 'exclusive-addons-elementor' ),
+                'label'         => esc_html__( 'Enable Label Icon.', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
                 'default'       => 'no',
                 'return_value'  => 'yes'
             ]
@@ -423,14 +425,14 @@ class ExadNewsTicker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_label_icon_color',
             [
-                'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .exad-news-ticker-icon i' => 'color: {{VALUE}};'
                 ],
                 'condition' => [
                     'exad_news_ticker_show_label_icon' => 'yes'
-                ]               
+                ]            
             ]
         );
 
@@ -809,7 +811,7 @@ class ExadNewsTicker extends Widget_Base {
         );
 
         echo '<div '.$this->get_render_attribute_string( 'exad-news-ticker-wrapper' ).'>';
-            do_action('exad_news_ticker_wrapper_before');
+            do_action( 'exad_news_ticker_wrapper_before' );
             if(!empty($label) && ('yes' == $show_label)):
                 echo '<div class="exad-bn-label'.esc_attr($arrow).'">';
                     echo '<div class="exad-nt-label">';
@@ -853,7 +855,7 @@ class ExadNewsTicker extends Widget_Base {
                     echo '<button><span class="bn-arrow bn-next"></span></button>';
                 echo '</div>';
             endif;
-            do_action('exad_news_ticker_wrapper_after');
+            do_action( 'exad_news_ticker_wrapper_after' );
         echo '</div>';
     }
 }

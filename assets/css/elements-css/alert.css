@@ -1,7 +1,6 @@
 /* Exclusive alert style start*/
 .exad-alert .exad-alert-element {
   display: flex;
-  /* padding: 20px; */
   align-items: center;
   text-align: center;
   border-radius: 40px;
@@ -40,7 +39,6 @@
 }
 
 .exad-alert .exad-alert-element .exad-alert-element-dismiss-icon {
-  /* width: 5%; */
   position: absolute;
   top: 50%;
   right: 20px;
@@ -62,24 +60,23 @@
   display: inline-block;
 }
 .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done,.exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel {
-  /* padding: 15px 35px; */
   text-decoration: none;
   display: inline-block;
   transition: all .3s ease;
   border-radius: 5px;
-  /* color: #fff; */
   margin-right: 10px;
-  /* font-family: "Roboto", sans-serif; */
   font-size: 15px;
 }
-
-/* .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel {
-  border: 1px solid #F05E5E;
-  color: #f05e5e;
+.exad-alert-element-dismiss-button button {
+  border: none;
 }
-
-.exad-alert-element-dismiss-button .exad-alert-element-dismiss-done {
-  background: #2775FF;
-} */
-
-/* Exclusive alert style end*/
+@media only screen and (max-width: 767px) {
+  .exad-alert .exad-alert-element {
+    flex-direction: column;
+  }
+  body .exad-alert .exad-alert-element .exad-alert-element-icon,
+  body .exad-alert .exad-alert-element .exad-alert-element-content {
+    width: 100% !important;
+  }
+}
+/* Exclusive alert style start ends*/

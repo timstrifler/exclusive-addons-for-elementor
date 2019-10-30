@@ -209,7 +209,7 @@ class Exad_Filterable_Gallery extends Widget_Base
                         'label'       => esc_html__('Control Name', 'exclusive-addons-elementor'),
                         'type'        => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'description' => __( '<b>Comma separate gallery controls. Example: Design, Branding</b>', 'exclusive-addons-elementor' )
+                        'description' => __( '<b>Comma separated gallery controls. Example: Design, Branding</b>', 'exclusive-addons-elementor' )
                     ],
                     [
                         'name'        => 'exad_fg_gallery_img',
@@ -1083,8 +1083,6 @@ class Exad_Filterable_Gallery extends Widget_Base
         do_action('exad_fg_wrapper_after');
 
     }
-
-    protected function content_template() {}
 
 }
 

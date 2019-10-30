@@ -836,7 +836,7 @@ class Exad_CTA extends Widget_Base {
             do_action('exad_cta_wrapper_before');
 		    echo '<div class="exad-call-to-action-content">';
 			    echo '<div class="exad-call-to-action-header">';
-                    if( !empty($settings['exad_cta_icon']['value'] ) ){
+                    if( !empty( $settings['exad_cta_icon']['value'] ) ){
                         echo '<div class="exad-call-to-action-icon">';
                             Icons_Manager::render_icon( $settings['exad_cta_icon'], [ 'aria-hidden' => 'true' ] );
                         echo '</div>';
@@ -884,9 +884,7 @@ class Exad_CTA extends Widget_Base {
 		    echo '</div>';
             do_action('exad_cta_wrapper_after');
 		echo '</div>';
-
 	}
-
 }
 
 
