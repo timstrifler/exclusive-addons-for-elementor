@@ -88,7 +88,7 @@ class Admin_Settings {
 		);
 		wp_localize_script( 'exad-admin-js', 'js_exad_settings', $js_info );
 
-	    $this->exad_default_settings = array_fill_keys( Base::$exad_default_widgets, true );
+	    $this->exad_default_settings = array_fill_keys( Base::$registered_elements, true );
 	    $this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
 	    $exad_new_settings = array_diff_key( $this->exad_default_settings, $this->exad_get_settings );
 
@@ -97,7 +97,7 @@ class Admin_Settings {
 			update_option( 'exad_save_settings', $exad_updated_settings );
         }
         
-	    $this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
+		$this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
         
         ?>
         <div class="exad-elements-dashboard-wrapper">
@@ -138,8 +138,7 @@ class Admin_Settings {
                                 </div>
                                 <div class="exad-dashboard-checkbox-container">
 
-                                <?php sort(Base::$exad_default_widgets); ?>
-                                <?php foreach( Base::$exad_default_widgets as $widget ) : ?>
+                                <?php foreach( Base::$registered_elements as $widget ) : ?>
                                     <?php if ( isset( $widget ) ) : ?>            
                                         <div class="exad-dashboard-checkbox">
                                             <div class="exad-dashboard-checkbox-text">
@@ -151,7 +150,7 @@ class Admin_Settings {
                                             </div>
                                         </div>
                                     <?php endif; ?>
-                                <?php endforeach; ?>              
+                                <?php endforeach; ?>
 
                                 </div>
                                 <!--./checkbox-container-->
@@ -185,7 +184,7 @@ class Admin_Settings {
 
 		$this->exad_settings = [];
 
-		foreach( Base::$exad_default_widgets as $value ){
+		foreach( Base::$registered_elements as $value ){
 			if( isset( $settings[ $value ] ) ) {
 				$this->exad_settings[ $value ] = 1;
 			} else {

@@ -4,7 +4,7 @@
  * Plugin URI: http://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
  * Version: 2.0
- * Author: DevsCred
+ * Author: DevsCred.com
  * Author URI: http://devscred.com/
  * Text Domain: exclusive-addons-elementor
  * Domain Path: /languages
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Base' ) ) {
+if ( ! class_exists( '\ExclusiveAddons\Elementor\Base' ) ) {
 
 
 	/**
@@ -79,7 +79,18 @@ if ( ! class_exists( 'Base' ) ) {
 		 * 
 		 * @return array
 		 */
-		public static $exad_default_widgets = array(); 
+		public $exad_default_widgets = array(); 
+
+		/**
+		 * 
+		 * Static property to add all the Free and Pro widgets
+		 * 
+		 * @access public
+		 * @static
+		 * 
+		 * 
+		 */
+		public static $registered_elements;
 
 		/**
 		 * Instance
@@ -113,6 +124,8 @@ if ( ! class_exists( 'Base' ) ) {
 			$this->constants();
 			$this->exad_initiate_elements();
 			$this->includes();
+			self::$registered_elements = apply_filters( 'exad/registered_elements', $this->exad_default_widgets );
+			sort( self::$registered_elements );
 			$this->exclusive_addons_appsero_init();
 			add_action( 'plugins_loaded', [ $this, 'init' ] );
 			add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
@@ -143,25 +156,6 @@ if ( ! class_exists( 'Base' ) ) {
 			define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
 			if ( ! defined( 'EXAD_ASSETS_URL' ) )
 				define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );	
-		}
-
-		/**
-		 * 
-		 * Initiate Elements name from folder created inside elements
-		 * 
-		 * @since 1.2.2
-		 */
-		public function exad_initiate_elements() {
-
-			$dir = new \RecursiveDirectoryIterator( EXAD_PATH . 'elements/' );
-			$child_dir = new \RecursiveIteratorIterator($dir);
-			$files = new \RegexIterator( $child_dir, '/^.+\.php$/i' );
-			
-			foreach( $files as $file ) {
-				$filename = basename( $file, '.php' );
-				self::$exad_default_widgets[] = $filename;
-			}
-			
 		}
 
 
@@ -245,6 +239,24 @@ if ( ! class_exists( 'Base' ) ) {
 			);
 		}
 
+		/**
+		 * 
+		 * Initiate Elements name from folder created inside elements
+		 * 
+		 * @since 1.2.2
+		 */
+		public function exad_initiate_elements() {
+
+			$dir = new \RecursiveDirectoryIterator( EXAD_PATH . 'elements/' );
+			$child_dir = new \RecursiveIteratorIterator($dir);
+			$files = new \RegexIterator( $child_dir, '/^.+\.php$/i' );
+			
+			foreach( $files as $file ) {
+				$filename = basename( $file, '.php' );
+				//if ( $filename !== 'slider' AND $filename !== 'image-hotspot' )
+					$this->exad_default_widgets[] = $filename;
+			}
+		}
 
 		/**
 		 * Initialize the tracker
@@ -482,7 +494,7 @@ if ( ! class_exists( 'Base' ) ) {
 		*/
 		public static function activated_widgets() {
 			
-			$exad_default_settings  = array_fill_keys( self::$exad_default_widgets, true );
+			$exad_default_settings  = array_fill_keys( self::$registered_elements, true );
 			$exad_get_settings      = get_option( 'exad_save_settings', $exad_default_settings );
 			$exad_new_settings      = array_diff_key( $exad_default_settings, $exad_get_settings );
 
@@ -507,8 +519,7 @@ if ( ! class_exists( 'Base' ) ) {
 		public function exad_init_widgets() {
 			
 			$activated_widgets = $this->activated_widgets();
-
-			foreach( self::$exad_default_widgets as $widget ) {
+			foreach( self::$registered_elements as $widget ) {
 				if ( $activated_widgets[$widget] == true ) {
 					if ( $widget == 'contact-form-7' ) {
 						if ( function_exists( 'wpcf7' ) ) {
