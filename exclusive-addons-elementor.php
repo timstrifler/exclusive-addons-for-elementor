@@ -121,6 +121,9 @@ if ( ! class_exists( '\ExclusiveAddons\Elementor\Base' ) ) {
 		 * @access public
 		 */
 		public function __construct() {
+			// before init hook
+			do_action('exad/before_init');
+			
 			$this->constants();
 			$this->exad_initiate_elements();
 			$this->includes();
