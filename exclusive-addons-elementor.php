@@ -123,7 +123,7 @@ if ( ! class_exists( '\ExclusiveAddons\Elementor\Base' ) ) {
 		public function __construct() {
 			// before init hook
 			do_action('exad/before_init');
-			
+
 			$this->constants();
 			$this->exad_initiate_elements();
 			$this->includes();
@@ -256,8 +256,7 @@ if ( ! class_exists( '\ExclusiveAddons\Elementor\Base' ) ) {
 			
 			foreach( $files as $file ) {
 				$filename = basename( $file, '.php' );
-				//if ( $filename !== 'slider' AND $filename !== 'image-hotspot' )
-					$this->exad_default_widgets[] = $filename;
+				$this->exad_default_widgets[] = $filename;
 			}
 		}
 
@@ -524,13 +523,14 @@ if ( ! class_exists( '\ExclusiveAddons\Elementor\Base' ) ) {
 			$activated_widgets = $this->activated_widgets();
 			foreach( self::$registered_elements as $widget ) {
 				if ( $activated_widgets[$widget] == true ) {
+					
 					if ( $widget == 'contact-form-7' ) {
-						if ( function_exists( 'wpcf7' ) ) {
-							include_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+						if ( ! function_exists( 'wpcf7' ) ) {
+							continue;
 						}	
-					} else {
-						include_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
-					}
+					} 
+
+					include_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
 				}
 			}
 
