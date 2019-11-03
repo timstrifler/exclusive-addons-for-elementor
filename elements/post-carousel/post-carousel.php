@@ -348,8 +348,7 @@ class Exad_Post_Carousel extends Widget_Base {
                     'dots'   => esc_html__( 'Dots', 'exclusive-addons-elementor' ),
                     'both'   => esc_html__( 'Arrows and Dots', 'exclusive-addons-elementor' ),
                     'none'   => esc_html__( 'None', 'exclusive-addons-elementor' )
-                    
-                ],
+                ]
             ]
         );
 

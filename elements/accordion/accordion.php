@@ -57,6 +57,8 @@ class Exclusive_Accordion extends Widget_Base {
 			'exad_exclusive_accordion_icon_show', [
 				'label'        => esc_html__( 'Enable Title Icon', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'default'      => 'no',
 				'return_value' => 'yes'
 			]
@@ -1181,7 +1183,7 @@ class Exclusive_Accordion extends Widget_Base {
             $image_src = $image_src[0];
         }
 
-        return sprintf( '<img src="%s" alt="'.Control_Media::get_image_alt( $accordion['exad_accordion_image'] ).'" />', esc_url($image_src), esc_html($accordion['exad_exclusive_accordion_title']) );
+        return sprintf( '<img src="%s" alt="'.Control_Media::get_image_alt( $accordion['exad_accordion_image'] ).'" />', esc_url($image_src) );
     }
 
 	protected function render() {

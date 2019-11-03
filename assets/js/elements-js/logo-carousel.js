@@ -7,18 +7,20 @@ var LogoCarousel = function ($scope, $) {
         $loop = ($logoCarouselWrapper.data("loop") !== undefined) ? $logoCarouselWrapper.data("loop") : false,
         $autoPlay = ($logoCarouselWrapper.data("autoplay") !== undefined) ? $logoCarouselWrapper.data("autoplay") : false,
         $autoplaySpeed = ($logoCarouselWrapper.data("autoplayspeed") !== undefined) ? $logoCarouselWrapper.data("autoplayspeed") : false;
-        // $transitionSpeed = $logoCarouselWrapper.data("speed");
-    // $pauseOnHover = ($logoCarouselWrapper.data("pauseOnHover") !== undefined) ? $logoCarouselWrapper.data("pauseOnHover") : false;
 
-    if ($carousel_nav == "arrows" ) {
-        var arrows = true;
-        var dots = false;
-    } else {
-        var arrows = false;
-        var dots = true;
-    }
-
-    console.log($logoCarouselWrapper);
+        if ( 'both' == $carousel_nav ) {
+            var arrows = true;
+            var dots = true;
+        } else if ( 'arrows' == $carousel_nav ) {
+            var arrows = true;
+            var dots = false;
+        } else if ( 'dots' == $carousel_nav ) {
+            var arrows = false;
+            var dots = true;
+        } else {
+            var arrows = false;
+            var dots = false;
+        }
 
     $logoCarouselWrapper.slick({
         infinite: $loop,
@@ -27,29 +29,29 @@ var LogoCarousel = function ($scope, $) {
         autoplay: $autoPlay,
         autoplaySpeed: $autoplaySpeed,
         dots: dots,
-          arrows: arrows,
-          prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-          nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
-          responsive: [
+        arrows: arrows,
+        prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
+        nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
+        responsive: [
             {
               breakpoint: 1024,
               settings: {
-                slidesToShow: 3,
+                slidesToShow: 3
               }
             },
             {
               breakpoint: 768,
               settings: {
-                slidesToShow: 2,
+                slidesToShow: 2
               }
             },
             {
               breakpoint: 450,
               settings: {
-                slidesToShow: 1,
+                slidesToShow: 1
               }
             }
-        ],
+        ]
     });	
 };
 

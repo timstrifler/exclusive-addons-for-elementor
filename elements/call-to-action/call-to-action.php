@@ -822,9 +822,6 @@ class Exad_CTA extends Widget_Base {
         $heading  = $settings['exad_cta_heading'];
         $details  = $settings['exad_cta_description'];
 
-        $this->add_inline_editing_attributes( 'exad_cta_heading', 'none' );
-        $this->add_inline_editing_attributes( 'exad_cta_description', 'none' );
-
         $this->add_render_attribute( 'exad_cta_heading', 'class', 'exad-call-to-action-title' );
         $this->add_render_attribute( 'exad_cta_description', 'class', 'exad-call-to-action-subtitle' );
         $this->add_render_attribute( 'exad-call-to-action-wrapper', 'class', 'exad-call-to-action skin-'.$settings['exad_cta_skin_type'] );

@@ -2185,34 +2185,34 @@ class ExclusiveSliderItem extends Widget_Base {
     }
   
     protected function render() {
-		$settings              = $this->get_settings_for_display();
-		$exadSliderProgressbar = $settings['exad_slider_progress_bar'];
-		$pauseOnHover          = $settings['exad_slider_pause_on_hover'];
+        $settings              = $this->get_settings_for_display();
+        $exadSliderProgressbar = $settings['exad_slider_progress_bar'];
+        $pauseOnHover          = $settings['exad_slider_pause_on_hover'];
         $autoplaySpeed         = $settings['exad_slider_autoplay_speed'];
         $autoplaySpeedInSecond = ($settings['exad_slider_autoplay_speed'] / 1000);
-
-		$exadSliderControls    = ['exad-slider'];
-		$exadSliderControls[]  = $settings['exad_slider_full_screen_size'] == 'yes' ? 'fullscreen' : '';
-
-        $title_animation_in  = $settings['exad_slider_title_animation_in'];
-        $title_animation_out = $settings['exad_slider_title_animation_out'];
-        $title_delay_in      = $settings['exad_slider_title_animation_delay_in']['size'];
-        $title_duration_in   = $settings['exad_slider_title_animation_duration_in']['size'];
-        $title_duration_out  = $settings['exad_slider_title_animation_duration_out']['size'];
-
+        
+        $exadSliderControls    = ['exad-slider'];
+        $exadSliderControls[]  = $settings['exad_slider_full_screen_size'] == 'yes' ? 'fullscreen' : '';
+        
+        $title_animation_in    = $settings['exad_slider_title_animation_in'];
+        $title_animation_out   = $settings['exad_slider_title_animation_out'];
+        $title_delay_in        = $settings['exad_slider_title_animation_delay_in']['size'];
+        $title_duration_in     = $settings['exad_slider_title_animation_duration_in']['size'];
+        $title_duration_out    = $settings['exad_slider_title_animation_duration_out']['size'];
+        
         $details_animation_in  = $settings['exad_slider_details_animation_in'];
         $details_animation_out = $settings['exad_slider_details_animation_out'];
         $details_delay_in      = $settings['exad_slider_details_animation_delay_in']['size'];
         $details_duration_in   = $settings['exad_slider_details_animation_duration_in']['size'];
         $details_duration_out  = $settings['exad_slider_details_animation_duration_out']['size'];
-
-        $button_animation_in  = $settings['exad_slider_button_animation_in'];
-        $button_animation_out = $settings['exad_slider_button_animation_out'];
-        $button_delay_in      = $settings['exad_slider_button_animation_delay_in']['size'];
-        $button_duration_in   = $settings['exad_slider_button_animation_duration_in']['size'];
-        $button_duration_out  = $settings['exad_slider_button_animation_duration_out']['size'];
-
-		$bar   = ( $exadSliderProgressbar == 'yes' ) ? 'active' : 'inactive';
+        
+        $button_animation_in   = $settings['exad_slider_button_animation_in'];
+        $button_animation_out  = $settings['exad_slider_button_animation_out'];
+        $button_delay_in       = $settings['exad_slider_button_animation_delay_in']['size'];
+        $button_duration_in    = $settings['exad_slider_button_animation_duration_in']['size'];
+        $button_duration_out   = $settings['exad_slider_button_animation_duration_out']['size'];
+        
+        $bar                   = ( $exadSliderProgressbar == 'yes' ) ? 'active' : 'inactive';
 
         if ( ( 'both' || 'dots' ) == $settings['exad_slider_nav'] ) {
             $exadSliderControls[] = $settings['exad_slider_dots_type'];
@@ -2237,9 +2237,11 @@ class ExclusiveSliderItem extends Widget_Base {
 	            $this->add_render_attribute( 'exad_slider_controls', 'data-pauseonhover', "true" );
 	        }
         }
+
         if ( 'yes' == $settings['exad_slider_loop'] ) {
             $this->add_render_attribute( 'exad_slider_controls', 'data-loop', "true" );
         }
+        
         if ( 'yes' == $settings['exad_slider_enable_fade'] ) {
             $this->add_render_attribute( 'exad_slider_controls', 'data-enable-fade', "true" );
         } else {

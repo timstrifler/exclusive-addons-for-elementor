@@ -22,7 +22,7 @@ class ExadNewsTicker extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'news', 'ticker', 'news ticker', 'horizontal news ticker' ];
+        return [ 'news', 'ticker', 'bar', 'horizontal news ticker' ];
     }
     
     public function get_script_depends() {

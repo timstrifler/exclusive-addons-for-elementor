@@ -1,6 +1,8 @@
 <?php
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
+
 class Exad_Countdown_Timer extends Widget_Base {
 
 	public function get_name() {
