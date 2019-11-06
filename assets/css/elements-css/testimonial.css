@@ -77,8 +77,8 @@
 
 .exad-testimonial-content-wrapper-arrow::before{
   position: absolute;
-  content: "\f0d7";
-  font-family: FontAwesome;
+  content: "\e92a";
+  font-family: eicons;
   transform: translateX(-50%);
   font-size: 25px;
   line-height: 1;

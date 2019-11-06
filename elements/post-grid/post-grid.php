@@ -28,7 +28,6 @@ class Exad_Post_Grid extends Widget_Base {
 
 	protected function _register_controls() {
 
-		
         $this->start_controls_section(
             'exad_section_post_grid_filters',
             [
@@ -270,33 +269,6 @@ class Exad_Post_Grid extends Widget_Base {
 				'default'      => 'yes'
 			]
 		);
-
-		$this->add_control(
-            'exad_post_grid_show_user_name_tag',
-            [
-                'label'        => esc_html__( 'Enable Author Name Tag.', 'exclusive-addons-elementor' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
-				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
-                'return_value' => 'yes',
-                'default'      => 'yes',
-                'condition'    => [
-                    '.exad_post_grid_show_user_name' => 'yes'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'exad_post_grid_user_name_tag',
-            [   
-                'label'         => esc_html__( 'Author Name Tag', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::TEXT,
-                'default'       => esc_html__('By: ', 'exclusive-addons-elementor' ),
-                'condition'     => [
-                    '.exad_post_grid_show_user_name_tag' => 'yes'
-                ]
-            ]
-        );
 
         $this->add_control(
 			'exad_post_grid_show_user_name_tag',
@@ -1288,19 +1260,13 @@ class Exad_Post_Grid extends Widget_Base {
 	protected function render() {
 		$settings                  = $this->get_settings_for_display();		
 		$settings['template_type'] = $this->get_name();
-		$settings['post_args']     = Exad_Helper::exad_get_post_arguments($settings, 'exad_post_grid');
+		$settings['post_args']     = Exad_Helper::exad_get_post_arguments( $settings, 'exad_post_grid' );
 		
 		$this->add_render_attribute(
 			'exad_post_grid_wrapper',
 			[
 				'id'                  => "exad-post-grid-{$this->get_id()}",
-				'class'               => "exad-row-wrapper exad-col-{$settings['exad_post_grid_column_no']}",
-				'data-grid_id'        => $this->get_id(),
-				'data-post_type'      => $settings['exad_post_grid_type'],
-				'data-posts_per_page' => $settings['exad_post_grid_per_page'] ? $settings['exad_post_grid_per_page'] : 4,
-				'data-post_order'     => $settings['exad_post_grid_order'],
-				'data-post_offset'    => intval( $settings['exad_post_grid_offset'] ),
-				'data-excerpt_length' => $settings['exad_grid_excerpt_length']
+				'class'               => "exad-row-wrapper exad-col-{$settings['exad_post_grid_column_no']}"
 			]
 		);
 

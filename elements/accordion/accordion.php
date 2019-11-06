@@ -880,7 +880,7 @@ class Exclusive_Accordion extends Widget_Base {
 					'left'   => '0'
 				],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-accordion-single-item .exad-accordion-text p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-accordion-single-item .exad-accordion-text' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -1241,8 +1241,7 @@ class Exclusive_Accordion extends Widget_Base {
                     echo '<div class="exad-accordion-content">';
                         echo '<div class="exad-accordion-content-wrapper has-image-'.esc_attr($has_image).' image-position-'.esc_attr($settings['exad_accordion_image_align']).'">';
                             echo '<div '.$this->get_render_attribute_string( 'exad_accordion_details' ).'>';
-                                echo wpautop(wp_kses_post($accordion['exad_exclusive_accordion_content']));
-
+                                echo '<p>'.wp_kses_post( $accordion['exad_exclusive_accordion_content'] ).'</p>';
                                 if( 'yes' == $accordion['exad_accordion_show_read_more_btn']):
                                     if ( $accordion['exad_accordion_read_more_btn_url']['url'] ) {
                                         $href = 'href="'.esc_url($accordion['exad_accordion_read_more_btn_url']['url']).'"';

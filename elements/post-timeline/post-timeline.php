@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Exad_Post_Timeline extends Widget_Base {
 
-
 	public function get_name() {
 		return 'exad-post-timeline';
 	}
@@ -115,7 +114,7 @@ class Exad_Post_Timeline extends Widget_Base {
             [
 				'label'   => __( 'Excerpt Words', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
-				'default' => '20'
+				'default' => '30'
             ]
         );
 
@@ -569,14 +568,7 @@ class Exad_Post_Timeline extends Widget_Base {
 			'exad_post_timeline_wrapper',
 			[
 				'id'                  => "exad-post-timeline-{$this->get_id()}",
-				'class'               => 'exad-post-timeline',
-				'data-timeline_id'    => $this->get_id(),				
-				'data-post_type'      => esc_attr( $settings['exad_post_timeline_type'] ),
-				'data-posts_per_page' => $settings['exad_post_timeline_per_page'] ? esc_attr( $settings['exad_post_timeline_per_page'] ) : 4,
-				'data-post_order'     => esc_attr( $settings['exad_post_timeline_order'] ),
-				'data-post_offset'    => intval( esc_attr( $settings['exad_post_timeline_offset'] ) ),
-				'data-tax_query'      => json_encode( ! empty( $tax_query ) ? $tax_query : [] ),
-				'data-exclude_posts'  => json_encode( ! empty( $settings['post__not_in'] ) ? esc_attr( $settings['post__not_in'] ) : [] )
+				'class'               => 'exad-post-timeline'
 			]
 		);
 

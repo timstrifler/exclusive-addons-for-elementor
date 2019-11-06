@@ -1407,7 +1407,6 @@ class Exad_Post_Carousel extends Widget_Base {
                 'data-carousel-column'     => intval( $settings['exad_post_carousel_column_no'] ),
                 'data-post-carousel-nav'   => $settings['exad_post_carousel_nav'],
                 'data-post-carousel-speed' => $settings['exad_post_carousel_transition_duration']
-
             ]
         );
 

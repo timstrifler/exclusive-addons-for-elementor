@@ -487,11 +487,6 @@ ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow {
   margin: 30px auto;
 }
 
-/*.exad-button-wrapper.effect-1 .exad-button-action {
-  -webkit-box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.2);
-  box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.2);
-} */
-
 .exad-button-wrapper.effect-1 .exad-button-action i {
   margin-right: 5px;
 }
@@ -1338,62 +1333,6 @@ ul.exad-call-to-action-buttons {
   background-color: #4ce2bd;
   border: none;
 }
-
-/* .exad-contact-form .wpcf7-checkbox input[type="checkbox"] {
-  position: absolute;
-  left: -99999px;
-}
-
-.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label {
-  display: inline-block;
-  position: relative;
-  margin-right: 20px;
-  margin-top: 20px;
-  padding: 0 0 0 25px;
-  cursor: pointer;
-}
-
-.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 0;
-  height: 18px;
-  width: 18px;
-  background-color: #ffffff;
-  border: 1px solid #e3e6ec;
-  transition: opacity 0.3s linear,-webkit-transform 0.3s linear;
-  transition: transform 0.3s linear,opacity 0.3s linear;
-  transition: transform 0.3s linear,opacity 0.3s linear,-webkit-transform 0.3s linear;
-}
-
-.exad-contact-form .wpcf7-checkbox input:checked + span.wpcf7-list-item-label::before {
-  background: #36d3ac;
-  border: 1px solid transparent;
-}
-
-.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label::after {
-  content: "\f00c";
-  font-family: FontAwesome;
-  position: absolute;
-  color: #fff;
-  top: 2px;
-  left: 3px;
-  font-size: 12px;
-  opacity: 0;
-  transition: opacity 0.3s linear,-webkit-transform 0.3s linear;
-  transition: transform 0.3s linear,opacity 0.3s linear;
-  transition: transform 0.3s linear,opacity 0.3s linear,-webkit-transform 0.3s linear;
-}
-.exad-contact-form .wpcf7-checkbox input:checked + span.wpcf7-list-item-label::after {
-  opacity: 1;
-}
-
-.exad-contact-form.one .exad-contact-form-input-group-radio input[type="radio"] {
-  position: absolute;
-  left: -99999px;
-}
-  */
 .exad-contact-form .exad-contact-form-input-group label .checkmark {
   position: absolute;
   top: 0;
@@ -1405,8 +1344,8 @@ ul.exad-call-to-action-buttons {
 }
 
 .exad-contact-form .exad-contact-form-input-group label .checkmark::after {
-  content: "\f00c";
-  font-family: FontAwesome;
+  content: "\e90e";
+  font-family: eicons;
   position: absolute;
   display: none;
   color: #fff;
@@ -1418,7 +1357,6 @@ ul.exad-call-to-action-buttons {
 }
 
 .exad-contact-form-7 .wpcf7-form input[type="submit"] {
-  font-family: "Roboto", sans-serif;
   background-color: #724cff;
   border-width: 1px;
   border-radius: 0px 0px 0px 0px;
@@ -2304,8 +2242,8 @@ ul.exad-call-to-action-buttons {
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow::before {
   position: absolute;
-  content: '\f104';
-  font-family: 'FontAwesome';
+  content: '\e909';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -2316,8 +2254,8 @@ ul.exad-call-to-action-buttons {
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-down-arrow::before {
   position: absolute;
-  content: '\f107';
-  font-family: 'FontAwesome';
+  content: '\e92a';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -2329,8 +2267,8 @@ ul.exad-call-to-action-buttons {
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-up-arrow::before {
   position: absolute;
-  content: '\f106';
-  font-family: 'FontAwesome';
+  content: '\e90b';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -2348,8 +2286,8 @@ ul.exad-call-to-action-buttons {
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow::before {
   position: absolute;
-  content: '\f105';
-  font-family: 'FontAwesome';
+  content: '\e90a';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -2413,8 +2351,8 @@ ul.exad-call-to-action-buttons {
 
 .exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-left-arrow::before {
   position: absolute;
-  content: '\f0c9';
-  font-family: 'FontAwesome';
+  content: '\e816';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -2425,8 +2363,8 @@ ul.exad-call-to-action-buttons {
 
 .exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-down-arrow::before {
   position: absolute;
-  content: '\f0c9';
-  font-family: 'FontAwesome';
+  content: '\e816';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -75%);
@@ -2936,11 +2874,9 @@ ul.exad-call-to-action-buttons {
 .exad-exclusive-heading .exad-exclusive-heading-title a {
   text-decoration: none;
   display: inline-block;
-  line-height: 1;
 }
 .exad-exclusive-heading .exad-exclusive-heading-title {
   margin: 0 auto;
-  line-height: 1;
 }
 
 .exad-exclusive-heading .exad-exclusive-heading-description {
@@ -4529,6 +4465,19 @@ ul.exad-call-to-action-buttons {
   }
 }
 
+@media (max-width: 480px) {
+  .exad-post-grid-container.image-position-left, 
+  .exad-post-grid-container.image-position-right {
+    flex-direction: column;
+  }
+  .exad-post-grid-container.image-position-left > figure, 
+  .exad-post-grid-container.image-position-right > figure,
+  .exad-post-grid-container.image-position-left > div, 
+  .exad-post-grid-container.image-position-right > div {
+    width: 100%;
+  }
+}
+
 /* Post Grid End */
 
 /* Post Timeline Start */
@@ -5909,7 +5858,7 @@ text-align: right;
 
 .exad-pricing-table-header {
   position: relative;
-  z-index: 1;
+  /*z-index: -1;*/
 }
 
 .exad-pricing-table-header .exad-pricing-table-header-curved svg {
@@ -5980,11 +5929,6 @@ text-align: right;
   transition: all .3s ease;
   z-index: 1;
   display: inline-block;
-  border: 1px solid;
-}
-
-.exad-pricing-table-action:hover {
-  border: 1px solid #00C853;
 }
 
 .exad-pricing-table-badge-wrapper {
@@ -5996,40 +5940,40 @@ text-align: right;
   transition: all .3s ease;
 }
 
-.transition_top{
+.exad-pricing-table-wrapper.transition_top{
   transition: all .3s ease;
   transform: translateY(0);
   -webkit-transform: translateY(0);
 }
 
-.transition_top:hover{
+.exad-pricing-table-wrapper.transition_top:hover{
   transform: translateY(-10px);
   -webkit-transform: translateY(-10px);
 }
 
-.transition_bottom{
+.exad-pricing-table-wrapper.transition_bottom{
   transition: all .3s ease;
   transform: translateY(0);
   -webkit-transform: translateY(0);
 }
 
-.transition_bottom:hover{
+.exad-pricing-table-wrapper.transition_bottom:hover{
   transform: translateY(10px);
   -webkit-transform: translateY(10px);
 }
 
-.transition_zoom{
+.exad-pricing-table-wrapper.transition_zoom{
   transition: all .3s ease;
   transform: scale(1);
   -webkit-transform: scale(1);
 }
 
-.transition_zoom:hover{
+.exad-pricing-table-wrapper.transition_zoom:hover{
   transform: scale(1.02);
   -webkit-transform: scale(1.02);
 }
 
-.text-badge{
+.exad-pricing-table-wrapper .text-badge{
   position: absolute;
   top: 0;
   right: 0;
@@ -6041,12 +5985,11 @@ text-align: right;
           transform: rotate(45deg) translate(40px, -22px);
   color: #ffffff;
   font-size: 12px;
-  text-transform: uppercase;
   font-weight: bold;
   z-index: 2;
 }
 
-.icon-badge {
+.exad-pricing-table-wrapper .icon-badge {
   position: absolute;
   padding: 15px 10px;
   border-radius: 0 0 40px 40px;
@@ -6703,27 +6646,28 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
   clear: both;
 }
 
-.exad-position-left{
+.exad-team-item .exad-team-member.exad-position-left,
+.exad-team-item .exad-team-member.exad-position-right {
   display: flex;
-  align-items: center;
-}
-.exad-position-right{
-  display: flex;
-  align-items: center;
 }
 .exad-position-left .exad-team-member-thumb{
-  width: 43%;
+  width: 40%;
 }
 .exad-position-left .exad-team-member-content{
-  width: 57%;
+  width: 60%;
 }
 .exad-position-right .exad-team-member-thumb{
-  width: 43%;
+  width: 40%;
   order: 2;
 }
 .exad-position-right .exad-team-member-content{
-  width: 57%;
+  width: 60%;
   order: 1;
+}
+.exad-team-item .exad-team-member.exad-position-left .exad-team-member-thumb img,
+.exad-team-item .exad-team-member.exad-position-right .exad-team-member-thumb img {
+  height: 100%;
+  object-fit: cover;
 }
 
 .exad-team-member-cta{
@@ -6759,8 +6703,6 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
 }
 
 .exad-team-member-thumb img{
-  height: 100% !important;
-  width: 100%;
   display: block;
   object-fit: cover;
   -o-object-fit: cover;
@@ -6785,6 +6727,21 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
 .exad-team-member-about{
   margin: 0 0 20px 0;
   line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .exad-team-item .exad-team-member.exad-position-left, 
+  .exad-team-item .exad-team-member.exad-position-right {
+    flex-direction: column;
+  }
+  .exad-team-item .exad-team-member.exad-position-left .exad-team-member-thumb img, 
+  .exad-team-item .exad-team-member.exad-position-right .exad-team-member-thumb img,
+  .exad-position-left .exad-team-member-thumb,
+  .exad-position-left .exad-team-member-content,
+  .exad-position-right .exad-team-member-thumb,
+  .exad-position-right .exad-team-member-content {
+    width: 100%;
+  }
 }
 
 /* Team member style eight end */
@@ -6867,8 +6824,8 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
 
 .exad-testimonial-content-wrapper-arrow::before{
   position: absolute;
-  content: "\f0d7";
-  font-family: FontAwesome;
+  content: "\e92a";
+  font-family: eicons;
   transform: translateX(-50%);
   font-size: 25px;
   line-height: 1;
@@ -7167,8 +7124,8 @@ body.admin-bar .exad-slider.fullscreen .exad-each-slider-item {
 /* Tooltip End */
 /* Woo Products Start */
 ul.exad-woo-product-content-rating {
-    margin: 0 0 10px!important;
-    padding: 0!important;
+    margin: 0 0 10px;
+    padding: 0;
 }
 .exad-woo-product-content-rating .exad-woo-product-star-rating {
     overflow: hidden;

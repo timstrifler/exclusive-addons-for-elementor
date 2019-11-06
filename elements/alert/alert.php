@@ -659,9 +659,9 @@ class Exad_Alert extends Widget_Base {
                     <div class="exad-alert-element-content">
                         <?php 
                             if ( $settings['exad_alert_content_title_show'] === 'yes' ) {
-                                $title ? printf('<h5>%s</h5>', wp_kses_post($title)) : '';
+                                $title ? printf('<h5>%s</h5>', wp_kses_post( $title )) : '';
                             } 
-                            $description ? printf( '%s', wp_kses_post( wpautop($description ) ) ) : '';
+                            $description ? printf( '<p>%s</p>', wp_kses_post( $description ) ) : '';
                         ?>
                     </div>
                     <?php if($settings['exad_alert_close_button'] === 'icon') { ?>

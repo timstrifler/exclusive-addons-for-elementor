@@ -38,7 +38,7 @@
 
 .exad-pricing-table-header {
   position: relative;
-  z-index: 1;
+  /*z-index: -1;*/
 }
 
 .exad-pricing-table-header .exad-pricing-table-header-curved svg {
@@ -109,11 +109,6 @@
   transition: all .3s ease;
   z-index: 1;
   display: inline-block;
-  border: 1px solid;
-}
-
-.exad-pricing-table-action:hover {
-  border: 1px solid #00C853;
 }
 
 .exad-pricing-table-badge-wrapper {
@@ -125,40 +120,40 @@
   transition: all .3s ease;
 }
 
-.transition_top{
+.exad-pricing-table-wrapper.transition_top{
   transition: all .3s ease;
   transform: translateY(0);
   -webkit-transform: translateY(0);
 }
 
-.transition_top:hover{
+.exad-pricing-table-wrapper.transition_top:hover{
   transform: translateY(-10px);
   -webkit-transform: translateY(-10px);
 }
 
-.transition_bottom{
+.exad-pricing-table-wrapper.transition_bottom{
   transition: all .3s ease;
   transform: translateY(0);
   -webkit-transform: translateY(0);
 }
 
-.transition_bottom:hover{
+.exad-pricing-table-wrapper.transition_bottom:hover{
   transform: translateY(10px);
   -webkit-transform: translateY(10px);
 }
 
-.transition_zoom{
+.exad-pricing-table-wrapper.transition_zoom{
   transition: all .3s ease;
   transform: scale(1);
   -webkit-transform: scale(1);
 }
 
-.transition_zoom:hover{
+.exad-pricing-table-wrapper.transition_zoom:hover{
   transform: scale(1.02);
   -webkit-transform: scale(1.02);
 }
 
-.text-badge{
+.exad-pricing-table-wrapper .text-badge{
   position: absolute;
   top: 0;
   right: 0;
@@ -170,12 +165,11 @@
           transform: rotate(45deg) translate(40px, -22px);
   color: #ffffff;
   font-size: 12px;
-  text-transform: uppercase;
   font-weight: bold;
   z-index: 2;
 }
 
-.icon-badge {
+.exad-pricing-table-wrapper .icon-badge {
   position: absolute;
   padding: 15px 10px;
   border-radius: 0 0 40px 40px;

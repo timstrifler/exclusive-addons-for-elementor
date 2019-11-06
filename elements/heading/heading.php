@@ -605,12 +605,12 @@ class Exad_Heading extends Widget_Base {
 				endif;
 
                 echo '<h1 data-content="'.esc_attr( $settings['exad_heading_title'] ).'" '.$this->get_render_attribute_string( 'exad_heading_title_attr' ).'>';
-                	if(!empty($exad_heading_link)) {
+                	if( !empty( $exad_heading_link ) ) {
                         echo '<a '.$this->get_render_attribute_string( 'exad-heading-anchor-atts' ).'>';
                     }
                     echo esc_html( $settings['exad_heading_title'] );
 
-                    if(!empty($exad_heading_link)) {
+                    if( !empty( $exad_heading_link ) ) {
                         echo '</a>';
                     }
 				echo '</h1>';

@@ -8,7 +8,7 @@
         <?php endif; ?>
         <div class="exad-post-timeline-content-text">
             <h4><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h4>
-            <p><?php echo Elementor\Exad_Helper::exad_get_post_excerpt( get_the_ID(), wp_kses_post( $settings['exad_timeline_excerpt_length'] ) ); ?></p>
+            <p><?php echo Elementor\Exad_Helper::exad_get_post_excerpt( get_the_ID(), esc_html( $settings['exad_timeline_excerpt_length'] ) ); ?></p>
         </div>
     </div>
     <div class="exad-post-timeline-date">

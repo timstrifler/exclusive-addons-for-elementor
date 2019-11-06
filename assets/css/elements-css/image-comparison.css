@@ -24,8 +24,8 @@
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow::before {
   position: absolute;
-  content: '\f104';
-  font-family: 'FontAwesome';
+  content: '\e909';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -36,8 +36,8 @@
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-down-arrow::before {
   position: absolute;
-  content: '\f107';
-  font-family: 'FontAwesome';
+  content: '\e92a';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -49,8 +49,8 @@
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-up-arrow::before {
   position: absolute;
-  content: '\f106';
-  font-family: 'FontAwesome';
+  content: '\e90b';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -68,8 +68,8 @@
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow::before {
   position: absolute;
-  content: '\f105';
-  font-family: 'FontAwesome';
+  content: '\e90a';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -133,8 +133,8 @@
 
 .exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-left-arrow::before {
   position: absolute;
-  content: '\f0c9';
-  font-family: 'FontAwesome';
+  content: '\e816';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -145,8 +145,8 @@
 
 .exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-down-arrow::before {
   position: absolute;
-  content: '\f0c9';
-  font-family: 'FontAwesome';
+  content: '\e816';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -75%);

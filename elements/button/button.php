@@ -161,7 +161,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 					'right'     => [
 						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-align-right'
-					],
+					]
 				],
 				'default'       => 'center',
 				'selectors'     => [

@@ -291,4 +291,17 @@
   }
 }
 
+@media (max-width: 480px) {
+  .exad-post-grid-container.image-position-left, 
+  .exad-post-grid-container.image-position-right {
+    flex-direction: column;
+  }
+  .exad-post-grid-container.image-position-left > figure, 
+  .exad-post-grid-container.image-position-right > figure,
+  .exad-post-grid-container.image-position-left > div, 
+  .exad-post-grid-container.image-position-right > div {
+    width: 100%;
+  }
+}
+
 /* Post Grid End */
