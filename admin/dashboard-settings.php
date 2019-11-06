@@ -70,7 +70,7 @@ class Admin_Settings {
 	 */
 	public function create_exad_admin_menu() {
 
-		add_menu_page( 'Exclusive Addons', 'Exclusive Addons', 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/icon.svg', 58.4 );
+		add_menu_page( 'Exclusive Addons', 'Exclusive Addons', 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/ex-menu-icon.svg', 58.4 );
 		
 	}
 
