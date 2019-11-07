@@ -215,7 +215,6 @@ class Exad_Tooltip extends Widget_Base {
             ]
         );
 
-        
 		$this->add_responsive_control(
 			'exad_tooltip_content_width',
 		    [
@@ -479,7 +478,6 @@ class Exad_Tooltip extends Widget_Base {
             ]
         );
     
-        // Arrow Tab Start
         $this->add_control(
             'exad_tooltip_arrow_color',
             [
@@ -502,14 +500,9 @@ class Exad_Tooltip extends Widget_Base {
     protected function render() {
 
         $settings          = $this->get_settings_for_display();
-        $exad_tooltip_link = $settings['exad_tooltip_link']['url'];
-        $this->add_render_attribute( 'exad_tooltip_wrapper', [
-            'class' => [ 'exad-tooltip' ]
-            ]
-        );
-
-        $tooltip_img     = $this->get_settings_for_display( 'exad_tooltip_img_content' );
-        $tooltip_img_url = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
+        $exad_tooltip_link = $settings['exad_tooltip_link']['url'];        
+        $tooltip_img       = $this->get_settings_for_display( 'exad_tooltip_img_content' );
+        $tooltip_img_url   = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
         if ( empty( $tooltip_img_url ) ) {
             $tooltip_img_url = $tooltip_img['url'];
         }  else {
@@ -526,9 +519,11 @@ class Exad_Tooltip extends Widget_Base {
             $this->add_render_attribute( 'exad-tooltip-anchor-atts', 'rel', 'nofollow' );
         }
        
+        $this->add_render_attribute( 'exad_tooltip_wrapper', 'class', 'exad-tooltip' );
         echo '<div '.$this->get_render_attribute_string( 'exad_tooltip_wrapper' ).'>';
             echo '<div class="exad-tooltip-item '.esc_attr( $settings['exad_tooltip_direction'] ).'">';
                 echo '<div class="exad-tooltip-content">';
+
                     if( 'text' === $settings['exad_tooltip_type'] ) :
                         if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $exad_tooltip_link ) ) :
                             echo '<a '.$this->get_render_attribute_string( 'exad-tooltip-anchor-atts' ).'>';
@@ -559,6 +554,7 @@ class Exad_Tooltip extends Widget_Base {
                         if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $exad_tooltip_link ) ) :
                             echo '</a>';
                         endif;
+
                     endif;
                 echo '</div>';
 

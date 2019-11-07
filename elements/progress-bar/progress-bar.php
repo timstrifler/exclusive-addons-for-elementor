@@ -138,7 +138,7 @@ class Exad_Progress_Bar extends Widget_Base {
 				'min'     => 0,
 				'max'     => 100,
 				'step'    => 1,
-				'default' => 5
+				'default' => 15
 			]
 		);
 
@@ -169,7 +169,7 @@ class Exad_Progress_Bar extends Widget_Base {
 				'min'     => 0,
 				'max'     => 100,
 				'step'    => 1,
-				'default' => 5
+				'default' => 15
 			]
 		);
 

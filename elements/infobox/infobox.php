@@ -59,8 +59,6 @@ class Exad_Infobox extends Widget_Base {
 				'default'     => 'icon'
 			]
 		);
-
-
 		
 		$this->add_control(
 			'exad_infobox_image',
@@ -219,7 +217,7 @@ class Exad_Infobox extends Widget_Base {
 					'bottom' => '30',
 					'left'   => '30'
 				],
-			  	'selectors' => [
+			  	'selectors'  => [
 			  		'{{WRAPPER}} .exad-infobox-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 			  	]
 			]
@@ -316,7 +314,6 @@ class Exad_Infobox extends Widget_Base {
 		$this->end_controls_section();
 
 		//icon style
-
 		$this->start_controls_section(
             'section_infobox_icon',
             [
@@ -371,6 +368,7 @@ class Exad_Infobox extends Widget_Base {
 			  	]
 			]
 		);
+
 		$this->add_control(
 			'exad_infobox_icon_font_size',
 			[
@@ -405,7 +403,7 @@ class Exad_Infobox extends Widget_Base {
 					'bottom' => '0',
 					'left'   => '0'
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
@@ -670,12 +668,12 @@ class Exad_Infobox extends Widget_Base {
 
 		if( $exad_infobox_heading_link ) {
             $this->add_render_attribute( 'exad-infobox-heading-anchor-atts', 'href', esc_url( $exad_infobox_heading_link ) );
-        }
-        if( $settings['exad_infobox_title_link']['is_external'] ) {
-            $this->add_render_attribute( 'exad-infobox-heading-anchor-atts', 'target', '_blank' );
-        }
-        if( $settings['exad_infobox_title_link']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-infobox-heading-anchor-atts', 'rel', 'nofollow' );
+		    if( $settings['exad_infobox_title_link']['is_external'] ) {
+		        $this->add_render_attribute( 'exad-infobox-heading-anchor-atts', 'target', '_blank' );
+		    }
+		    if( $settings['exad_infobox_title_link']['nofollow'] ) {
+		        $this->add_render_attribute( 'exad-infobox-heading-anchor-atts', 'rel', 'nofollow' );
+		    }
         }
 
 		echo '<div id="exad-infobox-'.esc_attr($this->get_id()).'" class="exad-infobox">';
