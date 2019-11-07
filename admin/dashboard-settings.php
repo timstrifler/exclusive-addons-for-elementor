@@ -138,36 +138,7 @@ class Admin_Settings {
                         <li><a href="#apikeys"><img src="<?php echo plugins_url( '/', __FILE__ ).'assets/img/api-keys.svg'; ?>"><span>API Keys</span></a></li>
                     </ul>
                     <?php include_once EXAD_ADMIN . 'templates/general.php'; ?>
-                    <div id="elements" class="exad-dashboard-tab">
-                        <div class="exad-row">
-                            <div class="exad-full-width">
-                                <div class="exad-elements-dashboard-title">
-                                    <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements-dashboard.svg'; ?>">
-                                    <h4 class="exad-dashboard-section-title">Deactivate elements for better performance</h4>
-                                    <p class="exad-dashboard-section-title-p-tag">You can deactivate those elements that you do not intend to use to avoid loading scripts and files related to those elements.</p>
-                                </div>
-                                <div class="exad-dashboard-checkbox-container">
-
-                                <?php foreach( Base::$registered_elements as $widget ) : ?>
-                                    <?php if ( isset( $widget ) ) : ?>            
-                                        <div class="exad-dashboard-checkbox">
-                                            <div class="exad-dashboard-checkbox-text">
-                                                <p class="exad-el-title"><?php echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) ); ?></p>
-                                            </div>
-                                            <div class="exad-dashboard-checkbox-label">
-                                                <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" name="<?php echo esc_attr( $widget ); ?>" <?php checked( 1, $this->exad_get_settings[$widget], true ); ?> >
-                                                <label for="<?php echo esc_attr( $widget ); ?>"></label>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-
-                                </div>
-                                <!--./checkbox-container-->
-                            </div>
-                            
-                        </div>
-                    </div>
+                    <?php include_once EXAD_ADMIN . 'templates/elements.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/api-keys.php'; ?>
                 </div>
             </form> <!-- Form End -->
