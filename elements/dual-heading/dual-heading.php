@@ -430,14 +430,14 @@ class Exad_Dual_Heading extends Widget_Base {
                 endif;
 
                 echo '<h1 class="exad-dual-heading-title">';
-                    if(!empty($dual_heading_link)) {
-                        echo '<a '.$this->get_render_attribute_string( 'exad-dual-heading-anchor-params' ).'>';
-                    }
+                    // if(!empty($dual_heading_link)) {
+                    //     echo '<a '.$this->get_render_attribute_string( 'exad-dual-heading-anchor-params' ).'>';
+                    // }
                     echo '<span class="first-heading">'.esc_html( $settings['exad_dual_first_heading'] ).'</span>';
                     echo '<span class="second-heading">'.esc_html( $settings['exad_dual_second_heading'] ).'</span>';
-                    if(!empty($dual_heading_link)) {
-                        echo '</a>';
-                    }
+                    // if(!empty($dual_heading_link)) {
+                    //     echo '</a>';
+                    // }
                 echo '</h1>';
 
                 if ( !empty($settings['exad_dual_heading_description'] ) ) :
@@ -446,6 +446,37 @@ class Exad_Dual_Heading extends Widget_Base {
 
             echo '</div>';
         echo '</div>';
+    }
+
+    protected function _content_template() {
+        ?>
+        <#
+            view.addRenderAttribute(
+                'exad-dual-heading-wrapper',
+                {
+                    'class': [ 'exad-dual-heading' ]
+                }
+            );
+
+            var iconHTML = elementor.helpers.renderIcon( view, settings.exad_dual_heading_icon, { 'aria-hidden': true }, 'i' , 'object' );
+            
+            <!-- var dual_heading_link = settings.exad_dual_heading_title_link.url; -->
+        #>
+        <div {{{ view.getRenderAttributeString( 'exad-dual-heading-wrapper' ) }}}>
+            <div class="exad-dual-heading-wrapper">
+                <# if ( 'yes' === settings.exad_dual_heading_icon_show ) { #>
+                    <span class="exad-dual-heading-icon">
+                        {{{ iconHTML.value }}}
+                    </span>
+                <# } #>
+                <h1 class="exad-dual-heading-title">
+                    <span class="first-heading">{{{ settings.exad_dual_first_heading }}}</span>
+                    <span class="second-heading">{{{ settings.exad_dual_second_heading }}}</span>.
+                </h1>
+                <p class="exad-dual-heading-description">{{{ settings.exad_dual_heading_description }}}</p>
+            </div>
+        </div>
+        <?php
     }
 }
 

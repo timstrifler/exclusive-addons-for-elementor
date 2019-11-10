@@ -24,6 +24,10 @@ class Exad_Progress_Bar extends Widget_Base {
 		return [ 'exad-waypoints', 'exad-progress-bar' ];
 	}
 
+	public function get_keywords() {
+		return [ 'skill bars', 'circle', 'half circle' ];
+	}
+
 	protected function _register_controls() {
 
 		$this->start_controls_section(
