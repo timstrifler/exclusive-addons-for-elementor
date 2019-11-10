@@ -102,7 +102,7 @@ class Exad_Pricing_Menu extends Widget_Base {
                     'url'         => '#',
                     'is_external' => ''
                 ],
-                'condition' => [
+                'condition'   => [
                     'exad_pricing_menu_enable_link' => 'yes'
                 ]
             ]
@@ -919,10 +919,10 @@ class Exad_Pricing_Menu extends Widget_Base {
                                     $exad_heading_link = $list['exad_pricing_menu_btn_link']['url'];
                                     if( $exad_heading_link ) {
                                         $this->add_render_attribute( $link_key, 'href', esc_url( $exad_heading_link ) );
-                                        if( $settings['exad_pricing_menu_btn_link']['is_external'] ) {
+                                        if( $list['exad_pricing_menu_btn_link']['is_external'] ) {
                                             $this->add_render_attribute( $link_key, 'target', '_blank' );
                                         }
-                                        if( $settings['exad_pricing_menu_btn_link']['nofollow'] ) {
+                                        if( $list['exad_pricing_menu_btn_link']['nofollow'] ) {
                                             $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
                                         }
                                     }

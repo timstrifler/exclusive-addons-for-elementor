@@ -235,6 +235,7 @@ class Exad_Team_Member extends Widget_Base {
 				'type'        => Controls_Manager::URL,
 				'label_block' => true,
 				'default'     => [
+					'url'         => '#',
 					'is_external' => 'true'
 				],
 				'dynamic'     => [
@@ -381,7 +382,21 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'name'     => 'exad_team_members_box_shadow',
 				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-team-member'
+				'selector' => '{{WRAPPER}} .exad-team-member',
+				'fields_options'      => [
+		            'box_shadow_type' => [
+		                'default'     =>'yes'
+		            ],
+		            'box_shadow'  => [
+		                'default' => [
+		                    'horizontal' => 0,
+		                    'vertical'   => 20,
+		                    'blur'       => 49,
+		                    'spread'     => 0,
+		                    'color'      => 'rgba(24, 27, 33, 0.1)'
+		                ]
+		            ]
+	            ]
 			]
 		);
 
@@ -1195,11 +1210,11 @@ class Exad_Team_Member extends Widget_Base {
 								$exad_heading_link = $item['link']['url'];
 								if( $exad_heading_link ) {
 						            $this->add_render_attribute( $link_key, 'href', esc_url( $exad_heading_link ) );
-							        if( $settings['link']['is_external'] ) {
-							            $this->add_render_attribute( $link_key, 'target', '_blank' );
-							        }
 						        }
-						        if( $settings['link']['nofollow'] ) {
+						        if( $item['link']['is_external'] ) {
+						            $this->add_render_attribute( $link_key, 'target', '_blank' );
+						        }
+						        if( $item['link']['nofollow'] ) {
 						            $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
 						        }
 
