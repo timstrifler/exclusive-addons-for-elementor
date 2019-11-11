@@ -370,9 +370,13 @@ class Exad_Dual_Heading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'exad_dual_heading_description_typography',
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-                'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper p.exad-dual-heading-description'
+                'name'            => 'exad_dual_heading_description_typography',
+                'fields_options'  => [
+                    'font_weight' => [
+                        'default' => '400'
+                    ]
+                ],
+                'selector'        => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper p.exad-dual-heading-description'
             ]
         );
 
@@ -407,20 +411,26 @@ class Exad_Dual_Heading extends Widget_Base {
         $settings          = $this->get_settings_for_display();
         $dual_heading_link = $settings['exad_dual_heading_title_link']['url'];
 
-        $this->add_render_attribute( 'exad-dual-heading-wrapper', 'class', 'exad-dual-heading' );
-        $this->add_render_attribute( 'exad-dual-heading-wrapper', 'id', 'exad-heading-'.esc_attr( $this->get_id() ) );
+        $this->add_render_attribute( 'exad_dual_first_heading', 'class', 'first-heading' );
+        $this->add_inline_editing_attributes( 'exad_dual_first_heading', 'none' );
+
+        $this->add_render_attribute( 'exad_dual_second_heading', 'class', 'second-heading' );
+        $this->add_inline_editing_attributes( 'exad_dual_second_heading', 'none' );
+
+        $this->add_render_attribute( 'exad_dual_heading_description', 'class', 'exad-dual-heading-description' );
+        $this->add_inline_editing_attributes( 'exad_dual_heading_description' );
 
         if( $dual_heading_link ) {
-            $this->add_render_attribute( 'exad-dual-heading-anchor-params', 'href', esc_url( $dual_heading_link ) );
-        }
-        if( $settings['exad_dual_heading_title_link']['is_external'] ) {
-            $this->add_render_attribute( 'exad-dual-heading-anchor-params', 'target', '_blank' );
-        }
-        if( $settings['exad_dual_heading_title_link']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-dual-heading-anchor-params', 'rel', 'nofollow' );
+            $this->add_render_attribute( 'exad_dual_heading_title_link', 'href', esc_url( $dual_heading_link ) );
+            if( $settings['exad_dual_heading_title_link']['is_external'] ) {
+                $this->add_render_attribute( 'exad_dual_heading_title_link', 'target', '_blank' );
+            }
+            if( $settings['exad_dual_heading_title_link']['nofollow'] ) {
+                $this->add_render_attribute( 'exad_dual_heading_title_link', 'rel', 'nofollow' );
+            }
         }
 
-        echo '<div '.$this->get_render_attribute_string( 'exad-dual-heading-wrapper' ).'>';
+        echo '<div class="exad-dual-heading">';
             echo '<div class="exad-dual-heading-wrapper">';
 
                 if ( 'yes' == $settings['exad_dual_heading_icon_show'] && !empty( $settings['exad_dual_heading_icon']['value'] ) ) :
@@ -430,54 +440,76 @@ class Exad_Dual_Heading extends Widget_Base {
                 endif;
 
                 echo '<h1 class="exad-dual-heading-title">';
-                    // if(!empty($dual_heading_link)) {
-                    //     echo '<a '.$this->get_render_attribute_string( 'exad-dual-heading-anchor-params' ).'>';
-                    // }
-                    echo '<span class="first-heading">'.esc_html( $settings['exad_dual_first_heading'] ).'</span>';
-                    echo '<span class="second-heading">'.esc_html( $settings['exad_dual_second_heading'] ).'</span>';
-                    // if(!empty($dual_heading_link)) {
-                    //     echo '</a>';
-                    // }
+                    if(!empty($dual_heading_link)) : ?>
+                        <a <?php echo $this->get_render_attribute_string( 'exad_dual_heading_title_link' ); ?>>
+                    <?php endif;
+                    echo '<span '.$this->get_render_attribute_string( 'exad_dual_first_heading' ).'>'.esc_html( $settings['exad_dual_first_heading'] ).'</span>';
+                    echo '<span '.$this->get_render_attribute_string( 'exad_dual_second_heading' ).'>'.esc_html( $settings['exad_dual_second_heading'] ).'</span>';
+                    if(!empty($dual_heading_link)) {
+                        echo '</a>';
+                    }
                 echo '</h1>';
 
                 if ( !empty($settings['exad_dual_heading_description'] ) ) :
-                    echo '<p class="exad-dual-heading-description">'.wp_kses_post( $settings['exad_dual_heading_description'] ).'</p>';
+                    echo '<p '.$this->get_render_attribute_string( 'exad_dual_heading_description' ).'>'.wp_kses_post( $settings['exad_dual_heading_description'] ).'</p>';
                 endif;  
 
             echo '</div>';
         echo '</div>';
     }
 
+
+
     protected function _content_template() {
         ?>
         <#
-            view.addRenderAttribute(
-                'exad-dual-heading-wrapper',
-                {
-                    'class': [ 'exad-dual-heading' ]
-                }
-            );
 
             var iconHTML = elementor.helpers.renderIcon( view, settings.exad_dual_heading_icon, { 'aria-hidden': true }, 'i' , 'object' );
-            
-            <!-- var dual_heading_link = settings.exad_dual_heading_title_link.url; -->
+
+            view.addRenderAttribute( 'exad_dual_first_heading', 'class', 'first-heading' );
+            view.addInlineEditingAttributes( 'exad_dual_first_heading', 'none' );
+
+            view.addRenderAttribute( 'exad_dual_second_heading', 'class', 'second-heading' );
+            view.addInlineEditingAttributes( 'exad_dual_second_heading', 'none' );
+
+            view.addRenderAttribute( 'exad_dual_heading_description', 'class', 'exad-dual-heading-description' );
+            view.addInlineEditingAttributes( 'exad_dual_heading_description' );
         #>
-        <div {{{ view.getRenderAttributeString( 'exad-dual-heading-wrapper' ) }}}>
+        <div class="exad-dual-heading">
             <div class="exad-dual-heading-wrapper">
-                <# if ( 'yes' === settings.exad_dual_heading_icon_show ) { #>
+                <# if ( 'yes' === settings.exad_dual_heading_icon_show && iconHTML.value ) { #>
                     <span class="exad-dual-heading-icon">
                         {{{ iconHTML.value }}}
                     </span>
                 <# } #>
                 <h1 class="exad-dual-heading-title">
-                    <span class="first-heading">{{{ settings.exad_dual_first_heading }}}</span>
-                    <span class="second-heading">{{{ settings.exad_dual_second_heading }}}</span>.
+                    <# if ( settings.exad_dual_heading_title_link ) { #>
+                        <a href="{{ settings.exad_dual_heading_title_link.url }}">
+                    <# } #>
+                    <# if ( settings.exad_dual_first_heading ) { #>
+                        <span {{{ view.getRenderAttributeString( 'exad_dual_first_heading' ) }}}>
+                            {{{ settings.exad_dual_first_heading }}}
+                        </span>
+                    <# } #>
+                    <# if ( settings.exad_dual_second_heading ) { #>
+                            <span {{{ view.getRenderAttributeString( 'exad_dual_second_heading' ) }}}>
+                                {{{ settings.exad_dual_second_heading }}}
+                            </span>
+                    <# } #>
+                    <# if ( settings.exad_dual_heading_title_link ) { #>
+                        </a>
+                    <# } #>
                 </h1>
-                <p class="exad-dual-heading-description">{{{ settings.exad_dual_heading_description }}}</p>
+                <# if ( settings.exad_dual_heading_description ) { #>
+                    <p {{{ view.getRenderAttributeString( 'exad_dual_heading_description' ) }}}>
+                        {{{ settings.exad_dual_heading_description }}}
+                    </p>
+                <# } #>
             </div>
         </div>
         <?php
     }
+
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Dual_Heading() );

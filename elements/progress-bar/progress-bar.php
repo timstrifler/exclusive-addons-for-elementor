@@ -226,10 +226,10 @@ class Exad_Progress_Bar extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_progress_bar_radius',
 			[
-				'label'      => __( 'Box Radius', 'exclusive-addons-elementor' ),
+				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
@@ -245,13 +245,12 @@ class Exad_Progress_Bar extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_progress_bar_padding_style',
 			[
 				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
-				'separator'  => 'before',
 				'default'    => [
 					'top'    => '10',
 					'right'  => '10',

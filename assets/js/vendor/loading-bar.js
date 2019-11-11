@@ -372,7 +372,7 @@
           return config[it];
         })) * 1.5;
         svg.attrs({
-          viewBox: [box.x - d, box.y - d, box.width + d * 2, box.height + d * 2].join(" ")
+          viewBox: [0, 0, 100, 100].join(" ")
         });
         if (config["set-dim"]) {
           ['width', 'height'].map(function(it){
@@ -797,4 +797,3 @@
     }
   };
   },{}]},{},[1])
-  

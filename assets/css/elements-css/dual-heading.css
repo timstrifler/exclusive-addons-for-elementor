@@ -5,11 +5,10 @@
 }
 
 .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-description {
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
   line-height: 26px;
   margin: 30px 0 0 0;
   padding: 10px;
+  font-weight: 400;
 }
 .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon {
   display: inline-block;

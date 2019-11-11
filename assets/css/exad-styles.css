@@ -1621,11 +1621,10 @@ ul.exad-call-to-action-buttons {
 }
 
 .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-description {
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
   line-height: 26px;
   margin: 30px 0 0 0;
   padding: 10px;
+  font-weight: 400;
 }
 .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon {
   display: inline-block;
@@ -4209,7 +4208,7 @@ text-align: right;
 
 [class*="exad-progress-bar-"].line .ldBar-label {
   position: absolute;
-  top: 0;
+  top: -12px;
   right: 0;
 }
 
@@ -4221,7 +4220,7 @@ text-align: right;
 [class*="exad-progress-bar-"].line-bubble .ldBar-label {
   position: absolute;
   left: 0;
-  top: 27%;
+  top: 0%;
   width: 50px;
   height: 50px;
   text-align: center;
