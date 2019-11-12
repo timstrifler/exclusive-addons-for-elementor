@@ -409,7 +409,6 @@ class Exad_Dual_Heading extends Widget_Base {
   
     protected function render() {
         $settings          = $this->get_settings_for_display();
-        $dual_heading_link = $settings['exad_dual_heading_title_link']['url'];
 
         $this->add_render_attribute( 'exad_dual_first_heading', 'class', 'first-heading' );
         $this->add_inline_editing_attributes( 'exad_dual_first_heading', 'none' );
@@ -420,8 +419,8 @@ class Exad_Dual_Heading extends Widget_Base {
         $this->add_render_attribute( 'exad_dual_heading_description', 'class', 'exad-dual-heading-description' );
         $this->add_inline_editing_attributes( 'exad_dual_heading_description' );
 
-        if( $dual_heading_link ) {
-            $this->add_render_attribute( 'exad_dual_heading_title_link', 'href', esc_url( $dual_heading_link ) );
+        if( $settings['exad_dual_heading_title_link']['url'] ) {
+            $this->add_render_attribute( 'exad_dual_heading_title_link', 'href', esc_url( $settings['exad_dual_heading_title_link']['url'] ) );
             if( $settings['exad_dual_heading_title_link']['is_external'] ) {
                 $this->add_render_attribute( 'exad_dual_heading_title_link', 'target', '_blank' );
             }
@@ -440,12 +439,12 @@ class Exad_Dual_Heading extends Widget_Base {
                 endif;
 
                 echo '<h1 class="exad-dual-heading-title">';
-                    if(!empty($dual_heading_link)) : ?>
-                        <a <?php echo $this->get_render_attribute_string( 'exad_dual_heading_title_link' ); ?>>
-                    <?php endif;
+                    if( !empty( $settings['exad_dual_heading_title_link']['url'] ) ) :
+                        echo '<a '.$this->get_render_attribute_string( 'exad_dual_heading_title_link' ).'>';
+                    endif;
                     echo '<span '.$this->get_render_attribute_string( 'exad_dual_first_heading' ).'>'.esc_html( $settings['exad_dual_first_heading'] ).'</span>';
                     echo '<span '.$this->get_render_attribute_string( 'exad_dual_second_heading' ).'>'.esc_html( $settings['exad_dual_second_heading'] ).'</span>';
-                    if(!empty($dual_heading_link)) {
+                    if( !empty( $settings['exad_dual_heading_title_link']['url'] ) ) {
                         echo '</a>';
                     }
                 echo '</h1>';
@@ -458,12 +457,9 @@ class Exad_Dual_Heading extends Widget_Base {
         echo '</div>';
     }
 
-
-
     protected function _content_template() {
         ?>
         <#
-
             var iconHTML = elementor.helpers.renderIcon( view, settings.exad_dual_heading_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
             view.addRenderAttribute( 'exad_dual_first_heading', 'class', 'first-heading' );

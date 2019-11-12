@@ -1002,7 +1002,6 @@ ul.exad-call-to-action-buttons {
 
 .exad-card .exad-card-body .exad-card-action {
   display: table;
-  box-shadow: 0px 6px 18px 0px rgba(9, 24, 33, 0.15);
   border-radius: 4px;
   transition: all .4s ease;
   color: #132c47;
@@ -1034,16 +1033,16 @@ ul.exad-call-to-action-buttons {
   width: 100%;
   height: 5px;
   -webkit-transform: scaleX(0);
-          transform: scaleX(0);
+  transform: scaleX(0);
   -webkit-transform-origin: left center;
-          transform-origin: left center;
+  transform-origin: left center;
   transition: all .2s ease;
   z-index: 1;
 }
 
 .exad-card.text_on_image:hover::before {
   -webkit-transform: scaleX(1);
-          transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .exad-card.text_on_image .exad-card-thumb {
@@ -4254,6 +4253,10 @@ text-align: right;
   position: relative;
 }
 
+[class*="exad-progress-bar-"].fan svg {
+  margin-top: -40%;
+}
+
 [class*="exad-progress-bar-"].fan h3 {
   position: absolute;
   bottom: -20px;
@@ -4265,10 +4268,10 @@ text-align: right;
 [class*="exad-progress-bar-"].fan .ldBar-label {
   position: absolute;
   left: 50%;
-  top: 50%;
   -webkit-transform: translate(-50%, -20%);
-          transform: translate(-50%, -20%);
+  transform: translate(-50%, -20%);
   font-size: 30px;
+  bottom: 7%;
 }
 
 [class*="exad-progress-bar-"].fan .left-title {

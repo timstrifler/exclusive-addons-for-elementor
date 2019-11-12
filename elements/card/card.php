@@ -730,6 +730,20 @@ class Exad_Card extends Widget_Base {
 					[
 						'name'     => 'exad_card_button_normal_box_shadow',
 						'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+						 'fields_options'     => [
+				            'box_shadow_type' => [
+				                'default'     =>'yes'
+				            ],
+				            'box_shadow'         => [
+				                'default'        => [
+				                    'horizontal' => 0,
+				                    'vertical'   => 0,
+				                    'blur'       => 10,
+				                    'spread'     => 0,
+				                    'color'      => 'rgba(9,24,33,0.1)'
+				                ]
+				            ]
+			            ],
 						'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action'
 					]
 				);
@@ -786,6 +800,7 @@ class Exad_Card extends Widget_Base {
 
 		$this->end_controls_section();
 	}
+
 	protected function render() {
 		$settings           = $this->get_settings_for_display();
 		$card_image         = $this->get_settings_for_display( 'exad_card_image' );
@@ -799,7 +814,6 @@ class Exad_Card extends Widget_Base {
 		$this->add_render_attribute( 
 			'exad_card', 
 			[ 
-				'id'    => "exad-card-{$this->get_id()}",
 				'class' => [ 
 					'exad-card', 
 					esc_attr( $settings['exad_card_content_alignment'] ), 
@@ -809,15 +823,23 @@ class Exad_Card extends Widget_Base {
 			]
 		);
 
-		$this->add_render_attribute( 'exad-card-title-anchor-params', 'class', 'exad-card-title' );
+		$this->add_inline_editing_attributes( 'exad_card_title', 'none' );
+
+		$this->add_inline_editing_attributes( 'exad_card_tag', 'none' );
+		$this->add_render_attribute( 'exad_card_tag', 'class', 'exad-card-tag' );
+
+		$this->add_inline_editing_attributes( 'exad_card_description' );
+		$this->add_render_attribute( 'exad_card_description', 'class', 'exad-card-description' );
+
+		$this->add_render_attribute( 'exad_card_title_link', 'class', 'exad-card-title' );
 		if( $settings['exad_card_title_link']['url'] ) {
-            $this->add_render_attribute( 'exad-card-title-anchor-params', 'href', esc_url( $settings['exad_card_title_link']['url'] ) );
+            $this->add_render_attribute( 'exad_card_title_link', 'href', esc_url( $settings['exad_card_title_link']['url'] ) );
         }
         if( $settings['exad_card_title_link']['is_external'] ) {
-            $this->add_render_attribute( 'exad-card-title-anchor-params', 'target', '_blank' );
+            $this->add_render_attribute( 'exad_card_title_link', 'target', '_blank' );
         }
         if( $settings['exad_card_title_link']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-card-title-anchor-params', 'rel', 'nofollow' );
+            $this->add_render_attribute( 'exad_card_title_link', 'rel', 'nofollow' );
         }
 
 		$this->add_render_attribute( 'exad-card-action-anchor-params', 'class', 'exad-card-action' );
@@ -832,17 +854,19 @@ class Exad_Card extends Widget_Base {
         }
 
 		echo '<div '.$this->get_render_attribute_string( 'exad_card' ).'>';
-			if( !empty( $card_image_url ) ) :
-	        	echo '<div class="exad-card-thumb">';
-	            	echo '<img src="'.esc_url($card_image_url).'" alt="'.esc_attr( $settings['exad_card_title'] ).'">';
-	          	echo '</div>';
-			endif;
+			// if( !empty( $card_image_url ) ) :
+	  //       	echo '<div class="exad-card-thumb">';
+	  //           	echo '<img src="'.esc_url($card_image_url).'" alt="'.Control_Media::get_image_alt( $settings['exad_card_image'] ).'">';
+	  //         	echo '</div>';
+			// endif;
           	echo '<div class="exad-card-body">';
-          		echo '<a '.$this->get_render_attribute_string( 'exad-card-title-anchor-params' ).'>';
-            		echo esc_html( $settings['exad_card_title'] );
-        		echo '</a>';
-        		$settings['exad_card_tag'] ? printf( '<p class="exad-card-tag">%s</p>', esc_html( $settings['exad_card_tag'] ) ) : '';
-        		$settings['exad_card_description'] ? printf( '<p class="exad-card-description">%s</p>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
+          		if( $settings['exad_card_title'] ) {
+	          		echo '<a '.$this->get_render_attribute_string( 'exad_card_title_link' ).'>';
+	            		echo '<span '.$this->get_render_attribute_string( 'exad_card_title' ).'>'.esc_html( $settings['exad_card_title'] ).'</span>';
+	        		echo '</a>';          			
+          		}
+        		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', esc_html( $settings['exad_card_tag'] ) ) : '';
+        		$settings['exad_card_description'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</p>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
 				echo '<a '.$this->get_render_attribute_string( 'exad-card-action-anchor-params' ).'>';
 					if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
 						echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
@@ -858,6 +882,24 @@ class Exad_Card extends Widget_Base {
             	echo '</a>';
           	echo '</div>';
         echo '</div>';
+	}
+
+	protected function _content_template() {
+		?>
+<!-- 		<#
+			view.addRenderAttribute( 'exad_card', {
+				'class': [ 
+					'exad-card', 
+					settings.exad_card_content_alignment,
+					settings.exad_card_layout_type,
+					settings.exad_card_image_zoom_animation
+				]
+			} );
+		#>
+		<div {{{ view.getRenderAttributeString( 'exad_card' ) }}}>
+
+		</div> -->
+		<?php	
 	}
 }
 

@@ -187,6 +187,32 @@ class Exad_Progress_Bar extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'exad_progress_bar_value_position',
+			[
+				'label'      => __( 'Position', 'plugin-domain' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ '%' ],
+				'range'      => [
+					'px'       => [
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1
+					]
+				],
+				'default'    => [
+					'unit'   => '%',
+					'size'   => 7
+				],
+				'selectors'  => [
+					'{{WRAPPER}} [class*="exad-progress-bar-"].fan .ldBar-label' => 'bottom: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_progress_bar_preset' => 'fan'
+				]
+			]
+		);
+
 		$this->add_control(
 			'exad_progress_bar_value_color',
 			[

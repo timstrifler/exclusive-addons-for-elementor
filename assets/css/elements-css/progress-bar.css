@@ -59,6 +59,10 @@
   position: relative;
 }
 
+[class*="exad-progress-bar-"].fan svg {
+  margin-top: -40%;
+}
+
 [class*="exad-progress-bar-"].fan h3 {
   position: absolute;
   bottom: -20px;
@@ -70,10 +74,10 @@
 [class*="exad-progress-bar-"].fan .ldBar-label {
   position: absolute;
   left: 50%;
-  top: 50%;
   -webkit-transform: translate(-50%, -20%);
-          transform: translate(-50%, -20%);
+  transform: translate(-50%, -20%);
   font-size: 30px;
+  bottom: 7%;
 }
 
 [class*="exad-progress-bar-"].fan .left-title {
