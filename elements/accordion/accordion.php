@@ -349,16 +349,17 @@ class Exclusive_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'exad_exclusive_accordion_container_margin',
             [
-				'label'      => __('Margin', 'exclusive-addons-elementor'),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => ['px', '%'],
-				'default'    => [
-					'top'    => '0',
-					'right'  => '0',
-					'bottom' => '20',
-					'left'   => '0'
+				'label'        => __('Margin', 'exclusive-addons-elementor'),
+				'type'         => Controls_Manager::DIMENSIONS,
+				'size_units'   => ['px', '%'],
+				'default'      => [
+					'top'      => '0',
+					'right'    => '0',
+					'bottom'   => '20',
+					'left'     => '0',
+					'isLinked' => false
 				],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -460,7 +461,7 @@ class Exclusive_Accordion extends Widget_Base {
             ]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_accordion_title_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -799,6 +800,7 @@ class Exclusive_Accordion extends Widget_Base {
 			);
 
 			$this->end_controls_tab();
+
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
@@ -894,16 +896,17 @@ class Exclusive_Accordion extends Widget_Base {
                     'border' 	  => [
                         'default' => 'solid'
                     ],
-                    'width'  		 => [
-                        'default' 	 => [
-                            'top'    => '0',
-                            'right'  => '1',
-                            'bottom' => '1',
-                            'left'   => '1'
+                    'width'  		   => [
+                        'default' 	   => [
+							'top'      => '0',
+							'right'    => '1',
+							'bottom'   => '1',
+							'left'     => '1',
+							'isLinked' => false
                         ]
                     ],
-                    'color' 		 => [
-                        'default' 	 => '#000000'
+                    'color' 		   => [
+                        'default' 	   => '#000000'
                     ]
                 ],
                 'selector'        => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper'
@@ -935,6 +938,7 @@ class Exclusive_Accordion extends Widget_Base {
             [
                 'label'         => esc_html__( 'Image Position', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
                 'options'       => [
                     'left'      => [
                         'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
@@ -1087,7 +1091,7 @@ class Exclusive_Accordion extends Widget_Base {
                 ]
             );
 
-			$this->add_control(
+			$this->add_responsive_control(
 				'exad_accordion_details_button_border_radius',
 				[
 					'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1145,7 +1149,7 @@ class Exclusive_Accordion extends Widget_Base {
                 ]
             );
 
-			$this->add_control(
+			$this->add_responsive_control(
 				'exad_accordion_details_button_border_radius_hover',
 				[
 					'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1241,7 +1245,7 @@ class Exclusive_Accordion extends Widget_Base {
                     echo '<div class="exad-accordion-content">';
                         echo '<div class="exad-accordion-content-wrapper has-image-'.esc_attr($has_image).' image-position-'.esc_attr($settings['exad_accordion_image_align']).'">';
                             echo '<div '.$this->get_render_attribute_string( 'exad_accordion_details' ).'>';
-                                echo '<p>'.wp_kses_post( $accordion['exad_exclusive_accordion_content'] ).'</p>';
+                                echo '<div>'.wp_kses_post( $accordion['exad_exclusive_accordion_content'] ).'</div>';
                                 if( 'yes' == $accordion['exad_accordion_show_read_more_btn']):
                                     if ( $accordion['exad_accordion_read_more_btn_url']['url'] ) {
                                         $href = 'href="'.esc_url($accordion['exad_accordion_read_more_btn_url']['url']).'"';

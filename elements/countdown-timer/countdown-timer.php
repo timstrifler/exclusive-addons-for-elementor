@@ -84,20 +84,19 @@ class Exad_Countdown_Timer extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_countdown_container_border_radius',
 			[
-				'label'   => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::DIMENSIONS,
-				'default' => [
-					'top'      => 0,
-					'right'    => 0,
-					'bottom'   => 0,
-					'left'     => 0,
-					'unit'     => 'px',
-					'isLinked' => true
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'default'    => [
+					'top'    => 0,
+					'right'  => 0,
+					'bottom' => 0,
+					'left'   => 0,
+					'unit'   => 'px'
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .exad-countdown' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;'
 				]
 			]
@@ -108,12 +107,10 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_countdown_box_style',
 			[
-				'label' => esc_html__( 'Box Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Counter Box', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
-
-
 
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
@@ -151,25 +148,23 @@ class Exad_Countdown_Timer extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_countdown_image_border_radius',
+		$this->add_responsive_control(
+			'exad_countdown_box_border_radius',
 			[
-				'label'     => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::DIMENSIONS,
-				'default'   => [
-					'top'      => 4,
-					'right'    => 4,
-					'bottom'   => 4,
-					'left'     => 4,
-					'unit'     => 'px',
-					'isLinked' => true
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'default'    => [
+					'top'    => 4,
+					'right'  => 4,
+					'bottom' => 4,
+					'left'   => 4,
+					'unit'   => 'px'
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .exad-countdown .exad-countdown-container' => 'border-radius: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;'
 				]
 			]
 		);
-
 
 		$this->end_controls_section();
 
@@ -208,7 +203,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_countdown_divider_size',
 			[
 				'label'      => __( 'Size', 'plugin-domain' ),
@@ -220,19 +215,19 @@ class Exad_Countdown_Timer extends Widget_Base {
 						'max'  => 150,
 						'step' => 5
 					],
-					'%'       => [
-						'min' => 0,
-						'max' => 100
+					'%'        => [
+						'min'  => 0,
+						'max'  => 100
 					]
 				],
-				'default'   => [
-					'unit'  => 'px',
-					'size'  => 80
+				'default'    => [
+					'unit'   => 'px',
+					'size'   => 80
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-count::after' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
-				'condition' => [
+				'condition'  => [
 					'exad_countdown_divider_enable' => 'yes'
 				]
 			]
@@ -241,11 +236,10 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->end_controls_section();
 		
 		// Counter Styles
-
 		$this->start_controls_section(
 			'exad_section_countdown_styles_counter',
 			[
-				'label' => esc_html__( 'Counter Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Counter', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -259,7 +253,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_progress_bar_count_color',
+			'exad_countdown_number_color',
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -269,15 +263,26 @@ class Exad_Countdown_Timer extends Widget_Base {
 				]
 			]
 		);
+
+		$this->add_responsive_control(
+            'exad_countdown_number_margin',
+            [
+                'label'      => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],                
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-countdown-count' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
 		
 		$this->end_controls_section();
 		
 		// Title Styles
-
 		$this->start_controls_section(
-			'exad_section_countdown_styles_title',
+			'exad_countdown_styles_title',
 			[
-				'label' => esc_html__( 'Title Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
@@ -285,13 +290,13 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-					'name'     => 'title_typography',
+					'name'     => 'exad_countdown_title_typography',
 					'selector' => '{{WRAPPER}} .exad-countdown-title'
 				]
 		);
 
 		$this->add_control(
-			'exad_progress_bar_title_color',
+			'exad_countdown_title_color',
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
@@ -301,6 +306,18 @@ class Exad_Countdown_Timer extends Widget_Base {
 				]
 			]
 		);
+
+		$this->add_responsive_control(
+            'exad_countdown_title_margin',
+            [
+                'label'      => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],                
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-countdown-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
 		
 		$this->end_controls_section();
 

@@ -105,7 +105,6 @@ class Exad_Exclusive_Button extends Widget_Base {
 				]
 			]
 		);
-
 		
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
@@ -116,7 +115,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_exclusive_button_width',
 			[
 				'label'      => esc_html__( 'Width', 'exclusive-addons-elementor' ),
@@ -128,9 +127,9 @@ class Exad_Exclusive_Button extends Widget_Base {
 						'max'  => 500,
 						'step' => 1
 					],
-					'%'       => [
-						'min' => 0,
-						'max' => 100
+					'%'        => [
+						'min'  => 0,
+						'max'  => 100
 					]
 				],
 				'default'    => [
@@ -149,6 +148,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 				'label'       => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'label_block' => true,
+				'toggle'      => false,
 				'options'     => [
 					'left'      => [
 						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
@@ -345,29 +345,35 @@ class Exad_Exclusive_Button extends Widget_Base {
 		$this->add_render_attribute( 'exad-button-params', 'class', 'exad-button-action' );
 		if( $settings['exclusive_button_link_url']['url'] ) {
 			$this->add_render_attribute( 'exad-button-params', 'href', esc_url( $settings['exclusive_button_link_url']['url'] ) );
-		}
-		if( $settings['exclusive_button_link_url']['is_external'] ) {
-			$this->add_render_attribute( 'exad-button-params', 'target', '_blank' );
-		}
-		if( $settings['exclusive_button_link_url']['nofollow'] ) {
-			$this->add_render_attribute( 'exad-button-params', 'rel', 'nofollow' );
+			if( $settings['exclusive_button_link_url']['is_external'] ) {
+				$this->add_render_attribute( 'exad-button-params', 'target', '_blank' );
+			}
+			if( $settings['exclusive_button_link_url']['nofollow'] ) {
+				$this->add_render_attribute( 'exad-button-params', 'rel', 'nofollow' );
+			}
 		}
 
 		echo '<div '.$this->get_render_attribute_string( 'exad_exclusive_button' ).'>';
 			do_action( 'exad_button_wrapper_before' );
+
 			echo '<a '.$this->get_render_attribute_string( 'exad-button-params' ).'>';
 				do_action( 'exad_button_begin_anchor_tag' );
+
 				if ( ! empty( $settings['exad_exclusive_button_icon']['value'] ) ) :
 					echo '<span>';
 						Icons_Manager::render_icon( $settings['exad_exclusive_button_icon'], [ 'aria-hidden' => 'true' ] );
 					echo '</span>';
 				endif;
+
 				echo esc_html( $settings['exclusive_button_text'] );
+
 				if ( 'effect-8' == $settings['exclusive_button_effect'] ) {
 					echo '<span class="effect-8-position"></span>';
 				}
+
 				do_action( 'exad_button_end_anchor_tag' );	
 			echo '</a>';
+
 			do_action( 'exad_button_wrapper_after' );
 		echo '</div>';	
 	}

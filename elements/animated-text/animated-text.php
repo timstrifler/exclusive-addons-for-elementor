@@ -113,7 +113,7 @@ class Exad_Animated_Text extends Widget_Base {
 				'type'    => Controls_Manager::CHOOSE,
 				'toggle'  => false,
 				'options' => [
-					'exad-animated-text-align-left' => [
+					'exad-animated-text-align-left'   => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-align-left'
 					],
@@ -121,7 +121,7 @@ class Exad_Animated_Text extends Widget_Base {
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-align-center'
 					],
-					'exad-animated-text-align-right' => [
+					'exad-animated-text-align-right'  => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-align-right'
 					]
@@ -323,7 +323,7 @@ class Exad_Animated_Text extends Widget_Base {
 				'label_off'    => __( 'OFF', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
-				'condition' => [
+				'condition'    => [
 					'exad_animated_text_animated_heading_animated_type' => 'exad-typed-animation'
 				]
 			]
@@ -365,7 +365,18 @@ class Exad_Animated_Text extends Widget_Base {
 			[
 				'name'     => 'exad_pre_animated_text_typography',
 				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-animated-text-pre-heading'
+				'fields_options'   => [
+		            'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 30
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '600'
+		            ]
+	            ],
+				'selector' => '{{WRAPPER}} .exad-animated-text-pre-heading',
 			]
 		);
 
@@ -399,7 +410,18 @@ class Exad_Animated_Text extends Widget_Base {
 			[
 				'name'     => 'exad_animated_text_typography',
 				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-animated-text-animated-heading'
+				'fields_options'   => [
+		            'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 30
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '600'
+		            ]
+	            ],
+				'selector' => '{{WRAPPER}} .exad-animated-text-animated-heading, {{WRAPPER}} span.typed-cursor'
 			]
 		);
 
@@ -421,6 +443,10 @@ class Exad_Animated_Text extends Widget_Base {
 				'label'      => __( 'Spacing', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px'],
+				'default'    => [
+                    'unit'   => 'px',
+                    'size'   => 8
+                ],
 				'range'      => [
 					'px'     => [
 						'min' => 0,
@@ -441,8 +467,8 @@ class Exad_Animated_Text extends Widget_Base {
 	    $this->start_controls_section(
 	        'exad_post_animated_text_style',
 	        [
-				'label' => esc_html__( 'Post Animated text', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label'     => esc_html__( 'Post Animated text', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'exad_animated_text_after_text!' => ''
 				]
@@ -454,6 +480,17 @@ class Exad_Animated_Text extends Widget_Base {
 			[
 				'name'     => 'exad_post_animated_text_typography',
 				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
+				'fields_options'   => [
+		            'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 30
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '600'
+		            ]
+	            ],
 				'selector' => '{{WRAPPER}} .exad-animated-text-post-heading'
 			]
 		);
@@ -513,27 +550,34 @@ class Exad_Animated_Text extends Widget_Base {
 				]
 			);
 		}
-		?>
 
-	<div class="exad-animated-text <?php echo esc_attr($heading_align); ?>">
-		<?php do_action( 'exad_animated_text_wrapper_before' ); ?>
-		<<?php echo esc_attr($heading_tag); ?> <?php echo $this->get_render_attribute_string( 'exad_typed_animated_string' ); ?>>
-			<?php do_action( 'exad_animated_text_content_before' ); ?>
-			<?php $before_text ? printf( '<span class="exad-animated-text-pre-heading">%s</span>', esc_html($before_text) ) : ''; ?>
+		echo '<div class="exad-animated-text '.esc_attr($heading_align).'">';
 
-			<?php if( $settings['exad_animated_text_animated_heading_animated_type'] === 'exad-typed-animation' ) { ?>
-				<span id="exad-animated-text-<?php echo esc_attr($id); ?>" class="exad-animated-text-animated-heading"></span>
-			<?php } ?>
-			<?php if( $settings['exad_animated_text_animated_heading_animated_type'] === 'exad-morphed-animation' ) { ?>
-				<span id="exad-animated-text-<?php echo esc_attr($id); ?>" class="exad-animated-text-animated-heading"><?php echo esc_html($heading_text); ?></span>
-			<?php } ?>
+			do_action( 'exad_animated_text_wrapper_before' );
 
-			<?php $after_text ? printf( '<span class="exad-animated-text-post-heading">%s</span>', esc_html($after_text) ) : ''; ?>
-			<?php do_action( 'exad_animated_text_content_after' ); ?>
-		</<?php echo esc_attr($heading_tag); ?>>
-		<?php do_action( 'exad_animated_text_wrapper_after' ); ?>
-	</div>
-	<?php
+			echo '<'.esc_attr($heading_tag).' '.$this->get_render_attribute_string( 'exad_typed_animated_string' ).'>';
+
+				do_action( 'exad_animated_text_content_before' );
+
+				$before_text ? printf( '<span class="exad-animated-text-pre-heading">%s</span>', wp_kses_post($before_text) ) : '';
+
+				if( 'exad-typed-animation' === $settings['exad_animated_text_animated_heading_animated_type'] ) {
+					echo '<span id="exad-animated-text-'.esc_attr($id).'" class="exad-animated-text-animated-heading"></span>';
+				}
+
+				if( 'exad-morphed-animation' === $settings['exad_animated_text_animated_heading_animated_type'] ) {
+					echo '<span id="exad-animated-text-'.esc_attr($id).'" class="exad-animated-text-animated-heading">'.wp_kses_post($heading_text).'</span>';
+				}
+
+				$after_text ? printf( '<span class="exad-animated-text-post-heading">%s</span>', wp_kses_post($after_text) ) : '';
+
+				do_action( 'exad_animated_text_content_after' );
+
+			echo '</'.esc_attr($heading_tag).'>';
+
+			do_action( 'exad_animated_text_wrapper_after' );
+
+		echo '</div>';
 	}
 }
 

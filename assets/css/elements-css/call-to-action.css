@@ -1,5 +1,4 @@
 /* CTA style start */
-
 h1.exad-call-to-action-title {
     font-weight: 600;
     margin-bottom: 20px;
@@ -13,12 +12,9 @@ ul.exad-call-to-action-buttons {
 .exad-call-to-action-buttons li:not(:last-child) {
     margin-right: 20px;
 }
-.exad-call-to-action-buttons li {
+.exad-call-to-action-buttons li,
+.exad-call-to-action-buttons li a {
     display: inline-block;
-}
-.exad-call-to-action.skin-vertical {
-    text-align: center;
-    display: flex;
 }
 .exad-call-to-action.skin-vertical p.exad-call-to-action-subtitle {
     margin-bottom: 50px;
@@ -38,19 +34,11 @@ ul.exad-call-to-action-buttons {
     flex: 1;
     text-align: right;
 }
-.exad-call-to-action.fixed-width-left {
-    justify-content: flex-start;
-}
-.exad-call-to-action.fixed-width-right {
-    justify-content: flex-end;
-}
-.exad-call-to-action.fixed-width-center {
-    justify-content: center;
-}
 .exad-call-to-action-icon i {
     font-size: 40px;
     display: inline-block;
 }
+
 @media only screen and (max-width: 493px) {
     .exad-call-to-action-buttons li {
         display: flex;

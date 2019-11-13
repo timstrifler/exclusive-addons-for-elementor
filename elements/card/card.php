@@ -139,7 +139,9 @@ class Exad_Card extends Widget_Base {
 			[
 				'label'       => __( 'Icon', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::ICONS,
-				'label_block' => true
+				'condition'   => [
+					'exad_card_action_text!' => ''
+				]
 			]
 		);
 
@@ -161,7 +163,8 @@ class Exad_Card extends Widget_Base {
 				'default'   => 'icon_pos_right',
 				'toggle'    => false,
 				'condition' => [
-                    'exad_card_action_link_icon[value]!' => ''
+                    'exad_card_action_link_icon[value]!' => '',
+                    'exad_card_action_text!' => ''
                 ]
 			]
 		);
@@ -289,20 +292,6 @@ class Exad_Card extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_title_color_schema',
-			[
-				'label'     => __('Color Scheme', 'exclusive-addons-elementor'),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ff4a4a',
-				'selectors' => [
-					'{{WRAPPER}} .exad-card.text_on_image .exad-card-body .exad-card-title::before,
-					{{WRAPPER}} .exad-card.default .exad-card-body .exad-card-title::before,
-					{{WRAPPER}} .exad-card.text_on_image::before' => 'background: {{VALUE}};'
-				]
-			]
-		);
-
 		$this->end_controls_section();
 
 		/*
@@ -312,7 +301,10 @@ class Exad_Card extends Widget_Base {
 			'exad_section_card_styles_image',
 			[
 				'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'tab'   => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_card_image[url]!' => ''
+				]
 			]
 		);
 		
@@ -375,7 +367,7 @@ class Exad_Card extends Widget_Base {
 		$this->add_control(
 			'exad_card_content_alignment',
 			[
-				'label'     => __( 'Icon Position', 'exclusive-addons-elementor' ),
+				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'options'   => [
 					'left'      => [
@@ -436,8 +428,11 @@ class Exad_Card extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_card_styles_title',
 			[
-				'label' => esc_html__( 'Title', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'label'     => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_card_title!' => ''
+				]
 			]
 		);
 		$this->add_control(
@@ -448,6 +443,20 @@ class Exad_Card extends Widget_Base {
 				'default'   => '#132c47',
 				'selectors' => [
 					'{{WRAPPER}} .exad-card-body .exad-card-title' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_title_color_schema',
+			[
+				'label'     => __('Color Scheme', 'exclusive-addons-elementor'),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ff4a4a',
+				'selectors' => [
+					'{{WRAPPER}} .exad-card.text_on_image .exad-card-body .exad-card-title::before,
+					{{WRAPPER}} .exad-card.default .exad-card-body .exad-card-title::before,
+					{{WRAPPER}} .exad-card.text_on_image::before' => 'background: {{VALUE}};'
 				]
 			]
 		);
@@ -469,7 +478,7 @@ class Exad_Card extends Widget_Base {
 				'default'      => [
 					'top'      => '0',
 					'right'    => '0',
-					'bottom'   => '20',
+					'bottom'   => '15',
 					'left'     => '0',
 					'unit'     => 'px',
 					'isLinked' => false
@@ -488,10 +497,14 @@ class Exad_Card extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_card_styles_tag',
 			[
-				'label' => esc_html__( 'Tag', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'label'     => esc_html__( 'Tag', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_card_tag!' => ''
+				]
 			]
 		);
+
 		$this->add_control(
 			'exad_tag_color',
 			[
@@ -503,6 +516,7 @@ class Exad_Card extends Widget_Base {
 				]
 			]
 		);
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -537,8 +551,11 @@ class Exad_Card extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_card_styles_description',
 			[
-				'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'label'     => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_card_description!' => ''
+				]
 			]
 		);
 		$this->add_control(
@@ -589,8 +606,11 @@ class Exad_Card extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_card_styles_button',
 			[
-				'label' => esc_html__( 'Button', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'label'     => esc_html__( 'Button', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_card_action_text!' => ''
+				]
 			]
 		);
 
@@ -721,6 +741,22 @@ class Exad_Card extends Widget_Base {
 					[
 						'name'     => 'exad_card_button_normal_border',
 						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
+						'fields_options' => [
+		                    'border'        => [
+		                        'default'   => 'solid'
+		                    ],
+		                    'width'       => [
+		                        'default' => [
+		                            'top'    => '1',
+		                            'right'  => '1',
+		                            'bottom' => '1',
+		                            'left'   => '1'
+		                        ]
+		                    ],
+		                    'color' => [
+		                        'default' => '#222222'
+		                    ]
+		                ],
 						'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action'
 					]
 				);
@@ -730,20 +766,6 @@ class Exad_Card extends Widget_Base {
 					[
 						'name'     => 'exad_card_button_normal_box_shadow',
 						'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-						 'fields_options'     => [
-				            'box_shadow_type' => [
-				                'default'     =>'yes'
-				            ],
-				            'box_shadow'         => [
-				                'default'        => [
-				                    'horizontal' => 0,
-				                    'vertical'   => 0,
-				                    'blur'       => 10,
-				                    'spread'     => 0,
-				                    'color'      => 'rgba(9,24,33,0.1)'
-				                ]
-				            ]
-			            ],
 						'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action'
 					]
 				);
@@ -854,19 +876,22 @@ class Exad_Card extends Widget_Base {
         }
 
 		echo '<div '.$this->get_render_attribute_string( 'exad_card' ).'>';
-			// if( !empty( $card_image_url ) ) :
-	  //       	echo '<div class="exad-card-thumb">';
-	  //           	echo '<img src="'.esc_url($card_image_url).'" alt="'.Control_Media::get_image_alt( $settings['exad_card_image'] ).'">';
-	  //         	echo '</div>';
-			// endif;
+			if( !empty( $card_image_url ) ) :
+	        	echo '<div class="exad-card-thumb">';
+	            	echo '<img src="'.esc_url($card_image_url).'" alt="'.Control_Media::get_image_alt( $settings['exad_card_image'] ).'">';
+	          	echo '</div>';
+			endif;
           	echo '<div class="exad-card-body">';
           		if( $settings['exad_card_title'] ) {
 	          		echo '<a '.$this->get_render_attribute_string( 'exad_card_title_link' ).'>';
 	            		echo '<span '.$this->get_render_attribute_string( 'exad_card_title' ).'>'.esc_html( $settings['exad_card_title'] ).'</span>';
 	        		echo '</a>';          			
           		}
+
         		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', esc_html( $settings['exad_card_tag'] ) ) : '';
+
         		$settings['exad_card_description'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</p>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
+
 				echo '<a '.$this->get_render_attribute_string( 'exad-card-action-anchor-params' ).'>';
 					if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
 						echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
@@ -884,23 +909,7 @@ class Exad_Card extends Widget_Base {
         echo '</div>';
 	}
 
-	protected function _content_template() {
-		?>
-<!-- 		<#
-			view.addRenderAttribute( 'exad_card', {
-				'class': [ 
-					'exad-card', 
-					settings.exad_card_content_alignment,
-					settings.exad_card_layout_type,
-					settings.exad_card_image_zoom_animation
-				]
-			} );
-		#>
-		<div {{{ view.getRenderAttributeString( 'exad_card' ) }}}>
-
-		</div> -->
-		<?php	
-	}
+	protected function _content_template() {}
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new Exad_Card() );

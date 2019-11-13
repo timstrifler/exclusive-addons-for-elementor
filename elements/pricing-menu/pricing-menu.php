@@ -64,7 +64,7 @@ class Exad_Pricing_Menu extends Widget_Base {
           [
             'label'   => esc_html__('Description', 'exclusive-addons-elementor'),
             'type'    => Controls_manager::TEXTAREA,
-            'default' => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'exclusive-addons-elementor' )
+            'default' => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'exclusive-addons-elementor' )
           ]
         );
 
