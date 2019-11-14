@@ -236,9 +236,12 @@ final class Base {
             wp_register_script( 'exad-wow-js', EXAD_ASSETS_URL . 'js/vendor/wow.min.js', array( 'jquery' ), '1.1.3', true );
         }
         if ( $is_activated_widget['google-maps'] ) {
-            wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(),'1.8', false );
+            if ( '' != get_option('exad_google_map_api_option') ) {
+                wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), '1.8', false );
+            }
             // Gmap 3 Js
-            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.js', array( 'jquery', 'exad-main-script' ), '1.0', true );
+            
         }	
         
         if ( $is_activated_widget['countdown-timer'] ) {
