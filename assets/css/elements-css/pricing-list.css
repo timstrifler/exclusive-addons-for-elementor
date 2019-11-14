@@ -18,9 +18,12 @@
   object-fit: cover;
   -o-object-fit: cover;
 }
-
-.exad-pricing-list-item-content.price_pos_right{
+.exad-pricing-title {
   display: flex;
+  align-items: center;
+}
+.exad-pricing-title .exad-pricing-list-item-price {
+    margin-left: auto;
 }
 
 .exad-pricing-list-item-content-title{

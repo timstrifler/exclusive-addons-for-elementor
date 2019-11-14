@@ -19,7 +19,7 @@
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow {
   position: absolute;
   border-right: none;
-  margin-left: -15px;
+  margin-left: -12px;
 }
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow::before {
@@ -63,7 +63,7 @@
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
   position: absolute;
   border-left: none;
-  margin-right: -15px;
+  margin-right: -12px;
 }
 
 .exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow::before {

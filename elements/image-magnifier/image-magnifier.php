@@ -194,7 +194,7 @@ class Exad_Image_Magnifier extends Widget_Base {
         ]
     );
 
-    $this->add_control(
+    $this->add_responsive_control(
         'exad_image_magnefic_glass_radius',
         [
             'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),

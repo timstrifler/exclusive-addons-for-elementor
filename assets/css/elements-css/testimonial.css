@@ -68,11 +68,15 @@
 
 .exad-testimonial-name{
   margin: 0;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .exad-testimonial-designation{
   margin: 0;
   display: block;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .exad-testimonial-content-wrapper-arrow::before{

@@ -62,7 +62,7 @@ class Exad_Testimonial extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Testimonial', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore odio sint harum quasi maiores nobis dignissimos illo doloremque blanditiis illum!', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.', 'exclusive-addons-elementor' )
 			]
 		);
 
@@ -705,7 +705,18 @@ class Exad_Testimonial extends Widget_Base {
 			[
 				'name'     => 'exad_testimonial_title_typography',
 				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-testimonial-name'
+				'selector' => '{{WRAPPER}} .exad-testimonial-name',
+				'fields_options'   => [
+					'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 22
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '600'
+		            ]
+	            ]
 			]
 		);
 
@@ -714,7 +725,7 @@ class Exad_Testimonial extends Widget_Base {
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#222222',
+				'default'   => '#000000',
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-name' => 'color: {{VALUE}};'
 				]
@@ -757,7 +768,18 @@ class Exad_Testimonial extends Widget_Base {
 			[
 				'name'     => 'exad_testimonial_designation_typography',
 				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-testimonial-designation'
+				'selector' => '{{WRAPPER}} .exad-testimonial-designation',
+				'fields_options'   => [
+					'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 14
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '600'
+		            ]
+	            ]
 			]
 		);
 
@@ -766,7 +788,7 @@ class Exad_Testimonial extends Widget_Base {
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#222222',
+				'default'   => '#333333',
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-designation' => 'color: {{VALUE}};'
 				]

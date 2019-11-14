@@ -125,7 +125,7 @@ class Exad_Infobox extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Basic description about the Infobox', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore odio sint harum quasi maiores nobis dignissimos illo doloremque blanditiis illum! Lorem ipsum dolor sit, amet consectetur adipisicing elit.', 'exclusive-addons-elementor' )
 			]
 		);
 
@@ -149,7 +149,7 @@ class Exad_Infobox extends Widget_Base {
 				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'options' => [
-					'exad-infobox-align-left' => [
+					'exad-infobox-align-left'   => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-align-left'
 					],
@@ -157,7 +157,7 @@ class Exad_Infobox extends Widget_Base {
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-align-center'
 					],
-					'exad-infobox-align-right' => [
+					'exad-infobox-align-right'  => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-align-right'
 					]
@@ -187,7 +187,7 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
@@ -205,7 +205,7 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
@@ -345,37 +345,37 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_icon_height',
 			[
 				'label'     => esc_html__( 'Height', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
-				'default'   => '100',
+				'default'   => '80',
 				'selectors' => [
 				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'height: {{VALUE}}px;'
 			  	]
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_icon_width',
 			[
 				'label'     => esc_html__( 'Width', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
-				'default'   => '100',
+				'default'   => '80',
 				'selectors' => [
 				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'width: {{VALUE}}px;'
 			  	]
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_icon_font_size',
 			[
 				'label'   => esc_html__( 'Icon Size', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SLIDER,
 				'default' => [
-					'size'    => 50
+					'size'    => 35
 			  	],
 			  	'range'   => [
 				  	'px'  => [
@@ -386,12 +386,13 @@ class Exad_Infobox extends Widget_Base {
 				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon i' => 'font-size: {{SIZE}}px;'
 			  	],
 				'condition'   => [
-					'exad_infobox_img_or_icon' => 'icon'
+					'exad_infobox_img_or_icon'  => 'icon',
+					'exad_infobox_icon[value]!' => ''
 				]
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_icon_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
@@ -418,7 +419,7 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_icon_margin_top',
 			[
 				'label'       => esc_html__( 'Top Spacing', 'exclusive-addons-elementor' ),
@@ -440,7 +441,7 @@ class Exad_Infobox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_icon_margin_bottom',
 			[
 				'label'       => esc_html__( 'Margin Bottom', 'exclusive-addons-elementor' ),
@@ -488,7 +489,8 @@ class Exad_Infobox extends Widget_Base {
 							'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon i' => 'color: {{VALUE}}'
 						],
 						'condition' => [
-							'exad_infobox_img_or_icon' => 'icon'
+							'exad_infobox_img_or_icon'  => 'icon',
+							'exad_infobox_icon[value]!' => ''
 						]
 					]
 				);
@@ -529,7 +531,8 @@ class Exad_Infobox extends Widget_Base {
 							'{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}}'
 						],
 						'condition' => [
-							'exad_infobox_img_or_icon' => 'icon'
+							'exad_infobox_img_or_icon'  => 'icon',
+							'exad_infobox_icon[value]!' => ''
 						]
 					]
 				);
@@ -563,7 +566,7 @@ class Exad_Infobox extends Widget_Base {
             [
 				'label'     => __('Color', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#132c47',
+				'default'   => '#000000',
 				'selectors' => [
                     '{{WRAPPER}} .exad-infobox-content-title' => 'color: {{VALUE}};'
                 ]
@@ -574,16 +577,35 @@ class Exad_Infobox extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
 				'name'     => 'infobox_title_typography',
-				'selector' => '{{WRAPPER}} .exad-infobox-content-title'
+				'selector' => '{{WRAPPER}} .exad-infobox-content-title',
+				'fields_options'   => [
+					'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 30
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '600'
+		            ]
+	            ]
             ]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_title_margin',
 			[
 				'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
+				'default'    => [
+                    'top'      => '0',
+                    'right'    => '0',
+                    'bottom'   => '10',
+                    'left'     => '0',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-infobox-content-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
@@ -591,7 +613,6 @@ class Exad_Infobox extends Widget_Base {
 		);
 
         $this->end_controls_section();
-
 
         $this->start_controls_section(
             'section_infobox_description',
@@ -621,12 +642,20 @@ class Exad_Infobox extends Widget_Base {
             ]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_infobox_description_margin',
 			[
 				'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%'],
+				'default'    => [
+                    'top'      => '10',
+                    'right'    => '0',
+                    'bottom'   => '10',
+                    'left'     => '0',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-infobox-content-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]

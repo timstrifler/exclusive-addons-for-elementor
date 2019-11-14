@@ -63,7 +63,7 @@ class Exad_Heading extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Sub Heading', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Basic description about the Heading', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore odio sint harum quasi maiores nobis dignissimos illo doloremque blanditiis illum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore odio sint harum quasi maiores nobis digniss.', 'exclusive-addons-elementor' )
 			]
 		);
 
@@ -120,7 +120,7 @@ class Exad_Heading extends Widget_Base {
 			]
 		);
 
-        $this->add_responsive_control(
+        $this->add_control(
 			'exad_heading_title_alignment',
 			[
 				'label'       => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
@@ -155,7 +155,8 @@ class Exad_Heading extends Widget_Base {
 				'label'     => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'exad_heading_icon_show' => 'yes'
+					'exad_heading_icon_show'    => 'yes',
+					'exad_heading_icon[value]!' => ''
 				]
 			]
 		);
@@ -170,7 +171,7 @@ class Exad_Heading extends Widget_Base {
             ]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_heading_icob_box_height',
 			[
 				'label'     => esc_html__( 'Height', 'exclusive-addons-elementor' ),
@@ -184,7 +185,7 @@ class Exad_Heading extends Widget_Base {
 				]
 			]
 		);
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_heading_icon_box_width',
 			[
 				'label'     => esc_html__( 'Width', 'exclusive-addons-elementor' ),
@@ -206,29 +207,52 @@ class Exad_Heading extends Widget_Base {
 				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .exad-heading-icon',
-				'condition' => [
-					'exad_heading_icon_box' => 'yes'
+				'fields_options'  => [
+					'background'  => [
+						'default' => 'classic'
+					],
+					'color'       => [
+						'default' => '#00d8d8'
+					]
 				]
 			]
 		);
 
-		$this->add_control(
-			'exad_heading_icon_box_radius',
+		$this->add_responsive_control(
+			'exad_heading_icon_box_padding',
 			[
-				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => ''
-				],
+                    'top'      => '20',
+                    'right'    => '20',
+                    'bottom'   => '15',
+                    'left'     => '20',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-heading-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-heading-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_heading_icon_box_radius',
+			[
+				'label'        => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::DIMENSIONS,
+				'size_units'   => [ 'px', '%', 'em' ],
+				'default'      => [
+					'top'      => '100',
+					'right'    => '100',
+					'bottom'   => '100',
+					'left'     => '100',
+					'unit'     => '%'
 				],
-				'condition'  => [
-					'exad_heading_icon_box' => 'yes'
+				'selectors'    => [
+					'{{WRAPPER}} .exad-heading-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -238,10 +262,7 @@ class Exad_Heading extends Widget_Base {
 			[
 				'name'      => 'exad_heading_icon_box_border',
 				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
-				'selector'  => '{{WRAPPER}} .exad-heading-icon',
-				'condition' => [
-					'exad_heading_icon_box' => 'yes'
-				]
+				'selector'  => '{{WRAPPER}} .exad-heading-icon'
 			]
 		);
 
@@ -250,7 +271,7 @@ class Exad_Heading extends Widget_Base {
 			[
 				'label'     => __('Color', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#222222',
+				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-icon i' => 'color: {{VALUE}};'
 				]
@@ -272,7 +293,7 @@ class Exad_Heading extends Widget_Base {
 				],
 				'default'    => [
 					'unit'   => 'px',
-					'size'   => 50
+					'size'   => 30
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-icon i' => 'font-size: {{SIZE}}{{UNIT}};'
@@ -367,6 +388,18 @@ class Exad_Heading extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'exad_heading_heading_margin',
+			[
+				'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors'  => [
+					'{{WRAPPER}} h1.exad-exclusive-heading-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
 		$this->end_controls_section();
 
 		/**
@@ -427,13 +460,14 @@ class Exad_Heading extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Height', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::NUMBER,
-				'default'   => '6',
+				'default'   => '2',
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-separator' => 'height: {{VALUE}}px;'
 				]
 				
 			]
 		);
+		
 		$this->add_responsive_control(
 			'exad_heading_divider_width',
 			[
@@ -472,7 +506,7 @@ class Exad_Heading extends Widget_Base {
 				],
 				'default'    => [
 					'unit'   => 'px',
-					'size'   => 20
+					'size'   => 12
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-heading-separator' => 'margin-top: {{SIZE}}{{UNIT}};'
@@ -514,6 +548,7 @@ class Exad_Heading extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
+
 		$this->add_control(
 			'exad_heading_description_color',
 			[
@@ -525,6 +560,7 @@ class Exad_Heading extends Widget_Base {
 				]
 			]
 		);
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -532,23 +568,19 @@ class Exad_Heading extends Widget_Base {
 					'selector' => '{{WRAPPER}} .exad-exclusive-heading-description'
 			]
 		);
+
 		$this->add_responsive_control(
 			'exad_heading_subheading_margin',
 			[
 				'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
-				'default'    => [
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => ''
-				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-exclusive-heading-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
+
 		$this->end_controls_section();
 		
 	}

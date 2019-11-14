@@ -53,8 +53,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label'       => esc_html__( 'Subtitle', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
-				'label_block' => false,
-				'default'     => esc_html__( 'Best for Small individual', 'exclusive-addons-elementor' )
+				'label_block' => false
 			]
 		);
 
@@ -154,7 +153,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'label'       => esc_html__( 'Price By', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default'     => esc_html__( 'month', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'mo', 'exclusive-addons-elementor' )
 			]
 		);
 
@@ -189,8 +188,14 @@ class Exad_Pricing_Table extends Widget_Base {
 					[ 'exad_pricing_table_item' => 'Responsive Live' ],
 					[ 'exad_pricing_table_item' => 'Adaptive Bitrate' ],
 					[ 'exad_pricing_table_item' => 'Analytics' ],
-					[ 'exad_pricing_table_item' => 'Creative Layouts' ],
-					[ 'exad_pricing_table_item' => 'Free Support' ]
+					[ 	
+						'exad_pricing_table_item'      => 'Creative Layouts',
+						'exad_pricing_table_icon_mood' => 'no'
+					],
+					[ 
+						'exad_pricing_table_item'      => 'Free Support',
+						'exad_pricing_table_icon_mood' => 'no'
+					]
 				],
 				'fields'    => [
 					[
@@ -207,8 +212,7 @@ class Exad_Pricing_Table extends Widget_Base {
 						'default'     => [
 							'value'   => 'fas fa-check',
 							'library' => 'solid'
-						],
-						'label_block' => false
+						]
 					],
 					[
 						'name'         => 'exad_pricing_table_icon_mood',
@@ -295,7 +299,7 @@ class Exad_Pricing_Table extends Widget_Base {
 				'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'seperator' => 'before',
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#FFFFFF',
+				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-wrapper' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .exad-pricing-table-header .exad-pricing-table-header-curved svg path' => 'fill: {{VALUE}};'
@@ -303,17 +307,17 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_content_padding',
 			[
 				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
-					'top'    => '0',
-					'right'  => '10',
-					'bottom' => '30',
-					'left'   => '10',
+					'top'      => '45',
+					'right'    => '30',
+					'bottom'   => '45',
+					'left'     => '30',
 					'isLinked' => false
 				],
 				'selectors' => [
@@ -331,18 +335,19 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_content_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
-					'top'    => '0',
-					'right'  => '0',
-					'bottom' => '0',
-					'left'   => '0'
-				],
+                    'top'      => '10',
+                    'right'    => '10',
+                    'bottom'   => '10',
+                    'left'     => '10',
+                    'unit'     => 'px'
+                ],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-pricing-table-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .exad-pricing-table-header' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0 0;',
@@ -357,17 +362,17 @@ class Exad_Pricing_Table extends Widget_Base {
 				'name'     => 'exad_pricing_table_content_box_shadow',
 				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper',
-				'fields_options' => [
+				'fields_options'      => [
 		            'box_shadow_type' => [
 		                'default'     =>'yes'
 		            ],
 		            'box_shadow'  => [
 		                'default' => [
 		                    'horizontal' => 0,
-		                    'vertical'   => 20,
-		                    'blur'       => 49,
+		                    'vertical'   => 13,
+		                    'blur'       => 33,
 		                    'spread'     => 0,
-		                    'color'      => 'rgba(24, 27, 33, 0.1)'
+		                    'color'      => 'rgba(51,77,128,0.08)'
 		                ]
 		            ]
 	            ]
@@ -394,7 +399,7 @@ class Exad_Pricing_Table extends Widget_Base {
 						'icon'  => 'fa fa-align-center'
 					]
 				],
-				'default' => 'center'
+				'default' => 'left'
 			]
 		);
 
@@ -409,7 +414,21 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'name'     => 'exad_pricing_table_transition_shadow',
 				'label'    => __( 'Hover Box Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper:hover'
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper:hover',
+				'fields_options'      => [
+		            'box_shadow_type' => [
+		                'default'     =>'yes'
+		            ],
+		            'box_shadow'  => [
+		                'default' => [
+		                    'horizontal' => 0,
+		                    'vertical'   => 20,
+		                    'blur'       => 40,
+		                    'spread'     => 0,
+		                    'color'      => 'rgba(51,77,128,0.2)'
+		                ]
+		            ]
+	            ]
 			]
 		);
 
@@ -470,26 +489,19 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_header_padding',
 			[
 				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
-				'default'    => [
-					'top'      => '30',
-					'right'    => '0',
-					'bottom'   => '0',
-					'left'     => '0',
-					'isLinked' => false
-				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-pricing-table-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_header_margin',
 			[
 				'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
@@ -528,7 +540,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000000',
+				'default'   => '#8a8d91',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-title' => 'color: {{VALUE}};'
 				]
@@ -540,11 +552,22 @@ class Exad_Pricing_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_pricing_table_title_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing-table-title'
+				'selector' => '{{WRAPPER}} .exad-pricing-table-title',
+				'fields_options'   => [
+					'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 15
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '400'
+		            ]
+	            ]
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_title_margin',
 			[
 				'label'   => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
@@ -599,7 +622,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_subtitle_margin',
 			[
 				'label'   => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
@@ -634,18 +657,84 @@ class Exad_Pricing_Table extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_pricing_table_price_box_separator',
+			[
+				'label'        => esc_html__( 'Enable Separator', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'ON', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'OFF', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_pricing_table_price_box_separator_height',
+			[
+				'label'     => esc_html__( 'Separator Height', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => '1',
+				'selectors' => [
+					'{{WRAPPER}} .exad-price-bottom-separator' => 'height: {{VALUE}}px;'
+				],
+				'condition' => [
+					'exad_pricing_table_price_box_separator' => 'yes'
+				]
+				
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_price_box_separator_color',
+			[
+				'label'     => esc_html__( 'Separator Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#e5e5e5',
+				'selectors' => [
+					'{{WRAPPER}} .exad-price-bottom-separator'  => 'background-color: {{VALUE}};'
+				],
+				'condition' => [
+					'exad_pricing_table_price_box_separator' => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_pricing_table_price_box_separator_spacing',
+			[
+				'label'       => esc_html__( 'Separator Spacing', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => [
+					'size'    => 30
+				],
+				'range'       => [
+					'px'      => [
+						'max' => 50
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-price-bottom-separator' => 'margin: {{SIZE}}px 0;'
+				],
+				'condition' => [
+					'exad_pricing_table_price_box_separator' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
 			'exad_pricing_table_price_box',
 			[
 				'label'        => esc_html__( 'Price Box', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'ON', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'OFF', 'exclusive-addons-elementor' ),
+				'separator'	   => 'before',
 				'return_value' => 'yes',
 				'default'      => 'no'
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_price_box_height',
 			[
 				'label'     => __( 'Box Height', 'exclusive-addons-elementor' ),
@@ -660,7 +749,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_price_box_width',
 			[
 				'label'     => __( 'Box Width', 'exclusive-addons-elementor' ),
@@ -700,7 +789,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_price_box_radius',
 			[
 				'label'      => __( 'Box Radius', 'exclusive-addons-elementor' ),
@@ -736,10 +825,9 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#222222',
+				'default'   => '#132c47',
 				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-pricing-table-five .exad-pricing-table-price p'  => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price p'  => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -748,7 +836,24 @@ class Exad_Pricing_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_pricing_table_price_tag_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price', '{{WRAPPER}} .exad-pricing-table-five .exad-pricing-table-price p'
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price p',
+				'fields_options'   => [
+					'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 48
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '600'
+		            ],
+		              'letter_spacing'   => [
+		                'default'        => [
+		                    'unit'       => 'px',
+		                    'size'       => -3.2
+		                ]
+		            ]
+	            ]
 			]
 		);
 
@@ -766,9 +871,9 @@ class Exad_Pricing_Table extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
+				'default'   => '#132c47',
 				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-price-period' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price span.exad-price-period' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -777,7 +882,24 @@ class Exad_Pricing_Table extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_pricing_table_price_preiod_typography',
-				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-price-period'
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-price-period',
+				'fields_options'   => [
+					'font_size'    => [
+		                'default'  => [
+		                    'unit' => 'px',
+		                    'size' => 20
+		                ]
+		            ],
+		            'font_weight'  => [
+		                'default'  => '600'
+		            ],
+		              'letter_spacing'   => [
+		                'default'        => [
+		                    'unit'       => 'px',
+		                    'size'       => 0
+		                ]
+		            ]
+	            ]
 			]
 		);
 
@@ -805,7 +927,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_featured_list_icon_size',
 			[
 				'label'       => esc_html__( 'Icon Size', 'exclusive-addons-elementor' ),
@@ -824,7 +946,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_featured_list_icon_space',
 			[
 				'label'       => esc_html__( 'Icon Space', 'exclusive-addons-elementor' ),
@@ -844,9 +966,21 @@ class Exad_Pricing_Table extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_pricing_table_list_item_icon_color',
+			[
+				'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#00C853',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-features li span.exad-pricing-li-icon' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_control(
 			'exad_pricing_table_list_item_color',
 			[
-				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'label'     => esc_html__( 'Item Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#132c47',
 				'selectors' => [
@@ -855,7 +989,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_list_padding',
 			[
 				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -902,12 +1036,32 @@ class Exad_Pricing_Table extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_pricing_table_list_disable_item_color',
+			'exad_pricing_table_list_disable_item_styling',
 			[
-				'label'     => esc_html__( 'Disable item color', 'exclusive-addons-elementor' ),
+				'label'     => esc_html__( 'Disable Items', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before'
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_list_disable_item_icon_color',
+			[
+				'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#a6a9ad',
-				'separator' => 'before',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-features li.exad-pricing-table-features-disable span.exad-pricing-li-icon' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_list_disable_item_color',
+			[
+				'label'     => esc_html__( 'Item color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#a6a9ad',
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-features li.exad-pricing-table-features-disable' => 'color: {{VALUE}};'
 				]
@@ -932,7 +1086,7 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_featured_tag_font_size',
 			[
 				'label'       => esc_html__( 'Font Size', 'exclusive-addons-elementor' ),
@@ -1014,17 +1168,17 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_button_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
-					'top'    => '0',
-					'right'  => '0',
-					'bottom' => '0',
-					'left'   => '0'
+					'top'    => '4',
+					'right'  => '4',
+					'bottom' => '4',
+					'left'   => '4'
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
@@ -1032,16 +1186,16 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_button_padding',
 			[
 				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
-					'top'      => '10',
+					'top'      => '12',
 					'right'    => '30',
-					'bottom'   => '10',
+					'bottom'   => '12',
 					'left'     => '30',
 					'isLinked' => false
 				],
@@ -1051,14 +1205,14 @@ class Exad_Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_button_margin',
 			[
 				'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'default'    => [
-					'top'      => '20',
+					'top'      => '30',
 					'right'    => '0',
 					'bottom'   => '0',
 					'left'     => '0',
@@ -1235,8 +1389,9 @@ class Exad_Pricing_Table extends Widget_Base {
         }
 	
 	?>
-		<div class="exad-pricing-table-wrapper exad-pricing-table <?php echo esc_attr($settings['exad_pricing_table_content_alignment']); ?> <?php echo esc_attr($settings['exad_pricing_table_transition_type']); ?>">
+		<div class="exad-pricing-table-wrapper exad-pricing-table <?php echo esc_attr( $settings['exad_pricing_table_content_alignment'] ); ?> <?php echo esc_attr($settings['exad_pricing_table_transition_type']); ?>">
 			<div class="exad-pricing-table-badge-wrapper">
+
 				<?php if ( 'yes' == $settings['exad_pricing_table_featured'] ) { ?>
 					<span class="exad-pricing-table-badge <?php echo esc_attr($settings['exad_pricing_table_featured_type']); ?>">
 						<?php if( 'text-badge' == $settings['exad_pricing_table_featured_type'] ) { ?>
@@ -1247,12 +1402,15 @@ class Exad_Pricing_Table extends Widget_Base {
 						<?php } ?>
 					</span>
 				<?php } ?>
+
 				<div class="exad-pricing-table-header">
+
 					<?php do_action( 'exad_pricing_table_header_wrapper_before' ); ?>
 					<h4 class="exad-pricing-table-title"><?php echo esc_html( $settings['exad_pricing_table_title'] ); ?></h4>
 					<?php if ( !empty( $settings['exad_pricing_table_subtitle'] ) ) : ?>
 	                    <p class="exad-pricing-table-subtitle"><?php echo esc_html( $settings['exad_pricing_table_subtitle'] ); ?></p>
 	                <?php endif; ?>
+
 					<div <?php echo $this->get_render_attribute_string( 'exad_pricing_table_box_value' ); ?> >
 						<p>
 							<?php
@@ -1272,6 +1430,13 @@ class Exad_Pricing_Table extends Widget_Base {
 							</span>
 						</p>
 					</div>
+
+					<?php
+						if ( 'yes' == $settings['exad_pricing_table_price_box_separator'] ) :
+							echo '<div class="exad-price-bottom-separator"></div>';
+						endif;
+					?>
+
 					<?php if( 'curved-header' === $settings['exad_pricing_table_header_type'] ) { ?>
 						<div class="exad-pricing-table-header-curved">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 20">
@@ -1279,8 +1444,11 @@ class Exad_Pricing_Table extends Widget_Base {
 							</svg>
 						</div>
 					<?php } ?>
+
 					<?php do_action( 'exad_pricing_table_header_wrapper_after' ); ?>
+
 				</div>
+
 				<?php 
 					if( 'middle' === $settings['exad_pricing_table_btn_position'] ) {
 						echo '<a '.$this->get_render_attribute_string( 'exad-pricing-table-anchor-params' ).'>';

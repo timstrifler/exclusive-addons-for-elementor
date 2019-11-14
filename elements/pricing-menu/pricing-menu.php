@@ -40,14 +40,14 @@ class Exad_Pricing_Menu extends Widget_Base {
         $price_menu_repeater = new Repeater();
 
         $price_menu_repeater->add_control(
-          'exad_pricing_menu_image',
-          [
-              'label'   => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-              'type'    => Controls_Manager::MEDIA,
-              'default' => [
-                  'url' => Utils::get_placeholder_image_src()
-              ]
-          ]
+            'exad_pricing_menu_image',
+            [
+                'label'   => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => Utils::get_placeholder_image_src()
+                ]
+            ]
         );
 
         $price_menu_repeater->add_control(
@@ -60,12 +60,12 @@ class Exad_Pricing_Menu extends Widget_Base {
         );
 
         $price_menu_repeater->add_control(
-          'exad_pricing_menu_description',
-          [
-            'label'   => esc_html__('Description', 'exclusive-addons-elementor'),
-            'type'    => Controls_manager::TEXTAREA,
-            'default' => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'exclusive-addons-elementor' )
-          ]
+            'exad_pricing_menu_description',
+            [
+                'label'   => esc_html__('Description', 'exclusive-addons-elementor'),
+                'type'    => Controls_manager::TEXTAREA,
+                'default' => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'exclusive-addons-elementor' )
+            ]
         );
 
         $price_menu_repeater->add_control(
@@ -112,8 +112,8 @@ class Exad_Pricing_Menu extends Widget_Base {
             'exad_pricing_menu_price',
             [
                 'label'   => __( 'Price', 'exclusive-addons-elementor' ),
-                'type'    => Controls_Manager::NUMBER,
-                'default' => 14
+                'type'    => Controls_Manager::TEXT,
+                'default' => '$14'
             ]
         );
 
@@ -373,7 +373,7 @@ class Exad_Pricing_Menu extends Widget_Base {
                         'max' => 500
                     ]
                 ],
-                'default' => [
+                'default'  => [
                     'unit' => 'px',
                     'size' => 120
                 ],
@@ -532,7 +532,7 @@ class Exad_Pricing_Menu extends Widget_Base {
                 'default'      => [
                     'top'      => 0,
                     'right'    => 0,
-                    'bottom'   => 20,
+                    'bottom'   => 0,
                     'left'     => 0,
                     'unit'     => 'px',
                     'isLinked' => false
@@ -618,7 +618,7 @@ class Exad_Pricing_Menu extends Widget_Base {
                 'type'         => Controls_Manager::DIMENSIONS,
                 'size_units'   => [ 'px', '%' ],
                 'default'      => [
-                    'top'      => 0,
+                    'top'      => 20,
                     'right'    => 0,
                     'bottom'   => 10,
                     'left'     => 0,
@@ -637,7 +637,7 @@ class Exad_Pricing_Menu extends Widget_Base {
          * Pricing menu Price style
          */
         $this->start_controls_section(
-            'exad_pricing_menu_price',
+            'exad_pricing_menu_price_style',
           [
             'label' => esc_html__( 'Price', 'exclusive-addons-elementor' ),
             'tab'   => Controls_Manager::TAB_STYLE
@@ -708,7 +708,7 @@ class Exad_Pricing_Menu extends Widget_Base {
                     'top'      => 0,
                     'right'    => 0,
                     'bottom'   => 0,
-                    'left'     => 20,
+                    'left'     => 0,
                     'unit'     => 'px',
                     'isLinked' => false
                 ],
@@ -878,6 +878,13 @@ class Exad_Pricing_Menu extends Widget_Base {
         $this->end_controls_section();
     }
 
+    private function pricing( $param ) {
+        $price = '<div class="exad-pricing-list-item-price">';
+            $price .= '<span>'.esc_html( $param ).'</span>';
+        $price .= '</div>';
+        return $price;
+    }
+
     protected function render() {
         
         $settings = $this->get_settings_for_display();
@@ -894,21 +901,29 @@ class Exad_Pricing_Menu extends Widget_Base {
                     } else { 
                         $fg_image_url = $fg_image_src_url;
                     }
-                    $img_url = $fg_image_url ? ' yes' : ''; 
+                    $img_url = $fg_image_url ? ' yes' : '';
                     echo '<div class="exad-pricing-list-item'.esc_attr( $img_url ).'">';
+
                         if( !empty( $fg_image_url ) ) {
                             echo '<div class="exad-pricing-list-item-thumbnail">';
                                 echo '<img src="'.esc_url( $fg_image_url ).'" alt="'.Control_Media::get_image_alt( $list['exad_pricing_menu_image'] ).'">';
                             echo '</div>';
                         }
+
                         echo '<div class="exad-pricing-list-item-content '.esc_attr( $settings['exad_pricing_menu_price_position'] ).'">';
                             echo '<div class="exad-pricing-list-item-content-inner">';
-                                echo '<h5 class="exad-pricing-list-item-content-title">';
-                                    echo esc_html( $list['exad_pricing_menu_title'] );
+                                echo '<div class="exad-pricing-title">';
+                                    echo '<h5 class="exad-pricing-list-item-content-title">';
+                                        echo esc_html( $list['exad_pricing_menu_title'] );
+                                    echo '</h5>';
                                     if( 'yes' === $settings['exad_pricing_menu_title_connector'] ) {
                                         echo '<span class="exad-pricing-list-item-content-conntector"></span>';
                                     }
-                                echo '</h5>';
+
+                                    if( 'price_pos_right' === $settings['exad_pricing_menu_price_position'] ) {
+                                        echo $this->pricing( $list['exad_pricing_menu_price'] );
+                                    }
+                                echo '</div>';
 
                                 echo '<p class="exad-pricing-list-item-content-description">';
                                     echo wp_kses_post( $list['exad_pricing_menu_description'] );
@@ -933,9 +948,9 @@ class Exad_Pricing_Menu extends Widget_Base {
                                 }
                             echo '</div>';
                             
-                            echo '<div class="exad-pricing-list-item-price">';
-                                echo '<span>$'.esc_html( $list['exad_pricing_menu_price'] ).'</span>';
-                            echo '</div>';
+                            if( 'price_pos_down' === $settings['exad_pricing_menu_price_position'] ) {
+                                echo $this->pricing( $list['exad_pricing_menu_price'] );
+                            }
                         echo '</div>';
                     echo '</div>';
                 endforeach;

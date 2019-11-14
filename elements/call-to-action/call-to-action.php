@@ -158,7 +158,7 @@ class Exad_CTA extends Widget_Base {
                 'type'           => Controls_Manager::CHOOSE,
                 'toggle'         => false,
                 'options'        => [
-                    'left' => [
+                    'left'       => [
                         'title'  => __( 'Left', 'exclusive-addons-elementor' ),
                         'icon'   => 'eicon-h-align-left'
                     ],
@@ -166,7 +166,7 @@ class Exad_CTA extends Widget_Base {
                         'title'  => __( 'Center', 'exclusive-addons-elementor' ),
                         'icon'   => 'eicon-h-align-center'
                     ],
-                    'right'   => [
+                    'right'      => [
                         'title'  => __( 'Right', 'exclusive-addons-elementor' ),
                         'icon'   => 'eicon-h-align-right'
                     ]
@@ -174,8 +174,8 @@ class Exad_CTA extends Widget_Base {
                 'selectors'      => [
                     '{{WRAPPER}} .exad-call-to-action.skin-vertical' => 'text-align: {{VALUE}};'
                 ],
-                'default'       => 'center',
-                'condition'     => [
+                'default'        => 'center',
+                'condition'      => [
                     '.exad_cta_skin_type' => 'vertical'
                 ]
             ]

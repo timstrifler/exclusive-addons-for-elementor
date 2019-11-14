@@ -108,7 +108,7 @@ class Exad_image_comparison extends Widget_Base {
         );
 
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_img_comparison_border_radius',
             [
                 'label'        => __( 'Border Radius', 'exclusive-addons-elementor' ),

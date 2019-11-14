@@ -562,7 +562,7 @@ class Exad_Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-          'exad_alert_dismiss_primary_button_radious',
+          'exad_alert_dismiss_primary_button_ border_radious',
             [
                 'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,

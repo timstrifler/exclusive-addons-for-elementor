@@ -81,7 +81,7 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Add team member details here', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore odio sint harum quasi maiores nobis dignissimos.', 'exclusive-addons-elementor' )
 			]
 		);
 
@@ -672,7 +672,6 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'name'     => 'exad_team_member_cta_btn_typography',
 				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .exad-team-member-cta'
 			]
 		);
@@ -945,7 +944,15 @@ class Exad_Team_Member extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
 				'name'     => 'exad_description_typography',
-				'selector' => '{{WRAPPER}} .exad-team-member-about'
+				'selector' => '{{WRAPPER}} .exad-team-member-about',
+				'fields_options'   => [
+		              'line_height'    => [
+		                'desktop_default' => [
+		                    'unit' => 'em',
+		                    'size' => 1.5
+		                ]
+		            ]
+	            ]
             ]
 		);
 				
@@ -998,7 +1005,7 @@ class Exad_Team_Member extends Widget_Base {
 				],
 				'default'    => [
 					'unit'   => 'px',
-					'size'   => 18
+					'size'   => 14
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-team-member-social li a i' => 'font-size: {{SIZE}}{{UNIT}};'

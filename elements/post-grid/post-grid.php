@@ -52,7 +52,7 @@ class Exad_Post_Grid extends Widget_Base {
             [
 				'label'   => __( 'Posts Per Page', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
-				'default' => '9'
+				'default' => '6'
             ]
 		);
 
