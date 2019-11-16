@@ -21,6 +21,10 @@ class Exad_Flip_Box extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
+	public function get_keywords() {
+        return [ 'flipbox' ];
+    }
+
 	protected function _register_controls() {
 
   		$this->start_controls_section(

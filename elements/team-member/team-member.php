@@ -72,7 +72,7 @@ class Exad_Team_Member extends Widget_Base {
 				'label'       => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'My Designation', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Designation', 'exclusive-addons-elementor' )
 			]
 		);
 		
@@ -81,7 +81,7 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore odio sint harum quasi maiores nobis dignissimos.', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Put team member details here. Click here to edit it from the inline editor.', 'exclusive-addons-elementor' )
 			]
 		);
 
