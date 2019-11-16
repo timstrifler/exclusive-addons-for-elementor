@@ -888,9 +888,8 @@ class Exad_Pricing_Menu extends Widget_Base {
     protected function render() {
         
         $settings = $this->get_settings_for_display();
-        $pricing_menu_preset = $settings['exad_pricing_menu_preset'];
 
-        echo '<div class="exad-pricing-list '.esc_attr( $pricing_menu_preset ).'">';
+        echo '<div class="exad-pricing-list">';
             echo '<div class="exad-pricing-list-wrapper '.esc_attr( $settings['exad_pricing_menu_list_item_border_bottom'] ).'">';
                 foreach ( $settings['pricing_menu_repeater'] as $index => $list ) : 
                     $fg_image         = $list['exad_pricing_menu_image'];
