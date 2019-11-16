@@ -22,7 +22,7 @@ class Exad_Infobox extends Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'information', 'service' ];
+		return [ 'information', 'service', 'infobox' ];
 	}
 
 	protected function _register_controls() {
