@@ -213,8 +213,8 @@ final class Base {
      * 
      */
     public function exad_editor_scripts() {
-        wp_enqueue_style( 'exad-frontend-editor', EXAD_URL . 'assets/css/exad-frontend-editor.css' );
-        wp_enqueue_script( 'exad-editor-script', EXAD_URL . 'assets/js/exad-editor-script.js', array( 'elementor-editor' ), '1.0', true );
+        wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.css' );
+        wp_enqueue_script( 'exad-editor-script', EXAD_ASSETS_URL . 'js/exad-editor-script.js', array( 'elementor-editor' ), '1.0', true );
     }
 
     /**
@@ -225,68 +225,64 @@ final class Base {
 
         $is_activated_widget = $this->activated_widgets();
 
-        wp_enqueue_style( 'exad-magnific-popup-style', EXAD_URL . 'assets/css/magnific-popup.css' );
-
         // Main Styles
-        wp_enqueue_style( 'exad-main-style', EXAD_URL . 'assets/css/exad-styles.css' );
+        wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.css' );
         
         if ( $is_activated_widget['progress-bar'] ) {
             // Progress Bar Js
-            wp_register_script( 'exad-progress-bar', EXAD_URL . 'assets/js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
             // Waypoints Js
-            wp_register_script( 'exad-waypoints', EXAD_URL . 'assets/js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
-            wp_register_script( 'exad-wow-js', EXAD_URL . 'assets/js/vendor/wow.min.js', array( 'jquery' ), '1.1.3', true );
+            wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-wow-js', EXAD_ASSETS_URL . 'js/vendor/wow.min.js', array( 'jquery' ), '1.1.3', true );
         }
         if ( $is_activated_widget['google-maps'] ) {
-            wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array('jquery'),'1.8', false );
+            if ( '' != get_option('exad_google_map_api_option') ) {
+                wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), '1.8', false );
+            }
             // Gmap 3 Js
-            wp_register_script( 'exad-gmap3', EXAD_URL . 'assets/js/vendor/gmap3.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.js', array( 'jquery', 'exad-main-script' ), '1.0', true );
+            
         }	
         
         if ( $is_activated_widget['countdown-timer'] ) {
             // jQuery Countdown Js
-            wp_register_script( 'exad-countdown', EXAD_URL . 'assets/js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-countdown', EXAD_ASSETS_URL . 'js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
         }
 
         if ( $is_activated_widget['image-comparison'] ) {
             // jQuery image-comparison twentytwenty Js
-            wp_register_script( 'exad-image-comparison', EXAD_URL . 'assets/js/vendor/jquery.twentytwenty.js', array( 'jquery' ), '1.0', true );
-            wp_register_script( 'exad-image-comparison-event', EXAD_URL . 'assets/js/vendor/jquery.event.move.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'js/vendor/jquery.twentytwenty.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-image-comparison-event', EXAD_ASSETS_URL . 'js/vendor/jquery.event.move.js', array( 'jquery' ), '1.0', true );
         }
 
         if ( $is_activated_widget['counter'] ) {
             // jQuery CounterUp Js
-            wp_register_script( 'exad-counter', EXAD_URL . 'assets/js/vendor/jquery.counterup.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-counter', EXAD_ASSETS_URL . 'js/vendor/jquery.counterup.min.js', array( 'jquery' ), '1.0', true );
         }
 
         if ( $is_activated_widget['filterable-gallery'] ) {
             // Filterable Gallery
-            wp_register_script( 'exad-gallery-isotope', EXAD_URL . 'assets/js/vendor/isotop.min.js', array( 'jquery' ), '1.0', true );
-        }
-
-        if ( $is_activated_widget['modal-popup'] ) {
-            // Modal Popup
-            wp_register_script( 'exad-magnific-popup', EXAD_URL . 'assets/js/vendor/jquery.magnific-popup.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'js/vendor/isotop.min.js', array( 'jquery' ), '1.0', true );
         }
 
         if ( $is_activated_widget['instagram-feed'] ) {
             // Instagram Gallery
-            wp_register_script( 'exad-instagram', EXAD_URL . 'assets/js/vendor/instafeed.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-instagram', EXAD_ASSETS_URL . 'js/vendor/instafeed.js', array( 'jquery' ), '1.0', true );
         }
         if ( $is_activated_widget['news-ticker'] ) {
         // news ticker
-            wp_register_script( 'exad-news-ticker', EXAD_URL . 'assets/js/vendor/exad-news-ticker.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-news-ticker', EXAD_ASSETS_URL . 'js/vendor/exad-news-ticker.min.js', array( 'jquery' ), '1.0', true );
         }	
         if ( $is_activated_widget['animated-text'] ) {
             // Instagram Gallery
-            wp_register_script( 'exad-animated-text', EXAD_URL . 'assets/js/vendor/typed.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'js/vendor/typed.min.js', array( 'jquery' ), '1.0', true );
         }	
         if ( $is_activated_widget['slider'] ) {
             // slick slider slick animation
-            wp_register_script( 'exad-slick-animation', EXAD_URL . 'assets/js/vendor/slick-animation.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-slick-animation', EXAD_ASSETS_URL . 'js/vendor/slick-animation.min.js', array( 'jquery' ), '1.0', true );
         }
         
-        wp_enqueue_script( 'exad-main-script', EXAD_URL . 'assets/js/exad-scripts.js', array( 'jquery' ), '1.0', true );
+        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array( 'jquery' ), '1.0', true );
         
     }
 
@@ -372,5 +368,3 @@ final class Base {
     }
 
 }
-
-
