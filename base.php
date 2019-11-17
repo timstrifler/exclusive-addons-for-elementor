@@ -104,6 +104,8 @@ final class Base {
         add_action( 'elementor/elements/categories_registered', array( $this, 'exad_register_category' ) );
         // Enqueue Styles and Scripts
         add_action( 'elementor/frontend/after_register_scripts', array( $this, 'exad_enqueue_scripts' ), 20 );
+        // Load Main script
+        add_action( 'elementor/frontend/after_enqueue_scripts', array( $this, 'exad_main_script_enqueue' ) );
         // Elementor Editor Styles
         add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'exad_editor_scripts' ) );
         // Add Elementor Widgets
@@ -215,6 +217,7 @@ final class Base {
     public function exad_editor_scripts() {
         wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.css' );
         wp_enqueue_script( 'exad-editor-script', EXAD_ASSETS_URL . 'js/exad-editor-script.js', array( 'elementor-editor' ), '1.0', true );
+        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array(), '1.0', true );
     }
 
     /**
@@ -240,7 +243,7 @@ final class Base {
                 wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), '1.8', false );
             }
             // Gmap 3 Js
-            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.js', array( 'jquery', 'exad-main-script' ), '1.0', true );
+            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.js', array( 'jquery' ), '1.0', true );
             
         }	
         
@@ -282,8 +285,15 @@ final class Base {
             wp_register_script( 'exad-slick-animation', EXAD_ASSETS_URL . 'js/vendor/slick-animation.min.js', array( 'jquery' ), '1.0', true );
         }
         
-        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array( 'jquery' ), '1.0', true );
-        
+    }
+
+
+    /**
+     * Front end main script
+     * 
+     */
+    public function exad_main_script_enqueue() {
+        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array(), '1.0', true );
     }
 
     /*
