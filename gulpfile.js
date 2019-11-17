@@ -99,7 +99,7 @@ gulp.task('copy', function () {
         '!node_modules',
         '!node_modules/**/*'
     ])
-    .pipe(gulp.dest('dist/exclusive-addons-elementor'));
+    .pipe(gulp.dest('dist/exclusive-addons-for-elementor'));
 });
 
 
@@ -111,7 +111,7 @@ gulp.task('copy', function () {
  */
 gulp.task('zip', function () {
     return gulp.src('dist/**/*')
-        .pipe(zip('exclusive-addons-elementor.zip'))
+        .pipe(zip('exclusive-addons-for-elementor.zip'))
         .pipe(gulp.dest('dist'))
 });
 
