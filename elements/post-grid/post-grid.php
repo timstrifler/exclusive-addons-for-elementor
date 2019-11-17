@@ -462,6 +462,7 @@ class Exad_Post_Grid extends Widget_Base {
             [
                 'label'         => esc_html__( 'Image Position', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
                 'default'       => 'top',
                 'options'       => [
                     'left'      => [
@@ -609,6 +610,7 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label'   => __( 'Title Alignment', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'left'		=> [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -706,6 +708,7 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'left' 		=> [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -806,7 +809,7 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label'     => __( 'Background Color (Odd)', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#28CAD1',
+				'default'   => '#00d8d8',
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li:nth-child(2n-1)' => 'background: {{VALUE}};'
 				]
@@ -818,7 +821,7 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'label'     => __( 'Background Color (Even)', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#977FFF',
+				'default'   => '#7a56ff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};'
 				]
@@ -1141,7 +1144,7 @@ class Exad_Post_Grid extends Widget_Base {
                 [
 					'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'default'   => '#11B5BC',
+					'default'   => '#7a56ff',
 					'selectors' => [
                         '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a' => 'color: {{VALUE}};'
                     ]

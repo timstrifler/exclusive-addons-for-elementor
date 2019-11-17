@@ -312,6 +312,7 @@ class Exad_Contact_Form extends Widget_Base {
             [
                 'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::CHOOSE,
+                'toggle'  => false,
                 'options' => [
                     'left'      => [
                         'title' => __( 'Left', 'exclusive-addons-elementor' ),

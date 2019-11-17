@@ -430,7 +430,7 @@ class Exad_Animated_Text extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#FF6B6B',
+				'default'   => '#00d8d8',
 				'selectors' => [
 					'{{WRAPPER}} .exad-animated-text-animated-heading' => 'color: {{VALUE}}'
 				]

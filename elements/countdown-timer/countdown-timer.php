@@ -68,7 +68,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#8868fe',
+				'default'   => '#7a56ff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown' => 'background: {{VALUE}};'
 				]

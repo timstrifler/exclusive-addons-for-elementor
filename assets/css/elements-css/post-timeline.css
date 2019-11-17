@@ -1,7 +1,6 @@
 /* Post Timeline Start */
 
 .exad-post-timeline {
-  font-family: "Roboto", sans-serif;
   margin-bottom: 35px;
 }
 
@@ -39,7 +38,7 @@ top: 50%;
         transform: translate(-50%, -50%);
 height: 60px;
 width: 60px;
-background: #A282FF;
+background: #7a56ff;
 text-align: center;
 border-radius: 50%;
 z-index: 1;

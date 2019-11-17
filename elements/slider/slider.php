@@ -46,7 +46,7 @@ class ExclusiveSliderItem extends Widget_Base {
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#7448F6',
+				'default'   => '#7a56ff',
 				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}} .exad-slide-bg' => 'background-color: {{VALUE}}'
 				]
@@ -175,6 +175,7 @@ class ExclusiveSliderItem extends Widget_Base {
 	        [
 	            'label'       => __( 'Horizontal Position', 'exclusive-addons-elementor' ),
 	            'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
 	            'label_block' => false,
 	            'options'     => [
 	                'flex-start' => [
@@ -204,6 +205,7 @@ class ExclusiveSliderItem extends Widget_Base {
          	[
              	'label'       => __( 'Vertical Position', 'exclusive-addons-elementor' ),
              	'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
              	'label_block' => false,
              	'options'     => [
 	                'flex-start' => [
@@ -233,6 +235,7 @@ class ExclusiveSliderItem extends Widget_Base {
 			[
 				'label'       => __( 'Text Align', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
 				'label_block' => false,
 				'options'     => [
 					'left'      => [
@@ -627,7 +630,7 @@ class ExclusiveSliderItem extends Widget_Base {
                 'default'       => [
                     [
 						'exad_slider_title' => __( 'Slider Title 1', 'exclusive-addons-elementor' ),
-						'exad_slider_bg'    => '#7448F6'
+						'exad_slider_bg'    => '#7a56ff'
                     ],
                     [
 						'exad_slider_title' => __( 'Slider Title 2', 'exclusive-addons-elementor' ),
@@ -922,6 +925,7 @@ class ExclusiveSliderItem extends Widget_Base {
 			[
 				'label'       => __( 'Horizontal Position', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
 				'label_block' => false,
 				'default'     => 'center',
 				'options'     => [
@@ -949,6 +953,7 @@ class ExclusiveSliderItem extends Widget_Base {
 			[
 				'label'       => __( 'Vertical Position', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
 				'label_block' => false,
 				'default'     => 'center',
 				'options'     => [
@@ -976,6 +981,7 @@ class ExclusiveSliderItem extends Widget_Base {
 			[
 				'label'       => __( 'Text Align', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
 				'label_block' => false,
 				'default'     => 'center',
 				'options'     => [

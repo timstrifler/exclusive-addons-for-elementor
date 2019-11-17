@@ -417,19 +417,20 @@ class Exad_Team_Member extends Widget_Base {
             [
                 'label'         => esc_html__( 'Image Position', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
                 'default'       => 'exad-position-top',
                 'options'       => [
                     'exad-position-left'  => [
                         'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-left',
+                        'icon'  => 'fa fa-angle-left'
                     ],
                     'exad-position-top'   => [
                         'title' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-up',
+                        'icon'  => 'fa fa-angle-up'
                     ],
                     'exad-position-right' => [
                         'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-right',
+                        'icon'  => 'fa fa-angle-right'
                     ]
                 ]
             ]
@@ -559,6 +560,7 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'exad-left'   => [
 						'title'   => __( 'Left', 'exclusive-addons-elementor' ),

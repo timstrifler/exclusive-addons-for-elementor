@@ -245,7 +245,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
-				'default'	=> '#8868fe',
+				'default'	=> '#7a56ff',
 				'selectors'	=> [
 					'{{WRAPPER}} .exad-button-wrapper .exad-button-action'                     => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'color: {{VALUE}};',
@@ -285,7 +285,7 @@ class Exad_Exclusive_Button extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#8868fe',
+				'default'   => '#7a56ff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-button-wrapper.effect-1 .exad-button-action::before'                => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button-wrapper.effect-2 .exad-button-action:before'                 => 'background: {{VALUE}};',

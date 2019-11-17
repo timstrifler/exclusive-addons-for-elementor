@@ -51,6 +51,7 @@ class Exad_Google_Map extends Widget_Base {
             [
 				'label'   => __( 'Address Type', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'address'   => [
 						'title' => __( 'Address', 'exclusive-addons-elementor' ),

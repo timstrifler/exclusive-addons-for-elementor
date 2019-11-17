@@ -33,6 +33,7 @@ class Exad_Tooltip extends Widget_Base {
 			[
                 'label'       => esc_html__( 'Content Type', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
                 'label_block' => true,
                 'options'     => [
 					'icon'      => [
@@ -112,6 +113,7 @@ class Exad_Tooltip extends Widget_Base {
             [
                 'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::CHOOSE,
+                'toggle'  => false,
                 'options' => [
                     'left'      => [
                         'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -298,7 +300,7 @@ class Exad_Tooltip extends Widget_Base {
 					[
                         'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                         'type'      => Controls_Manager::COLOR,
-                        'default'   => '#826EFF',
+                        'default'   => '#7a56ff',
                         'condition' => [
                             'exad_tooltip_type!' => [ 'image' ]
                         ],
@@ -483,7 +485,7 @@ class Exad_Tooltip extends Widget_Base {
             [
                 'label'     => __( 'Arrow Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#826EFF',
+                'default'   => '#7a56ff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-tooltip .exad-tooltip-item.tooltip-top .exad-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
                     '{{WRAPPER}} .exad-tooltip .exad-tooltip-item.tooltip-left .exad-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',

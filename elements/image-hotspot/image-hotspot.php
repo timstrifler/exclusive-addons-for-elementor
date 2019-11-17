@@ -360,7 +360,7 @@ class Exad_Image_Hotspot extends Widget_Base {
             [
                 'label'     => __('Background Color', 'exclusive-addons-elementor'),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#704AFF',
+                'default'   => '#7a56ff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-hotspot .exad-hotspot-dot-icon'                                     => 'background: {{VALUE}}',
                     '{{WRAPPER}} .exad-hotspot.exad-hotspot-glowing-border .exad-hotspot-dot-icon::before' => 'border: .5px solid {{VALUE}}',

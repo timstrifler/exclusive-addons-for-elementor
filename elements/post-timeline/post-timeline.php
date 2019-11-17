@@ -233,7 +233,7 @@ class Exad_Post_Timeline extends Widget_Base {
 			[
 				'label'     => __( 'Divider Icon Background', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#A282FF',
+				'default'   => '#7a56ff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-post-timeline-icon' => 'background: {{VALUE}};'
 				]
@@ -305,6 +305,7 @@ class Exad_Post_Timeline extends Widget_Base {
 			[
 				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
+				'toggle'    => false,
 				'options'   => [
 					'left'      => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -380,6 +381,7 @@ class Exad_Post_Timeline extends Widget_Base {
 			[
 				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'left'      => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),

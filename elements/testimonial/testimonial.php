@@ -132,6 +132,7 @@ class Exad_Testimonial extends Widget_Base {
 			[
 				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'exad-testimonial-align-left' => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),

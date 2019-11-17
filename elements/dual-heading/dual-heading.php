@@ -73,7 +73,7 @@ class Exad_Dual_Heading extends Widget_Base {
                 'type'        => Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'dynamic'     => [ 'active' => true ],
-                'default'     => __( 'Add your sub heading here.', 'exclusive-addons-elementor' )
+                'default'     => __( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'exclusive-addons-elementor' )
             ]
         );
 
@@ -82,7 +82,7 @@ class Exad_Dual_Heading extends Widget_Base {
             [
                 'label'        => esc_html__( 'Enable Icon', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'default'      => 'yes',
+                'default'      => 'no',
                 'return_value' => 'yes'
             ]
         );
@@ -121,6 +121,7 @@ class Exad_Dual_Heading extends Widget_Base {
             [
                 'label'       => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::CHOOSE,
+                'toggle'      => false,
                 'label_block' => true,
                 'options'     => [
                     'left'      => [
@@ -233,7 +234,7 @@ class Exad_Dual_Heading extends Widget_Base {
 			[
                 'label'     => __( 'Background', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#fb4b15',
+                'default'   => '#00d8d8',
                 'selectors' => [
 					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .first-heading, {{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .first-heading' => 'background-color: {{VALUE}};'
 				]

@@ -125,6 +125,7 @@ class Exad_Heading extends Widget_Base {
 			[
 				'label'       => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
+				'toggle'      => false,
 				'label_block' => true,
 				'options'     => [
 					'exad-heading-left'   => [

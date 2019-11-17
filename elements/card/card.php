@@ -447,20 +447,6 @@ class Exad_Card extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_title_color_schema',
-			[
-				'label'     => __('Color Scheme', 'exclusive-addons-elementor'),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ff4a4a',
-				'selectors' => [
-					'{{WRAPPER}} .exad-card.text_on_image .exad-card-body .exad-card-title::before,
-					{{WRAPPER}} .exad-card.default .exad-card-body .exad-card-title::before,
-					{{WRAPPER}} .exad-card.text_on_image::before' => 'background: {{VALUE}};'
-				]
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[

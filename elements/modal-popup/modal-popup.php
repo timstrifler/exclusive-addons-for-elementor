@@ -471,7 +471,7 @@ class Exad_Modal_Popup extends Widget_Base {
 					[
 						'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#7448F6',
+						'default'   => '#7a56ff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'background-color: {{VALUE}};'
 						]
@@ -632,6 +632,7 @@ class Exad_Modal_Popup extends Widget_Base {
 			[
 				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
+				'toggle'    => false,
 				'options'   => [
 					'left'  => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),

@@ -41,6 +41,7 @@ class Exad_Infobox extends Widget_Base {
 			[
 				'label'       => esc_html__( 'Image or Icon', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
+				'toggle'      => false,
 				'label_block' => true,
 				'options'     => [
 					'none'      => [
@@ -148,6 +149,7 @@ class Exad_Infobox extends Widget_Base {
             [
 				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'exad-infobox-align-left'   => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -327,6 +329,7 @@ class Exad_Infobox extends Widget_Base {
 			[
 				'label'   => __( 'Position', 'plugin-domain' ),
 				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'exad-infobox-icon-position-left'   => [
 						'title' => __( 'Left', 'plugin-domain' ),
@@ -472,7 +475,7 @@ class Exad_Infobox extends Widget_Base {
 					[
 						'label'     => esc_html__( 'Background', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#5480ff',
+						'default'   => '#7a56ff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'background: {{VALUE}}'
 						]
@@ -526,7 +529,7 @@ class Exad_Infobox extends Widget_Base {
 					[
 						'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#5480ff',
+						'default'   => '#7a56ff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}}'
 						],

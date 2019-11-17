@@ -43,6 +43,7 @@ class Exad_Counter extends Widget_Base {
 	        [
 				'label'       => esc_html__( 'Image or Icon', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
+				'toggle'      => false,
 				'label_block' => true,
 				'default'     => 'icon',
 				'options'     => [
@@ -171,6 +172,7 @@ class Exad_Counter extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
+				'toggle'    => false,
 				'separator' => 'after',
 				'options'   => [
 					'exad-counter-left'   => [

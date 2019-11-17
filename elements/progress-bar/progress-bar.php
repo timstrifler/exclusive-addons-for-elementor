@@ -130,7 +130,7 @@ class Exad_Progress_Bar extends Widget_Base {
 			[
 				'label'   => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::COLOR,
-				'default' => '#704aff'
+				'default' => '#7a56ff'
 			]
 		);
 
