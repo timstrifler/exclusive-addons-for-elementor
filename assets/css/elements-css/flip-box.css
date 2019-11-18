@@ -105,10 +105,6 @@
   font-size: 50px;
 }
 
-.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-description {
-  margin: 0;
-}
-
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
   text-decoration: none;
   transition: all .4s ease;

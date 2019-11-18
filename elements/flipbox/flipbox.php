@@ -768,7 +768,7 @@ class Exad_Flip_Box extends Widget_Base {
 				'default'    => [
                     'top'      => '6',
                     'right'    => '0',
-                    'bottom'   => '6',
+                    'bottom'   => '20',
                     'left'     => '0',
                     'unit'     => 'px',
                     'isLinked' => false
@@ -815,6 +815,14 @@ class Exad_Flip_Box extends Widget_Base {
 				'label'      => __('Margin', 'exclusive-addons-elementor'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
+				'default'    => [
+                    'top'      => '6',
+                    'right'    => '0',
+                    'bottom'   => '20',
+                    'left'     => '0',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
 				'selectors'  => [
                     '{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
