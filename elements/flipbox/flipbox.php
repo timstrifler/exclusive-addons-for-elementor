@@ -111,19 +111,6 @@ class Exad_Flip_Box extends Widget_Base {
 		);
 
 		$this->add_control(
-			'exad_flipbox_enable_button',
-			[
-				'label' => __( 'Enable Button', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'ON', 'exclusive-addons-elementor' ),
-				'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
 			'exad_flipbox_button_text',
 			[
 				'label'     => __( 'Button Text', 'exclusive-addons-elementor' ),
@@ -178,10 +165,6 @@ class Exad_Flip_Box extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-
-		/**
-		 * Exad flipbox container style
-		 */
 
 		$this->start_controls_section(
 			'exad_section_flipbox_container',
@@ -405,6 +388,7 @@ class Exad_Flip_Box extends Widget_Base {
                 ]				
 			]
 		);
+
 		$this->add_control(
 			'exad_flipbox_front_icon_bg_color',
 			[
@@ -917,46 +901,6 @@ class Exad_Flip_Box extends Widget_Base {
                 'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action'
             ]
         );
-
-		$this->start_controls_tabs( 'exad_cta_button_tabs' );
-
-		$this->add_control(
-			'exad_flipbox_button_padding',
-			[
-				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'default' => [
-					'top' => '10',
-					'right' => '20',
-					'bottom' => '10',
-					'left' => '20',
-					'unit' => 'px',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_control(
-			'exad_flipbox_button_radius',
-			[
-				'label' => __( 'Border radius', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px' ],
-				'default' => [
-					'top' => '30',
-					'right' => '30',
-					'bottom' => '30',
-					'left' => '30',
-					'unit' => 'px',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
 
 		$this->start_controls_tabs( 'exad_cta_button_tabs' );
 
