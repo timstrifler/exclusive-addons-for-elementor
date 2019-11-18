@@ -70,7 +70,8 @@ class Admin_Settings {
 	 */
 	public function create_exad_admin_menu() {
 
-		add_menu_page( 'Exclusive Addons', 'Exclusive Addons', 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/ex-menu-icon.svg', 58.4 );
+		$title = __( 'Exclusive Addons', 'exclusive-addons-elementor' );
+		add_menu_page( $title, $title, 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/ex-menu-icon.svg', 58.4 );
 		
 	}
 
@@ -124,9 +125,9 @@ class Admin_Settings {
 
                 <div class="exad-dashboard-tabs-wrapper">
                     <ul class="exad-dashboard-tabs">
-                        <li><a href="#general" class="active"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/settings-icon.png'; ?>"><span>General</span></a></li>
-                        <li><a href="#elements"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements-icon.png'; ?>"><span>Elements</span></a></li>
-                        <li><a href="#apikeys"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-keys.svg'; ?>"><span>API Keys</span></a></li>
+                        <li><a href="#general" class="active"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/settings-icon.png'; ?>"><span><?php _e( 'General', 'exclusive-addons-elementor' ); ?></span></a></li>
+                        <li><a href="#elements"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements-icon.png'; ?>"><span><?php _e( 'Elements', 'exclusive-addons-elementor' ); ?></span></a></li>
+                        <li><a href="#apikeys"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-keys.svg'; ?>"><span><?php _e( 'API Keys', 'exclusive-addons-elementor' ); ?></span></a></li>
                     </ul>
                     <?php include_once EXAD_ADMIN . 'templates/general.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/elements.php'; ?>

@@ -844,7 +844,7 @@ class Exad_Filterable_Gallery extends Widget_Base
             [
                 'label'     => esc_html__('Color', 'exclusive-addons-elementor'),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#7a56ff',
+                'default'   => '#00d8d8',
                 'selectors' => [
                     '{{WRAPPER}} .exad-gallery-items .exad-gallery-item-content h2' => 'color: {{VALUE}};'
                 ],
@@ -913,7 +913,7 @@ class Exad_Filterable_Gallery extends Widget_Base
             [
                 'label'     => esc_html__('Color', 'exclusive-addons-elementor'),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#7a56ff',
+                'default'   => '#00d8d8',
                 'selectors' => [
                     '{{WRAPPER}} .exad-gallery-items .exad-gallery-item-content p' => 'color: {{VALUE}};'
                 ],

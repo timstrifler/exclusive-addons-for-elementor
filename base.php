@@ -232,18 +232,18 @@ final class Base {
         
         if ( $is_activated_widget['progress-bar'] ) {
             // Progress Bar Js
-            wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'js/vendor/loading-bar.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'js/vendor/loading-bar.min.js', array( 'jquery' ), '1.0', true );
             // Waypoints Js
             wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
             wp_register_script( 'exad-wow-js', EXAD_ASSETS_URL . 'js/vendor/wow.min.js', array( 'jquery' ), '1.1.3', true );
         }
+        // 
         if ( $is_activated_widget['google-maps'] ) {
             if ( '' != get_option('exad_google_map_api_option') ) {
                 wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), '1.8', false );
             }
             // Gmap 3 Js
-            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.js', array( 'jquery' ), '1.0', true );
-            
+            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.min.js', array( 'jquery' ), '1.0', true );            
         }	
         
         if ( $is_activated_widget['countdown-timer'] ) {
@@ -253,8 +253,8 @@ final class Base {
 
         if ( $is_activated_widget['image-comparison'] ) {
             // jQuery image-comparison twentytwenty Js
-            wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'js/vendor/jquery.twentytwenty.js', array( 'jquery' ), '1.0', true );
-            wp_register_script( 'exad-image-comparison-event', EXAD_ASSETS_URL . 'js/vendor/jquery.event.move.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'js/vendor/jquery.twentytwenty.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-image-comparison-event', EXAD_ASSETS_URL . 'js/vendor/jquery.event.move.min.js', array( 'jquery' ), '1.0', true );
         }
 
 

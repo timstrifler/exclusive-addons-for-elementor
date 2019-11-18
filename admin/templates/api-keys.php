@@ -5,10 +5,10 @@
 
                 <div class="exad-dashboard-text">
                     <div class="exad-dashboard-text-title">
-                        <p class="exad-el-title">Google Map API Key</p>
+                        <p class="exad-el-title"><?php _e( 'Google Map API Key', 'exclusive-addons-elementor' ); ?></p>
                     </div>
                     <div class="exad-dashboard-text-label">
-                        <input type="text" id="google-map-api-key" placeholder="Google Map API Key" name="google_map_api_key" value="<?php echo get_option('exad_google_map_api_option'); ?>">
+                        <input type="text" id="google-map-api-key" placeholder="<?php _e( 'Google Map API Key', 'exclusive-addons-elementor' ); ?>" name="google_map_api_key" value="<?php echo get_option('exad_google_map_api_option'); ?>">
                         <label for="Map API Key"></label>
                     </div>
                 </div>

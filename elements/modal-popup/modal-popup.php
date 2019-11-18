@@ -492,7 +492,7 @@ class Exad_Modal_Popup extends Widget_Base {
 								]
 							],
 							'color'       => [
-								'default' => '#3655b3'
+								'default' => '#7a56ff'
 							]
 						],
 						'selector'        => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action'
@@ -508,7 +508,7 @@ class Exad_Modal_Popup extends Widget_Base {
 					[
 						'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#3655b3',
+						'default'   => '#7a56ff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover span' => 'color: {{VALUE}};'
 						],

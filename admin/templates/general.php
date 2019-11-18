@@ -36,9 +36,9 @@
 
                     </div>
                     <div class="exad-admin-block-header">
-                        <h4 class="exad-admin-title">Contribute to Exclusive Addons</h4>
-                        <p>Please feel free to report any issues in our Github repo about Exclusive Addons for Elementor. Send pull requests at <a href="https://github.com/mmaumio/exclusive-addons-elementor" target="_blank">Github.</a></p>
-                        <a href="https://github.com/mmaumio/exclusive-addons-elementor/issues/new" class="exad-admin-block-contribution-button" target="_blank">Report Bug</a>
+                        <h4 class="exad-admin-title"><?php _e( 'Contribute to Exclusive Addons', 'exclusive-addons-elementor' ); ?></h4>
+                        <p><?php _e( 'Please feel free to report any issues in our Github repo about Exclusive Addons for Elementor. Send pull requests at', 'exclusive-addons-elementor' ); ?> <a href="https://github.com/mmaumio/exclusive-addons-elementor" target="_blank"><?php _e( 'Github.', 'exclusive-addons-elementor' ); ?></a></p>
+                        <a href="https://github.com/mmaumio/exclusive-addons-elementor/issues/new" class="exad-admin-block-contribution-button" target="_blank"><?php _e( 'Report Bug', 'exclusive-addons-elementor' ); ?></a>
                     </div>
 
 
@@ -61,9 +61,9 @@
                         </svg>
                     </div>
                     <div class="exad-admin-block-header">
-                        <h4 class="exad-admin-title">Documentation</h4>
-                        <p>Get yourself used to with the easy to read documentation we have till now. We're always working to make it easier for you.</p>
-                        <a href="http://exclusiveaddons.com/docs" class="exad-admin-block-docs-button" target="_blank">Documentation</a>
+                        <h4 class="exad-admin-title"><?php _e( 'Documentation', 'exclusive-addons-elementor' ); ?></h4>
+                        <p><?php _e( 'Get yourself used to with the easy to read documentation we have till now. We\'re always working to make it easier for you.', 'exclusive-addons-elementor' ); ?></p>
+                        <a href="http://exclusiveaddons.com/docs" class="exad-admin-block-docs-button" target="_blank"><?php _e( 'Documentation', 'exclusive-addons-elementor' ); ?></a>
                     </div>
                 </div>
                 <div class="exad-admin-block exad-admin-block-contribution">
@@ -80,9 +80,9 @@
                         </svg>
                     </div>
                     <div class="exad-admin-block-header">
-                        <h4 class="exad-admin-title">Customer Support</h4>
-                        <p>We are always here to listen your beautiful voice. A dedicated support team is on your way to the rescue, the moment you need us.</p>
-                        <a href="https://wordpress.org/support/plugin/exclusive-addons-for-elementor/" class="exad-admin-block-support-button" target="_blank">Get Support</a>
+                        <h4 class="exad-admin-title"><?php _e( 'Customer Support', 'exclusive-addons-elementor' ); ?></h4>
+                        <p><?php _e( 'We are always here to listen your beautiful voice. A dedicated support team is on your way to the rescue, the moment you need us.', 'exclusive-addons-elementor' ); ?></p>
+                        <a href="https://wordpress.org/support/plugin/exclusive-addons-for-elementor/" class="exad-admin-block-support-button" target="_blank"><?php _e( 'Get Support', 'exclusive-addons-elementor' ); ?></a>
                     </div>
                 </div>
                 <div class="exad-admin-block exad-admin-block-support">
@@ -103,9 +103,9 @@
                         </svg>
                     </div>
                     <div class="exad-admin-block-header">
-                        <h4 class="exad-admin-title">Show your Love</h4>
-                        <p>We are continiously working to make "Exclusive Addons" better, everyday. Your kind feedback will surely encourage us to move forward with the development.</p>
-                        <a href="https://wordpress.org/plugins/exclusive-addons-for-elementor/#reviews" class="exad-admin-block-header-button" target="_blank">Leave a Review</a>
+                        <h4 class="exad-admin-title"><?php _e( 'Show your Love', 'exclusive-addons-elementor' ); ?></h4>
+                        <p><?php _e( 'We are continiously working to make "Exclusive Addons" better, everyday. Your kind feedback will surely encourage us to move forward with the development.', 'exclusive-addons-elementor' ); ?></p>
+                        <a href="https://wordpress.org/plugins/exclusive-addons-for-elementor/#reviews" class="exad-admin-block-header-button" target="_blank"><?php _e( 'Leave a Review', 'exclusive-addons-elementor' ); ?></a>
                     </div>
                 </div>
             </div>

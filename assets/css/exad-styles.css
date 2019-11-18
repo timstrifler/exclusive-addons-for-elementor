@@ -2219,8 +2219,8 @@ ul.exad-call-to-action-buttons {
   font-family: eicons;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -75%);
-          transform: translate(-50%, -75%);
+  -webkit-transform: translate(-50%, -62%);
+          transform: translate(-50%, -62%);
   color: #A1A1A1;
   font-size: 20px;
 }
