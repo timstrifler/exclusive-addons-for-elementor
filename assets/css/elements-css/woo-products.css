@@ -1,7 +1,7 @@
 /* Woo Products Start */
 ul.exad-woo-product-content-rating {
-    margin: 0 0 10px!important;
-    padding: 0!important;
+    margin: 0 0 10px;
+    padding: 0;
 }
 .exad-woo-product-content-rating .exad-woo-product-star-rating {
     overflow: hidden;
@@ -86,7 +86,6 @@ ul.exad-woo-product-content-rating {
     padding: 5px 15px;
     position: relative;
     color: #fff;
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
 }
 .exad-woo-product.one .exad-woo-product-wrapper .exad-woo-product-item .exad-woo-product-content .exad-woo-product-content-image {
@@ -96,7 +95,6 @@ ul.exad-woo-product-content-rating {
     background: #FF6A47;
 }
 .exad-woo-product.one .exad-woo-product-wrapper .exad-woo-product-item .exad-woo-product-content .exad-woo-product-content-name {
-    font-family: "Open Sans", sans-serif;
     font-size: 16px;
     margin-bottom: 15px;
     font-weight: 700;
@@ -107,7 +105,6 @@ ul.exad-woo-product-content-rating {
     display: block;
     margin-bottom: 20px;
     color: #222222;
-    font-family: "Open Sans", sans-serif;
     font-size: 16px;
 }
 .exad-woo-product.one .exad-woo-product-wrapper .exad-woo-product-item .exad-woo-product-content a.added_to_cart,
@@ -122,7 +119,6 @@ ul.exad-woo-product-content-rating {
     background: #3AC7A1;
     padding: 10px 40px;
     border-radius: 22.5px;
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     text-transform: uppercase;
     text-decoration: none;
@@ -200,7 +196,6 @@ ul.exad-woo-product-content-rating {
     padding: 5px 15px;
     position: relative;
     color: #fff;
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
 }
 .exad-woo-product.two .exad-woo-product-wrapper .exad-woo-product-item .exad-woo-product-content .exad-woo-product-content-badge li:nth-child(2) {
@@ -210,7 +205,6 @@ ul.exad-woo-product-content-rating {
     margin-bottom: 40px;
 }
 .exad-woo-product.two .exad-woo-product-wrapper .exad-woo-product-item .exad-woo-product-content .exad-woo-product-content-name {
-    font-family: "Open Sans", sans-serif;
     font-size: 16px;
     margin-bottom: 15px;
     font-weight: 700;
@@ -240,7 +234,6 @@ ul.exad-woo-product-content-rating {
     display: block;
     margin-bottom: 20px;
     color: #222222;
-    font-family: "Open Sans", sans-serif;
     font-size: 16px;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
@@ -253,7 +246,6 @@ ul.exad-woo-product-content-rating {
     background: -webkit-gradient(linear, left bottom, left top, from(#ff704e), to(#fb5d86));
     background: linear-gradient(0deg, #ff704e 0%, #fb5d86 100%);
     box-shadow: 0px 20px 40px 0px rgba(253, 102, 107, 0.25);
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     text-transform: uppercase;
     text-decoration: none;
@@ -347,13 +339,11 @@ ul.exad-woo-product-content-rating {
 .exad-woo-product.six .exad-woo-product-wrapper .exad-woo-product-item .exad-woo-product-content .exad-woo-product-content-price {
     color: #747981;
     font-size: 20px;
-    font-family: "Poppins", sans-serif;
     font-weight: bold;
     margin-bottom: 20px;
     display: block;
 }
 .exad-woo-product.six .exad-woo-product-wrapper .exad-woo-product-item .exad-woo-product-content .exad-woo-product-content-name {
-    font-family: "Poppins", sans-serif;
     font-size: 20px;
     color: #222222;
     margin: 0;
@@ -362,7 +352,6 @@ ul.exad-woo-product-content-rating {
 .exad-woo-product.six .exad-woo-product-wrapper .exad-woo-product-item .exad-woo-product-content .exad-woo-product-content-description {
     margin: 0;
     color: #747981;
-    font-family: "Open Sans", sans-serif;
     line-height: 26px;
     font-size: 14px;
     margin-bottom: 20px;
@@ -376,7 +365,6 @@ ul.exad-woo-product-content-rating {
     color: #0a1724;
     display: block;
     text-decoration: none;
-    font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 600;
     position: relative;

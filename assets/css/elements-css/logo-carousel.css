@@ -1,74 +1,31 @@
 /* Logo Carousel Style Start */
 
-.exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item {
-  position: relative;
-  background: #fff;
-  min-height: 140px;
-  border-radius: 2px;
-  transition: all .3s ease;
-  cursor: pointer;
-  margin: 80px 15px;
-}
-
-.exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover {
-  box-shadow: 0px 12px 22px 0px rgba(18,34,66,0.1);
-}
-
 .exad-logo-carousel .slick-dots {
   width: auto;
   display: table;
   margin: 0 auto;
   padding: 0;
+  position: absolute;
 }
 
 .exad-logo-carousel .slick-dots li {
   list-style: none;
-  float: left;
-  display: inline-table;
-  line-height: 0;
+  display: inline-block;
+  padding: inherit;
+  outline: none;
+  border: 0;
 }
 
 .exad-logo-carousel .slick-dots li button {
-  width: 10px;
-  height: 10px;
-  outline: 0;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-  background-color: #DADADA;
-  -webkit-text-fill-color: transparent;
-  transition: .3s ease;
-  padding: 0;
+  padding: inherit;
+  outline: none;
+  border: 0;
+  text-indent: -9999px;
 }
 
-.exad-logo-carousel .slick-dots li button:hover {
-  background: #000000;
-}
-
-.exad-logo-carousel .slick-dots li:not(:last-child) {
-  margin-right: 10px;
-}
-
-.exad-logo-carousel .slick-dots li.slick-active button {
-  background: #000000;
-}
-.slick-dots{
-  position: initial;
-} 
-
-.exad-logo-carousel-element .exad-logo-carousel-prev, .exad-logo-carousel-element .exad-logo-carousel-next {
+.exad-logo-carousel-element .exad-logo-carousel-prev, 
+.exad-logo-carousel-element .exad-logo-carousel-next {
   position: absolute;
-  height: 60px;
-  width: 60px;
-  background: rgba(255, 255, 255, 0.5);
   text-align: center;
   cursor: pointer;
   transition: all .3s ease;
@@ -79,16 +36,17 @@
   position: absolute;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  font-size: 30px;
-  color: #fff;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
 }
 
-.exad-logo-carousel-element .exad-logo-carousel-prev:hover, .exad-logo-carousel-element .exad-logo-carousel-next:hover {
+.exad-logo-carousel-element .exad-logo-carousel-prev:hover, 
+.exad-logo-carousel-element .exad-logo-carousel-next:hover {
   background: #fff;
 }
 
-.exad-logo-carousel-element .exad-logo-carousel-prev:hover i, .exad-logo-carousel-element .exad-logo-carousel-next:hover i {
+.exad-logo-carousel-element .exad-logo-carousel-prev:hover i, 
+.exad-logo-carousel-element .exad-logo-carousel-next:hover i {
   color: #000000;
 }
 
@@ -97,7 +55,7 @@
   top: 50%;
   left: -80px;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .exad-logo-carousel-element .exad-logo-carousel-next {
@@ -105,7 +63,15 @@
   top: 50%;
   right: -80px;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 } 
 
+.exad-logo-carousel .slick-dots {
+  width: auto;
+  display: table;
+  margin: 0 auto;
+  padding: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 /* Logo Carousel Style End */

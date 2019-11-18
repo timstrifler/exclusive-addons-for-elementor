@@ -24,6 +24,7 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-magnifier.default', ImageMagnifier);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-slider.default', ExadSlider);
+    //elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
 });	
 
 }(jQuery));

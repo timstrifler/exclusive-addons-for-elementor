@@ -368,23 +368,24 @@ class Exad_Team_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_team_carousel_content_alignment',
 			[
-				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'exad-team-carousel-left' => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'fa fa-align-left'
 					],
 					'exad-team-carousel-center' => [
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'fa fa-align-center'
 					],
 					'exad-team-carousel-right' => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'fa fa-align-center'
 					]
 				],
-				'default' => 'exad-team-carousel-center',
+				'default' => 'exad-team-carousel-center'
 			]
 		);
 

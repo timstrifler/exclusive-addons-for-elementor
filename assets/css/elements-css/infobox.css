@@ -66,11 +66,8 @@
 }
 
 .exad-infobox .exad-infobox-item .exad-infobox-icon {
-  height: 90px;
-  width: 90px;
   background: #fff;
   border-radius: 50%;
-  box-shadow: 0px 22px 59px 0px rgba(18, 34, 66, 0.2);
   position: relative;
   z-index: 1;
   transition: all .3s ease;
@@ -112,13 +109,12 @@
 }
 
 .exad-infobox-content-title {
-  font-size: 24px;
+  font-size: 30px;
   line-height: 1.5;
-  margin: 0 0 10px 0;
+  font-weight: 600;
 }
 .exad-infobox-content-description {
   font-size: 16px;
-  margin: 10px auto;
 }
 
 .exad-infobox .exad-infobox-item .exad-infobox-content .exad-infobox-content-description {

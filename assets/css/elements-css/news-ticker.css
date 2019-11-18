@@ -44,11 +44,8 @@
 }
 .exad-news-ticker .exad-bn-label,
 .exad-news-ticker .exad-bn-label.yes-small:after {
-  background-color: #5545FF;  
+  background-color: #7a56ff;  
 }
-/*.exad-news-ticker .exad-bn-label.yes-small {
-  position: relative;
-}*/
 .exad-news-ticker .exad-bn-label.yes-small:after {
   position: absolute;
   content: '';
@@ -68,20 +65,13 @@
   right: 0;
   overflow: hidden;
 }
-.exad-news-ticker .exad-nt-news ul{
+.exad-news-ticker .exad-nt-news ul {
   display: block;
   height: 100%;
   list-style: none;
   padding: 0!important;
   margin: 0;
-  margin-bottom: 0!important;
-  left: 0;
-  bottom: 0;
   width: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .exad-news-ticker .exad-nt-news ul li {
   list-style: none!important;
@@ -173,11 +163,11 @@
     justify-content: center;
     align-items: center;
 }
-.exad-news-ticker[data-direction="rtl"] .exad-nt-controls{
+.exad-news-ticker.bn-direction-rtl .exad-nt-controls{
   flex-direction: row-reverse;
   padding: 0 20px 0 0;
 }
-.exad-news-ticker[data-direction="rtl"] .exad-bn-label.yes-small:after{
+.exad-news-ticker.bn-direction-rtl .exad-bn-label.yes-small:after{
   left: -4%;
   right: inherit;
 }
@@ -230,20 +220,6 @@
   transform: rotate(135deg);
   left: 3px;
 }
-/*.exad-news-ticker[data-direction="rtl"] .bn-arrow.bn-next {
-  -moz-transform: rotate(135deg);
-  -ms-transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
-  left: 3px;
-}
-.exad-news-ticker[data-direction="rtl"] .bn-arrow.bn-prev {
-  -moz-transform: rotate(315deg);
-  -ms-transform: rotate(315deg);
-  -webkit-transform: rotate(315deg);
-  transform: rotate(315deg);
-  left:-3px;
-}*/
 .exad-news-ticker .bn-play{
   position: relative;
   background: #999999;
@@ -312,12 +288,6 @@
 }
 .exad-news-ticker.bn-direction-rtl .exad-nt-controls button{
   border-left: none;
-  border-right: solid 1px #EEE;
-}
-.exad-news-ticker.bn-effect-scroll .exad-nt-news ul{
-  display: block;
-  width: 100%;
-  position: relative;
 }
 .exad-news-ticker.bn-effect-scroll .exad-nt-news ul li{
   display: list-item;
@@ -331,4 +301,4 @@
 .exad-news-ticker.bn-effect-scroll.bn-direction-rtl .exad-nt-news ul li{
   float: right;
 }
-/* Exclusive News Ticker End 
+/* Exclusive News Ticker End

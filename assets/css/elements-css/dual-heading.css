@@ -4,34 +4,34 @@
   padding: 5px;
 }
 
-.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-description{
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-description {
   line-height: 26px;
   margin: 30px 0 0 0;
   padding: 10px;
+  font-weight: 400;
 }
-
-.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon{
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon {
+  display: inline-block;
+}
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon i {
   font-size: 36px;
 }
 
-.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title{
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title {
   font-size: 36px;
   margin-top: 10px;
 }
 
-.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a{
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title {
   font-size: 30px;
   color: #132c47;
-  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   text-decoration: none;
 }
 
-.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a .first-heading,
-.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title  a .second-heading{
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .first-heading,
+.exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .second-heading {
   padding: 15px 10px;
 }
 

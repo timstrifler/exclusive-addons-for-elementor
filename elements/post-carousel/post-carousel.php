@@ -348,8 +348,7 @@ class Exad_Post_Carousel extends Widget_Base {
                     'dots'   => esc_html__( 'Dots', 'exclusive-addons-elementor' ),
                     'both'   => esc_html__( 'Arrows and Dots', 'exclusive-addons-elementor' ),
                     'none'   => esc_html__( 'None', 'exclusive-addons-elementor' )
-                    
-                ],
+                ]
             ]
         );
 
@@ -495,22 +494,23 @@ class Exad_Post_Carousel extends Widget_Base {
             'exad_post_carousel_image_align',
             [
                 'label'         => esc_html__( 'Image Position', 'exclusive-addons-elementor' ),
-                'type'          => \Elementor\Controls_Manager::CHOOSE,
+                'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
                 'options'       => [
                     'left'      => [
                         'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-left',
+                        'icon'  => 'fa fa-angle-left'
                     ],
                     'top'       => [
                         'title' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-up',
+                        'icon'  => 'fa fa-angle-up'
                     ],
                     'right'     => [
                         'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-right',
-                    ],
+                        'icon'  => 'fa fa-angle-right'
+                    ]
                 ],
-                'default'       => 'top',
+                'default'       => 'top'
             ]
         );
 
@@ -629,6 +629,7 @@ class Exad_Post_Carousel extends Widget_Base {
             [
                 'label'   => __( 'Title Alignment', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::CHOOSE,
+                'toggle'  => false,
                 'options' => [
                     'left'      => [
                         'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -727,6 +728,7 @@ class Exad_Post_Carousel extends Widget_Base {
             [
                 'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::CHOOSE,
+                'toggle'  => false,
                 'options' => [
                     'left'      => [
                         'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -839,7 +841,7 @@ class Exad_Post_Carousel extends Widget_Base {
             [
                 'label'     => __( 'Background Color (Even)', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#977FFF',
+                'default'   => '#7a56ff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};'
                 ]
@@ -1163,7 +1165,7 @@ class Exad_Post_Carousel extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#11B5BC',
+                    'default'   => '#7a56ff',
                     'selectors' => [
                         '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a' => 'color: {{VALUE}};'
                     ]
@@ -1175,7 +1177,7 @@ class Exad_Post_Carousel extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => 'transparent',
+                    'default'   => 'rgba(0, 0, 0, 0)',
                     'selectors' => [
                         '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a' => 'background: {{VALUE}};'
                     ]
@@ -1408,7 +1410,6 @@ class Exad_Post_Carousel extends Widget_Base {
                 'data-carousel-column'     => intval( $settings['exad_post_carousel_column_no'] ),
                 'data-post-carousel-nav'   => $settings['exad_post_carousel_nav'],
                 'data-post-carousel-speed' => $settings['exad_post_carousel_transition_duration']
-
             ]
         );
 

@@ -29,7 +29,7 @@ let ExadNewsTicker = function( $scope, $ ) {
                 height: ticker_height,
                 fontSize: "default",
                 themeColor: "default",
-                background: "default",                       
+                background: "default"             
             });    
         });
     }

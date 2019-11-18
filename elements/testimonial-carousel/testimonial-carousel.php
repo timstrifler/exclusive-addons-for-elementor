@@ -274,27 +274,28 @@ class Exad_Testimonial_Carousel extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_carousel_container_alignment',
 			[
-				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
+				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
 				'options' => [
 					'exad-testimonial-align-left' => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-left',
+						'icon'  => 'fa fa-angle-left'
 					],
 					'exad-testimonial-align-center' => [
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-up',
+						'icon'  => 'fa fa-angle-up'
 					],
 					'exad-testimonial-align-right' => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-right',
+						'icon'  => 'fa fa-angle-right'
 					],
 					'exad-testimonial-align-bottom' => [
 						'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-angle-down',
+						'icon'  => 'fa fa-angle-down'
 					]
 				],
-				'default' => 'exad-testimonial-align-left',
+				'default' => 'exad-testimonial-align-left'
 			]
 		);
 

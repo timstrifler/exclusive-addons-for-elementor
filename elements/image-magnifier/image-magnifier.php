@@ -1,6 +1,8 @@
 <?php
 namespace Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
+
 class Exad_Image_Magnifier extends Widget_Base {
 	
 	public function get_name() {
@@ -37,23 +39,21 @@ class Exad_Image_Magnifier extends Widget_Base {
     $this->add_control(
         'exad_magnify_image',
         [
-            'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::MEDIA,
+            'label'   => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+            'type'    => Controls_Manager::MEDIA,
             'default' => [
-                'url' => Utils::get_placeholder_image_src(),
-            ],
+                'url' => Utils::get_placeholder_image_src()
+            ]
         ]
     );
 
     $this->add_group_control(
         Group_Control_Image_Size::get_type(),
         [
-            'name' => 'thumbnail',
-            'default' => 'full',
+            'name'    => 'magnify_image_size',
+            'default' => 'full'
         ]
     );
-    
-
 
     $this->end_controls_section();
 
@@ -64,51 +64,51 @@ class Exad_Image_Magnifier extends Widget_Base {
         'exad_section_image_magnefic_container',
         [
             'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
-            'tab' => Controls_Manager::TAB_STYLE
+            'tab'   => Controls_Manager::TAB_STYLE
         ]
     );
 
-    $this->add_control(
+    $this->add_responsive_control(
         'exa_image_magnefic_container_image_width',
         [
-            'label' => __( 'Width', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => [ 'px', '%' ],
-            'range' => [
-                'px' => [
+            'label'       => __( 'Width', 'exclusive-addons-elementor' ),
+            'type'        => Controls_Manager::SLIDER,
+            'size_units'  => [ 'px', '%' ],
+            'range'       => [
+                'px'      => [
                     'min' => 0,
-                    'max' => 1000,
+                    'max' => 1000
                 ],
-                '%' => [
+                '%'       => [
                     'min' => 0,
-                    'max' => 100,
-                ],
+                    'max' => 100
+                ]
             ],
-            'default' => [
-                'unit' => '%',
-                'size' => 100,
+            'default'     => [
+                'unit'    => '%',
+                'size'    => 100
             ],
-            'selectors' => [
-                '{{WRAPPER}} .exad-magnify-small' => 'width: {{SIZE}}{{UNIT}};',
-            ],
+            'selectors'   => [
+                '{{WRAPPER}} .exad-magnify-small' => 'width: {{SIZE}}{{UNIT}};'
+            ]
         ]
     );
 
     $this->add_group_control(
         Group_Control_Border::get_type(),
         [
-            'name' => 'exa_image_magnefic_container_image_border',
-            'label' => __( 'Border', 'exclusive-addons-elementor' ),
-            'selector' => '{{WRAPPER}} .exad-magnify-small',
+            'name'     => 'exa_image_magnefic_container_image_border',
+            'label'    => __( 'Border', 'exclusive-addons-elementor' ),
+            'selector' => '{{WRAPPER}} .exad-magnify-small'
         ]
     );
 
     $this->add_group_control(
         Group_Control_Box_Shadow::get_type(),
         [
-            'name' => 'exa_image_magnefic_container_image_box_shadow',
-            'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-            'selector' => '{{WRAPPER}} .exad-magnify-small',
+            'name'     => 'exa_image_magnefic_container_image_box_shadow',
+            'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+            'selector' => '{{WRAPPER}} .exad-magnify-small'
         ]
     );
     
@@ -121,104 +121,104 @@ class Exad_Image_Magnifier extends Widget_Base {
         'exad_section_image_magnefic_glass_style',
         [
             'label' => esc_html__( 'Magnific Glass', 'exclusive-addons-elementor' ),
-            'tab' => Controls_Manager::TAB_STYLE
+            'tab'   => Controls_Manager::TAB_STYLE
         ]
     );
 
-    $this->add_control(
+    $this->add_responsive_control(
         'exad_image_magnefic_glass_height',
         [
-            'label' => __( 'Height', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => [ 'px' ],
-            'range' => [
-                'px' => [
+            'label'       => __( 'Height', 'exclusive-addons-elementor' ),
+            'type'        => Controls_Manager::SLIDER,
+            'size_units'  => [ 'px' ],
+            'range'       => [
+                'px'      => [
                     'min' => 0,
-                    'max' => 1000,
-                ],
+                    'max' => 1000
+                ]
             ],
-            'default' => [
-                'unit' => 'px',
-                'size' => 150,
+            'default'     => [
+                'unit'    => 'px',
+                'size'    => 150
             ],
-            'selectors' => [
-                '{{WRAPPER}} .exad-magnify-large' => 'height: {{SIZE}}{{UNIT}};',
-            ],
+            'selectors'   => [
+                '{{WRAPPER}} .exad-magnify-large' => 'height: {{SIZE}}{{UNIT}};'
+            ]
         ]
     );
 
-    $this->add_control(
+    $this->add_responsive_control(
         'exad_image_magnefic_glass_width',
         [
-            'label' => __( 'Width', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => [ 'px' ],
-            'range' => [
-                'px' => [
+            'label'       => __( 'Width', 'exclusive-addons-elementor' ),
+            'type'        => Controls_Manager::SLIDER,
+            'size_units'  => [ 'px' ],
+            'range'       => [
+                'px'      => [
                     'min' => 0,
-                    'max' => 1000,
-                ],
+                    'max' => 1000
+                ]
             ],
-            'default' => [
-                'unit' => 'px',
-                'size' => 150,
+            'default'     => [
+                'unit'    => 'px',
+                'size'    => 150
             ],
-            'selectors' => [
-                '{{WRAPPER}} .exad-magnify-large' => 'width: {{SIZE}}{{UNIT}};',
-            ],
+            'selectors'   => [
+                '{{WRAPPER}} .exad-magnify-large' => 'width: {{SIZE}}{{UNIT}};'
+            ]
         ]
     );
 
     $this->add_group_control(
         Group_Control_Border::get_type(),
         [
-            'name' => 'exad_image_magnefic_glass_border',
-            'label' => __( 'Border', 'exclusive-addons-elementor' ),
-            'fields_options' => [
-                'border' => [
-                    'default' => 'solid',
+            'name'            => 'exad_image_magnefic_glass_border',
+            'label'           => __( 'Border', 'exclusive-addons-elementor' ),
+            'fields_options'  => [
+                'border'      => [
+                    'default' => 'solid'
                 ],
-                'width' => [
+                'width'       => [
                     'default' => [
-                        'top' => '1',
-                        'right' => '1',
+                        'top'    => '1',
+                        'right'  => '1',
                         'bottom' => '1',
-                        'left' => '1',
-                    ],
+                        'left'   => '1'
+                    ]
                 ],
-                'color' => [
-                    'default' => '#CCC',
-                ],
+                'color'       => [
+                    'default' => '#cccccc'
+                ]
             ],
-            'selector' => '{{WRAPPER}} .exad-magnify-large',
+            'selector'        => '{{WRAPPER}} .exad-magnify-large'
         ]
     );
 
-    $this->add_control(
+    $this->add_responsive_control(
         'exad_image_magnefic_glass_radius',
         [
-            'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
-            'type' => Controls_Manager::DIMENSIONS,
+            'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
+            'type'       => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%' ],
-            'default' => [
-                'top' => '50',
-                'right' => '50',
+            'default'    => [
+                'top'    => '50',
+                'right'  => '50',
                 'bottom' => '50',
-                'left' => '50',
-                'unit' => '%'
+                'left'   => '50',
+                'unit'   => '%'
             ],
-            'selectors' => [
-                '{{WRAPPER}} .exad-magnify-large' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-            ],
+            'selectors'  => [
+                '{{WRAPPER}} .exad-magnify-large' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            ]
         ]
     );
 
     $this->add_group_control(
         Group_Control_Box_Shadow::get_type(),
         [
-            'name' => 'exad_image_magnefic_glass_box_shadow',
-            'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-            'selector' => '{{WRAPPER}} .exad-magnify-large',
+            'name'     => 'exad_image_magnefic_glass_box_shadow',
+            'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+            'selector' => '{{WRAPPER}} .exad-magnify-large'
         ]
     );
     
@@ -226,29 +226,22 @@ class Exad_Image_Magnifier extends Widget_Base {
 
     }
     
-
 	protected function render() {
 
-        $settings = $this->get_settings_for_display();
-        $magnify_image = $this->get_settings_for_display( 'exad_magnify_image' );
-        $magnify_image_src_url = Group_Control_Image_Size::get_attachment_image_src( $magnify_image['id'], 'thumbnail', $settings );
+        $settings              = $this->get_settings_for_display();
+        $magnify_image         = $this->get_settings_for_display( 'exad_magnify_image' );
+        $magnify_image_src_url = Group_Control_Image_Size::get_attachment_image_src( $magnify_image['id'], 'magnify_image_size', $settings );
 
-            if( empty( $magnify_image_src_url ) ) {
-                $magnify_image_url = $magnify_image['url']; 
-            } else { 
-                $magnify_image_url = $magnify_image_src_url;
-            }
-            
+        if( empty( $magnify_image_src_url ) ) {
+            $magnify_image_url = $magnify_image['url']; 
+        } else { 
+            $magnify_image_url = $magnify_image_src_url;
+        }
 
-        ?>
-        
-        <!-- Lets make a simple image magnifier -->
-        <div class="exad-image-magnify">
-            <div class="exad-magnify-large"></div>
-            <img class="exad-magnify-small" src="<?php echo esc_url( $magnify_image_url ); ?>" />
-        </div>
-
-    <?php
+        echo '<div class="exad-image-magnify">';
+            echo '<div class="exad-magnify-large"></div>';
+            echo '<img class="exad-magnify-small" src="'.esc_url( $magnify_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_magnify_image'] ).'">';
+        echo '</div>';
 	}
 
 }

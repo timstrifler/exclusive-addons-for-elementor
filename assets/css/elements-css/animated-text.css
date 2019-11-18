@@ -22,4 +22,13 @@
   margin: 0;
 }
 
+.exad-animated-text-pre-heading,
+.exad-animated-text-animated-heading,
+.exad-animated-text-post-heading {
+	font-size: 30px;
+	font-weight: 600;
+}
+/*span.typed-cursor {
+	font-size: 80px;
+}*/
 /* animatex text style end*/

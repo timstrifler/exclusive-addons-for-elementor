@@ -21,16 +21,10 @@ class ExadNewsTicker extends Widget_Base {
         return [ 'exclusive-addons-elementor' ];
     }
 
-    /**
-     * Retrieve the list of scripts the counter widget depended on.
-     *
-     * Used to set scripts dependencies required to run the widget.
-     *
-     * @since 1.3.0
-     * @access public
-     *
-     * @return array Widget scripts dependencies.
-     */
+    public function get_keywords() {
+        return [ 'news', 'ticker', 'bar', 'horizontal news ticker' ];
+    }
+    
     public function get_script_depends() {
         return [ 'exad-news-ticker' ];
     }
@@ -92,7 +86,7 @@ class ExadNewsTicker extends Widget_Base {
             [
                 'label' => esc_html__( 'Settings', 'exclusive-addons-elementor' )
             ]
-        );
+        ); 
 
         $this->add_control(
             'exad_news_ticker_animation_direction',
@@ -175,7 +169,7 @@ class ExadNewsTicker extends Widget_Base {
                     'px'        => [
                         'min'   => 20,
                         'max'   => 100
-                    ],
+                    ]
                 ]
             ]
         ); 
@@ -247,16 +241,25 @@ class ExadNewsTicker extends Widget_Base {
         );
 
         $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'      => 'exad_news_ticker_container_bg_color',
+                'types'     => [ 'classic', 'gradient' ],
+                'selector'  => '{{WRAPPER}} .exad-news-ticker'            
+            ]
+        );
+
+        $this->add_group_control(
             Group_Control_Border::get_type(),
             [
                 'name'           => 'exad_news_ticker_container_border',
                 'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                 'selector'       => '{{WRAPPER}} .exad-news-ticker',
                 'fields_options' => [
-                    'border' => [
+                    'border'      => [
                         'default' => 'solid'
                     ],
-                    'width'  => [
+                    'width'       => [
                         'default' => [
                             'top'    => '1',
                             'right'  => '1',
@@ -264,14 +267,14 @@ class ExadNewsTicker extends Widget_Base {
                             'left'   => '1'
                         ]
                     ],
-                    'color' => [
+                    'color'       => [
                         'default' => '#DADCEA'
                     ]
                 ]
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_news_ticker_container_border_radius',
             [
                 'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -296,13 +299,21 @@ class ExadNewsTicker extends Widget_Base {
         $this->start_controls_section(
             'exad_news_ticker_label_style',
             [
-                'label'         => esc_html__( 'Label', 'exclusive-addons-elementor' ),
-                'tab'           => Controls_Manager::TAB_STYLE,
+                'label'     => esc_html__( 'Label', 'exclusive-addons-elementor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     '.exad_news_ticker_show_label' => 'yes'
                 ]             
             ]
         ); 
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_news_ticker_label_typography',
+                'selector' => '{{WRAPPER}} .exad-news-ticker .exad-bn-label'
+            ]
+        );
 
         $this->add_control(
             'exad_news_ticker_label_color',
@@ -321,15 +332,7 @@ class ExadNewsTicker extends Widget_Base {
             [
                 'name'      => 'exad_news_ticker_label_bg_color',
                 'types'     => [ 'classic', 'gradient' ],
-                'selector'  => '{{WRAPPER}} .exad-news-ticker .exad-bn-label,{{WRAPPER}} .exad-news-ticker .exad-bn-label.yes-small:after'            
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'          => 'exad_news_ticker_label_typography',
-                'selector'      => '{{WRAPPER}} .exad-news-ticker .exad-bn-label'
+                'selector'  => '{{WRAPPER}} .exad-news-ticker .exad-bn-label, {{WRAPPER}} .exad-news-ticker .exad-bn-label.yes-small:after'            
             ]
         );
 
@@ -357,7 +360,7 @@ class ExadNewsTicker extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_news_ticker_label_border_radius',
             [
                 'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -382,7 +385,9 @@ class ExadNewsTicker extends Widget_Base {
             'exad_news_ticker_show_label_icon',
             [
                 'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Show Label Icon?', 'exclusive-addons-elementor' ),
+                'label'         => esc_html__( 'Enable Label Icon.', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
                 'default'       => 'no',
                 'return_value'  => 'yes'
             ]
@@ -406,10 +411,10 @@ class ExadNewsTicker extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'          => 'exad_news_ticker_label_icon_typography',
-                'selector'      => '{{WRAPPER}} .exad-news-ticker-icon i',                
-                'exclude' => [
-                    'text_transform', 'font_family' // font_size, font_weight, text_transform, font_style, text_decoration, line_height, letter_spacing
+                'name'     => 'exad_news_ticker_label_icon_typography',
+                'selector' => '{{WRAPPER}} .exad-news-ticker-icon i',                
+                'exclude'  => [
+                    'text_transform', 'font_family'
                 ],
                 'condition' => [
                     'exad_news_ticker_show_label_icon' => 'yes'
@@ -420,33 +425,33 @@ class ExadNewsTicker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_label_icon_color',
             [
-                'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .exad-news-ticker-icon i' => 'color: {{VALUE}};'
                 ],
                 'condition' => [
                     'exad_news_ticker_show_label_icon' => 'yes'
-                ]               
+                ]            
             ]
         );
 
         $this->add_responsive_control(
             'exad_news_ticker_label_icon_padding',
             [
-                'label'                 => __('Padding', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => ['px', '%'],
-                'default'       => [
-                    'top'       => 0,
-                    'bottom'    => 0,
-                    'left'      => 0,
-                    'right'     => 15,
+                'label'      => __('Padding', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'default'    => [
+                    'top'    => 0,
+                    'bottom' => 0,
+                    'left'   => 0,
+                    'right'  => 15
                 ],
-                'selectors'             => [
+                'selectors'  => [
                     '{{WRAPPER}} .exad-news-ticker-icon i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'condition' => [
+                'condition'  => [
                     'exad_news_ticker_show_label_icon' => 'yes'
                 ]
             ]
@@ -455,19 +460,19 @@ class ExadNewsTicker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_label_with_arrow_style',
             [
-                'label'         => esc_html__( 'Label With Arrow', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::HEADING,
-                'separator'     => 'before'
+                'label'     => esc_html__( 'Label With Arrow', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before'
             ]
         );
 
         $this->add_control(
             'exad_news_ticker_show_label_arrow',
             [
-                'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Show Label Arrow?', 'exclusive-addons-elementor' ),
-                'default'       => 'no',
-                'return_value'  => 'yes'
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Show Label Arrow?', 'exclusive-addons-elementor' ),
+                'default'      => 'no',
+                'return_value' => 'yes'
             ]
         ); 
 
@@ -476,8 +481,16 @@ class ExadNewsTicker extends Widget_Base {
         $this->start_controls_section(
             'exad_news_ticker_items_style',
             [
-                'label'         => esc_html__( 'Items', 'exclusive-addons-elementor' ),
-                'tab'           => Controls_Manager::TAB_STYLE                    
+                'label' => esc_html__( 'Items', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE                    
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_news_ticker_typography',
+                'selector' => '{{WRAPPER}} .exad-news-ticker ul li, {{WRAPPER}} .exad-news-ticker ul li a'
             ]
         );
 
@@ -488,7 +501,7 @@ class ExadNewsTicker extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#333333',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-news-ticker li' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-news-ticker li, {{WRAPPER}} .exad-news-ticker li a' => 'color: {{VALUE}};'
                 ]                
             ]
         );
@@ -500,7 +513,7 @@ class ExadNewsTicker extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#3878ff',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-news-ticker li:hover, .exad-news-ticker li a:hover' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-news-ticker li:hover, {{WRAPPER}} .exad-news-ticker li:hover a' => 'color: {{VALUE}};'
                 ]                
             ]
         );
@@ -517,24 +530,16 @@ class ExadNewsTicker extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'          => 'exad_news_ticker_typography',
-                'selector'      => '{{WRAPPER}} .exad-news-ticker ul li'
-            ]
-        );
-
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_news_ticker_each_item_padding',
             [
-                'label'         => esc_html__( 'Padding Each Item(Left & Right)', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::SLIDER,
-                'size_units'    => [ 'px' ],
-                'default'       => [
-                    'size'      => 15
+                'label'      => esc_html__( 'Padding Each Item(Left & Right)', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'size'   => 15
                 ],
-                'selectors'     => [
+                'selectors'  => [
                     '{{WRAPPER}} .exad-news-ticker .exad-nt-news ul li' => 'padding: 0 {{SIZE}}{{UNIT}};'
                 ]
             ]
@@ -543,13 +548,13 @@ class ExadNewsTicker extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'           => 'exad_news_ticker_items_border',
-                'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-nt-news'
+                'name'     => 'exad_news_ticker_items_border',
+                'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                'selector' => '{{WRAPPER}} .exad-news-ticker .exad-nt-news'
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_news_ticker_items_border_radius',
             [
                 'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -566,8 +571,8 @@ class ExadNewsTicker extends Widget_Base {
         $this->start_controls_section(
             'exad_news_ticker_control_style',
             [
-                'label'         => esc_html__( 'Controls', 'exclusive-addons-elementor' ),
-                'tab'           => Controls_Manager::TAB_STYLE,
+                'label'     => esc_html__( 'Controls', 'exclusive-addons-elementor' ),
+                'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     '.exad_news_ticker_show_controls' => 'yes'
                 ]             
@@ -577,21 +582,33 @@ class ExadNewsTicker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_control_box_style',
             [
-                'label'         => esc_html__( 'Control Box', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::HEADING
+                'label' => esc_html__( 'Control Box', 'exclusive-addons-elementor' ),
+                'type'  => Controls_Manager::HEADING
+            ]
+        );
+
+        $this->add_control(
+            'exad_news_ticker_control_bg_color',
+            [
+                'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-news-ticker .exad-nt-controls' => 'background-color: {{VALUE}};'
+                ]               
             ]
         );
 
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'           => 'exad_news_ticker_controls_box_border',
-                'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls'
+                'name'     => 'exad_news_ticker_controls_box_border',
+                'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                'selector' => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls'
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_news_ticker_controls_box_border_radius',
             [
                 'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -606,21 +623,22 @@ class ExadNewsTicker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_control_box_item_style',
             [
-                'label'         => esc_html__( 'Control Items', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::HEADING
+                'label'     => esc_html__( 'Control Items', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before'
             ]
         );
 
         $this->add_control(
             'exad_news_ticker_controls_size',
             [
-                'label'         => esc_html__( 'Size', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::SLIDER,
-                'size_units'    => [ 'px' ],
-                'default'       => [
-                    'size'      => 30
+                'label'      => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'size'   => 30
                 ],
-                'selectors'     => [
+                'selectors'  => [
                     '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};'
                 ]
             ]
@@ -629,10 +647,10 @@ class ExadNewsTicker extends Widget_Base {
         $this->add_responsive_control(
             'exad_news_ticker_control_margin',
             [
-                'label'                 => __('Margin', 'exclusive-addons-elementor'),
-                'type'                  => Controls_Manager::DIMENSIONS,
-                'size_units'            => ['px', '%'],
-                'selectors'             => [
+                'label'      => __('Margin', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors'  => [
                     '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -670,13 +688,13 @@ class ExadNewsTicker extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Border::get_type(),
                     [
-                        'name'           => 'exad_news_ticker_control_items_border',
-                        'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                        'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button'
+                        'name'     => 'exad_news_ticker_control_items_border',
+                        'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button'
                     ]
                 );
 
-                $this->add_control(
+                $this->add_responsive_control(
                     'exad_news_ticker_control_items_border_radius',
                     [
                         'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -700,8 +718,8 @@ class ExadNewsTicker extends Widget_Base {
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#999999',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover .bn-arrow::before, {{WRAPPER}} .exad-news-ticker .exad-nt-controls:hover button .bn-arrow::after' => 'border-color: {{VALUE}};',
-                            '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover .bn-pause::before, {{WRAPPER}} .exad-news-ticker .exad-nt-controls:hover button .bn-pause::after' => 'background-color: {{VALUE}};'
+                            '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover .bn-arrow::before, {{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover .bn-arrow::after' => 'border-color: {{VALUE}};',
+                            '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover .bn-pause::before, {{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover .bn-pause::after' => 'background-color: {{VALUE}};'
                         ]
                     ]
                 );
@@ -721,13 +739,13 @@ class ExadNewsTicker extends Widget_Base {
                 $this->add_group_control(
                     Group_Control_Border::get_type(),
                     [
-                        'name'           => 'exad_news_ticker_control_items_hover_border',
-                        'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                        'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover'
+                        'name'     => 'exad_news_ticker_control_items_hover_border',
+                        'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover'
                     ]
                 );
 
-                $this->add_control(
+                $this->add_responsive_control(
                     'exad_news_ticker_control_items_hover_border_radius',
                     [
                         'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -745,18 +763,6 @@ class ExadNewsTicker extends Widget_Base {
 
         $this->end_controls_section();
 
-    }
-
-    private function exad_news_ticker_data_attr_implode( $array ){
-        
-        foreach ($array as $key => $value) {
-
-            if( isset($value) &&  $value != '' ){
-                $output[] = $key . '=' . '"'. esc_attr( $value ) . '"' ;
-            }
-        }
-
-        return implode( ' ', $output );
     }
 
     protected function render() {
@@ -778,19 +784,34 @@ class ExadNewsTicker extends Widget_Base {
         ( $autoplay == 'yes' ) ? $pause_on_hover = $settings['exad_news_ticker_pause_on_hover'] : $pause_on_hover = '';
 
         $controls     = array('exad-news-ticker');
-        $exad_nt_attr    = array(
+        $this->add_render_attribute( 'exad-news-ticker-wrapper', 'class', 'exad-news-ticker' );
+
+        $this->add_render_attribute( 
+            'exad-news-ticker-wrapper', 
+            [ 
+                'data-autoplay'          => esc_attr( $autoplay == 'yes' ? 'true' : 'false' ),
+                'data-bottom_fixed'      => esc_attr( $bottom_fixed == 'yes' ? 'fixed-bottom' : 'false' ),
+                'data-pause_on_hover'    => esc_attr( $pause_on_hover == 'yes' ? 'true' : 'false' ),
+                'data-direction'         => ( (is_rtl() || $direction == 'rtl') ? 'rtl' : 'ltr' ),
+                'data-autoplay_interval' => esc_attr( $autoplay_interval ),
+                'data-animation_speed'   => esc_attr( $animation_speed ),
+                'data-ticker_height'     => esc_attr( $ticker_height ),
+                'data-animation'         => esc_attr( $animation_type )
+            ]
+        );
+
+        $exad_nt_attr = array(
             'data-autoplay'          => esc_attr( $autoplay == 'yes' ? 'true' : 'false' ),
             'data-bottom_fixed'      => esc_attr( $bottom_fixed == 'yes' ? 'fixed-bottom' : 'false' ),
             'data-pause_on_hover'    => esc_attr( $pause_on_hover == 'yes' ? 'true' : 'false' ),
             'data-autoplay_interval' => esc_attr( $autoplay_interval ),
-            'data-direction'         => ( (is_rtl() || $direction == 'rtl') ? 'rtl' : 'ltr' ),
             'data-animation_speed'   => esc_attr( $animation_speed ),
             'data-ticker_height'     => esc_attr( $ticker_height ),
             'data-animation'         => esc_attr( $animation_type )
         );
 
-        echo '<div class="'.esc_attr( implode(' ', $controls) ).'"'.$this->exad_news_ticker_data_attr_implode( $exad_nt_attr ).'>';
-
+        echo '<div '.$this->get_render_attribute_string( 'exad-news-ticker-wrapper' ).'>';
+            do_action( 'exad_news_ticker_wrapper_before' );
             if(!empty($label) && ('yes' == $show_label)):
                 echo '<div class="exad-bn-label'.esc_attr($arrow).'">';
                     echo '<div class="exad-nt-label">';
@@ -825,15 +846,16 @@ class ExadNewsTicker extends Widget_Base {
                     echo '</ul>';
                 endif;
             echo '</div>';
-            if ($settings['exad_news_ticker_show_controls'] == 'yes') :
+            if ( 'yes' == $settings['exad_news_ticker_show_controls'] ) :
                 echo '<div class="exad-nt-controls">';
                     echo '<button><span class="bn-arrow bn-prev"></span></button>';
-                    if($settings['exad_news_ticker_show_pause_control'] == 'yes'):
+                    if( 'yes' == $settings['exad_news_ticker_show_pause_control'] ):
                         echo '<button><span class="bn-action"></span></button>';
                     endif;
                     echo '<button><span class="bn-arrow bn-next"></span></button>';
                 echo '</div>';
             endif;
+            do_action( 'exad_news_ticker_wrapper_after' );
         echo '</div>';
     }
 }

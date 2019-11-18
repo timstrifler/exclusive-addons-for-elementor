@@ -17,7 +17,6 @@
   margin-bottom: 30px;
   font-size: 30px;
   color: #132c47;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
 
@@ -75,62 +74,6 @@
   background-color: #4ce2bd;
   border: none;
 }
-
-/* .exad-contact-form .wpcf7-checkbox input[type="checkbox"] {
-  position: absolute;
-  left: -99999px;
-}
-
-.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label {
-  display: inline-block;
-  position: relative;
-  margin-right: 20px;
-  margin-top: 20px;
-  padding: 0 0 0 25px;
-  cursor: pointer;
-}
-
-.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 0;
-  height: 18px;
-  width: 18px;
-  background-color: #ffffff;
-  border: 1px solid #e3e6ec;
-  transition: opacity 0.3s linear,-webkit-transform 0.3s linear;
-  transition: transform 0.3s linear,opacity 0.3s linear;
-  transition: transform 0.3s linear,opacity 0.3s linear,-webkit-transform 0.3s linear;
-}
-
-.exad-contact-form .wpcf7-checkbox input:checked + span.wpcf7-list-item-label::before {
-  background: #36d3ac;
-  border: 1px solid transparent;
-}
-
-.exad-contact-form .wpcf7-checkbox span.wpcf7-list-item-label::after {
-  content: "\f00c";
-  font-family: FontAwesome;
-  position: absolute;
-  color: #fff;
-  top: 2px;
-  left: 3px;
-  font-size: 12px;
-  opacity: 0;
-  transition: opacity 0.3s linear,-webkit-transform 0.3s linear;
-  transition: transform 0.3s linear,opacity 0.3s linear;
-  transition: transform 0.3s linear,opacity 0.3s linear,-webkit-transform 0.3s linear;
-}
-.exad-contact-form .wpcf7-checkbox input:checked + span.wpcf7-list-item-label::after {
-  opacity: 1;
-}
-
-.exad-contact-form.one .exad-contact-form-input-group-radio input[type="radio"] {
-  position: absolute;
-  left: -99999px;
-}
-  */
 .exad-contact-form .exad-contact-form-input-group label .checkmark {
   position: absolute;
   top: 0;
@@ -142,8 +85,8 @@
 }
 
 .exad-contact-form .exad-contact-form-input-group label .checkmark::after {
-  content: "\f00c";
-  font-family: FontAwesome;
+  content: "\e90e";
+  font-family: eicons;
   position: absolute;
   display: none;
   color: #fff;
@@ -155,7 +98,6 @@
 }
 
 .exad-contact-form-7 .wpcf7-form input[type="submit"] {
-  font-family: "Roboto", sans-serif;
   background-color: #724cff;
   border-width: 1px;
   border-radius: 0px 0px 0px 0px;
