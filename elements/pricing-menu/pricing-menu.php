@@ -64,7 +64,7 @@ class Exad_Pricing_Menu extends Widget_Base {
             [
                 'label'   => esc_html__('Description', 'exclusive-addons-elementor'),
                 'type'    => Controls_manager::TEXTAREA,
-                'default' => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'exclusive-addons-elementor' )
+                'default' => esc_html__( 'List Items. Add as many as you would like.', 'exclusive-addons-elementor' )
             ]
         );
 
@@ -375,7 +375,7 @@ class Exad_Pricing_Menu extends Widget_Base {
                 ],
                 'default'  => [
                     'unit' => 'px',
-                    'size' => 120
+                    'size' => 100
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .exad-pricing-list-item.yes .exad-pricing-list-item-thumbnail' => 'width: {{SIZE}}{{UNIT}};',
@@ -398,7 +398,7 @@ class Exad_Pricing_Menu extends Widget_Base {
                 ],
                 'default'     => [
                     'unit'    => 'px',
-                    'size'    => 120
+                    'size'    => 100
                 ],
                 'selectors'   => [
                     '{{WRAPPER}} .exad-pricing-list-item.yes .exad-pricing-list-item-thumbnail' => 'height: {{SIZE}}{{UNIT}};'

@@ -3716,14 +3716,12 @@ text-align: right;
 
 .exad-pricing-list-item-content-title{
   display: flex;
-  line-height: 1;
   font-size: 20px;
   font-weight: bold;
 }
 
 .exad-pricing-list-item-content-description{
   margin: 0;
-  line-height: 1;
 }
 
 .exad-pricing-list-item-price span{
