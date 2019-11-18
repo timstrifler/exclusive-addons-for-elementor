@@ -217,7 +217,6 @@ final class Base {
     public function exad_editor_scripts() {
         wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.css' );
         wp_enqueue_script( 'exad-editor-script', EXAD_ASSETS_URL . 'js/exad-editor-script.js', array( 'elementor-editor' ), '1.0', true );
-        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array(), '1.0', true );
     }
 
     /**
@@ -258,20 +257,12 @@ final class Base {
             wp_register_script( 'exad-image-comparison-event', EXAD_ASSETS_URL . 'js/vendor/jquery.event.move.js', array( 'jquery' ), '1.0', true );
         }
 
-        if ( $is_activated_widget['counter'] ) {
-            // jQuery CounterUp Js
-            wp_register_script( 'exad-counter', EXAD_ASSETS_URL . 'js/vendor/jquery.counterup.min.js', array( 'jquery' ), '1.0', true );
-        }
 
         if ( $is_activated_widget['filterable-gallery'] ) {
             // Filterable Gallery
             wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'js/vendor/isotop.min.js', array( 'jquery' ), '1.0', true );
         }
 
-        if ( $is_activated_widget['instagram-feed'] ) {
-            // Instagram Gallery
-            wp_register_script( 'exad-instagram', EXAD_ASSETS_URL . 'js/vendor/instafeed.js', array( 'jquery' ), '1.0', true );
-        }
         if ( $is_activated_widget['news-ticker'] ) {
         // news ticker
             wp_register_script( 'exad-news-ticker', EXAD_ASSETS_URL . 'js/vendor/exad-news-ticker.min.js', array( 'jquery' ), '1.0', true );
@@ -280,10 +271,6 @@ final class Base {
             // Instagram Gallery
             wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'js/vendor/typed.min.js', array( 'jquery' ), '1.0', true );
         }	
-        if ( $is_activated_widget['slider'] ) {
-            // slick slider slick animation
-            wp_register_script( 'exad-slick-animation', EXAD_ASSETS_URL . 'js/vendor/slick-animation.min.js', array( 'jquery' ), '1.0', true );
-        }
         
     }
 
@@ -378,5 +365,3 @@ final class Base {
     }
 
 }
-
-

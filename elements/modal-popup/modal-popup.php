@@ -19,10 +19,6 @@ class Exad_Modal_Popup extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
-	public function get_script_depends() {
-		return [ 'exad-magnific-popup' ];
-	}
-
 	public function get_keywords() {
 		return [ 'lightbox', 'popup', 'quickview' ];
 	}
@@ -366,7 +362,7 @@ class Exad_Modal_Popup extends Widget_Base {
 		 */
 
 		$this->start_controls_section(
-			'exad_modal_setting_section',
+			'exad_modal_display_settings',
 			[
 				'label' => __( 'Button', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE

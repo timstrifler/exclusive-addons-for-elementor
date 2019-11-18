@@ -132,16 +132,6 @@ var CountdownTimer = function ($scope, $) {
         });
     }
 };
-// Counter Up Js
-var CounterUp = function($scope, $) {
-    var $counterUp = $scope.find('.exad-counter').eq(0),
-        $exadCounterTime = $counterUp.data('counter-speed');
-
-    $counterUp.counterUp({
-        delay: 10,
-        time: $exadCounterTime,
-    });		
-};
 // Filterable gallery
 var FilterableGallery = function( $scope, $ ) {
 
@@ -280,19 +270,6 @@ var ImageComparison = function($scope, $) {
         no_overlay: $exadNoOverlay
     });
 };
-// Image Hotspot
-var ImageHotspot = function ($scope, $) {
-    var $hotspotWrapper = $scope.find('.exad-hotspot').eq(0),
-        $hotspotItem = $hotspotWrapper.find('.exad-hotspot-dot');
-
-    // hostpot script
-    $hotspotItem.each( function(){
-        var leftPos = $(this).data('left');
-        var topPos = $(this).data('top');
-        $(this).css({ "left" : leftPos, "top" : topPos });
-    });
-    
-};
 
 // Image Magnifier JS
 
@@ -347,26 +324,6 @@ var ImageMagnifier = function($scope, $) {
 
 
 
-//Instagram Gallery
-var InstagramGallery = function( $scope, $ ) {
-    var $feed = $scope.find('#instafeed').eq(0);
-    $feed.each(function(){
-        var limit = $(this).data('limit');
-        var template = $(this).data('template');
-        var token = $(this).data('token');
-        var userId = $(this).data('user-id');
-        var userFeed = new Instafeed({
-            get: 'user',
-            userId: userId,
-            limit: limit,
-            resolution: 'standard_resolution',
-            accessToken: token,
-            sortBy: 'most-recent',
-            template: template,
-        });
-        userFeed.run();
-    });
-};
 // Logo Carousel
 var LogoCarousel = function ($scope, $) {
     var $logoCarouselWrapper = $scope.find('.exad-logo-carousel-element').eq(0),
@@ -547,63 +504,6 @@ let ExadNewsTicker = function( $scope, $ ) {
         });
     }
 };
-// Post Carousel 
-var PostCarousel = function($scope, $) {
-    var $postCarouselWrapper = $scope.find('.exad-post-carousel').eq(0),
-        $postCarouselColumn = $postCarouselWrapper.data("carousel-column"),
-        $postCarouselNav = $postCarouselWrapper.data("post-carousel-nav"),
-        $loop = ($postCarouselWrapper.data("loop") !== undefined) ? $postCarouselWrapper.data("loop") : false,
-        $autoPlay = ($postCarouselWrapper.data("autoplay") !== undefined) ? $postCarouselWrapper.data("autoplay") : false,
-        $autoplaySpeed = ($postCarouselWrapper.data("autoplayspeed") !== undefined) ? $postCarouselWrapper.data("autoplayspeed") : false,
-        $transitionSpeed = $postCarouselWrapper.data("post-carousel-speed"),
-        $pauseOnHover = ($postCarouselWrapper.data("pauseonhover") !== undefined) ? $postCarouselWrapper.data("pauseonhover") : false;
-
-    // Post Carousel 
-    if ($postCarouselNav == "both" ) {
-        var arrows = true;
-        var dots = true;
-    } else if ($postCarouselNav == "arrows" ) {
-        var arrows = true;
-        var dots = false;
-    } else if ($postCarouselNav == "dots" ) {
-        var arrows = false;
-        var dots = true;
-    } else {
-        var arrows = false;
-        var dots = true;
-    }
-    
-    // post Carousel one
-    $postCarouselWrapper.slick({
-        slidesToShow: $postCarouselColumn,
-        arrows: arrows,
-        autoplay: $autoPlay,
-        autoplaySpeed: $autoplaySpeed,
-        pauseOnHover: $pauseOnHover,
-        dots: dots,
-        arrows: arrows,
-        speed: $transitionSpeed,
-        infinite: $loop,
-        prevArrow: "<div class='exad-post-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-        nextArrow: "<div class='exad-post-carousel-next'><i class='fa fa-angle-right'></i></div>",
-        rows: 0,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 576,
-                settings: {
-                slidesToShow: 1,
-                }
-            }
-        ],
-    });
-};
-
 function animatedProgressbar(id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth){
     var triggerClass = '.exad-progress-bar-'+id;
     if("line" == type) {
@@ -671,67 +571,6 @@ var ProgressBar = function ($scope, $){
         offset: 'bottom-in-view'
     });
 };
-// slider js starts here. 
-var ExadSlider = function($scope, $) {
-    var ExadSliderControls = $scope.find('.exad-slider').eq(0),
-    sliderNav              = ExadSliderControls.data('slider-nav'),
-    autoPlay               = (ExadSliderControls.data('autoplay') !== undefined) ? ExadSliderControls.data('autoplay') : false,
-    pauseOnHover           = (ExadSliderControls.data('pauseonhover') !== undefined) ? ExadSliderControls.data('pauseonhover') : false,
-    enableFade             = (ExadSliderControls.data('enable-fade') !== undefined) ? ExadSliderControls.data('enable-fade') : false,
-    vertically             = (ExadSliderControls.data('slide-vertically') !== undefined) ? ExadSliderControls.data('slide-vertically') : false,
-    centermode             = (ExadSliderControls.data('centermode') !== undefined) ? ExadSliderControls.data('centermode') : false,
-    loop                   = (ExadSliderControls.data('loop') !== undefined) ? ExadSliderControls.data('loop') : false,
-    autoplaySpeed          = (ExadSliderControls.data('autoplayspeed') !== undefined) ? ExadSliderControls.data('autoplayspeed') : '',
-    dotsType               = (ExadSliderControls.data('dots-type') !== undefined) ? ExadSliderControls.data('dots-type') : '',
-    centerModePadding      = (ExadSliderControls.data('centermode-padding') !== undefined) ? ExadSliderControls.data('centermode-padding') : '',
-    transitionSpeed        = ExadSliderControls.data('slider-speed');
-    
-    if ( 'both' == sliderNav ) {
-        var arrows = true;
-        var dots = true;
-    } else if ( 'arrows' == sliderNav ) {
-        var arrows = true;
-        var dots = false;
-    } else if ( 'dots' == sliderNav ) {
-        var arrows = false;
-        var dots = true;
-    } else {
-        var arrows = false;
-        var dots = false;
-    }
-
-    if( true == vertically ){
-    	var verticalSwipe = true;
-    } else {
-    	var verticalSwipe = false;
-    }
-
-    ExadSliderControls.slick({
-        slidesToShow: 1,
-        arrows: arrows,
-        dots: dots,
-        autoplay: autoPlay,
-        fade: enableFade,
-        centerMode: centermode,
-  		centerPadding: centerModePadding,
-        vertical: vertically,
-        verticalSwiping: verticalSwipe,
-        pauseOnHover: pauseOnHover,
-        infinite: loop,
-        autoplaySpeed: autoplaySpeed,
-        speed: transitionSpeed,
-        customPaging: function (slider, i) {
-            if( dotsType == 'dot-image' ){
-                var image = $(slider.$slides[i]).data('image');
-                return '<a><img src="' + image + '"></a>';
-            }
-            return;
-        }
-    });
-
-    ExadSliderControls.slickAnimation();
-};
-// slider js ends here.
 // Exclusive Tabs script
 var ExclusiveTabs = function($scope, $) {
     var $tabsWrapper = $scope.find('[data-tabs]').eq(0);
@@ -764,146 +603,25 @@ var ExclusiveTabs = function($scope, $) {
     });
 };
 
-var TeamCarousel = function ($scope, $) {
-    var $teamCarouselWrapper = $scope.find('.exad-team-carousel-wrapper').eq(0),
-    $carousel_nav = $teamCarouselWrapper.data("carousel-nav"),
-    $loop = ($teamCarouselWrapper.data("loop") !== undefined) ? $teamCarouselWrapper.data("loop") : false,
-    $slidesToShow = $teamCarouselWrapper.data("slidestoshow"),
-    $slidesToScroll = $teamCarouselWrapper.data("slidestoscroll"),
-    $autoPlay = ($teamCarouselWrapper.data("autoplay") !== undefined) ? $teamCarouselWrapper.data("autoplay") : false,
-    $autoplaySpeed = ($teamCarouselWrapper.data("autoplayspeed") !== undefined) ? $teamCarouselWrapper.data("autoplayspeed") : false,
-    $transitionSpeed = $teamCarouselWrapper.data("speed"),
-    $pauseOnHover = ($teamCarouselWrapper.data("pauseonhover") !== undefined) ? $teamCarouselWrapper.data("pauseonhover") : false;
-
-    // Team Carousel 
-    if ($carousel_nav == "arrows" ) {
-        var arrows = true;
-        var dots = false;
-    } else {
-        var arrows = false;
-        var dots = true;
-    }
-
-    $teamCarouselWrapper.slick({
-        infinite: $loop,
-        slidesToShow : $slidesToShow,
-        slidesToScroll: $slidesToScroll,
-        autoplay: $autoPlay,
-        autoplaySpeed: $autoplaySpeed,
-        speed: $transitionSpeed,
-        pauseOnHover: $pauseOnHover,
-          dots: dots,
-          arrows: arrows,
-          prevArrow: "<div class='exad-team-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-        nextArrow: "<div class='exad-team-carousel-next'><i class='fa fa-angle-right'></i></div>",
-        rows: 0,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                arrows: false,
-              }
-            },
-            {
-              breakpoint: 576,
-              settings: {
-                slidesToShow: 1,
-                arrows: false,
-              }
-            }
-        ],
-    });
-};
-
-// Testimonial Carousel
-var TestimonialCarousel = function ($scope, $) {
-    var $testimonialCarouselWrapper = $scope.find('.exad-testimonial-carousel-wrapper').eq(0),
-    $carousel_nav = $testimonialCarouselWrapper.data("carousel-nav"),
-    $loop = ($testimonialCarouselWrapper.data("loop") !== undefined) ? $testimonialCarouselWrapper.data("loop") : false,
-    $slidesToShow = ($testimonialCarouselWrapper.data("slidestoshow") !== undefined) ? $testimonialCarouselWrapper.data("slidestoshow") : 1,
-    $slidesToScroll = $testimonialCarouselWrapper.data("slidestoscroll"),
-    $autoPlay = ($testimonialCarouselWrapper.data("autoplay") !== undefined) ? $testimonialCarouselWrapper.data("autoplay") : false,
-    $autoplaySpeed = ($testimonialCarouselWrapper.data("autoplayspeed") !== undefined) ? $testimonialCarouselWrapper.data("autoplayspeed") : false,
-    $transitionSpeed = $testimonialCarouselWrapper.data("speed"),
-    $pauseOnHover = ($testimonialCarouselWrapper.data("pauseonhover") !== undefined) ? $testimonialCarouselWrapper.data("pauseonhover") : false,
-    $centerMode = ($testimonialCarouselWrapper.data("centermode") !== undefined) ? $testimonialCarouselWrapper.data("centermode") : false;
-	
-	if ($carousel_nav == "both" ) {
-        var arrows = true;
-        var dots = true;
-    } else if ($carousel_nav == "arrows" ) {
-        var arrows = true;
-        var dots = false;
-    } else if ($carousel_nav == "nav-dots" ) {
-        var arrows = false;
-        var dots = true;
-    } else if ($carousel_nav == "none" ) {
-        var arrows = false;
-        var dots = false;
-    }
-
-
-    $testimonialCarouselWrapper.slick({
-        infinite: $loop,
-        slidesToShow: $slidesToShow,
-        slidesToScroll: $slidesToScroll,
-        autoplay: $autoPlay,
-        autoplaySpeed: $autoplaySpeed,
-        speed: $transitionSpeed,
-        pauseOnHover: $pauseOnHover,
-        centerMode: $centerMode,
-        centerPadding: '0',
-        dots: dots,
-        arrows: arrows,
-        prevArrow: "<div class='exad-testimonial-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-        nextArrow: "<div class='exad-testimonial-carousel-next'><i class='fa fa-angle-right'></i></div>",
-        rows: 0,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                arrows: false,
-              }
-            },
-            {
-              breakpoint: 576,
-              settings: {
-                slidesToShow: 1,
-                arrows: false,
-              }
-            }
-        ],
-    });	
-};
 $(window).on('elementor/frontend/init', function () {
     if( elementorFrontend.isEditMode() ) {
         editMode = true;
     }
     
-    elementorFrontend.hooks.addAction('frontend/element_ready/exad-team-carousel.default', TeamCarousel);
-    elementorFrontend.hooks.addAction('frontend/element_ready/exad-testimonial-carousel.default', TestimonialCarousel);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-progress-bar.default', ProgressBar);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-countdown-timer.default', CountdownTimer);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-accordion.default', ExclusiveAccordion);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-tabs.default', ExclusiveTabs);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-button.default', ExclusiveButton);
-    elementorFrontend.hooks.addAction('frontend/element_ready/exad-post-carousel.default', PostCarousel);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-google-maps.default', GoogleMaps);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-comparison.default', ImageComparison);
-    elementorFrontend.hooks.addAction('frontend/element_ready/exad-counter.default', CounterUp);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-logo-carousel.default', LogoCarousel);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-modal-popup.default', ModalPopup);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-filterable-gallery.default', FilterableGallery);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-alert.default', ExclusiveAlert);
-    elementorFrontend.hooks.addAction('frontend/element_ready/exad-instagram-feed.default', InstagramGallery);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-news-ticker.default', ExadNewsTicker );
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-animated-text.default', AnimatedText);
-    elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
     elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-magnifier.default', ImageMagnifier);
-    elementorFrontend.hooks.addAction('frontend/element_ready/exad-exclusive-slider.default', ExadSlider);
-    //elementorFrontend.hooks.addAction('frontend/element_ready/exad-image-hotspot.default', ImageHotspot);
 });	
 
 }(jQuery));
