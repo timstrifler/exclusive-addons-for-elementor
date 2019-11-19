@@ -1369,7 +1369,7 @@ class Exad_Team_Member extends Widget_Base {
 		$this->add_render_attribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );
 		$this->add_inline_editing_attributes( 'exad_team_members_cta_btn_text', 'none' );
 		echo '<span '.$this->get_render_attribute_string( 'exad_team_members_cta_btn_text' ).'>';
-			echo $settings['exad_team_members_cta_btn_text'];			
+			echo esc_html( $settings['exad_team_members_cta_btn_text'] );	
 		echo '</span>';
 	}
 }
