@@ -3,7 +3,7 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
-class Exad_Flip_Box extends Widget_Base {
+class Exad_Flipbox extends Widget_Base {
 
 	public function get_name() {
 		return 'exad-flipbox';
@@ -1080,6 +1080,3 @@ class Exad_Flip_Box extends Widget_Base {
 	    echo '</div>';
 	}
 }
-
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Flip_Box() );

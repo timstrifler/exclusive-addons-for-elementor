@@ -724,5 +724,3 @@ class Exad_Heading extends Widget_Base {
 		<?php
 	}
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Heading() );

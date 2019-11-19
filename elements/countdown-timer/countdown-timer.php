@@ -370,5 +370,3 @@ class Exad_Countdown_Timer extends Widget_Base {
 	}
 
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Countdown_Timer() );

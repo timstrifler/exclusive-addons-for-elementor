@@ -3,7 +3,7 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
-class Exad_image_comparison extends Widget_Base {
+class Exad_Image_Comparison extends Widget_Base {
 	
 	public function get_name() {
 		return 'exad-image-comparison';
@@ -280,5 +280,3 @@ class Exad_image_comparison extends Widget_Base {
 	}
 
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_image_comparison() );

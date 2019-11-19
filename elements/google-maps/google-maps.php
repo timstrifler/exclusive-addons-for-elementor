@@ -3,7 +3,7 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
-class Exad_Google_Map extends Widget_Base {
+class Exad_Google_Maps extends Widget_Base {
 
 	public function get_name() {
 		return 'exad-google-maps';
@@ -293,6 +293,3 @@ class Exad_Google_Map extends Widget_Base {
 	<?php	
 	}
 }
-
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Google_Map() );

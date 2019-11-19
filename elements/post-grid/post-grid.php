@@ -1285,4 +1285,3 @@ class Exad_Post_Grid extends Widget_Base {
 
 	protected function content_template() {}
 }
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Post_Grid() );

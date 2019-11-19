@@ -897,5 +897,3 @@ class Exad_Card extends Widget_Base {
 
 	protected function _content_template() {}
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Card() );

@@ -582,4 +582,4 @@ class Exad_Animated_Text extends Widget_Base {
 }
 
 
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Animated_Text() );
+//Plugin::instance()->widgets_manager->register_widget_type( new Exad_Animated_Text() );

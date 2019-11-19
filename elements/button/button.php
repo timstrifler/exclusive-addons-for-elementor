@@ -3,7 +3,7 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
-class Exad_Exclusive_Button extends Widget_Base {
+class Exad_Button extends Widget_Base {
 
 	public function get_name() {
 		return 'exad-exclusive-button';
@@ -379,4 +379,4 @@ class Exad_Exclusive_Button extends Widget_Base {
 	}
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Exclusive_Button() );
+//Plugin::instance()->widgets_manager->register_widget_type( new Exad_Exclusive_Button() );

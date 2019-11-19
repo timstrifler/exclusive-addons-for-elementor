@@ -361,5 +361,3 @@ class Exad_Progress_Bar extends Widget_Base {
 	<?php
 	}
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Progress_Bar() );

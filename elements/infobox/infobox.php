@@ -736,5 +736,3 @@ class Exad_Infobox extends Widget_Base {
         echo '</div>';
 	}
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Infobox() );

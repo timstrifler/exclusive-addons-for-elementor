@@ -1373,5 +1373,3 @@ class Exad_Team_Member extends Widget_Base {
 		echo '</span>';
 	}
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Team_Member() );

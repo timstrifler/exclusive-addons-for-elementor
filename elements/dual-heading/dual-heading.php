@@ -508,5 +508,3 @@ class Exad_Dual_Heading extends Widget_Base {
     }
 
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Dual_Heading() );

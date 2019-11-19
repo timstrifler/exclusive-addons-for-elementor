@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 /**
  * Contact Form 7 Element
  */
-class Exad_Contact_Form extends Widget_Base {
+class Exad_Contact_Form_7 extends Widget_Base {
     
     /**
 	 * Retrieve contact form 7 widget name.
@@ -864,5 +864,3 @@ class Exad_Contact_Form extends Widget_Base {
         }
     }
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Contact_Form() );

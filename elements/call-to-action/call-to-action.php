@@ -3,7 +3,7 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
-class Exad_CTA extends Widget_Base {
+class Exad_Call_To_Action extends Widget_Base {
 
 	public function get_name() {
 		return 'exad-call-to-action';
@@ -838,6 +838,3 @@ class Exad_CTA extends Widget_Base {
 		echo '</div>';
 	}
 }
-
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_CTA() );

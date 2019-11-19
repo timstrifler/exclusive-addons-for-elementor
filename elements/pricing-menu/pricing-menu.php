@@ -961,5 +961,3 @@ class Exad_Pricing_Menu extends Widget_Base {
     protected function _content_template() {
     }
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Pricing_Menu() );

@@ -750,5 +750,3 @@ class Exad_Logo_Carousel extends Widget_Base {
 		echo '</div>';
 	}
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exad_Logo_Carousel() );

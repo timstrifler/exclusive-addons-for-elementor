@@ -3,7 +3,7 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
-class Exclusive_Accordion extends Widget_Base {
+class Exad_Accordion extends Widget_Base {
 
 	public function get_name() {
 		return 'exad-exclusive-accordion';
@@ -1283,5 +1283,3 @@ class Exclusive_Accordion extends Widget_Base {
         echo '</div>';
     }
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new Exclusive_Accordion() );
