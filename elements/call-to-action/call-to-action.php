@@ -19,7 +19,11 @@ class Exad_Call_To_Action extends Widget_Base {
 
    	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
-	}
+    }
+    
+    public function get_keywords() {
+        return [ 'cta' ];
+    }
 
 	protected function _register_controls() {
 
