@@ -164,7 +164,7 @@ class Exad_Filterable_Gallery extends Widget_Base
                 'type'    => Controls_Manager::ICONS,
                 'default' => [
                     'value'   => 'fas fa-search',
-                    'library' => 'solid'
+                    'library' => 'fa-solid'
                 ],
                 'condition' => [
                     'exad_fg_show_icons' => [ 'popup', 'both']
@@ -179,7 +179,7 @@ class Exad_Filterable_Gallery extends Widget_Base
                 'type'    => Controls_Manager::ICONS,
                 'default' => [
                     'value'   => 'fas fa-link',
-                    'library' => 'solid'
+                    'library' => 'fa-solid'
                 ],
                 'condition' => [
                     'exad_fg_show_icons' => [ 'link', 'both']
@@ -396,7 +396,6 @@ class Exad_Filterable_Gallery extends Widget_Base
             [
                 'name'     => 'exad_fg_control_typography',
                 'selector' => '{{WRAPPER}} .exad-gallery-menu .filter-item',
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
                 'fields_options'     => [
                     'text_transform' => [
                         'default'    => 'capitalize'

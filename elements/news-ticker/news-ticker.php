@@ -400,7 +400,7 @@ class Exad_News_Ticker extends Widget_Base {
                 'type'    => Controls_Manager::ICONS,
                 'default' => [
                     'value'   => 'fas fa-home',
-                    'library' => 'solid'
+                    'library' => 'fa-solid'
                 ],
                 'condition' => [
                     'exad_news_ticker_show_label_icon' => 'yes'

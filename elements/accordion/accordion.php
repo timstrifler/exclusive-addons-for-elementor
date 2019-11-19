@@ -285,7 +285,7 @@ class Exad_Accordion extends Widget_Base {
 				'type'    => Controls_Manager::ICONS,
 				'default' => [
 					'value'   => 'fas fa-angle-up',
-					'library' => 'solid'
+					'library' => 'fa-solid'
 				],
 				'condition' => [
 					'exad_exclusive_accordion_tab_title_show_active_inactive_icon' => 'yes'
@@ -300,7 +300,7 @@ class Exad_Accordion extends Widget_Base {
 				'type'    => Controls_Manager::ICONS,
 				'default' => [
 					'value'   => 'fas fa-angle-down',
-					'library' => 'solid'
+					'library' => 'fa-solid'
 				],
 				'condition' => [
 					'exad_exclusive_accordion_tab_title_show_active_inactive_icon' => 'yes'

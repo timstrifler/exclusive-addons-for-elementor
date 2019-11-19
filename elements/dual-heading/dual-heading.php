@@ -245,7 +245,6 @@ class Exad_Dual_Heading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
                 'name'     => 'exad_dual_first_heading_typography',
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .first-heading'
 			]
         );
@@ -314,7 +313,6 @@ class Exad_Dual_Heading extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_dual_second_heading_typography',
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .second-heading'
             ]
         );

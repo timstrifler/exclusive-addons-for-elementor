@@ -211,7 +211,7 @@ class Exad_Pricing_Table extends Widget_Base {
 						'type'        => Controls_Manager::ICONS,
 						'default'     => [
 							'value'   => 'fas fa-check',
-							'library' => 'solid'
+							'library' => 'fa-solid'
 						]
 					],
 					[

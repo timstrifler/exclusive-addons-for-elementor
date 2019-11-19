@@ -636,7 +636,6 @@ class Exad_Post_Grid extends Widget_Base {
 			[
 				'name'     => 'exad_grid_title_typography',
 				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-title'
 			]
 		);

@@ -390,7 +390,6 @@ class Exad_Tooltip extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'hover_tooltip_content_typography',
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-text'
             ]
         );

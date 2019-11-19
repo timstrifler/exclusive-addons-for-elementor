@@ -153,7 +153,7 @@ class Exad_Dual_Button extends Widget_Base {
                         'type'        => Controls_Manager::ICONS,
                         'default'     => [
                             'value'   => 'fas fa-star',
-                            'library' => 'solid'
+                            'library' => 'fa-solid'
                         ],
                         'condition'   => [
                             'exad_dual_button_connector_switch' => 'yes',
@@ -198,7 +198,7 @@ class Exad_Dual_Button extends Widget_Base {
                         'type'    => Controls_Manager::ICONS,
                         'default' => [
                             'value'   => 'fas fa-plane',
-                            'library' => 'solid'
+                            'library' => 'fa-solid'
                         ]
                     ]
                 );
