@@ -52,7 +52,7 @@ var ExclusiveAlert = function( $scope, $ ) {
 var AnimatedText = function( $scope, $ ) {
   
   	var $animatedWrapper = $scope.find('.exad-typed-strings').eq(0),
-		$animateSelectorId = $animatedWrapper.find('.exad-animated-text-animated-heading'),
+		$animateSelector = $animatedWrapper.find('.exad-animated-text-animated-heading'),
 		$animationType = $animatedWrapper.data('heading_animation'),
 		$animationStyle = $animatedWrapper.data('animation_style'),
 		$animationSpeed = $animatedWrapper.data('animation_speed'),
@@ -65,7 +65,7 @@ var AnimatedText = function( $scope, $ ) {
 		$fadeOut = $animatedWrapper.data("fade_out") ? true : false,
 		$smartBackspace = $animatedWrapper.data("smart_backspace") ? true : false;
 		
-		var $id = $animateSelectorId.attr('id');
+		var $id = $animateSelector.attr('id');
 
 	if( $animationType === 'exad-typed-animation' ){
 		var typed = new Typed( '#'+$id, {
@@ -82,7 +82,7 @@ var AnimatedText = function( $scope, $ ) {
 	}
 
 	if( $animationType === 'exad-morphed-animation' ){
-		$($animateSelectorId).Morphext({
+		$($animateSelector).Morphext({
 			animation: $animationStyle,
 			speed: $animationSpeed,
 		});
@@ -113,13 +113,14 @@ var ExclusiveButton = function($scope, $) {
 var CountdownTimer = function ($scope, $) {
     var $countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
 
-    if (typeof $countdownTimerWrapper !== 'undefined' && $countdownTimerWrapper !== null) {		
-        var $this = $countdownTimerWrapper,
-            finalDate = $this.data('countdown'),
-            day = $this.data('day'),
-            hours = $this.data('hours'),
-            minutes = $this.data('minutes'),
-            seconds = $this.data('seconds');
+    if (typeof $countdownTimerWrapper !== 'undefined' && $countdownTimerWrapper !== null) {
+        var $this   = $countdownTimerWrapper,
+        finalDate   = $this.data('countdown'),
+        day         = $this.data('day'),
+        hours       = $this.data('hours'),
+        minutes     = $this.data('minutes'),
+        seconds     = $this.data('seconds'),
+        expiredText = $this.data('expired-text');
 
         $this.countdown(finalDate, function (event) {
             $(this).html(event.strftime(' ' +
@@ -128,7 +129,7 @@ var CountdownTimer = function ($scope, $) {
                 '<div class="exad-countdown-container"><span class="exad-countdown-count">%M </span><span class="exad-countdown-title">' + minutes + '</span></div>' +
                 '<div class="exad-countdown-container"><span class="exad-countdown-count">%S </span><span class="exad-countdown-title">' + seconds + '</span></div>'));
         }).on('finish.countdown', function (event) {
-            $(this).html("<p class='message'>Hurrey! This is event day</p>");
+            $(this).html('<p class="message">'+ expiredText +'</p>');
         });
     }
 };
@@ -356,8 +357,8 @@ var LogoCarousel = function ($scope, $) {
         autoplaySpeed: $autoplaySpeed,
         dots: dots,
         arrows: arrows,
-        prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-        nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
+        prevArrow: "<div class='exad-logo-carousel-prev'><i class='eicon-chevron-left'></i></div>",
+        nextArrow: "<div class='exad-logo-carousel-next'><i class='eicon-chevron-right'></i></div>",
         responsive: [
             {
               breakpoint: 1024,

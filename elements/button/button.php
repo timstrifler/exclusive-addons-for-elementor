@@ -140,6 +140,31 @@ class Exad_Button extends Widget_Base {
 				]
 			]
 		);
+
+		$this->add_responsive_control(
+			'exad_exclusive_button_icon_space',
+			[
+                'label'       => __( 'Icon Space', 'exclusive-addons-elementor' ),
+                'type'        => Controls_Manager::SLIDER,
+                'size_units'  => [ 'px' ],
+                'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 50
+					]
+				],
+                'default'     => [
+                    'unit'    => 'px',
+                    'size'    => 10
+                ],
+				'selectors'   => [
+                    '{{WRAPPER}} .exad-button-wrapper .exad-button-action i'  => 'margin-right: {{SIZE}}{{UNIT}};'
+				],
+                'condition'   => [
+                    'exad_exclusive_button_icon[value]!' => ''
+                ]
+			]
+        );
 		
 		$this->add_responsive_control(
 			'exad_exclusive_button_alignment',
@@ -335,7 +360,7 @@ class Exad_Button extends Widget_Base {
 			[
 				'class'	=> [ 
 					'exad-button-wrapper', 
-					esc_attr($settings['exclusive_button_effect'] ) 
+					esc_attr( $settings['exclusive_button_effect'] ) 
 				]
 			]
 		);

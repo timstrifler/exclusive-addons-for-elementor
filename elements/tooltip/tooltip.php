@@ -563,5 +563,4 @@ class Exad_Tooltip extends Widget_Base {
             echo '</div>';
         echo '</div>';
     }
-
 }

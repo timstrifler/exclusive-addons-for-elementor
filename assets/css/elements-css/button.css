@@ -243,10 +243,6 @@
           transform: translate(0, 0);
 }
 
-.exad-button-wrapper.effect-8 .exad-button-action i {
-  margin-right: 10px;
-}
-
 .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position {
   position: absolute;
   content: '';

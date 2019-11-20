@@ -350,7 +350,6 @@
 
 .exad-alert .exad-alert-element .exad-alert-element-icon {
   width: 50px;
-  line-height: 1;
   text-align: left;
 }
 
@@ -694,10 +693,6 @@
           transform: translate(0, 0);
 }
 
-.exad-button-wrapper.effect-8 .exad-button-action i {
-  margin-right: 10px;
-}
-
 .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position {
   position: absolute;
   content: '';
@@ -921,11 +916,9 @@ ul.exad-call-to-action-buttons {
 
 .exad-card-description {
   margin: 0 auto;
-  line-height: 1;
 }
 .exad-card-tag {
   margin: 0;
-  line-height: 1;
 }
 
 .exad-card.default {
@@ -943,7 +936,6 @@ ul.exad-call-to-action-buttons {
   text-decoration: none;
   position: relative;
   transition: all .4s ease;
-  line-height: 1;
   font-size: 20px;
   font-weight: bold;
 }
@@ -973,7 +965,6 @@ ul.exad-call-to-action-buttons {
   transition: all .4s ease;
   color: #132c47;
   text-decoration: none;
-  line-height: 1;
 }
 
 .exad-card.left .exad-card-action {
@@ -1234,7 +1225,6 @@ ul.exad-call-to-action-buttons {
 
 .exad-countdown .exad-countdown-container > span {
   display: block;
-  line-height: 1;
 }
 
 .exad-countdown .exad-countdown-count {
@@ -1288,7 +1278,6 @@ ul.exad-call-to-action-buttons {
 .exad-countdoen-watermark {
   font-size: 200px;
   color: inherit;
-  line-height: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -1417,7 +1406,6 @@ ul.exad-call-to-action-buttons {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%); 
     -webkit-transform: translate(-50%, -50%);
-    line-height: 1;
 }
 /* effect 1 style */
 .exad-dual-button-primary.effect-1, .exad-dual-button-secondary.effect-1,
@@ -3802,14 +3790,12 @@ text-align: right;
 
 .exad-pricing-table-subtitle{
   margin: 0 0 10px 0;
-  line-height: 1;
 }
 
 .price-box{
   position: relative;
 }
 .exad-pricing-table-price{
-  line-height: 1;
   position: relative;
 }
 .exad-pricing-table-price svg{
@@ -3837,7 +3823,6 @@ text-align: right;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-  line-height: 1;
 }
 
 .exad-pricing-table-features{
@@ -3850,7 +3835,6 @@ text-align: right;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
 }
 
 .list-border-bottom li:not(:last-child){
@@ -4042,7 +4026,6 @@ text-align: right;
 
 .exad-advance-tab-nav li {
   list-style: none;
-  line-height: 1;
   transition: all .3s ease;
   position: relative;
   cursor: pointer;
@@ -4240,19 +4223,16 @@ text-align: right;
   text-decoration: none;
   display: inline-block;
   transition: all .3s ease;
-  line-height: 1;
 }
 
 .exad-team-member-social{
   margin: 0;
   padding: 0;
-  line-height: 1;
 }
 
 .exad-team-member-social li{
   list-style: none;
   display: inline-block;
-  line-height: 1;
 }
 .exad-team-member-social li a{
   display: block;
@@ -4281,12 +4261,10 @@ text-align: right;
 
 .exad-team-member-name{
   margin: 0 0 20px 0;
-  line-height: 1;
 }
 
 .exad-team-member-designation{
   margin: 0 0 20px 0;
-  line-height: 1;
   display: block;
 }
 
@@ -4316,13 +4294,11 @@ text-align: right;
 .exad-testimonial-ratings{
   margin: 0;
   padding: 0;
-  line-height: 1;
 }
 
 .exad-testimonial-ratings li{
   list-style: none;
   display: inline-block;
-  line-height: 1;
 }
 
 .exad-testimonial-thumb img {
@@ -4398,7 +4374,6 @@ text-align: right;
   font-family: eicons;
   transform: translateX(-50%);
   font-size: 25px;
-  line-height: 1;
 }
 
 .exad-testimonial-content-wrapper-arrow{

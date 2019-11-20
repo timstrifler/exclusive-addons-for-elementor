@@ -357,7 +357,6 @@ class Exad_Progress_Bar extends Widget_Base {
 		<div <?php echo $this->get_render_attribute_string('exad-progress-bar') ?> data-progress-bar>
 			<h6 class="exad-progress-bar-title"><?php echo esc_html( $settings['exad_progress_bar_title'] ); ?></h6>
 		</div>
-
 	<?php
 	}
 }

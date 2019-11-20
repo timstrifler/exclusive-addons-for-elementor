@@ -958,9 +958,6 @@ class Exad_Modal_Popup extends Widget_Base {
 			</div>
 			<div <?php echo $this->get_render_attribute_string('exad_modal_overlay'); ?>></div>
 		</div>
-
 	<?php
 	}
-
-
 }

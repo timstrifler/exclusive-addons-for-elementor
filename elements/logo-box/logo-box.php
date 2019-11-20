@@ -280,13 +280,13 @@ class Exad_Logo_Box extends Widget_Base {
         $exad_logo_link = $settings['exad_logo_box_link']['url'];
 
         if( $exad_logo_link ) {
-            $this->add_render_attribute( 'exad-logo-anchor-atts', 'href', esc_url( $exad_logo_link ) );
-        }
-        if( $settings['exad_logo_box_link']['is_external'] ) {
-            $this->add_render_attribute( 'exad-logo-anchor-atts', 'target', '_blank' );
-        }
-        if( $settings['exad_logo_box_link']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-logo-anchor-atts', 'rel', 'nofollow' );
+            $this->add_render_attribute( 'exad_logo_box_link', 'href', esc_url( $exad_logo_link ) );
+            if( $settings['exad_logo_box_link']['is_external'] ) {
+                $this->add_render_attribute( 'exad_logo_box_link', 'target', '_blank' );
+            }
+            if( $settings['exad_logo_box_link']['nofollow'] ) {
+                $this->add_render_attribute( 'exad_logo_box_link', 'rel', 'nofollow' );
+            }
         }
 
 		if ( empty( $logo_image_url ) ) {
@@ -295,12 +295,12 @@ class Exad_Logo_Box extends Widget_Base {
 			$logo_image_url = $logo_image_url;
         }
         
-        echo '<div id="exad-logo-'.esc_attr($this->get_id()).'" class="exad-logo one">';
+        echo '<div class="exad-logo one">';
             echo '<div class="exad-logo-item">';
                 if( ! empty( $settings['exad_logo_image'] ) ) {
 
                     if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) {
-                        echo '<a '.$this->get_render_attribute_string( 'exad-logo-anchor-atts' ).'>';
+                        echo '<a '.$this->get_render_attribute_string( 'exad_logo_box_link' ).'>';
                     }
 
                     echo '<img src="'.esc_url( $logo_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_logo_image'] ).'">';
@@ -312,4 +312,36 @@ class Exad_Logo_Box extends Widget_Base {
             echo '</div>';
         echo '</div>';
 	}
+
+    protected function _content_template() {
+        ?>
+        <#
+            if ( settings.exad_logo_image.url || settings.exad_logo_image.id ) {
+                var image = {
+                    id: settings.exad_logo_image.id,
+                    url: settings.exad_logo_image.url,
+                    size: settings.thumbnail_size,
+                    dimension: settings.thumbnail_custom_dimension,
+                    class: 'exad-logo-box-img',
+                    model: view.getEditModel()
+                };
+
+                var image_url = elementor.imagesManager.getImageUrl( image );
+            }
+        #>
+        <div class="exad-logo one">
+            <div class="exad-logo-item">
+                <# if ( image_url ) { #>
+                    <# if ( settings.exad_logo_box_link && 'yes' === settings.exad_logo_box_enable_link ) { #>
+                        <a href="{{ settings.exad_logo_box_link.url }}">
+                    <# } #>
+                    <img src="{{{ image_url }}}">
+                    <# if ( settings.exad_logo_box_link && 'yes' === settings.exad_logo_box_enable_link ) { #>
+                        </a>
+                    <# } #>
+                <# } #>
+            </div>
+        </div>
+        <?php
+    }
 }

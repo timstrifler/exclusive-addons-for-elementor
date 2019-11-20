@@ -504,5 +504,4 @@ class Exad_Dual_Heading extends Widget_Base {
         </div>
         <?php
     }
-
 }

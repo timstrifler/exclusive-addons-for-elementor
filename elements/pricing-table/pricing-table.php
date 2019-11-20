@@ -1484,7 +1484,6 @@ class Exad_Pricing_Table extends Widget_Base {
 				?>
 			</div>
 		</div>
-		
 	<?php
 	}
 }

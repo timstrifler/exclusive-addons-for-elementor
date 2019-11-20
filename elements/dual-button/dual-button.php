@@ -536,7 +536,7 @@ class Exad_Dual_Button extends Widget_Base {
                 ],
                 'default'  => [
 					'unit' => 'px',
-					'size' => 35
+					'size' => 30
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-dual-button-connector' => 'height: {{SIZE}}{{UNIT}};'
@@ -558,7 +558,7 @@ class Exad_Dual_Button extends Widget_Base {
                 ],
                 'default'    => [
 					'unit'   => 'px',
-					'size'   => 35
+					'size'   => 30
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-dual-button-connector' => 'width: {{SIZE}}{{UNIT}};'
@@ -592,7 +592,7 @@ class Exad_Dual_Button extends Widget_Base {
                 ],
                 'default'    => [
 					'unit'   => 'px',
-					'size'   => 15
+					'size'   => 14
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-dual-button-connector span' => 'font-size: {{SIZE}}{{UNIT}};'
@@ -609,7 +609,7 @@ class Exad_Dual_Button extends Widget_Base {
             [
                 'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#ff5b87',
+                'default'   => '#000000',
                 'selectors' => [
                     '{{WRAPPER}} .exad-dual-button-connector' => 'background: {{VALUE}};'
                 ]
@@ -860,74 +860,197 @@ class Exad_Dual_Button extends Widget_Base {
 
     protected function render() {
         $settings                = $this->get_settings_for_display();
-        $secondary_btn_icon_post = $settings['exad_dual_button_secondary_button_icon_position'];
-        $primary_btn_icon_post   = $settings['exad_dual_button_primary_button_icon_position'];
+        $secondary_btn_icon_pos = $settings['exad_dual_button_secondary_button_icon_position'];
+        $primary_btn_icon_pos   = $settings['exad_dual_button_primary_button_icon_position'];
 
-        $this->add_render_attribute( 'exad_dual_button', 'class', 'exad-dual-button' );
-        $this->add_render_attribute( 'exad_dual_button', 'class', esc_attr( $settings['exad_dual_button_container_alignment'] ) );
-        $this->add_render_attribute( 'exad-dual-btn-primary-params', 'class', 'exad-dual-button-primary exad-dual-button-action' );
-        $this->add_render_attribute( 'exad-dual-btn-primary-params', 'class', esc_attr( $settings['exad_dual_button_primary_button_animation'] ) );
-        $this->add_render_attribute( 'exad-dual-btn-secondary-params', 'class', 'exad-dual-button-secondary exad-dual-button-action' );
-        $this->add_render_attribute( 'exad-dual-btn-secondary-params', 'class', esc_attr( $settings['exad_dual_button_secondary_button_animation'] ) );
+        $this->add_render_attribute( 
+            'exad_dual_button', 
+            [
+                'class' => [ 
+                    'exad-dual-button', 
+                    esc_attr( $settings['exad_dual_button_container_alignment'] ) 
+                ]
+            ]
+        );
+
+        $this->add_render_attribute( 
+            'exad_dual_button_primary_button_url', 
+            [
+                'class' => [ 
+                    'exad-dual-button-primary exad-dual-button-action', 
+                    esc_attr( $settings['exad_dual_button_primary_button_animation'] ) 
+                ]
+            ]
+        );
+        
+        $this->add_render_attribute( 
+            'exad_dual_button_secondary_button_url', 
+            [
+                'class' => [ 
+                    'exad-dual-button-secondary exad-dual-button-action', 
+                    esc_attr( $settings['exad_dual_button_secondary_button_animation'] ) 
+                ]
+            ]
+        );
 
         if( $settings['exad_dual_button_primary_button_url']['url'] ) {
-            $this->add_render_attribute( 'exad-dual-btn-primary-params', 'href', esc_url( $settings['exad_dual_button_primary_button_url']['url'] ) );
-        }
-        if( $settings['exad_dual_button_primary_button_url']['is_external'] ) {
-            $this->add_render_attribute( 'exad-dual-btn-primary-params', 'target', '_blank' );
-        }
-        if( $settings['exad_dual_button_primary_button_url']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-dual-btn-primary-params', 'rel', 'nofollow' );
+            $this->add_render_attribute( 'exad_dual_button_primary_button_url', 'href', esc_url( $settings['exad_dual_button_primary_button_url']['url'] ) );
+            if( $settings['exad_dual_button_primary_button_url']['is_external'] ) {
+                $this->add_render_attribute( 'exad_dual_button_primary_button_url', 'target', '_blank' );
+            }
+            if( $settings['exad_dual_button_primary_button_url']['nofollow'] ) {
+                $this->add_render_attribute( 'exad_dual_button_primary_button_url', 'rel', 'nofollow' );
+            }
         }
 
         if( $settings['exad_dual_button_secondary_button_url']['url'] ) {
-            $this->add_render_attribute( 'exad-dual-btn-secondary-params', 'href', esc_url( $settings['exad_dual_button_secondary_button_url']['url'] ) );
+            $this->add_render_attribute( 'exad_dual_button_secondary_button_url', 'href', esc_url( $settings['exad_dual_button_secondary_button_url']['url'] ) );
+            if( $settings['exad_dual_button_secondary_button_url']['is_external'] ) {
+                $this->add_render_attribute( 'exad_dual_button_secondary_button_url', 'target', '_blank' );
+            }
+            if( $settings['exad_dual_button_secondary_button_url']['nofollow'] ) {
+                $this->add_render_attribute( 'exad_dual_button_secondary_button_url', 'rel', 'nofollow' );
+            }
         }
-        if( $settings['exad_dual_button_secondary_button_url']['is_external'] ) {
-            $this->add_render_attribute( 'exad-dual-btn-secondary-params', 'target', '_blank' );
-        }
-        if( $settings['exad_dual_button_secondary_button_url']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-dual-btn-secondary-params', 'rel', 'nofollow' );
-        }
+
+        $this->add_inline_editing_attributes( 'exad_dual_button_primary_button_text', 'none' );
+        $this->add_inline_editing_attributes( 'exad_dual_button_connector_text', 'none' );
+        $this->add_inline_editing_attributes( 'exad_dual_button_secondary_button_text', 'none' );
 
         echo '<div '.$this->get_render_attribute_string( 'exad_dual_button' ).'>';
             echo '<div class="exad-dual-button-wrapper">';
-                echo '<a '.$this->get_render_attribute_string( 'exad-dual-btn-primary-params' ).'>';
-                    echo '<span class="'.esc_attr( $primary_btn_icon_post ).'">';
-                        if ( 'exad-icon-pos-left' === $primary_btn_icon_post && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
+                echo '<a '.$this->get_render_attribute_string( 'exad_dual_button_primary_button_url' ).'>';
+                    echo '<span class="'.esc_attr( $primary_btn_icon_pos ).'">';
+                        if ( 'exad-icon-pos-left' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] );
                         }
-                        echo esc_html( $settings['exad_dual_button_primary_button_text'] );
-                        if ( 'exad-icon-pos-right' === $primary_btn_icon_post && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
+
+                        echo '<span '.$this->get_render_attribute_string( 'exad_dual_button_primary_button_text' ).'>';
+                            echo esc_html( $settings['exad_dual_button_primary_button_text'] );
+                        echo '</span>';
+
+                        if ( 'exad-icon-pos-right' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] );
                         }
                     echo '</span>';
-                    if ( $settings['exad_dual_button_connector_switch'] === 'yes' ) {
+
+                    if ( 'yes' === $settings['exad_dual_button_connector_switch'] ) {
                         echo '<div class="exad-dual-button-connector">';
-                            echo '<span>';
-                                if ( $settings['exad_dual_button_connector_type'] === 'text' ) {
+                            if ( 'text' === $settings['exad_dual_button_connector_type'] ) {
+                                echo '<span '.$this->get_render_attribute_string( 'exad_dual_button_connector_text' ).'>';
                                     echo esc_html( $settings['exad_dual_button_connector_text'] );
-                                }
-                                if ( $settings['exad_dual_button_connector_type'] === 'icon' ) {
+                                echo '</span>';
+                            }
+                            if ( 'icon' === $settings['exad_dual_button_connector_type'] && !empty( $settings['exad_dual_button_connector_icon']['value'] ) ) {
+                                echo '<span>';
                                     Icons_Manager::render_icon( $settings['exad_dual_button_connector_icon'] );
-                                }
-                            echo '</span>';
+                                echo '</span>';
+                            }
                         echo '</div>';
                     }
                 echo '</a>';
                 
-                echo '<a '.$this->get_render_attribute_string( 'exad-dual-btn-secondary-params' ).'>';
-                    echo '<span class="'.esc_attr( $secondary_btn_icon_post ).'">';
-                        if ( 'exad-icon-pos-left' === $secondary_btn_icon_post && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
+                echo '<a '.$this->get_render_attribute_string( 'exad_dual_button_secondary_button_url' ).'>';
+                    echo '<span class="'.esc_attr( $secondary_btn_icon_pos ).'">';
+                        if ( 'exad-icon-pos-left' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );
                         }
-                        echo esc_html( $settings['exad_dual_button_secondary_button_text'] );
-                        if ( 'exad-icon-pos-right' === $secondary_btn_icon_post && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
+                        echo '<span '.$this->get_render_attribute_string( 'exad_dual_button_secondary_button_text' ).'>';
+                            echo esc_html( $settings['exad_dual_button_secondary_button_text'] );
+                        echo '</span>';
+                        if ( 'exad-icon-pos-right' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );
                         }
                     echo '</span>';
                 echo '</a>';
           echo '</div>';
         echo '</div>';
+    }
+
+    protected function _content_template() {
+        ?>
+        <#
+            view.addRenderAttribute( 'exad_dual_button', {
+                'class': [ 
+                    'exad-dual-button', 
+                    settings.exad_dual_button_container_alignment
+                ]
+            } );
+
+            view.addRenderAttribute( 'exad_dual_button_primary_button_url', {
+                'class': [ 
+                    'exad-dual-button-primary exad-dual-button-action', 
+                    settings.exad_dual_button_primary_button_animation
+                ]
+            } );
+            
+            view.addRenderAttribute( 'exad_dual_button_secondary_button_url', {
+                'class': [ 
+                    'exad-dual-button-secondary exad-dual-button-action', 
+                    settings.exad_dual_button_secondary_button_animation
+                ]
+            } );
+
+            view.addInlineEditingAttributes( 'exad_dual_button_primary_button_text', 'none' );
+            view.addInlineEditingAttributes( 'exad_dual_button_connector_text', 'none' );
+            view.addInlineEditingAttributes( 'exad_dual_button_secondary_button_text', 'none' );
+
+            var primaryIcon   = elementor.helpers.renderIcon( view, settings.exad_dual_button_primary_button_icon, { 'aria-hidden': true }, 'i' , 'object' );
+            var connectorIcon = elementor.helpers.renderIcon( view, settings.exad_dual_button_connector_icon, { 'aria-hidden': true }, 'i' , 'object' );
+            var secondaryIcon = elementor.helpers.renderIcon( view, settings.exad_dual_button_secondary_button_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+        #>
+            <div {{{ view.getRenderAttributeString( 'exad_dual_button' ) }}}>
+                <div class="exad-dual-button-wrapper">
+                    <a href="{{{ settings.exad_dual_button_primary_button_url.url }}}" {{{ view.getRenderAttributeString( 'exad_dual_button_primary_button_url' ) }}}>
+                        <span class="{{{ settings.exad_dual_button_primary_button_icon_position }}}">
+                            <# if ( 'exad-icon-pos-left' === settings.exad_dual_button_primary_button_icon_position && primaryIcon.value ) { #>
+                                {{{ primaryIcon.value }}}
+                            <# } #>
+
+                            <span {{{ view.getRenderAttributeString( 'exad_dual_button_primary_button_text' ) }}}>
+                                {{{ settings.exad_dual_button_primary_button_text }}}
+                            </span>
+
+                            <# if ( 'exad-icon-pos-right' === settings.exad_dual_button_primary_button_icon_position && primaryIcon.value ) { #>
+                                {{{ primaryIcon.value }}}
+                            <# } #>
+                        </span>
+
+                        <# if ( 'yes' === settings.exad_dual_button_connector_switch ) { #>
+                            <div class="exad-dual-button-connector">
+                                <# if ( 'text' === settings.exad_dual_button_connector_type ) { #>
+                                    <span {{{ view.getRenderAttributeString( 'exad_dual_button_connector_text' ) }}}>
+                                        {{{ settings.exad_dual_button_connector_text }}}
+                                    </span>
+                                <# } #>
+
+                                <# if ( 'icon' === settings.exad_dual_button_connector_type && connectorIcon.value ) { #>
+                                    <span>
+                                        {{{ connectorIcon.value }}}
+                                    </span>
+                                <# } #>
+                            </div>
+                        <# } #>
+                    </a>
+
+                    <a href="{{{ settings.exad_dual_button_secondary_button_url.url }}}" {{{ view.getRenderAttributeString( 'exad_dual_button_secondary_button_url' ) }}}>
+                        <span class="{{{ settings.exad_dual_button_secondary_button_icon_position }}}">
+                            <# if ( 'exad-icon-pos-left' === settings.exad_dual_button_secondary_button_icon_position && secondaryIcon.value ) { #>
+                                {{{ secondaryIcon.value }}}
+                            <# } #>
+
+                            <span {{{ view.getRenderAttributeString( 'exad_dual_button_secondary_button_text' ) }}}>
+                                {{{ settings.exad_dual_button_secondary_button_text }}}
+                            </span>
+
+                            <# if ( 'exad-icon-pos-right' === settings.exad_dual_button_secondary_button_icon_position && secondaryIcon.value ) { #>
+                                {{{ secondaryIcon.value }}}
+                            <# } #>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        <?php
     }
 }

@@ -22,7 +22,7 @@ if ( ! defined( 'EXAD_ELEMENTS' ) ) define( 'EXAD_ELEMENTS', plugin_dir_path( __
 if ( ! defined( 'EXAD_TEMPLATES' ) ) define( 'EXAD_TEMPLATES', plugin_dir_path( __FILE__ ) . 'includes/template-parts/' );
 if ( ! defined( 'EXAD_URL' ) ) define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
 if ( ! defined( 'EXAD_ASSETS_URL' ) ) define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );
-if ( ! defined( 'VERSION' ) ) define( 'VERSION', '2.0' );
+if ( ! defined( 'EXAD_PLUGIN_VERSION' ) ) define( 'EXAD_PLUGIN_VERSION', '2.0' );
 if ( ! defined( 'MINIMUM_ELEMENTOR_VERSION' ) ) define( 'MINIMUM_ELEMENTOR_VERSION', '2.0.0' );
 if ( ! defined( 'MINIMUM_PHP_VERSION' ) ) define( 'MINIMUM_PHP_VERSION', '5.4' );
 

@@ -3,7 +3,7 @@
 var AnimatedText = function( $scope, $ ) {
   
   	var $animatedWrapper = $scope.find('.exad-typed-strings').eq(0),
-		$animateSelectorId = $animatedWrapper.find('.exad-animated-text-animated-heading'),
+		$animateSelector = $animatedWrapper.find('.exad-animated-text-animated-heading'),
 		$animationType = $animatedWrapper.data('heading_animation'),
 		$animationStyle = $animatedWrapper.data('animation_style'),
 		$animationSpeed = $animatedWrapper.data('animation_speed'),
@@ -16,7 +16,7 @@ var AnimatedText = function( $scope, $ ) {
 		$fadeOut = $animatedWrapper.data("fade_out") ? true : false,
 		$smartBackspace = $animatedWrapper.data("smart_backspace") ? true : false;
 		
-		var $id = $animateSelectorId.attr('id');
+		var $id = $animateSelector.attr('id');
 
 	if( $animationType === 'exad-typed-animation' ){
 		var typed = new Typed( '#'+$id, {
@@ -33,7 +33,7 @@ var AnimatedText = function( $scope, $ ) {
 	}
 
 	if( $animationType === 'exad-morphed-animation' ){
-		$($animateSelectorId).Morphext({
+		$($animateSelector).Morphext({
 			animation: $animationStyle,
 			speed: $animationSpeed,
 		});

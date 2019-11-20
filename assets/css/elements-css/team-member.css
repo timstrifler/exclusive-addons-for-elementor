@@ -55,19 +55,16 @@
   text-decoration: none;
   display: inline-block;
   transition: all .3s ease;
-  line-height: 1;
 }
 
 .exad-team-member-social{
   margin: 0;
   padding: 0;
-  line-height: 1;
 }
 
 .exad-team-member-social li{
   list-style: none;
   display: inline-block;
-  line-height: 1;
 }
 .exad-team-member-social li a{
   display: block;
@@ -96,12 +93,10 @@
 
 .exad-team-member-name{
   margin: 0 0 20px 0;
-  line-height: 1;
 }
 
 .exad-team-member-designation{
   margin: 0 0 20px 0;
-  line-height: 1;
   display: block;
 }
 

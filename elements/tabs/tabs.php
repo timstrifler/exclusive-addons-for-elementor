@@ -1082,7 +1082,6 @@ class Exad_Tabs extends Widget_Base {
 					<?php } ?>
 				</div>
 			<?php endforeach; ?>
-			
 		</div>
 	<?php
 	}

@@ -7,7 +7,6 @@
 
 .exad-advance-tab-nav li {
   list-style: none;
-  line-height: 1;
   transition: all .3s ease;
   position: relative;
   cursor: pointer;

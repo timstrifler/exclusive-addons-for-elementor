@@ -243,5 +243,4 @@ class Exad_Image_Magnifier extends Widget_Base {
             echo '<img class="exad-magnify-small" src="'.esc_url( $magnify_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_magnify_image'] ).'">';
         echo '</div>';
 	}
-
 }

@@ -105,7 +105,7 @@ final class Base {
         // Enqueue Styles and Scripts
         add_action( 'elementor/frontend/after_register_scripts', array( $this, 'exad_enqueue_scripts' ), 20 );
         // Load Main script
-        add_action( 'elementor/frontend/after_enqueue_scripts', array( $this, 'exad_main_script_enqueue' ) );
+        add_action( 'elementor/frontend/after_enqueue_scripts', array( $this, 'exad_core_files_enqueue' ) );
         // Elementor Editor Styles
         add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'exad_editor_scripts' ) );
         // Add Elementor Widgets
@@ -227,49 +227,42 @@ final class Base {
 
         $is_activated_widget = $this->activated_widgets();
 
-        // Main Styles
-        wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.css' );
-        
         if ( $is_activated_widget['progress-bar'] ) {
-            // Progress Bar Js
-            wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'js/vendor/loading-bar.min.js', array( 'jquery' ), '1.0', true );
-            // Waypoints Js
-            wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'js/vendor/jquery.waypoints.min.js', array( 'jquery' ), '1.0', true );
-            wp_register_script( 'exad-wow-js', EXAD_ASSETS_URL . 'js/vendor/wow.min.js', array( 'jquery' ), '1.1.3', true );
+            // Loading Bar Bar and Waypoint JS
+            wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'js/vendor/exad-progress-bar-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         // 
         if ( $is_activated_widget['google-maps'] ) {
             if ( '' != get_option('exad_google_map_api_option') ) {
-                wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), '1.8', false );
+                wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), EXAD_PLUGIN_VERSION, false );
             }
             // Gmap 3 Js
-            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.min.js', array( 'jquery' ), '1.0', true );            
+            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'js/vendor/gmap3.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );            
         }	
         
         if ( $is_activated_widget['countdown-timer'] ) {
             // jQuery Countdown Js
-            wp_register_script( 'exad-countdown', EXAD_ASSETS_URL . 'js/vendor/jquery.countdown.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-countdown', EXAD_ASSETS_URL . 'js/vendor/jquery.countdown.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
         if ( $is_activated_widget['image-comparison'] ) {
             // jQuery image-comparison twentytwenty Js
-            wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'js/vendor/jquery.twentytwenty.min.js', array( 'jquery' ), '1.0', true );
-            wp_register_script( 'exad-image-comparison-event', EXAD_ASSETS_URL . 'js/vendor/jquery.event.move.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'js/vendor/exad-comparison-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
-
 
         if ( $is_activated_widget['filterable-gallery'] ) {
             // Filterable Gallery
-            wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'js/vendor/isotop.min.js', array( 'jquery' ), '1.0', true );
+            wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'js/vendor/isotop.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
         if ( $is_activated_widget['news-ticker'] ) {
-        // news ticker
-            wp_register_script( 'exad-news-ticker', EXAD_ASSETS_URL . 'js/vendor/exad-news-ticker.min.js', array( 'jquery' ), '1.0', true );
-        }	
+            // News ticker
+            wp_register_script( 'exad-news-ticker', EXAD_ASSETS_URL . 'js/vendor/exad-news-ticker.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
+        }
+        
         if ( $is_activated_widget['animated-text'] ) {
-            // Instagram Gallery
-            wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'js/vendor/typed.min.js', array( 'jquery' ), '1.0', true );
+            // Animated Text
+            wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'js/vendor/typed.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
         
     }
@@ -279,8 +272,11 @@ final class Base {
      * Front end main script
      * 
      */
-    public function exad_main_script_enqueue() {
-        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array(), '1.0', true );
+    public function exad_core_files_enqueue() {
+        // Main Plugin Styles
+        wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.css' );
+        // Main Plugin Scripts
+        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
     }
 
     /*

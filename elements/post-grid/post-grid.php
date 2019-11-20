@@ -1281,6 +1281,4 @@ class Exad_Post_Grid extends Widget_Base {
 
 		<?php
 	}
-
-	protected function content_template() {}
 }

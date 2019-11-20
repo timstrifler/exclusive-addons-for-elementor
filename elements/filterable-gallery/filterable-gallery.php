@@ -1107,5 +1107,4 @@ class Exad_Filterable_Gallery extends Widget_Base
         do_action('exad_fg_wrapper_after');
 
     }
-
 }
