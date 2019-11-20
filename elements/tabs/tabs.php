@@ -82,9 +82,9 @@ class Exad_Tabs extends Widget_Base {
 						'name'      => 'exad_exclusive_tab_title_icon',
 						'label'     => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::ICONS,
-						'default' => [
+						'default'   => [
 		                    'value'   => 'fas fa-home',
-		                    'library' => 'solid'
+		                    'library' => 'fa-solid'
 		                ],			
 						'condition' => [
 							'exad_exclusive_tabs_icon_type' => 'icon'
@@ -1082,7 +1082,6 @@ class Exad_Tabs extends Widget_Base {
 					<?php } ?>
 				</div>
 			<?php endforeach; ?>
-			
 		</div>
 	<?php
 	}

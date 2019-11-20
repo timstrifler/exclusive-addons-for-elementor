@@ -833,32 +833,34 @@ class Exad_Card extends Widget_Base {
 
 		$this->add_inline_editing_attributes( 'exad_card_title', 'none' );
 
-		$this->add_inline_editing_attributes( 'exad_card_tag', 'none' );
 		$this->add_render_attribute( 'exad_card_tag', 'class', 'exad-card-tag' );
+		$this->add_inline_editing_attributes( 'exad_card_tag', 'none' );
 
-		$this->add_inline_editing_attributes( 'exad_card_description' );
 		$this->add_render_attribute( 'exad_card_description', 'class', 'exad-card-description' );
+		$this->add_inline_editing_attributes( 'exad_card_description' );
 
 		$this->add_render_attribute( 'exad_card_title_link', 'class', 'exad-card-title' );
+		$this->add_inline_editing_attributes( 'exad_card_action_text', 'none' );
+
 		if( $settings['exad_card_title_link']['url'] ) {
             $this->add_render_attribute( 'exad_card_title_link', 'href', esc_url( $settings['exad_card_title_link']['url'] ) );
-        }
-        if( $settings['exad_card_title_link']['is_external'] ) {
-            $this->add_render_attribute( 'exad_card_title_link', 'target', '_blank' );
-        }
-        if( $settings['exad_card_title_link']['nofollow'] ) {
-            $this->add_render_attribute( 'exad_card_title_link', 'rel', 'nofollow' );
+	        if( $settings['exad_card_title_link']['is_external'] ) {
+	            $this->add_render_attribute( 'exad_card_title_link', 'target', '_blank' );
+	        }
+	        if( $settings['exad_card_title_link']['nofollow'] ) {
+	            $this->add_render_attribute( 'exad_card_title_link', 'rel', 'nofollow' );
+	        }
         }
 
-		$this->add_render_attribute( 'exad-card-action-anchor-params', 'class', 'exad-card-action' );
+		$this->add_render_attribute( 'exad_card_action_link', 'class', 'exad-card-action' );
 		if( $settings['exad_card_action_link']['url'] ) {
-            $this->add_render_attribute( 'exad-card-action-anchor-params', 'href', esc_url( $settings['exad_card_action_link']['url'] ) );
-        }
-        if( $settings['exad_card_action_link']['is_external'] ) {
-            $this->add_render_attribute( 'exad-card-action-anchor-params', 'target', '_blank' );
-        }
-        if( $settings['exad_card_action_link']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-card-action-anchor-params', 'rel', 'nofollow' );
+            $this->add_render_attribute( 'exad_card_action_link', 'href', esc_url( $settings['exad_card_action_link']['url'] ) );
+	        if( $settings['exad_card_action_link']['is_external'] ) {
+	            $this->add_render_attribute( 'exad_card_action_link', 'target', '_blank' );
+	        }
+	        if( $settings['exad_card_action_link']['nofollow'] ) {
+	            $this->add_render_attribute( 'exad_card_action_link', 'rel', 'nofollow' );
+	        }
         }
 
 		echo '<div '.$this->get_render_attribute_string( 'exad_card' ).'>';
@@ -867,6 +869,7 @@ class Exad_Card extends Widget_Base {
 	            	echo '<img src="'.esc_url($card_image_url).'" alt="'.Control_Media::get_image_alt( $settings['exad_card_image'] ).'">';
 	          	echo '</div>';
 			endif;
+
           	echo '<div class="exad-card-body">';
           		if( $settings['exad_card_title'] ) {
 	          		echo '<a '.$this->get_render_attribute_string( 'exad_card_title_link' ).'>';
@@ -876,24 +879,117 @@ class Exad_Card extends Widget_Base {
 
         		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', esc_html( $settings['exad_card_tag'] ) ) : '';
 
-        		$settings['exad_card_description'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</p>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
+        		$settings['exad_card_description'] ? printf( '<div '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</div>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
 
-				echo '<a '.$this->get_render_attribute_string( 'exad-card-action-anchor-params' ).'>';
-					if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
-						echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
-							Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] );
+        		if ( !empty( $settings['exad_card_action_text'] ) ) :
+					echo '<a '.$this->get_render_attribute_string( 'exad_card_action_link' ).'>';
+						if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
+							echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
+								Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] );
+							echo '</span>';
+						}
+
+						echo '<span '.$this->get_render_attribute_string( 'exad_card_action_text' ).'>';
+							echo esc_html( $settings['exad_card_action_text'] );
 						echo '</span>';
-					}
-					echo esc_html( $settings['exad_card_action_text'] );
-					if( 'icon_pos_right' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
-						echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
-							Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] );
-						echo '</span>';
-					}
-            	echo '</a>';
+
+						if( 'icon_pos_right' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
+							echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
+								Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] );
+							echo '</span>';
+						}
+	            	echo '</a>';
+	            endif;
           	echo '</div>';
         echo '</div>';
 	}
 
-	protected function _content_template() {}
+	protected function _content_template() {
+		?>
+		<#
+			view.addRenderAttribute( 'exad_card', {
+				'class': [ 
+					'exad-card', 
+					settings.exad_card_content_alignment,
+					settings.exad_card_layout_type,
+					settings.exad_card_image_zoom_animation
+				]
+			} );
+
+			if ( settings.exad_card_image.url || settings.exad_card_image.id ) {
+				var image = {
+					id: settings.exad_card_image.id,
+					url: settings.exad_card_image.url,
+					size: settings.thumbnail_size,
+					dimension: settings.thumbnail_custom_dimension,
+					class: 'exad-card-img',
+					model: view.getEditModel()
+				};
+
+				var image_url = elementor.imagesManager.getImageUrl( image );
+			}
+
+			view.addRenderAttribute( 'exad_card_title_link', 'class', 'exad-card-title' );
+			view.addInlineEditingAttributes( 'exad_card_title', 'none' );
+
+			view.addRenderAttribute( 'exad_card_tag', 'class', 'exad-card-tag' );
+			view.addInlineEditingAttributes( 'exad_card_tag', 'none' );
+
+			view.addRenderAttribute( 'exad_card_description', 'class', 'exad-card-description' );
+			view.addInlineEditingAttributes( 'exad_card_description' );
+
+			view.addRenderAttribute( 'exad_card_action_link', 'class', 'exad-card-action' );
+			view.addInlineEditingAttributes( 'exad_card_action_text', 'none' );
+
+			var iconHTML = elementor.helpers.renderIcon( view, settings.exad_card_action_link_icon, { 'aria-hidden': true }, 'i' , 'object' );
+		#>
+		<div {{{ view.getRenderAttributeString( 'exad_card' ) }}}>
+			<# if ( image_url ) { #>
+		    	<div class="exad-card-thumb">
+					<img src="{{{ image_url }}}">
+				</div>
+			<# } #>
+
+		    <div class="exad-card-body">
+		    	<# if ( settings.exad_card_title ) { #>
+			    	<a href="{{{ settings.exad_card_title_link.url }}}" {{{ view.getRenderAttributeString( 'exad_card_title_link' ) }}}>
+			    		<span {{{ view.getRenderAttributeString( 'exad_card_title' ) }}}>
+			    			{{{ settings.exad_card_title }}}
+			    		</span>
+		    		</a>
+		    	<# } #>
+
+		    	<# if ( settings.exad_card_tag ) { #>
+		        	<p {{{ view.getRenderAttributeString( 'exad_card_tag' ) }}}>
+		        		{{{ settings.exad_card_tag }}}
+		        	</p>
+		    	<# } #>
+
+		    	<# if ( settings.exad_card_description ) { #>
+		        	<p {{{ view.getRenderAttributeString( 'exad_card_description' ) }}}>
+		        		{{{ settings.exad_card_description }}}
+		        	</p>
+		        <# } #>
+
+		        <# if ( settings.exad_card_action_text ) { #>
+		            <a href="{{{ settings.exad_card_action_link.url }}}" {{{ view.getRenderAttributeString( 'exad_card_action_link' ) }}}>
+		            	<# if ( 'icon_pos_left' === settings.exad_card_action_link_icon_position && iconHTML.value ) { #>
+							<span class="{{{ settings.exad_card_action_link_icon_position }}}">
+								{{{ iconHTML.value }}}
+							</span>
+						<# } #>
+						<span {{{ view.getRenderAttributeString( 'exad_card_action_text' ) }}}>
+							{{{ settings.exad_card_action_text }}}
+						</span>
+						<# if ( 'icon_pos_right' === settings.exad_card_action_link_icon_position && iconHTML.value ) { #>
+							<span class="{{{ settings.exad_card_action_link_icon_position }}}">
+								{{{ iconHTML.value }}}
+							</span>
+						<# } #>
+					</a>
+				<# } #>
+		    </div>
+		</div>
+		<?php
+	}
 }

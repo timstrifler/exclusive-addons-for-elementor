@@ -49,7 +49,6 @@
 
 .exad-countdown .exad-countdown-container > span {
   display: block;
-  line-height: 1;
 }
 
 .exad-countdown .exad-countdown-count {
@@ -103,7 +102,6 @@
 .exad-countdoen-watermark {
   font-size: 200px;
   color: inherit;
-  line-height: 1;
   position: absolute;
   top: 0;
   left: 0;

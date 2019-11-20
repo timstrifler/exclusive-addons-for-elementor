@@ -728,7 +728,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-autoplayspeed', esc_attr( $settings['exad_logo_autoplay_speed'] ) );
 		}
 
-		echo '<div id="exad-logo-carousel-'.esc_attr( $this->get_id() ).'" class="exad-logo-carousel">';
+		echo '<div class="exad-logo-carousel">';
 			echo '<div '.$this->get_render_attribute_string('exad_logo_carousel').'>';
 
 				foreach ( $settings['exad_logo_carousel_repeater'] as $logo ) :

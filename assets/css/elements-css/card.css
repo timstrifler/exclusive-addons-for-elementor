@@ -3,11 +3,9 @@
 
 .exad-card-description {
   margin: 0 auto;
-  line-height: 1;
 }
 .exad-card-tag {
   margin: 0;
-  line-height: 1;
 }
 
 .exad-card.default {
@@ -25,7 +23,6 @@
   text-decoration: none;
   position: relative;
   transition: all .4s ease;
-  line-height: 1;
   font-size: 20px;
   font-weight: bold;
 }
@@ -55,7 +52,6 @@
   transition: all .4s ease;
   color: #132c47;
   text-decoration: none;
-  line-height: 1;
 }
 
 .exad-card.left .exad-card-action {

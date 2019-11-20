@@ -39,9 +39,9 @@ class Exad_Flipbox extends Widget_Base {
 			[
 				'label'   => __( 'Icon', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::ICONS,
-				'default' => [
+                'default' => [
 					'value'   => 'fas fa-heart',
-					'library' => 'solid'
+					'library' => 'fa-solid'
 				]
 			]
 		);
@@ -174,7 +174,7 @@ class Exad_Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_3d_height',
 			[
 				'label'      => __( 'Height', 'exclusive-addons-elementor' ),
@@ -1027,16 +1027,31 @@ class Exad_Flipbox extends Widget_Base {
 			   	]
 		    ]   
 	    );
-	    $this->add_render_attribute( 'exad-flipbox-anchor-params', 'class', 'exad-flip-box-back-action' );
+
+	    $this->add_render_attribute( 'exad_flipbox_front_title', 'class', 'exad-flip-box-front-title' );
+		$this->add_inline_editing_attributes( 'exad_flipbox_front_title', 'none' );
+
+	    $this->add_render_attribute( 'exad_flipbox_front_description', 'class', 'exad-flip-box-front-description' );
+		$this->add_inline_editing_attributes( 'exad_flipbox_front_description' );
+
+
+	    $this->add_render_attribute( 'exad_flipbox_back_title', 'class', 'exad-flip-box-back-title' );
+		$this->add_inline_editing_attributes( 'exad_flipbox_back_title', 'none' );
+
+	    $this->add_render_attribute( 'exad_flipbox_back_description', 'class', 'exad-flip-box-back-description' );
+		$this->add_inline_editing_attributes( 'exad_flipbox_back_description' );
+
+	    $this->add_render_attribute( 'exad_flipbox_button_link', 'class', 'exad-flip-box-back-action' );
+		$this->add_inline_editing_attributes( 'exad_flipbox_button_text', 'none' );
 
 		if( $settings['exad_flipbox_button_link']['url'] ) {
-            $this->add_render_attribute( 'exad-flipbox-anchor-params', 'href', esc_url( $settings['exad_flipbox_button_link']['url'] ) );
+            $this->add_render_attribute( 'exad_flipbox_button_link', 'href', esc_url( $settings['exad_flipbox_button_link']['url'] ) );
         }
         if( $settings['exad_flipbox_button_link']['is_external'] ) {
-            $this->add_render_attribute( 'exad-flipbox-anchor-params', 'target', '_blank' );
+            $this->add_render_attribute( 'exad_flipbox_button_link', 'target', '_blank' );
         }
         if( $settings['exad_flipbox_button_link']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-flipbox-anchor-params', 'rel', 'nofollow' );
+            $this->add_render_attribute( 'exad_flipbox_button_link', 'rel', 'nofollow' );
         }
 
 		echo '<div class="exad-flip-box">';
@@ -1050,8 +1065,8 @@ class Exad_Flipbox extends Widget_Base {
 		          				Icons_Manager::render_icon( $settings['exad_flipbox_front_icon'] );
 			        		echo '</div>';
 			        	}
-				        $front_title ? printf('<h2 class="exad-flip-box-front-title">%s</h2>', esc_html( $front_title ) ) : '';
-				        $front_desc ? printf('<p class="exad-flip-box-front-description">%s</p>', wp_kses_post( $front_desc ) ) : '';
+				        $front_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_front_title' ).'>%s</h2>', esc_html( $front_title ) ) : '';
+				        $front_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_front_description' ).'>%s</div>', wp_kses_post( $front_desc ) ) : '';
 
 				        do_action('exad_flipbox_frontend_content_wrapper_after');
 	        		echo '</div>';
@@ -1066,17 +1081,105 @@ class Exad_Flipbox extends Widget_Base {
 		          				Icons_Manager::render_icon( $settings['exad_flipbox_back_icon'] );
 		          			echo '</div>';
 			        	}
-				        $back_title ? printf('<h2 class="exad-flip-box-back-title">%s</h2>', esc_html( $back_title) ) : '';
-				        $back_desc ? printf('<div class="exad-flip-box-back-description">%s</div>', wp_kses_post( $back_desc ) ) : '';
+
+				        $back_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_back_title' ).'>%s</h2>', esc_html( $back_title) ) : '';
+				        $back_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_back_description' ).'>%s</div>', wp_kses_post( $back_desc ) ) : '';
 
 				        do_action('exad_flipbox_backend_content_wrapper_after');
 
-				        echo '<a '.$this->get_render_attribute_string( 'exad-flipbox-anchor-params' ).'>';
-				        	echo esc_html( $settings['exad_flipbox_button_text'] );
+				        echo '<a '.$this->get_render_attribute_string( 'exad_flipbox_button_link' ).'>';
+				        	echo '<span '.$this->get_render_attribute_string( 'exad_flipbox_button_text' ).'>'.esc_html( $settings['exad_flipbox_button_text'] ).'</span>';
 			        	echo '</a>';
 			        echo '</div>';
 		        echo '</div>';
 	      	echo '</div>';
 	    echo '</div>';
+	}
+
+	protected function _content_template() {
+		?>
+		<#
+			view.addRenderAttribute( 'exad_flipbox_attribute', {
+				'class': [ 
+					'exad-flip-box-inner', 
+					settings.exad_flipbox_style
+				]
+			} );
+
+			var iconHTML     = elementor.helpers.renderIcon( view, settings.exad_flipbox_front_icon, { 'aria-hidden': true }, 'i' , 'object' );
+			var backIconHTML = elementor.helpers.renderIcon( view, settings.exad_flipbox_back_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+			view.addRenderAttribute( 'exad_flipbox_front_title', 'class', 'exad-flip-box-front-title' );
+			view.addInlineEditingAttributes( 'exad_flipbox_front_title', 'none' );
+
+			view.addRenderAttribute( 'exad_flipbox_front_description', 'class', 'exad-flip-box-front-description' );
+			view.addInlineEditingAttributes( 'exad_flipbox_front_description' );
+
+			view.addRenderAttribute( 'exad_flipbox_back_title', 'class', 'exad-flip-box-back-title' );
+			view.addInlineEditingAttributes( 'exad_flipbox_back_title', 'none' );
+
+			view.addRenderAttribute( 'exad_flipbox_back_description', 'class', 'exad-flip-box-back-description' );
+			view.addInlineEditingAttributes( 'exad_flipbox_back_description' );
+
+			view.addRenderAttribute( 'exad_flipbox_button_link', 'class', 'exad-flip-box-back-action' );
+			view.addInlineEditingAttributes( 'exad_flipbox_button_text', 'none' );
+
+		#>
+		<div class="exad-flip-box">
+			<div {{{ view.getRenderAttributeString( 'exad_flipbox_attribute' ) }}}>
+				<div class="exad-flip-box-front {{{ settings.exad_flipbox_front_content_alignment }}}">
+					<div class="exad-flip-box-front-content">
+						<# if ( iconHTML.value ) { #>
+							<div class="exad-flip-box-front-image">
+								{{{ iconHTML.value }}}
+							</div>
+						<# } #>
+
+						<# if ( settings.exad_flipbox_front_title ) { #>
+				        	<h2 {{{ view.getRenderAttributeString( 'exad_flipbox_front_title' ) }}}>
+				        		{{{ settings.exad_flipbox_front_title }}}
+				        	</h2>
+				    	<# } #>
+
+						<# if ( settings.exad_flipbox_front_description ) { #>
+				        	<div {{{ view.getRenderAttributeString( 'exad_flipbox_front_description' ) }}}>
+				        		{{{ settings.exad_flipbox_front_description }}}
+				        	</div>
+				    	<# } #>
+					</div>
+				</div>
+
+				<div class="exad-flip-box-back {{{ settings.exad_flipbox_back_content_alignment }}}">
+					<div class="exad-flip-box-back-content">
+						<# if ( backIconHTML.value ) { #>
+							<div class="exad-flip-box-back-image">
+								{{{ backIconHTML.value }}}
+							</div>
+						<# } #>
+
+						<# if ( settings.exad_flipbox_back_title ) { #>
+				        	<h2 {{{ view.getRenderAttributeString( 'exad_flipbox_back_title' ) }}}>
+				        		{{{ settings.exad_flipbox_back_title }}}
+				        	</h2>
+				    	<# } #>
+
+						<# if ( settings.exad_flipbox_back_description ) { #>
+				        	<div {{{ view.getRenderAttributeString( 'exad_flipbox_back_description' ) }}}>
+				        		{{{ settings.exad_flipbox_back_description }}}
+				        	</div>
+				    	<# } #>
+
+				    	<# if ( settings.exad_flipbox_button_text ) { #>
+				            <a href="{{{ settings.exad_flipbox_button_link.url }}}" {{{ view.getRenderAttributeString( 'exad_flipbox_button_link' ) }}}>
+								<span {{{ view.getRenderAttributeString( 'exad_flipbox_button_text' ) }}}>
+									{{{ settings.exad_flipbox_button_text }}}
+								</span>
+							</a>
+						<# } #>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 }

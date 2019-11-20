@@ -92,7 +92,7 @@ class Exad_Infobox extends Widget_Base {
 				'type'        => Controls_Manager::ICONS,
 				'default'     => [
 					'value'   => 'fas fa-tag',
-					'library' => 'solid'
+					'library' => 'fa-solid'
 				],
 				'condition'   => [
 					'exad_infobox_img_or_icon' => 'icon'
@@ -669,12 +669,11 @@ class Exad_Infobox extends Widget_Base {
 		
 	}
 	protected function render() {
-		$settings          = $this->get_settings_for_display();		
-		$infobox_image     = $this->get_settings_for_display( 'exad_infobox_image' );
-		$infobox_image_url = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
-		$title             = $settings['exad_infobox_title'];
-		$details           = $settings['exad_infobox_description'];
-		$exad_infobox_heading_link = $settings['exad_infobox_title_link']['url'];
+		$settings                  = $this->get_settings_for_display();		
+		$infobox_image             = $this->get_settings_for_display( 'exad_infobox_image' );
+		$infobox_image_url         = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
+		$title                     = $settings['exad_infobox_title'];
+		$details                   = $settings['exad_infobox_description'];
 
 		$this->add_render_attribute( 'exad_infobox_transition',[
 			'class' => [
@@ -698,41 +697,131 @@ class Exad_Infobox extends Widget_Base {
 			$infobox_image_url = $infobox_image_url;
 		} 
 
-		if( $exad_infobox_heading_link ) {
-            $this->add_render_attribute( 'exad-infobox-heading-anchor-atts', 'href', esc_url( $exad_infobox_heading_link ) );
+		if( $settings['exad_infobox_title_link']['url'] ) {
+            $this->add_render_attribute( 'exad_infobox_title_link', 'href', esc_url( $settings['exad_infobox_title_link']['url'] ) );
 		    if( $settings['exad_infobox_title_link']['is_external'] ) {
-		        $this->add_render_attribute( 'exad-infobox-heading-anchor-atts', 'target', '_blank' );
+		        $this->add_render_attribute( 'exad_infobox_title_link', 'target', '_blank' );
 		    }
 		    if( $settings['exad_infobox_title_link']['nofollow'] ) {
-		        $this->add_render_attribute( 'exad-infobox-heading-anchor-atts', 'rel', 'nofollow' );
+		        $this->add_render_attribute( 'exad_infobox_title_link', 'rel', 'nofollow' );
 		    }
         }
 
-		echo '<div id="exad-infobox-'.esc_attr($this->get_id()).'" class="exad-infobox">';
+        $this->add_render_attribute( 'exad_infobox_title', 'class', 'exad-infobox-content-title' );
+		$this->add_inline_editing_attributes( 'exad_infobox_title', 'none' );
+
+        $this->add_render_attribute( 'exad_infobox_description', 'class', 'exad-infobox-content-description' );
+		$this->add_inline_editing_attributes( 'exad_infobox_description' );
+
+		echo '<div class="exad-infobox">';
 			echo '<div '.$this->get_render_attribute_string( 'exad_infobox_transition' ).'>';
 			  	if( 'none' !== $settings['exad_infobox_img_or_icon'] ) {
 		            echo '<div class="exad-infobox-icon">';
-		            	if( 'icon' == $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
+		            	if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
 		            		Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
 						endif;
 
 		            	if( 'img' == $settings['exad_infobox_img_or_icon'] ) :
 							echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
-						endif;					
+						endif;			
 		            echo '</div>';
 			  	}
 	            echo '<div class="exad-infobox-content">';
-	            	if(!empty($exad_infobox_heading_link)) {
-                        echo '<a '.$this->get_render_attribute_string( 'exad-infobox-heading-anchor-atts' ).'>';
+	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
+                        echo '<a '.$this->get_render_attribute_string( 'exad_infobox_title_link' ).'>';
                     }
-	            	$title ? printf( '<h3 class="exad-infobox-content-title">%s</h3>', esc_html( $title ) ) : '';
-	            	if(!empty($exad_infobox_heading_link)) {
+	            	$title ? printf( '<h3 '.$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</h3>', esc_html( $title ) ) : '';
+	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
                         echo '</a>';
                     }
 
-	            	$details ? printf( '<p class="exad-infobox-content-description">%s</p>', wp_kses_post( $details ) ) : '';
+	            	$details ? printf( '<div '.$this->get_render_attribute_string( 'exad_infobox_description' ).'>%s</div>', wp_kses_post( $details ) ) : '';
 	            echo '</div>';
           	echo '</div>';
         echo '</div>';
+	}
+
+	protected function _content_template() {
+		?>
+		<#
+			view.addRenderAttribute( 'exad_infobox_transition', {
+				'class': [ 
+					'exad-infobox-item', 
+					settings.exad_infobox_alignment,
+					settings.exad_infobox_icon_position
+				]
+			} );
+
+			if ( settings.exad_infobox_image.url || settings.exad_infobox_image.id ) {
+				var image = {
+					id: settings.exad_infobox_image.id,
+					url: settings.exad_infobox_image.url,
+					size: settings.thumbnail_size,
+					dimension: settings.thumbnail_custom_dimension,
+					class: 'exad-infobox-img',
+					model: view.getEditModel()
+				};
+
+				var image_url = elementor.imagesManager.getImageUrl( image );
+			}
+
+			if ( 'yes' === settings.exad_infobox_transition_top ){
+				view.addRenderAttribute( 'exad_infobox_transition', 'class', 'simple-transition' );
+			}
+
+			if ( 'yes' === settings.exad_infobox_transition_zoom ){
+				view.addRenderAttribute( 'exad_infobox_transition', 'class', 'zoom-transition' );
+			}
+
+			var iconHTML     = elementor.helpers.renderIcon( view, settings.exad_infobox_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+			view.addRenderAttribute( 'exad_infobox_title', 'class', 'exad-infobox-content-title' );
+			view.addInlineEditingAttributes( 'exad_infobox_title', 'none' );
+
+	        view.addRenderAttribute( 'exad_infobox_description', 'class', 'exad-infobox-content-description' );
+			view.addInlineEditingAttributes( 'exad_infobox_description' );
+
+		#>
+		<div class="exad-infobox">
+			<div {{{ view.getRenderAttributeString( 'exad_infobox_transition' ) }}}>
+				<# if( 'none' !== settings.exad_infobox_img_or_icon ) { #>
+					<div class="exad-infobox-icon">
+						<# if ( 'icon' === settings.exad_infobox_img_or_icon && iconHTML.value ) { #>
+							<div class="exad-flip-box-front-image">
+								{{{ iconHTML.value }}}
+							</div>
+						<# } #>
+
+						<# if ( 'img' === settings.exad_infobox_img_or_icon && image_url ) { #>
+							<img src="{{{ image_url }}}">
+						<# } #>
+					</div>
+				<# } #>
+
+				<div class="exad-infobox-content">
+					<# if(  settings.exad_infobox_title_link.url ) { #>
+						<a href="{{{ settings.exad_infobox_title_link.url }}}" {{{ view.getRenderAttributeString( 'exad_infobox_title_link' ) }}}>
+					<# } #>
+
+					<# if ( settings.exad_infobox_title ) { #>
+			        	<h3 {{{ view.getRenderAttributeString( 'exad_infobox_title' ) }}}>
+			        		{{{ settings.exad_infobox_title }}}
+			        	</h3>
+			    	<# } #>
+
+					<# if ( settings.exad_infobox_description ) { #>
+			        	<div {{{ view.getRenderAttributeString( 'exad_infobox_description' ) }}}>
+			        		{{{ settings.exad_infobox_description }}}
+			        	</div>
+			    	<# } #>
+
+					<# if(  settings.exad_infobox_title_link.url ) { #>
+						</a>
+					<# } #>
+
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 }

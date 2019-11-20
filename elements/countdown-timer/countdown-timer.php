@@ -51,6 +51,17 @@ class Exad_Countdown_Timer extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_countdown_expired_text',
+			[
+				'label'       => __( 'Countdown Expired Title', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'default'     => __( 'Hurray! This is the event day.', 'exclusive-addons-elementor' ),
+				'description' => __( 'This text will show when the CountDown will over.', 'exclusive-addons-elementor' )
+			]
+		);
+
 		$this->end_controls_section();
 
 		$this->end_controls_section();
@@ -257,7 +268,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#FFF',
+				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown-count' => 'color: {{VALUE}};'
 				]
@@ -300,7 +311,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#FFF',
+				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown-title' => 'color: {{VALUE}};'
 				]
@@ -321,6 +332,39 @@ class Exad_Countdown_Timer extends Widget_Base {
 		
 		$this->end_controls_section();
 
+		$this->start_controls_section(
+			'exad_countdown_expired_title_style',
+			[
+				'label'     => esc_html__( 'Expired Title', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_countdown_expired_text!' => ''
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+				[
+					'name'     => 'exad_countdown_expired_title_typography',
+					'selector' => '{{WRAPPER}} .exad-countdown-content-container .exad-countdown p.message'
+				]
+		);
+
+		$this->add_control(
+			'exad_countdown_expired_title_color',
+			[
+				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown-content-container .exad-countdown p.message' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 
 	protected function render() {
@@ -329,12 +373,13 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_render_attribute(
 			'exad-countdown-timer-attribute',
 			[
-				'class'          => [ 'exad-countdown' ],
-				'data-day'       => esc_attr__( 'Days', 'exclusive-addons-elementor' ),
-				'data-minutes'   => esc_attr__( 'Minutes', 'exclusive-addons-elementor' ),
-				'data-hours'     => esc_attr__( 'Hours', 'exclusive-addons-elementor' ),
-				'data-seconds'   => esc_attr__( 'Seconds', 'exclusive-addons-elementor' ),
-				'data-countdown' => esc_attr( $settings['exad_countdown_time'] )
+				'class'             => [ 'exad-countdown' ],
+				'data-day'          => esc_attr__( 'Days', 'exclusive-addons-elementor' ),
+				'data-minutes'      => esc_attr__( 'Minutes', 'exclusive-addons-elementor' ),
+				'data-hours'        => esc_attr__( 'Hours', 'exclusive-addons-elementor' ),
+				'data-seconds'      => esc_attr__( 'Seconds', 'exclusive-addons-elementor' ),
+				'data-countdown'    => esc_attr( $settings['exad_countdown_time'] ),
+				'data-expired-text' => esc_attr( $settings['exad_countdown_expired_text'] )
 			]
 		);
 		
@@ -347,26 +392,36 @@ class Exad_Countdown_Timer extends Widget_Base {
 			);
 		}
 
-		?>
 
-		<div class="exad-countdown-content-container">
-			<div <?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute') ?>></div>
-		</div>
-		<?php
+		echo '<div class="exad-countdown-content-container">';
+			echo '<div '.$this->get_render_attribute_string('exad-countdown-timer-attribute').'></div>';
+		echo '</div>';
 	}
 
 	protected function _content_template() {
-	?>
+		?>
 		<#
-		view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown' );
-		if ( 'yes' === settings.exad_countdown_divider_enable ) {
-			view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown-divider' );
-		}
+			view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown' );
+			if ( 'yes' === settings.exad_countdown_divider_enable ) {
+				view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown-divider' );
+			}
+
+			view.addRenderAttribute( 'exad_countdown_timer_attribute', {
+				'data-day': 'Days',
+				'data-minutes': 'Minutes',
+				'data-hours': 'Hours',
+				'data-seconds': 'Seconds',
+				'data-countdown': settings.exad_countdown_time,
+				'data-expired-text': settings.exad_countdown_expired_text
+			} );
 		#>
+
 		<div class="exad-countdown-content-container">
-			<div {{{ view.getRenderAttributeString( 'exad_countdown_timer_attribute' ) }}} data-day="Days" data-minutes="Minutes" data-hours="Hours" data-seconds="Seconds" data-countdown="{{ settings.exad_countdown_time }}"></div>
+			<div {{{ view.getRenderAttributeString( 'exad_countdown_timer_attribute' ) }}}>
+			</div>
 		</div>
-	<?php
+
+		<?php
 	}
 
 }

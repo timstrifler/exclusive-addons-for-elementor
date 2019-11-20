@@ -957,7 +957,4 @@ class Exad_Pricing_Menu extends Widget_Base {
             echo '</div>';
         echo '</div>';
     }
-
-    protected function _content_template() {
-    }
 }

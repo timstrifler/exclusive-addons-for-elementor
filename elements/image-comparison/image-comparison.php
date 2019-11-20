@@ -278,5 +278,4 @@ class Exad_Image_Comparison extends Widget_Base {
             echo '</div>';
         echo '</div>';
 	}
-
 }

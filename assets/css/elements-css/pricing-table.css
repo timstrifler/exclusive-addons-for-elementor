@@ -56,14 +56,12 @@
 
 .exad-pricing-table-subtitle{
   margin: 0 0 10px 0;
-  line-height: 1;
 }
 
 .price-box{
   position: relative;
 }
 .exad-pricing-table-price{
-  line-height: 1;
   position: relative;
 }
 .exad-pricing-table-price svg{
@@ -91,7 +89,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-  line-height: 1;
 }
 
 .exad-pricing-table-features{
@@ -104,7 +101,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
 }
 
 .list-border-bottom li:not(:last-child){

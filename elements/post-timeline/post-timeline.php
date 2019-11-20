@@ -331,7 +331,6 @@ class Exad_Post_Timeline extends Widget_Base {
 			[
 				'name'     => 'exad_timeline_title_typography',
 				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-				'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .exad-post-timeline-content-text h4 a'
 			]
 		);

@@ -4,36 +4,36 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
 class Exad_Alert extends Widget_Base {
-	
-	public function get_name() {
-		return 'exad-exclusive-alert';
-	}
+  
+    public function get_name() {
+        return 'exad-exclusive-alert';
+    }
 
-	public function get_title() {
-		return esc_html__( 'Alert', 'exclusive-addons-elementor' );
-	}
+    public function get_title() {
+        return esc_html__( 'Alert', 'exclusive-addons-elementor' );
+    }
 
-	public function get_icon() {
-		return 'exad-element-icon eicon-alert';
-	}
+    public function get_icon() {
+        return 'exad-element-icon eicon-alert';
+    }
 
-	public function get_categories() {
-		return [ 'exclusive-addons-elementor' ];
-	}
+    public function get_categories() {
+        return [ 'exclusive-addons-elementor' ];
+    }
 
     public function get_keywords() {
         return [ 'alert', 'notice', 'message' ];
     }
 
-	protected function _register_controls() {
+    protected function _register_controls() {
         /**
          * Alert Content Tab
          */
         $this->start_controls_section(
-    		'exad_alert_content',
-    		[
-    			'label' => esc_html__( 'Content', 'exclusive-addons-elementor' )
-    		]
+            'exad_alert_content',
+            [
+              'label' => esc_html__( 'Content', 'exclusive-addons-elementor' )
+            ]
         );
 
         $this->add_control(
@@ -103,11 +103,12 @@ class Exad_Alert extends Widget_Base {
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'icon',
                 'options' => [
-                'icon'    => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-                'button'  => esc_html__( 'Button', 'exclusive-addons-elementor' )
+                    'icon'    => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+                    'button'  => esc_html__( 'Button', 'exclusive-addons-elementor' )
+                ]
             ]
-          ]
         );
+
         $this->add_control(
             'exad_alert_close_primary_button',
             [
@@ -119,6 +120,7 @@ class Exad_Alert extends Widget_Base {
                 ]
             ]
         );
+
         $this->add_control(
             'exad_alert_close_secondary_button',
             [
@@ -137,11 +139,11 @@ class Exad_Alert extends Widget_Base {
          * Alert Content style Tab
          */
         $this->start_controls_section(
-			'exad_alert_style',
-			[
+          'exad_alert_style',
+            [
                 'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE
-			]
+            ]
         );
 
         $this->add_control(
@@ -179,29 +181,29 @@ class Exad_Alert extends Widget_Base {
                     'bottom' => '20',
                     'left'   => '20'
                 ],
-    			'selectors' => [
-    				'{{WRAPPER}} .exad-alert-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-    			]
+                'selectors' => [
+                    '{{WRAPPER}} .exad-alert-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
 
         $this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
+      Group_Control_Border::get_type(),
+      [
                 'name'     => 'exad_alert_border',
                 'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-alert-wrapper'
-			]
+      ]
         );
         
         $this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
+      Group_Control_Box_Shadow::get_type(),
+      [
                 'name'     => 'exad_alert_box_shadow',
                 'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-alert-wrapper'
-			]
-		);
+      ]
+    );
 
         $this->end_controls_section();
 
@@ -324,11 +326,11 @@ class Exad_Alert extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
-    		[
+        [
                 'name'     => 'exad_alert_title_typography',
                 'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-alert-element .exad-alert-element-content h5'
-    		]
+        ]
         );
 
         $this->add_control(
@@ -363,19 +365,18 @@ class Exad_Alert extends Widget_Base {
         $this->start_controls_section(
             'exad_alert_description_style',
             [
-                'label' => esc_html__( 'Discription', 'exclusive-addons-elementor' ),
+                'label' => esc_html__( 'Description', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
-			[
+            [
                 'name'     => 'exad_alert_description_typography',
                 'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-                'selector' => '{{WRAPPER}} .exad-alert-element .exad-alert-element-content p'
-			]
+                'selector' => '{{WRAPPER}} .exad-alert-element .exad-alert-element-content .exad-alert-desc'
+            ]
         );
 
         $this->add_control(
@@ -384,7 +385,7 @@ class Exad_Alert extends Widget_Base {
                 'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-content p' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-content .exad-alert-desc' => 'color: {{VALUE}};'
                 ]
             ]
         );
@@ -396,7 +397,7 @@ class Exad_Alert extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'selectors'  => [
-                    '{{WRAPPER}}  .exad-alert-element .exad-alert-element-content p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}}  .exad-alert-element .exad-alert-element-content .exad-alert-desc' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -452,7 +453,7 @@ class Exad_Alert extends Widget_Base {
                     ]
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => 'top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => 'top: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'  => [
                     'exad_alert_close_button' => 'icon'
@@ -498,192 +499,203 @@ class Exad_Alert extends Widget_Base {
             ]
         );
 
-        $this->start_controls_tab( 'exad_alert_dismiss_primary_button', [ 'label' => esc_html__( 'Primary Button', 'exclusive-addons-elementor' ) ] );
+            $this->start_controls_tab( 'exad_alert_dismiss_primary_button', [ 'label' => esc_html__( 'Primary Button', 'exclusive-addons-elementor' ) ] );
 
-        $this->add_control(
-            'exad_alert_dismiss_primary_button_background',
-            [
-                'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#46C9F0',
-                'selectors' => [
-                    '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'background: {{VALUE}};'
+            $this->add_control(
+                'exad_alert_dismiss_primary_button_background',
+                [
+                    'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                    'type'      => Controls_Manager::COLOR,
+                    'default'   => '#46C9F0',
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'background: {{VALUE}};'
+                    ]
                 ]
-            ]
-        );
+            );
 
-        $this->add_control(
-            'exad_alert_dismiss_primary_button_text_color',
-            [
-                'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'color: {{VALUE}};'
+            $this->add_control(
+                'exad_alert_dismiss_primary_button_text_color',
+                [
+                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'type'      => Controls_Manager::COLOR,
+                    'default'   => '#ffffff',
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'color: {{VALUE}};'
+                    ]
                 ]
-            ]
-        );
+            );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'     => 'exad_alert_dismiss_primary_button_text',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-                'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done'
-            ]
-        );
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name'     => 'exad_alert_dismiss_primary_button_text',
+                    'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
+                    'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done'
+                ]
+            );
 
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'     => 'exad_alert_dismiss_primary_button_border',
-                'label'    => __( 'Border', 'exclusive-addons-elementor' ),
-                'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done'
-            ]
-        );
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'     => 'exad_alert_dismiss_primary_button_border',
+                    'label'    => __( 'Border', 'exclusive-addons-elementor' ),
+                    'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done'
+                ]
+            );
 
-        $this->add_responsive_control(
-            'exad_alert_dismiss_primary_button_padding',
-            [
-                'label'        => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-                'type'         => Controls_Manager::DIMENSIONS,
-                'size_units'   => [ 'px', '%', 'em' ],
-                'default'      => [ 
-                    'top'      => '10',
-                    'right'    => '30',
-                    'bottom'   => '10',
-                    'left'     => '30',
-                    'isLinked' => false
+            $this->add_responsive_control(
+                'exad_alert_dismiss_primary_button_padding',
+                [
+                    'label'        => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+                    'type'         => Controls_Manager::DIMENSIONS,
+                    'size_units'   => [ 'px', '%', 'em' ],
+                    'default'      => [ 
+                        'top'      => '10',
+                        'right'    => '30',
+                        'bottom'   => '10',
+                        'left'     => '30',
+                        'isLinked' => false
+                    ],
+                    'selectors'    => [
+                        '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    ]
+                ]
+            );
+
+            $this->add_responsive_control(
+              'exad_alert_dismiss_primary_button_ border_radious',
+                [
+                    'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+                    'type'       => Controls_Manager::DIMENSIONS,
+                    'default'    => [
+                        'top'    => '5',
+                        'right'  => '5',
+                        'bottom' => '5',
+                        'left'   => '5'
+                    ],
+                    'selectors'  => [
+                        '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    ]
+                ]
+            );
+
+            $this->end_controls_tab();
+            
+
+            $this->start_controls_tab( 'exad_alert_dismiss_secondary_button', [ 'label' => esc_html__( 'Secondary Button', 'exclusive-addons-elementor' ) ] );
+          
+            $this->add_control(
+                'exad_alert_dismiss_secondary_button_background',
+                [
+                    'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                    'type'      => Controls_Manager::COLOR,
+                    'default'   => '#f05e5e',
+                    'selectors' => [
+                    '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'background: {{VALUE}};'
                 ],
-                'selectors'    => [
-                    '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
-          'exad_alert_dismiss_primary_button_ border_radious',
-            [
-                'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'default'    => [
-                    'top'    => '5',
-                    'right'  => '5',
-                    'bottom' => '5',
-                    'left'   => '5'
-                ],
-                'selectors'  => [
-                    '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ]
-            ]
-        );
-
-        $this->end_controls_tab();
-    		
-
-        $this->start_controls_tab( 'exad_alert_dismiss_secondary_button', [ 'label' => esc_html__( 'Secondary Button', 'exclusive-addons-elementor' ) ] );
-      
-        $this->add_control(
-            'exad_alert_dismiss_secondary_button_background',
-            [
-                'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#f05e5e',
-                'selectors' => [
-                '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'background: {{VALUE}};'
-            ],
                 'condition' => [
-                    'exad_alert_close_button' => 'button'
+                        'exad_alert_close_button' => 'button'
+                    ]
                 ]
-            ]
-        );
+            );
 
-        $this->add_control(
-            'exad_alert_dismiss_secondary_button_text_color',
-            [
-                'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'color: {{VALUE}};'
+            $this->add_control(
+                'exad_alert_dismiss_secondary_button_text_color',
+                [
+                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'type'      => Controls_Manager::COLOR,
+                    'default'   => '#ffffff',
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'color: {{VALUE}};'
+                    ]
                 ]
-            ]
-        );
+            );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'     => 'exad_alert_dismiss_secondary_button_text',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_1,
-                'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'     => 'exad_alert_dismiss_secondary_button_border',
-                'label'    => __( 'Border', 'plugin-domain' ),
-                'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'
-            ]
-        );
-
-        $this->add_responsive_control(
-            'exad_alert_dismiss_secondary_button_padding',
-            [
-                'label'        => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-                'type'         => Controls_Manager::DIMENSIONS,
-                'size_units'   => [ 'px', '%', 'em' ],
-                'default'      => [
-                    'top'      => '10',
-                    'right'    => '30',
-                    'bottom'   => '10',
-                    'left'     => '30',
-                    'isLinked' => false
-                ],
-                'selectors'    => [
-                    '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            $this->add_group_control(
+                Group_Control_Typography::get_type(),
+                [
+                    'name'     => 'exad_alert_dismiss_secondary_button_text',
+                    'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
+                    'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'
                 ]
-            ]
-        );
+            );
 
-        $this->add_responsive_control(
-          'exad_alert_dismiss_secondary_button_radious',
-            [
-                'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'default'    => [
-                    'top'    => '5',
-                    'right'  => '5',
-                    'bottom' => '5',
-                    'left'   => '5'
-                ],
-                'selectors'  => [
-                    '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'     => 'exad_alert_dismiss_secondary_button_border',
+                    'label'    => __( 'Border', 'plugin-domain' ),
+                    'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'
                 ]
-            ]
-        );
+            );
 
-        $this->end_controls_tab();
-		
-		$this->end_controls_tabs();
+            $this->add_responsive_control(
+                'exad_alert_dismiss_secondary_button_padding',
+                [
+                    'label'        => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+                    'type'         => Controls_Manager::DIMENSIONS,
+                    'size_units'   => [ 'px', '%', 'em' ],
+                    'default'      => [
+                        'top'      => '10',
+                        'right'    => '30',
+                        'bottom'   => '10',
+                        'left'     => '30',
+                        'isLinked' => false
+                    ],
+                    'selectors'    => [
+                        '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    ]
+                ]
+            );
+
+            $this->add_responsive_control(
+              'exad_alert_dismiss_secondary_button_radious',
+                [
+                    'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+                    'type'       => Controls_Manager::DIMENSIONS,
+                    'default'    => [
+                        'top'    => '5',
+                        'right'  => '5',
+                        'bottom' => '5',
+                        'left'   => '5'
+                    ],
+                    'selectors'  => [
+                        '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    ]
+                ]
+            );
+
+            $this->end_controls_tab();
+    
+        $this->end_controls_tabs();
 
         $this->end_controls_section();
-	}
+    }
 
-	protected function render() {
-    $settings     = $this->get_settings_for_display();
-    $title        = $settings['exad_alert_content_title'];
-    $description  = $settings['exad_alert_content_description'];
-    $primary_btn  = $settings['exad_alert_close_primary_button'];
-    $seconday_btn = $settings['exad_alert_close_secondary_button'];
+    protected function render() {
+        $settings     = $this->get_settings_for_display();
+        $title        = $settings['exad_alert_content_title'];
+        $description  = $settings['exad_alert_content_description'];
+        $primary_btn  = $settings['exad_alert_close_primary_button'];
+        $seconday_btn = $settings['exad_alert_close_secondary_button'];
 
-        do_action('exad_alert_wrapper_before');
+        $this->add_render_attribute( 'exad_alert_content_title', 'class', 'exad-alert-title' );
+        $this->add_inline_editing_attributes( 'exad_alert_content_title' );
+
+        $this->add_render_attribute( 'exad_alert_content_description', 'class', 'exad-alert-desc' );
+        $this->add_inline_editing_attributes( 'exad_alert_content_description' );
+
+        $this->add_render_attribute( 'exad_alert_close_primary_button', 'class', 'exad-alert-element-dismiss-done' );
+        $this->add_inline_editing_attributes( 'exad_alert_close_primary_button', 'none' );
+
+        $this->add_render_attribute( 'exad_alert_close_secondary_button', 'class', 'exad-alert-element-dismiss-cancel' );
+        $this->add_inline_editing_attributes( 'exad_alert_close_secondary_button', 'none' );
+
+        do_action( 'exad_alert_wrapper_before' );
         echo '<div class="exad-alert">';
             echo '<div class="exad-alert-wrapper" data-alert>';
                 echo '<div class="exad-alert-element">';
-                    do_action('exad_alert_content_wrapper_before');
+                    do_action( 'exad_alert_content_wrapper_before' );
 
                     if ( 'yes' === $settings['exad_alert_content_icon_show'] && !empty($settings['exad_alert_content_icon']['value']) ) {
                         echo '<div class="exad-alert-element-icon">';
@@ -694,10 +706,10 @@ class Exad_Alert extends Widget_Base {
                     }
 
                     echo '<div class="exad-alert-element-content">';
-                            if ( 'yes' === $settings['exad_alert_content_title_show'] ) {
-                                $title ? printf('<h5>%s</h5>', wp_kses_post( $title )) : '';
+                            if ( !empty( $title ) && 'yes' === $settings['exad_alert_content_title_show'] ) {
+                                printf( '<h5 '.$this->get_render_attribute_string( 'exad_alert_content_title' ).'>%s</h5>', wp_kses_post( $title ) );
                             } 
-                            $description ? printf( '<p>%s</p>', wp_kses_post( $description ) ) : '';
+                            $description ? printf( '<div '.$this->get_render_attribute_string( 'exad_alert_content_description' ).'>%s</div>', wp_kses_post( $description ) ) : '';
                     echo '</div>';
 
                     if( 'icon' === $settings['exad_alert_close_button'] ) {
@@ -708,20 +720,78 @@ class Exad_Alert extends Widget_Base {
                         echo '</div>';
                     }
 
-                    do_action('exad_alert_content_wrapper_after');
+                    do_action( 'exad_alert_content_wrapper_after' );
                 echo '</div>';
 
                 if( 'button' === $settings['exad_alert_close_button'] ) {
                     echo '<div class="exad-alert-element-dismiss-button">';
-                        $primary_btn ? printf( '<button class="exad-alert-element-dismiss-done">%s</button>', esc_html($primary_btn) ) : '';
-                        $seconday_btn ? printf( '<button class="exad-alert-element-dismiss-cancel">%s</button>', esc_html($seconday_btn) ) : '';
+                        $primary_btn ? printf( '<button '.$this->get_render_attribute_string( 'exad_alert_close_primary_button' ).'>%s</button>', esc_html( $primary_btn ) ) : '';
+                        $seconday_btn ? printf( '<button '.$this->get_render_attribute_string( 'exad_alert_close_secondary_button' ).'>%s</button>', esc_html( $seconday_btn ) ) : '';
                     echo '</div>';
                 }
 
             echo '</div>';
         echo '</div>';
-        do_action('exad_alert_wrapper_after');
-	}  
-}
+        do_action( 'exad_alert_wrapper_after' );
+    }
 
-//Plugin::instance()->widgets_manager->register_widget_type( new Exad_Alert() );
+    protected function _content_template() {
+        ?>
+        <#
+            var iconHTML = elementor.helpers.renderIcon( view, settings.exad_alert_content_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+            view.addRenderAttribute( 'exad_alert_content_title', 'class', 'exad-alert-title' );
+            view.addInlineEditingAttributes( 'exad_alert_content_title' );
+
+            view.addRenderAttribute( 'exad_alert_content_description', 'class', 'exad-alert-desc' );
+            view.addInlineEditingAttributes( 'exad_alert_content_description' );
+
+            view.addRenderAttribute( 'exad_alert_close_primary_button', 'class', 'exad-alert-element-dismiss-done' );
+            view.addInlineEditingAttributes( 'exad_alert_close_primary_button', 'none' );
+
+            view.addRenderAttribute( 'exad_alert_close_secondary_button', 'class', 'exad-alert-element-dismiss-cancel' );
+            view.addInlineEditingAttributes( 'exad_alert_close_secondary_button', 'none' );
+            
+        #>
+        <div class="exad-alert">
+            <div class="exad-alert-wrapper" data-alert>
+                <div class="exad-alert-element">
+                    <# if ( 'yes' === settings.exad_alert_content_icon_show && iconHTML.value ) { #>
+                        <div class="exad-alert-element-icon">
+                            <span>
+                                {{{ iconHTML.value }}}
+                            </span>
+                        </div>
+                    <# } #>
+                    <div class="exad-alert-element-content">
+                        <# if ( settings.exad_alert_content_title && 'yes' === settings.exad_alert_content_title_show ) { #>
+                            <h5 {{{ view.getRenderAttributeString( 'exad_alert_content_title' ) }}}>{{{ settings.exad_alert_content_title }}}</h5>
+                        <# } #>
+
+                        <# if ( settings.exad_alert_content_description ) { #>
+                            <div {{{ view.getRenderAttributeString( 'exad_alert_content_description' ) }}}>{{{ settings.exad_alert_content_description }}}</div>
+                        <# } #>
+                    </div>
+                    <# if( 'icon' === settings.exad_alert_close_button ) { #>
+                        <div class="exad-alert-element-dismiss-icon"><svg>
+                            <path fill-rule="evenodd" d="M2.343 15.071L.929 13.656 6.586 8 .929 2.343 2.343.929 8 6.585 13.657.929l1.414 1.414L9.414 8l5.657 5.656-1.414 1.415L8 9.414l-5.657 5.657z"></path>
+                            </svg>
+                        </div>
+                    <# } #>
+                </div>
+                <# if( 'button' === settings.exad_alert_close_button ) { #>
+                    <div class="exad-alert-element-dismiss-button">
+                        <# if( settings.exad_alert_close_primary_button ) { #>
+                            <button {{{ view.getRenderAttributeString( 'exad_alert_close_primary_button' ) }}}>{{{ settings.exad_alert_close_primary_button }}}</button>
+                        <# } #>
+                        
+                        <# if( settings.exad_alert_close_secondary_button ) { #>
+                            <button {{{ view.getRenderAttributeString( 'exad_alert_close_secondary_button' ) }}}>{{{ settings.exad_alert_close_secondary_button }}}</button>
+                        <# } #>
+                    </div>
+                <# } #>
+            </div>
+        </div>
+        <?php
+    }
+}

@@ -30,8 +30,8 @@ var LogoCarousel = function ($scope, $) {
         autoplaySpeed: $autoplaySpeed,
         dots: dots,
         arrows: arrows,
-        prevArrow: "<div class='exad-logo-carousel-prev'><i class='fa fa-angle-left'></i></div>",
-        nextArrow: "<div class='exad-logo-carousel-next'><i class='fa fa-angle-right'></i></div>",
+        prevArrow: "<div class='exad-logo-carousel-prev'><i class='eicon-chevron-left'></i></div>",
+        nextArrow: "<div class='exad-logo-carousel-next'><i class='eicon-chevron-right'></i></div>",
         responsive: [
             {
               breakpoint: 1024,

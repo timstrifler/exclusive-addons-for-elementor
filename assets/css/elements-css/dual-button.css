@@ -36,7 +36,6 @@
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%); 
     -webkit-transform: translate(-50%, -50%);
-    line-height: 1;
 }
 /* effect 1 style */
 .exad-dual-button-primary.effect-1, .exad-dual-button-secondary.effect-1,
