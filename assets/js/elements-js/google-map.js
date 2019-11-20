@@ -1,26 +1,19 @@
 // Google Maps
 var GoogleMaps = function($scope, $) {
-    var $googleMaps = $scope.find('.exad-google-maps').eq(0),
-        $latitude = $googleMaps.data('exad-lat'),
-        $longitude = $googleMaps.data('exad-lng'),
-        $mapTheme = $googleMaps.data('exad-theme'),
-        $mapAddressType = $googleMaps.data('exad-address-type'),
-        $mapZoom  = $googleMaps.data('exad-zoom'),
-        $mapAddress = $googleMaps.data('exad-address'),
-        $map_streeview_control  = $googleMaps.data('exad-streeview-control'),
-        $map_type_control       = $googleMaps.data('exad-type-control'),
-        $map_zoom_control       = $googleMaps.data('exad-zoom-control'),
-        $map_fullscreen_control = $googleMaps.data('exad-fullscreen-control'),
-        $map_scroll_zoom        = $googleMaps.data('exad-scroll-zoom');
-        
-
-    if ( $mapAddressType == 'address' ) {
-        var $address = $mapAddress;
-        var $center =  null;
-    } else {
-        var $center = [$latitude, $longitude];
-        var $address = false;
-    } 
+    var $googleMaps         = $scope.find('.exad-google-maps').eq(0),
+    $latitude               = $googleMaps.data('exad-lat'),
+    $longitude              = $googleMaps.data('exad-lng'),
+    $mapTheme               = $googleMaps.data('exad-theme'),
+    $mapAddressType         = $googleMaps.data('exad-address-type'),
+    $mapZoom                = $googleMaps.data('exad-zoom'),
+    $mapAddress             = $googleMaps.data('exad-address'),
+    $map_streeview_control  = $googleMaps.data('exad-streeview-control'),
+    $map_type_control       = $googleMaps.data('exad-type-control'),
+    $map_zoom_control       = $googleMaps.data('exad-zoom-control'),
+    $map_fullscreen_control = $googleMaps.data('exad-fullscreen-control'),
+    $map_scroll_zoom        = $googleMaps.data('exad-scroll-zoom');    
+    var $center             = [$latitude, $longitude];
+    var $address            = false;
 
     $googleMaps.gmap3({
         center: $center,

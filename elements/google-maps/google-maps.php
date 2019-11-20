@@ -47,47 +47,12 @@ class Exad_Google_Maps extends Widget_Base {
 		);
   		
 		$this->add_control(
-            'exad_google_map_address_type',
-            [
-				'label'   => __( 'Address Type', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::CHOOSE,
-				'toggle'  => false,
-				'options' => [
-					'address'   => [
-						'title' => __( 'Address', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-map'
-					],
-					'coordinates' => [
-						'title'   => __( 'Coordinates', 'exclusive-addons-elementor' ),
-						'icon'    => 'fa fa-map-marker'
-					]
-				],
-				'default' => 'coordinates'
-            ]
-		);
-
-        $this->add_control(
-			'exad_google_map_addr',
-			[
-				'label'       => __( 'Geo Address', 'exclusive-addons-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-				'label_block' => true,
-				'default'     => __( 'Paris, France', 'exclusive-addons-elementor' ),
-				'condition'   => [
-					'exad_google_map_address_type' => ['address']
-				]
-			]
-		);
-		$this->add_control(
 			'exad_google_map_lat',
 			[
 				'label'       => esc_html__( 'Latitude', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default'     => esc_html__( '51.4934', 'exclusive-addons-elementor' ),
-				'condition'   => [
-					'exad_google_map_address_type' => ['coordinates']
-				]
+				'default'     => esc_html__( '51.4934', 'exclusive-addons-elementor' )
 			]
 		);
 		$this->add_control(
@@ -96,10 +61,7 @@ class Exad_Google_Maps extends Widget_Base {
 				'label'       => esc_html__( 'Longitude', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default'     => esc_html__( '0.0098', 'exclusive-addons-elementor' ),
-				'condition'   => [
-					'exad_google_map_address_type' => ['coordinates']
-				]
+				'default'     => esc_html__( '0.0098', 'exclusive-addons-elementor' )
 			]
 		);
 
@@ -259,7 +221,6 @@ class Exad_Google_Maps extends Widget_Base {
 		$this->add_render_attribute( 'exad_google_map_wrapper', [
 			'class'                        => ['exad-google-maps'],
 			'id'                           => 'exad-google-maps-'.esc_attr($this->get_id()),
-			'data-exad-address-type'       => esc_attr($settings['exad_google_map_address_type']),
 			'data-exad-theme'              => esc_attr( $settings['exad_google_map_themes']),
 			'data-exad-address'            => esc_attr($settings['exad_google_map_addr']),
 			'data-exad-lat'                => esc_attr( $settings['exad_google_map_lat'] ),
@@ -282,7 +243,7 @@ class Exad_Google_Maps extends Widget_Base {
 	protected function _content_template() {
 		?>
 
-		<div class="exad-google-maps" data-exad-address-type="{{ settings.exad_google_map_address_type }}" data-exad-theme="{{ settings.exad_google_map_themes }}" 
+		<div class="exad-google-maps" data-exad-theme="{{ settings.exad_google_map_themes }}" 
 		data-exad-address="{{ settings.exad_google_map_addr }}" data-exad-lat="{{ settings.exad_google_map_lat }}" data-exad-lng="{{ settings.exad_google_map_lng }}" 
 		data-exad-zoom="{{ settings.exad_google_map_zoom }}" data-exad-streeview-control="{{ settings.exad_map_streeview_control }}" 
 		data-exad-type-control="{{ settings.exad_map_type_control }}" data-exad-zoom-control="{{ settings.exad_map_zoom_control }}" 
