@@ -22,11 +22,11 @@ class Exad_Image_Comparison extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'compare', 'double image', 'multi image' ];
+        return [ 'compare', 'comparison', 'multiple' ];
     }
 
     public function get_script_depends() {
-		return [ 'exad-image-comparison', 'exad-image-comparison-event' ];
+		return [ 'exad-image-comparison' ];
 	}
     
 	protected function _register_controls() {

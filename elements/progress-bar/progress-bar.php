@@ -21,7 +21,7 @@ class Exad_Progress_Bar extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'exad-waypoints', 'exad-progress-bar' ];
+		return [ 'exad-progress-bar' ];
 	}
 
 	public function get_keywords() {
