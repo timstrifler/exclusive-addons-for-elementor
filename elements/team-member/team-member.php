@@ -528,8 +528,8 @@ class Exad_Team_Member extends Widget_Base {
                         'step' => 5
                     ],
                     '%'        => [
-                        'min'  => -50%,
-                        'max'  => 50%,
+                        'min'  => -50,
+                        'max'  => 50,
                         'step' => 1
                     ]
                 ],
@@ -559,8 +559,8 @@ class Exad_Team_Member extends Widget_Base {
                         'step' => 5
                     ],
                     '%'        => [
-                        'min'  => -50%,
-                        'max'  => 50%,
+                        'min'  => -50,
+                        'max'  => 50,
                         'step' => 1
                     ]
                 ],
