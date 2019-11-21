@@ -72,7 +72,7 @@ function admin_notice_missing_main_plugin() {
 
 	$elementor_path = 'elementor/elementor.php';
 
-	if ( $this->is_elementor_activated() ) {
+	if ( is_elementor_activated() ) {
 		if( ! current_user_can( 'activate_plugins' ) ) {
 			return;
 		}
@@ -143,6 +143,30 @@ function admin_notice_minimum_php_version() {
 
 }
 
+/**
+ * Check to see if Elementor is Activated
+ * 
+ * @since 1.0.2
+ */
+function is_elementor_activated( $plugin_path = 'elementor/elementor.php' ){
+	$installed_plugins_list = get_plugins();
+	return isset( $installed_plugins_list[ $plugin_path ] );
+}
+
+/**
+ * Plugin Redirect Hook
+ * 
+ */
+function plugin_redirect_hook() {
+	if ( get_option( 'exad_do_update_redirect', false ) ) {
+		delete_option( 'exad_do_update_redirect' );
+		if ( !isset($_GET['activate-multi'] ) && is_elementor_activated() ) {
+			wp_redirect( 'admin.php?page=exad-settings' );
+			exit;
+		}
+	}
+}
+add_action( 'admin_init', 'plugin_redirect_hook' );
 
 /**
  * 

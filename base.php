@@ -95,7 +95,6 @@ final class Base {
         $this->exclusive_addons_appsero_init();
 
         add_action( 'init', [ $this, 'i18n' ] );
-        add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
         // Placeholder image replacement
         add_filter( 'elementor/utils/get_placeholder_image_src', array( $this, 'exad_set_placeholder_image' ), 30 );
         // Plugin Settings URL
@@ -288,16 +287,7 @@ final class Base {
 
         return $classes;
     }
-    
-    /**
-     * Check to see if Elementor is Activated
-     * 
-     * @since 1.0.2
-     */
-    public function is_elementor_activated( $plugin_path = 'elementor/elementor.php' ){
-        $installed_plugins_list = get_plugins();
-        return isset( $installed_plugins_list[ $plugin_path ] );
-    }
+
 
     /**
      * This function returns true for all activated modules
@@ -351,18 +341,6 @@ final class Base {
 
     }
 
-    /**
-     * Plugin Redirect Hook
-     * 
-     */
-    public function plugin_redirect_hook() {
-        if ( get_option( 'exad_do_update_redirect', false ) ) {
-            delete_option( 'exad_do_update_redirect' );
-            if ( !isset($_GET['activate-multi'] ) && $this->is_elementor_activated() ) {
-                wp_redirect( 'admin.php?page=exad-settings' );
-                exit;
-            }
-        }
-    }
+    
 
 }
