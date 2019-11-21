@@ -828,17 +828,17 @@ class Exad_News_Ticker extends Widget_Base {
             echo '<div class="exad-nt-news">';
                 if( is_array( $settings['exad_news_ticker_items'] ) ) : 
                     echo '<ul>';
-                        foreach ( $settings['exad_news_ticker_items'] as $list ) :
-                            if ( $list['link']['url'] ) :
-                                if ( $list['link']['is_external'] === 'on' ) {
-                                    $target = 'target= _blank';
-                                } else {
-                                    $target = '';
+                        foreach ( $settings['exad_news_ticker_items'] as $key => $list ) :
+                            $link_key  = 'link_' . $key;
+                            if( $list['link']['url'] ) :
+                                $this->add_render_attribute( $link_key, 'href', esc_url( $list['link']['url'] ) );
+                                if( $list['link']['is_external'] ) {
+                                    $this->add_render_attribute( $link_key, 'target', '_blank' );
                                 }
-                                if ( $list['link']['nofollow'] === 'on' ) {
-                                    $target .= ' rel= nofollow ';
-                                }      
-                                echo '<li><a href="'. esc_url( $list['link']['url'] ) .'" '. esc_attr( $target ) .'>'. wp_kses_post( $list['title'] ) .'</a></li>';
+                                if( $list['link']['nofollow'] ) {
+                                    $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+                                }
+                                echo '<li><a '.$this->get_render_attribute_string( $link_key ).'>'. wp_kses_post( $list['title'] ) .'</a></li>';
                             else :
                                 echo '<li>'.wp_kses_post( $list['title'] ) .'</li>';
                             endif;

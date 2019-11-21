@@ -305,7 +305,7 @@ class Exad_Testimonial extends Widget_Base {
 					'unit'    => 'px',
 					'size'    => 80
 				],
-				'selectors' => [
+				'selectors'   => [
 					'{{WRAPPER}} .exad-testimonial-thumb'=> 'width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-testimonial-image-align-left .exad-testimonial-thumb, {{WRAPPER}} .exad-testimonial-image-align-right .exad-testimonial-thumb'=> 'width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-testimonial-image-align-left .exad-testimonial-reviewer, {{WRAPPER}} .exad-testimonial-image-align-right .exad-testimonial-reviewer'=> 'width: calc( 100% - {{SIZE}}{{UNIT}} );',
@@ -322,7 +322,7 @@ class Exad_Testimonial extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'exad_testimonial_image_box_border',
-				'label'     => __( 'Border', 'xclusive-addons-elementor' ),
+				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .exad-testimonial-thumb',
 				'condition' => [
 					'exad_testimonial_image_box' => 'yes'
@@ -695,7 +695,7 @@ class Exad_Testimonial extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_title_style',
 			[
-				'label'     => __( 'Reviewer Title', 'plugin-name' ),
+				'label'     => __( 'Reviewer Title', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -758,7 +758,7 @@ class Exad_Testimonial extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_designation_style',
 			[
-				'label'     => __( 'Reviewer Designation', 'plugin-name' ),
+				'label'     => __( 'Reviewer Designation', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]

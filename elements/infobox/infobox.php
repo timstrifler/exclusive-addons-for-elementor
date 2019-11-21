@@ -327,20 +327,20 @@ class Exad_Infobox extends Widget_Base {
 		$this->add_control(
 			'exad_infobox_icon_position',
 			[
-				'label'   => __( 'Position', 'plugin-domain' ),
+				'label'   => __( 'Position', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::CHOOSE,
 				'toggle'  => false,
 				'options' => [
 					'exad-infobox-icon-position-left'   => [
-						'title' => __( 'Left', 'plugin-domain' ),
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-angle-left'
 					],
 					'exad-infobox-icon-position-center' => [
-						'title' => __( 'Center', 'plugin-domain' ),
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-angle-up'
 					],
 					'exad-infobox-icon-position-right'  => [
-						'title' => __( 'Right', 'plugin-domain' ),
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
 						'icon'  => 'fa fa-angle-right'
 					]
 				],

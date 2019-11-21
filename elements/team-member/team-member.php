@@ -171,7 +171,6 @@ class Exad_Team_Member extends Widget_Base {
 						'deviantart',
 						'digg',
 						'dribbble',
-						'exclusive-addons-elementor',
 						'facebook',
 						'flickr',
 						'foursquare',
@@ -1069,7 +1068,7 @@ class Exad_Team_Member extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_team_members_social_icon_size',
 			[
-				'label'      => __( 'Size', 'plugin-domain' ),
+				'label'      => __( 'Size', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range'      => [
@@ -1294,7 +1293,8 @@ class Exad_Team_Member extends Widget_Base {
 					if ( 'yes' === $settings['exad_team_member_enable_social_profiles'] ):
 						echo '<ul class="list-inline exad-team-member-social">';
 							foreach ( $settings['exad_team_member_social_profile_links'] as $index => $item ) :
-								$social = '';
+								$social   = '';
+								$link_key = 'link_' . $index;
 
 								if ( 'svg' !== $item['social_icon']['library'] ) {
 									$social = explode( ' ', $item['social_icon']['value'], 2 );
@@ -1307,9 +1307,7 @@ class Exad_Team_Member extends Widget_Base {
 								if ( 'svg' === $item['social_icon']['library'] ) {
 									$social = '';
 								}
-								$link_key = 'link_' . $index;
 
-								$exad_heading_link = $item['link']['url'];
 								if( $item['link']['url'] ) {
 						            $this->add_render_attribute( $link_key, 'href', esc_url( $item['link']['url'] ) );
 							        if( $item['link']['is_external'] ) {

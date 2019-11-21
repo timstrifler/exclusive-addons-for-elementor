@@ -136,15 +136,9 @@ class Exad_Modal_Popup extends Widget_Base {
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $image_repeater->get_controls(),
 				'default' => [
-					[
-						'exad_modal_image_gallery' => Utils::get_placeholder_image_src()
-					],
-					[
-						'exad_modal_image_gallery' => Utils::get_placeholder_image_src()
-					],
-					[
-						'exad_modal_image_gallery' => Utils::get_placeholder_image_src()							
-					]
+					[ 'exad_modal_image_gallery' => Utils::get_placeholder_image_src() ],
+					[ 'exad_modal_image_gallery' => Utils::get_placeholder_image_src() ],
+					[ 'exad_modal_image_gallery' => Utils::get_placeholder_image_src() ]
 				],
 				'condition' => [
 					'exad_modal_content' => 'image-gallery'

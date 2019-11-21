@@ -313,9 +313,6 @@ class Exad_Flipbox extends Widget_Base {
                         'icon'   => 'eicon-h-align-right'
                     ]
                 ],
-                // 'selectors'      => [
-                //     '{{WRAPPER}} .exad-flip-box .exad-flip-box-front' => 'text-align: {{VALUE}};'
-                // ],
                 'default'        => 'center'
             ]
         ); 
@@ -630,9 +627,6 @@ class Exad_Flipbox extends Widget_Base {
                         'icon'   => 'eicon-h-align-right'
                     ]
                 ],
-                // 'selectors'      => [
-                //     '{{WRAPPER}} .exad-flip-box .exad-flip-box-back' => 'text-align: {{VALUE}};'
-                // ],
                 'default'        => 'center'
             ]
         ); 
@@ -842,7 +836,7 @@ class Exad_Flipbox extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_flipbox_button_typography',
-				'label'    => __( 'Typography', 'plugin-domain' ),
+				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action',
 			 	'fields_options'  => [
 		            'font_weight' => [

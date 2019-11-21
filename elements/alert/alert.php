@@ -624,7 +624,7 @@ class Exad_Alert extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name'     => 'exad_alert_dismiss_secondary_button_border',
-                    'label'    => __( 'Border', 'plugin-domain' ),
+                    'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                     'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'
                 ]
             );

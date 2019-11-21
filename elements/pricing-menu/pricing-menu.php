@@ -69,6 +69,15 @@ class Exad_Pricing_Menu extends Widget_Base {
         );
 
         $price_menu_repeater->add_control(
+            'exad_pricing_menu_price',
+            [
+                'label'   => __( 'Price', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::TEXT,
+                'default' => '$14'
+            ]
+        );
+
+        $price_menu_repeater->add_control(
             'exad_pricing_menu_enable_link',
             [
                 'label'        => __( 'Enable Order Button', 'exclusive-addons-elementor' ),
@@ -105,15 +114,6 @@ class Exad_Pricing_Menu extends Widget_Base {
                 'condition'   => [
                     'exad_pricing_menu_enable_link' => 'yes'
                 ]
-            ]
-        );
-
-        $price_menu_repeater->add_control(
-            'exad_pricing_menu_price',
-            [
-                'label'   => __( 'Price', 'exclusive-addons-elementor' ),
-                'type'    => Controls_Manager::TEXT,
-                'default' => '$14'
             ]
         );
 

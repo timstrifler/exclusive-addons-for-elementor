@@ -128,12 +128,12 @@ class Exad_Post_Grid extends Widget_Base {
         $this->add_control(
             'exad_post_grid_order',
             [
-				'label'   => __( 'Order', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::SELECT,
-                'default' => 'desc',
-				'options' => [
-					'asc'  => 'Ascending',
-					'desc' => 'Descending'
+				'label'    => __( 'Order', 'exclusive-addons-elementor' ),
+				'type'     => Controls_Manager::SELECT,
+                'default'  => 'desc',
+				'options'  => [
+					'asc'  => __( 'Ascending', 'exclusive-addons-elementor' ),
+					'desc' => __( 'Descending', 'exclusive-addons-elementor' )
                 ]
             ]
         );
@@ -482,7 +482,6 @@ class Exad_Post_Grid extends Widget_Base {
         );
 
 		$this->end_controls_section();
-
 
 		// Content Styles
 		$this->start_controls_section(
@@ -1277,7 +1276,6 @@ class Exad_Post_Grid extends Widget_Base {
 		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
         	<?php Exad_Helper::exad_get_posts( $settings ); ?>
     	</div>
-
 
 		<?php
 	}

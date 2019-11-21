@@ -257,7 +257,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 					Group_Control_Box_Shadow::get_type(),
 					[
 						'name'     => 'exad_logo_carousel_shadow_normal',
-						'label'    => __( 'Box Shadow', 'plugin-domain' ),
+						'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item'
 					]
 				);
@@ -305,7 +305,7 @@ class Exad_Logo_Carousel extends Widget_Base {
 					Group_Control_Box_Shadow::get_type(),
 					[
 						'name'     => 'exad_logo_carousel_shadow_hover',
-						'label'    => __( 'Box Shadow', 'plugin-domain' ),
+						'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover'
 					]
 				);

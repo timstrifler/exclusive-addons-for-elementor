@@ -694,7 +694,7 @@ class Exad_Tabs extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'exad_tab_content_background',
-				'label'    => __( 'Background', 'plugin-domain' ),
+				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-advance-tab-content'
 			]
@@ -1049,19 +1049,21 @@ class Exad_Tabs extends Widget_Base {
 				<?php endforeach; ?>
 			</ul>
 			
-			<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : $exad_find_default_tab[] = $tab['exad_exclusive_tab_show_as_default'];
+			<?php foreach( $settings['exad_exclusive_tabs'] as $key => $tab ) : 
+				$exad_find_default_tab[] = $tab['exad_exclusive_tab_show_as_default'];
 				$has_image = !empty( $tab['exad_exclusive_tab_image']['url'] ) ? 'yes' : 'no';
+				$link_key  = 'link_' . $key;
 
 				$exad_tab_btn_link = $tab['exad_exclusive_tab_detail_btn_link']['url'];
-				$this->add_render_attribute( 'exad-tab-anchor-atts', 'class', 'exad-tab-btn' );
+				$this->add_render_attribute( $link_key, 'class', 'exad-tab-btn' );
 				if( $exad_tab_btn_link ) {
-		            $this->add_render_attribute( 'exad-tab-anchor-atts', 'href', esc_url( $exad_tab_btn_link ) );
-		        }
-		        if( $tab['exad_exclusive_tab_detail_btn_link']['is_external'] ) {
-		            $this->add_render_attribute( 'exad-tab-anchor-atts', 'target', '_blank' );
-		        }
-		        if( $tab['exad_exclusive_tab_detail_btn_link']['nofollow'] ) {
-		            $this->add_render_attribute( 'exad-tab-anchor-atts', 'rel', 'nofollow' );
+		            $this->add_render_attribute( $link_key, 'href', esc_url( $exad_tab_btn_link ) );
+					if( $tab['exad_exclusive_tab_detail_btn_link']['is_external'] ) {
+					    $this->add_render_attribute( $link_key, 'target', '_blank' );
+					}
+					if( $tab['exad_exclusive_tab_detail_btn_link']['nofollow'] ) {
+					    $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+					}
 		        }
 			?>
 				<div class="exad-advance-tab-content exad-tab-image-has-<?php echo esc_attr($has_image); ?> <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_tab_image_align'] ); ?>">
@@ -1069,7 +1071,7 @@ class Exad_Tabs extends Widget_Base {
 						<div class="exad-advance-tab-content-description"><?php echo wp_kses_post( $tab['exad_exclusive_tab_content'] ); ?></div>
 						<?php 
 							if ( 'yes' === $tab['exad_exclusive_tab_detail_btn_switcher'] ) {
-								echo '<a '.$this->get_render_attribute_string( 'exad-tab-anchor-atts' ).'>';
+								echo '<a '.$this->get_render_attribute_string( $link_key ).'>';
 									echo esc_html( $tab['exad_exclusive_tab_detail_btn'] );
 								echo '</a>';
 							} 

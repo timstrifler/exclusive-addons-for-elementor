@@ -190,7 +190,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_control(
 			'exad_countdown_divider_enable',
 			[
-				'label'        => __( 'Enable Divider', 'plugin-domain' ),
+				'label'        => __( 'Enable Divider', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
@@ -217,7 +217,7 @@ class Exad_Countdown_Timer extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_countdown_divider_size',
 			[
-				'label'      => __( 'Size', 'plugin-domain' ),
+				'label'      => __( 'Size', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px', '%' ],
 				'range'      => [

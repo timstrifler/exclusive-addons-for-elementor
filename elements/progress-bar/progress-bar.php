@@ -190,7 +190,7 @@ class Exad_Progress_Bar extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_progress_bar_value_position',
 			[
-				'label'      => __( 'Position', 'plugin-domain' ),
+				'label'      => __( 'Position', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ '%' ],
 				'range'      => [

@@ -101,9 +101,9 @@ class Exad_Post_Timeline extends Widget_Base {
 				'label'    => __( 'Order', 'exclusive-addons-elementor' ),
 				'type'     => Controls_Manager::SELECT,
 				'options'  => [
-                    'asc'  => 'Ascending',
-                    'desc' => 'Descending'
-                ],
+					'asc'  => __( 'Ascending', 'exclusive-addons-elementor' ),
+					'desc' => __( 'Descending', 'exclusive-addons-elementor' )
+                ]
                 'default'  => 'desc'
 
             ]

@@ -134,7 +134,6 @@ class Exad_Accordion extends Widget_Base {
                 ],
                 'show_external'     => true,
                 'placeholder'       => __( 'http://your-link.com', 'exclusive-addons-elementor' ),
-                'label_block'       => false,  
                 'condition'     => [
                     '.exad_accordion_show_read_more_btn' => 'yes'
                 ]
@@ -281,13 +280,13 @@ class Exad_Accordion extends Widget_Base {
 		$this->add_control(
 			'exad_exclusive_accordion_tab_title_active_icon',
 			[
-				'label'   => __( 'Active Icon', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::ICONS,
-				'default' => [
+				'label'       => __( 'Active Icon', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
 					'value'   => 'fas fa-angle-up',
 					'library' => 'fa-solid'
 				],
-				'condition' => [
+				'condition'   => [
 					'exad_exclusive_accordion_tab_title_show_active_inactive_icon' => 'yes'
 				]
 			]
@@ -296,13 +295,13 @@ class Exad_Accordion extends Widget_Base {
 		$this->add_control(
 			'exad_exclusive_accordion_tab_title_inactive_icon',
 			[
-				'label'   => __( 'Inactive Icon', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::ICONS,
-				'default' => [
+				'label'       => __( 'Inactive Icon', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
 					'value'   => 'fas fa-angle-down',
 					'library' => 'fa-solid'
 				],
-				'condition' => [
+				'condition'   => [
 					'exad_exclusive_accordion_tab_title_show_active_inactive_icon' => 'yes'
 				]
 			]
@@ -432,7 +431,7 @@ class Exad_Accordion extends Widget_Base {
 				],
                 'selectors'  => [
                     '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title h3' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ],
+                ]
             ]
         );
 
@@ -457,7 +456,7 @@ class Exad_Accordion extends Widget_Base {
                         'default' => '#000000'
                     ]
                 ],
-                'selector'  => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title'
+                'selector'        => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title'
             ]
         );
 
@@ -718,9 +717,9 @@ class Exad_Accordion extends Widget_Base {
 	    $this->add_responsive_control(
       		'exad_accordion_active_inactive_icon_width',
       		[
-				'label'   => esc_html__( 'Width', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::SLIDER,
-				'default' => [
+				'label'     => esc_html__( 'Width', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
 		      		'size'    => 70
 		    	],
 		        'range'       => [
@@ -1014,7 +1013,7 @@ class Exad_Accordion extends Widget_Base {
 					'left'   => '40'
 				],
                 'selectors'  => [
-                        '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-button a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -1032,7 +1031,7 @@ class Exad_Accordion extends Widget_Base {
 					'left'   => '0'
 				],              
                 'selectors'  => [
-                        '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-button a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-button a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -1213,7 +1212,8 @@ class Exad_Accordion extends Widget_Base {
 
                 $this->add_render_attribute( $accordion_item_setting_key, 'class', $accordion_class );
 
-                $has_image = !empty( $accordion['exad_accordion_image']['url'] ) ? 'yes' : 'no';
+				$has_image = !empty( $accordion['exad_accordion_image']['url'] ) ? 'yes' : 'no';
+				$link_key  = 'link_' . $key;
 
                 echo '<div class="exad-accordion-single-item elementor-repeater-item-'. esc_attr($accordion['_id']).'">';
                     echo '<div '.$this->get_render_attribute_string($accordion_item_setting_key).'>';
@@ -1247,24 +1247,22 @@ class Exad_Accordion extends Widget_Base {
                             echo '<div '.$this->get_render_attribute_string( 'exad_accordion_details' ).'>';
                                 echo '<div>'.wp_kses_post( $accordion['exad_exclusive_accordion_content'] ).'</div>';
                                 if( 'yes' == $accordion['exad_accordion_show_read_more_btn']):
-                                    if ( $accordion['exad_accordion_read_more_btn_url']['url'] ) {
-                                        $href = 'href="'.esc_url($accordion['exad_accordion_read_more_btn_url']['url']).'"';
-                                    } else {
-                                        $href = '';
-                                    }
-                                    if ( $accordion['exad_accordion_read_more_btn_url']['is_external'] === 'on' ) {
-                                        $target = ' target= _blank';
-                                    } else {
-                                        $target = '';
-                                    }
-                                    if ( $accordion['exad_accordion_read_more_btn_url']['nofollow'] === 'on' ) {
-                                        $target .= ' rel= nofollow ';
-                                    }  
+									if( $accordion['exad_accordion_read_more_btn_url']['url'] ) {
+									    $this->add_render_attribute( $link_key, 'href', esc_url( $accordion['exad_accordion_read_more_btn_url']['url'] ) );
+									    if( $accordion['exad_accordion_read_more_btn_url']['is_external'] ) {
+									        $this->add_render_attribute( $link_key, 'target', '_blank' );
+									    }
+									    if( $accordion['exad_accordion_read_more_btn_url']['nofollow'] ) {
+									        $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+									    }
+									}
                                     if ( ! empty( $accordion['exad_accordion_read_more_btn_text'] ) ) :
                                         echo '<div '.$this->get_render_attribute_string( 'exad_accordion_button' ).'>';
-                                            echo '<a '.$href.esc_attr($target).'>'.esc_html($accordion['exad_accordion_read_more_btn_text']).'</a>';
+                                            echo '<a '.$this->get_render_attribute_string( $link_key ).'>';
+                                            	echo esc_html( $accordion['exad_accordion_read_more_btn_text'] );
+                                            echo '</a>';
                                         echo '</div>'; 
-                                    endif;  
+                                    endif;
                                 endif;
                             echo '</div>';
 
