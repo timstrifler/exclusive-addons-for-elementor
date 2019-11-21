@@ -4219,6 +4219,11 @@ text-align: right;
   object-fit: cover;
 }
 
+.elementor .exad-team-member-thumb img {
+  height: 100%;
+  width: 100%;
+}
+
 .exad-team-member-cta{
   text-decoration: none;
   display: inline-block;

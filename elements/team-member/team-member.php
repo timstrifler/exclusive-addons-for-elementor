@@ -516,13 +516,56 @@ class Exad_Team_Member extends Widget_Base {
 			[
 				'label'      => __( 'Top Spacing', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px'],
+				'size_units' => [ 'px', '%' ],
 				'default'    => [
 					'unit'   => 'px',
 					'size'   => 0
 				],
+				'range'        => [
+                    'px'       => [
+                        'min'  => -300,
+                        'max'  => 300,
+                        'step' => 5
+                    ],
+                    '%'        => [
+                        'min'  => -50%,
+                        'max'  => 50%,
+                        'step' => 1
+                    ]
+                ],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-team-member-thumb' => 'margin-top: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_section_team_members_thumbnail_box' => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_section_team_members_thumbnail_box_margin_bottom',
+			[
+				'label'      => __( 'Bottom Spacing', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'default'    => [
+					'unit'   => 'px',
+					'size'   => 0
+				],
+				'range'        => [
+                    'px'       => [
+                        'min'  => -300,
+                        'max'  => 300,
+                        'step' => 5
+                    ],
+                    '%'        => [
+                        'min'  => -50%,
+                        'max'  => 50%,
+                        'step' => 1
+                    ]
+                ],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-team-member-thumb' => 'margin-bottom: {{SIZE}}{{UNIT}};'
 				],
 				'condition'  => [
 					'exad_section_team_members_thumbnail_box' => 'yes'
