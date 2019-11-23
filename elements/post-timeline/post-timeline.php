@@ -103,7 +103,7 @@ class Exad_Post_Timeline extends Widget_Base {
 				'options'  => [
 					'asc'  => __( 'Ascending', 'exclusive-addons-elementor' ),
 					'desc' => __( 'Descending', 'exclusive-addons-elementor' )
-                ]
+                ],
                 'default'  => 'desc'
 
             ]

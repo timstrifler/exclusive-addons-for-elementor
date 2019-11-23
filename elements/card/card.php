@@ -387,18 +387,6 @@ class Exad_Card extends Widget_Base {
 				'toggle'    => false				
 			]
 		);
-
-		$this->add_control(
-			'exad_card_content_background',
-			[
-				'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
-					'{{WRAPPER}} .exad-card-body' => 'background-color: {{VALUE}};'
-				]
-			]
-		);
 		
 		$this->add_responsive_control(
 			'exad_card_content_padding',

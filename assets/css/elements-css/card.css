@@ -13,7 +13,6 @@
 }
 
 .exad-card.default .exad-card-thumb img {
-  width: 100%;
   display: block;
 }
 
@@ -96,6 +95,17 @@
 
 .exad-card-thumb {
   overflow: hidden;
+}
+
+.exad-card.left .exad-card-thumb img {
+  margin-right: auto;
+}
+.exad-card.center .exad-card-thumb img {
+  margin-left: auto;
+  margin-right: auto;
+}
+.exad-card.right .exad-card-thumb img {
+  margin-left: auto;
 }
 
 .exad-card.text_on_image .exad-card-thumb img {
