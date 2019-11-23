@@ -92,28 +92,58 @@ final class Base {
     public function __construct() {
         $this->exad_initiate_elements();
         $this->includes();
+        $this->register_hooks();
         $this->exclusive_addons_appsero_init();
-
-        add_action( 'init', [ $this, 'i18n' ] );
-        // Placeholder image replacement
-        add_filter( 'elementor/utils/get_placeholder_image_src', array( $this, 'exad_set_placeholder_image' ), 30 );
-        // Plugin Settings URL
-        add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'exad_plugin_settings_action' ) );
-        // Registering Elementor Widget Category
-        add_action( 'elementor/elements/categories_registered', array( $this, 'exad_register_category' ) );
-        // Enqueue Styles and Scripts
-        add_action( 'elementor/frontend/after_register_scripts', array( $this, 'exad_enqueue_scripts' ), 20 );
-        // Load Main script
-        add_action( 'elementor/frontend/after_enqueue_scripts', array( $this, 'exad_core_files_enqueue' ) );
-        // Elementor Editor Styles
-        add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'exad_editor_scripts' ) );
-        // Add Elementor Widgets
-        add_action( 'elementor/widgets/widgets_registered', array( $this, 'exad_init_widgets' ) );
-        // Add Body Class 
-        add_filter( 'body_class', array( $this, 'add_body_classes' ) );
         
         self::$registered_elements = apply_filters( 'exad/registered_elements', $this->exad_default_widgets );
         sort( self::$registered_elements );
+    }
+
+    // register hooks
+    public function register_hooks() {
+
+        if ( is_admin() ) {
+            // Check if Elementor installed and activated
+            if ( ! did_action( 'elementor/loaded' ) ) {
+                add_action( 'admin_notices', [ $this, 'admin_notice_missing_main_plugin' ] );
+                return;
+            }
+
+            // Check for required Elementor version
+            if ( ! version_compare( ELEMENTOR_VERSION, MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
+                add_action( 'admin_notices', [ $this, 'admin_notice_minimum_elementor_version' ] );
+                return;
+            }
+
+            // Check for required PHP version
+            if ( version_compare( PHP_VERSION, MINIMUM_PHP_VERSION, '<' ) ) {
+                add_action( 'admin_notices', [ $this, 'admin_notice_minimum_php_version' ] );
+                return;
+            }
+
+            add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
+
+            // Plugin Settings URL
+            add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'exad_plugin_settings_action' ) );
+
+        }
+
+        add_action( 'init', [ $this, 'i18n' ] );
+        // Placeholder image replacement
+        add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'exad_set_placeholder_image' ], 30 );
+        // Registering Elementor Widget Category
+        add_action( 'elementor/elements/categories_registered', [ $this, 'exad_register_category' ] );
+        // Enqueue Styles and Scripts
+        add_action( 'elementor/frontend/after_register_scripts', [ $this, 'exad_enqueue_scripts' ], 20 );
+        // Load Main script
+        add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'exad_core_files_enqueue' ] );
+        // Elementor Editor Styles
+        add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'exad_editor_scripts' ] );
+        // Add Elementor Widgets
+        add_action( 'elementor/widgets/widgets_registered', [ $this, 'exad_init_widgets' ] );
+        // Add Body Class 
+        add_filter( 'body_class', [ $this, 'add_body_classes' ] );
+
     }
 
 
@@ -277,6 +307,116 @@ final class Base {
         // Main Plugin Scripts
         wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
     }
+
+    /**
+     * Admin notice
+     * Warning when the site doesn't have Elementor installed or activated.
+     *
+     * @since 1.0.0
+     *
+     * @access public
+     */
+    public function admin_notice_missing_main_plugin() {
+
+        if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
+
+        $elementor_path = 'elementor/elementor.php';
+
+        if ( $this->is_elementor_activated() ) {
+            if( ! current_user_can( 'activate_plugins' ) ) {
+                return;
+            }
+            $activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $elementor_path . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $elementor_path );
+            $message = __( '<strong>Exclusive Addons for Elementor</strong> won\'t work without the help of <strong>Elementor</strong> plugin. Please activate Elementor.', 'exclusive-addons-elementor' );
+            $button_text = __( 'Activate Elementor', 'exclusive-addons-elementor' );
+            } else {
+            if( ! current_user_can( 'install_plugins' ) ) {
+                return;
+            }
+            $activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
+            $message = sprintf( __( '<strong>Exclusive Addons for Elementor</strong> won\'t work without the help of <strong>Elementor</strong> plugin. Please install Elementor.', 'exclusive-addons-elementor' ), '<strong>', '</strong>' );
+            $button_text = __( 'Install Elementor', 'exclusive-addons-elementor' );
+            }
+
+        $button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
+        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', __( $message ), $button );
+
+    }
+
+    /**
+     * Admin notice
+     *
+     * Warning when the site doesn't have a minimum required Elementor version.
+     *
+     * @since 1.0.0
+     *
+     * @access public
+     */
+    public function admin_notice_minimum_elementor_version() {
+
+        if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
+
+        $message = sprintf(
+            /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'exclusive-addons-elementor' ),
+            '<strong>' . esc_html__( 'Exclusive Addons Elementor', 'exclusive-addons-elementor' ) . '</strong>',
+            '<strong>' . esc_html__( 'Elementor', 'exclusive-addons-elementor' ) . '</strong>',
+            MINIMUM_ELEMENTOR_VERSION
+        );
+
+        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+
+    }
+
+    /**
+     * Admin notice
+     *
+     * Warning when the site doesn't have a minimum required PHP version.
+     *
+     * @since 1.0.0
+     *
+     * @access public
+     */
+    public function admin_notice_minimum_php_version() {
+
+        if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
+
+        $message = sprintf(
+            /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
+            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'exclusive-addons-elementor' ),
+            '<strong>' . esc_html__( 'Exclusive Addons Elementor', 'exclusive-addons-elementor' ) . '</strong>',
+            '<strong>' . esc_html__( 'PHP', 'exclusive-addons-elementor' ) . '</strong>',
+            MINIMUM_PHP_VERSION
+        );
+
+        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+
+    }
+
+    /**
+     * Plugin Redirect Hook
+     * 
+     */
+    public function plugin_redirect_hook() {
+        if ( get_option( 'exad_do_update_redirect', false ) ) {
+            delete_option( 'exad_do_update_redirect' );
+            if ( !isset($_GET['activate-multi'] ) && $this->is_elementor_activated() ) {
+                wp_redirect( 'admin.php?page=exad-settings' );
+                exit;
+            }
+        }
+    }
+
+    /**
+     * Check to see if Elementor is Activated
+     * 
+     * @since 1.0.2
+     */
+    public function is_elementor_activated( $plugin_path = 'elementor/elementor.php' ){
+        $installed_plugins_list = get_plugins();
+        return isset( $installed_plugins_list[ $plugin_path ] );
+    }
+
 
     /*
     *
