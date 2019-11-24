@@ -3782,6 +3782,7 @@ text-align: right;
 
 .exad-pricing-table-header {
   position: relative;
+  z-index: -1;
 }
 
 .exad-pricing-table-header .exad-pricing-table-header-curved svg {
@@ -3866,6 +3867,7 @@ text-align: right;
 .exad-pricing-table-badge-wrapper {
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .exad-pricing-table-wrapper{
