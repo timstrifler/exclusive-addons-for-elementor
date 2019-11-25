@@ -1,7 +1,16 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-class Exad_Testimonial extends Widget_Base { 
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Background;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Utils;
+use \Elementor\Widget_Base;
+
+class Testimonial extends Widget_Base { 
 
     public function get_name() {
 		return 'exad-testimonial';

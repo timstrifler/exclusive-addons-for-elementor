@@ -1,9 +1,13 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Exad_Dual_Heading extends Widget_Base {
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Widget_Base;
+
+class Dual_Heading extends Widget_Base {
 	
 	public function get_name() {
 		return 'exad-exclusive-dual-heading';

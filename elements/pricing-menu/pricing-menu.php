@@ -1,11 +1,21 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
-class Exad_Pricing_Menu extends Widget_Base {
+use \Elementor\Controls_Manager;
+use \Elementor\Repeater;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Control_Media;
+use \Elementor\Group_Control_Background;
+use \Elementor\Utils;
+use \Elementor\Widget_Base;
+
+class Pricing_Menu extends Widget_Base {
     
-    //use ElementsCommonFunctions;
     public function get_name() {
         return 'exad-pricing-menu';
     }

@@ -1,9 +1,12 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Exad_Google_Maps extends Widget_Base {
+use \Elementor\Controls_Manager;
+use \Elementor\Widget_Base;
+
+class Google_Maps extends Widget_Base {
 
 	public function get_name() {
 		return 'exad-google-maps';

@@ -1,9 +1,17 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-if (!defined('ABSPATH')) exit; // If this file is called directly, abort.
+if (!defined('ABSPATH')) exit;
 
-class Exad_Filterable_Gallery extends Widget_Base
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Utils;
+use \Elementor\Widget_Base;
+
+class Filterable_Gallery extends Widget_Base
 {
 
     public function get_name(){

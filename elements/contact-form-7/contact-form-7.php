@@ -1,12 +1,21 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Scheme_Typography;
+use \Elementor\Widget_Base;
+use \Elementor\Group_Control_Background;
+use \ExclusiveAddons\Elementor\Helper;
 
 /**
  * Contact Form 7 Element
  */
-class Exad_Contact_Form_7 extends Widget_Base {
+class Contact_Form_7 extends Widget_Base {
     
     /**
 	 * Retrieve contact form 7 widget name.
@@ -84,7 +93,7 @@ class Exad_Contact_Form_7 extends Widget_Base {
                 'label'       => esc_html__( 'Select Form', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::SELECT,
                 'label_block' => true,
-                'options'     => Exad_Helper::exad_retrive_contact_form(),
+                'options'     => Helper::exad_retrive_contact_form(),
                 'default'     => '0'
 			]
 		);

@@ -15,7 +15,7 @@ echo '<article class="exad-post-grid-three exad-col">';
                 if( 'yes' == $settings['exad_post_grid_show_category'] && 'yes' != $settings['exad_post_grid_category_default_position'] ) :
                     if('-top-right' == $settings['exad_post_grid_category_position_over_image']):
                         echo '<ul class="exad-post-grid-category postion-top-right">';
-                            Elementor\Exad_Helper::exad_get_categories_for_post();
+                            \ExclusiveAddons\Elementor\Helper::exad_get_categories_for_post();
                         echo '</ul>';
                     endif;
                 endif;
@@ -25,7 +25,7 @@ echo '<article class="exad-post-grid-three exad-col">';
         echo '<div class="exad-post-grid-body">';
             if('yes' == $settings['exad_post_grid_show_category'] && ('yes' == $settings['exad_post_grid_category_default_position'] || '-bottom-left' == $cat_position_over_image )) :
                 echo '<ul class="exad-post-grid-category cat-pos'.esc_attr($cat_position_over_image).'">';
-                    Elementor\Exad_Helper::exad_get_categories_for_post();
+                    \ExclusiveAddons\Elementor\Helper::exad_get_categories_for_post();
                 echo '</ul>';
             endif;
 
@@ -68,7 +68,7 @@ echo '<article class="exad-post-grid-three exad-col">';
             if( 'yes' == $settings['exad_post_grid_show_read_time'] || 'yes' == $settings['exad_post_grid_show_comment'] ) : 
                 echo '<ul class="exad-post-grid-time-comment">';
                     if( 'yes' == $settings['exad_post_grid_show_read_time'] ) :
-                        echo '<li class="exad-post-grid-read-time">'.Elementor\Exad_Helper::exad_reading_time( get_the_content() ).'</li>';
+                        echo '<li class="exad-post-grid-read-time">'.\ExclusiveAddons\Elementor\Helper::exad_reading_time( get_the_content() ).'</li>';
                     endif;
 
                     if( 'yes' == $settings['exad_post_grid_show_comment'] ) :
@@ -81,7 +81,7 @@ echo '<article class="exad-post-grid-three exad-col">';
             
             do_action('exad_post_grid_excerpt_wrapper_before');
             if('yes' == $settings['exad_post_grid_show_excerpt']):
-                echo '<p class="exad-post-grid-description">'.Elementor\Exad_Helper::exad_get_post_excerpt( get_the_ID(), wp_kses_post( $settings['exad_grid_excerpt_length'] ) ).'</p>';
+                echo '<p class="exad-post-grid-description">'.\ExclusiveAddons\Elementor\Helper::exad_get_post_excerpt( get_the_ID(), wp_kses_post( $settings['exad_grid_excerpt_length'] ) ).'</p>';
             endif;
             do_action('exad_post_grid_excerpt_wrapper_after');
 

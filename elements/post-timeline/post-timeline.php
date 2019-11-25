@@ -1,9 +1,17 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Exad_Post_Timeline extends Widget_Base {
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Background;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
+
+class Post_Timeline extends Widget_Base {
 
 	public function get_name() {
 		return 'exad-post-timeline';
@@ -35,7 +43,7 @@ class Exad_Post_Timeline extends Widget_Base {
             [
 				'label'   => __( 'Post Type', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SELECT,
-				'options' => Exad_Helper::exad_get_post_types(),
+				'options' => Helper::exad_get_post_types(),
 				'default' => 'post'
 
             ]
@@ -67,7 +75,7 @@ class Exad_Post_Timeline extends Widget_Base {
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Exad_Helper::exad_get_authors()
+				'options'     => Helper::exad_get_authors()
             ]
         );
 
@@ -79,7 +87,7 @@ class Exad_Post_Timeline extends Widget_Base {
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Exad_Helper::exad_get_all_categories()
+				'options'     => Helper::exad_get_all_categories()
             ]
         );
 
@@ -91,7 +99,7 @@ class Exad_Post_Timeline extends Widget_Base {
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Exad_Helper::exad_get_all_tags()
+				'options'     => Helper::exad_get_all_tags()
             ]
         );
 
@@ -563,7 +571,7 @@ class Exad_Post_Timeline extends Widget_Base {
 	protected function render( ) {
 		$settings                  = $this->get_settings_for_display();		
 		$settings['template_type'] = $this->get_name();
-		$settings['post_args']     = Exad_Helper::exad_get_post_arguments($settings, 'exad_post_timeline');
+		$settings['post_args']     = Helper::exad_get_post_arguments($settings, 'exad_post_timeline');
 		
 		$this->add_render_attribute(
 			'exad_post_timeline_wrapper',
@@ -583,7 +591,7 @@ class Exad_Post_Timeline extends Widget_Base {
         ?>
 
 		<div class="exad-post-timeline">
-          	<?php Exad_Helper::exad_get_posts( $settings ); ?>
+          	<?php Helper::exad_get_posts( $settings ); ?>
         </div>  
 		<?php
 	}

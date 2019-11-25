@@ -90,6 +90,8 @@ final class Base {
      * @access public
      */
     public function __construct() {
+
+        do_action( 'exad/before_init' );
         $this->exad_initiate_elements();
         $this->includes();
         $this->register_hooks();
@@ -469,10 +471,12 @@ final class Base {
                         continue;
                     }	
                 } 
-                include_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
+
+                
+                //include_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
 
                 $widget_name = str_replace( '-', '_', $widget );
-                $widget_class = '\Elementor\Exad_' . ucwords( $widget_name, '_' );
+                $widget_class = '\ExclusiveAddons\Elementor\\' . ucwords( $widget_name, '_' );
                 if ( class_exists( $widget_class ) ) {
                     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $widget_class );
                 }

@@ -1,7 +1,7 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-class Exad_Helper {
+class Helper {
     /**
      *
      * Get list of Post Types

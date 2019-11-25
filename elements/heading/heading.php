@@ -1,9 +1,15 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Exad_Heading extends Widget_Base {
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Background;
+use \Elementor\Widget_Base;
+
+class Heading extends Widget_Base {
 	
 	//use ElementsCommonFunctions;
 	public function get_name() {

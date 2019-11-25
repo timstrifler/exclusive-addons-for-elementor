@@ -1,7 +1,17 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-class Exad_Modal_Popup extends Widget_Base {
+use \Elementor\Controls_Manager;
+use \Elementor\Repeater;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Background;
+use \Elementor\Icons_Manager;
+use \Elementor\Utils;
+use \Elementor\Widget_Base;
+
+class Modal_Popup extends Widget_Base {
 	
 	public function get_name() {
 		return 'exad-modal-popup';
