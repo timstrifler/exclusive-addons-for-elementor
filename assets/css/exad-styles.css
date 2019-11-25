@@ -4391,6 +4391,7 @@ text-align: right;
   font-family: eicons;
   transform: translateX(-50%);
   font-size: 25px;
+  line-height: 1;
 }
 
 .exad-testimonial-content-wrapper-arrow{
