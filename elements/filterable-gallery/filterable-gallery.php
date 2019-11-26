@@ -8,6 +8,8 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Control_Media;
+use \Elementor\Icons_Manager;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 
@@ -1044,7 +1046,7 @@ class Filterable_Gallery extends Widget_Base
                                                             'data-elementor-lightbox-slideshow' => $this->get_id(),
                                                             'data-elementor-lightbox-index' => $index
                                                         ] );
-                                                        if ( Plugin::$instance->editor->is_edit_mode() ) {
+                                                        if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
                                                             $this->add_render_attribute( $link_key, [
                                                                 'class' => 'elementor-clickable'
                                                             ] );

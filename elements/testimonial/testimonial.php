@@ -9,6 +9,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \Elementor\Control_Media;
 
 class Testimonial extends Widget_Base { 
 
