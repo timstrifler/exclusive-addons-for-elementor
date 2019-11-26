@@ -1,5 +1,5 @@
 <?php
-namespace ExclusiveAddons\Elementor;
+namespace ExclusiveAddons\Elements;
 
 use \Elementor\Controls_Manager;
 use \Elementor\Repeater;

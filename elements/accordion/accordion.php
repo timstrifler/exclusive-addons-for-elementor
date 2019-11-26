@@ -1,5 +1,5 @@
 <?php
-namespace ExclusiveAddons\Elementor;
+namespace ExclusiveAddons\Elements;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 

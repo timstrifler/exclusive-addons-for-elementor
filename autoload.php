@@ -9,7 +9,7 @@ spl_autoload_register( 'exad_autoload_classes' );
 
 function exad_autoload_classes( $class ) {
     // project-specific namespace prefix
-    $prefix = 'ExclusiveAddons\Elementor\\';
+    $prefix = 'ExclusiveAddons\Elements\\';
 
     // base directory for the namespace prefix
     $base_dir = EXAD_PATH . 'elements/';
@@ -34,7 +34,7 @@ function exad_autoload_classes( $class ) {
 
     // if the file exists, require it
     if (file_exists($file)) {
-        require $file;
+        require_once $file;
     }
     
 }

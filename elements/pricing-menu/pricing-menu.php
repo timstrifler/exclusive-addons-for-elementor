@@ -1,5 +1,5 @@
 <?php
-namespace ExclusiveAddons\Elementor;
+namespace ExclusiveAddons\Elements;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 

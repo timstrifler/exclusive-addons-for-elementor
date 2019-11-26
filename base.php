@@ -48,7 +48,7 @@ final class Base {
      * 
      * @return array
      */
-    public $exad_default_widgets = array(); 
+    public $default_widgets = array(); 
 
     /**
      * 
@@ -92,12 +92,12 @@ final class Base {
     public function __construct() {
 
         do_action( 'exad/before_init' );
-        $this->exad_initiate_elements();
+        $this->initiate_elements();
         $this->includes();
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
         
-        self::$registered_elements = apply_filters( 'exad/registered_elements', $this->exad_default_widgets );
+        self::$registered_elements = apply_filters( 'exad/registered_elements', $this->default_widgets );
         sort( self::$registered_elements );
     }
 
@@ -126,23 +126,23 @@ final class Base {
             add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
 
             // Plugin Settings URL
-            add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'exad_plugin_settings_action' ) );
+            add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'plugin_settings_action' ) );
 
         }
 
         add_action( 'init', [ $this, 'i18n' ] );
         // Placeholder image replacement
-        add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'exad_set_placeholder_image' ], 30 );
+        add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'set_placeholder_image' ], 30 );
         // Registering Elementor Widget Category
-        add_action( 'elementor/elements/categories_registered', [ $this, 'exad_register_category' ] );
+        add_action( 'elementor/elements/categories_registered', [ $this, 'register_category' ] );
         // Enqueue Styles and Scripts
-        add_action( 'elementor/frontend/after_register_scripts', [ $this, 'exad_enqueue_scripts' ], 20 );
+        add_action( 'elementor/frontend/after_register_scripts', [ $this, 'enqueue_scripts' ], 20 );
         // Load Main script
-        add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'exad_core_files_enqueue' ] );
+        add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'core_files_enqueue' ] );
         // Elementor Editor Styles
-        add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'exad_editor_scripts' ] );
+        add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'editor_scripts' ] );
         // Add Elementor Widgets
-        add_action( 'elementor/widgets/widgets_registered', [ $this, 'exad_init_widgets' ] );
+        add_action( 'elementor/widgets/widgets_registered', [ $this, 'initiate_widgets' ] );
         // Add Body Class 
         add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 
@@ -171,7 +171,7 @@ final class Base {
      * Register Exclusive Elementor Addons category
      *
      */
-    public function exad_register_category( $elements_manager ) {
+    public function register_category( $elements_manager ) {
 
         $elements_manager->add_category(
             'exclusive-addons-elementor',
@@ -188,7 +188,7 @@ final class Base {
      * 
      * @since 1.2.2
      */
-    public function exad_initiate_elements() {
+    public function initiate_elements() {
 
         $dir = new \RecursiveDirectoryIterator( EXAD_PATH . 'elements/' );
         $child_dir = new \RecursiveIteratorIterator($dir);
@@ -196,7 +196,7 @@ final class Base {
         
         foreach( $files as $file ) {
             $filename = basename( $file, '.php' );
-            $this->exad_default_widgets[] = $filename;
+            $this->default_widgets[] = $filename;
         }
     }
 
@@ -226,7 +226,7 @@ final class Base {
      * 
      * Add Plugin Action link for settings page
      */
-    public function exad_plugin_settings_action( $links ) {
+    public function plugin_settings_action( $links ) {
         $settings_link = sprintf( '<a href="admin.php?page=exad-settings">' . __( 'Settings', 'exclusive-addons-elementor' ) . '</a>' );
         array_push( $links, $settings_link );
         return $links;
@@ -236,7 +236,7 @@ final class Base {
      * 
      * Placeholder Image
      */
-    public function exad_set_placeholder_image() {
+    public function set_placeholder_image() {
         return EXAD_ASSETS_URL . 'img/placeholder.jpg';
     }
 
@@ -245,7 +245,7 @@ final class Base {
      * Enqueue Elementor Editor Styles
      * 
      */
-    public function exad_editor_scripts() {
+    public function editor_scripts() {
         wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.css' );
         wp_enqueue_script( 'exad-editor-script', EXAD_ASSETS_URL . 'js/exad-editor-script.js', array( 'elementor-editor' ), '1.0', true );
     }
@@ -254,7 +254,7 @@ final class Base {
     * Enqueue Plugin Styles and Scripts
     *
     */
-    public function exad_enqueue_scripts() {
+    public function enqueue_scripts() {
 
         $is_activated_widget = $this->activated_widgets();
 
@@ -303,7 +303,7 @@ final class Base {
      * Front end main script
      * 
      */
-    public function exad_core_files_enqueue() {
+    public function core_files_enqueue() {
         // Main Plugin Styles
         wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.css' );
         // Main Plugin Scripts
@@ -460,7 +460,7 @@ final class Base {
      *
      * @access public
      */
-    public function exad_init_widgets() {
+    public function initiate_widgets() {
         
         $activated_widgets = $this->activated_widgets();
         foreach( self::$registered_elements as $widget ) {
@@ -472,11 +472,8 @@ final class Base {
                     }	
                 } 
 
-                
-                //include_once EXAD_ELEMENTS . $widget . '/' .$widget . '.php';
-
                 $widget_name = str_replace( '-', '_', $widget );
-                $widget_class = '\ExclusiveAddons\Elementor\\' . ucwords( $widget_name, '_' );
+                $widget_class = '\ExclusiveAddons\Elements\\' . ucwords( $widget_name, '_' );
                 if ( class_exists( $widget_class ) ) {
                     \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $widget_class );
                 }
