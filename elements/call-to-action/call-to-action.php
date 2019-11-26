@@ -7,6 +7,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
 
 class Call_To_Action extends Widget_Base {
