@@ -832,7 +832,7 @@ class Accordion extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_exclusive_accordion_content_typography',
-				'selector' => '{{WRAPPER}} .exad-accordion-single-item .exad-accordion-text p'
+				'selector' => '{{WRAPPER}} .exad-accordion-single-item .exad-accordion-text'
 			]
 		);
 
@@ -855,7 +855,7 @@ class Accordion extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#000000',
 				'selectors' => [
-					'{{WRAPPER}} .exad-accordion-single-item .exad-accordion-text p' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-accordion-single-item .exad-accordion-text' => 'color: {{VALUE}};'
 				]
 			]
 		);

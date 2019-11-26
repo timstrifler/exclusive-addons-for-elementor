@@ -813,7 +813,7 @@ class Call_To_Action extends Widget_Base {
                         echo '</div>';
                     }
 
-                    $heading ? printf('<h1 '.$this->get_render_attribute_string( 'exad_cta_heading' ).'>%s</h1>', esc_html($heading)) : '';
+                    $heading ? printf('<h1 '.$this->get_render_attribute_string( 'exad_cta_heading' ).'>%s</h1>', wp_kses_post($heading)) : '';
 
                     if( $details ):
                         echo '<div '.$this->get_render_attribute_string( 'exad_cta_description' ).'>';

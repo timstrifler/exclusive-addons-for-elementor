@@ -560,12 +560,13 @@ class Contact_Form_7 extends Widget_Base {
                 'selectors'  => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'default'    => [
-                    'top'    => 20,
-                    'right'  => 50,
-                    'bottom' => 20,
-                    'left'   => 50,
-                    'unit'   => 'px'
+                'default'      => [
+                    'top'      => 20,
+                    'right'    => 50,
+                    'bottom'   => 20,
+                    'left'     => 50,
+                    'unit'     => 'px',
+                    'isLinked' => false
                 ]
             ]
         );
@@ -631,7 +632,7 @@ class Contact_Form_7 extends Widget_Base {
             [
                 'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#724cff',
+                'default'   => '#7a56ff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'background-color: {{VALUE}}'
                 ]
@@ -656,7 +657,7 @@ class Contact_Form_7 extends Widget_Base {
                         ]
                     ],
                     'color'       => [
-                        'default' => '#724cff'
+                        'default' => '#7a56ff'
                     ]
                 ],
                 'selector'       => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]'
@@ -677,7 +678,7 @@ class Contact_Form_7 extends Widget_Base {
             [
                 'label'     => __( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#724cff',
+                'default'   => '#7a56ff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]:hover' => 'color: {{VALUE}}'
                 ]
@@ -689,7 +690,7 @@ class Contact_Form_7 extends Widget_Base {
             [
                 'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#FFF',
+                'default'   => '#ffffff',
                 'selectors' => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]:hover' => 'background-color: {{VALUE}}'
                 ]
