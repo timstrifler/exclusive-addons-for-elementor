@@ -196,7 +196,6 @@ var GoogleMaps = function($scope, $) {
     $latitude               = $googleMaps.data('exad-lat'),
     $longitude              = $googleMaps.data('exad-lng'),
     $mapTheme               = $googleMaps.data('exad-theme'),
-    $mapAddressType         = $googleMaps.data('exad-address-type'),
     $mapZoom                = $googleMaps.data('exad-zoom'),
     $mapAddress             = $googleMaps.data('exad-address'),
     $map_streeview_control  = $googleMaps.data('exad-streeview-control'),
@@ -217,10 +216,6 @@ var GoogleMaps = function($scope, $) {
         fullscreenControl: $map_fullscreen_control,
         scrollwheel: $map_scroll_zoom,
         mapTypeId: $mapTheme,
-    }).marker(function (map) {
-        return {
-            position: map.getCenter(),
-        };
     }).styledmaptype(
         "standard",
         [],
