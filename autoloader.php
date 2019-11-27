@@ -19,7 +19,7 @@ function exad_autoload_classes( $class ) {
         return;
     }
 
-	$relative_class = substr($class, $len);
+	$relative_class = substr($class, $length);
 	$relative_class = str_replace( '_', '-', $relative_class );
 	$relative_class = strtolower( $relative_class );
 	$class_file = str_replace('\\', '/', $relative_class);
