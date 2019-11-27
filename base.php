@@ -436,7 +436,7 @@ final class Base {
      *
     * @since  1.0
     */
-    public static function activated_widgets() {
+    public function activated_widgets() {
         
         $exad_default_settings  = array_fill_keys( self::$registered_elements, true );
         $exad_get_settings      = get_option( 'exad_save_settings', $exad_default_settings );
