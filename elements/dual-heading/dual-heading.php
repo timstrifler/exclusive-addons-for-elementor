@@ -166,31 +166,37 @@ class Dual_Heading extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
+        $this->add_responsive_control(
+            'exad_dual_heading_icon_size',
             [
-                'name'           => 'exad_dual_heading_icon_typography',
-                'selector'       => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon i',                
-                'exclude'        => [ 'text_transform', 'font_family' ],
-                'fields_options' => [
-                    'font_size'    => [
-                        'default'  => [
-                            'unit' => 'px',
-                            'size' => 36
-                        ]
+                'label'      => __( 'Icon Size', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range'      => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 150,
+                        'step' => 2
                     ]
+                ],
+                'default'    => [
+                    'unit'   => 'px',
+                    'size'   => 36
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon i' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
                 'condition' => [
                     'exad_dual_heading_icon_show'    => 'yes',
                     'exad_dual_heading_icon[value]!' => ''
-                ]  
+                ]
             ]
-        );
+        );        
 
         $this->add_responsive_control(
             'exad_dual_heading_icon_margin',
             [
-                'label'      => __('Margin', 'exclusive-addons-elementor'),
+                'label'      => __('Icon Margin', 'exclusive-addons-elementor'),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%'],
                 'default'    => [
