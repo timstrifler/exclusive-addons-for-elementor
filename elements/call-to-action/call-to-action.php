@@ -389,23 +389,28 @@ class Call_To_Action extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
+        $this->add_responsive_control(
+            'exad_call_to_action_icon_size',
             [
-                'name'           => 'exad_call_to_action_icon_typography',
-                'selector'       => '{{WRAPPER}} .exad-call-to-action-icon i',                
-                'exclude'        => [ 'text_transform', 'font_family' ],
-                'fields_options' => [
-                    'font_size'    => [
-                        'default'  => [
-                            'unit' => 'px',
-                            'size' => 40
-                        ]
+                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 150,
+                        'step' => 2
                     ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 40
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-call-to-action-icon i' => 'font-size: {{SIZE}}px;'
                 ],
                 'condition' => [
                     'exad_cta_icon[value]!' => ''
-                ]  
+                ]
             ]
         );
 

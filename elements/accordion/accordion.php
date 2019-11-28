@@ -582,16 +582,30 @@ class Accordion extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'exad_accordion_title_icon_typography',
-				'selector' => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon i'
-			]
-		);
+		$this->add_responsive_control(
+            'exad_accordion_title_icon_size',
+            [
+                'label'        => __( 'Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 150,
+                        'step' => 2
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 20
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon i' => 'font-size: {{SIZE}}{{UNIT}};'
+                ]
+            ]
+        );   
 
 	    $this->add_responsive_control(
-      		'exad_accordion_title_icon_size',
+      		'exad_accordion_title_icon_width',
       		[
 				'label'    => esc_html__( 'Width', 'exclusive-addons-elementor' ),
 				'type'     => Controls_Manager::SLIDER,
@@ -716,9 +730,20 @@ class Accordion extends Widget_Base {
 	    $this->add_responsive_control(
       		'exad_accordion_active_inactive_icon_size',
       		[
-				'label'     => esc_html__( 'Size', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::SLIDER,
-				'selectors' => [
+				'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 150,
+                        'step' => 2
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 20
+                ],
+				'selectors'    => [
 		          	'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-inactive-icon i' => 'font-size: {{SIZE}}px;'
 		        ]
 	      	]

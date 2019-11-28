@@ -169,24 +169,23 @@ class Dual_Heading extends Widget_Base {
         $this->add_responsive_control(
             'exad_dual_heading_icon_size',
             [
-                'label'      => __( 'Icon Size', 'exclusive-addons-elementor' ),
-                'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px', '%' ],
-                'range'      => [
+                'label'        => __( 'Icon Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
                     'px'       => [
                         'min'  => 10,
                         'max'  => 150,
                         'step' => 2
                     ]
                 ],
-                'default'    => [
-                    'unit'   => 'px',
-                    'size'   => 36
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 36
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon i' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
-                'condition' => [
+                'condition'    => [
                     'exad_dual_heading_icon_show'    => 'yes',
                     'exad_dual_heading_icon[value]!' => ''
                 ]

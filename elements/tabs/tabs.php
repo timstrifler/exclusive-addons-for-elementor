@@ -542,13 +542,24 @@ class Tabs extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_exclusive_tabs_icon_box_height',
 			[
-				'label'     => esc_html__( 'Icon Box Height', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::NUMBER,
-				'default'   => '100',
-				'selectors' => [
-					'{{WRAPPER}} .exad-advance-tab-nav li' => 'height: {{VALUE}}px;'
+				'label'        => __( 'Icon Box Height', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px' ],
+				'range'        => [
+					'px' 	   => [
+						'min'  => 0,
+						'max'  => 200,
+						'step' => 1
+					],
 				],
-				'condition' => [
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 100
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-advance-tab-nav li' => 'height: {{SIZE}}{{UNIT}};'
+				],
+				'condition'    => [
 					'exad_exclusive_tabs_icon_box_show' => 'yes'
 				]
 			]
@@ -557,13 +568,24 @@ class Tabs extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_exclusive_tabs_icon_box_width',
 			[
-				'label'     => esc_html__( 'Icon Box Width', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::NUMBER,
-				'default'   => '100',
-				'selectors' => [
-					'{{WRAPPER}} .exad-advance-tab-nav li' => 'width: {{VALUE}}px;'
+				'label'        => __( 'Icon Box Width', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px' ],
+				'range'        => [
+					'px' 	   => [
+						'min'  => 0,
+						'max'  => 200,
+						'step' => 1
+					],
 				],
-				'condition' => [
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 100
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-advance-tab-nav li' => 'width: {{SIZE}}{{UNIT}};'
+				],
+				'condition'    => [
 					'exad_exclusive_tabs_icon_box_show' => 'yes'
 				]
 			]
@@ -572,13 +594,24 @@ class Tabs extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_exclusive_tabs_icon_box_line_height',
 			[
-				'label'     => esc_html__( 'Icon Line Height', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::NUMBER,
-				'default'   => '50',
-				'selectors' => [
-					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'line-height: {{VALUE}}px;'
+				'label'        => __( 'Icon Box Width', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px' ],
+				'range'        => [
+					'px' 	   => [
+						'min'  => 0,
+						'max'  => 200,
+						'step' => 1
+					],
 				],
-				'condition' => [
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 50
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'line-height: {{SIZE}}{{UNIT}};'
+				],
+				'condition'    => [
 					'exad_exclusive_tabs_icon_box_show' => 'yes'
 				]
 			]
@@ -587,21 +620,21 @@ class Tabs extends Widget_Base {
 		$this->add_responsive_control(
 			'exclusive_tabs_navigation_icon_size',
 			[
-				'label'      => __( 'Icon Size', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
-				'range'      => [
+				'label'        => __( 'Icon Size', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px' ],
+				'range'        => [
 					'px' 	   => [
-						'min'  => 0,
+						'min'  => 10,
 						'max'  => 100,
 						'step' => 1
 					],
 				],
-				'default'    => [
-					'unit'   => 'px',
-					'size'   => 24
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 24
 				],
-				'selectors'  => [
+				'selectors'    => [
 					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'font-size: {{SIZE}}{{UNIT}};'
 				]
 			]
@@ -610,10 +643,10 @@ class Tabs extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_exclusive_tabs_icon_margin',
 			[
-				'label'       => __( 'Margin', 'exclusive-addons-elementor' ),
-				'type'        => Controls_Manager::DIMENSIONS,
-				'size_units'  => [ 'px', '%', 'em' ],
-				'default'     => [
+				'label'        => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::DIMENSIONS,
+				'size_units'   => [ 'px', '%', 'em' ],
+				'default'      => [
 					'top'      => '0',
 					'right'    => '10',
 					'bottom'   => '0',

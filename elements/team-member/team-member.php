@@ -1065,14 +1065,17 @@ class Team_Member extends Widget_Base {
 		$this->end_controls_section();
 		
 		/**
-		 * Social icon style
+		 * Social icons style
 		 */
 
         $this->start_controls_section(
             'exad_team_member_social_section',
             [
-				'label' => __('Social Icon', 'exclusive-addons-elementor'),
-				'tab'   => Controls_Manager::TAB_STYLE
+				'label'     => __('Social Icons', 'exclusive-addons-elementor'),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_team_member_enable_social_profiles!' => ''
+				]
             ]
 		);
 		
@@ -1080,21 +1083,21 @@ class Team_Member extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_team_members_social_icon_size',
 			[
-				'label'      => __( 'Size', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px' ],
-				'range'      => [
+				'label'        => __( 'Size', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px' ],
+				'range'        => [
 					'px'       => [
 						'min'  => 0,
 						'max'  => 50,
 						'step' => 1
 					]
 				],
-				'default'    => [
-					'unit'   => 'px',
-					'size'   => 14
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 14
 				],
-				'selectors'  => [
+				'selectors'    => [
 					'{{WRAPPER}} .exad-team-member-social li a i' => 'font-size: {{SIZE}}{{UNIT}};'
 				]
 			]

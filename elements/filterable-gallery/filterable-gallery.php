@@ -632,28 +632,28 @@ class Filterable_Gallery extends Widget_Base
         $this->add_responsive_control(
             'exad_fg_item_icon_size',
             [
-                'label'      => esc_html__('Size', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::SLIDER,
-                'size_units' => ['px'],
-                'default'    => [
-                    'size' => 60,
-                    'unit' => 'px'
+                'label'          => esc_html__('Size', 'exclusive-addons-elementor'),
+                'type'           => Controls_Manager::SLIDER,
+                'size_units'     => ['px'],
+                'default'        => [
+                    'size'       => 60,
+                    'unit'       => 'px'
                 ],
                 'tablet_default' => [
-                    'size' => 50,
-                    'unit' => 'px'
+                    'size'       => 50,
+                    'unit'       => 'px'
                 ],
                 'mobile_default' => [
-                    'size' => 40,
-                    'unit' => 'px'
+                    'size'       => 40,
+                    'unit'       => 'px'
                 ],
-                'range'         => [
-                    'px'        => [
-                        'min'   => 0,
-                        'max'   => 80
+                'range'          => [
+                    'px'         => [
+                        'min'    => 0,
+                        'max'    => 80
                     ]
                 ],
-                'selectors'     => [
+                'selectors'      => [
                     '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
                 ] 
             ]

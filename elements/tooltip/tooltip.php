@@ -223,8 +223,38 @@ class Tooltip extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name'     => 'exad_tooltip_content_typography',
-                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-content'
+                'label'     => __( 'Text Typography', 'exclusive-addons-elementor' ),
+                'name'      => 'exad_tooltip_button_text_typography',
+                'selector'  => '{{WRAPPER}} .exad-tooltip .exad-tooltip-content',
+                'condition' => [
+                    'exad_tooltip_type' => [ 'text' ]
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_tooltip_button_icon_size',
+            [
+                'label'        => __( 'Icon Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'size_units'   => [ 'px' ],
+                'range'        => [
+                    'px'       => [
+                        'min'  => 0,
+                        'max'  => 100,
+                        'step' => 1
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 18
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-content i' => 'font-size: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'    => [
+                    'exad_tooltip_type' => [ 'icon' ]
+                ]
             ]
         );
 

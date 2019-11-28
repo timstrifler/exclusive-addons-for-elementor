@@ -361,11 +361,18 @@ class Infobox extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_infobox_icon_height',
 			[
-				'label'     => esc_html__( 'Height', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::NUMBER,
-				'default'   => '80',
-				'selectors' => [
-				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'height: {{VALUE}}px;'
+				'label'       => esc_html__( 'Height', 'exclusive-addons-elementor' ),
+				'type'    	  => Controls_Manager::SLIDER,
+				'default'     => [
+					'size'    => 80
+			  	],
+			  	'range'       => [
+				  	'px'      => [
+					  	'max' => 250
+				  	]
+			 	],
+			  	'selectors'   => [
+				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'height: {{SIZE}}px;'
 			  	]
 			]
 		);
@@ -373,11 +380,18 @@ class Infobox extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_infobox_icon_width',
 			[
-				'label'     => esc_html__( 'Width', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::NUMBER,
-				'default'   => '80',
-				'selectors' => [
-				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'width: {{VALUE}}px;'
+				'label'       => esc_html__( 'Width', 'exclusive-addons-elementor' ),
+				'type'    	  => Controls_Manager::SLIDER,
+				'default'     => [
+					'size'    => 80
+			  	],
+			  	'range'       => [
+				  	'px'      => [
+					  	'max' => 250
+				  	]
+			 	],
+			  	'selectors'   => [
+				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'width: {{SIZE}}px;'
 			  	]
 			]
 		);
@@ -385,17 +399,17 @@ class Infobox extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_infobox_icon_font_size',
 			[
-				'label'   => esc_html__( 'Icon Size', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::SLIDER,
-				'default' => [
+				'label'       => esc_html__( 'Icon Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => [
 					'size'    => 35
 			  	],
-			  	'range'   => [
-				  	'px'  => [
+			  	'range'       => [
+				  	'px'      => [
 					  	'max' => 100
 				  	]
 			 	],
-			  	'selectors' => [
+			  	'selectors'   => [
 				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon i' => 'font-size: {{SIZE}}px;'
 			  	],
 				'condition'   => [

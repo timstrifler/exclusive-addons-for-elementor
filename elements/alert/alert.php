@@ -229,21 +229,24 @@ class Alert extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
+        $this->add_responsive_control(
+            'exad_alert_icon_size',
             [
-                'name'           => 'exad_alert_icon_typography',
-                'selector'       => '{{WRAPPER}} .exad-alert .exad-alert-element .exad-alert-element-icon i',                
-                'fields_options' => [
-                    'font_size'   => [
-                        'default' => [
-                            'unit' => 'px',
-                            'size' => 24
-                        ]
+                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 150,
+                        'step' => 2
                     ]
                 ],
-                'exclude'  => [
-                    'text_transform', 'font_family'
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 24
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-alert .exad-alert-element .exad-alert-element-icon i' => 'font-size: {{SIZE}}px;'
                 ]
             ]
         );
@@ -260,7 +263,7 @@ class Alert extends Widget_Base {
                 ],
                 'range'       => [
                     'px'      => [
-                        'max' => 100
+                        'max' => 200
                     ]
                 ],
                 'selectors'   => [

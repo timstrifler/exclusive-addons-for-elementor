@@ -114,11 +114,13 @@ class News_Ticker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_set_bottom_fixed',
             [
-                'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Set Bottom?', 'exclusive-addons-elementor' ),
-                'default'       => 'no',
-                'return_value'  => 'yes',
-                'description'   => esc_html__('Stick the news ticker to the bottom of the page.', 'exclusive-addons-elementor')
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Set Bottom', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'no',
+                'return_value' => 'yes',
+                'description'  => esc_html__('Stick the news ticker to the bottom of the page.', 'exclusive-addons-elementor')
             ]
         );
 
@@ -185,21 +187,25 @@ class News_Ticker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_autoplay',
             [
-                'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Autoplay?', 'exclusive-addons-elementor' ),
-                'default'       => 'yes',
-                'return_value'  => 'yes'
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Autoplay', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'yes',
+                'return_value' => 'yes'
             ]
         );        
 
         $this->add_control(
             'exad_news_ticker_pause_on_hover',
             [
-                'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Pause On Hover?', 'exclusive-addons-elementor' ),
-                'default'       => 'yes',
-                'return_value'  => 'yes',
-                'condition'     => [
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Pause On Hover', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'yes',
+                'return_value' => 'yes',
+                'condition'    => [
                     '.exad_news_ticker_autoplay' => 'yes'
                 ]                
             ]
@@ -208,35 +214,87 @@ class News_Ticker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_show_label',
             [
-                'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Show Label?', 'exclusive-addons-elementor' ),
-                'default'       => 'yes',
-                'return_value'  => 'yes'
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Label', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'yes',
+                'return_value' => 'yes'
             ]
         );
 
         $this->add_control(
+            'exad_news_ticker_show_label_arrow',
+            [
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Label Arrow', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'no',
+                'return_value' => 'yes',
+                'condition'    => [
+                    'exad_news_ticker_show_label' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_news_ticker_show_label_icon',
+            [
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Label Icon.', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'no',
+                'return_value' => 'yes',
+                'condition'    => [
+                    'exad_news_ticker_show_label' => 'yes'
+                ]
+            ]
+        ); 
+
+        $this->add_control(
             'exad_news_ticker_show_controls',
             [
-                'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Show Controls?', 'exclusive-addons-elementor' ),
-                'default'       => 'yes',
-                'return_value'  => 'yes'
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Controls', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'yes',
+                'return_value' => 'yes'
             ]
         );  
 
         $this->add_control(
             'exad_news_ticker_show_pause_control',
             [
-                'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Show Play/Pause Control?', 'exclusive-addons-elementor' ),
-                'default'       => 'yes',
-                'return_value'  => 'yes',
-                'condition'     => [
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Play/Pause Control', 'exclusive-addons-elementor' ),
+                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'yes',
+                'return_value' => 'yes',
+                'condition'    => [
                     'exad_news_ticker_show_controls' => 'yes'
                 ]
             ]
-        );  
+        );         
+
+        $this->add_control(
+            'exad_news_ticker_label_icon',
+            [
+                'label'       => __( 'Label Icon', 'exclusive-addons-elementor' ),
+                'type'        => Controls_Manager::ICONS,
+                'default'     => [
+                    'value'   => 'fas fa-home',
+                    'library' => 'fa-solid'
+                ],
+                'condition'   => [
+                    'exad_news_ticker_show_label'      => 'yes',
+                    'exad_news_ticker_show_label_icon' => 'yes'
+                ]
+            ]
+        ); 
 
         $this->end_controls_section();
 
@@ -383,49 +441,36 @@ class News_Ticker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_label_icon_style',
             [
-                'label'         => esc_html__( 'Label Icon', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::HEADING,
-                'separator'     => 'before'
-            ]
-        );
-
-        $this->add_control(
-            'exad_news_ticker_show_label_icon',
-            [
-                'type'          => Controls_Manager::SWITCHER,
-                'label'         => esc_html__( 'Enable Label Icon.', 'exclusive-addons-elementor' ),
-                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
-                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
-                'default'       => 'no',
-                'return_value'  => 'yes'
-            ]
-        ); 
-
-        $this->add_control(
-            'exad_news_ticker_label_icon',
-            [
-                'label'   => __( 'Label Icon', 'exclusive-addons-elementor' ),
-                'type'    => Controls_Manager::ICONS,
-                'default' => [
-                    'value'   => 'fas fa-home',
-                    'library' => 'fa-solid'
-                ],
+                'label'     => esc_html__( 'Label Icon', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before',
                 'condition' => [
-                    'exad_news_ticker_show_label_icon' => 'yes'
+                    'exad_news_ticker_show_label_icon'    => 'yes',
+                    'exad_news_ticker_label_icon[value]!' => ''
                 ]
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
+        
+
+        $this->add_responsive_control(
+            'exad_news_ticker_label_icon_size',
             [
-                'name'     => 'exad_news_ticker_label_icon_typography',
-                'selector' => '{{WRAPPER}} .exad-news-ticker-icon i',                
-                'exclude'  => [
-                    'text_transform', 'font_family'
+                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 50,
+                        'step' => 2
+                    ]
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-news-ticker-icon i' => 'font-size: {{SIZE}}px;'
                 ],
                 'condition' => [
-                    'exad_news_ticker_show_label_icon' => 'yes'
+                    'exad_news_ticker_show_label_icon'    => 'yes',
+                    'exad_news_ticker_label_icon[value]!' => ''
                 ]
             ]
         );
@@ -439,7 +484,8 @@ class News_Ticker extends Widget_Base {
                     '{{WRAPPER}} .exad-news-ticker-icon i' => 'color: {{VALUE}};'
                 ],
                 'condition' => [
-                    'exad_news_ticker_show_label_icon' => 'yes'
+                    'exad_news_ticker_show_label_icon'    => 'yes',
+                    'exad_news_ticker_label_icon[value]!' => ''
                 ]            
             ]
         );
@@ -459,28 +505,10 @@ class News_Ticker extends Widget_Base {
                 'selectors'  => [
                     '{{WRAPPER}} .exad-news-ticker-icon i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'condition'  => [
-                    'exad_news_ticker_show_label_icon' => 'yes'
+                'condition' => [
+                    'exad_news_ticker_show_label_icon'    => 'yes',
+                    'exad_news_ticker_label_icon[value]!' => ''
                 ]
-            ]
-        );
-
-        $this->add_control(
-            'exad_news_ticker_label_with_arrow_style',
-            [
-                'label'     => esc_html__( 'Label With Arrow', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::HEADING,
-                'separator' => 'before'
-            ]
-        );
-
-        $this->add_control(
-            'exad_news_ticker_show_label_arrow',
-            [
-                'type'         => Controls_Manager::SWITCHER,
-                'label'        => esc_html__( 'Show Label Arrow?', 'exclusive-addons-elementor' ),
-                'default'      => 'no',
-                'return_value' => 'yes'
             ]
         ); 
 

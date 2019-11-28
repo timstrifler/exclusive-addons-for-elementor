@@ -340,7 +340,7 @@ class Flipbox extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_front_icon_box_height_width',
 			[
-				'label'       => __( 'Icon Box Size', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Box Size', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
@@ -355,29 +355,37 @@ class Flipbox extends Widget_Base {
                 ],
 				'selectors'   => [
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-front .exad-flip-box-front-image' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
-				]
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'exad_flipbox_front_icon_typography',
-				'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-front .exad-flip-box-front-image i',
-			 	'fields_options'   => [
-		            'font_size'    => [
-		                'default'  => [
-		                    'unit' => 'px',
-		                    'size' => 50
-		                ]
-		            ]
-	            ],
-				'exclude'   => [ 'text_transform', 'font_family' ],
+				],
 				'condition' => [
                     'exad_flipbox_front_icon[value]!' => ''
                 ]
 			]
 		);
+
+		$this->add_responsive_control(
+            'exad_flipbox_front_icon_size',
+            [
+                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 150,
+                        'step' => 2
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 50
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-flip-box .exad-flip-box-front .exad-flip-box-front-image i' => 'font-size: {{SIZE}}px;'
+                ],
+                'condition' => [
+                    'exad_flipbox_front_icon[value]!' => ''
+                ]
+            ]
+        );
 
 		$this->add_control(
 			'exad_flipbox_front_icon_color',
@@ -654,7 +662,7 @@ class Flipbox extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_icon_box_height_width',
 			[
-				'label'       => __( 'Icon Box Size', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Box Size', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
@@ -669,21 +677,33 @@ class Flipbox extends Widget_Base {
                 ],
 				'selectors'   => [
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-image' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
-				]
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'      => 'exad_flipbox_back_icon_typography',
-				'selector'  => '{{WRAPPER}} .exad-flip-box .exad-flip-box-back i',
-				'exclude'   => [ 'text_transform', 'font_family' ],
+				],
 				'condition' => [
                     'exad_flipbox_back_icon[value]!' => ''
                 ]
 			]
 		);
+
+		$this->add_responsive_control(
+            'exad_flipbox_back_icon_size',
+            [
+                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 150,
+                        'step' => 2
+                    ]
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-flip-box .exad-flip-box-back i' => 'font-size: {{SIZE}}px;'
+                ],
+                'condition'    => [
+                    'exad_flipbox_back_icon[value]!' => ''
+                ]
+            ]
+        );
 
 		$this->add_control(
 			'exad_flipbox_back_icon_color',
