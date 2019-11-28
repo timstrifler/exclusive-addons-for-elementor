@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
 
 class Dual_Heading extends Widget_Base {
