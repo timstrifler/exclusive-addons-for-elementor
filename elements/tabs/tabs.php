@@ -592,32 +592,6 @@ class Tabs extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'exad_exclusive_tabs_icon_box_line_height',
-			[
-				'label'        => __( 'Icon Box Width', 'exclusive-addons-elementor' ),
-				'type'         => Controls_Manager::SLIDER,
-				'size_units'   => [ 'px' ],
-				'range'        => [
-					'px' 	   => [
-						'min'  => 0,
-						'max'  => 200,
-						'step' => 1
-					],
-				],
-				'default'      => [
-					'unit'     => 'px',
-					'size'     => 50
-				],
-				'selectors'    => [
-					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'line-height: {{SIZE}}{{UNIT}};'
-				],
-				'condition'    => [
-					'exad_exclusive_tabs_icon_box_show' => 'yes'
-				]
-			]
-		);
-
-		$this->add_responsive_control(
 			'exclusive_tabs_navigation_icon_size',
 			[
 				'label'        => __( 'Icon Size', 'exclusive-addons-elementor' ),
@@ -636,6 +610,32 @@ class Tabs extends Widget_Base {
 				],
 				'selectors'    => [
 					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'font-size: {{SIZE}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_exclusive_tabs_icon_box_line_height',
+			[
+				'label'        => __( 'Icon Line Height', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px' ],
+				'range'        => [
+					'px' 	   => [
+						'min'  => 0,
+						'max'  => 200,
+						'step' => 1
+					],
+				],
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 50
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'line-height: {{SIZE}}{{UNIT}};'
+				],
+				'condition'    => [
+					'exad_exclusive_tabs_icon_box_show' => 'yes'
 				]
 			]
 		);
