@@ -976,11 +976,11 @@ class Accordion extends Widget_Base {
                 'options'       => [
                     'left'      => [
                         'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-left'
+                        'icon'  => 'eicon-angle-left'
                     ],
                     'right'     => [
                         'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-right'
+                        'icon'  => 'eicon-angle-right'
                     ]
                 ],
                 'default'       => 'right'

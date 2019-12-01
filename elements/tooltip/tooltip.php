@@ -49,15 +49,15 @@ class Tooltip extends Widget_Base {
                 'options'     => [
 					'icon'      => [
 						'title' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-info'
+						'icon'  => 'eicon-info-circle'
 					],
 					'text'      => [
 						'title' => esc_html__( 'Text', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-text-width'
+						'icon'  => 'eicon-text-area'
 					],
 					'image'     => [
 						'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-image'
+						'icon'  => 'eicon-image-bold'
 					]
 				],
 				'default'     => 'icon'
@@ -128,15 +128,15 @@ class Tooltip extends Widget_Base {
                 'options' => [
                     'left'      => [
                         'title' => __( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-left'
+                        'icon'  => 'eicon-text-align-left'
                     ],
                     'center'    => [
                         'title' => __( 'Center', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-center'
+                        'icon'  => 'eicon-text-align-center'
                     ],
                     'right'     => [
                         'title' => __( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-right'
+                        'icon'  => 'eicon-text-align-right'
                     ]
                 ],
                 'default'       => 'center',

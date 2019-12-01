@@ -2452,6 +2452,17 @@ ul.exad-call-to-action-buttons {
   text-indent: -9999px;
 }
 
+.exad-logo-carousel-left img{
+  margin-right: auto;
+}
+.exad-logo-carousel-center img{
+  margin-left: auto;
+  margin-right: auto;
+}
+.exad-logo-carousel-right img{
+  margin-left: auto;
+}
+
 .exad-logo-carousel-element .exad-logo-carousel-prev, 
 .exad-logo-carousel-element .exad-logo-carousel-next {
   position: absolute;

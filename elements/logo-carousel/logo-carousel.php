@@ -178,6 +178,31 @@ class Logo_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_logo_carousel_alignment',
+			[
+				'label'       => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'toggle'      => false,
+				'label_block' => true,
+				'options'     => [
+					'exad-logo-carousel-left'   => [
+						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-left'
+					],
+					'exad-logo-carousel-center' => [
+						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-center'
+					],
+					'exad-logo-carousel-right'  => [
+						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-right'
+					]
+				],
+				'default'     => 'exad-logo-carousel-center'
+			]
+		);
+
+		$this->add_control(
 			'exad_logo_carousel_item_radius',
 			[
 				'label'      => esc_html__( 'Item Radius', 'exclusive-addons-elementor' ),
@@ -750,7 +775,7 @@ class Logo_Carousel extends Widget_Base {
 						$logo_image_url = $logo_image_url_src;
 					}
 
-					echo '<div class="exad-logo-carousel-item">';
+					echo '<div class="exad-logo-carousel-item '.esc_attr( $settings['exad_logo_carousel_alignment'] ).'">';
 						echo '<img src="'.esc_url( $logo_image_url ).'" alt="'.Control_Media::get_image_alt( $logo['exad_logo_carousel_image'] ).'">';
 					echo '</div>';						
 				endforeach;

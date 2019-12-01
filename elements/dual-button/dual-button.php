@@ -94,11 +94,11 @@ class Dual_Button extends Widget_Base {
                         'options'   => [
                             'exad-icon-pos-left'  => [
                                 'title' => __( 'Left', 'exclusive-addons-elementor' ),
-                                'icon'  => 'fa fa-angle-left'
+                                'icon'  => 'eicon-angle-left'
                             ],
                             'exad-icon-pos-right' => [
                                 'title' => __( 'Right', 'exclusive-addons-elementor' ),
-                                'icon'  => 'fa fa-angle-right'
+                                'icon'  => 'eicon-angle-right'
                             ]
                         ],
                         'default'   => 'exad-icon-pos-left',
@@ -219,11 +219,11 @@ class Dual_Button extends Widget_Base {
                         'options'   => [
                             'exad-icon-pos-left'  => [
                                 'title' => __( 'Left', 'exclusive-addons-elementor' ),
-                                'icon'  => 'fa fa-angle-left'
+                                'icon'  => 'eicon-angle-left'
                             ],
                             'exad-icon-pos-right' => [
                                 'title' => __( 'Right', 'exclusive-addons-elementor' ),
-                                'icon'  => 'fa fa-angle-right'
+                                'icon'  => 'eicon-angle-right'
                             ]
                         ],
                         'default'   => 'exad-icon-pos-left',
@@ -259,15 +259,15 @@ class Dual_Button extends Widget_Base {
                 'options' => [
 					'exad-dual-button-align-left'   => [
                         'title' => __( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-left'
+                        'icon'  => 'eicon-text-align-left'
 					],
 					'exad-dual-button-align-center' => [
                         'title' => __( 'Center', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-center'
+                        'icon'  => 'eicon-text-align-center'
 					],
 					'exad-dual-button-align-right'  => [
                         'title' => __( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-align-right'
+                        'icon'  => 'eicon-text-align-right'
 					]
 				],
                 'default' => 'exad-dual-button-align-center'

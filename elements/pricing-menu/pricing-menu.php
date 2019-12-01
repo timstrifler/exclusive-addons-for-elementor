@@ -663,11 +663,11 @@ class Pricing_Menu extends Widget_Base {
                 'options' => [
                     'price_pos_down' => [
                         'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-down'
+                        'icon'  => 'eicon-arrow-down'
                     ],
                     'price_pos_right' => [
                         'title' => __( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-right'
+                        'icon'  => 'eicon-arrow-right'
                     ],
                 ],
                 'default' => 'price_pos_right'

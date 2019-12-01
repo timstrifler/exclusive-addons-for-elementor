@@ -56,18 +56,18 @@ class Infobox extends Widget_Base {
 				'options'     => [
 					'none'      => [
 						'title' => esc_html__( 'None', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-ban'
+						'icon'  => 'eicon-ban'
 					],
 					'icon'      => [
 						'title' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-info-circle'
+						'icon'  => 'eicon-info-circle'
 					],
 					'img'       => [
 						'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-picture-o'
+						'icon'  => 'eicon-image-bold'
 					]
 				],
-				'default'     => 'icon'
+				'default'       => 'icon'
 			]
 		);
 		
@@ -163,15 +163,15 @@ class Infobox extends Widget_Base {
 				'options' => [
 					'exad-infobox-align-left'   => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-left'
+						'icon'  => 'eicon-text-align-left'
 					],
 					'exad-infobox-align-center' => [
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-center'
+						'icon'  => 'eicon-text-align-center'
 					],
 					'exad-infobox-align-right'  => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-right'
+						'icon'  => 'eicon-text-align-right'
 					]
 				],
 				'default' => 'exad-infobox-align-center'
@@ -343,15 +343,15 @@ class Infobox extends Widget_Base {
 				'options' => [
 					'exad-infobox-icon-position-left'   => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-left'
+						'icon'  => 'eicon-arrow-left'
 					],
 					'exad-infobox-icon-position-center' => [
-						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-up'
+						'title' => __( 'Top', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-arrow-up'
 					],
 					'exad-infobox-icon-position-right'  => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-right'
+						'icon'  => 'eicon-arrow-right'
 					]
 				],
 				'default' => 'exad-infobox-icon-position-center'

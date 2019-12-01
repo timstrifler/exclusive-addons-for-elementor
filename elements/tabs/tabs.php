@@ -76,15 +76,15 @@ class Tabs extends Widget_Base {
                         'options'     => [
                             'none'      => [
                                 'title' => esc_html__( 'None', 'exclusive-addons-elementor' ),
-                                'icon'  => 'fa fa-ban'
+                                'icon'  => 'eicon-ban'
                             ],
                             'icon'      => [
                                 'title' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-                                'icon'  => 'fa fa-gear'
+                                'icon'  => 'eicon-info-circle'
                             ],
                             'image'     => [
                                 'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-                                'icon'  => 'fa fa-picture-o'
+                                'icon'  => 'eicon-image-bold'
                             ]
                         ],
                         'default'       => 'none'
@@ -231,15 +231,15 @@ class Tabs extends Widget_Base {
 				'options' => [
 					'exad-tab-align-left'   => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-left'
+						'icon'  => 'eicon-text-align-left'
 					],
 					'exad-tab-align-center' => [
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-center'
+						'icon'  => 'eicon-text-align-center'
 					],
 					'exad-tab-align-right'  => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-right'
+						'icon'  => 'eicon-text-align-right'
 					]
 				],
 				'condition' => [
@@ -475,11 +475,11 @@ class Tabs extends Widget_Base {
 				'options' => [
                     'exad-tab-triangle-right'  => [
 						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-right'
+						'icon'  => 'eicon-arrow-right'
                     ],
                     'exad-tab-triangle-bottom' => [
 						'title' => esc_html__( 'Bottom', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-down'
+						'icon'  => 'eicon-arrow-down'
                     ]
                 ],
 				'return_value' => 'yes',
@@ -841,11 +841,11 @@ class Tabs extends Widget_Base {
 				'options' => [
                     'exad-tab-image-left' => [
                         'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-left'
+                        'icon'  => 'eicon-arrow-left'
                     ],
                     'exad-tab-image-right' => [
                         'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-right'
+                        'icon'  => 'eicon-arrow-right'
                     ]
                 ],
                 'default' => 'exad-tab-image-right'

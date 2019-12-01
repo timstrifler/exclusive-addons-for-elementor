@@ -119,15 +119,15 @@ class Animated_Text extends Widget_Base {
 				'options' => [
 					'exad-animated-text-align-left'   => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-left'
+						'icon'  => 'eicon-text-align-left'
 					],
 					'exad-animated-text-align-center' => [
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-center'
+						'icon'  => 'eicon-text-align-center'
 					],
 					'exad-animated-text-align-right'  => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-align-right'
+						'icon'  => 'eicon-text-align-right'
 					]
 				],
 				'default' => 'exad-animated-text-align-center'

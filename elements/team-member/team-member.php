@@ -433,15 +433,15 @@ class Team_Member extends Widget_Base {
                 'options'       => [
                     'exad-position-left'  => [
                         'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-left'
+                        'icon'  => 'eicon-arrow-left'
                     ],
                     'exad-position-top'   => [
                         'title' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-up'
+                        'icon'  => 'eicon-arrow-up'
                     ],
                     'exad-position-right' => [
                         'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'fa fa-angle-right'
+                        'icon'  => 'eicon-arrow-right'
                     ]
                 ]
             ]
@@ -649,15 +649,15 @@ class Team_Member extends Widget_Base {
 				'options' => [
 					'exad-left'   => [
 						'title'   => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon'    => 'fa fa-align-left'
+						'icon'    => 'eicon-text-align-left'
 					],
 					'exad-center' => [
 						'title'   => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon'    => 'fa fa-align-center'
+						'icon'    => 'eicon-text-align-center'
 					],
 					'exad-right'  => [
 						'title'   => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon'    => 'fa fa-align-center'
+						'icon'    => 'eicon-text-align-right'
 					]
 				],
 				'default' => 'exad-center'

@@ -146,19 +146,19 @@ class Testimonial extends Widget_Base {
 				'options' => [
 					'exad-testimonial-align-left' => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-left'
+						'icon'  => 'eicon-arrow-left'
 					],
 					'exad-testimonial-align-center' => [
 						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-up'
+						'icon'  => 'eicon-arrow-up'
 					],
 					'exad-testimonial-align-right' => [
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-right'
+						'icon'  => 'eicon-arrow-right'
 					],
 					'exad-testimonial-align-bottom' => [
 						'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
-						'icon'  => 'fa fa-angle-down'
+						'icon'  => 'eicon-arrow-down'
 					]
 				],
 				'default' => 'exad-testimonial-align-left'
