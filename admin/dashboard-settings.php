@@ -54,7 +54,7 @@ class Admin_Settings {
 	 */
 	public function enqueue_admin_scripts( $hook ) {
 
-        wp_enqueue_style( 'exad-notice-css', EXAD_ADMIN_URL . 'assets/css/exad-notice.css' );
+        wp_enqueue_style( 'exad-notice-css', EXAD_ADMIN_URL . 'assets/css/exad-notice.min.css' );
 		if( isset( $hook ) && $hook == 'toplevel_page_exad-settings' ) {
 			wp_enqueue_style( 'exad-admin-css', EXAD_ADMIN_URL . 'assets/css/exad-admin.min.css' );
 			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.min.js', array( 'jquery'), EXAD_PLUGIN_VERSION, true );

@@ -93,6 +93,10 @@ gulp.task('cleanmin', function () {
 gulp.task('copy', function () {
     return gulp.src([
         '**/*',
+        '!assets/css/elements-css',
+        '!assets/css/elements-css/**',
+        '!assets/js/elements-js',
+        '!assets/js/elements-js/**',
         '!.gitignore',
         '!package.json',
         '!package-lock.json',
