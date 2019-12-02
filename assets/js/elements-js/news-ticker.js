@@ -2,13 +2,13 @@
 /**
  * News Ticker
  */  
-let ExadNewsTicker = function( $scope, $ ) {
+var ExadNewsTicker = function( $scope, $ ) {
 
     var $exad_news_ticker = $scope.find(".exad-news-ticker");
 
     if ( $.isFunction($.fn.breakingNews) ) {  
         $exad_news_ticker.each(function() {
-            let t             = $(this),
+            var t             = $(this),
             auto              = t.data("autoplay") ? !0 : !1,
             the_effect        = t.data("animation") ? t.data("animation") : '',                                   
             fixed_bottom      = t.data("bottom_fixed") ? t.data("bottom_fixed") : '',                                   

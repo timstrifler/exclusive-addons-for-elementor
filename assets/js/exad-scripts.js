@@ -375,8 +375,10 @@ var LogoCarousel = function ($scope, $) {
 var ModalPopup = function ($scope, $) {
 
     var $modalWrapper = $scope.find('.exad-modal').eq(0),
-            $modalAction = $modalWrapper.find('.exad-modal-image-action'),
-            $closeButton = $modalWrapper.find('.exad-close-btn');
+        $modalOverlayWrapper = $scope.find('.exad-modal-overlay'),
+        $modalItem = $scope.find('.exad-modal-item'),
+        $modalAction = $modalWrapper.find('.exad-modal-image-action'),
+        $closeButton = $modalWrapper.find('.exad-close-btn');
 
     $modalAction.on("click", function(e) {
         e.preventDefault();
@@ -384,8 +386,8 @@ var ModalPopup = function ($scope, $) {
         var modal = $(this).data("exad-modal");
         
         var $overlay = $(this).data("exad-overlay");
-        $('.exad-modal-item').css('display', 'block');
-        setTimeout(() => {
+        $modalItem.css('display', 'block');
+        setTimeout( function() {
             $(modal).addClass('active');
         }, 100);
         if ( $overlay == "yes" ) {
@@ -394,32 +396,14 @@ var ModalPopup = function ($scope, $) {
         
     });
 
-		// setTimeout(function() {
-		// 		var $modalOverlay = $modalAction.parents().eq(1).next();
-		// 		var modal = $modalAction.data("exad-modal");
-				
-		// 		var $overlay = $modalAction.data("exad-overlay");
-
-		// 		$(modal).addClass('active');
-		// 		if ( $overlay == "yes" ) {
-		// 			$modalOverlay.addClass('active');
-		// 		}
-		// 	},5000
-		// );
-
     $closeButton.click(function() {
         var $modalOverlay = $(this).parents().eq(3).next();
         var $modalItem = $(this).parents().eq(2);
         $modalOverlay.removeClass('active');
         $modalItem.removeClass('active');
-        // setTimeout(() => {
-        //     $('.exad-modal-item').css('display', 'none');
-        // }, 500);
 
         var $modal_iframe 		= $modalWrapper.find( 'iframe' ),
             $modal_video_tag 	= $modalWrapper.find( 'video' );
-
-            console.log($modal_iframe);
 
         if ( $modal_iframe.length ) {
             var $modal_src = $modal_iframe.attr( "src" ).replace( "&autoplay=1", "" );
@@ -433,16 +417,14 @@ var ModalPopup = function ($scope, $) {
         
     });
 
-    $('.exad-modal-overlay').click(function(){
+    $modalOverlayWrapper.click(function(){
         var $overlay_click_close = $(this).data("exad_overlay_click_close");
         if( $overlay_click_close == "yes" ){
             $(this).removeClass('active');
             $('.exad-modal-item').removeClass('active');
 
-            var $modal_iframe 		= $modalWrapper.find( 'iframe' ),
-            $modal_video_tag 	= $modalWrapper.find( 'video' );
-
-            console.log($modal_iframe);
+            var $modal_iframe = $modalWrapper.find( 'iframe' ),
+            $modal_video_tag = $modalWrapper.find( 'video' );
 
             if ( $modal_iframe.length ) {
                 var $modal_src = $modal_iframe.attr( "src" ).replace( "&autoplay=1", "" );
@@ -461,13 +443,13 @@ var ModalPopup = function ($scope, $) {
 /**
  * News Ticker
  */  
-let ExadNewsTicker = function( $scope, $ ) {
+var ExadNewsTicker = function( $scope, $ ) {
 
     var $exad_news_ticker = $scope.find(".exad-news-ticker");
 
     if ( $.isFunction($.fn.breakingNews) ) {  
         $exad_news_ticker.each(function() {
-            let t             = $(this),
+            var t             = $(this),
             auto              = t.data("autoplay") ? !0 : !1,
             the_effect        = t.data("animation") ? t.data("animation") : '',                                   
             fixed_bottom      = t.data("bottom_fixed") ? t.data("bottom_fixed") : '',                                   

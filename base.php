@@ -248,7 +248,6 @@ final class Base {
      */
     public function editor_scripts() {
         wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.css' );
-        wp_enqueue_script( 'exad-editor-script', EXAD_ASSETS_URL . 'js/exad-editor-script.js', array( 'elementor-editor' ), '1.0', true );
     }
 
     /**
