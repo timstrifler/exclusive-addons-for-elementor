@@ -1,13 +1,11 @@
 <?php
 namespace ExclusiveAddons\Elementor\Dashboard;
+
 /**
  * Dashboard Settings Page
  */
 
-
-if( ! defined( 'ABSPATH' ) ) {
-    exit(); // Exit if accessed directly
-}
+if( ! defined( 'ABSPATH' ) ) exit();
 
 use \ExclusiveAddons\Elementor\Base;
 
@@ -51,23 +49,15 @@ class Admin_Settings {
 	 * @param
 	 * @return void
 	 * @since 1.0.1
-	 */
-<<<<<<< HEAD
-	public function enqueue_exad_admin_scripts( $hook ) {
-        wp_enqueue_style( 'exad-notice-css', EXAD_ADMIN_URL . 'assets/css/exad-notice.css' );
-		if( isset( $hook ) && $hook == 'toplevel_page_exad-settings' ) {
-			wp_enqueue_style( 'exad-admin-css', EXAD_ADMIN_URL . 'assets/css/exad-admin.css' );
-			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.js', array( 'jquery'), '1.0', true );
-			wp_enqueue_style( 'wp-color-picker' );
-	        wp_enqueue_script( 'wp-color-picker-alpha', EXAD_ADMIN_URL . 'assets/js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '1.0.0', true );
-=======
+	 */	
 	public function enqueue_admin_scripts( $hook ) {
 
         wp_enqueue_style( 'exad-notice-css', EXAD_ADMIN_URL . 'assets/css/exad-notice.min.css' );
 		if( isset( $hook ) && $hook == 'toplevel_page_exad-settings' ) {
 			wp_enqueue_style( 'exad-admin-css', EXAD_ADMIN_URL . 'assets/css/exad-admin.min.css' );
 			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.min.js', array( 'jquery'), EXAD_PLUGIN_VERSION, true );
->>>>>>> 510fa8e47b6ce6f84d4e3cf12f98b5eaa605af8f
+			wp_enqueue_style( 'wp-color-picker' );
+	        wp_enqueue_script( 'wp-color-picker-alpha', EXAD_ADMIN_URL . 'assets/vendor/js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), EXAD_PLUGIN_VERSION, true );
 		}
 	}
 
@@ -80,7 +70,7 @@ class Admin_Settings {
 	public function create_admin_menu() {
 
 		$title = __( 'Exclusive Addons', 'exclusive-addons-elementor' );
-		add_menu_page( $title, $title, 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/ex-menu-icon.svg', 58.4 );
+		add_menu_page( $title, $title, 'manage_options', 'exad-settings', array( $this, 'admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/ex-menu-icon.svg', 58.4 );
 		
 	}
 
@@ -177,7 +167,6 @@ class Admin_Settings {
 		}
         update_option( 'exad_save_settings', $this->exad_settings );
         
-        // Google Map API key 
         update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );
         update_option( 'exad_primary_color_option', $settings['exad_primary_color'] );
         update_option( 'exad_secondary_color_option', $settings['exad_secondary_color'] );
