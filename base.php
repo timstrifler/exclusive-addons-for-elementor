@@ -191,7 +191,7 @@ final class Base {
      */
     public function initiate_elements() {
 
-        $dir = new \RecursiveDirectoryIterator( EXAD_PATH . 'elements/' );
+        $dir = new \RecursiveDirectoryIterator( EXAD_ELEMENTS );
         $child_dir = new \RecursiveIteratorIterator($dir);
         $files = new \RegexIterator( $child_dir, '/^.+\.php$/i' );
         
@@ -199,6 +199,7 @@ final class Base {
             $filename = basename( $file, '.php' );
             $this->default_widgets[] = $filename;
         }
+
     }
 
     /**
@@ -248,7 +249,6 @@ final class Base {
      */
     public function editor_scripts() {
         wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.css' );
-        wp_enqueue_script( 'exad-editor-script', EXAD_ASSETS_URL . 'js/exad-editor-script.js', array( 'elementor-editor' ), '1.0', true );
     }
 
     /**

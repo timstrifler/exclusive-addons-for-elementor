@@ -41,9 +41,9 @@ class Admin_Settings {
 	 * @since 1.0.1
 	 */
 	public function __construct() {
-		add_action( 'admin_menu', array( $this, 'create_exad_admin_menu' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_exad_admin_scripts' ) );
-		add_action( 'wp_ajax_exad_ajax_save_elements_setting', array( $this, 'exad_ajax_save_elements_setting_function' ) );
+		add_action( 'admin_menu', array( $this, 'create_admin_menu' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		add_action( 'wp_ajax_exad_ajax_save_elements_setting', array( $this, 'ajax_save_elements_setting_function' ) );
     }
 
 	/**
@@ -52,6 +52,7 @@ class Admin_Settings {
 	 * @return void
 	 * @since 1.0.1
 	 */
+<<<<<<< HEAD
 	public function enqueue_exad_admin_scripts( $hook ) {
         wp_enqueue_style( 'exad-notice-css', EXAD_ADMIN_URL . 'assets/css/exad-notice.css' );
 		if( isset( $hook ) && $hook == 'toplevel_page_exad-settings' ) {
@@ -59,6 +60,14 @@ class Admin_Settings {
 			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.js', array( 'jquery'), '1.0', true );
 			wp_enqueue_style( 'wp-color-picker' );
 	        wp_enqueue_script( 'wp-color-picker-alpha', EXAD_ADMIN_URL . 'assets/js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '1.0.0', true );
+=======
+	public function enqueue_admin_scripts( $hook ) {
+
+        wp_enqueue_style( 'exad-notice-css', EXAD_ADMIN_URL . 'assets/css/exad-notice.min.css' );
+		if( isset( $hook ) && $hook == 'toplevel_page_exad-settings' ) {
+			wp_enqueue_style( 'exad-admin-css', EXAD_ADMIN_URL . 'assets/css/exad-admin.min.css' );
+			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.min.js', array( 'jquery'), EXAD_PLUGIN_VERSION, true );
+>>>>>>> 510fa8e47b6ce6f84d4e3cf12f98b5eaa605af8f
 		}
 	}
 
@@ -68,7 +77,7 @@ class Admin_Settings {
 	 * @return void
 	 * @since 1.0.1
 	 */
-	public function create_exad_admin_menu() {
+	public function create_admin_menu() {
 
 		$title = __( 'Exclusive Addons', 'exclusive-addons-elementor' );
 		add_menu_page( $title, $title, 'manage_options', 'exad-settings', array( $this, 'exad_admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/ex-menu-icon.svg', 58.4 );
@@ -82,7 +91,7 @@ class Admin_Settings {
 	 * @return void
 	 * @since 1.0.1
 	 */
-	public function exad_admin_settings_page() {
+	public function admin_settings_page() {
 
 		$js_info = array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -147,7 +156,7 @@ class Admin_Settings {
 	 * @return  array
 	 * @since 1.0.1
 	 */
-	public function exad_ajax_save_elements_setting_function() {
+	public function ajax_save_elements_setting_function() {
 
 		check_ajax_referer( 'exad_settings_nonce_action', 'security' );
 

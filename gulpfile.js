@@ -36,8 +36,8 @@ var concat = require('gulp-concat');
 // Css Minimy
 gulp.task('cssmin', function() {
     return gulp.src([
-        './admin/assets/css/*.css',
-        './assets/css/*.css'
+        'admin/assets/css/*.css',
+        'assets/css/*.css'
         ])
         .pipe(cssnano())
         .pipe(rename(function (path) {
@@ -79,8 +79,10 @@ gulp.task('clean', function () {
  */
 gulp.task('cleanmin', function () {
     return del([
-        '**/*.min.js',
-        '**/*.min.css',
+        'admin/assets/js/*.min.js',
+        'admin/assets/css/*.min.css',
+        'assets/js/*.min.js',
+        'assets/css/*.min.css',
         '!node_modules/**/*'
     ]);
 });
@@ -91,6 +93,10 @@ gulp.task('cleanmin', function () {
 gulp.task('copy', function () {
     return gulp.src([
         '**/*',
+        '!assets/css/elements-css',
+        '!assets/css/elements-css/**',
+        '!assets/js/elements-js',
+        '!assets/js/elements-js/**',
         '!.gitignore',
         '!package.json',
         '!package-lock.json',
