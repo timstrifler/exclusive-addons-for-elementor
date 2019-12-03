@@ -33,6 +33,8 @@ class Call_To_Action extends Widget_Base {
     }
 
 	protected function _register_controls() {
+        $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
+        $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
   		$this->start_controls_section(
 			'exad_section_side_a_content',
@@ -379,7 +381,7 @@ class Call_To_Action extends Widget_Base {
             [
                 'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#00d8d8',
+                'default'   => $exad_secondary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-call-to-action-icon i' => 'color: {{VALUE}};'
                 ],
@@ -529,7 +531,7 @@ class Call_To_Action extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#00d8d8',
+                    'default'   => $exad_secondary_color,
                     'selectors' => [
                         '{{WRAPPER}} a.exad-call-to-action-primary-btn' => 'background-color: {{VALUE}};'
                     ]
@@ -655,7 +657,7 @@ class Call_To_Action extends Widget_Base {
                         ]
                     ],
                     'color' => [
-                        'default' => '#7a56ff'
+                        'default' => $exad_primary_color
                     ]
                 ],
                 'selector'  => '{{WRAPPER}} a.exad-call-to-action-secondary-btn'
@@ -684,7 +686,7 @@ class Call_To_Action extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#7a56ff',
+                    'default'   => $exad_primary_color,
                     'selectors' => [
                         '{{WRAPPER}} a.exad-call-to-action-secondary-btn' => 'color: {{VALUE}};'
                     ]
@@ -733,7 +735,7 @@ class Call_To_Action extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#7a56ff',
+                    'default'   => $exad_primary_color,
                     'selectors' => [
                         '{{WRAPPER}} a.exad-call-to-action-secondary-btn:hover' => 'background-color: {{VALUE}};'
                     ]

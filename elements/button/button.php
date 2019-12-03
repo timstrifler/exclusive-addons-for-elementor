@@ -34,6 +34,7 @@ class Button extends Widget_Base {
 	}
 
 	protected function _register_controls() {
+		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
 		// Content Controls
 		$this->start_controls_section(
@@ -234,8 +235,24 @@ class Button extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'exad_exclusive_button_border',
-				'selector' => '{{WRAPPER}} .exad-button-wrapper .exad-button-action'
+				'name'            => 'exad_exclusive_button_border',
+				'fields_options'  => [
+                    'border' 	  => [
+                        'default' => 'solid'
+                    ],
+                    'width'  	  => [
+                        'default' 	 => [
+                            'top'    => '1',
+                            'right'  => '1',
+                            'bottom' => '1',
+                            'left'   => '1'
+                        ]
+                    ],
+                    'color' 	  => [
+                        'default' => $exad_primary_color
+                    ]
+                ],
+				'selector'        => '{{WRAPPER}} .exad-button-wrapper .exad-button-action'
 			]
 		);
 
@@ -277,7 +294,7 @@ class Button extends Widget_Base {
 			[
 				'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
-				'default'	=> '#7a56ff',
+				'default'	=> $exad_primary_color,
 				'selectors'	=> [
 					'{{WRAPPER}} .exad-button-wrapper .exad-button-action'                     => 'color: {{VALUE}};',
 					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'color: {{VALUE}};',
@@ -317,7 +334,7 @@ class Button extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#7a56ff',
+				'default'   => $exad_primary_color,
 				'selectors' => [
 					'{{WRAPPER}} .exad-button-wrapper.effect-1 .exad-button-action::before'                => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-button-wrapper.effect-2 .exad-button-action:before'                 => 'background: {{VALUE}};',

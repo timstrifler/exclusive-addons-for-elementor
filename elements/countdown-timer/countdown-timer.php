@@ -37,6 +37,7 @@ class Countdown_Timer extends Widget_Base {
 	}
 
 	protected function _register_controls() {
+		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
 		/**
 		 * Countdown Timer Settings
@@ -86,7 +87,7 @@ class Countdown_Timer extends Widget_Base {
 			[
 				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#7a56ff',
+				'default'   => $exad_primary_color,
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown' => 'background: {{VALUE}};'
 				]

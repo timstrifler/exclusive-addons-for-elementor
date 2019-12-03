@@ -37,6 +37,8 @@ class Pricing_Menu extends Widget_Base {
     }
 
     protected function _register_controls() {
+        $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
+        
         /**
          * Pricing Menu Content
          */
@@ -577,7 +579,7 @@ class Pricing_Menu extends Widget_Base {
                     [
                         'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                         'type'      => Controls_Manager::COLOR,
-                        'default'   => '#7a56ff',
+                        'default'   => $exad_primary_color,
                         'selectors' => [
                             '{{WRAPPER}} .exad-pricing-list-item-content-title:hover' => 'color: {{VALUE}};'
                         ]
@@ -679,7 +681,7 @@ class Pricing_Menu extends Widget_Base {
             [
                 'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#7a56ff',
+                'default'   => $exad_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-pricing-list-item .exad-pricing-list-item-price' => 'color: {{VALUE}};'
                 ]

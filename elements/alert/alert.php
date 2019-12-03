@@ -34,6 +34,9 @@ class Alert extends Widget_Base {
     }
 
     protected function _register_controls() {
+        $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
+        $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
+        
         /**
          * Alert Content Tab
          */
@@ -517,7 +520,7 @@ class Alert extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#46C9F0',
+                    'default'   => $exad_primary_color,
                     'selectors' => [
                         '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done' => 'background: {{VALUE}};'
                     ]
@@ -600,7 +603,7 @@ class Alert extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#f05e5e',
+                    'default'   => $exad_secondary_color,
                     'selectors' => [
                     '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel' => 'background: {{VALUE}};'
                 ],

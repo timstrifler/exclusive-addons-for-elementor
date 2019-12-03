@@ -31,6 +31,7 @@ class Dual_Heading extends Widget_Base {
     }
 
     protected function _register_controls() {
+        $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
 		/**
 		* Dual Heading Content Section
@@ -244,7 +245,7 @@ class Dual_Heading extends Widget_Base {
 			[
                 'label'     => __( 'Background', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#00d8d8',
+                'default'   => $exad_primary_color,  
                 'selectors' => [
 					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .first-heading, {{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .first-heading' => 'background-color: {{VALUE}};'
 				]

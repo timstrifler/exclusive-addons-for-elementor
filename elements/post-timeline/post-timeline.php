@@ -30,6 +30,7 @@ class Post_Timeline extends Widget_Base {
 	}
 
 	protected function _register_controls() {
+		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
         $this->start_controls_section(
             'exad_section_post_timeline_filters',
@@ -241,7 +242,7 @@ class Post_Timeline extends Widget_Base {
 			[
 				'label'     => __( 'Divider Icon Background', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#7a56ff',
+				'default'   => $exad_primary_color,
 				'selectors' => [
 					'{{WRAPPER}} .exad-post-timeline-icon' => 'background: {{VALUE}};'
 				]

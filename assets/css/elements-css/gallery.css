@@ -20,10 +20,6 @@
   text-transform: capitalize;
 }
 
-.exad-gallery-menu .filter-item.is-checked {
-  color: #7a56ff;
-}
-
 .exad-gallery-items .exad-gallery-element .exad-gallery-item {
   position: relative;
   overflow: hidden;

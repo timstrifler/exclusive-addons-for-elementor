@@ -34,6 +34,7 @@ class Flipbox extends Widget_Base {
     }
 
 	protected function _register_controls() {
+		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
   		$this->start_controls_section(
 			'exad_section_side_a_content',
@@ -274,7 +275,7 @@ class Flipbox extends Widget_Base {
                         ]
                     ],
                  	'color' => [
-                        'default' => '#7a56ff'
+                        'default' => $exad_primary_color
                     ]
                 ]
 			]
@@ -392,7 +393,7 @@ class Flipbox extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#7a56ff',
+				'default'   => $exad_primary_color,
 				'selectors' => [
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-front .exad-flip-box-front-image i' => 'color: {{VALUE}};'
 				],
@@ -567,7 +568,7 @@ class Flipbox extends Widget_Base {
 						'default' => 'classic'
 					],
 					'color'       => [
-						'default' => '#7a56ff'
+						'default' => $exad_primary_color
 					]
 				]
 			]

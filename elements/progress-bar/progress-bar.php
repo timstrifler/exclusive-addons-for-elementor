@@ -35,6 +35,7 @@ class Progress_Bar extends Widget_Base {
 	}
 
 	protected function _register_controls() {
+		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
 		$this->start_controls_section(
 			'exad_progress_bar_section_content',
@@ -136,7 +137,7 @@ class Progress_Bar extends Widget_Base {
 			[
 				'label'   => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::COLOR,
-				'default' => '#7a56ff'
+				'default' => $exad_primary_color
 			]
 		);
 

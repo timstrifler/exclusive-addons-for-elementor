@@ -32,6 +32,7 @@ class Heading extends Widget_Base {
     }
     
 	protected function _register_controls() {
+		$exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 		
 		/**
 		* Heading Content Section
@@ -220,7 +221,7 @@ class Heading extends Widget_Base {
 						'default' => 'classic'
 					],
 					'color'       => [
-						'default' => '#00d8d8'
+						'default' => $exad_secondary_color
 					]
 				]
 			]
@@ -648,7 +649,7 @@ class Heading extends Widget_Base {
                 endif;
 
                 echo '<h1 '.$this->get_render_attribute_string( 'exad_heading_title' ).'>';
-                    echo esc_html( $settings['exad_heading_title'] );
+                    echo wp_kses_post( $settings['exad_heading_title'] );
 				echo '</h1>';
 
                 if( !empty( $settings['exad_heading_title_link']['url'] ) ) {

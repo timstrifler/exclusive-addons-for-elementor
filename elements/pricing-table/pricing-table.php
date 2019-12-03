@@ -35,6 +35,7 @@ class Pricing_Table extends Widget_Base {
     }
 
 	protected function _register_controls() {
+		$exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
   		/**
   		 * Pricing Table Settings
@@ -979,7 +980,7 @@ class Pricing_Table extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#00d8d8',
+				'default'   => $exad_secondary_color,
 				'selectors' => [
 					'{{WRAPPER}} .exad-pricing-table-features li span.exad-pricing-li-icon' => 'color: {{VALUE}};'
 				]
@@ -1255,7 +1256,7 @@ class Pricing_Table extends Widget_Base {
 				[
 					'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'default'   => '#00d8d8',
+					'default'   => $exad_secondary_color,
 					'selectors' => [
 						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action' => 'background-color: {{VALUE}};'
 					]
@@ -1280,7 +1281,7 @@ class Pricing_Table extends Widget_Base {
 	                        ]
 	                    ],
 	                    'color'       => [
-	                        'default' => '#00d8d8'
+	                        'default' => $exad_secondary_color
 	                    ]
 	                ],
 					'selector'        => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action'
@@ -1306,7 +1307,7 @@ class Pricing_Table extends Widget_Base {
 				[
 					'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'default'   => '#00d8d8',
+					'default'   => $exad_secondary_color,
 					'selectors' => [
 						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action:hover' => 'color: {{VALUE}};'
 					]
@@ -1343,7 +1344,7 @@ class Pricing_Table extends Widget_Base {
 	                        ]
 	                    ],
 	                    'color'       => [
-	                        'default' => '#00d8d8'
+	                        'default' => $exad_secondary_color
 	                    ]
 	                ],
 					'selector'        => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action:hover'

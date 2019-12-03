@@ -35,6 +35,8 @@ class Post_Grid extends Widget_Base {
     }
 
 	protected function _register_controls() {
+		$exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
+		$exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
         $this->start_controls_section(
             'exad_section_post_grid_filters',
@@ -815,7 +817,7 @@ class Post_Grid extends Widget_Base {
 			[
 				'label'     => __( 'Background Color (Odd)', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#00d8d8',
+				'default'   => $exad_secondary_color,
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li:nth-child(2n-1)' => 'background: {{VALUE}};'
 				]
@@ -827,7 +829,7 @@ class Post_Grid extends Widget_Base {
 			[
 				'label'     => __( 'Background Color (Even)', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#7a56ff',
+				'default'   => $exad_primary_color,
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-category li:nth-child(2n)' => 'background: {{VALUE}};'
 				]
@@ -1150,7 +1152,7 @@ class Post_Grid extends Widget_Base {
                 [
 					'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
-					'default'   => '#7a56ff',
+					'default'   => $exad_primary_color,
 					'selectors' => [
                         '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a' => 'color: {{VALUE}};'
                     ]

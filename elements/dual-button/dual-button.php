@@ -33,6 +33,8 @@ class Dual_Button extends Widget_Base {
     }
 
 	protected function _register_controls() {
+        $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
+        $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
         /*
         * Exad Dual Button Content
@@ -428,7 +430,7 @@ class Dual_Button extends Widget_Base {
                     [
                         'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                         'type'      => Controls_Manager::COLOR,
-                        'default'   => '#7a56ff',
+                        'default'   => $exad_primary_color,
                         'selectors' => [
                             '{{WRAPPER}} .exad-dual-button-primary.effect-1' => 'background: {{VALUE}};',
                             '{{WRAPPER}} .exad-dual-button-primary.effect-2' => 'background: {{VALUE}};',
@@ -775,9 +777,9 @@ class Dual_Button extends Widget_Base {
                 $this->add_control(
                     'exad_dual_button_secondary_button_normal_bg',
                     [
-                        'label'   => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-                        'type'    => Controls_Manager::COLOR,
-                        'default' => '#00d8d8',
+                        'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => $exad_secondary_color,
                         'selectors' => [
                             '{{WRAPPER}} .exad-dual-button-secondary.effect-1' => 'background: {{VALUE}};',
                             '{{WRAPPER}} .exad-dual-button-secondary.effect-2' => 'background: {{VALUE}};',

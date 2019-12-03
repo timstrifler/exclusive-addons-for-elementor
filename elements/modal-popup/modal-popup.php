@@ -34,6 +34,7 @@ class Modal_Popup extends Widget_Base {
 	}
 
 	protected function _register_controls() {
+		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
 		/**
 		 * Modal Popup Content section
@@ -471,7 +472,7 @@ class Modal_Popup extends Widget_Base {
 					[
 						'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#7a56ff',
+						'default'   => $exad_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'background-color: {{VALUE}};'
 						]
@@ -496,7 +497,7 @@ class Modal_Popup extends Widget_Base {
 								]
 							],
 							'color'       => [
-								'default' => '#7a56ff'
+								'default' => $exad_primary_color
 							]
 						],
 						'selector'        => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action'
@@ -512,7 +513,7 @@ class Modal_Popup extends Widget_Base {
 					[
 						'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#7a56ff',
+						'default'   => $exad_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover span' => 'color: {{VALUE}};'
 						],

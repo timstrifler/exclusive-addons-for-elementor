@@ -75,6 +75,7 @@ class Contact_Form_7 extends Widget_Base {
 	 * @access protected
 	 */
     protected function _register_controls() {
+        $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
         
         /**
          * Content Tab: Contact Form
@@ -632,7 +633,7 @@ class Contact_Form_7 extends Widget_Base {
             [
                 'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#7a56ff',
+                'default'   => $exad_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'background-color: {{VALUE}}'
                 ]
@@ -657,7 +658,7 @@ class Contact_Form_7 extends Widget_Base {
                         ]
                     ],
                     'color'       => [
-                        'default' => '#7a56ff'
+                        'default' => $exad_primary_color
                     ]
                 ],
                 'selector'       => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]'
@@ -678,7 +679,7 @@ class Contact_Form_7 extends Widget_Base {
             [
                 'label'     => __( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#7a56ff',
+                'default'   => $exad_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]:hover' => 'color: {{VALUE}}'
                 ]

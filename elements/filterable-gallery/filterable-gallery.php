@@ -40,8 +40,9 @@ class Filterable_Gallery extends Widget_Base
         return [ 'gallery', 'filter', 'masonry', 'portfolio', 'filterable', 'grid' ];
     }
 
-    protected function _register_controls()
-    {
+    protected function _register_controls() {
+        $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
+        $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
         
         /**
          * Filter Gallery Grid Settings
@@ -495,7 +496,7 @@ class Filterable_Gallery extends Widget_Base
             [
                 'label'     => esc_html__('Text Color', 'exclusive-addons-elementor'),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#7a56ff',
+                'default'   => $exad_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-gallery-menu .filter-item:hover' => 'color: {{VALUE}};'
                 ]
@@ -548,7 +549,7 @@ class Filterable_Gallery extends Widget_Base
             [
                 'label'     => esc_html__('Text Color', 'exclusive-addons-elementor'),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#7a56ff',
+                'default'   => $exad_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-gallery-menu .filter-item.is-checked' => 'color: {{VALUE}};'
                 ]
@@ -584,7 +585,7 @@ class Filterable_Gallery extends Widget_Base
                         ]
                     ],
                     'color'       => [
-                        'default' => '#7a56ff'
+                        'default' => $exad_primary_color
                     ]
                 ],
                 'selector'        => '{{WRAPPER}} .exad-gallery-menu .filter-item.is-checked'
@@ -843,7 +844,7 @@ class Filterable_Gallery extends Widget_Base
             [
                 'label'     => esc_html__('Color', 'exclusive-addons-elementor'),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#00d8d8',
+                'default'   => $exad_secondary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-gallery-items .exad-gallery-item-content h2' => 'color: {{VALUE}};'
                 ],
@@ -912,7 +913,7 @@ class Filterable_Gallery extends Widget_Base
             [
                 'label'     => esc_html__('Color', 'exclusive-addons-elementor'),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#00d8d8',
+                'default'   => $exad_secondary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-gallery-items .exad-gallery-item-content p' => 'color: {{VALUE}};'
                 ],

@@ -8,7 +8,6 @@
   text-decoration: none;
   position: relative;
   z-index: 1;
-  border: 1px solid #7a56ff;
   overflow: hidden;
 }
 .exad-button-wrapper {
@@ -43,7 +42,6 @@
 
 .exad-button-wrapper.effect-2 .exad-button-action:before, .exad-button-wrapper.effect-2 .exad-button-action:after {
   content: '';
-  background: #7a56ff;
   height: 50%;
   width: 0;
   position: absolute;
@@ -391,7 +389,6 @@
 
 .exad-button-wrapper.effect-12 .exad-button-action:hover {
   background: #fff;
-  color: #7a56ff;
   box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
 }
 

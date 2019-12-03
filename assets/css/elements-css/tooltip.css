@@ -43,7 +43,6 @@
 .exad-tooltip .exad-tooltip-item .exad-tooltip-text {
   position: absolute;
   min-width: 150px;
-  background: #7a56ff;
   padding: 10px;
   visibility: hidden;
   opacity: 0;

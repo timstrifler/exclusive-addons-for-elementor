@@ -39,6 +39,8 @@ class Logo_Carousel extends Widget_Base {
     }
 	
 	protected function _register_controls() {
+		$exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
+		
 	    /*
 	    * Logo carousel Image
 	    */
@@ -511,7 +513,7 @@ class Logo_Carousel extends Widget_Base {
 		            [
 		                'label'         => __( 'Background Color', 'exclusive-addons-elementor' ),
 		                'type'          => Controls_Manager::COLOR,
-		                'default'       => '#917cff',
+		                'default'       => $exad_primary_color,
 		                'selectors'     => [
 		                    '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next:hover, {{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev:hover' => 'background-color: {{VALUE}}'
 		                ]          

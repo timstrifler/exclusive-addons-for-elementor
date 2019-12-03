@@ -449,7 +449,6 @@ class Accordion extends Widget_Base {
         	Group_Control_Border::get_type(),
             [
 				'name'            => 'exad_exclusive_accordion_title_border',
-				'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 				'fields_options'  => [
                     'border' 	  => [
                         'default' => 'solid'

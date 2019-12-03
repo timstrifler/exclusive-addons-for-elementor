@@ -36,6 +36,8 @@ class Infobox extends Widget_Base {
 	}
 
 	protected function _register_controls() {
+		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
+		
 		/*
 		* Infobox Image
 		*/
@@ -499,7 +501,7 @@ class Infobox extends Widget_Base {
 					[
 						'label'     => esc_html__( 'Background', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#7a56ff',
+						'default'   => $exad_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'background: {{VALUE}}'
 						]
@@ -553,7 +555,7 @@ class Infobox extends Widget_Base {
 					[
 						'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#7a56ff',
+						'default'   => $exad_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}}'
 						],

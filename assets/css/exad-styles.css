@@ -458,7 +458,6 @@
   text-decoration: none;
   position: relative;
   z-index: 1;
-  border: 1px solid #7a56ff;
   overflow: hidden;
 }
 .exad-button-wrapper {
@@ -493,7 +492,6 @@
 
 .exad-button-wrapper.effect-2 .exad-button-action:before, .exad-button-wrapper.effect-2 .exad-button-action:after {
   content: '';
-  background: #7a56ff;
   height: 50%;
   width: 0;
   position: absolute;
@@ -841,7 +839,6 @@
 
 .exad-button-wrapper.effect-12 .exad-button-action:hover {
   background: #fff;
-  color: #7a56ff;
   box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
 }
 
@@ -1897,10 +1894,6 @@ ul.exad-call-to-action-buttons {
   outline: none;
   transition: all .3s ease;
   text-transform: capitalize;
-}
-
-.exad-gallery-menu .filter-item.is-checked {
-  color: #7a56ff;
 }
 
 .exad-gallery-items .exad-gallery-element .exad-gallery-item {
@@ -3535,7 +3528,6 @@ top: 50%;
         transform: translate(-50%, -50%);
 height: 60px;
 width: 60px;
-background: #7a56ff;
 text-align: center;
 border-radius: 50%;
 z-index: 1;
@@ -4481,7 +4473,6 @@ text-align: right;
 .exad-tooltip .exad-tooltip-item .exad-tooltip-text {
   position: absolute;
   min-width: 150px;
-  background: #7a56ff;
   padding: 10px;
   visibility: hidden;
   opacity: 0;

@@ -31,6 +31,7 @@ class Tooltip extends Widget_Base {
     }
 
     protected function _register_controls() {
+        $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
         $this->start_controls_section(
             'tooltip_button_content',
@@ -341,7 +342,7 @@ class Tooltip extends Widget_Base {
 					[
                         'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                         'type'      => Controls_Manager::COLOR,
-                        'default'   => '#7a56ff',
+                        'default'   => $exad_primary_color,
                         'condition' => [
                             'exad_tooltip_type!' => [ 'image' ]
                         ],
@@ -480,6 +481,14 @@ class Tooltip extends Widget_Base {
                 'name'     => 'hover_tooltip_content_background',
                 'label'    => __( 'Background', 'exclusive-addons-elementor' ),
                 'types'    => [ 'classic', 'gradient' ],
+                'fields_options'  => [
+                    'background'  => [
+                        'default' => 'classic'
+                    ],
+                    'color'       => [
+                        'default' => $exad_primary_color
+                    ]
+                ],
                 'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-text'
             ]
         );
@@ -525,7 +534,7 @@ class Tooltip extends Widget_Base {
             [
                 'label'     => __( 'Arrow Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#7a56ff',
+                'default'   => $exad_primary_color,
                 'selectors' => [
                     '{{WRAPPER}} .exad-tooltip .exad-tooltip-item.tooltip-top .exad-tooltip-text:after' => 'border-color: {{VALUE}} transparent transparent transparent;',
                     '{{WRAPPER}} .exad-tooltip .exad-tooltip-item.tooltip-left .exad-tooltip-text:after' => 'border-color: transparent transparent transparent {{VALUE}};',

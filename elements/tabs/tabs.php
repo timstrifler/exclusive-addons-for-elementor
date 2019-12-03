@@ -37,6 +37,7 @@ class Tabs extends Widget_Base {
 	}
 
 	protected function _register_controls() {
+		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
   		/**
   		 * Exclusive Tabs Content Settings
@@ -436,7 +437,7 @@ class Tabs extends Widget_Base {
 								]
 							],
 							'color'       => [
-								'default' => '#7a56ff'
+								'default' => $exad_primary_color
 							]
 						],
 						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover'
@@ -934,7 +935,7 @@ class Tabs extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#7a56ff',
+                    'default'   => $exad_primary_color,
                     'selectors' => [
                         '{{WRAPPER}} .exad-tab-btn' => 'color: {{VALUE}};'
                     ]
@@ -970,7 +971,7 @@ class Tabs extends Widget_Base {
 							]
 						],
 						'color'       => [
-							'default' => '#7a56ff'
+							'default' => $exad_primary_color
 						]
 					],
                     'selector'        => '{{WRAPPER}} .exad-tab-btn'
@@ -1007,7 +1008,7 @@ class Tabs extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#7a56ff',
+                    'default'   => $exad_primary_color,
                     'selectors' => [
                         '{{WRAPPER}} .exad-tab-btn:hover' => 'background: {{VALUE}};'
                     ]

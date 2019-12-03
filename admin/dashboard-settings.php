@@ -1,9 +1,9 @@
 <?php
+namespace ExclusiveAddons\Elementor\Dashboard;
 /**
  * Dashboard Settings Page
  */
 
-namespace ExclusiveAddons\Elementor\Dashboard;
 
 if( ! defined( 'ABSPATH' ) ) {
     exit(); // Exit if accessed directly
@@ -53,13 +53,13 @@ class Admin_Settings {
 	 * @since 1.0.1
 	 */
 	public function enqueue_exad_admin_scripts( $hook ) {
-
         wp_enqueue_style( 'exad-notice-css', EXAD_ADMIN_URL . 'assets/css/exad-notice.css' );
 		if( isset( $hook ) && $hook == 'toplevel_page_exad-settings' ) {
 			wp_enqueue_style( 'exad-admin-css', EXAD_ADMIN_URL . 'assets/css/exad-admin.css' );
 			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.js', array( 'jquery'), '1.0', true );
+			wp_enqueue_style( 'wp-color-picker' );
+	        wp_enqueue_script( 'wp-color-picker-alpha', EXAD_ADMIN_URL . 'assets/js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '1.0.0', true );
 		}
-
 	}
 
 	/**
@@ -128,10 +128,12 @@ class Admin_Settings {
                         <li><a href="#general" class="active"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/settings-icon.png'; ?>"><span><?php _e( 'General', 'exclusive-addons-elementor' ); ?></span></a></li>
                         <li><a href="#elements"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements-icon.png'; ?>"><span><?php _e( 'Elements', 'exclusive-addons-elementor' ); ?></span></a></li>
                         <li><a href="#apikeys"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-keys.svg'; ?>"><span><?php _e( 'API Keys', 'exclusive-addons-elementor' ); ?></span></a></li>
+                        <li><a href="#style-settings"><i class="dashicons dashicons-admin-site-alt3"></i><span><?php _e( 'Style Settings', 'exclusive-addons-elementor' ); ?></span></a></li>
                     </ul>
                     <?php include_once EXAD_ADMIN . 'templates/general.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/elements.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/api-keys.php'; ?>
+                    <?php include_once EXAD_ADMIN . 'templates/style-settings.php'; ?>
                 </div>
             </form> <!-- Form End -->
         </div>
@@ -168,6 +170,8 @@ class Admin_Settings {
         
         // Google Map API key 
         update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );
+        update_option( 'exad_primary_color_option', $settings['exad_primary_color'] );
+        update_option( 'exad_secondary_color_option', $settings['exad_secondary_color'] );
         
 		return true;
 		die();
