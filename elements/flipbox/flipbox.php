@@ -908,9 +908,9 @@ class Flipbox extends Widget_Base {
         );
 
         $this->add_responsive_control(
-          'exad_flipbox_button_border_radious',
+          'exad_flipbox_button_border_radius',
             [
-                'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+                'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'default'    => [
                     'top'    => '4',

@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // If this file is called directly, abort.
 
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
+use \Elementor\Control_Media;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
@@ -204,7 +205,7 @@ class Infobox extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_infobox_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'default'    => [
@@ -214,7 +215,7 @@ class Infobox extends Widget_Base {
 					'left'   => '0'
 				],
 			  	'selectors'  => [
-				  	'{{WRAPPER}} .exad-infobox-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				  	'{{WRAPPER}} .exad-infobox-item, {{WRAPPER}} .zoom-transition:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 			  	]
 			]
 		);
@@ -412,7 +413,8 @@ class Infobox extends Widget_Base {
 				  	]
 			 	],
 			  	'selectors'   => [
-				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon i' => 'font-size: {{SIZE}}px;'
+					'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon i'   => 'font-size: {{SIZE}}px;',
+					'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon svg' => 'height: {{SIZE}}px; width: {{SIZE}}px;'
 			  	],
 				'condition'   => [
 					'exad_infobox_img_or_icon'  => 'icon',
@@ -424,7 +426,7 @@ class Infobox extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_infobox_icon_border_radius',
 			[
-				'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'default'    => [

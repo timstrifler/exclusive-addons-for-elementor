@@ -196,7 +196,7 @@ class Accordion extends Widget_Base {
 		$repeater->add_control(
 		    'exad_accordion_each_item_title_color',
 		    [
-		        'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+		        'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
 		        'type'      => Controls_Manager::COLOR,
 		        'selectors' => [
 		            '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title h3' => 'color: {{VALUE}};'
@@ -496,7 +496,7 @@ class Accordion extends Widget_Base {
 				$this->add_control(
 					'exad_exclusive_accordion_tab_text_color',
 					[
-						'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
 						'default'	=> '#000000',
 						'selectors'	=> [
@@ -523,7 +523,7 @@ class Accordion extends Widget_Base {
 				$this->add_control(
 					'exad_exclusive_accordion_tab_text_color_hover',
 					[
-						'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
 						'selectors'	=> [
 							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title:hover h3' => 'color: {{VALUE}};',
@@ -550,7 +550,7 @@ class Accordion extends Widget_Base {
 				$this->add_control(
 					'exad_exclusive_accordion_tab_text_color_active',
 					[
-						'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
 						'selectors'	=> [
 							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active h3' => 'color: {{VALUE}};'
@@ -875,7 +875,7 @@ class Accordion extends Widget_Base {
 		$this->add_control(
 			'exad_accordion_content_text_color',
 			[
-				'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '#000000',
 				'selectors' => [
@@ -1078,7 +1078,7 @@ class Accordion extends Widget_Base {
             $this->add_control(
                 'exad_accordion_details_btn_normal_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#ffffff',
                     'selectors' => [
@@ -1152,7 +1152,7 @@ class Accordion extends Widget_Base {
             $this->add_control(
                 'exad_accordion_details_btn_hover_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#000000',
                     'selectors' => [

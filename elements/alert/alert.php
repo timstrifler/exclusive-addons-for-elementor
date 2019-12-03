@@ -170,9 +170,9 @@ class Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-          'exad_alert_border_radious',
+          'exad_alert_border_radius',
             [
-                'label'     => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+                'label'     => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::DIMENSIONS,
                 'selectors' => [
                     '{{WRAPPER}} .exad-alert-wrapper'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
@@ -577,9 +577,9 @@ class Alert extends Widget_Base {
             );
 
             $this->add_responsive_control(
-              'exad_alert_dismiss_primary_button_ border_radious',
+              'exad_alert_dismiss_primary_button_ border_radius',
                 [
-                    'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+                    'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
                     'type'       => Controls_Manager::DIMENSIONS,
                     'default'    => [
                         'top'    => '5',
@@ -663,9 +663,9 @@ class Alert extends Widget_Base {
             );
 
             $this->add_responsive_control(
-              'exad_alert_dismiss_secondary_button_radious',
+              'exad_alert_dismiss_secondary_button_radius',
                 [
-                    'label'      => esc_html__( 'Border Radious', 'exclusive-addons-elementor' ),
+                    'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
                     'type'       => Controls_Manager::DIMENSIONS,
                     'default'    => [
                         'top'    => '5',

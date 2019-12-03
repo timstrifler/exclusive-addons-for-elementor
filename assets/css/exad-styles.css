@@ -2355,7 +2355,16 @@ ul.exad-call-to-action-buttons {
   transition: all .3s ease;
 }
 
-.exad-infobox .exad-infobox-item .exad-infobox-icon img, .exad-infobox.two .exad-infobox-item .exad-infobox-icon img, .exad-infobox.four .exad-infobox-item .exad-infobox-icon img, .exad-infobox.five .exad-infobox-item .exad-infobox-icon img {
+.exad-infobox .exad-infobox-item .exad-infobox-icon svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  transition: all .3s ease;
+}
+
+.exad-infobox .exad-infobox-item .exad-infobox-icon img {
     height: 40px;
     width: 40px;
     position: absolute;
