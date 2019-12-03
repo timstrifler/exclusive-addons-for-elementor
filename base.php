@@ -191,7 +191,7 @@ final class Base {
      */
     public function initiate_elements() {
 
-        $dir = new \RecursiveDirectoryIterator( EXAD_PATH . 'elements/' );
+        $dir = new \RecursiveDirectoryIterator( EXAD_ELEMENTS );
         $child_dir = new \RecursiveIteratorIterator($dir);
         $files = new \RegexIterator( $child_dir, '/^.+\.php$/i' );
         
@@ -199,6 +199,7 @@ final class Base {
             $filename = basename( $file, '.php' );
             $this->default_widgets[] = $filename;
         }
+
     }
 
     /**
