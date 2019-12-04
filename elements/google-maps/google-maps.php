@@ -45,7 +45,7 @@ class Google_Maps extends Widget_Base {
 			'exad_map_api_key',
 			[
 				'type'            => Controls_Manager::RAW_HTML,
-				'raw'             => sprintf( __( 'To display Google Map without an issue, you need to configure Google Map API key. Please configure API key from the "API KEYS" tab <a href="%s" target="_blank" rel="noopener">here</a>.', 'exclusive-addons-elementor' ), $admin_link ),
+				'raw'             => sprintf( __( 'To display Google Map without an issue, you need to configure Google Map API key. Please configure API key from the "API Keys" tab <a href="%s" target="_blank" rel="noopener">here</a>.', 'exclusive-addons-elementor' ), $admin_link ),
 				'content_classes' => 'elementor-panel-alert elementor-panel-alert-warning'
 			]
 		);

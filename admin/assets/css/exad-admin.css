@@ -92,7 +92,6 @@
     background: #ffffff7a;
     color: #646464;
     font-size: 16px;
-    text-transform: uppercase;
     text-decoration: none;
     border-radius: 2px 2px 0 0;
     margin-right: 2px;
@@ -569,7 +568,6 @@ textarea.exad-form-control {
     text-decoration: none;
 }
 .exad-admin-block-header a:hover {
-    color: #FFF;
     opacity: 0.8;
 }
 
@@ -587,7 +585,7 @@ textarea.exad-form-control {
     font-size: 15px;
     font-weight: 500;
     padding: 12px 44px;
-    background: #FF719D;
+    background: #7a56ff;
     color: #fff;
     text-decoration: none;
     border-radius: 3px;
@@ -598,16 +596,28 @@ textarea.exad-form-control {
     font-size: 15px;
     font-weight: 500;
     padding: 12px 44px;
-    background: #FF719D;
+    background: #7a56ff;
     border-radius: 3px;
     display: inline-block;
+}
+.exad-admin-block-contribution-button:hover,
+.exad-admin-block-docs-button:hover, 
+.exad-admin-block-header-button:hover, 
+.exad-admin-block-support-button:hover {
+    color: #ffffff;
+}
+.exad-admin-block-contribution-button:focus,
+.exad-admin-block-docs-button:focus, 
+.exad-admin-block-header-button:focus, 
+.exad-admin-block-support-button:focus {
+    outline: none;
 }
 
 .exad-admin-block-support-button {
     font-size: 15px;
     font-weight: 500;
     padding: 12px 44px;
-    background: #2DD9D1;
+    background: #00d8d8;
     color: #fff;
     text-decoration: none;
     border-radius: 3px;
