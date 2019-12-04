@@ -263,7 +263,7 @@ final class Base {
             // Loading Bar Bar and Waypoint JS
             wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'vendor/js/exad-progress-bar-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
-        // 
+        // Google Map js
         if ( $is_activated_widget['google-maps'] ) {
             if ( '' != get_option('exad_google_map_api_option') ) {
                 wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), EXAD_PLUGIN_VERSION, false );
