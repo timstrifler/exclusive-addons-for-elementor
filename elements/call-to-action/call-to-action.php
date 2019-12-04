@@ -517,7 +517,7 @@ class Call_To_Action extends Widget_Base {
             $this->add_control(
                 'exad_cta_primary_btn_normal_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#ffffff',
                     'selectors' => [
@@ -554,7 +554,7 @@ class Call_To_Action extends Widget_Base {
             $this->add_control(
                 'exad_cta_primary_btn_hover_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} a.exad-call-to-action-primary-btn:hover' => 'color: {{VALUE}};'
@@ -684,7 +684,7 @@ class Call_To_Action extends Widget_Base {
             $this->add_control(
                 'exad_cta_secondary_btn_normal_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => $exad_primary_color,
                     'selectors' => [
@@ -721,7 +721,7 @@ class Call_To_Action extends Widget_Base {
             $this->add_control(
                 'exad_cta_secondary_btn_hover_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#ffffff',
                     'selectors' => [

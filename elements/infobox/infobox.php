@@ -458,8 +458,8 @@ class Infobox extends Widget_Base {
 				'size_units'  => [ 'px' ],
 				'range'       => [
 					'px'      => [
-						'min' => 0,
-						'max' => 100
+						'min' => -300,
+						'max' => 300
 					]
                 ],
                 'default'     => [
@@ -475,13 +475,13 @@ class Infobox extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_infobox_icon_margin_bottom',
 			[
-				'label'       => esc_html__( 'Margin Bottom', 'exclusive-addons-elementor' ),
+				'label'       => esc_html__( 'Bottom Spacing', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
 					'px'      => [
-						'min' => 0,
-						'max' => 100
+						'min' => -300,
+						'max' => 300
 					]
                 ],
                 'default'     => [

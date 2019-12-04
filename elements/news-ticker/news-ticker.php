@@ -384,7 +384,7 @@ class News_Ticker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_label_color',
             [
-                'label'     => esc_html__( 'Label Color', 'exclusive-addons-elementor' ),
+                'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#ffffff',
                 'selectors' => [
@@ -450,8 +450,6 @@ class News_Ticker extends Widget_Base {
                 ]
             ]
         );
-
-        
 
         $this->add_responsive_control(
             'exad_news_ticker_label_icon_size',
@@ -533,7 +531,7 @@ class News_Ticker extends Widget_Base {
         $this->add_control(
             'exad_news_ticker_color',
             [
-                'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#333333',
                 'selectors' => [
@@ -699,7 +697,7 @@ class News_Ticker extends Widget_Base {
                 $this->add_control(
                     'exad_news_ticker_controls_color',
                     [
-                        'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                        'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#999999',
                         'selectors' => [
@@ -750,7 +748,7 @@ class News_Ticker extends Widget_Base {
                 $this->add_control(
                     'exad_news_ticker_controls_hover_color',
                     [
-                        'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                        'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#999999',
                         'selectors' => [

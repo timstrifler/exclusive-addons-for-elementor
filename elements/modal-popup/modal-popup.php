@@ -374,6 +374,34 @@ class Modal_Popup extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'exad_modal_btn_align',
+			[
+				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'      => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-left'
+					],
+					'center'    => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-center'
+					],
+					'right'     => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-right'
+					]
+				],
+				'default'   => 'center',
+				'selectors' => [
+					'{{WRAPPER}} .exad-modal-button' => 'text-align: {{VALUE}};'
+				],
+				'separator' => 'before',
+				'toggle'    => false
+			]
+		);
+
 		$this->add_control(
 			'exad_modal_btn_width',
 			[
@@ -458,7 +486,7 @@ class Modal_Popup extends Widget_Base {
 				$this->add_control(
 					'exad_modal_btn_typhography_color_normal',
 					[
-						'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#ffffff',
 						'selectors' => [
@@ -509,9 +537,9 @@ class Modal_Popup extends Widget_Base {
 			$this->start_controls_tab( 'exad_modal_btn_typhography_color_hover_tab', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
 
 				$this->add_control(
-					'exad_modal_btn_typhography_color_hover',
+					'exad_modal_btn_color_hover',
 					[
-						'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => $exad_primary_color,
 						'selectors' => [
@@ -543,37 +571,6 @@ class Modal_Popup extends Widget_Base {
 			$this->end_controls_tab();
 
 		$this->end_controls_tabs();
-
-		/**
-		 * display settings for button alignment
-		 */
-		$this->add_responsive_control(
-			'exad_modal_btn_align',
-			[
-				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'      => [
-						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-left'
-					],
-					'center'    => [
-						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-center'
-					],
-					'right'     => [
-						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-right'
-					]
-				],
-				'default'   => 'center',
-				'selectors' => [
-					'{{WRAPPER}} .exad-modal-button' => 'text-align: {{VALUE}};'
-				],
-				'separator' => 'before',
-				'toggle'    => false
-			]
-		);
 
 		$this->add_control(
 			'exad_modal_btn_icon_align',

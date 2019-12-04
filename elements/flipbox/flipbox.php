@@ -941,7 +941,7 @@ class Flipbox extends Widget_Base {
 				$this->add_control(
 					'exad_flipbox_btn_normal_text_color',
 					[
-						'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#ffffff',
 						'selectors' => [
@@ -995,7 +995,7 @@ class Flipbox extends Widget_Base {
 				$this->add_control(
 					'exad_flipbox_btn_hover_text_color',
 					[
-						'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#000000',
 						'selectors' => [

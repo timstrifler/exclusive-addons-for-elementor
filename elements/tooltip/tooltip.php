@@ -436,6 +436,36 @@ class Tooltip extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'exad_tooltip_style_color',
+            [
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text' => 'color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'     => 'hover_tooltip_content_background',
+                'label'    => __( 'Background', 'exclusive-addons-elementor' ),
+                'types'    => [ 'classic', 'gradient' ],
+                'fields_options'  => [
+                    'background'  => [
+                        'default' => 'classic'
+                    ],
+                    'color'       => [
+                        'default' => $exad_primary_color
+                    ]
+                ],
+                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-text'
+            ]
+        );
+
         $this->add_responsive_control(
 			'exad_tooltip_text_width',
 		    [
@@ -462,36 +492,6 @@ class Tooltip extends Widget_Base {
 		        ]
 		    ]
 		);
-
-        $this->add_control(
-            'exad_tooltip_style_color',
-            [
-                'label'     => __( 'Color', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .exad-tooltip .exad-tooltip-item .exad-tooltip-text' => 'color: {{VALUE}};'
-                ]
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name'     => 'hover_tooltip_content_background',
-                'label'    => __( 'Background', 'exclusive-addons-elementor' ),
-                'types'    => [ 'classic', 'gradient' ],
-                'fields_options'  => [
-                    'background'  => [
-                        'default' => 'classic'
-                    ],
-                    'color'       => [
-                        'default' => $exad_primary_color
-                    ]
-                ],
-                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-text'
-            ]
-        );
 
         $this->add_responsive_control(
             'exad_tooltip_text_padding',

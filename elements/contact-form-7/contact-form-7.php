@@ -99,7 +99,6 @@ class Contact_Form_7 extends Widget_Base {
 			]
 		);
         
-		
 		$this->add_control(
 			'exad_contact_form_title_text',
 			[
@@ -109,9 +108,7 @@ class Contact_Form_7 extends Widget_Base {
 			]
 		);
         
-        
         $this->end_controls_section();
-
 
         /**
          * Content Tab: Errors
@@ -166,7 +163,6 @@ class Contact_Form_7 extends Widget_Base {
         
         $this->end_controls_section();
 
-
         /**
          * Style Tab: Form Container
          * -------------------------------------------------
@@ -214,7 +210,6 @@ class Contact_Form_7 extends Widget_Base {
 				]
   			]
   		);
-		
 		
 		$this->add_control(
 			'exad_contact_form_padding',
@@ -290,7 +285,6 @@ class Contact_Form_7 extends Widget_Base {
                 'selector' => '{{WRAPPER}} .exad-contact-form'
 			]
 		);
-		
 
         $this->end_controls_section();
 
@@ -343,7 +337,6 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
         
-        
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -352,8 +345,7 @@ class Contact_Form_7 extends Widget_Base {
                 'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .exad-contact-form-7 .exad-contact-form-7-title'
             ]
-        );
-        
+        ); 
         
         $this->end_controls_section();
         
@@ -383,15 +375,13 @@ class Contact_Form_7 extends Widget_Base {
         $this->add_control(
             'exad_contact_field_text_color',
             [
-                'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-select' => 'color: {{VALUE}}'
                 ]
             ]
         );
-        
-        
 
 		$this->add_control(
 			'exad_contact_field_padding',
@@ -458,8 +448,7 @@ class Contact_Form_7 extends Widget_Base {
                 'label'       => __( 'Border', 'exclusive-addons-elementor' ),
                 'placeholder' => '1px',
                 'default'     => '1px',
-                'selector'    => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-select',
-                'separator'   => 'before'
+                'selector'    => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-select'
 			]
 		);
 
@@ -474,6 +463,7 @@ class Contact_Form_7 extends Widget_Base {
 				]
 			]
         );
+
         $this->end_controls_section();
 
         /**
@@ -497,7 +487,6 @@ class Contact_Form_7 extends Widget_Base {
                 ]
             ]
         );
-        
         
         $this->add_group_control(
             Group_Control_Typography::get_type(),
@@ -619,7 +608,7 @@ class Contact_Form_7 extends Widget_Base {
         $this->add_control(
             'exad_contact_button_text_color_normal',
             [
-                'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#ffffff',
                 'selectors' => [
@@ -677,7 +666,7 @@ class Contact_Form_7 extends Widget_Base {
         $this->add_control(
             'exad_contact_button_text_color_hover',
             [
-                'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => $exad_primary_color,
                 'selectors' => [
@@ -735,7 +724,6 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
-
         $this->add_control(
             'exad_contact_error_alert_text_color',
             [
@@ -750,7 +738,6 @@ class Contact_Form_7 extends Widget_Base {
 				]
             ]
         );
-        
 
         $this->add_control(
             'exad_contact_error_field_bg_color',
@@ -772,16 +759,12 @@ class Contact_Form_7 extends Widget_Base {
 			[
                 'name'        => 'error_field_border',
                 'label'       => __( 'Border', 'exclusive-addons-elementor' ),
-                'placeholder' => '1px',
-                'default'     => '1px',
                 'selector'    => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-not-valid-tip',
-                'separator'   => 'before',
                 'condition'   => [
 					'exad_error_messages' => 'show'
 				]
 			]
 		);
-
         
         $this->add_control(
             'exad_contact_validation_errors_heading',
@@ -830,10 +813,7 @@ class Contact_Form_7 extends Widget_Base {
 			[
                 'name'        => 'validation_errors_border',
                 'label'       => __( 'Border', 'exclusive-addons-elementor' ),
-                'placeholder' => '1px',
-                'default'     => '1px',
                 'selector'    => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-validation-errors',
-                'separator'   => 'before',
                 'condition'   => [
 					'exad_validation_errors' => 'show'
 				]
@@ -861,7 +841,7 @@ class Contact_Form_7 extends Widget_Base {
             if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>
                 <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
                         
-                    <?php if ( $settings['exad_contact_form_title_text'] != '' ) { ?>
+                    <?php if ( '' != $settings['exad_contact_form_title_text'] ) { ?>
                         <h3 class="exad-contact-form-title exad-contact-form-7-title">
                             <?php echo esc_html( $settings['exad_contact_form_title_text'] ); ?>
                         </h3>

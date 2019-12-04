@@ -334,7 +334,6 @@ class Pricing_Menu extends Widget_Base {
                     'left'   => 0,
                     'unit'   => 'px'
                 ],
-                'separator'  => 'after',
                 'selectors'  => [
                     '{{WRAPPER}} .exad-pricing-list-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
@@ -797,27 +796,27 @@ class Pricing_Menu extends Widget_Base {
         $this->start_controls_tabs( 'exad_pricing_menu_order_btn_tabs' );
 
             $this->start_controls_tab( 'exad_pricing_menu_order_btn_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
-            
-                $this->add_control(
-                    'exad_pricing_menu_order_btn_normal_background',
-                    [
-                        'label'     => esc_html__( 'Background', 'exclusive-addons-elementor' ),
-                        'type'      => Controls_Manager::COLOR,
-                        'default'   => '#0A1724',
-                        'selectors' => [
-                            '{{WRAPPER}} .exad-pricing-list-item-content-action' => 'background: {{VALUE}};'
-                        ]
-                    ]
-                );
 
                 $this->add_control(
                     'exad_pricing_menu_order_btn_normal_color',
                     [
-                        'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                        'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#ffffff',
                         'selectors' => [
                             '{{WRAPPER}} .exad-pricing-list-item-content-action' => 'color: {{VALUE}};'
+                        ]
+                    ]
+                );
+            
+                $this->add_control(
+                    'exad_pricing_menu_order_btn_normal_background',
+                    [
+                        'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#0A1724',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-pricing-list-item-content-action' => 'background: {{VALUE}};'
                         ]
                     ]
                 );
@@ -842,27 +841,27 @@ class Pricing_Menu extends Widget_Base {
             $this->end_controls_tab();
 
             $this->start_controls_tab( 'exad_pricing_menu_order_btn_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
-            
-                $this->add_control(
-                    'exad_pricing_menu_order_btn_hover_background',
-                    [
-                        'label'     => esc_html__( 'Background', 'exclusive-addons-elementor' ),
-                        'type'      => Controls_Manager::COLOR,
-                        'default'   => '#0A1724',
-                        'selectors' => [
-                            '{{WRAPPER}} .exad-pricing-list-item-content-action:hover' => 'background: {{VALUE}};'
-                        ]
-                    ]
-                );
 
                 $this->add_control(
                     'exad_pricing_menu_order_btn_hover_color',
                     [
-                        'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                        'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#ffffff',
                         'selectors' => [
                             '{{WRAPPER}} .exad-pricing-list-item-content-action:hover' => 'color: {{VALUE}};'
+                        ]
+                    ]
+                );
+            
+                $this->add_control(
+                    'exad_pricing_menu_order_btn_hover_background',
+                    [
+                        'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#0A1724',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-pricing-list-item-content-action:hover' => 'background: {{VALUE}};'
                         ]
                     ]
                 );

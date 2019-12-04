@@ -1150,7 +1150,7 @@ class Post_Grid extends Widget_Base {
             $this->add_control(
                 'exad_post_grid_details_btn_normal_text_color',
                 [
-					'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+					'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => $exad_primary_color,
 					'selectors' => [
@@ -1209,7 +1209,7 @@ class Post_Grid extends Widget_Base {
             $this->add_control(
                 'exad_post_grid_details_btn_hover_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a:hover' => 'color: {{VALUE}};'

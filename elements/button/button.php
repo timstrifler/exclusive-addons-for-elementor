@@ -222,13 +222,51 @@ class Button extends Widget_Base {
 				]
 			]
 		);
-		
+
 		$this->add_control(
-			'exad_button_border_properties',
+			'exad_exclusive_button_border_radius',
 			[
-				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before'
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px'],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-button-wrapper .exad-button-action, {{WRAPPER}} .exad-button-wrapper.effect-1 .exad-button-action::before'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_button_separator',
+			[
+				'type'  => Controls_Manager::DIVIDER,
+				'style' => 'default'
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_exclusive_button_tabs' );
+
+		$this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+		$this->add_control(
+			'exad_exclusive_button_text_color',
+			[
+				'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+				'type'		=> Controls_Manager::COLOR,
+				'default'	=> $exad_primary_color,
+				'selectors'	=> [
+					'{{WRAPPER}} .exad-button-wrapper .exad-button-action'                     => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::after'  => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'     => 'exad_exclusive_button_background',
+				'types'    => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-button-wrapper .exad-button-action'
 			]
 		);
 
@@ -256,63 +294,14 @@ class Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_exclusive_button_border_radius',
-			[
-				'label' => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type'  => Controls_Manager::SLIDER,
-				'range' => [
-					'px'      => [
-						'max' => 100
-					]
-				],
-				'default'  => [
-					'unit' => 'px',
-					'size' => 0
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-button-wrapper .exad-button-action'                  => 'border-radius: {{SIZE}}px;',
-					'{{WRAPPER}} .exad-button-wrapper.effect-1 .exad-button-action::before' => 'border-radius: {{SIZE}}px;'
-				]
-			]
-		);
-
-		$this->add_control(
-			'exad_button_separator',
-			[
-				'type'  => Controls_Manager::DIVIDER,
-				'style' => 'default'
-			]
-		);
-
-		$this->start_controls_tabs( 'exad_exclusive_button_tabs' );
-
-		$this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
-
-		$this->add_control(
-			'exad_exclusive_button_text_color',
-			[
-				'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
-				'type'		=> Controls_Manager::COLOR,
-				'default'	=> $exad_primary_color,
-				'selectors'	=> [
-					'{{WRAPPER}} .exad-button-wrapper .exad-button-action'                     => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::before' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .exad-exclusive-button.exad-exclusive-button--tamaya::after'  => 'color: {{VALUE}};'
-				]
-			]
-		);
-
 		$this->add_group_control(
-			Group_Control_Background::get_type(),
+			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'background',
-				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
-				'types'    => [ 'classic', 'gradient' ],
+				'name'     => 'exad_exclusive_button_box_shadow',
 				'selector' => '{{WRAPPER}} .exad-button-wrapper .exad-button-action'
 			]
 		);
-	
+
 		$this->end_controls_tab();
 		
 		$this->start_controls_tab( 'exad_exclusive_button_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
@@ -320,7 +309,7 @@ class Button extends Widget_Base {
 		$this->add_control(
 			'exad_exclusive_button_hover_text_color',
 			[
-				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
@@ -329,49 +318,42 @@ class Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_exclusive_button_hover_background_color',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => $exad_primary_color,
-				'selectors' => [
-					'{{WRAPPER}} .exad-button-wrapper.effect-1 .exad-button-action::before'                => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-2 .exad-button-action:before'                 => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-2 .exad-button-action:after'                  => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-3 .exad-button-action::before'                => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-4 .exad-button-action::after'                 => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-5 .exad-button-action::before'                => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-7 .exad-button-action::before'                => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-10 .exad-button-action::before'               => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-11 .exad-button-action:hover'                 => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-button-wrapper.effect-12 .exad-button-action:hover'                 => 'background: {{VALUE}};'	
+				'name'     => 'exad_exclusive_button_hover_background',
+				'types'    => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-button-wrapper.effect-1 .exad-button-action::before, {{WRAPPER}} .exad-button-wrapper.effect-2 .exad-button-action:before, {{WRAPPER}} .exad-button-wrapper.effect-2 .exad-button-action:after, {{WRAPPER}} .exad-button-wrapper.effect-3 .exad-button-action::before, {{WRAPPER}} .exad-button-wrapper.effect-4 .exad-button-action::after, {{WRAPPER}} .exad-button-wrapper.effect-5 .exad-button-action::before, {{WRAPPER}} .exad-button-wrapper.effect-7 .exad-button-action::before, {{WRAPPER}} .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position, {{WRAPPER}} .exad-button-wrapper.effect-10 .exad-button-action::before, {{WRAPPER}} .exad-button-wrapper.effect-11 .exad-button-action:hover, {{WRAPPER}} .exad-button-wrapper.effect-12 .exad-button-action:hover',
+				'fields_options'  => [
+					'background'  => [
+						'default' => 'classic'
+					],
+					'color'       => [
+						'default' => $exad_primary_color
+					]
 				]
 			]
 		);
 
-		
-		$this->end_controls_tab();
-		
-		$this->end_controls_tabs();
-		
-		$this->add_control(
-			'exad_box_shadow_heading',
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
 			[
-				'label'     => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::HEADING,
-				'separator' => 'before'
+				'name'            => 'exad_exclusive_button_border_hover',
+				'selector'        => '{{WRAPPER}} .exad-button-wrapper .exad-button-action:hover'
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'button_box_shadow',
-				'selector' => '{{WRAPPER}} .exad-button-wrapper .exad-button-action'
+				'name'     => 'exad_exclusive_button_box_shadow_hover',
+				'selector' => '{{WRAPPER}} .exad-button-wrapper .exad-button-action:hover'
 			]
-		);		
+		);
+		
+		$this->end_controls_tab();
+		
+		$this->end_controls_tabs();	
 		
 		$this->end_controls_section();
 

@@ -336,6 +336,18 @@ class Tabs extends Widget_Base {
 		$this->start_controls_tabs( 'exad_exclusive_tabs_navigation_tabs' );
 			// Normal State Tab
 			$this->start_controls_tab( 'exad_exclusive_tabs_navigation_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_exclusive_tabs_navigation_list_normal_text_color',
+					[
+						'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#8a8d91',
+						'selectors' => [
+							'{{WRAPPER}} .exad-advance-tab-nav li' => 'color: {{VALUE}};'
+						]
+					]
+				);
 				
 				$this->add_group_control(
 					Group_Control_Background::get_type(),
@@ -344,18 +356,6 @@ class Tabs extends Widget_Base {
 						'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 						'types'    => [ 'classic', 'gradient' ],
 						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li'
-					]
-				);
-
-				$this->add_control(
-					'exad_exclusive_tabs_navigation_list_normal_text_color',
-					[
-						'label'     => __( 'Color', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '#8a8d91',
-						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab-nav li' => 'color: {{VALUE}};'
-						]
 					]
 				);
 
@@ -397,6 +397,18 @@ class Tabs extends Widget_Base {
 			// Active State Tab
 			$this->start_controls_tab( 'exad_exclusive_tabs_navigation_active', [ 'label' => esc_html__( 'Active/Hover', 'exclusive-addons-elementor' ) ] );
 
+				$this->add_control(
+					'exad_exclusive_tabs_navigation_list_hover_text_color',
+					[
+						'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#0a1724',
+						'selectors' => [
+							'{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
 				$this->add_group_control(
 					Group_Control_Background::get_type(),
 					[
@@ -404,18 +416,6 @@ class Tabs extends Widget_Base {
 						'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 						'types'    => [ 'classic', 'gradient' ],
 						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover, {{WRAPPER}} .exad-tab-triangle-right.active::before, {{WRAPPER}} .exad-tab-triangle-bottom.active::before'
-					]
-				);
-
-				$this->add_control(
-					'exad_exclusive_tabs_navigation_list_hover_text_color',
-					[
-						'label'     => __( 'Color', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '#0a1724',
-						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover' => 'color: {{VALUE}};'
-						]
 					]
 				);
 
@@ -717,7 +717,7 @@ class Tabs extends Widget_Base {
 		$this->add_control(
 			'exclusive_tabs_content_description_color',
 			[
-				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#0a1724',
 				'selectors' => [
@@ -933,7 +933,7 @@ class Tabs extends Widget_Base {
             $this->add_control(
                 'exad_tab_details_btn_normal_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => $exad_primary_color,
                     'selectors' => [
@@ -994,7 +994,7 @@ class Tabs extends Widget_Base {
             $this->add_control(
                 'exad_tab_details_btn_hover_text_color',
                 [
-					'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+					'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#ffffff',
 					'selectors' => [

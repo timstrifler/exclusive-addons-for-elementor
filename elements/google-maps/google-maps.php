@@ -40,6 +40,7 @@ class Google_Maps extends Widget_Base {
 		);
 		 
 		$admin_link = admin_url( 'admin.php?page=exad-settings' );
+		
 		$this->add_control(
 			'exad_map_api_key',
 			[

@@ -530,7 +530,7 @@ class Alert extends Widget_Base {
             $this->add_control(
                 'exad_alert_dismiss_primary_button_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#ffffff',
                     'selectors' => [
@@ -616,7 +616,7 @@ class Alert extends Widget_Base {
             $this->add_control(
                 'exad_alert_dismiss_secondary_button_text_color',
                 [
-                    'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#ffffff',
                     'selectors' => [

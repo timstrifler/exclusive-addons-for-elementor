@@ -823,10 +823,10 @@ class Team_Member extends Widget_Base {
 
 			$this->start_controls_tab( 'exad_team_member_cta_btn_tab_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
 
-				$this->add_responsive_control(
+				$this->add_control(
 					'exad_team_member_cta_btn_text_color_normal',
 					[
-						'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#222222',
 						'selectors' => [
@@ -835,7 +835,7 @@ class Team_Member extends Widget_Base {
 					]
 				);
 
-				$this->add_responsive_control(
+				$this->add_control(
 					'exad_team_member_cta_btn_background_normal',
 					[
 						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
@@ -860,10 +860,10 @@ class Team_Member extends Widget_Base {
 
 			$this->start_controls_tab( 'exad_team_member_cta_btn_tab_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
 
-				$this->add_responsive_control(
+				$this->add_control(
 					'exad_team_member_cta_btn_text_color_hover',
 					[
-						'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#d6d6d6',
 						'selectors' => [
@@ -872,7 +872,7 @@ class Team_Member extends Widget_Base {
 					]
 				);
 
-				$this->add_responsive_control(
+				$this->add_control(
 					'exad_team_member_cta_btn_background_hover',
 					[
 						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
@@ -899,8 +899,9 @@ class Team_Member extends Widget_Base {
 
 		$this->end_controls_section();
 
-		// Name, Designation , About Font Color and Typography
-
+		/*
+		* Name, Designation , About Font Color and Typography
+		*/
 		$this->start_controls_section(
             'section_team_carousel_name',
             [
@@ -953,7 +954,6 @@ class Team_Member extends Widget_Base {
 		/**
 		 * Designation Style
 		 */
-
         $this->start_controls_section(
             'section_team_member_designation',
             [
@@ -1160,7 +1160,7 @@ class Team_Member extends Widget_Base {
 				$this->add_control(
 					'exad_team_carousel_social_icon_color_normal',
 					[
-						'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#a4a7aa',
 						'selectors' => [
@@ -1197,7 +1197,7 @@ class Team_Member extends Widget_Base {
 				$this->add_control(
 					'exad_team_carousel_social_icon_color_hover',
 					[
-						'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => esc_html__( 'Icon Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#8a8d91',
 						'selectors' => [

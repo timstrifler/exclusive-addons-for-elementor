@@ -1242,7 +1242,7 @@ class Pricing_Table extends Widget_Base {
 			$this->add_control(
 				'exad_pricing_table_btn_normal_text_color',
 				[
-					'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+					'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#ffffff',
 					'selectors' => [
@@ -1305,7 +1305,7 @@ class Pricing_Table extends Widget_Base {
 			$this->add_control(
 				'exad_pricing_table_btn_hover_text_color',
 				[
-					'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+					'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 					'type'      => Controls_Manager::COLOR,
 					'default'   => $exad_secondary_color,
 					'selectors' => [

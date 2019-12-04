@@ -702,7 +702,7 @@ class Card extends Widget_Base {
 				$this->add_control(
 					'exad_card_button_normal_color',
 					[
-						'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#222222',
 						'selectors' => [
@@ -764,7 +764,7 @@ class Card extends Widget_Base {
 				$this->add_control(
 					'exad_card_button_hover_color',
 					[
-						'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#ffffff',
 						'selectors' => [

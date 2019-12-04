@@ -34,6 +34,16 @@ class Progress_Bar extends Widget_Base {
 		return [ 'skill bars', 'circle', 'half circle' ];
 	}
 
+	private function hexToRGB($primaryColor){
+		if ( strpos( $primaryColor, '#' ) === 0 ) {
+            return $primaryColor;
+        }
+		$removeRGB = substr( $primaryColor, 5 ); 
+		$rgbarr    = explode( ",", $removeRGB, 3 );
+		$hashColor = sprintf( "#%02x%02x%02x", $rgbarr[0], $rgbarr[1], $rgbarr[2] );
+		return $hashColor;
+	}
+
 	protected function _register_controls() {
 		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
@@ -104,9 +114,9 @@ class Progress_Bar extends Widget_Base {
 		$this->add_control(
 			'exad_progress_bar_title_color',
 			[
-				'label'     => __( 'Title Color', 'exclusive-addons-elementor' ),
+				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000',
+				'default'   => '#000000',
 				'selectors' => [
 					'{{WRAPPER}} .exad-progress-bar-title' => 'color: {{VALUE}};'
 				]
@@ -137,7 +147,8 @@ class Progress_Bar extends Widget_Base {
 			[
 				'label'   => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::COLOR,
-				'default' => $exad_primary_color
+				'alpha'	  => false,
+				'default' => $this->hexToRGB($exad_primary_color)
 			]
 		);
 
@@ -223,9 +234,9 @@ class Progress_Bar extends Widget_Base {
 		$this->add_control(
 			'exad_progress_bar_value_color',
 			[
-				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+				'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000',
+				'default'   => '#000000',
 				'selectors' => [
 					'{{WRAPPER}} .exad-progress-bar .ldBar-label' => 'color: {{VALUE}};'
 				]
@@ -359,7 +370,7 @@ class Progress_Bar extends Widget_Base {
 			);
 		}
 
-		?>		
+		?>
 		
 		<div <?php echo $this->get_render_attribute_string('exad-progress-bar') ?> data-progress-bar>
 			<h6 class="exad-progress-bar-title"><?php echo esc_html( $settings['exad_progress_bar_title'] ); ?></h6>

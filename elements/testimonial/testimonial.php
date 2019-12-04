@@ -171,7 +171,6 @@ class Testimonial extends Widget_Base {
 				'name'      => 'exad_testimonial_container_background',
 				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
-				'separator' => 'before',
 				'selector'  => '{{WRAPPER}} .exad-testimonial-wrapper'
 			]
 		);
@@ -304,7 +303,6 @@ class Testimonial extends Widget_Base {
 				'label'       => __( 'Width', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'separator'   => 'after',
-				'size_units'  => [ 'px' ],
 				'range'       => [
 					'px'      => [
 						'min' => 0,
@@ -346,7 +344,6 @@ class Testimonial extends Widget_Base {
 				'label'      => __( 'Border radius', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
-				'separator'  => 'after',
 				'default'    => [
 					'top'    => '50',
 					'right'  => '50',
@@ -408,19 +405,6 @@ class Testimonial extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_testimonial_description_bg_color',
-			[
-				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'background: {{VALUE}};',
-					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'color: {{VALUE}};'
-				]
-			]
-		);
-
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -433,11 +417,24 @@ class Testimonial extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_description_color',
 			[
-				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+				'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#222222',
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-description' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_description_bg_color',
+			[
+				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#ffffff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'background: {{VALUE}};',
+					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -521,7 +518,6 @@ class Testimonial extends Widget_Base {
 				'separator'    => 'before'
 			]
 		);
-
 
 		$this-> end_controls_section();
 
@@ -684,15 +680,15 @@ class Testimonial extends Widget_Base {
 						'max' => 100
 					]
 				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 20
+				'default'     => [
+					'unit'    => 'px',
+					'size'    => 20
 				],
-				'selectors' => [
+				'selectors'   => [
 					'{{WRAPPER}} .exad-testimonial-wrapper.exad-testimonial-align-left .exad-testimonial-reviewer-wrapper .exad-testimonial-reviewer' => 'padding-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-testimonial-wrapper.exad-testimonial-align-right .exad-testimonial-reviewer-wrapper .exad-testimonial-reviewer' => 'padding-right: {{SIZE}}{{UNIT}};'
 				],
-				'condition' => [
+				'condition'   => [
 					'exad_testimonial_container_alignment' => ['exad-testimonial-align-left', 'exad-testimonial-align-right']
 				]
 			]
@@ -701,7 +697,6 @@ class Testimonial extends Widget_Base {
 		/**
 		 * Testimonial Title Style Section
 		 */
-
 		$this->add_control(
 			'exad_testimonial_title_style',
 			[

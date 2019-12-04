@@ -518,7 +518,7 @@ class Post_Timeline extends Widget_Base {
 		$this->add_control(
 			'exad_timeline_date_color',
 			[
-				'label'     => __( 'Year Color', 'exclusive-addons-elementor' ),
+				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#424242',
 				'selectors' => [
