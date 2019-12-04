@@ -1,8 +1,8 @@
 === Exclusive Addons for Elementor ===
-Contributors: devscred, mmaumio
-Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern
+Contributors: devscred, mmaumio, atique_hasan, zabid, fahimahmmed100
+Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.1.1
+Tested up to: 5.3
 Stable tag: 2.0
 Requires PHP: 5.4
 License: GPLv3
@@ -13,22 +13,17 @@ Packed with a bunch of Exclusively designed widget for Elementor that you'll lov
 == Description ==
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
-You don’t need to get your hands dirty designing elements from scratch. We’ve done the hard work for you.
-Choose from the presets. We’re quite sure, you’ll love them.
-
-If you don't, we have a bunch of options for you to design them according to your needs.
+We have filled all the elements with every options that you can think off. Still need one, please feel free to reach out.
+We'd love add that for you.
 
 [Check out our Demos](http://exclusiveaddons.com/)
 
 
-### Weekly Updates with New Element
-We'll update Exclusive Addons with new Elements for you, every week.
-
 ### Live Preview
 We have enabled Live Preview for most of our elements. That means you can see as you edit your elements without a delay of second.
 
-### 20+ Elementor widgets
-We have packed 20+ Elementor widgets for now. We'll continue to add them as time goes on.
+### 30+ Elementor widgets
+We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
 
 ### Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -74,6 +69,18 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
+= 2.0 - 04/12/2019 =
+- Changed every element form Style based selection to Single style element, reached with enormous options.
+- Added namespace for Elements classes.
+- Changed "DC back to "Ex" on Element editor panel.
+- Added 10 New widgets.
+- Added Default Style settings for all the elements at once in the Dashboard.
+- Changed Settings page loaction to a Top level menu option.
+
+
+= 1.3.2 - 28/10/2019 =
+- Provided a notice for the coming update of Exclusive Addons Elementor 2.0 which might break some of the designs of the existing elements.
+
 = 1.2.2 - 04/05/2019 =
 - Added Tooltip Element.
 - Fixed a small margin issue with the Card element.
@@ -114,5 +121,5 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 2.0 =
 No Upgrade instruction yet
