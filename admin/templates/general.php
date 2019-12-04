@@ -37,8 +37,8 @@
                     </div>
                     <div class="exad-admin-block-header">
                         <h4 class="exad-admin-title"><?php _e( 'Contribute to Exclusive Addons', 'exclusive-addons-elementor' ); ?></h4>
-                        <p><?php _e( 'Please feel free to report any issues in our Github repo about Exclusive Addons for Elementor. Send pull requests at', 'exclusive-addons-elementor' ); ?> <a href="https://github.com/mmaumio/exclusive-addons-elementor" target="_blank"><?php _e( 'Github.', 'exclusive-addons-elementor' ); ?></a></p>
-                        <a href="https://github.com/mmaumio/exclusive-addons-elementor/issues/new" class="exad-admin-block-contribution-button" target="_blank"><?php _e( 'Report Bug', 'exclusive-addons-elementor' ); ?></a>
+                        <p><?php _e( 'Please feel free to report any issues in our Github repo about Exclusive Addons for Elementor. Send pull requests at', 'exclusive-addons-elementor' ); ?> <a href="https://github.com/mmaumio/exclusive-addons-for-elementor" target="_blank"><?php _e( 'Github.', 'exclusive-addons-elementor' ); ?></a></p>
+                        <a href="https://github.com/mmaumio/exclusive-addons-for-elementor/issues/new" class="exad-admin-block-contribution-button" target="_blank"><?php _e( 'Report Bug', 'exclusive-addons-elementor' ); ?></a>
                     </div>
 
 

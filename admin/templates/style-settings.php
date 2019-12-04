@@ -22,7 +22,7 @@
 							</th>
 							<td>
 				  				<input type="text" class="color-picker exad-admin-color-picker" data-alpha="true" data-default-color="#7a56ff" name="exad_primary_color" value="<?php echo sanitize_text_field( esc_attr( $primaryColor ) ); ?>"/>
-				  				<p class="description">Select your primary color. Default: #7a56ff</p>
+				  				<p class="description">Choose the primary color which will be applied as the default color for all the elements. Default: #7a56ff <br/> You might have to Regenerate the CSS from Elementor > Tools > Regenerate CSS for this to work.</p>
 				  			</td>
 	            		</tr>
 
@@ -32,7 +32,7 @@
 							</th>
 							<td>
 								<input type="text" class="color-picker exad-admin-color-picker" data-alpha="true" data-default-color="#00d8d8" name="exad_secondary_color" value="<?php echo sanitize_text_field( esc_attr( $secondaryColor ) ); ?>"/>
-				  				<p class="description">Select your secondary color. Default: #00d8d8</p>
+				  				<p class="description">Choose the secondary color which will be applied as the default color for all the elements. Default: #00d8d8 <br/> You might have to Regenerate the CSS from Elementor > Tools > Regenerate CSS for this to work.</p>
 				  			</td>
 	            		</tr>
 	  				</tbody>

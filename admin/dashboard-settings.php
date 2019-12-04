@@ -126,7 +126,7 @@ class Admin_Settings {
                     <ul class="exad-dashboard-tabs">
                         <li><a href="#general" class="active"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/general.svg'; ?>"><span><?php _e( 'General', 'exclusive-addons-elementor' ); ?></span></a></li>
                         <li><a href="#elements"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements.svg'; ?>"><span><?php _e( 'Elements', 'exclusive-addons-elementor' ); ?></span></a></li>
-						<li><a href="#style-settings"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/style-settings.svg'; ?>"><span><?php _e( 'Style Settings', 'exclusive-addons-elementor' ); ?></span></a></li>
+						<li><a href="#style-settings"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/style-settings.svg'; ?>"><span><?php _e( 'Style', 'exclusive-addons-elementor' ); ?></span></a></li>
                         <li><a href="#apikeys"><img src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-keys.svg'; ?>"><span><?php _e( 'API Keys', 'exclusive-addons-elementor' ); ?></span></a></li>
                     </ul>
                     <?php include_once EXAD_ADMIN . 'templates/general.php'; ?>
