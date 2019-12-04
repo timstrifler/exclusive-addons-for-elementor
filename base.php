@@ -260,8 +260,6 @@ final class Base {
         $is_activated_widget = $this->activated_widgets();
 
         if ( $is_activated_widget['progress-bar'] ) {
-            // Waypoints Js
-            wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );  
             // Loading Bar Bar and Waypoint JS
             wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'vendor/js/exad-progress-bar-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
