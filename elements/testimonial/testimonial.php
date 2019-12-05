@@ -431,7 +431,6 @@ class Testimonial extends Widget_Base {
 			[
 				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-testimonial-content-wrapper-arrow::before' => 'color: {{VALUE}};'

@@ -420,7 +420,11 @@ class Post_Grid extends Widget_Base {
                 'label'         => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::DIMENSIONS,
                 'default'       => [
-                    'bottom'    => 20
+                    'top'       => '0',
+                    'right'     => '0',
+                    'bottom'    => '20',
+                    'left'      => '0',
+                    'isLinked'  => false
                 ],                
                 'size_units'    => [ 'px', 'em', '%' ],
                 'selectors'     => [
