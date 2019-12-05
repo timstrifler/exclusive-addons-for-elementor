@@ -70,7 +70,7 @@ class Admin_Settings {
 	public function create_admin_menu() {
 
 		$title = __( 'Exclusive Addons', 'exclusive-addons-elementor' );
-		add_menu_page( $title, $title, 'manage_options', 'exad-settings', array( $this, 'admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/ex-menu-icon.svg', 58.4 );
+		add_menu_page( $title, $title, 'manage_options', 'exad-settings', array( $this, 'admin_settings_page' ), EXAD_ADMIN_URL . 'assets/img/version-2.svg', 58.7 );
 		
 	}
 

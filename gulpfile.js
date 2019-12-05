@@ -88,6 +88,61 @@ gulp.task('cleanmin', function () {
 });
 
 /**
+ * Deletes all minified css files in the project
+ */
+gulp.task('cleancssmin', function () {
+    return del([
+        'admin/assets/css/*.min.css',
+        'assets/css/*.min.css',
+        '!node_modules/**/*'
+    ]);
+});
+
+/**
+ * Deletes all minified js files in the project
+ */
+gulp.task('cleanjsmin', function () {
+    return del([
+        'admin/assets/js/*.min.js',
+        'assets/js/*.min.js',
+        '!node_modules/**/*'
+    ]);
+});
+
+
+/**
+ * Concat Js
+ */
+gulp.task('jsconcat', function() {
+    return gulp.src('assets/js/elements-js/*.js')
+      .pipe(concat('exad-scripts.js'))
+      .pipe(gulp.dest('./assets/js'));
+});
+
+/**
+ * Concat Css
+ */
+gulp.task('cssconcat', function() {
+    return gulp.src('assets/css/elements-css/*.css')
+      .pipe(concat('exad-styles.css'))
+      .pipe(gulp.dest('./assets/css'));
+});
+
+/**
+ * concat and minify css
+ */
+gulp.task('css', function(callback) {
+    return runSequence( 'cssconcat', 'cssmin', callback);
+});
+
+/**
+ * concat and minify js
+ */
+gulp.task('js', function(callback) {
+    return runSequence( 'jsconcat', 'jsmin', callback);
+});
+
+/**
  * Copies all files to the dist folder
  */
 gulp.task('copy', function () {
@@ -144,23 +199,6 @@ gulp.task('prod', function(callback) {
     return runSequence( 'clean', 'pot', 'copy', 'zip', callback);
 });
 
-/**
- * Concat Js
- */
-gulp.task('jsconcat', function() {
-    return gulp.src('assets/js/elements-js/*.js')
-      .pipe(concat('exad-scripts.js'))
-      .pipe(gulp.dest('./assets/js'));
-});
-
-/**
- * Concat Css
- */
-gulp.task('cssconcat', function() {
-    return gulp.src('assets/css/elements-css/*.css')
-      .pipe(concat('exad-styles.css'))
-      .pipe(gulp.dest('./assets/css'));
-});
 
 /**
  * Watch Gulp css and js concat

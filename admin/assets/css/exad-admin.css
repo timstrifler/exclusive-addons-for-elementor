@@ -603,7 +603,11 @@ textarea.exad-form-control {
 .exad-admin-block-contribution-button:hover,
 .exad-admin-block-docs-button:hover, 
 .exad-admin-block-header-button:hover, 
-.exad-admin-block-support-button:hover {
+.exad-admin-block-support-button:hover,
+.exad-admin-block-contribution-button:visited,
+.exad-admin-block-docs-button:visited, 
+.exad-admin-block-header-button:visited, 
+.exad-admin-block-support-button:visited {
     color: #ffffff;
 }
 .exad-admin-block-contribution-button:focus,

@@ -75,8 +75,8 @@ msgstr ""
 msgid "Elements"
 msgstr ""
 
-#: admin/dashboard-settings.php:129
-msgid "Style Settings"
+#: admin/dashboard-settings.php:129, elements/accordion/accordion.php:166, elements/logo-box/logo-box.php:105, elements/modal-popup/modal-popup.php:759
+msgid "Style"
 msgstr ""
 
 #: admin/dashboard-settings.php:130
@@ -155,6 +155,22 @@ msgstr ""
 msgid "Leave a Review"
 msgstr ""
 
+#: admin/templates/style-settings.php:21
+msgid "Primary Color"
+msgstr ""
+
+#: admin/templates/style-settings.php:26
+msgid "Choose the primary color which will be applied as the default color for all the elements. Default: "
+msgstr ""
+
+#: admin/templates/style-settings.php:39
+msgid "Choose the secondary color which will be applied as the default color for all the elements. Default: "
+msgstr ""
+
+#: admin/templates/style-settings.php:40
+msgid "You might have to Regenerate the CSS from Elementor > Tools > Regenerate CSS for this to work."
+msgstr ""
+
 #: elements/accordion/accordion.php:23
 msgid "Accordion"
 msgstr ""
@@ -225,10 +241,6 @@ msgstr ""
 
 #: elements/accordion/accordion.php:159, elements/tabs/tabs.php:160
 msgid "Choose Image"
-msgstr ""
-
-#: elements/accordion/accordion.php:166, elements/logo-box/logo-box.php:105, elements/modal-popup/modal-popup.php:759
-msgid "Style"
 msgstr ""
 
 #: elements/accordion/accordion.php:171, elements/accordion/accordion.php:330, elements/alert/alert.php:155, elements/call-to-action/call-to-action.php:162, elements/card/card.php:218, elements/countdown-timer/countdown-timer.php:80, elements/dual-button/dual-button.php:250, elements/filterable-gallery/filterable-gallery.php:260, elements/flipbox/flipbox.php:181, elements/flipbox/flipbox.php:227, elements/flipbox/flipbox.php:554, elements/image-magnifier/image-magnifier.php:74, elements/infobox/infobox.php:155, elements/modal-popup/modal-popup.php:623, elements/news-ticker/news-ticker.php:304, elements/post-grid/post-grid.php:378, elements/post-timeline/post-timeline.php:146, elements/post-timeline/post-timeline.php:440, elements/pricing-menu/pricing-menu.php:156, elements/pricing-table/pricing-table.php:300, elements/team-member/team-member.php:311, elements/testimonial/testimonial.php:135
@@ -1304,7 +1316,7 @@ msgid "Map Settings"
 msgstr ""
 
 #: elements/google-maps/google-maps.php:48
-msgid "To display Google Map without an issue, you need to configure Google Map API key. Please configure API key from the \"API KEYS\" tab <a href=\"%s\" target=\"_blank\" rel=\"noopener\">here</a>."
+msgid "To display Google Map without an issue, you need to configure Google Map API key. Please configure API key from the \"API Keys\" tab <a href=\"%s\" target=\"_blank\" rel=\"noopener\">here</a>."
 msgstr ""
 
 #: elements/google-maps/google-maps.php:56
