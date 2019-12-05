@@ -4,7 +4,7 @@
                 <div class="exad-admin-block-banner-content">
                     <div class="exad-dashboard-banner">
                         <a class="exad-admin-block-banner-full" href="http://exclusiveaddons.com/" target="_blank">
-                            <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/dashboard-banner.png'; ?>">
+                            <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/dashboard-banner.svg'; ?>">
                         </a>
                     </div>
                 </div>
