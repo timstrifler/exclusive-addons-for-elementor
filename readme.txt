@@ -8,7 +8,7 @@ Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
-Packed with a bunch of Exclusively designed widget for Elementor that you'll love on the first glance.
+Packed with a bunch of Exclusively designed widget for Elementor with all the customization options you'll ever need.
 
 == Description ==
 
@@ -18,12 +18,14 @@ We'd love add that for you.
 
 [Check out our Demos](http://exclusiveaddons.com/)
 
-
-### Live Preview
-We have enabled Live Preview for most of our elements. That means you can see as you edit your elements without a delay of second.
-
 ### 30+ Elementor widgets
 We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
+
+### Global Style Settings
+This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
+
+### Live Preview
+We have enabled Live Preview for most of our elements. That means you can see as you edit your element without the delay of a second.
 
 ### Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -44,6 +46,11 @@ Note : This plugin works with Elementor. Make sure you have [Elementor](https://
 
 
 == Frequently Asked Questions ==
+
+= Some of my existing widgets got broken after the update of 2.0 . How to resolve? =
+
+Unfortunately, our new update can not gurantee to keep your existing design intact due to the overall change of the plugin architecture.
+However, in order to achieve the default style (which is great by the way) of our new widget all you have to do is, go to Elementor > Tools > Regenerate CSS and Save Changes.
 
 = Can I use the plugin without Elementor? =
 
