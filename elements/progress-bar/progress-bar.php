@@ -126,13 +126,41 @@ class Progress_Bar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-					'name'     => 'title_typography',
+					'name'     => 'exad_progress_bar_title_typography',
+					'fields_options'   => [
+			            'font_size'    => [
+			                'default'  => [
+			                    'unit' => 'px',
+			                    'size' => 16
+			                ]
+			            ],
+			            'font_weight'  => [
+			                'default'  => '600'
+			            ]
+		            ],
 					'selector' => '{{WRAPPER}} .exad-progress-bar-title'
 				]
 		);
 
-		$this->end_controls_section();
+		$this->add_responsive_control(
+            'exad_progress_bar_title_margin',
+            [
+                'label'      => __('Margin', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'default'    => [
+                    'top'    => '0',
+                    'right'  => '0',
+                    'bottom' => '10',
+                    'left'   => '0'
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-progress-bar-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
 
+		$this->end_controls_section();
 
 		$this->start_controls_section(
 			'exad_progress_bar_front_style',
