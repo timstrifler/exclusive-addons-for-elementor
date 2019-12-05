@@ -109,7 +109,7 @@ class Admin_Settings {
                 <div class="exad-dashboard-header-wrapper">
                     <div class="exad-dashboard-header-left">
                         <div class="exad-admin-logo-inline">
-                            <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-logo.png'; ?>">
+                            <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/exad-admin-logo.svg'; ?>">
                         </div>
                         <h2 class="title">
                             <?php _e( 'Exclusive Addons Settings', 'exclusive-addons-elementor' ); ?>
