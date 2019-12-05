@@ -14,7 +14,7 @@ Packed with a bunch of Exclusively designed widget for Elementor with all the cu
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
 We have filled all the elements with every options that you can think off. Still need one, please feel free to reach out.
-We'd love add that for you.
+We'd love to add that for you.
 
 [Check out our Demos](http://exclusiveaddons.com/)
 
@@ -24,8 +24,8 @@ We have packed 30+ Elementor widgets for now. We'll continue to add them as time
 ### Global Style Settings
 This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
 
-### Live Preview
-We have enabled Live Preview for most of our elements. That means you can see as you edit your element without the delay of a second.
+### Inline Editing with Live Preview
+We have enabled Inline Editing with Live Preview for most of our elements. That means you can see as you edit your element without the delay of a second.
 
 ### Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -38,7 +38,7 @@ We have added only a handful of third party scripts with the plugin. We optimize
 Note : This plugin works with Elementor. Make sure you have [Elementor](https://wordpress.org/plugins/elementor/) installed.
 
 1. Download "Exclusive Addons for Elementor" plugin
-2. Simply go to the Plugins page, then click on Add new and select the plugin's .zip file which is "ExclusiveAddonsElementor.zip".
+2. Simply go to the Plugins page, then click on Add new and select the plugin's .zip file which is "exclusive-addons-elementor.zip".
 3. Alternatively you can extract the contents of the zip file directly to your wp-content/plugins/ folder
 4. Finally, activate the plugin.
 5. You can type "Ex" on your element tabs within Elementor editor and all the avialable elements of Exclusive Addons will appear.
@@ -76,13 +76,13 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.0 - 04/12/2019 =
-- Changed every element form Style based selection to Single style element, reached with enormous options.
+= 2.0 - 05/12/2019 =
+- Changed every element from Style based selection to Single style element, reached with enormous options.
 - Added namespace for Elements classes.
 - Changed "DC back to "Ex" on Element editor panel.
 - Added 10 New widgets.
 - Added Default Style settings for all the elements at once in the Dashboard.
-- Changed Settings page loaction to a Top level menu option.
+- Changed Plugin Settings page loaction to a Top level menu.
 
 
 = 1.3.2 - 28/10/2019 =
