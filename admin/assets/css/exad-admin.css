@@ -738,6 +738,10 @@ textarea.exad-form-control {
     
 }
 
+#adminmenu .toplevel_page_exad-settings.menu-top-first .current.toplevel_page_exad-settings .wp-menu-image > img {
+    opacity: 1;
+}
+
 /* Facebook Settings CSS */
 
 #social-networks input {
