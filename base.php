@@ -239,7 +239,7 @@ final class Base {
      * Placeholder Image
      */
     public function set_placeholder_image() {
-        return EXAD_ASSETS_URL . 'img/placeholder.jpg';
+        return EXAD_ASSETS_URL . 'img/placeholder.png';
     }
 
     /**
