@@ -28,7 +28,6 @@
 
 [class*="exad-progress-bar-"].line {
   position: relative;
-  margin-bottom: 40px;
 }
 
 [class*="exad-progress-bar-"].line .ldBar-label {
@@ -39,7 +38,6 @@
 
 [class*="exad-progress-bar-"].line-bubble {
   position: relative;
-  margin-bottom: 40px;
 }
 
 [class*="exad-progress-bar-"].line-bubble .ldBar-label {

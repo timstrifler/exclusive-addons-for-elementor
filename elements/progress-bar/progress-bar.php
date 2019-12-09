@@ -373,7 +373,7 @@ class Progress_Bar extends Widget_Base {
 				'exad-progress-bar',
 				[
 					'data-preset' => 'line',
-					'style'       => 'width: 100%; height: 50px'
+					'style'       => 'width: 100%; height: 100px'
 				]
 			);
 		}

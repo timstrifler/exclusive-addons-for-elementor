@@ -3846,6 +3846,7 @@ text-align: right;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
+  width: 100%;
 }
 
 .exad-pricing-table-features{
@@ -3976,7 +3977,6 @@ text-align: right;
 
 [class*="exad-progress-bar-"].line {
   position: relative;
-  margin-bottom: 40px;
 }
 
 [class*="exad-progress-bar-"].line .ldBar-label {
@@ -3987,7 +3987,6 @@ text-align: right;
 
 [class*="exad-progress-bar-"].line-bubble {
   position: relative;
-  margin-bottom: 40px;
 }
 
 [class*="exad-progress-bar-"].line-bubble .ldBar-label {
