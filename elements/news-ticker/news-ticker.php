@@ -61,12 +61,12 @@ class News_Ticker extends Widget_Base {
                 'label'       => esc_html__( 'Items', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::REPEATER,
                 'default'     => [
-                    [ 'title' => esc_html__( 'Exad Elementor News item 1', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exad Elementor News item 2', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exad Elementor News item 3', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exad Elementor News item 4', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exad Elementor News item 5', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exad Elementor News item 6', 'exclusive-addons-elementor' ) ]
+                    [ 'title' => esc_html__( 'Exclusive Elementor News item 1', 'exclusive-addons-elementor' ) ],
+                    [ 'title' => esc_html__( 'Exclusive Elementor News item 2', 'exclusive-addons-elementor' ) ],
+                    [ 'title' => esc_html__( 'Exclusive Elementor News item 3', 'exclusive-addons-elementor' ) ],
+                    [ 'title' => esc_html__( 'Exclusive Elementor News item 4', 'exclusive-addons-elementor' ) ],
+                    [ 'title' => esc_html__( 'Exclusive Elementor News item 5', 'exclusive-addons-elementor' ) ],
+                    [ 'title' => esc_html__( 'Exclusive Elementor News item 6', 'exclusive-addons-elementor' ) ]
                 ],
                 'fields'      => [
                     [

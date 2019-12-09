@@ -48,6 +48,9 @@
   display: inline-block;
   list-style: none;
 }
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body li {
+  margin-left: 0px;
+}
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li {
  display: flex;

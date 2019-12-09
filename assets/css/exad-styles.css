@@ -1250,6 +1250,7 @@ ul.exad-call-to-action-buttons {
   right: 0;
   top: 0;
   line-height: 70px;
+  transform: translateY(50%);
 }
 .exad-countdown.exad-countdown-divider .exad-countdown-container:last-child .exad-countdown-count::after {
   display: none;
@@ -1358,7 +1359,22 @@ ul.exad-call-to-action-buttons {
   .exad-countdown .exad-countdown-count {
     font-size: 40px;
   }
+  .exad-countdown.exad-countdown-divider .exad-countdown-count::after {
+    transform: translateY(0%);
+  }
+  .exad-countdown.exad-countdown-divider .exad-countdown-container:nth-child(2) .exad-countdown-count::after {
+    display: none;
+  }
 
+}
+
+@media (max-width: 480px) {
+  .exad-countdown .exad-countdown-container {
+    width: calc(100% - 20px);
+  }
+  .exad-countdown.exad-countdown-divider .exad-countdown-count::after {
+    display: none;
+  }
 }
 
 @media (max-width: 400px) {
@@ -2956,14 +2972,14 @@ ul.exad-call-to-action-buttons {
   display: block;
   height: 100%;
   list-style: none;
-  padding: 0!important;
+  padding: 0;
   margin: 0;
   width: 100%;
 }
 .exad-news-ticker .exad-nt-news ul li {
-  list-style: none!important;
+  list-style: none;
   white-space: nowrap;
-  overflow:hidden !important;
+  overflow:hidden ;
   text-overflow: ellipsis;
   text-decoration: none;
   -webkit-transition: color .2s linear;
@@ -2975,7 +2991,8 @@ ul.exad-call-to-action-buttons {
   display: none;
   color: #333;
   padding: 0 15px;
-  margin: 0!important;
+  margin: 0;
+  line-height: inherit;
 }
 .exad-news-ticker .exad-nt-news ul li a{
   white-space: nowrap;
@@ -3238,6 +3255,9 @@ ul.exad-call-to-action-buttons {
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-category li {
   display: inline-block;
   list-style: none;
+}
+.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body li {
+  margin-left: 0px;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li {
@@ -3859,6 +3879,7 @@ text-align: right;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 0px;
 }
 
 .list-border-bottom li:not(:last-child){

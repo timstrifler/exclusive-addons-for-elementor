@@ -515,7 +515,7 @@ class Pricing_Menu extends Widget_Base {
             [
                 'label'     => __( 'Connector Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#e5e5e5',
+                'default'   => '#000000',
                 'selectors' => [
                     '{{WRAPPER}} .exad-pricing-list-item-content-conntector' => 'border-bottom-color: {{VALUE}};'
                 ],
@@ -606,7 +606,7 @@ class Pricing_Menu extends Widget_Base {
             [
                 'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#8b8e93',
+                'default'   => '#000000',
                 'selectors' => [
                     '{{WRAPPER}} .exad-pricing-list-item .exad-pricing-list-item-content .exad-pricing-list-item-content-description' => 'color: {{VALUE}};'
                 ]
@@ -662,7 +662,7 @@ class Pricing_Menu extends Widget_Base {
                 'type'    => Controls_Manager::CHOOSE,
                 'toggle'  => false,
                 'options' => [
-                    'price_pos_down' => [
+                    'price_pos_down'  => [
                         'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
                         'icon'  => 'eicon-arrow-down'
                     ],

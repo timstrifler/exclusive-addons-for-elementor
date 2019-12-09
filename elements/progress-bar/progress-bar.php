@@ -39,8 +39,8 @@ class Progress_Bar extends Widget_Base {
             return $primaryColor;
         }
 		$removeRGB = substr( $primaryColor, 5 ); 
-		$rgbarr    = explode( ",", $removeRGB, 3 );
-		$hashColor = sprintf( "#%02x%02x%02x", $rgbarr[0], $rgbarr[1], $rgbarr[2] );
+		$rgbaData    = explode( ",", $removeRGB, 3 );
+		$hashColor = sprintf( "#%02x%02x%02x", $rgbaData[0], $rgbaData[1], $rgbaData[2] );
 		return $hashColor;
 	}
 
@@ -145,16 +145,18 @@ class Progress_Bar extends Widget_Base {
 		$this->add_responsive_control(
             'exad_progress_bar_title_margin',
             [
-                'label'      => __('Margin', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'default'    => [
-                    'top'    => '0',
-                    'right'  => '0',
-                    'bottom' => '10',
-                    'left'   => '0'
+                'label'        => __('Margin', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', '%'],
+                'default'      => [
+					'top'      => '0',
+					'right'    => '0',
+					'bottom'   => '10',
+					'left'     => '0',
+					'unit'     => 'px',
+					'isLinked' => false
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-progress-bar-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -274,7 +276,7 @@ class Progress_Bar extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 				[
-					'name'     => 'value_typography',
+					'name'     => 'exad_progress_bar_value_value_typography',
 					'selector' => '{{WRAPPER}} .exad-progress-bar .ldBar-label'
 				]
 		);
@@ -329,7 +331,7 @@ class Progress_Bar extends Widget_Base {
 					'bottom' => '10',
 					'left'   => '10'
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .exad-progress-bar .ldBar-label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]

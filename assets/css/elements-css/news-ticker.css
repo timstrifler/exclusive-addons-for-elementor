@@ -69,14 +69,14 @@
   display: block;
   height: 100%;
   list-style: none;
-  padding: 0!important;
+  padding: 0;
   margin: 0;
   width: 100%;
 }
 .exad-news-ticker .exad-nt-news ul li {
-  list-style: none!important;
+  list-style: none;
   white-space: nowrap;
-  overflow:hidden !important;
+  overflow:hidden ;
   text-overflow: ellipsis;
   text-decoration: none;
   -webkit-transition: color .2s linear;
@@ -88,7 +88,8 @@
   display: none;
   color: #333;
   padding: 0 15px;
-  margin: 0!important;
+  margin: 0;
+  line-height: inherit;
 }
 .exad-news-ticker .exad-nt-news ul li a{
   white-space: nowrap;

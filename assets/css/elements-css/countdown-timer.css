@@ -67,6 +67,7 @@
   right: 0;
   top: 0;
   line-height: 70px;
+  transform: translateY(50%);
 }
 .exad-countdown.exad-countdown-divider .exad-countdown-container:last-child .exad-countdown-count::after {
   display: none;
@@ -175,7 +176,22 @@
   .exad-countdown .exad-countdown-count {
     font-size: 40px;
   }
+  .exad-countdown.exad-countdown-divider .exad-countdown-count::after {
+    transform: translateY(0%);
+  }
+  .exad-countdown.exad-countdown-divider .exad-countdown-container:nth-child(2) .exad-countdown-count::after {
+    display: none;
+  }
 
+}
+
+@media (max-width: 480px) {
+  .exad-countdown .exad-countdown-container {
+    width: calc(100% - 20px);
+  }
+  .exad-countdown.exad-countdown-divider .exad-countdown-count::after {
+    display: none;
+  }
 }
 
 @media (max-width: 400px) {
