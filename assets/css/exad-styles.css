@@ -1610,6 +1610,14 @@ ul.exad-call-to-action-buttons {
   background-color: transparent;
 }
 
+.exad-flip-box-front-content, .exad-flip-box-back-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
 .exad-flip-box:hover .left-to-right {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
@@ -1881,8 +1889,8 @@ ul.exad-call-to-action-buttons {
 .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-image {
   position: relative;
 }
-.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i,
-.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-image i {
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i,.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image svg,
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-image i, .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-image svg{
   position: absolute;
   top: 50%;
   left: 50%;
