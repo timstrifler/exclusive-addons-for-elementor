@@ -214,7 +214,7 @@ class Countdown_Timer extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-countdown .exad-countdown-count::after' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-container::after' => 'color: {{VALUE}};'
 				],
 				'condition' => [
 					'exad_countdown_divider_enable' => 'yes'
@@ -225,10 +225,11 @@ class Countdown_Timer extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_countdown_divider_size',
 			[
-				'label'      => __( 'Size', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range'      => [
+				'label'        => __( 'Size', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px', '%' ],
+				'devices'      => [ 'desktop', 'tablet' ],
+				'range'        => [
 					'px'       => [
 						'min'  => 50,
 						'max'  => 150,
@@ -239,14 +240,41 @@ class Countdown_Timer extends Widget_Base {
 						'max'  => 100
 					]
 				],
-				'default'    => [
-					'unit'   => 'px',
-					'size'   => 80
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 80
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-count::after' => 'font-size: {{SIZE}}{{UNIT}};'
+				'selectors'    => [
+					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-container::after' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
-				'condition'  => [
+				'condition'    => [
+					'exad_countdown_divider_enable' => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_countdown_divider_position',
+			[
+				'label'        => __( 'Position', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ '%' ],
+				'devices'      => [ 'desktop', 'tablet' ],
+				'range'        => [
+					'px'       => [
+						'min'  => 0,
+						'max'  => 50,
+						'step' => 1
+					]
+				],
+				'default'      => [
+					'unit'     => '%',
+					'size'     => 10
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-container::after' => 'top: {{SIZE}}{{UNIT}};'
+				],
+				'condition'    => [
 					'exad_countdown_divider_enable' => 'yes'
 				]
 			]

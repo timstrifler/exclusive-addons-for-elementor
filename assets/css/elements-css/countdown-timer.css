@@ -60,16 +60,21 @@
   position: relative;
 }
 
-.exad-countdown.exad-countdown-divider .exad-countdown-count::after {
+.exad-countdown.exad-countdown-divider .exad-countdown-container {
+  position: relative;
+}
+
+.exad-countdown.exad-countdown-divider .exad-countdown-container::after {
   content: ":";
   font-weight: 100;
   position: absolute;
   right: 0;
-  top: 0;
-  line-height: 70px;
-  transform: translateY(50%);
+  top: 10%;
+  color: #ffffff;
+  font-size: 70px;
 }
-.exad-countdown.exad-countdown-divider .exad-countdown-container:last-child .exad-countdown-count::after {
+
+.exad-countdown.exad-countdown-divider .exad-countdown-container:last-child::after {
   display: none;
 }
 
@@ -83,7 +88,6 @@
   color: #0a1724;
   text-align: center;
 }
-
 
 .exad-coundown-bg > svg {
   position: absolute;
@@ -176,10 +180,10 @@
   .exad-countdown .exad-countdown-count {
     font-size: 40px;
   }
-  .exad-countdown.exad-countdown-divider .exad-countdown-count::after {
-    transform: translateY(0%);
+  .exad-countdown.exad-countdown-divider .exad-countdown-container::after {
+    top: 0;
   }
-  .exad-countdown.exad-countdown-divider .exad-countdown-container:nth-child(2) .exad-countdown-count::after {
+  .exad-countdown.exad-countdown-divider .exad-countdown-container:nth-child(2)::after {
     display: none;
   }
 
@@ -189,7 +193,7 @@
   .exad-countdown .exad-countdown-container {
     width: calc(100% - 20px);
   }
-  .exad-countdown.exad-countdown-divider .exad-countdown-count::after {
+  .exad-countdown.exad-countdown-divider .exad-countdown-container::after {
     display: none;
   }
 }
