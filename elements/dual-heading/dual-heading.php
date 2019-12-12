@@ -247,7 +247,7 @@ class Dual_Heading extends Widget_Base {
             [
                 'name'            => 'exad_dual_heading_first_bg_color',
                 'types'           => [ 'classic', 'gradient' ],
-                'selector'       => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .first-heading, {{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .first-heading',
+                'selector'        => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .first-heading, {{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .first-heading',
                 'fields_options'  => [
                     'background'  => [
                         'default' => 'classic'
@@ -258,23 +258,6 @@ class Dual_Heading extends Widget_Base {
                 ]
             ]
         );
-
-        // $this->add_group_control(
-        //     Group_Control_Background::get_type(),
-        //     [
-        //         'name'     => 'exad_flipbox_back_background',
-        //         'types'    => [ 'classic', 'gradient' ],
-        //         'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-inner .exad-flip-box-back',
-        //         'fields_options'  => [
-        //             'background'  => [
-        //                 'default' => 'classic'
-        //             ],
-        //             'color'       => [
-        //                 'default' => $exad_primary_color
-        //             ]
-        //         ]
-        //     ]
-        // );
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
