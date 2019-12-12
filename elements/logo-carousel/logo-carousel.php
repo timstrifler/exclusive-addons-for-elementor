@@ -217,7 +217,7 @@ class Logo_Carousel extends Widget_Base {
 					'left'   => '0'
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
