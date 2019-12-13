@@ -1297,7 +1297,7 @@ class Team_Member extends Widget_Base {
 
 					do_action('exad_team_member_description_before');
 					if ( !empty( $settings['exad_team_member_description'] ) ) :
-                        echo '<p '.$this->get_render_attribute_string( 'exad_team_member_description' ).'>'.wp_kses_post( $settings['exad_team_member_description'] ).'</p>';
+                        echo '<div '.$this->get_render_attribute_string( 'exad_team_member_description' ).'>'.wp_kses_post( $settings['exad_team_member_description'] ).'</div>';
                     endif;
                     do_action('exad_team_member_description_after');
 
@@ -1416,9 +1416,9 @@ class Team_Member extends Widget_Base {
 		            <# } #>
 
 		            <# if ( settings.exad_team_member_description ) { #>
-		            	<p {{{ view.getRenderAttributeString( 'exad_team_member_description' ) }}}>
+		            	<div {{{ view.getRenderAttributeString( 'exad_team_member_description' ) }}}>
 			            	{{{ settings.exad_team_member_description }}}
-			            </p>
+			            </div>
 		            <# } #>
 
 		            <# if ( 'yes' === settings.exad_section_team_members_cta_btn && settings.exad_team_members_cta_btn_text ) { #>
