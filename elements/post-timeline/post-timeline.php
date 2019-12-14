@@ -8,6 +8,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
 use \ExclusiveAddons\Elementor\Helper;
 
@@ -137,6 +138,18 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_post_timeline_divider_icon',
+			[
+				'label'       => __( 'Divider Icon', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
+					'value'   => 'fas fa-bookmark',
+					'library' => 'fa-solid'
+				]
+			]
+		);
+
         $this->end_controls_section();
 
 		
@@ -241,8 +254,11 @@ class Post_Timeline extends Widget_Base {
 				'label'     => __( 'Divider Icon Background', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => $exad_primary_color,
+				'condition' => [
+                    'exad_post_timeline_divider_icon[value]!' => ''
+                ],
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-timeline-icon' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .exad-post-timeline-icon'    => 'background: {{VALUE}};'
 				]
 			]
 		);
@@ -253,8 +269,11 @@ class Post_Timeline extends Widget_Base {
 				'label'     => __( 'Divider Icon Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#D1C1FF',
+				'condition' => [
+                    'exad_post_timeline_divider_icon[value]!' => ''
+                ],
 				'selectors' => [
-					'{{WRAPPER}} .exad-post-timeline-icon i' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-post-timeline-icon i'  => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -278,6 +297,9 @@ class Post_Timeline extends Widget_Base {
 				'label'     => __( 'Horizontal Seprator Line Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#e3e5e8',
+				'condition' => [
+                    'exad_post_timeline_divider_icon[value]!' => ''
+                ],
 				'selectors' => [
 					'{{WRAPPER}} .exad-post-timeline-icon::before, {{WRAPPER}} .exad-post-timeline-icon::after' => 'border: 1px dashed {{VALUE}};'
 				]

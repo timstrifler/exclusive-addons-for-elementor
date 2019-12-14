@@ -1,5 +1,14 @@
+<?php 
+use \Elementor\Icons_Manager;
+?>
 <div class="exad-post-timeline-item">
-    <span class="exad-post-timeline-icon"><i class="fa fa-bookmark"></i></span>
+    <?php
+        if(!empty($settings['exad_post_timeline_divider_icon']['value'])){
+            echo '<span class="exad-post-timeline-icon">';
+                Icons_Manager::render_icon( $settings['exad_post_timeline_divider_icon'], [ 'aria-hidden' => 'true' ] );
+            echo '</span>';                                 
+        }
+    ?>
     <div class="exad-post-timeline-content">
         <?php if( has_post_thumbnail() ) : ?>
             <a href="<?php echo esc_url( get_permalink() ); ?>">
