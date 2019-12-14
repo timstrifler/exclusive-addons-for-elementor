@@ -192,7 +192,7 @@ class Alert extends Widget_Base {
                     'bottom' => '20',
                     'left'   => '20'
                 ],
-                'selectors' => [
+                'selectors'  => [
                     '{{WRAPPER}} .exad-alert-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -202,7 +202,6 @@ class Alert extends Widget_Base {
       Group_Control_Border::get_type(),
       [
                 'name'     => 'exad_alert_border',
-                'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-alert-wrapper'
       ]
         );
@@ -552,7 +551,6 @@ class Alert extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name'     => 'exad_alert_dismiss_primary_button_border',
-                    'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                     'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done'
                 ]
             );
@@ -638,7 +636,6 @@ class Alert extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name'     => 'exad_alert_dismiss_secondary_button_border',
-                    'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                     'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'
                 ]
             );

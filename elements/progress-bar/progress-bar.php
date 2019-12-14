@@ -285,7 +285,6 @@ class Progress_Bar extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'exad_progress_bar_background',
-				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'    => [ 'classic', 'gradient'],
 				'selector' => '{{WRAPPER}} .exad-progress-bar .ldBar-label'
 			]
@@ -295,7 +294,6 @@ class Progress_Bar extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_progress_bar_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-progress-bar .ldBar-label'
 			]
 		);
@@ -341,7 +339,6 @@ class Progress_Bar extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_progress_bar_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-progress-bar .ldBar-label'
 			]
 		);

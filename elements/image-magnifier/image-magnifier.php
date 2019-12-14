@@ -106,7 +106,6 @@ class Image_Magnifier extends Widget_Base {
         Group_Control_Border::get_type(),
         [
             'name'     => 'exa_image_magnefic_container_image_border',
-            'label'    => __( 'Border', 'exclusive-addons-elementor' ),
             'selector' => '{{WRAPPER}} .exad-magnify-small'
         ]
     );
@@ -115,7 +114,6 @@ class Image_Magnifier extends Widget_Base {
         Group_Control_Box_Shadow::get_type(),
         [
             'name'     => 'exa_image_magnefic_container_image_box_shadow',
-            'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
             'selector' => '{{WRAPPER}} .exad-magnify-small'
         ]
     );
@@ -180,25 +178,24 @@ class Image_Magnifier extends Widget_Base {
     $this->add_group_control(
         Group_Control_Border::get_type(),
         [
-            'name'            => 'exad_image_magnefic_glass_border',
-            'label'           => __( 'Border', 'exclusive-addons-elementor' ),
-            'fields_options'  => [
-                'border'      => [
-                    'default' => 'solid'
+            'name'               => 'exad_image_magnefic_glass_border',
+            'fields_options'     => [
+                'border'         => [
+                    'default'    => 'solid'
                 ],
-                'width'       => [
-                    'default' => [
+                'width'          => [
+                    'default'    => [
                         'top'    => '1',
                         'right'  => '1',
                         'bottom' => '1',
                         'left'   => '1'
                     ]
                 ],
-                'color'       => [
-                    'default' => '#cccccc'
+                'color'          => [
+                    'default'    => '#cccccc'
                 ]
             ],
-            'selector'        => '{{WRAPPER}} .exad-magnify-large'
+            'selector'           => '{{WRAPPER}} .exad-magnify-large'
         ]
     );
 
@@ -225,7 +222,6 @@ class Image_Magnifier extends Widget_Base {
         Group_Control_Box_Shadow::get_type(),
         [
             'name'     => 'exad_image_magnefic_glass_box_shadow',
-            'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
             'selector' => '{{WRAPPER}} .exad-magnify-large'
         ]
     );

@@ -353,7 +353,6 @@ class Tabs extends Widget_Base {
 					Group_Control_Background::get_type(),
 					[
 						'name'     => 'exad_exclusive_tabs_navigation_list_normal_background',
-						'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 						'types'    => [ 'classic', 'gradient' ],
 						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li'
 					]
@@ -362,25 +361,25 @@ class Tabs extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
-						'name'            => 'exad_exclusive_tabs_navigation_list_normal_border',
-						'label'           => __( 'Border', 'exclusive-addons-elementor' ),
-						'fields_options'  => [
-							'border'      => [
-								'default' => 'solid'
+						'name'                 => 'exad_exclusive_tabs_navigation_list_normal_border',
+						'fields_options'       => [
+							'border'           => [
+								'default'      => 'solid'
 							],
-							'width'       => [
-								'default' => [
-									'top'    => '0',
-									'right'  => '0',
-									'bottom' => '1',
-									'left'   => '0'
+							'width'            => [
+								'default'      => [
+									'top'      => '0',
+									'right'    => '0',
+									'bottom'   => '1',
+									'left'     => '0',
+									'isLinked' => false
 								]
 							],
-							'color'       => [
-								'default' => '#e5e5e5'
+							'color'            => [
+								'default'      => '#e5e5e5'
 							]
 						],
-						'selector'        => '{{WRAPPER}} .exad-advance-tab-nav li'
+						'selector'             => '{{WRAPPER}} .exad-advance-tab-nav li'
 					]
 				);
 
@@ -413,7 +412,6 @@ class Tabs extends Widget_Base {
 					Group_Control_Background::get_type(),
 					[
 						'name'     => 'exad_exclusive_tabs_navigation_list_active_background',
-						'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 						'types'    => [ 'classic', 'gradient' ],
 						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover, {{WRAPPER}} .exad-tab-triangle-right.active::before, {{WRAPPER}} .exad-tab-triangle-bottom.active::before'
 					]
@@ -422,25 +420,25 @@ class Tabs extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
-						'name'     => 'exad_exclusive_tabs_navigation_list_active_border',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
-						'fields_options'  => [
-							'border'      => [
-								'default' => 'solid'
+						'name'                 => 'exad_exclusive_tabs_navigation_list_active_border',
+						'fields_options'       => [
+							'border'           => [
+								'default'      => 'solid'
 							],
-							'width'       => [
-								'default' => [
-									'top'    => '0',
-									'right'  => '0',
-									'bottom' => '1',
-									'left'   => '0'
+							'width'            => [
+								'default'      => [
+									'top'      => '0',
+									'right'    => '0',
+									'bottom'   => '1',
+									'left'     => '0',
+									'isLinked' => false
 								]
 							],
-							'color'       => [
-								'default' => $exad_primary_color
+							'color'            => [
+								'default'      => $exad_primary_color
 							]
 						],
-						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover'
+						'selector'             => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover'
 					]
 				);
 
@@ -730,7 +728,6 @@ class Tabs extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_tabs_content_description_typography',
-				'label'    => esc_html__( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-advance-tab-content-description'
 			]
 		);
@@ -739,7 +736,6 @@ class Tabs extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'exad_tab_content_background',
-				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-advance-tab-content'
 			]
@@ -786,7 +782,6 @@ class Tabs extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_tab_content_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-advance-tab-content'
 			]
 		);
@@ -957,7 +952,6 @@ class Tabs extends Widget_Base {
             Group_Control_Border::get_type(),
                 [
 					'name'            => 'exad_tab_details_btn_normal_border',
-					'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 					'fields_options'  => [
 						'border'      => [
 							'default' => 'solid'
@@ -1019,7 +1013,6 @@ class Tabs extends Widget_Base {
 				Group_Control_Border::get_type(),
 				[
 					'name'     => 'exad_tab_details_btn_hover_border',
-					'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 					'selector' => '{{WRAPPER}} .exad-tab-btn:hover'
 				]
 			);

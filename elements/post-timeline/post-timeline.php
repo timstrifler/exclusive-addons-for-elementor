@@ -161,7 +161,6 @@ class Post_Timeline extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'exad_post_timeline_post_container_border',
-				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .exad-post-timeline-content'
 			]
 		);
@@ -218,7 +217,6 @@ class Post_Timeline extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'           => 'exad_post_timeline_post_container_shadow',
-				'label'          => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector'       => '{{WRAPPER}} .exad-post-timeline-content',
 				'fields_options' => [
 		            'box_shadow_type' 	 => [
@@ -339,7 +337,6 @@ class Post_Timeline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_timeline_title_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-post-timeline-content-text h4 a'
 			]
 		);
@@ -418,7 +415,6 @@ class Post_Timeline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_timeline_excerpt_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-post-timeline-content-text p'
 			]
 		);
@@ -446,7 +442,6 @@ class Post_Timeline extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'exad_timeline_date_container_bg_color',
-				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-post-timeline-date'
 			]
@@ -456,7 +451,6 @@ class Post_Timeline extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'exad_post_timeline_date_container_border',
-				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .exad-post-timeline-date'
 			]
 		);
@@ -501,7 +495,6 @@ class Post_Timeline extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_post_timeline_date_container_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-post-timeline-date'
 			]
 		);

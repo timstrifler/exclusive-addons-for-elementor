@@ -237,7 +237,6 @@ class Call_To_Action extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'exad_cta_container_border',
-                'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-call-to-action'
             ]
         );
@@ -539,8 +538,8 @@ class Call_To_Action extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Border::get_type(),
                 [
-                    'name'           => 'exad_cta_primary_btn_normal_border',
-                    'selector'  => '{{WRAPPER}} a.exad-call-to-action-primary-btn'
+                    'name'     => 'exad_cta_primary_btn_normal_border',
+                    'selector' => '{{WRAPPER}} a.exad-call-to-action-primary-btn'
                 ]
             );
 
@@ -583,8 +582,8 @@ class Call_To_Action extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Border::get_type(),
                 [
-                    'name'           => 'exad_cta_primary_btn_hover_border',
-                    'selector'  => '{{WRAPPER}} a.exad-call-to-action-primary-btn:hover'
+                    'name'     => 'exad_cta_primary_btn_hover_border',
+                    'selector' => '{{WRAPPER}} a.exad-call-to-action-primary-btn:hover'
                 ]
             );
 

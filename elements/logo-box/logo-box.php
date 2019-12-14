@@ -113,7 +113,7 @@ class Logo_Box extends Widget_Base {
         $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
 
             $this->add_control(
-        		'exad_logo_background',
+        		'exad_logo_background_style',
         			[
                     'label' => __( 'Background Style', 'exclusive-addons-elementor' ),
                     'type'  => Controls_Manager::HEADING
@@ -123,8 +123,7 @@ class Logo_Box extends Widget_Base {
             $this->add_group_control(
         		Group_Control_Background::get_type(),
     			[
-                    'name'      => 'background',
-                    'label'     => __( 'Background', 'exclusive-addons-elementor' ),
+                    'name'      => 'exad_logo_background',
                     'types'     => [ 'classic', 'gradient' ],
                     'separator' => 'before',
                     'selector'  => '{{WRAPPER}} .exad-logo .exad-logo-item'
@@ -165,8 +164,7 @@ class Logo_Box extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
-                    'name'     => 'box_shadow',
-                    'label'    => __('Box shadow', 'exclusive-addons-elementor'),
+                    'name'     => 'exad_logo_box_shadow',
                     'selector' => '{{WRAPPER}} .exad-logo .exad-logo-item'
                 ]
             );
@@ -187,8 +185,7 @@ class Logo_Box extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Background::get_type(),
                 [
-                    'name'      => 'background_hover',
-                    'label'     => __( 'Background', 'exclusive-addons-elementor' ),
+                    'name'      => 'exad_logo_hover_background_hover',
                     'types'     => [ 'classic', 'gradient' ],
                     'separator' => 'before',
                     'selector'  => '{{WRAPPER}} .exad-logo .exad-logo-item:hover'
@@ -230,8 +227,7 @@ class Logo_Box extends Widget_Base {
             $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
-                    'name'     => 'box_hover_shadow',
-                    'label'    => __('Box shadow', 'exclusive-addons-elementor'),
+                    'name'     => 'exad_logo_box_hover_shadow',
                     'selector' => '{{WRAPPER}} .exad-logo .exad-logo-item:hover'
                 ]
             );
@@ -264,7 +260,6 @@ class Logo_Box extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'border',
-                'label'    => __('Border', 'exclusive-addons-elementor'),
                 'selector' => '{{WRAPPER}} .exad-logo .exad-logo-item'
             ]
         );

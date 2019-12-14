@@ -319,7 +319,6 @@ class Team_Member extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'exad_team_members_bg',
-				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-team-member'
 			]
@@ -329,7 +328,6 @@ class Team_Member extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_team_members_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-team-member'
 			]
 		);
@@ -392,14 +390,13 @@ class Team_Member extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_team_members_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-team-member',
-				'fields_options'      => [
-		            'box_shadow_type' => [
-		                'default'     =>'yes'
+				'fields_options'         => [
+		            'box_shadow_type'    => [
+		                'default'        =>'yes'
 		            ],
-		            'box_shadow'  => [
-		                'default' => [
+		            'box_shadow'         => [
+		                'default'        => [
 		                    'horizontal' => 0,
 		                    'vertical'   => 20,
 		                    'blur'       => 49,
@@ -527,7 +524,6 @@ class Team_Member extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'exad_section_team_members_thumbnail_box_border',
-				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .exad-team-member-thumb',
 				'condition' => [
 					'exad_section_team_members_thumbnail_box' => 'yes'
@@ -621,7 +617,6 @@ class Team_Member extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'      => 'exad_section_team_members_thumbnail_box_shadow',
-				'label'     => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .exad-team-member-thumb',
 				'condition' => [
 					'exad_section_team_members_thumbnail_box' => 'yes'
@@ -670,7 +665,6 @@ class Team_Member extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'exad_team_members_content_background',
-				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-team-member-content'
 			]
@@ -734,7 +728,6 @@ class Team_Member extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_section_team_members_content_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-team-member-content'
 			]
 		);
@@ -760,7 +753,6 @@ class Team_Member extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_team_member_cta_btn_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-team-member-cta'
 			]
 		);
@@ -853,7 +845,6 @@ class Team_Member extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_team_member_cta_btn_border_normal',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-team-member-cta'
 					]
 				);
@@ -890,7 +881,6 @@ class Team_Member extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_team_member_cta_btn_border_hover',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-team-member-cta:hover'
 					]
 				);
@@ -913,11 +903,11 @@ class Team_Member extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_title_color',
+            'exad_team_name_color',
             [
 				'label'     => __('Color', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000',
+				'default'   => '#000000',
 				'selectors' => [
                     '{{WRAPPER}} .exad-team-member-name' => 'color: {{VALUE}};'
                 ]
@@ -927,13 +917,13 @@ class Team_Member extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-				'name'     => 'title_typography',
+				'name'     => 'exad_team_name_typography',
 				'selector' => '{{WRAPPER}} .exad-team-member-name'
             ]
 		);
 		
 		$this->add_responsive_control(
-			'exad_team_members_title_margin',
+			'exad_team_members_name_margin',
 			[
 				'label'        => __( 'Margin', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::DIMENSIONS,
@@ -965,7 +955,7 @@ class Team_Member extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_designation_color',
+            'exad_team_designation_color',
             [
 				'label'     => __('Color', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::COLOR,
@@ -979,7 +969,7 @@ class Team_Member extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-				'name'     => 'designation_typography',
+				'name'     => 'exad_team_designation_typography',
 				'selector' => '{{WRAPPER}} .exad-team-member-designation'
             ]
 		);
@@ -1034,8 +1024,8 @@ class Team_Member extends Widget_Base {
             [
 				'name'     => 'exad_description_typography',
 				'selector' => '{{WRAPPER}} .exad-team-member-about',
-				'fields_options'   => [
-		              'line_height'    => [
+				'fields_options'          => [
+		              'line_height'       => [
 		                'desktop_default' => [
 		                    'unit' => 'em',
 		                    'size' => 1.5
@@ -1187,7 +1177,6 @@ class Team_Member extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_team_carousel_social_border_normal',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-team-member-social li a'
 					]
 				);
@@ -1223,7 +1212,6 @@ class Team_Member extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_team_carousel_social_border_hover',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-team-member-social li a:hover'
 					]
 				);

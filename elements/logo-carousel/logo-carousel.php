@@ -284,7 +284,6 @@ class Logo_Carousel extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_logo_carousel_border_normal',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item'
 					]
 				);
@@ -293,7 +292,6 @@ class Logo_Carousel extends Widget_Base {
 					Group_Control_Box_Shadow::get_type(),
 					[
 						'name'     => 'exad_logo_carousel_shadow_normal',
-						'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item'
 					]
 				);
@@ -332,7 +330,6 @@ class Logo_Carousel extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_logo_carousel_border_hover',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover'
 					]
 				);
@@ -341,7 +338,6 @@ class Logo_Carousel extends Widget_Base {
 					Group_Control_Box_Shadow::get_type(),
 					[
 						'name'     => 'exad_logo_carousel_shadow_hover',
-						'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-logo-carousel .exad-logo-carousel-element .exad-logo-carousel-item:hover'
 					]
 				);
@@ -467,7 +463,6 @@ class Logo_Carousel extends Widget_Base {
 		        	Group_Control_Border::get_type(),
 		            [
 		                'name'      => 'exad_logo_carousel_arrows_border',
-		                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 		                'selector'  => '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next, {{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev'
 		            ]
 		        );
@@ -524,7 +519,6 @@ class Logo_Carousel extends Widget_Base {
 		        	Group_Control_Border::get_type(),
 		            [
 		                'name'      => 'exad_logo_carousel_arrows_hover_border',
-		                'label'     => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 		                'selector'  => '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next:hover, {{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev:hover'
 		            ]
 		        );
@@ -640,7 +634,6 @@ class Logo_Carousel extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
                     'name'            => 'exad_logo_carousel_dot_bullet_border',
-                    'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                     'selector'        => '{{WRAPPER}} .exad-logo-carousel .slick-dots li button',
                 ]
             );
@@ -719,7 +712,6 @@ class Logo_Carousel extends Widget_Base {
                 Group_Control_Border::get_type(),
                 [
 					'name'     => 'exad_logo_carousel_dot_bullet_active_border',
-					'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 					'selector' => '{{WRAPPER}} .exad-logo-carousel .slick-dots li.slick-active button'
                 ]
             );

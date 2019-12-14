@@ -339,7 +339,6 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_pricing_table_content_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper'
 			]
 		);
@@ -369,7 +368,6 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_pricing_table_content_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper',
 				'fields_options'      => [
 		            'box_shadow_type' => [
@@ -490,7 +488,6 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'exad_pricing_table_header_background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .exad-pricing-table-header',
 				'condition' => [
@@ -778,7 +775,6 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'exad_pricing_table_price_box_background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient'],
 				'selector'  => '{{WRAPPER}} .price-box',
 				'condition' => [
@@ -791,7 +787,6 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'exad_pricing_table_price_box_border',
-				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .price-box',
 				'condition' => [
 					'exad_pricing_table_price_box' => 'yes'
@@ -1133,7 +1128,6 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'exad_pricing_table_featured_text_badge_background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .text-badge',
 				'condition' => [
@@ -1146,7 +1140,6 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'exad_pricing_table_featured_icon_badge_background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .icon-badge',
 				'condition' => [
@@ -1267,7 +1260,6 @@ class Pricing_Table extends Widget_Base {
 				Group_Control_Border::get_type(),
 				[
 					'name'            => 'exad_pricing_table_btn_normal_border',
-					'label'           => __( 'Border', 'exclusive-addons-elementor' ),
 					'fields_options'  => [
 						'border'      => [
 							'default' => 'solid'
@@ -1292,7 +1284,6 @@ class Pricing_Table extends Widget_Base {
 				Group_Control_Box_Shadow::get_type(),
 				[
 					'name'     => 'exad_pricing_table_btn_box_shadow',
-					'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 					'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action'
 				]
 			);
@@ -1330,7 +1321,6 @@ class Pricing_Table extends Widget_Base {
 				Group_Control_Border::get_type(),
 				[
 					'name'            => 'exad_pricing_table_btn_hover_border',
-					'label'           => __( 'Border', 'exclusive-addons-elementor' ),
 					'fields_options'  => [
 						'border'      => [
 							'default' => 'solid'
@@ -1355,7 +1345,6 @@ class Pricing_Table extends Widget_Base {
 				Group_Control_Box_Shadow::get_type(),
 				[
 					'name'     => 'exad_pricing_table_btn_box_shadow_hover',
-					'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 					'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-action:hover'
 				]
 			);

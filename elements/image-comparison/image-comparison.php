@@ -237,7 +237,6 @@ class Image_Comparison extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'exad_image_comparison_box_shadow',
-                'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element'
             ]
         );

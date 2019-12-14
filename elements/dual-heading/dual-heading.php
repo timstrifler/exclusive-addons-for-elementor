@@ -295,7 +295,6 @@ class Dual_Heading extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'exad_dual_first_heading_border',
-                'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .first-heading'
             ]
         );
@@ -328,9 +327,9 @@ class Dual_Heading extends Widget_Base {
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
-                'name'            => 'exad_dual_heading_second_bg_color',
-                'types'           => [ 'classic', 'gradient' ],
-                'selector'       => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .second-heading, {{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .second-heading'
+                'name'     => 'exad_dual_heading_second_bg_color',
+                'types'    => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .second-heading, {{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title a .second-heading'
             ]
         );
 
@@ -370,7 +369,6 @@ class Dual_Heading extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'exad_dual_second_heading_border',
-                'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .second-heading'
             ]
         );

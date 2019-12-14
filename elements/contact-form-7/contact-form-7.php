@@ -179,7 +179,6 @@ class Contact_Form_7 extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'exad_contact_form_background',
-                'label'    => __( 'Background', 'exclusive-addons-elementor' ),
                 'types'    => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .exad-contact-form'
             ]
@@ -254,7 +253,6 @@ class Contact_Form_7 extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
                 'name'     => 'exad_cf7_container_border',
-                'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-contact-form'
 			]
 		);
@@ -444,10 +442,7 @@ class Contact_Form_7 extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-                'name'        => 'field_border',
-                'label'       => __( 'Border', 'exclusive-addons-elementor' ),
-                'placeholder' => '1px',
-                'default'     => '1px',
+                'name'        => 'exad_contact_field_border',
                 'selector'    => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-select'
 			]
 		);
@@ -632,25 +627,24 @@ class Contact_Form_7 extends Widget_Base {
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
-                'name'           => 'exad_contact_button_border',
-                'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                'fields_options' => [
-                    'border'     => [
-                        'default' => 'solid'
+                'name'               => 'exad_contact_button_border',
+                'fields_options'     => [
+                    'border'         => [
+                        'default'    => 'solid'
                     ],
-                    'width'       => [
-                        'default' => [
+                    'width'          => [
+                        'default'    => [
                             'top'    => '1',
                             'right'  => '1',
                             'bottom' => '1',
                             'left'   => '1'
                         ]
                     ],
-                    'color'       => [
-                        'default' => $exad_primary_color
+                    'color'          => [
+                        'default'    => $exad_primary_color
                     ]
                 ],
-                'selector'       => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]'
+                'selector'           => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]'
             ]
         );
 
@@ -691,7 +685,6 @@ class Contact_Form_7 extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'exad_contact_button_border_hover',
-                'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]:hover'
             ]
         );
@@ -757,8 +750,7 @@ class Contact_Form_7 extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-                'name'        => 'error_field_border',
-                'label'       => __( 'Border', 'exclusive-addons-elementor' ),
+                'name'        => 'exad_contact_error_field_border',
                 'selector'    => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-not-valid-tip',
                 'condition'   => [
 					'exad_error_messages' => 'show'
@@ -812,7 +804,6 @@ class Contact_Form_7 extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
                 'name'        => 'validation_errors_border',
-                'label'       => __( 'Border', 'exclusive-addons-elementor' ),
                 'selector'    => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-validation-errors',
                 'condition'   => [
 					'exad_validation_errors' => 'show'

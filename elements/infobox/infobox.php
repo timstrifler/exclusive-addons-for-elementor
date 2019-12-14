@@ -184,12 +184,11 @@ class Infobox extends Widget_Base {
         $this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'      => 'background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
+				'name'      => 'exad_infobox_background',
 				'types'     => [ 'classic', 'gradient' ],
 				'separator' => 'before',
 				'selector'  => '{{WRAPPER}} .exad-infobox .exad-infobox-item',
-				'default'   => '#FFFFFF'
+				'default'   => '#ffffff'
 			]
 		);
 
@@ -197,7 +196,6 @@ class Infobox extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_infobox_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-infobox-item'
 			]
 		);
@@ -242,7 +240,6 @@ class Infobox extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_infobox_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-infobox-item'
 			]
 		);
@@ -287,7 +284,6 @@ class Infobox extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'exad_infobox_transition_zoom_background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .zoom-transition::before',
 				'condition' => [
@@ -445,7 +441,6 @@ class Infobox extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_infobox_icon_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon'
 			]
 		);
@@ -530,7 +525,6 @@ class Infobox extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_infobox_icon_border_normal',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon'
 					]
 				);
@@ -572,7 +566,6 @@ class Infobox extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_infobox_icon_border_hover',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon'
 					]
 				);

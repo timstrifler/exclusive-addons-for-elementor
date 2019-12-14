@@ -111,7 +111,6 @@ class Tooltip extends Widget_Base {
             Group_Control_Image_Size::get_type(),
             [
                 'name'      => 'exad_tooltip_image_size',
-                'label'     => __('Image Size', 'exclusive-addons-elementor'),
                 'default'   => 'full',
                 'condition' => [
                     'exad_tooltip_type'              => [ 'image' ],
@@ -309,7 +308,6 @@ class Tooltip extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'exad_tooltip_hover_border',
-                'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-content'
             ]
         );
@@ -452,7 +450,6 @@ class Tooltip extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'hover_tooltip_content_background',
-                'label'    => __( 'Background', 'exclusive-addons-elementor' ),
                 'types'    => [ 'classic', 'gradient' ],
                 'fields_options'  => [
                     'background'  => [

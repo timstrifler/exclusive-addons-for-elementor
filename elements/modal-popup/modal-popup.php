@@ -510,25 +510,24 @@ class Modal_Popup extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
-						'name'            => 'exad_modal_btn_border_normal',
-						'label'           => __( 'Border', 'exclusive-addons-elementor' ),
-						'fields_options'  => [
-							'border'      => [
-								'default' => 'solid',
+						'name'               => 'exad_modal_btn_border_normal',
+						'fields_options'     => [
+							'border'         => [
+								'default'    => 'solid',
 							],
-							'width'       => [
-								'default' => [
+							'width'          => [
+								'default'    => [
 									'top'    => '1',
 									'right'  => '1',
 									'bottom' => '1',
 									'left'   => '1'
 								]
 							],
-							'color'       => [
-								'default' => $exad_primary_color
+							'color'          => [
+								'default'    => $exad_primary_color
 							]
 						],
-						'selector'        => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action'
+						'selector'           => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action'
 					]
 				);
 
@@ -563,7 +562,6 @@ class Modal_Popup extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_modal_btn_border_hover',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover'
 					]
 				);
@@ -659,7 +657,6 @@ class Modal_Popup extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'      => 'exad_modal_image_gallery_description_typography',
-				'label'     => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body p',
 				'condition' => [
 					'exad_modal_content' => [ 'image-gallery' ]
@@ -685,7 +682,6 @@ class Modal_Popup extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_modal_content_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element'
 			]
 		);
@@ -787,16 +783,23 @@ class Modal_Popup extends Widget_Base {
 				]
 			]
 		);
-        $this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name'     => 'exad_modal_overlay_color',
-				'label'    => __( 'Color', 'exclusive-addons-elementor' ),
-				'default'  => 'rgba(0, 0, 0, .5)',
-				'types'    => [ 'classic' ],
-				'selector' => '{{WRAPPER}} .exad-modal-overlay'
-			]
-		);
+
+		$this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'            => 'exad_modal_overlay_color',
+                'types'           => [ 'classic' ],
+                'selector'        => '{{WRAPPER}} .exad-modal-overlay',
+                'fields_options'  => [
+                    'background'  => [
+                        'default' => 'classic'
+                    ],
+                    'color'       => [
+                        'default' => 'rgba(0,0,0,.5)'
+                    ]
+                ]
+            ]
+        );
 		
 		$this->end_controls_section();
 

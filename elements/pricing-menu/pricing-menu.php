@@ -178,7 +178,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'exad_price_list_container_bg',
-                'label'    => __( 'Background', 'exclusive-addons-elementor' ),
                 'types'    => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .exad-pricing-list .exad-pricing-list-wrapper'
             ]
@@ -233,7 +232,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'exad_pricing_menu_con_shadow',
-                'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-pricing-list .exad-pricing-list-wrapper'
             ]
         );
@@ -256,7 +254,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Background::get_type(),
             [
                 'name'     => 'exad_pricing_menu_list_item_background',
-                'label'    => __( 'Background', 'exclusive-addons-elementor' ),
                 'types'    => [ 'classic', 'gradient' ],
                 'selector' => '{{WRAPPER}} .exad-pricing-list-item'
             ]
@@ -344,7 +341,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'exad_pricing_menu_list_item_shadow',
-                'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-pricing-list-item'
             ]
         );
@@ -479,7 +475,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'exad_pricing_menu_image_shadow',
-                'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-pricing-list-item-thumbnail'
             ]
         );
@@ -529,7 +524,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_pricing_menu_title_typography',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-pricing-list-item-content-title'
             ]
         );
@@ -617,7 +611,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_pricing_menu_description_typography',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-pricing-list-item-content-description'
             ]
         );
@@ -691,7 +684,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'             => 'exad_pricing_menu_price_typography',
-                'label'            => __( 'Typography', 'exclusive-addons-elementor' ),
                 'fields_options'   => [
                     'font_size'    => [
                         'default'  => [
@@ -750,7 +742,6 @@ class Pricing_Menu extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_pricing_menu_order_btn_typography',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-pricing-list-item-content-action'
             ]
         );
@@ -833,7 +824,6 @@ class Pricing_Menu extends Widget_Base {
                     Group_Control_Box_Shadow::get_type(),
                     [
                         'name'     => 'exad_pricing_menu_order_btn_normal_shadow',
-                        'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-pricing-list-item-content-action'
                     ]
                 );
@@ -878,7 +868,6 @@ class Pricing_Menu extends Widget_Base {
                     Group_Control_Box_Shadow::get_type(),
                     [
                         'name'     => 'exad_pricing_menu_order_btn_hover_shadow',
-                        'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-pricing-list-item-content-action:hover'
                     ]
                 );

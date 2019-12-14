@@ -259,10 +259,9 @@ class Flipbox extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'           => 'exad_flipbox_front_container_border',
-				'label'          => __( 'Border', 'exclusive-addons-elementor' ),
-				'selector'       => '{{WRAPPER}} .exad-flip-box .exad-flip-box-front',
-			  	'fields_options' => [
+				'name'               => 'exad_flipbox_front_container_border',
+				'selector'           => '{{WRAPPER}} .exad-flip-box .exad-flip-box-front',
+			  	'fields_options'     => [
                     'border'         => [
                         'default'    => 'solid'
                     ],
@@ -274,8 +273,8 @@ class Flipbox extends Widget_Base {
                             'left'   => '1'
                         ]
                     ],
-                 	'color' => [
-                        'default' => $exad_primary_color
+                 	'color'          => [
+                        'default'    => $exad_primary_color
                     ]
                 ]
 			]
@@ -599,7 +598,6 @@ class Flipbox extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_flipbox_back_container_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-back'
 			]
 		);
@@ -968,7 +966,6 @@ class Flipbox extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name'            => 'exad_flipbox_btn_normal_border',
-                        'label'           => __( 'Border', 'exclusive-addons-elementor' ),
                         'fields_options'  => [
 		                    'border'      => [
 		                        'default' => 'solid'
@@ -1022,7 +1019,6 @@ class Flipbox extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name'     => 'exad_flipbox_btn_hover_border',
-                        'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action:hover'
                     ]
                 );

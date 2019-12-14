@@ -169,7 +169,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'exad_testimonial_container_background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .exad-testimonial-wrapper'
 			]
@@ -179,7 +178,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'            => 'exad_testimonial_container_border',
-				'label'           => __( 'Border', 'xclusive-addons-elementor' ),
 				'fields_options'  => [
                     'border'      => [
                         'default' => 'solid',
@@ -192,11 +190,11 @@ class Testimonial extends Widget_Base {
                             'left'   => '1'
                         ]
                     ],
-                    'color' => [
+                    'color'       => [
                         'default' => '#e3e3e3'
                     ]
 				],
-				'selector' => '{{WRAPPER}} .exad-testimonial-wrapper'
+				'selector'        => '{{WRAPPER}} .exad-testimonial-wrapper'
 			]
 		);
 
@@ -241,7 +239,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_testimonial_container_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-testimonial-wrapper'
 			]
 		);
@@ -330,7 +327,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'exad_testimonial_image_box_border',
-				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .exad-testimonial-thumb',
 				'condition' => [
 					'exad_testimonial_image_box' => 'yes'
@@ -362,7 +358,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_testimonial_image_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-testimonial-thumb'
 			]
 		);
@@ -409,7 +404,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_testimonial_description_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-testimonial-description'
 			]
 		);
@@ -500,7 +494,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_testimonial_description_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-testimonial-content-wrapper'
 			]
 		);
@@ -709,7 +702,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_testimonial_title_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-testimonial-name',
 				'fields_options'   => [
 					'font_size'    => [
@@ -772,7 +764,6 @@ class Testimonial extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_testimonial_designation_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-testimonial-designation',
 				'fields_options'   => [
 					'font_size'    => [

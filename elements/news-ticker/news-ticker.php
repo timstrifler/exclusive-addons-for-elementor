@@ -319,7 +319,6 @@ class News_Ticker extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'           => 'exad_news_ticker_container_border',
-                'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                 'selector'       => '{{WRAPPER}} .exad-news-ticker',
                 'fields_options' => [
                     'border'      => [
@@ -421,7 +420,6 @@ class News_Ticker extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'           => 'exad_news_ticker_label_border',
-                'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                 'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-bn-label'
             ]
         );
@@ -583,7 +581,6 @@ class News_Ticker extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'exad_news_ticker_items_border',
-                'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-news-ticker .exad-nt-news'
             ]
         );
@@ -637,7 +634,6 @@ class News_Ticker extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'exad_news_ticker_controls_box_border',
-                'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls'
             ]
         );
@@ -723,7 +719,6 @@ class News_Ticker extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name'     => 'exad_news_ticker_control_items_border',
-                        'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button'
                     ]
                 );
@@ -774,7 +769,6 @@ class News_Ticker extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name'     => 'exad_news_ticker_control_items_hover_border',
-                        'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:hover'
                     ]
                 );

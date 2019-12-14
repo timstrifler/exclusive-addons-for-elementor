@@ -212,10 +212,9 @@ class Heading extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'      => 'exad_heading_icon_box_background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
-				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .exad-heading-icon',
+				'name'            => 'exad_heading_icon_box_background',
+				'types'           => [ 'classic', 'gradient' ],
+				'selector'        => '{{WRAPPER}} .exad-heading-icon',
 				'fields_options'  => [
 					'background'  => [
 						'default' => 'classic'
@@ -270,7 +269,6 @@ class Heading extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'      => 'exad_heading_icon_box_border',
-				'label'     => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector'  => '{{WRAPPER}} .exad-heading-icon'
 			]
 		);
@@ -364,7 +362,6 @@ class Heading extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'      => 'exad_heading_background',
-				'label'     => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .exad-heading-image-gradient .exad-exclusive-heading-title',
 				'condition' => [

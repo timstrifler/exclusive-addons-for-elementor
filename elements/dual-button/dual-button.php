@@ -446,7 +446,6 @@ class Dual_Button extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name'     => 'exad_dual_button_primary_button_normal_border',
-                        'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-dual-button-primary'
                     ]
                 );
@@ -497,7 +496,6 @@ class Dual_Button extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name'     => 'exad_dual_button_primary_button_hover_border',
-                        'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-dual-button-primary:hover'
                     ]
                 );
@@ -660,7 +658,6 @@ class Dual_Button extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
                 'name'     => 'exad_dual_button_connector_border',
-                'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-dual-button-connector'
 			]
         );
@@ -795,7 +792,6 @@ class Dual_Button extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name'     => 'exad_dual_button_secondary_button_normal_border',
-                        'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-dual-button-secondary'
                     ]
                 );
@@ -846,7 +842,6 @@ class Dual_Button extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name'     => 'exad_dual_button_secondary_button_hover_border',
-                        'label'    => __( 'Border', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-dual-button-secondary:hover'
                     ]
                 );

@@ -98,7 +98,6 @@ class Countdown_Timer extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_countdown_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-countdown'
 			]
 		);
@@ -134,8 +133,7 @@ class Countdown_Timer extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
-				'name'     => 'exad_countdown_background',
-				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
+				'name'     => 'exad_countdown_box_background',
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-countdown .exad-countdown-container'
 			]
@@ -144,7 +142,7 @@ class Countdown_Timer extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'box_shadow',
+				'name'     => 'exad_countdown_box_shadow',
 				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-countdown-container'
 			]
@@ -161,8 +159,7 @@ class Countdown_Timer extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'     => 'border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
+				'name'     => 'exad_countdown_box_border',
 				'selector' => '{{WRAPPER}} .exad-countdown .exad-countdown-container'
 			]
 		);
