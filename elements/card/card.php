@@ -224,7 +224,6 @@ class Card extends Widget_Base {
 			Group_Control_Background::get_type(),
 			[
 				'name'     => 'exad_card_background',
-				'label'    => __( 'Background', 'exclusive-addons-elementor' ),
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-card'
 			]
@@ -253,7 +252,6 @@ class Card extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'               => 'exad_card_border',
-				'label'              => __( 'Border', 'exclusive-addons-elementor' ),
 				'fields_options'     => [
                     'border'         => [
                         'default'    => 'solid',
@@ -726,25 +724,24 @@ class Card extends Widget_Base {
 				$this->add_group_control(
 					Group_Control_Border::get_type(),
 					[
-						'name'     => 'exad_card_button_normal_border',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
-						'fields_options' => [
-		                    'border'        => [
-		                        'default'   => 'solid'
+						'name'               => 'exad_card_button_normal_border',
+						'fields_options'     => [
+		                    'border'         => [
+		                        'default'    => 'solid'
 		                    ],
-		                    'width'       => [
-		                        'default' => [
+		                    'width'          => [
+		                        'default'    => [
 		                            'top'    => '1',
 		                            'right'  => '1',
 		                            'bottom' => '1',
 		                            'left'   => '1'
 		                        ]
 		                    ],
-		                    'color' => [
-		                        'default' => '#222222'
+		                    'color'          => [
+		                        'default'    => '#222222'
 		                    ]
 		                ],
-						'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action'
+						'selector'           => '{{WRAPPER}} .exad-card-body .exad-card-action'
 					]
 				);
 
@@ -789,7 +786,6 @@ class Card extends Widget_Base {
 					Group_Control_Border::get_type(),
 					[
 						'name'     => 'exad_card_button_hover_border',
-						'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action:hover'
 					]
 				);

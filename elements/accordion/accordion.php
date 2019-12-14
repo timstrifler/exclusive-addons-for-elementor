@@ -250,7 +250,6 @@ class Accordion extends Widget_Base {
 		    Group_Control_Border::get_type(),
 		    [
 				'name'     => 'exad_accordion_each_item_container_border',
-				'label'    => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item'
 		    ]
 		);
@@ -626,7 +625,6 @@ class Accordion extends Widget_Base {
         	Group_Control_Border::get_type(),
             [
 				'name'     => 'exad_accordion_title_icon_border',
-				'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon'
             ]
         );
@@ -924,7 +922,6 @@ class Accordion extends Widget_Base {
         	Group_Control_Border::get_type(),
             [
 				'name'            => 'exad_exclusive_accordion_content_border',
-				'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 				'fields_options'  => [
                     'border' 	  => [
                         'default' => 'solid'
@@ -1103,7 +1100,6 @@ class Accordion extends Widget_Base {
             	Group_Control_Border::get_type(),
                 [
 					'name'            => 'exad_accordion_details_btn_border',
-					'label'           => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 					'fields_options'  => [
 	                    'border' 	  => [
 	                        'default' => 'solid'
@@ -1177,7 +1173,6 @@ class Accordion extends Widget_Base {
             	Group_Control_Border::get_type(),
                 [
 					'name'     => 'exad_accordion_details_btn_hover_border',
-					'label'    => esc_html__( 'Border', 'exclusive-addons-elementor' ),
 					'selector' => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-button a:hover'
                 ]
             );

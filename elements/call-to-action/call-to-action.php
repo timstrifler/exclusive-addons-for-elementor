@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
@@ -214,14 +215,20 @@ class Call_To_Action extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'exad_cta_container_bg_color',
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
             [
-                'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-                'type'      => Controls_Manager::COLOR,
-                'default'   => '#f5f7fa',
-                'selectors' => [
-                    '{{WRAPPER}} .exad-call-to-action' => 'background-color: {{VALUE}};'
+                'name'            => 'exad_cta_container_bg_color',
+                'types'           => [ 'classic', 'gradient' ],
+                'selector'        => '{{WRAPPER}} .exad-call-to-action',
+                'exclude'         => [ 'image' ],
+                'fields_options'  => [
+                    'background'  => [
+                        'default' => 'classic'
+                    ],
+                    'color'       => [
+                        'default' => '#f5f7fa'
+                    ]
                 ]
             ]
         );
@@ -488,15 +495,6 @@ class Call_To_Action extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'           => 'exad_cta_primary_btn_border',
-                'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                'selector'  => '{{WRAPPER}} a.exad-call-to-action-primary-btn'
-            ]
-        );
-
         $this->add_responsive_control(
             'exad_cta_primary_btn_border_radius',
             [
@@ -539,6 +537,14 @@ class Call_To_Action extends Widget_Base {
             );
 
             $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'           => 'exad_cta_primary_btn_normal_border',
+                    'selector'  => '{{WRAPPER}} a.exad-call-to-action-primary-btn'
+                ]
+            );
+
+            $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
                     'name'           => 'exad_cta_primary_btn_normal_box_shadow',
@@ -571,6 +577,14 @@ class Call_To_Action extends Widget_Base {
                     'selectors' => [
                         '{{WRAPPER}} a.exad-call-to-action-primary-btn:hover' => 'background-color: {{VALUE}};'
                     ]
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'           => 'exad_cta_primary_btn_hover_border',
+                    'selector'  => '{{WRAPPER}} a.exad-call-to-action-primary-btn:hover'
                 ]
             );
 
@@ -639,31 +653,6 @@ class Call_To_Action extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'           => 'exad_cta_secondary_btn_border',
-                'label'          => esc_html__( 'Border', 'exclusive-addons-elementor' ),
-                'fields_options' => [
-                    'border'        => [
-                        'default'   => 'solid'
-                    ],
-                    'width'       => [
-                        'default' => [
-                            'top'    => '1',
-                            'right'  => '1',
-                            'bottom' => '1',
-                            'left'   => '1'
-                        ]
-                    ],
-                    'color' => [
-                        'default' => $exad_primary_color
-                    ]
-                ],
-                'selector'  => '{{WRAPPER}} a.exad-call-to-action-secondary-btn'
-            ]
-        );
-
         $this->add_responsive_control(
             'exad_cta_secondary_btn_border_radius',
             [
@@ -706,6 +695,30 @@ class Call_To_Action extends Widget_Base {
             );
 
             $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'               => 'exad_cta_secondary_btn_normal_border',
+                    'fields_options'     => [
+                        'border'         => [
+                            'default'    => 'solid'
+                        ],
+                        'width'          => [
+                            'default'    => [
+                                'top'    => '1',
+                                'right'  => '1',
+                                'bottom' => '1',
+                                'left'   => '1'
+                            ]
+                        ],
+                        'color'          => [
+                            'default'    => $exad_primary_color
+                        ]
+                    ],
+                    'selector'           => '{{WRAPPER}} a.exad-call-to-action-secondary-btn'
+                ]
+            );
+
+            $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
                     'name'           => 'exad_cta_secondary_btn_normal_box_shadow',
@@ -739,6 +752,14 @@ class Call_To_Action extends Widget_Base {
                     'selectors' => [
                         '{{WRAPPER}} a.exad-call-to-action-secondary-btn:hover' => 'background-color: {{VALUE}};'
                     ]
+                ]
+            );
+
+            $this->add_group_control(
+                Group_Control_Border::get_type(),
+                [
+                    'name'     => 'exad_cta_secondary_btn_hover_border',
+                    'selector' => '{{WRAPPER}} a.exad-call-to-action-secondary-btn:hover'
                 ]
             );
 
