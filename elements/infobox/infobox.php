@@ -52,11 +52,12 @@ class Infobox extends Widget_Base {
 		$this->add_control(
 			'exad_infobox_img_or_icon',
 			[
-				'label'       => esc_html__( 'Image or Icon', 'exclusive-addons-elementor' ),
-				'type'        => Controls_Manager::CHOOSE,
-				'toggle'      => false,
-				'label_block' => true,
-				'options'     => [
+				'label'         => esc_html__( 'Image or Icon', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::CHOOSE,
+				'toggle'        => false,
+				'label_block'   => true,
+				'default'       => 'icon',
+				'options'       => [
 					'none'      => [
 						'title' => esc_html__( 'None', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-ban'
@@ -69,8 +70,7 @@ class Infobox extends Widget_Base {
 						'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-image-bold'
 					]
-				],
-				'default'       => 'icon'
+				]
 			]
 		);
 		
