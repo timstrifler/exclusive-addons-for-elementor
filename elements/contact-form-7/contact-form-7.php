@@ -7,7 +7,6 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Scheme_Typography;
 use \Elementor\Widget_Base;
 use \Elementor\Group_Control_Background;
 use \ExclusiveAddons\Elementor\Helper;
@@ -339,8 +338,6 @@ class Contact_Form_7 extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_contact_title_typography',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .exad-contact-form-7 .exad-contact-form-7-title'
             ]
         ); 
@@ -487,14 +484,11 @@ class Contact_Form_7 extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_contact_typography_label',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form label'
             ]
         );
         
         $this->end_controls_section();
-
 
         /**
          * Style Tab: Submit Button
@@ -512,7 +506,6 @@ class Contact_Form_7 extends Widget_Base {
             [
                 'name'     => 'exad_contact_button_typography',
                 'label'    => __( 'Button Typography', 'exclusive-addons-elementor' ),
-                'scheme'   => Scheme_Typography::TYPOGRAPHY_4,
                 'selector' => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]'
             ]
         );
