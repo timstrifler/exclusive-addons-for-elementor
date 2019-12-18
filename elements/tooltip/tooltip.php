@@ -594,7 +594,7 @@ class Tooltip extends Widget_Base {
 
                 echo '</div>';
 
-                echo '<div class="exad-tooltip-text">'.wp_kses_post( $settings['exad_tooltip_text'] ).'</div>';
+                $settings['exad_tooltip_text'] ? printf( '<div class="exad-tooltip-text">%s</div>', wp_kses_post( $settings['exad_tooltip_text'] ) ) : '';
             echo '</div>';
         echo '</div>';
     }
@@ -657,6 +657,11 @@ class Tooltip extends Widget_Base {
                         </a>
                     <# } #>           
                 </div>
+                <# if ( settings.exad_tooltip_text ) { #>
+                    <div class="exad-tooltip-text">
+                        {{{ settings.exad_tooltip_text }}}
+                    </div>
+                <# } #>
             </div>
         </div>
 
