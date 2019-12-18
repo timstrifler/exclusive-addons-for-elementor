@@ -632,33 +632,33 @@ class Tooltip extends Widget_Base {
             }
         #>
 
-            <div {{{ view.getRenderAttributeString( 'exad_tooltip_wrapper' ) }}}>
-                <div class="exad-tooltip-item {{{ settings.exad_tooltip_direction }}}">
-                    <div class="exad-tooltip-content">
-                        <# if ( 'yes' === settings.exad_tooltip_enable_link && settings.exad_tooltip_link.url ) { #>
-                            <a href="{{ settings.exad_tooltip_link.url }}"{{ target }}{{ nofollow }}>
-                        <# } #>
+        <div {{{ view.getRenderAttributeString( 'exad_tooltip_wrapper' ) }}}>
+            <div class="exad-tooltip-item {{{ settings.exad_tooltip_direction }}}">
+                <div class="exad-tooltip-content">
+                    <# if ( 'yes' === settings.exad_tooltip_enable_link && settings.exad_tooltip_link.url ) { #>
+                        <a href="{{ settings.exad_tooltip_link.url }}"{{ target }}{{ nofollow }}>
+                    <# } #>
 
-                        <# if ( 'text' === settings.exad_tooltip_type && settings.exad_tooltip_content ) { #>
-                            <span {{{ view.getRenderAttributeString( 'exad_tooltip_content' ) }}}>
-                                {{{ settings.exad_tooltip_content }}}
-                            </span>
-                        <# } #>
+                    <# if ( 'text' === settings.exad_tooltip_type && settings.exad_tooltip_content ) { #>
+                        <span {{{ view.getRenderAttributeString( 'exad_tooltip_content' ) }}}>
+                            {{{ settings.exad_tooltip_content }}}
+                        </span>
+                    <# } #>
 
-                        <# if ( 'icon' === settings.exad_tooltip_type && iconHTML.value ) { #>
-                            {{{ iconHTML.value }}}
-                        <# } #>
+                    <# if ( 'icon' === settings.exad_tooltip_type && iconHTML.value ) { #>
+                        {{{ iconHTML.value }}}
+                    <# } #>
 
-                        <# if ( 'image' === settings.exad_tooltip_type && settings.exad_tooltip_img_content.url ) { #>
-                            <img src="{{{ imageURL }}}">
-                        <# } #>
+                    <# if ( 'image' === settings.exad_tooltip_type && settings.exad_tooltip_img_content.url ) { #>
+                        <img src="{{{ imageURL }}}">
+                    <# } #>
 
-                        <# if ( 'yes' === settings.exad_tooltip_enable_link && settings.exad_tooltip_link.url ) { #>
-                            </a>
-                        <# } #>           
-                    </div>
+                    <# if ( 'yes' === settings.exad_tooltip_enable_link && settings.exad_tooltip_link.url ) { #>
+                        </a>
+                    <# } #>           
                 </div>
             </div>
+        </div>
 
         <?php
     }
