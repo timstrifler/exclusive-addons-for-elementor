@@ -111,7 +111,7 @@ class Tooltip extends Widget_Base {
             Group_Control_Image_Size::get_type(),
             [
                 'name'      => 'exad_tooltip_image_size',
-                'default'   => 'full',
+                'default'   => 'thumbnail',
                 'condition' => [
                     'exad_tooltip_type'              => [ 'image' ],
                     'exad_tooltip_img_content[url]!' => ''
@@ -547,67 +547,119 @@ class Tooltip extends Widget_Base {
 
     protected function render() {
 
-        $settings          = $this->get_settings_for_display();
-        $exad_tooltip_link = $settings['exad_tooltip_link']['url'];        
-        $tooltip_img       = $this->get_settings_for_display( 'exad_tooltip_img_content' );
-        $tooltip_img_url   = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
+        $settings        = $this->get_settings_for_display();
+        $tooltip_img     = $this->get_settings_for_display( 'exad_tooltip_img_content' );
+        $tooltip_img_url = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
         if ( empty( $tooltip_img_url ) ) {
             $tooltip_img_url = $tooltip_img['url'];
         }  else {
             $tooltip_img_url = $tooltip_img_url;
         }
 
-        if( $exad_tooltip_link ) {
-            $this->add_render_attribute( 'exad-tooltip-anchor-atts', 'href', esc_url( $exad_tooltip_link ) );
-        }
-        if( $settings['exad_tooltip_link']['is_external'] ) {
-            $this->add_render_attribute( 'exad-tooltip-anchor-atts', 'target', '_blank' );
-        }
-        if( $settings['exad_tooltip_link']['nofollow'] ) {
-            $this->add_render_attribute( 'exad-tooltip-anchor-atts', 'rel', 'nofollow' );
-        }
-       
         $this->add_render_attribute( 'exad_tooltip_wrapper', 'class', 'exad-tooltip' );
+
+        if( $settings['exad_tooltip_link']['url'] ) {
+            $this->add_render_attribute( 'exad_tooltip_link', 'href', esc_url( $settings['exad_tooltip_link']['url'] ) );
+            if( $settings['exad_tooltip_link']['is_external'] ) {
+                $this->add_render_attribute( 'exad_tooltip_link', 'target', '_blank' );
+            }
+            if( $settings['exad_tooltip_link']['nofollow'] ) {
+                $this->add_render_attribute( 'exad_tooltip_link', 'rel', 'nofollow' );
+            }
+        }
+
+        $this->add_inline_editing_attributes( 'exad_tooltip_content', 'basic' );
+       
         echo '<div '.$this->get_render_attribute_string( 'exad_tooltip_wrapper' ).'>';
             echo '<div class="exad-tooltip-item '.esc_attr( $settings['exad_tooltip_direction'] ).'">';
                 echo '<div class="exad-tooltip-content">';
 
-                    if( 'text' === $settings['exad_tooltip_type'] ) :
-                        if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $exad_tooltip_link ) ) :
-                            echo '<a '.$this->get_render_attribute_string( 'exad-tooltip-anchor-atts' ).'>';
-                        endif;
-                        echo wp_kses_post( $settings['exad_tooltip_content'] );
-                        if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $exad_tooltip_link ) ) :
-                            echo '</a>';
-                        endif;
-
-                    elseif( 'icon' === $settings['exad_tooltip_type'] ) :
-                        if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $exad_tooltip_link ) ) :
-                            echo '<a '.$this->get_render_attribute_string( 'exad-tooltip-anchor-atts' ).'>';
-                        endif;
-
-                        if ( !empty( $settings['exad_tooltip_icon_content']['value'] ) ) :
-                            Icons_Manager::render_icon( $settings['exad_tooltip_icon_content'] );
-                        endif;
-
-                        if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $exad_tooltip_link ) ) :
-                            echo '</a>';    
-                        endif;
-
-                    elseif( 'image' === $settings['exad_tooltip_type'] ) :
-                        if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $exad_tooltip_link ) ) :
-                            echo '<a '.$this->get_render_attribute_string( 'exad-tooltip-anchor-atts' ).'>';
-                        endif;
-                        echo '<img src="'.esc_url( $tooltip_img_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_tooltip_img_content'] ).'">';
-                        if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $exad_tooltip_link ) ) :
-                            echo '</a>';
-                        endif;
-
+                    if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $settings['exad_tooltip_link']['url'] ) ) :
+                        echo '<a '.$this->get_render_attribute_string( 'exad_tooltip_link' ).'>';
                     endif;
+
+                    if( 'text' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_content'] ) ) :
+                        echo '<span '.$this->get_render_attribute_string( 'exad_tooltip_content' ).'>'.wp_kses_post( $settings['exad_tooltip_content'] ).'</span>';
+
+                    elseif( 'icon' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_icon_content']['value'] ) ) :
+                        Icons_Manager::render_icon( $settings['exad_tooltip_icon_content'] );
+
+                    elseif( 'image' === $settings['exad_tooltip_type'] && !empty( $tooltip_img_url ) ) :
+                        echo '<img src="'.esc_url( $tooltip_img_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_tooltip_img_content'] ).'">';
+                    endif;
+
+                    if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $settings['exad_tooltip_link']['url'] ) ) :
+                        echo '</a>';
+                    endif;
+
                 echo '</div>';
 
                 echo '<div class="exad-tooltip-text">'.wp_kses_post( $settings['exad_tooltip_text'] ).'</div>';
             echo '</div>';
         echo '</div>';
+    }
+
+    /**
+     * Render tooltip widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 1.0.0
+     * @access protected
+     */
+    protected function _content_template() {
+        ?>
+        <#
+            view.addRenderAttribute( 'exad_tooltip_wrapper', 'class', 'exad-tooltip' );
+            var target = settings.exad_tooltip_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_tooltip_link.nofollow ? ' rel="nofollow"' : '';
+
+            view.addInlineEditingAttributes( 'exad_tooltip_content', 'basic' );
+
+            var iconHTML = elementor.helpers.renderIcon( view, settings.exad_tooltip_icon_content, { 'aria-hidden': true }, 'i' , 'object' );
+
+            if ( settings.exad_tooltip_img_content.url || settings.exad_tooltip_img_content.id ) {
+                var image = {
+                    id: settings.exad_tooltip_img_content.id,
+                    url: settings.exad_tooltip_img_content.url,
+                    size: settings.exad_tooltip_image_size_size,
+                    dimension: settings.exad_tooltip_image_size_custom_dimension,
+                    class: 'exad-card-img',
+                    model: view.getEditModel()
+                };
+
+                var imageURL = elementor.imagesManager.getImageUrl( image );
+            }
+        #>
+
+            <div {{{ view.getRenderAttributeString( 'exad_tooltip_wrapper' ) }}}>
+                <div class="exad-tooltip-item {{{ settings.exad_tooltip_direction }}}">
+                    <div class="exad-tooltip-content">
+                        <# if ( 'yes' === settings.exad_tooltip_enable_link && settings.exad_tooltip_link.url ) { #>
+                            <a href="{{ settings.exad_tooltip_link.url }}"{{ target }}{{ nofollow }}>
+                        <# } #>
+
+                        <# if ( 'text' === settings.exad_tooltip_type && settings.exad_tooltip_content ) { #>
+                            <span {{{ view.getRenderAttributeString( 'exad_tooltip_content' ) }}}>
+                                {{{ settings.exad_tooltip_content }}}
+                            </span>
+                        <# } #>
+
+                        <# if ( 'icon' === settings.exad_tooltip_type && iconHTML.value ) { #>
+                            {{{ iconHTML.value }}}
+                        <# } #>
+
+                        <# if ( 'image' === settings.exad_tooltip_type && settings.exad_tooltip_img_content.url ) { #>
+                            <img src="{{{ imageURL }}}">
+                        <# } #>
+
+                        <# if ( 'yes' === settings.exad_tooltip_enable_link && settings.exad_tooltip_link.url ) { #>
+                            </a>
+                        <# } #>           
+                    </div>
+                </div>
+            </div>
+
+        <?php
     }
 }
