@@ -1595,6 +1595,9 @@ class Pricing_Table extends Widget_Base {
 
 			view.addRenderAttribute( 'exad_pricing_table_btn_link', 'class', 'exad-pricing-table-action' );
 	        view.addInlineEditingAttributes( 'exad_pricing_table_btn', 'none' );
+
+	        var target = settings.exad_pricing_table_btn_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_pricing_table_btn_link.nofollow ? ' rel="nofollow"' : '';
     	#>
 
     	<div {{{ view.getRenderAttributeString( 'exad_pricing_table_wrapper' ) }}}>
@@ -1674,7 +1677,7 @@ class Pricing_Table extends Widget_Base {
 				</div>
 
 				<# if ( 'middle' === settings.exad_pricing_table_btn_position && settings.exad_pricing_table_btn ) { #>
-					<a href="{{{ settings.exad_pricing_table_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_pricing_table_btn_link' ) }}}>
+					<a href="{{{ settings.exad_pricing_table_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_pricing_table_btn_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 						<span {{{ view.getRenderAttributeString( 'exad_pricing_table_btn' ) }}}>
 							{{{ settings.exad_pricing_table_btn }}}
 						</span>
@@ -1716,7 +1719,7 @@ class Pricing_Table extends Widget_Base {
 				<# } #>
 
 				<# if ( 'bottom' === settings.exad_pricing_table_btn_position && settings.exad_pricing_table_btn ) { #>
-					<a href="{{{ settings.exad_pricing_table_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_pricing_table_btn_link' ) }}}>
+					<a href="{{{ settings.exad_pricing_table_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_pricing_table_btn_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 						<span {{{ view.getRenderAttributeString( 'exad_pricing_table_btn' ) }}}>
 							{{{ settings.exad_pricing_table_btn }}}
 						</span>
