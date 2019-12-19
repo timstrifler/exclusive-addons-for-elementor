@@ -1383,19 +1383,18 @@ class Team_Member extends Widget_Base {
 					url: settings.exad_team_member_image.url,
 					size: settings.team_member_image_size_size,
 					dimension: settings.team_member_image_size_custom_dimension,
-					class: 'circled',
 					model: view.getEditModel()
 				};
 
-				var image_url = elementor.imagesManager.getImageUrl( image );
+				var imageURL = elementor.imagesManager.getImageUrl( image );
 			}
 		#>
 
 		<div class="exad-team-item">
 		    <div {{{ view.getRenderAttributeString( 'exad_team_member_item' ) }}}>
-		    	<# if ( image_url ) { #>
+		    	<# if ( imageURL ) { #>
 			    	<div class="exad-team-member-thumb">
-						<img src="{{{ image_url }}}">
+						<img class="circled" src="{{{ imageURL }}}">
 					</div>
 				<# } #>
 		        <div class="exad-team-member-content">

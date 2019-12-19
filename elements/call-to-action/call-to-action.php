@@ -840,7 +840,7 @@ class Call_To_Action extends Widget_Base {
                         echo '</div>';
                     }
 
-                    $heading ? printf('<h1 '.$this->get_render_attribute_string( 'exad_cta_heading' ).'>%s</h1>', wp_kses_post($heading)) : '';
+                    $heading ? printf( '<h1 '.$this->get_render_attribute_string( 'exad_cta_heading' ).'>%s</h1>', wp_kses_post( $heading ) ) : '';
 
                     if( $details ):
                         echo '<div '.$this->get_render_attribute_string( 'exad_cta_description' ).'>';
@@ -911,11 +911,17 @@ class Call_To_Action extends Widget_Base {
             view.addRenderAttribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );
             view.addInlineEditingAttributes( 'exad_cta_secondary_btn', 'none' );
 
+            var primaryBtnTarget = settings.exad_cta_primary_btn_link.is_external ? ' target="_blank"' : '';
+            var primaryBtnNofollow = settings.exad_cta_primary_btn_link.nofollow ? ' rel="nofollow"' : '';
+
+            var secondaryBtnTarget = settings.exad_cta_secondary_btn_link.is_external ? ' target="_blank"' : '';
+            var secondaryBtnNofollow = settings.exad_cta_secondary_btn_link.nofollow ? ' rel="nofollow"' : '';
+
         #>
         <div {{{ view.getRenderAttributeString( 'exad_call_to_action_wrapper' ) }}}>
             <div class="exad-call-to-action-content">
-                <div class="exad-call-to-action-header">
 
+                <div class="exad-call-to-action-header">
                     <# if ( iconHTML.value ) { #>
                         <div class="exad-call-to-action-icon">
                             {{{ iconHTML.value }}}
@@ -932,27 +938,27 @@ class Call_To_Action extends Widget_Base {
                         <div {{{ view.getRenderAttributeString( 'exad_cta_description' ) }}}>
                             {{{ settings.exad_cta_description }}}
                         </div>
-                    <# } #>
+                    <# } #>                    
+                </div>
 
-                    <div class="exad-call-to-action-footer">
-                        <ul class="exad-call-to-action-buttons">
-                            <# if ( settings.exad_cta_primary_btn ) { #>
-                                <li>
-                                    <a href="{{{ settings.exad_cta_primary_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_cta_primary_btn_link' ) }}}>
-                                        <span {{{ view.getRenderAttributeString( 'exad_cta_primary_btn' ) }}}>{{{ settings.exad_cta_primary_btn }}}</span>
-                                    </a>
-                                </li>
-                            <# } #>
+                <div class="exad-call-to-action-footer">
+                    <ul class="exad-call-to-action-buttons">
+                        <# if ( settings.exad_cta_primary_btn ) { #>
+                            <li>
+                                <a href="{{{ settings.exad_cta_primary_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_cta_primary_btn_link' ) }}}{{{ primaryBtnTarget }}}{{{ primaryBtnNofollow }}}>
+                                    <span {{{ view.getRenderAttributeString( 'exad_cta_primary_btn' ) }}}>{{{ settings.exad_cta_primary_btn }}}</span>
+                                </a>
+                            </li>
+                        <# } #>
 
-                            <# if ( settings.exad_cta_secondary_btn && 'vertical' == settings.exad_cta_skin_type ) { #>
-                                <li>
-                                    <a href="{{{ settings.exad_cta_secondary_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_cta_secondary_btn_link' ) }}}>
-                                        <span {{{ view.getRenderAttributeString( 'exad_cta_secondary_btn' ) }}}>{{{ settings.exad_cta_secondary_btn }}}</span>
-                                    </a>
-                                </li>
-                            <# } #>
-                        </ul>
-                    </div>
+                        <# if ( settings.exad_cta_secondary_btn && 'vertical' == settings.exad_cta_skin_type ) { #>
+                            <li>
+                                <a href="{{{ settings.exad_cta_secondary_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_cta_secondary_btn_link' ) }}}{{{ secondaryBtnTarget }}}{{{ secondaryBtnNofollow }}}>
+                                    <span {{{ view.getRenderAttributeString( 'exad_cta_secondary_btn' ) }}}>{{{ settings.exad_cta_secondary_btn }}}</span>
+                                </a>
+                            </li>
+                        <# } #>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -960,7 +966,7 @@ class Call_To_Action extends Widget_Base {
         <?php
     }
 
-    protected function primary_btn_render_text() {
+    private function primary_btn_render_text() {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
@@ -971,7 +977,7 @@ class Call_To_Action extends Widget_Base {
         echo '</span>';
     }
 
-    protected function seconday_btn_render_text() {
+    private function seconday_btn_render_text() {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );

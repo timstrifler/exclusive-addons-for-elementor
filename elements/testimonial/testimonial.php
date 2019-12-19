@@ -812,7 +812,7 @@ class Testimonial extends Widget_Base {
 		$this-> end_controls_section();
 	}
 
-	protected function render_testimonial_rating( $ratings ) {
+	private function render_testimonial_rating( $ratings ) {
 		for( $i = 1; $i <= 5; $i++ ) {
 			if( $ratings >= $i ) {
 				$rating_active_class = '<li class="exad-testimonial-ratings-active"><i class="eicon-star-o"></i></li>';
@@ -930,11 +930,10 @@ class Testimonial extends Widget_Base {
 					url: settings.exad_testimonial_image.url,
 					size: settings.testimonial_thumbnail_size,
 					dimension: settings.testimonial_thumbnail_custom_dimension,
-					class: 'circled',
 					model: view.getEditModel()
 				};
 
-				var image_url = elementor.imagesManager.getImageUrl( image );
+				var imageURL = elementor.imagesManager.getImageUrl( image );
 			}
 		#>
 
@@ -969,9 +968,9 @@ class Testimonial extends Widget_Base {
 
 					<# if( 'exad-testimonial-align-left' === settings.exad_testimonial_container_alignment || 'exad-testimonial-align-center' === settings.exad_testimonial_container_alignment || 'exad-testimonial-align-right' === settings.exad_testimonial_container_alignment ) { #>
 	
-						<# if ( image_url ) { #>
+						<# if ( imageURL ) { #>
 					    	<div class="exad-testimonial-thumb">
-								<img src="{{{ image_url }}}">
+								<img src="{{{ imageURL }}}">
 							</div>
 						<# } #>
 
@@ -1002,9 +1001,9 @@ class Testimonial extends Widget_Base {
 								</span>
 							<# } #>
 						</div>
-						<# if ( image_url ) { #>
+						<# if ( imageURL ) { #>
 					    	<div class="exad-testimonial-thumb">
-								<img src="{{{ image_url }}}">
+								<img src="{{{ imageURL }}}">
 							</div>
 						<# } #>
 					<# } #>					
