@@ -442,11 +442,14 @@ class Button extends Widget_Base {
 			view.addInlineEditingAttributes( 'exclusive_button_text', 'none' );
 			view.addRenderAttribute( 'exclusive_button_link_url', 'class', 'exad-button-action' );
 
+			var target = settings.exclusive_button_link_url.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exclusive_button_link_url.nofollow ? ' rel="nofollow"' : '';
+
 			var iconHTML = elementor.helpers.renderIcon( view, settings.exad_exclusive_button_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 
 			<div {{{ view.getRenderAttributeString( 'exad_exclusive_button' ) }}}>
-				<a href="{{{ settings.exclusive_button_link_url.url }}}" {{{ view.getRenderAttributeString( 'exclusive_button_link_url' ) }}}>
+				<a href="{{{ settings.exclusive_button_link_url.url }}}" {{{ view.getRenderAttributeString( 'exclusive_button_link_url' ) }}}{{{ target }}}{{{ nofollow }}}>
 					<# if ( iconHTML.value ) { #>
 						<span>
 							{{{ iconHTML.value }}}

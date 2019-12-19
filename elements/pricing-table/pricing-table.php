@@ -1429,7 +1429,6 @@ class Pricing_Table extends Widget_Base {
 
         $this->add_inline_editing_attributes( 'exad_pricing_table_btn', 'none' );
 
-
 		echo '<div '.$this->get_render_attribute_string( 'exad_pricing_table_wrapper' ).'>';
 			echo '<div class="exad-pricing-table-badge-wrapper">';
 
@@ -1490,11 +1489,7 @@ class Pricing_Table extends Widget_Base {
 
 				
 				if( 'middle' === $settings['exad_pricing_table_btn_position'] && !empty( $settings['exad_pricing_table_btn'] ) ) {
-					echo '<a '.$this->get_render_attribute_string( 'exad_pricing_table_btn_link' ).'>';
-						echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_btn' ).'>';
-							echo esc_html( $settings['exad_pricing_table_btn'] );
-						echo '</span>';
-					echo '</a>';
+					$this->pricing_table_btn();
 				} 
 
 				do_action( 'exad_pricing_table_content_wrapper_before' );
@@ -1531,11 +1526,7 @@ class Pricing_Table extends Widget_Base {
 				do_action( 'exad_pricing_table_content_wrapper_after' );
 
 				if( 'bottom' === $settings['exad_pricing_table_btn_position'] && !empty( $settings['exad_pricing_table_btn'] ) ) {
-					echo '<a '.$this->get_render_attribute_string( 'exad_pricing_table_btn_link' ).'>';
-						echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_btn' ).'>';
-							echo esc_html( $settings['exad_pricing_table_btn'] );
-						echo '</span>';
-					echo '</a>';
+					$this->pricing_table_btn();
 				} 
 			echo '</div>';
 		echo '</div>';
@@ -1730,4 +1721,12 @@ class Pricing_Table extends Widget_Base {
     	</div>
     	<?php
     }
+
+    protected function pricing_table_btn() {
+		echo '<a '.$this->get_render_attribute_string( 'exad_pricing_table_btn_link' ).'>';
+			echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_btn' ).'>';
+				echo esc_html( $this->get_settings_for_display( 'exad_pricing_table_btn' ) );
+			echo '</span>';
+		echo '</a>';
+	}
 }

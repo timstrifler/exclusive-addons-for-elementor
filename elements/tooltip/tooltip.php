@@ -548,7 +548,7 @@ class Tooltip extends Widget_Base {
     protected function render() {
 
         $settings        = $this->get_settings_for_display();
-        $tooltip_img     = $this->get_settings_for_display( 'exad_tooltip_img_content' );
+        $tooltip_img     = $settings['exad_tooltip_img_content'];
         $tooltip_img_url = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
         if ( empty( $tooltip_img_url ) ) {
             $tooltip_img_url = $tooltip_img['url'];
@@ -611,6 +611,7 @@ class Tooltip extends Widget_Base {
         ?>
         <#
             view.addRenderAttribute( 'exad_tooltip_wrapper', 'class', 'exad-tooltip' );
+            
             var target = settings.exad_tooltip_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_tooltip_link.nofollow ? ' rel="nofollow"' : '';
 

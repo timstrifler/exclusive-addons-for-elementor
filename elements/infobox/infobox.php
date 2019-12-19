@@ -691,7 +691,7 @@ class Infobox extends Widget_Base {
 	}
 	protected function render() {
 		$settings                  = $this->get_settings_for_display();		
-		$infobox_image             = $this->get_settings_for_display( 'exad_infobox_image' );
+		$infobox_image             = $settings['exad_infobox_image'];
 		$infobox_image_url         = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
 		$title                     = $settings['exad_infobox_title'];
 		$details                   = $settings['exad_infobox_description'];
@@ -810,6 +810,9 @@ class Infobox extends Widget_Base {
 	        view.addRenderAttribute( 'exad_infobox_description', 'class', 'exad-infobox-content-description' );
 			view.addInlineEditingAttributes( 'exad_infobox_description' );
 
+			var target = settings.exad_infobox_title_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_infobox_title_link.nofollow ? ' rel="nofollow"' : '';
+
 		#>
 		<div class="exad-infobox">
 			<div {{{ view.getRenderAttributeString( 'exad_infobox_transition' ) }}}>
@@ -829,7 +832,7 @@ class Infobox extends Widget_Base {
 
 				<div class="exad-infobox-content">
 					<# if(  settings.exad_infobox_title_link.url ) { #>
-						<a href="{{{ settings.exad_infobox_title_link.url }}}" {{{ view.getRenderAttributeString( 'exad_infobox_title_link' ) }}}>
+						<a href="{{{ settings.exad_infobox_title_link.url }}}" {{{ view.getRenderAttributeString( 'exad_infobox_title_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 					<# } #>
 
 					<# if ( settings.exad_infobox_title ) { #>

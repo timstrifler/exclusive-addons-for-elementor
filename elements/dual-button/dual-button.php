@@ -1011,10 +1011,16 @@ class Dual_Button extends Widget_Base {
             var connectorIcon = elementor.helpers.renderIcon( view, settings.exad_dual_button_connector_icon, { 'aria-hidden': true }, 'i' , 'object' );
             var secondaryIcon = elementor.helpers.renderIcon( view, settings.exad_dual_button_secondary_button_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
+            var primaryBtnTarget = settings.exad_dual_button_primary_button_url.lis_external ? ' target="_blank"' : '';
+            var primaryBtnNofollow = settings.exad_dual_button_primary_button_url.lnofollow ? ' rel="nofollow"' : '';
+
+            var secondaryBtnTarget = settings.exad_dual_button_secondary_button_url.is_external ? ' target="_blank"' : '';
+            var secondaryBtnNofollow = settings.exad_dual_button_secondary_button_url.nofollow ? ' rel="nofollow"' : '';
+
         #>
             <div {{{ view.getRenderAttributeString( 'exad_dual_button' ) }}}>
                 <div class="exad-dual-button-wrapper">
-                    <a href="{{{ settings.exad_dual_button_primary_button_url.url }}}" {{{ view.getRenderAttributeString( 'exad_dual_button_primary_button_url' ) }}}>
+                    <a href="{{{ settings.exad_dual_button_primary_button_url.url }}}" {{{ view.getRenderAttributeString( 'exad_dual_button_primary_button_url' ) }}}{{{ primaryBtnTarget }}}{{{ primaryBtnNofollow }}}>
                         <span class="{{{ settings.exad_dual_button_primary_button_icon_position }}}">
                             <# if ( 'exad-icon-pos-left' === settings.exad_dual_button_primary_button_icon_position && primaryIcon.value ) { #>
                                 {{{ primaryIcon.value }}}
@@ -1046,7 +1052,7 @@ class Dual_Button extends Widget_Base {
                         <# } #>
                     </a>
 
-                    <a href="{{{ settings.exad_dual_button_secondary_button_url.url }}}" {{{ view.getRenderAttributeString( 'exad_dual_button_secondary_button_url' ) }}}>
+                    <a href="{{{ settings.exad_dual_button_secondary_button_url.url }}}" {{{ view.getRenderAttributeString( 'exad_dual_button_secondary_button_url' ) }}}{{{ secondaryBtnTarget }}}{{{ secondaryBtnNofollow }}}>
                         <span class="{{{ settings.exad_dual_button_secondary_button_icon_position }}}">
                             <# if ( 'exad-icon-pos-left' === settings.exad_dual_button_secondary_button_icon_position && secondaryIcon.value ) { #>
                                 {{{ secondaryIcon.value }}}
@@ -1061,6 +1067,7 @@ class Dual_Button extends Widget_Base {
                             <# } #>
                         </span>
                     </a>
+
                 </div>
             </div>
         <?php

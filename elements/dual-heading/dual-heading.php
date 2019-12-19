@@ -509,6 +509,9 @@ class Dual_Heading extends Widget_Base {
 
             view.addRenderAttribute( 'exad_dual_heading_description', 'class', 'exad-dual-heading-description' );
             view.addInlineEditingAttributes( 'exad_dual_heading_description' );
+
+            var target = settings.exad_dual_heading_title_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_dual_heading_title_link.nofollow ? ' rel="nofollow"' : '';
         #>
         <div class="exad-dual-heading">
             <div class="exad-dual-heading-wrapper">
@@ -519,7 +522,7 @@ class Dual_Heading extends Widget_Base {
                 <# } #>
                 <h1 class="exad-dual-heading-title">
                     <# if ( settings.exad_dual_heading_title_link ) { #>
-                        <a href="{{ settings.exad_dual_heading_title_link.url }}">
+                        <a href="{{{ settings.exad_dual_heading_title_link.url }}}"{{{ target }}}{{{ nofollow }}}>
                     <# } #>
                     <# if ( settings.exad_dual_first_heading ) { #>
                         <span {{{ view.getRenderAttributeString( 'exad_dual_first_heading' ) }}}>

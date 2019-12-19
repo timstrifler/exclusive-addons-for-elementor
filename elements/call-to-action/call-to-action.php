@@ -856,7 +856,7 @@ class Call_To_Action extends Widget_Base {
                         if ( ! empty( $settings['exad_cta_primary_btn'] ) ) :
                             echo '<li>';
                                 echo '<a '.$this->get_render_attribute_string( 'exad_cta_primary_btn_link' ).'>';
-                                    $this->primary_btn_render_text();
+                                    $this->primary_btn();
                                 echo '</a>';
                             echo '</li>';
                         endif;
@@ -864,7 +864,7 @@ class Call_To_Action extends Widget_Base {
                         if( 'vertical' == $settings['exad_cta_skin_type'] && !empty( $settings['exad_cta_secondary_btn'] ) ) :
                             echo '<li>';
                                 echo '<a '.$this->get_render_attribute_string( 'exad_cta_secondary_btn_link' ).'>';
-                                    $this->seconday_btn_render_text();
+                                    $this->seconday_btn();
                                 echo '</a>';
                             echo '</li>';
                         endif;
@@ -966,7 +966,7 @@ class Call_To_Action extends Widget_Base {
         <?php
     }
 
-    private function primary_btn_render_text() {
+    private function primary_btn() {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
@@ -977,7 +977,7 @@ class Call_To_Action extends Widget_Base {
         echo '</span>';
     }
 
-    private function seconday_btn_render_text() {
+    private function seconday_btn() {
         $settings = $this->get_settings_for_display();
 
         $this->add_render_attribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );

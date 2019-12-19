@@ -1153,6 +1153,9 @@ class Flipbox extends Widget_Base {
 			view.addRenderAttribute( 'exad_flipbox_button_link', 'class', 'exad-flip-box-back-action' );
 			view.addInlineEditingAttributes( 'exad_flipbox_button_text', 'none' );
 
+			var target = settings.exad_flipbox_button_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_flipbox_button_link.nofollow ? ' rel="nofollow"' : '';
+
 		#>
 		<div class="exad-flip-box">
 			<div {{{ view.getRenderAttributeString( 'exad_flipbox_attribute' ) }}}>
@@ -1199,7 +1202,7 @@ class Flipbox extends Widget_Base {
 				    	<# } #>
 
 				    	<# if ( settings.exad_flipbox_button_text ) { #>
-				            <a href="{{{ settings.exad_flipbox_button_link.url }}}" {{{ view.getRenderAttributeString( 'exad_flipbox_button_link' ) }}}>
+				            <a href="{{{ settings.exad_flipbox_button_link.url }}}" {{{ view.getRenderAttributeString( 'exad_flipbox_button_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 								<span {{{ view.getRenderAttributeString( 'exad_flipbox_button_text' ) }}}>
 									{{{ settings.exad_flipbox_button_text }}}
 								</span>

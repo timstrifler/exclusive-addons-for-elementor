@@ -279,7 +279,7 @@ class Logo_Box extends Widget_Base {
 	}
 	protected function render() {
         $settings       = $this->get_settings_for_display();        
-        $logo_image     = $this->get_settings_for_display( 'exad_logo_image' );
+        $logo_image     = $settings['exad_logo_image'];
         $logo_image_url = Group_Control_Image_Size::get_attachment_image_src( $logo_image['id'], 'thumbnail', $settings );
         $exad_logo_link = $settings['exad_logo_box_link']['url'];
 
@@ -301,18 +301,18 @@ class Logo_Box extends Widget_Base {
         
         echo '<div class="exad-logo one">';
             echo '<div class="exad-logo-item">';
-                if( ! empty( $settings['exad_logo_image'] ) ) {
+                if( ! empty( $settings['exad_logo_image'] ) ) :
 
-                    if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) {
+                    if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) :
                         echo '<a '.$this->get_render_attribute_string( 'exad_logo_box_link' ).'>';
-                    }
+                    endif;
 
                     echo '<img src="'.esc_url( $logo_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_logo_image'] ).'">';
 
-                    if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) {
+                    if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) :
                         echo '</a>';
-                    }
-                }
+                    endif;
+                endif;
             echo '</div>';
         echo '</div>';
 	}
@@ -340,12 +340,15 @@ class Logo_Box extends Widget_Base {
 
                 var image_url = elementor.imagesManager.getImageUrl( image );
             }
+
+            var target   = settings.exad_logo_box_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_logo_box_link.nofollow ? ' rel="nofollow"' : '';
         #>
         <div class="exad-logo one">
             <div class="exad-logo-item">
                 <# if ( image_url ) { #>
                     <# if ( settings.exad_logo_box_link && 'yes' === settings.exad_logo_box_enable_link ) { #>
-                        <a href="{{ settings.exad_logo_box_link.url }}">
+                        <a href="{{{ settings.exad_logo_box_link.url }}}"{{{ target }}}{{{ nofollow }}}>
                     <# } #>
                     <img src="{{{ image_url }}}">
                     <# if ( settings.exad_logo_box_link && 'yes' === settings.exad_logo_box_enable_link ) { #>

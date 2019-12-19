@@ -701,6 +701,9 @@ class Heading extends Widget_Base {
 
 			view.addRenderAttribute( 'exad_heading_subheading', 'class', 'exad-exclusive-heading-description' );
             view.addInlineEditingAttributes( 'exad_heading_subheading' );
+
+            var target = settings.exad_heading_title_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_heading_title_link.nofollow ? ' rel="nofollow"' : '';
 		#>
 		<div class="exad-exclusive-heading">
 			<div {{{ view.getRenderAttributeString( 'exad_exclusive_heading_wrapper' ) }}}>
@@ -712,7 +715,7 @@ class Heading extends Widget_Base {
                 <# } #>
 
                 <# if ( settings.exad_heading_title_link ) { #>
-                    <a href="{{ settings.exad_heading_title_link.url }}">
+                    <a href="{{{ settings.exad_heading_title_link.url }}}"{{{ target }}}{{{ nofollow }}}>
                 <# } #>
 
                 <h1 {{{ view.getRenderAttributeString( 'exad_heading_title' ) }}}>

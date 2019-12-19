@@ -1291,7 +1291,7 @@ class Team_Member extends Widget_Base {
 
 					if ( 'yes' === $settings['exad_section_team_members_cta_btn'] && !empty( $settings['exad_team_members_cta_btn_text'] ) ) :
 						echo '<a '.$this->get_render_attribute_string( 'exad_team_members_cta_btn_link' ).'>';
-							$this->render_text();
+							$this->team_member_cta();
 						echo '</a>';
                     endif;
 
@@ -1388,6 +1388,9 @@ class Team_Member extends Widget_Base {
 
 				var imageURL = elementor.imagesManager.getImageUrl( image );
 			}
+
+			var target = settings.exad_team_members_cta_btn_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_team_members_cta_btn_link.nofollow ? ' rel="nofollow"' : '';
 		#>
 
 		<div class="exad-team-item">
@@ -1417,7 +1420,7 @@ class Team_Member extends Widget_Base {
 		            <# } #>
 
 		            <# if ( 'yes' === settings.exad_section_team_members_cta_btn && settings.exad_team_members_cta_btn_text ) { #>
-			            <a href="{{{ settings.exad_team_members_cta_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_team_members_cta_btn_link' ) }}}>
+			            <a href="{{{ settings.exad_team_members_cta_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_team_members_cta_btn_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 							<span {{{ view.getRenderAttributeString( 'exad_team_members_cta_btn_text' ) }}}>
 								{{{ settings.exad_team_members_cta_btn_text }}}
 							</span>
@@ -1447,7 +1450,7 @@ class Team_Member extends Widget_Base {
 		<?php
 	}
 
-	protected function render_text() {
+	private function team_member_cta() {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );

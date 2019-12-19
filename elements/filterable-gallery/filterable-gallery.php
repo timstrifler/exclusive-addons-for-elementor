@@ -1066,20 +1066,17 @@ class Filterable_Gallery extends Widget_Base
                                                     endif; 
 
                                                     if( ( 'link' == $settings['exad_fg_show_icons'] || 'both' == $settings['exad_fg_show_icons'] )  && !empty($settings['exad_section_fg_link_icon']) ) :
+                                                        $href = $target = '';
                                                         if ( $gallery['exad_fg_gallery_img_link']['url'] ) {
                                                             $href = 'href="'.esc_url($gallery['exad_fg_gallery_img_link']['url']).'"';
-                                                        } else {
-                                                            $href = '';
                                                         }
-                                                        if ( $gallery['exad_fg_gallery_img_link']['is_external'] === 'on' ) {
+                                                        if ( 'on' === $gallery['exad_fg_gallery_img_link']['is_external'] ) {
                                                             $target = ' target= _blank';
-                                                        } else {
-                                                            $target = '';
                                                         }
-                                                        if ( $gallery['exad_fg_gallery_img_link']['nofollow'] === 'on' ) {
+                                                        if ( 'on' === $gallery['exad_fg_gallery_img_link']['nofollow'] ) {
                                                             $target .= ' rel= nofollow ';
                                                         }
-                                                        echo '<a '.$href.esc_attr($target).'>';
+                                                        echo '<a '.$href.$target.'>';
                                                             Icons_Manager::render_icon( $settings['exad_section_fg_link_icon'], [ 'aria-hidden' => 'true' ] );
                                                         echo '</a>';
                                                     endif;

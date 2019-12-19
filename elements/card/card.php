@@ -808,7 +808,7 @@ class Card extends Widget_Base {
 
 	protected function render() {
 		$settings           = $this->get_settings_for_display();
-		$card_image         = $this->get_settings_for_display( 'exad_card_image' );
+		$card_image         = $settings['exad_card_image'];
 		$card_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $card_image['id'], 'thumbnail', $settings );
 		if( empty( $card_image_url_src ) ) {
 			$card_image_url = $card_image['url'];
@@ -946,6 +946,9 @@ class Card extends Widget_Base {
 			view.addRenderAttribute( 'exad_card_action_link', 'class', 'exad-card-action' );
 			view.addInlineEditingAttributes( 'exad_card_action_text', 'none' );
 
+			var target = settings.exad_card_action_link.is_external ? ' target="_blank"' : '';
+            var nofollow = settings.exad_card_action_link.nofollow ? ' rel="nofollow"' : '';
+
 			var iconHTML = elementor.helpers.renderIcon( view, settings.exad_card_action_link_icon, { 'aria-hidden': true }, 'i' , 'object' );
 		#>
 		<div {{{ view.getRenderAttributeString( 'exad_card' ) }}}>
@@ -977,7 +980,7 @@ class Card extends Widget_Base {
 		        <# } #>
 
 		        <# if ( settings.exad_card_action_text ) { #>
-		            <a href="{{{ settings.exad_card_action_link.url }}}" {{{ view.getRenderAttributeString( 'exad_card_action_link' ) }}}>
+		            <a href="{{{ settings.exad_card_action_link.url }}}" {{{ view.getRenderAttributeString( 'exad_card_action_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 		            	<# if ( 'icon_pos_left' === settings.exad_card_action_link_icon_position && iconHTML.value ) { #>
 							<span class="{{{ settings.exad_card_action_link_icon_position }}}">
 								{{{ iconHTML.value }}}
