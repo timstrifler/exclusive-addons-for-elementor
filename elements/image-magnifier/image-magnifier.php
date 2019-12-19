@@ -231,9 +231,8 @@ class Image_Magnifier extends Widget_Base {
     }
     
 	protected function render() {
-
         $settings              = $this->get_settings_for_display();
-        $magnify_image         = $this->get_settings_for_display( 'exad_magnify_image' );
+        $magnify_image         = $settings['exad_magnify_image'];
         $magnify_image_src_url = Group_Control_Image_Size::get_attachment_image_src( $magnify_image['id'], 'magnify_image_size', $settings );
 
         if( empty( $magnify_image_src_url ) ) {
@@ -242,9 +241,46 @@ class Image_Magnifier extends Widget_Base {
             $magnify_image_url = $magnify_image_src_url;
         }
 
-        echo '<div class="exad-image-magnify">';
-            echo '<div class="exad-magnify-large"></div>';
-            echo '<img class="exad-magnify-small" src="'.esc_url( $magnify_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_magnify_image'] ).'">';
-        echo '</div>';
+        if( !empty( $magnify_image_url ) ) {
+            echo '<div class="exad-image-magnify">';
+                echo '<div class="exad-magnify-large"></div>';
+                echo '<img class="exad-magnify-small" src="'.esc_url( $magnify_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_magnify_image'] ).'">';
+            echo '</div>';
+        }
 	}
+
+    /**
+     * Render image magnifier widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 1.0.0
+     * @access protected
+     */
+    protected function _content_template() {
+        ?>
+        <#
+            if ( settings.exad_magnify_image.url || settings.exad_magnify_image.id ) {
+                var image = {
+                    id: settings.exad_magnify_image.id,
+                    url: settings.exad_magnify_image.url,
+                    size: settings.magnify_image_size_size,
+                    dimension: settings.magnify_image_size_custom_dimension,
+                    model: view.getEditModel()
+                };
+
+                var imageURL = elementor.imagesManager.getImageUrl( image );
+            }
+        #>
+
+        <# if ( imageURL ) { #>
+            <div class="exad-image-magnify">
+                <div class="exad-magnify-large"></div>
+                <img class="exad-magnify-small" src="{{{ imageURL }}}">
+            </div>
+        <# } #>
+
+        <?php
+    }
+
 }

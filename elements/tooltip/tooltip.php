@@ -624,7 +624,6 @@ class Tooltip extends Widget_Base {
                     url: settings.exad_tooltip_img_content.url,
                     size: settings.exad_tooltip_image_size_size,
                     dimension: settings.exad_tooltip_image_size_custom_dimension,
-                    class: 'exad-card-img',
                     model: view.getEditModel()
                 };
 

@@ -1344,6 +1344,14 @@ class Team_Member extends Widget_Base {
 		echo '</div>';
 	}
 
+	/**
+     * Render team member widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 1.0.0
+     * @access protected
+     */
 	protected function _content_template() {
 
 		?>
@@ -1417,7 +1425,7 @@ class Team_Member extends Widget_Base {
 						</a>
 					<# } #>
 
-					<# if ( 'yes' === settings.exad_team_member_enable_social_profiles ) { #>
+					<# if ( 'yes' === settings.exad_team_member_enable_social_profiles && settings.exad_team_member_social_profile_links.length ) { #>
 						<ul class="list-inline exad-team-member-social">
 							<# 
 								var iconsHTML = {};

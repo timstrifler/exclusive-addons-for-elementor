@@ -280,9 +280,72 @@ class Image_Comparison extends Widget_Base {
 
         echo '<div class="exad-image-comparision">';
             echo '<div '.$this->get_render_attribute_string('exad_image_comparison_wrapper').'>';
-                echo '<img src="'.esc_url( $comparison_image_url_one ).'" alt="'.Control_Media::get_image_alt( $settings['exad_comparison_image_one'] ).'">';
-                echo '<img src="'.esc_url( $comparison_image_url_two ).'" alt="'.Control_Media::get_image_alt( $settings['exad_comparison_image_two'] ).'">';
+                echo $comparison_image_url_one ? '<img src="'.esc_url( $comparison_image_url_one ).'" alt="'.Control_Media::get_image_alt( $settings['exad_comparison_image_one'] ).'">' : '';
+                echo $comparison_image_url_two ? '<img src="'.esc_url( $comparison_image_url_two ).'" alt="'.Control_Media::get_image_alt( $settings['exad_comparison_image_two'] ).'">' : '';
             echo '</div>';
         echo '</div>';
 	}
+
+    /**
+     * Render image comparison widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 1.0.0
+     * @access protected
+     */
+    protected function _content_template() {
+        ?>
+        <#
+            if ( settings.exad_comparison_image_one.url || settings.exad_comparison_image_one.id ) {
+                var image = {
+                    id: settings.exad_comparison_image_one.id,
+                    url: settings.exad_comparison_image_one.url,
+                    size: settings.thumbnail_size,
+                    dimension: settings.thumbnail_custom_dimension,
+                    model: view.getEditModel()
+                };
+
+                var imageOneURL = elementor.imagesManager.getImageUrl( image );
+            }
+
+            if ( settings.exad_comparison_image_two.url || settings.exad_comparison_image_two.id ) {
+                var image = {
+                    id: settings.exad_comparison_image_two.id,
+                    url: settings.exad_comparison_image_two.url,
+                    size: settings.thumbnail_two_size,
+                    dimension: settings.thumbnail_two_custom_dimension,
+                    model: view.getEditModel()
+                };
+
+                var imageTwoURL = elementor.imagesManager.getImageUrl( image );
+            }
+
+            view.addRenderAttribute( 'exad_image_comparison_wrapper', {
+                'class'                       : [ 'exad-image-comparision-element', settings.exad_image_comparison_slider_handle ],
+                'data-exad-before_label'      : settings.exad_before_label,
+                'data-exad-after_label'       : settings.exad_after_label,
+                'data-exad-default_offset_pct': settings.exad_default_offset_pct,
+                'data-exad-oriantation'       : settings.exad_image_comparison_handle_type
+            } );
+
+            if ( 'on' !== settings.exad_overlay_enable ) {
+                view.addRenderAttribute( 'exad_image_comparison_wrapper', 'data-exad-no_overlay', true );
+            }
+        #>
+
+        <div class="exad-image-comparision">
+            <div {{{ view.getRenderAttributeString( 'exad_image_comparison_wrapper' ) }}}>
+                <# if ( settings.exad_comparison_image_one.url ) { #>
+                    <img src="{{{ imageOneURL }}}">
+                <# } #>
+                <# if ( settings.exad_comparison_image_two.url ) { #>
+                    <img src="{{{ imageTwoURL }}}">
+                <# } #>
+            </div>
+        </div>
+
+        <?php
+    }
+    
 }

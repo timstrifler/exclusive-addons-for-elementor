@@ -1044,7 +1044,7 @@ class Flipbox extends Widget_Base {
 		    [
 			   'class' => [ 
 			   		'exad-flip-box-inner',
-			   		$settings['exad_flipbox_style'] 
+			   		esc_attr( $settings['exad_flipbox_style'] ) 
 			   	]
 		    ]   
 	    );
@@ -1117,6 +1117,14 @@ class Flipbox extends Widget_Base {
 	    echo '</div>';
 	}
 
+	/**
+     * Render flipbox widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 1.0.0
+     * @access protected
+     */
 	protected function _content_template() {
 		?>
 		<#

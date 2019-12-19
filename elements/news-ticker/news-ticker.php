@@ -874,6 +874,7 @@ class News_Ticker extends Widget_Base {
                     echo '</ul>';
                 endif;
             echo '</div>';
+
             if ( 'yes' == $settings['exad_news_ticker_show_controls'] ) :
                 echo '<div class="exad-nt-controls">';
                     echo '<button><span class="bn-arrow bn-prev"></span></button>';
@@ -884,6 +885,7 @@ class News_Ticker extends Widget_Base {
                 echo '</div>';
             endif;
             do_action( 'exad_news_ticker_wrapper_after' );
+            
         echo '</div>';
     }
 }

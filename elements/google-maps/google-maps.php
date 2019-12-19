@@ -223,32 +223,48 @@ class Google_Maps extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 		
 		$this->add_render_attribute( 'exad_google_map_wrapper', [
-			'class'                        => ['exad-google-maps'],
-			'id'                           => 'exad-google-maps-'.esc_attr($this->get_id()),
-			'data-exad-theme'              => esc_attr( $settings['exad_google_map_themes']),
+			'class'                        => 'exad-google-maps',
+			'id'                           => 'exad-google-maps-'.esc_attr( $this->get_id() ),
+			'data-exad-theme'              => esc_attr( $settings['exad_google_map_themes'] ),
 			'data-exad-lat'                => esc_attr( $settings['exad_google_map_lat'] ),
 			'data-exad-lng'                => esc_attr( $settings['exad_google_map_lng'] ),
-			'data-exad-zoom'               => esc_attr($settings['exad_google_map_zoom']),
-			'data-exad-streeview-control'  => ($settings['exad_map_streeview_control'] ? 'true': 'false'),
-			'data-exad-type-control'       => ($settings['exad_map_type_control'] ? 'true': 'false'),
-			'data-exad-zoom-control'       => ($settings['exad_map_zoom_control'] ? 'true': 'false'),
-			'data-exad-fullscreen-control' => ($settings['exad_map_fullscreen_control'] ? 'true': 'false'),
-			'data-exad-scroll-zoom'        => ($settings['exad_map_scroll_zoom'] ? 'true': 'false')
+			'data-exad-zoom'               => esc_attr($settings['exad_google_map_zoom'] ),
+			'data-exad-streeview-control'  => $settings['exad_map_streeview_control'] ? 'true': 'false',
+			'data-exad-type-control'       => $settings['exad_map_type_control'] ? 'true': 'false',
+			'data-exad-zoom-control'       => $settings['exad_map_zoom_control'] ? 'true': 'false',
+			'data-exad-fullscreen-control' => $settings['exad_map_fullscreen_control'] ? 'true': 'false',
+			'data-exad-scroll-zoom'        => $settings['exad_map_scroll_zoom'] ? 'true': 'false'
 		]);
-	?>
 
-		<div <?php echo $this->get_render_attribute_string('exad_google_map_wrapper'); ?>>
-		</div>
-
-	<?php
+		echo '<div '.$this->get_render_attribute_string('exad_google_map_wrapper').'></div>';
 	}
 
+	/**
+     * Render google maps widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 1.0.0
+     * @access protected
+     */
 	protected function _content_template() {
 		?>
-
-		<div class="exad-google-maps" data-exad-theme="{{ settings.exad_google_map_themes }}" data-exad-lat="{{ settings.exad_google_map_lat }}" data-exad-lng="{{ settings.exad_google_map_lng }}" data-exad-zoom="{{ settings.exad_google_map_zoom }}" data-exad-streeview-control="{{ settings.exad_map_streeview_control }}" data-exad-type-control="{{ settings.exad_map_type_control }}" data-exad-zoom-control="{{ settings.exad_map_zoom_control }}" data-exad-zoom-control="{{ settings.exad_map_zoom_control }}" data-exad-fullscreen-control="{{ settings.exad_map_fullscreen_control }}" data-exad-scroll-zoom="{{ settings.exad_map_scroll_zoom }}">
-		</div>
-
-	<?php	
+		<#
+			view.addRenderAttribute( 'exad_google_map_wrapper', {
+				'class'                       : 'exad-google-maps',
+				'id'                          : 'elementor-repeater-item-' + settings._id,
+				'data-exad-theme'             : settings.exad_google_map_themes,
+				'data-exad-lat'               : settings.exad_google_map_lat,
+				'data-exad-lng'               : settings.exad_google_map_lng,
+				'data-exad-zoom'              : settings.exad_google_map_zoom,
+				'data-exad-streeview-control' : settings.exad_map_streeview_control ? 'true': 'false',
+				'data-exad-type-control'      : settings.exad_map_type_control ? 'true': 'false',
+				'data-exad-zoom-control'      : settings.exad_map_zoom_control ? 'true': 'false',
+				'data-exad-fullscreen-control': settings.exad_map_fullscreen_control ? 'true': 'false',
+				'data-exad-scroll-zoom'       : settings.exad_map_scroll_zoom ? 'true': 'false'
+			} );
+		#>
+		<div {{{ view.getRenderAttributeString( 'exad_google_map_wrapper' ) }}}></div>
+		<?php
 	}
 }
