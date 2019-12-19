@@ -344,10 +344,11 @@ class Progress_Bar extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-
 	}
+
 	protected function render() {
 		$settings = $this->get_settings_for_display();
+		$title    = $settings['exad_progress_bar_title'];
 		
 		$this->add_render_attribute( 
 			'exad-progress-bar', 
@@ -355,7 +356,7 @@ class Progress_Bar extends Widget_Base {
 				'class' => [ 
 					esc_attr( $settings['exad_progress_bar_preset'] ), 
 					'exad-progress-bar', 
-					'exad-progress-bar-' . $this->get_id() 
+					'exad-progress-bar-'.$this->get_id() 
 				],
 				'data-id'                              => $this->get_id(),
 				'data-type'                            => esc_attr( $settings['exad_progress_bar_preset'] ),
@@ -367,7 +368,10 @@ class Progress_Bar extends Widget_Base {
 			]
 		);
 
-		if ($settings['exad_progress_bar_preset'] == 'line' || $settings['exad_progress_bar_preset'] == 'line-bubble') {
+		$this->add_render_attribute( 'exad_progress_bar_title', 'class', 'exad-progress-bar-title' );
+        $this->add_inline_editing_attributes( 'exad_progress_bar_title', 'none' );
+
+		if ( 'line' === $settings['exad_progress_bar_preset'] || 'line-bubble' === $settings['exad_progress_bar_preset'] ) {
 			$this->add_render_attribute(
 				'exad-progress-bar',
 				[
@@ -377,7 +381,7 @@ class Progress_Bar extends Widget_Base {
 			);
 		}
 
-		if ($settings['exad_progress_bar_preset'] == 'circle') {
+		if ( 'circle' === $settings['exad_progress_bar_preset'] ) {
 			$this->add_render_attribute(
 				'exad-progress-bar',
 				[
@@ -387,7 +391,7 @@ class Progress_Bar extends Widget_Base {
 			);
 		}
 
-		if ($settings['exad_progress_bar_preset'] == 'fan') {
+		if ( 'fan' === $settings['exad_progress_bar_preset'] ) {
 			$this->add_render_attribute(
 				'exad-progress-bar',
 				[
@@ -396,12 +400,9 @@ class Progress_Bar extends Widget_Base {
 				]
 			);
 		}
-
-		?>
 		
-		<div <?php echo $this->get_render_attribute_string('exad-progress-bar') ?> data-progress-bar>
-			<h6 class="exad-progress-bar-title"><?php echo esc_html( $settings['exad_progress_bar_title'] ); ?></h6>
-		</div>
-	<?php
+		echo '<div '.$this->get_render_attribute_string('exad-progress-bar').' data-progress-bar>';
+			echo $title ? '<h6 '.$this->get_render_attribute_string( 'exad_progress_bar_title' ).'>'.esc_html( $title ).'</h6>' : '';
+		echo '</div>';
 	}
 }

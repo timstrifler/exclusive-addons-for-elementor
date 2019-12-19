@@ -854,7 +854,7 @@ class Modal_Popup extends Widget_Base {
 		}
 
 		if( 'youtube' === $settings['exad_modal_content'] ){
-			$url    = $settings['exad_modal_youtube_video_url'];
+			$url = $settings['exad_modal_youtube_video_url'];
 	
 			preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $matches);
 	
@@ -884,85 +884,86 @@ class Modal_Popup extends Widget_Base {
 		$this->add_render_attribute( 'exad_modal_item', 'class', $settings['exad_modal_transition'] );
 		$this->add_render_attribute( 'exad_modal_item', 'class', $settings['exad_modal_content'] );
 
-	?>
 		
-		<div class="exad-modal">
-          	<div class="exad-modal-wrapper">
+		echo '<div class="exad-modal">';
+          	echo '<div class="exad-modal-wrapper">';
 
-            	<div class="exad-modal-button">
-              		<a href="#" <?php echo $this->get_render_attribute_string('exad_modal_action'); ?>>
-						<span>
-							<?php if( 'left' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
+            	echo '<div class="exad-modal-button">';
+              		echo '<a href="#" '.$this->get_render_attribute_string('exad_modal_action').'>';
+						echo '<span>';
+							if( 'left' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
 								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true', 'class' => 'exad-modal-action-left-icon' ] );
-							} ?>
-							<?php echo esc_html( $settings['exad_modal_btn_text'] ); ?>
-							<?php if( 'right' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
+							}
+							echo esc_html( $settings['exad_modal_btn_text'] );
+							if( 'right' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
 								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true', 'class' => 'exad-modal-action-right-icon' ] );
-							} ?>
-						</span>
-              		</a>
-				</div>
+							}
+						echo '</span>';
+              		echo '</a>';
+				echo '</div>';
 			
-				<div id="exad-modal-<?php echo esc_attr($this->get_id()); ?>" <?php echo $this->get_render_attribute_string('exad_modal_item'); ?>">
-             		<div class="exad-modal-content">
-                		<div class="exad-modal-element <?php echo ( $settings['exad_modal_image_gallery_column'] ); ?>">
-							<?php if ( 'image' === $settings['exad_modal_content'] ) { ?>
-								<img src="<?php echo esc_url($modal_image_url); ?>" />
-							<?php } ?>
-							<?php if ( 'image-gallery' === $settings['exad_modal_content'] ) { ?>
-								<?php foreach ( $settings['exad_modal_image_gallery_repeater'] as $gallery ) : ?>
-									<?php
-										$image_gallery = $gallery[ 'exad_modal_image_gallery' ];
-										$image_gallery_url = Group_Control_Image_Size::get_attachment_image_src( $image_gallery['id'], 'thumbnail', $gallery );
-								
-										if ( empty( $image_gallery_url ) ) {
-											$image_gallery_url = $image_gallery['url'];
-										} else {
-											$image_gallery_url = $image_gallery_url;
+				echo '<div id="exad-modal-'.esc_attr( $this->get_id() ).'" '.$this->get_render_attribute_string('exad_modal_item').'">';
+             		echo '<div class="exad-modal-content">';
+                		echo '<div class="exad-modal-element '.esc_attr( $settings['exad_modal_image_gallery_column'] ).'">';
+							if ( 'image' === $settings['exad_modal_content'] ) {
+								echo '<img src="'.esc_url( $modal_image_url ).'" />';
+							}
+
+							if ( 'image-gallery' === $settings['exad_modal_content'] ) {
+								foreach ( $settings['exad_modal_image_gallery_repeater'] as $gallery ) :
+									$image_gallery     = $gallery[ 'exad_modal_image_gallery' ];
+									$image_gallery_url = Group_Control_Image_Size::get_attachment_image_src( $image_gallery['id'], 'thumbnail', $gallery );
+							
+									if ( empty( $image_gallery_url ) ) {
+										$image_gallery_url = $image_gallery['url'];
+									} else {
+										$image_gallery_url = $image_gallery_url;
+									}
+									echo '<div class="exad-modal-element-card">';
+										echo '<div class="exad-modal-element-card-thumb">';
+											echo '<img src="'.esc_url( $image_gallery_url ).'" >';
+										echo '</div>';
+										if ( !empty( $gallery['exad_modal_image_gallery_text'] ) ) {
+											echo '<div class="exad-modal-element-card-body">';
+												echo '<p>'.wp_kses_post( $gallery['exad_modal_image_gallery_text'] ).'</p>';
+											echo '</div>';
 										}
-									?>
-									<div class="exad-modal-element-card">
-										<div class="exad-modal-element-card-thumb">
-											<img src="<?php echo esc_url( $image_gallery_url ); ?>" >
-										</div>
-										<?php if ( !empty( $gallery['exad_modal_image_gallery_text'] ) ) { ?>
-											<div class="exad-modal-element-card-body">
-												<p><?php echo wp_kses_post( $gallery['exad_modal_image_gallery_text'] ); ?></p>
-											</div>
-										<?php } ?>
-									</div>
-								<?php endforeach; ?>
-							<?php } ?>
-							<?php if ( $settings['exad_modal_content'] === 'html_content' ) { ?>
-								<div class="exad-modal-element-body">
-									<p><?php echo wp_kses_post( $settings['exad_modal_html_content'] ) ; ?></p>
-								</div>
-							<?php } ?>
-							<?php if ( 'youtube' === $settings['exad_modal_content'] ) { ?>
-								<iframe src="https://www.youtube.com/embed/<?php echo esc_attr( $youtube_id ); ?>" frameborder="0" allowfullscreen>
-								</iframe>
-							<?php } ?>
-							<?php if ( 'vimeo' === $settings['exad_modal_content'] ) { ?>
-								<iframe id="vimeo-video" src="https://player.vimeo.com/video/<?php echo esc_attr( $vimeo_id ); ?>" frameborder="0" allowfullscreen >
-								</iframe>
-							<?php } ?>
-							<?php if ( 'external-video' === $settings['exad_modal_content'] ) { ?>
-								<video class="exad-video-hosted" src="<?php echo esc_url( $settings['exad_modal_external_video']['url'] ); ?>" controls="" controlslist="nodownload"  >
-								</video>
-							<?php } ?>
-							<?php if ( 'external_page' === $settings['exad_modal_content'] ) { ?>
-								<iframe src="<?php echo esc_url( $settings['exad_modal_external_page_url'] ); ?>" frameborder="0" allowfullscreen >
-								</iframe>
-							<?php } ?>
-							<div class="exad-close-btn">
-								<span></span>
-							</div>
-                		</div>
-              		</div>
-            	</div>
-			</div>
-			<div <?php echo $this->get_render_attribute_string('exad_modal_overlay'); ?>></div>
-		</div>
-	<?php
+									echo '</div>';
+								endforeach;
+							}
+
+							if ( 'html_content' === $settings['exad_modal_content'] ) {
+								echo '<div class="exad-modal-element-body">';
+									echo '<p>'.wp_kses_post( $settings['exad_modal_html_content'] ).'</p>';
+								echo '</div>';
+							}
+
+							if ( 'youtube' === $settings['exad_modal_content'] ) {
+								echo '<iframe src="https://www.youtube.com/embed/'.esc_attr( $youtube_id ).'" frameborder="0" allowfullscreen></iframe>';
+							}
+
+							if ( 'vimeo' === $settings['exad_modal_content'] ) {
+								echo '<iframe id="vimeo-video" src="https://player.vimeo.com/video/'.esc_attr( $vimeo_id ).'" frameborder="0" allowfullscreen ></iframe>';
+							}
+
+							if ( 'external-video' === $settings['exad_modal_content'] ) {
+								echo '<video class="exad-video-hosted" src="'.esc_url( $settings['exad_modal_external_video']['url'] ).'" controls="" controlslist="nodownload">';
+								echo '</video>';
+							}
+
+							if ( 'external_page' === $settings['exad_modal_content'] ) {
+								echo '<iframe src="'.esc_url( $settings['exad_modal_external_page_url'] ).'" frameborder="0" allowfullscreen ></iframe>';
+							}
+
+							echo '<div class="exad-close-btn">';
+								echo '<span></span>';
+							echo '</div>';
+
+                		echo '</div>';
+              		echo '</div>';
+            	echo '</div>';
+			echo '</div>';
+			echo '<div '.$this->get_render_attribute_string('exad_modal_overlay').'></div>';
+		echo '</div>';
 	}
 }
