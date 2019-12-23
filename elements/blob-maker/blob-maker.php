@@ -43,22 +43,6 @@ class Blob_Maker extends Widget_Base {
 				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' )
 			]
 		);
-		
-		$this->add_control(
-			'exad_blob_maker_color',
-			[
-				'label' => __( 'Shape Color', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
-                ],
-				'default' => '#FFB4BC',
-				'selectors' => [
-					'{{WRAPPER}} .exad-blob-maker svg path' => 'fill: {{VALUE}}',
-				],
-			]
-		);
 
 		$this->add_control(
 			'exad_blob_shape',
@@ -93,6 +77,22 @@ class Blob_Maker extends Widget_Base {
 			[
 				'label' => esc_html__( 'Style', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'exad_blob_maker_color',
+			[
+				'label' => __( 'Shape Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_1,
+                ],
+				'default' => '#FFB4BC',
+				'selectors' => [
+					'{{WRAPPER}} .exad-blob-maker svg path' => 'fill: {{VALUE}}',
+				],
 			]
 		);
 
@@ -146,7 +146,7 @@ class Blob_Maker extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_blob_maker_top_offset',
 			[
 				'label' => __( 'Top Offset', 'exclusive-addons-elementor' ),
@@ -176,7 +176,7 @@ class Blob_Maker extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_blob_maker_left_offset',
 			[
 				'label' => __( 'Left Offset', 'exclusive-addons-elementor' ),
