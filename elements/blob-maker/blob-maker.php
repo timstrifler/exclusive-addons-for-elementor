@@ -73,9 +73,9 @@ class Blob_Maker extends Widget_Base {
 		* Blob_Maker Style Section
 		*/
 		$this->start_controls_section(
-			'exad_blob_maker_style',
+			'exad_blob_maker_general',
 			[
-				'label' => esc_html__( 'Style', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'General', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
