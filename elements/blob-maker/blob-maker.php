@@ -134,6 +134,78 @@ class Blob_Maker extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_blob_maker_background_enable',
+			[
+				'label' => __( 'Enable as a background', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'exad_blob_maker_top_offset',
+			[
+				'label' => __( 'Top Offset', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => -1000,
+						'max' => 1000,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => -100,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 0,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-blob-maker.yes' => 'top: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_blob_maker_background_enable' => 'yes'
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_blob_maker_left_offset',
+			[
+				'label' => __( 'Left Offset', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => -1000,
+						'max' => 1000,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => -100,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 0,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-blob-maker.yes' => 'left: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_blob_maker_background_enable' => 'yes'
+				],
+			]
+		);
+
 		$this->end_controls_section();
 	}
 
@@ -142,7 +214,7 @@ class Blob_Maker extends Widget_Base {
         
     ?>
 
-    <div class="exad-blob-maker">
+    <div class="exad-blob-maker <?php echo $settings['exad_blob_maker_background_enable'] ?>">
 		<?php if( $settings['exad_blob_shape'] === 'shape1' ) { ?>
 			<svg viewBox="0 0 600 600">
 				<path d="M429.9 375c-43.3 75-216.5 75-259.8 0-43.3-75 43.3-225 129.9-225 86.6 0 173.2 150 129.9 225z"/>
