@@ -151,20 +151,7 @@ $client->insights()
 
 ---
 
-### Dynamic Usage
-
-In some cases you wouldn't want to show the optin message, but forcefully opt-in the user and send tracking data.
-
-```php
-$client = new Appsero\Client( 'a4a8da5b-b419-4656-98e9-4a42e9044892', 'Twenty Twelve', __FILE__ );
-
-$insights = $client->insights();
-$insights->hide_notice()->init();
-
-// somewhere in your code, opt-in the user forcefully
-// execute this only once
-$insights->optin();
-```
+### Check License Validity
 
 Check your plugin/theme is using with valid license or not, First create a global variable of `License` object then use it anywhere in your code.
 If you are using it outside of same function make sure you global the variable before using the condition.
@@ -186,6 +173,31 @@ $twenty_twelve_license->add_settings_page( $args );
 
 if ( $twenty_twelve_license->is_valid()  ) {
     // Your special code here
+}
+
+Or check by pricing plan title
+
+if ( $twenty_twelve_license->is_valid_by( 'title', 'Business' ) ) {
+    // Your special code here
+}
+```
+
+### Use your own license form
+
+You can easily manage license by creating a form using HTTP request. Call `license_form_submit` method from License object.
+
+```php
+global $twenty_twelve_license; // License object
+$twenty_twelve_license->license_form_submit([
+    '_nonce'      => wp_create_nonce( 'Twenty Twelve' ), // create a nonce with name
+    '_action'     => 'active', // active, deactive
+    'license_key' => 'random-license-key', // no need to provide if you want to deactive
+]);
+if ( ! $twenty_twelve_license->error ) {
+    // license activated
+    $twenty_twelve_license->success; // Success message is here
+} else {
+    $twenty_twelve_license->error; // has error message here
 }
 ```
 
