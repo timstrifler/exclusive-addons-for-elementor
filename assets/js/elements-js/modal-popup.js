@@ -1,11 +1,11 @@
 
-var ModalPopup = function ($scope, $) {
+var exclusiveModalPopup = function ($scope, $) {
 
-    var $modalWrapper = $scope.find('.exad-modal').eq(0),
-        $modalOverlayWrapper = $scope.find('.exad-modal-overlay'),
-        $modalItem = $scope.find('.exad-modal-item'),
-        $modalAction = $modalWrapper.find('.exad-modal-image-action'),
-        $closeButton = $modalWrapper.find('.exad-close-btn');
+    var $modalWrapper    = $scope.find('.exad-modal').eq(0),
+    $modalOverlayWrapper = $scope.find('.exad-modal-overlay'),
+    $modalItem           = $scope.find('.exad-modal-item'),
+    $modalAction         = $modalWrapper.find('.exad-modal-image-action'),
+    $closeButton         = $modalWrapper.find('.exad-close-btn');
 
     $modalAction.on("click", function(e) {
         e.preventDefault();
@@ -17,7 +17,7 @@ var ModalPopup = function ($scope, $) {
         setTimeout( function() {
             $(modal).addClass('active');
         }, 100);
-        if ( $overlay == "yes" ) {
+        if ( 'yes' === $overlay ) {
             $modalOverlay.addClass('active');
         }
         
@@ -46,7 +46,7 @@ var ModalPopup = function ($scope, $) {
 
     $modalOverlayWrapper.click(function(){
         var $overlay_click_close = $(this).data("exad_overlay_click_close");
-        if( $overlay_click_close == "yes" ){
+        if( 'yes' === $overlay_click_close ){
             $(this).removeClass('active');
             $('.exad-modal-item').removeClass('active');
 
@@ -64,5 +64,4 @@ var ModalPopup = function ($scope, $) {
             }
         }
     });
-
-};
+}

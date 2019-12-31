@@ -2,7 +2,7 @@
 /**
  * News Ticker
  */  
-var ExadNewsTicker = function( $scope, $ ) {
+var exclusiveNewsTicker = function( $scope, $ ) {
 
     var $exad_news_ticker = $scope.find(".exad-news-ticker");
 

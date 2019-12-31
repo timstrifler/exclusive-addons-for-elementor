@@ -480,15 +480,15 @@ class Post_Grid extends Widget_Base {
                 'options'       => [
                     'left'      => [
                         'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-arrow-left',
+                        'icon'  => 'eicon-arrow-left'
                     ],
                     'top'    	=> [
                         'title' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-arrow-up',
+                        'icon'  => 'eicon-arrow-up'
                     ],
                     'right'     => [
                         'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-arrow-right',
+                        'icon'  => 'eicon-arrow-right'
                     ]
                 ]
             ]
@@ -847,7 +847,7 @@ class Post_Grid extends Widget_Base {
 					'right'    => '10',
 					'bottom'   => '1',
 					'left'     => '10',
-					'isLinked' => true
+					'isLinked' => false
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li a'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'

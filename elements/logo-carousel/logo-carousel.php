@@ -701,7 +701,7 @@ class Logo_Carousel extends Widget_Base {
                 [
                     'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
-                    'default'   => '#000000',
+                    'default'   => $exad_primary_color,
                     'selectors' => [
                         '{{WRAPPER}} .exad-logo-carousel .slick-dots li.slick-active button' => 'background-color: {{VALUE}};'
                     ]

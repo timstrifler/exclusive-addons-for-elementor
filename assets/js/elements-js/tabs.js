@@ -1,5 +1,5 @@
 // Exclusive Tabs script
-var ExclusiveTabs = function($scope, $) {
+var exclusiveTabs = function($scope, $) {
     var $tabsWrapper = $scope.find('[data-tabs]').eq(0);
     $tabsWrapper.each( function() {
         var tab = $(this);
@@ -28,4 +28,4 @@ var ExclusiveTabs = function($scope, $) {
             tab.find('.exad-advance-tab-content').eq($(this).index()).addClass('active');
         });
     });
-};
+}

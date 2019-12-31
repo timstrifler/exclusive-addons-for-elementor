@@ -1935,7 +1935,7 @@ ul.exad-call-to-action-buttons {
 .exad-gallery-items .exad-gallery-element .exad-gallery-item {
   position: relative;
   overflow: hidden;
-  padding: 15px;
+  padding: 10px;
 }
 
 @media (max-width: 991px) {
