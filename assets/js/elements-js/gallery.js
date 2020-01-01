@@ -1,7 +1,7 @@
 // Filterable gallery
 var exclusiveFilterableGallery = function( $scope, $ ) {
 
-    if ( $.isFunction($.fn.isotope) ) {
+    if ( $.isFunction( $.fn.isotope ) ) {
         var $galleryWrapper = $scope.find('#exad-gallery-one').eq(0),
         $galleryElement     = $galleryWrapper.find('.exad-gallery-element'),
         $galleryFilter      = $galleryWrapper.find('#filters'),

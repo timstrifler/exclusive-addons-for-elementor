@@ -5,8 +5,8 @@ var exclusiveButton = function ($scope, $) {
 
     $mouseHoverEffect8.on('mouseenter', function (e) {
         var parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
         $(this).find('.effect-8-position').css({
             top: relY,
             left: relX
@@ -15,8 +15,8 @@ var exclusiveButton = function ($scope, $) {
 
     $mouseHoverEffect8.on('mouseout', function (e) {
         var parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
         $(this).find('.effect-8-position').css({
             top: relY,
             left: relX

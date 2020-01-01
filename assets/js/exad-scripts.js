@@ -51,41 +51,43 @@ var exclusiveAlert = function( $scope, $ ) {
 
 var exclusiveAnimatedText = function( $scope, $ ) {
   
-	var $animatedWrapper = $scope.find('.exad-typed-strings').eq(0),
-	$animateSelector     = $animatedWrapper.find('.exad-animated-text-animated-heading'),
-	$animationType       = $animatedWrapper.data('heading_animation'),
-	$animationStyle      = $animatedWrapper.data('animation_style'),
-	$animationSpeed      = $animatedWrapper.data('animation_speed'),
-	$typeSpeed           = $animatedWrapper.data('type_speed'),
-	$startDelay          = $animatedWrapper.data('start_delay'),
-	$backTypeSpeed       = $animatedWrapper.data('back_type_speed'),
-	$backDelay           = $animatedWrapper.data('back_delay'),
-	$loop                = $animatedWrapper.data("loop") ? true : false,
-	$showCursor          = $animatedWrapper.data("show_cursor") ? true : false,
-	$fadeOut             = $animatedWrapper.data("fade_out") ? true : false,
-	$smartBackspace      = $animatedWrapper.data("smart_backspace") ? true : false;
-	
-	var $id              = $animateSelector.attr('id');
+	var animatedWrapper = $scope.find( '.exad-typed-strings' ).eq(0),
+	animateSelector     = animatedWrapper.find( '.exad-animated-text-animated-heading' ),
+	animationType       = animatedWrapper.data( 'heading_animation' ),
+	animationStyle      = animatedWrapper.data( 'animation_style' ),
+	animationSpeed      = animatedWrapper.data( 'animation_speed' ),
+	typeSpeed           = animatedWrapper.data( 'type_speed' ),
+	startDelay          = animatedWrapper.data( 'start_delay' ),
+	backTypeSpeed       = animatedWrapper.data( 'back_type_speed' ),
+	backDelay           = animatedWrapper.data( 'back_delay' ),
+	loop                = animatedWrapper.data( 'loop' ) ? true : false,
+	showCursor          = animatedWrapper.data( 'show_cursor' ) ? true : false,
+	fadeOut             = animatedWrapper.data( 'fade_out' ) ? true : false,
+	smartBackspace      = animatedWrapper.data( 'smart_backspace' ) ? true : false,	
+	id                  = animateSelector.attr('id');
 
-	if( $animationType === 'exad-typed-animation' ){
-		var typed = new Typed( '#'+$id, {
-			strings: $animatedWrapper.data('type_string'),
-			loop: $loop,
-			typeSpeed: $typeSpeed,
-			backSpeed: $backTypeSpeed,
-			showCursor : $showCursor,
-			fadeOut : $fadeOut,
-			smartBackspace : $smartBackspace,
-			startDelay : $startDelay,
-			backDelay : $backDelay,
-		});
+	if ( 'function' === typeof Typed ) {
+		if( animationType === 'exad-typed-animation' ){
+			var typed = new Typed( '#'+id, {
+				strings: animatedWrapper.data('type_string'),
+				loop: loop,
+				typeSpeed: typeSpeed,
+				backSpeed: backTypeSpeed,
+				showCursor : showCursor,
+				fadeOut : fadeOut,
+				smartBackspace : smartBackspace,
+				startDelay : startDelay,
+				backDelay : backDelay
+			});
+		}
 	}
 
+
  	if ( $.isFunction($.fn.Morphext) ) {
-		if( $animationType === 'exad-morphed-animation' ){
-			$($animateSelector).Morphext({
-				animation: $animationStyle,
-				speed: $animationSpeed,
+		if( animationType === 'exad-morphed-animation' ){
+			$( animateSelector ).Morphext({
+				animation: animationStyle,
+				speed: animationSpeed
 			});
 		}
 	}
@@ -99,8 +101,8 @@ var exclusiveButton = function ($scope, $) {
 
     $mouseHoverEffect8.on('mouseenter', function (e) {
         var parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
         $(this).find('.effect-8-position').css({
             top: relY,
             left: relX
@@ -109,8 +111,8 @@ var exclusiveButton = function ($scope, $) {
 
     $mouseHoverEffect8.on('mouseout', function (e) {
         var parentOffset = $(this).offset(),
-            relX = e.pageX - parentOffset.left,
-            relY = e.pageY - parentOffset.top;
+        relX = e.pageX - parentOffset.left,
+        relY = e.pageY - parentOffset.top;
         $(this).find('.effect-8-position').css({
             top: relY,
             left: relX
@@ -122,7 +124,7 @@ var exclusiveButton = function ($scope, $) {
 var exclusiveCountdownTimer = function ($scope, $) {
     var $countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
 
-    if (typeof $countdownTimerWrapper !== 'undefined' && $countdownTimerWrapper !== null) {
+    if ( 'undefined' !== typeof $countdownTimerWrapper && null !== $countdownTimerWrapper ) {
         var $this   = $countdownTimerWrapper,
         finalDate   = $this.data('countdown'),
         day         = $this.data('day'),
@@ -147,7 +149,7 @@ var exclusiveCountdownTimer = function ($scope, $) {
 // Filterable gallery
 var exclusiveFilterableGallery = function( $scope, $ ) {
 
-    if ( $.isFunction($.fn.isotope) ) {
+    if ( $.isFunction( $.fn.isotope ) ) {
         var $galleryWrapper = $scope.find('#exad-gallery-one').eq(0),
         $galleryElement     = $galleryWrapper.find('.exad-gallery-element'),
         $galleryFilter      = $galleryWrapper.find('#filters'),
@@ -206,30 +208,30 @@ var exclusiveFilterableGallery = function( $scope, $ ) {
 var exclusiveGoogleMaps = function($scope, $) {
 
     if ( $.isFunction($.fn.gmap3) ) {
-        var $googleMaps         = $scope.find('.exad-google-maps').eq(0),
-        $latitude               = $googleMaps.data('exad-lat'),
-        $longitude              = $googleMaps.data('exad-lng'),
-        $mapTheme               = $googleMaps.data('exad-theme'),
-        $mapZoom                = $googleMaps.data('exad-zoom'),
-        $mapAddress             = $googleMaps.data('exad-address'),
-        $map_streeview_control  = $googleMaps.data('exad-streeview-control'),
-        $map_type_control       = $googleMaps.data('exad-type-control'),
-        $map_zoom_control       = $googleMaps.data('exad-zoom-control'),
-        $map_fullscreen_control = $googleMaps.data('exad-fullscreen-control'),
-        $map_scroll_zoom        = $googleMaps.data('exad-scroll-zoom');    
-        var $center             = [$latitude, $longitude];
-        var $address            = false;
+        var googleMaps         = $scope.find( '.exad-google-maps' ).eq(0),
+        latitude               = googleMaps.data( 'exad-lat' ),
+        longitude              = googleMaps.data( 'exad-lng' ),
+        mapTheme               = googleMaps.data( 'exad-theme' ),
+        mapZoom                = googleMaps.data( 'exad-zoom' ),
+        mapAddress             = googleMaps.data( 'exad-address' ),
+        map_streeview_control  = googleMaps.data( 'exad-streeview-control' ),
+        map_type_control       = googleMaps.data( 'exad-type-control' ),
+        map_zoom_control       = googleMaps.data( 'exad-zoom-control' ),
+        map_fullscreen_control = googleMaps.data( 'exad-fullscreen-control' ),
+        map_scroll_zoom        = googleMaps.data( 'exad-scroll-zoom' ),   
+        center                 = [latitude, longitude],
+        address                = false;
 
-        $googleMaps.gmap3({
-            center: $center,
-            address: $address,
-            zoom: $mapZoom,
-            streetViewControl: $map_streeview_control,
-            mapTypeControl: $map_type_control,
-            zoomControl: $map_zoom_control,
-            fullscreenControl: $map_fullscreen_control,
-            scrollwheel: $map_scroll_zoom,
-            mapTypeId: $mapTheme,
+        googleMaps.gmap3({
+            center: center,
+            address: address,
+            zoom: mapZoom,
+            streetViewControl: map_streeview_control,
+            mapTypeControl: map_type_control,
+            zoomControl: map_zoom_control,
+            fullscreenControl: map_fullscreen_control,
+            scrollwheel: map_scroll_zoom,
+            mapTypeId: mapTheme,
         }).styledmaptype(
             "standard",
             [],
@@ -259,20 +261,20 @@ var exclusiveGoogleMaps = function($scope, $) {
 }
 // Image Comparison
 var exclusiveImageComparison = function($scope, $) {
-    var $imageComparison  = $scope.find('.exad-image-comparision-element').eq(0),
-    $exadOrientation      = $imageComparison.data('exad-oriantation'),
-    $exadBeforeLabel      = $imageComparison.data('exad-before_label'),
-    $exadAfterLabel       = $imageComparison.data('exad-after_label'),
-    $exadDefaultOffsetPct = $imageComparison.data('exad-default_offset_pct'),
-    $exadNoOverlay        = $imageComparison.data('exad-no_overlay');
+    var imageComparison  = $scope.find( '.exad-image-comparision-element' ).eq(0),
+    exadOrientation      = imageComparison.data( 'exad-oriantation' ),
+    exadBeforeLabel      = imageComparison.data( 'exad-before_label' ),
+    exadAfterLabel       = imageComparison.data( 'exad-after_label' ),
+    exadDefaultOffsetPct = imageComparison.data( 'exad-default_offset_pct' ),
+    exadNoOverlay        = imageComparison.data( 'exad-no_overlay' );
         
     if ( $.isFunction($.fn.twentytwenty) ) {    
-        $imageComparison.twentytwenty({
-            orientation: $exadOrientation,
-            before_label: $exadBeforeLabel,
-            after_label: $exadAfterLabel,
-            default_offset_pct: $exadDefaultOffsetPct,
-            no_overlay: $exadNoOverlay
+        imageComparison.twentytwenty({
+            orientation: exadOrientation,
+            before_label: exadBeforeLabel,
+            after_label: exadAfterLabel,
+            default_offset_pct: exadDefaultOffsetPct,
+            no_overlay: exadNoOverlay
         } );
     }
 }
@@ -281,9 +283,9 @@ var exclusiveImageComparison = function($scope, $) {
 
 var exclusiveImageMagnifier = function($scope, $) {
 
-    var $magnify = $scope.find('.exad-image-magnify').eq(0),
-    $large       = $magnify.find('.exad-magnify-large'),
-    $small       = $magnify.find('.exad-magnify-small');
+    var $magnify = $scope.find( '.exad-image-magnify' ).eq(0),
+    $large       = $magnify.find( '.exad-magnify-large' ),
+    $small       = $magnify.find( '.exad-magnify-small' );
     
 
     var native_width  = 0;
@@ -332,57 +334,58 @@ var exclusiveImageMagnifier = function($scope, $) {
 // Logo Carousel
 var exclusiveLogoCarousel = function ($scope, $) {
 
-    var $logoCarouselWrapper = $scope.find('.exad-logo-carousel-element').eq(0),
-        $slidesToShow = $logoCarouselWrapper.data('slidestoshow'),
-        $slidesToScroll = $logoCarouselWrapper.data('slidestoscroll'),
-        $carousel_nav = $logoCarouselWrapper.data('carousel-nav'),
-        $loop = ($logoCarouselWrapper.data('loop') !== undefined) ? $logoCarouselWrapper.data('loop') : false,
-        $autoPlay = ($logoCarouselWrapper.data('autoplay') !== undefined) ? $logoCarouselWrapper.data('autoplay') : false,
-        $autoplaySpeed = ($logoCarouselWrapper.data('autoplayspeed') !== undefined) ? $logoCarouselWrapper.data('autoplayspeed') : false;
+    var logoCarouselWrapper = $scope.find( '.exad-logo-carousel-element' ).eq(0),
+    slidesToShow            = logoCarouselWrapper.data( 'slidestoshow' ),
+    slidesToScroll          = logoCarouselWrapper.data( 'slidestoscroll' ),
+    carouselNav             = logoCarouselWrapper.data( 'carousel-nav' ),
+    loop                    = ( logoCarouselWrapper.data( 'loop' ) !== undefined ) ? logoCarouselWrapper.data( 'loop' ) : false,
+    autoPlay                = ( logoCarouselWrapper.data( 'autoplay' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
+    autoplaySpeed           = ( logoCarouselWrapper.data( 'autoplayspeed' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
 
-        if ( 'both' == $carousel_nav ) {
-            var arrows = true;
-            var dots = true;
-        } else if ( 'arrows' == $carousel_nav ) {
-            var arrows = true;
-            var dots = false;
-        } else if ( 'dots' == $carousel_nav ) {
-            var arrows = false;
-            var dots = true;
-        } else {
-            var arrows = false;
-            var dots = false;
-        }
+    var arrows, dots;
+    if ( 'both' === carouselNav ) {
+        arrows = true;
+        dots   = true;
+    } else if ( 'arrows' === carouselNav ) {
+        arrows = true;
+        dots   = false;
+    } else if ( 'dots' === carouselNav ) {
+        arrows = false;
+        dots   = true;
+    } else {
+        arrows = false;
+        dots   = false;
+    }
 
     if ( $.isFunction($.fn.slick) ) {
-        $logoCarouselWrapper.slick({
-            infinite: $loop,
-            slidesToShow: $slidesToShow,
-            slidesToScroll: $slidesToScroll,
-            autoplay: $autoPlay,
-            autoplaySpeed: $autoplaySpeed,
+        logoCarouselWrapper.slick({
+            infinite: loop,
+            slidesToShow: slidesToShow,
+            slidesToScroll: slidesToScroll,
+            autoplay: autoPlay,
+            autoplaySpeed: autoplaySpeed,
             dots: dots,
             arrows: arrows,
             prevArrow: '<div class="exad-logo-carousel-prev"><i class="eicon-chevron-left"></i></div>',
             nextArrow: '<div class="exad-logo-carousel-next"><i class="eicon-chevron-right"></i></div>',
             responsive: [
                 {
-                  breakpoint: 1024,
-                  settings: {
-                    slidesToShow: 3
-                  }
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3
+                    }
                 },
                 {
-                  breakpoint: 768,
-                  settings: {
-                    slidesToShow: 2
-                  }
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2
+                    }
                 },
                 {
-                  breakpoint: 450,
-                  settings: {
-                    slidesToShow: 1
-                  }
+                    breakpoint: 450,
+                    settings: {
+                        slidesToShow: 1
+                    }
                 }
             ]
         });	
@@ -393,36 +396,36 @@ var exclusiveLogoCarousel = function ($scope, $) {
 
 var exclusiveModalPopup = function ($scope, $) {
 
-    var $modalWrapper    = $scope.find('.exad-modal').eq(0),
-    $modalOverlayWrapper = $scope.find('.exad-modal-overlay'),
-    $modalItem           = $scope.find('.exad-modal-item'),
-    $modalAction         = $modalWrapper.find('.exad-modal-image-action'),
-    $closeButton         = $modalWrapper.find('.exad-close-btn');
+    var $modalWrapper    = $scope.find( '.exad-modal' ).eq(0),
+    $modalOverlayWrapper = $scope.find( '.exad-modal-overlay' ),
+    $modalItem           = $scope.find( '.exad-modal-item' ),
+    $modalAction         = $modalWrapper.find( '.exad-modal-image-action' ),
+    $closeButton         = $modalWrapper.find( '.exad-close-btn' );
 
-    $modalAction.on("click", function(e) {
+    $modalAction.on( "click", function(e) {
         e.preventDefault();
         var $modalOverlay = $(this).parents().eq(1).next();
-        var modal = $(this).data("exad-modal");
+        var modal         = $(this).data( "exad-modal" );
         
-        var $overlay = $(this).data("exad-overlay");
-        $modalItem.css('display', 'block');
+        var $overlay = $(this).data( "exad-overlay" );
+        $modalItem.css( 'display', 'block' );
         setTimeout( function() {
-            $(modal).addClass('active');
+            $(modal).addClass( 'active' );
         }, 100);
         if ( 'yes' === $overlay ) {
-            $modalOverlay.addClass('active');
+            $modalOverlay.addClass( 'active' );
         }
         
     });
 
     $closeButton.click(function() {
         var $modalOverlay = $(this).parents().eq(3).next();
-        var $modalItem = $(this).parents().eq(2);
-        $modalOverlay.removeClass('active');
-        $modalItem.removeClass('active');
+        var $modalItem    = $(this).parents().eq(2);
+        $modalOverlay.removeClass( 'active' );
+        $modalItem.removeClass( 'active' );
 
-        var $modal_iframe 		= $modalWrapper.find( 'iframe' ),
-            $modal_video_tag 	= $modalWrapper.find( 'video' );
+        var $modal_iframe = $modalWrapper.find( 'iframe' ),
+        $modal_video_tag  = $modalWrapper.find( 'video' );
 
         if ( $modal_iframe.length ) {
             var $modal_src = $modal_iframe.attr( "src" ).replace( "&autoplay=1", "" );
@@ -437,10 +440,10 @@ var exclusiveModalPopup = function ($scope, $) {
     });
 
     $modalOverlayWrapper.click(function(){
-        var $overlay_click_close = $(this).data("exad_overlay_click_close");
+        var $overlay_click_close = $(this).data( "exad_overlay_click_close" );
         if( 'yes' === $overlay_click_close ){
-            $(this).removeClass('active');
-            $('.exad-modal-item').removeClass('active');
+            $(this).removeClass( 'active' );
+            $( '.exad-modal-item' ).removeClass( 'active' );
 
             var $modal_iframe = $modalWrapper.find( 'iframe' ),
             $modal_video_tag = $modalWrapper.find( 'video' );
@@ -463,83 +466,85 @@ var exclusiveModalPopup = function ($scope, $) {
  */  
 var exclusiveNewsTicker = function( $scope, $ ) {
 
-    var $exad_news_ticker = $scope.find(".exad-news-ticker");
+    var $exad_news_ticker = $scope.find( '.exad-news-ticker' );
 
     if ( $.isFunction($.fn.breakingNews) ) {  
         $exad_news_ticker.each(function() {
-            var t             = $(this),
-            auto              = t.data("autoplay") ? !0 : !1,
-            the_effect        = t.data("animation") ? t.data("animation") : '',                                   
-            fixed_bottom      = t.data("bottom_fixed") ? t.data("bottom_fixed") : '',                                   
-            pause_on_hover    = t.data("pause_on_hover") ? t.data("pause_on_hover") : '',                                   
-            animation_speed   = t.data("animation_speed") ? t.data("animation_speed") : '',                                   
-            autoplay_interval = t.data("autoplay_interval") ? t.data("autoplay_interval") : '',                                   
-            ticker_height     = t.data("ticker_height") ? t.data("ticker_height") : '',                                   
-            direction         = t.data("direction") ? t.data("direction") : ''; 
+            var t            = $(this),
+            auto             = t.data( 'autoplay' ) ? !0 : !1,
+            animationEffect  = t.data( 'animation' ) ? t.data( 'animation' ) : '',                                   
+            fixedBottom      = t.data( 'bottom_fixed' ) ? t.data( 'bottom_fixed' ) : '',                                   
+            pauseOnHover     = t.data( 'pause_on_hover' ) ? t.data( 'pause_on_hover' ) : '',                                   
+            animationSpeed   = t.data( 'animation_speed' ) ? t.data( 'animation_speed' ) : '',                                   
+            autoplayInterval = t.data( 'autoplay_interval' ) ? t.data( 'autoplay_interval' ) : '',                                   
+            height           = t.data( 'ticker_height' ) ? t.data( 'ticker_height' ) : '',                                   
+            direction        = t.data( 'direction' ) ? t.data( 'direction' ) : ''; 
 
             $(this).breakingNews({
-                position: fixed_bottom,
+                position: fixedBottom,
                 play: auto,
                 direction: direction,
-                scrollSpeed: animation_speed,
-                stopOnHover: pause_on_hover,
-                effect: the_effect,
-                delayTimer: autoplay_interval,                    
-                height: ticker_height,
-                fontSize: "default",
-                themeColor: "default",
-                background: "default"             
+                scrollSpeed: animationSpeed,
+                stopOnHover: pauseOnHover,
+                effect: animationEffect,
+                delayTimer: autoplayInterval,                    
+                height: height,
+                fontSize: 'default',
+                themeColor: 'default',
+                background: 'default'             
             });    
         });
     }
 };
 function animatedProgressbar(id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth){
     var triggerClass = '.exad-progress-bar-'+id;
-    if("line" === type) {
-        new ldBar(triggerClass, {
-            "type"              : 'stroke',
-            "path"              : 'M0 10L100 10',
-            "aspect-ratio"      : 'none',
-            "stroke"			: strokeColor,
-            "stroke-trail"	    : trailColor,
-            "stroke-width"      : strokeWidth,
-            "stroke-trail-width": strokeTrailWidth
-        }).set(value);
-    }
-    if("line-bubble" === type) {
-        new ldBar(triggerClass, {
-            "type"              : 'stroke',
-            "path"              : 'M0 10L100 10',
-            "aspect-ratio"      : 'none',
-            "stroke"			: strokeColor,
-            "stroke-trail"		: trailColor,
-            "stroke-width"      : strokeWidth,
-            "stroke-trail-width": strokeTrailWidth
-        }).set(value);
-        $($('.exad-progress-bar-'+id).find('.ldBar-label')).animate({
-            left: value + '%'
-        }, 1000, 'swing');
-    }
-    if("circle" === type){
-        new ldBar(triggerClass, {
-            "type"				: 'stroke',
-            "path"			    : 'M50 10A40 40 0 0 1 50 90A40 40 0 0 1 50 10',
-            "stroke-dir"		: 'normal',
-            "stroke"		    : strokeColor,
-            "stroke-trail"	    : trailColor,
-            "stroke-width"	    : strokeWidth,
-            "stroke-trail-width": strokeTrailWidth,
-        }).set(value);
-    }
-    if("fan" === type){
-        new ldBar(triggerClass, {
-            "type": 'stroke',
-            "path": 'M10 90A40 40 0 0 1 90 90',
-            "stroke": strokeColor,
-            "stroke-trail": trailColor,
-            "stroke-width": strokeWidth,
-            "stroke-trail-width": strokeTrailWidth,
-        }).set(value);
+    if ( 'function' === typeof ldBar ) {
+        if( "line" === type ) {
+            new ldBar( triggerClass, {
+                "type"              : 'stroke',
+                "path"              : 'M0 10L100 10',
+                "aspect-ratio"      : 'none',
+                "stroke"			: strokeColor,
+                "stroke-trail"	    : trailColor,
+                "stroke-width"      : strokeWidth,
+                "stroke-trail-width": strokeTrailWidth
+            }).set(value);
+        }
+        if( "line-bubble" === type ) {
+            new ldBar( triggerClass, {
+                "type"              : 'stroke',
+                "path"              : 'M0 10L100 10',
+                "aspect-ratio"      : 'none',
+                "stroke"			: strokeColor,
+                "stroke-trail"		: trailColor,
+                "stroke-width"      : strokeWidth,
+                "stroke-trail-width": strokeTrailWidth
+            }).set(value);
+            $($( '.exad-progress-bar-'+id ).find( '.ldBar-label' )).animate({
+                left: value + '%'
+            }, 1000, 'swing');
+        }
+        if( "circle" === type ){
+            new ldBar( triggerClass, {
+                "type"				: 'stroke',
+                "path"			    : 'M50 10A40 40 0 0 1 50 90A40 40 0 0 1 50 10',
+                "stroke-dir"		: 'normal',
+                "stroke"		    : strokeColor,
+                "stroke-trail"	    : trailColor,
+                "stroke-width"	    : strokeWidth,
+                "stroke-trail-width": strokeTrailWidth,
+            }).set(value);
+        }
+        if( "fan" === type ){
+            new ldBar( triggerClass, {
+                "type": 'stroke',
+                "path": 'M10 90A40 40 0 0 1 90 90',
+                "stroke": strokeColor,
+                "stroke-trail": trailColor,
+                "stroke-width": strokeWidth,
+                "stroke-trail-width": strokeTrailWidth,
+            }).set(value);
+        }
     }
 }
 
@@ -547,15 +552,15 @@ var exclusiveProgressBar = function ($scope, $){
     var $progressBarWrapper = $scope.find('[data-progress-bar]').eq(0);
     if ( $.isFunction($.fn.waypoint) ) {
         $progressBarWrapper.waypoint(function () {
-            var element = $(this.element);
-            var id = element.data('id');
-            var type = element.data('type');
-            var value = element.data('progress-bar-value');
-            var strokeWidth = element.data('progress-bar-stroke-width');
-            var strokeTrailWidth = element.data('progress-bar-stroke-trail-width');
-            var color = element.data('stroke-color');
-            var trailColor = element.data('stroke-trail-color');
-            animatedProgressbar(id, type, value, color, trailColor, strokeWidth, strokeTrailWidth);
+            var element      = $(this.element),
+            id               = element.data( 'id' ),
+            type             = element.data( 'type' ),
+            value            = element.data( 'progress-bar-value' ),
+            strokeWidth      = element.data( 'progress-bar-stroke-width' ),
+            strokeTrailWidth = element.data( 'progress-bar-stroke-trail-width' ),
+            color            = element.data( 'stroke-color' ),
+            trailColor       = element.data( 'stroke-trail-color' );
+            animatedProgressbar( id, type, value, color, trailColor, strokeWidth, strokeTrailWidth );
             this.destroy();
         }, {
             offset: 'bottom-in-view'
@@ -564,32 +569,32 @@ var exclusiveProgressBar = function ($scope, $){
 }
 // Exclusive Tabs script
 var exclusiveTabs = function($scope, $) {
-    var $tabsWrapper = $scope.find('[data-tabs]').eq(0);
+    var $tabsWrapper = $scope.find( '[data-tabs]' ).eq(0);
     $tabsWrapper.each( function() {
-        var tab = $(this);
-        var isTabActive = false;
-        var isContentActive = false;
-        tab.find('[data-tab]').each( function (){
-            if($(this).hasClass('active')){
+        var tab         = $(this),
+        isTabActive     = false,
+        isContentActive = false;
+        tab.find( '[data-tab]' ).each( function (){
+            if( $(this).hasClass( 'active' ) ){
                 isTabActive = true;
             }
         });
         tab.find('.exad-advance-tab-content').each( function (){
-            if($(this).hasClass('active')){
+            if( $(this).hasClass( 'active' ) ){
                 isContentActive = true;
             }
         });
         if(!isContentActive){
-            tab.find('.exad-advance-tab-content').eq(0).addClass('active');
+            tab.find( '.exad-advance-tab-content' ).eq(0).addClass( 'active' );
         }
         if(!isTabActive){
-            tab.find('[data-tab]').eq(0).addClass('active');
+            tab.find( '[data-tab]' ).eq(0).addClass( 'active' );
         }
-        tab.find('[data-tab]').click(function() {
-            tab.find('[data-tab]').removeClass('active');
-            tab.find('.exad-advance-tab-content').removeClass('active');
-            $(this).addClass('active');
-            tab.find('.exad-advance-tab-content').eq($(this).index()).addClass('active');
+        tab.find( '[data-tab]' ).click(function() {
+            tab.find( '[data-tab]' ).removeClass( 'active' );
+            tab.find( '.exad-advance-tab-content' ).removeClass( 'active' );
+            $(this).addClass( 'active' );
+            tab.find( '.exad-advance-tab-content' ).eq($(this).index()).addClass( 'active' );
         });
     });
 }

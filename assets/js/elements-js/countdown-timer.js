@@ -2,7 +2,7 @@
 var exclusiveCountdownTimer = function ($scope, $) {
     var $countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
 
-    if (typeof $countdownTimerWrapper !== 'undefined' && $countdownTimerWrapper !== null) {
+    if ( 'undefined' !== typeof $countdownTimerWrapper && null !== $countdownTimerWrapper ) {
         var $this   = $countdownTimerWrapper,
         finalDate   = $this.data('countdown'),
         day         = $this.data('day'),

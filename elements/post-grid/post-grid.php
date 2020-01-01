@@ -187,7 +187,7 @@ class Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_image',
 			[
-				'label'        => esc_html__( 'Enable Image.', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Image', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
@@ -200,7 +200,7 @@ class Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_title',
 			[
-				'label'        => esc_html__( 'Enable Title.', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Title', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
@@ -212,7 +212,7 @@ class Post_Grid extends Widget_Base {
         $this->add_control(
             'exad_post_grid_show_read_more_btn',
             [
-                'label'        => esc_html__( 'Enable Details Button.', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Details Button', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
@@ -302,7 +302,8 @@ class Post_Grid extends Widget_Base {
                 'type'          => Controls_Manager::TEXT,
                 'default'       => esc_html__('By: ', 'exclusive-addons-elementor' ),
                 'condition'     => [
-                    '.exad_post_grid_show_user_name_tag' => 'yes'
+					'.exad_post_grid_show_user_name_tag' => 'yes',
+					'.exad_post_grid_show_user_name'     => 'yes'
                 ]
             ]
         );
@@ -341,7 +342,8 @@ class Post_Grid extends Widget_Base {
                 'type'          => Controls_Manager::TEXT,
                 'default'       => esc_html__('Date: ', 'exclusive-addons-elementor' ),
                 'condition'     => [
-                    'exad_post_grid_show_date_tag' => 'yes'
+					'exad_post_grid_show_date_tag' => 'yes',
+					'exad_post_grid_show_date'     => 'yes'
                 ]
             ]
         );

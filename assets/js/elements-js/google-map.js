@@ -2,30 +2,30 @@
 var exclusiveGoogleMaps = function($scope, $) {
 
     if ( $.isFunction($.fn.gmap3) ) {
-        var $googleMaps         = $scope.find('.exad-google-maps').eq(0),
-        $latitude               = $googleMaps.data('exad-lat'),
-        $longitude              = $googleMaps.data('exad-lng'),
-        $mapTheme               = $googleMaps.data('exad-theme'),
-        $mapZoom                = $googleMaps.data('exad-zoom'),
-        $mapAddress             = $googleMaps.data('exad-address'),
-        $map_streeview_control  = $googleMaps.data('exad-streeview-control'),
-        $map_type_control       = $googleMaps.data('exad-type-control'),
-        $map_zoom_control       = $googleMaps.data('exad-zoom-control'),
-        $map_fullscreen_control = $googleMaps.data('exad-fullscreen-control'),
-        $map_scroll_zoom        = $googleMaps.data('exad-scroll-zoom');    
-        var $center             = [$latitude, $longitude];
-        var $address            = false;
+        var googleMaps         = $scope.find( '.exad-google-maps' ).eq(0),
+        latitude               = googleMaps.data( 'exad-lat' ),
+        longitude              = googleMaps.data( 'exad-lng' ),
+        mapTheme               = googleMaps.data( 'exad-theme' ),
+        mapZoom                = googleMaps.data( 'exad-zoom' ),
+        mapAddress             = googleMaps.data( 'exad-address' ),
+        map_streeview_control  = googleMaps.data( 'exad-streeview-control' ),
+        map_type_control       = googleMaps.data( 'exad-type-control' ),
+        map_zoom_control       = googleMaps.data( 'exad-zoom-control' ),
+        map_fullscreen_control = googleMaps.data( 'exad-fullscreen-control' ),
+        map_scroll_zoom        = googleMaps.data( 'exad-scroll-zoom' ),   
+        center                 = [latitude, longitude],
+        address                = false;
 
-        $googleMaps.gmap3({
-            center: $center,
-            address: $address,
-            zoom: $mapZoom,
-            streetViewControl: $map_streeview_control,
-            mapTypeControl: $map_type_control,
-            zoomControl: $map_zoom_control,
-            fullscreenControl: $map_fullscreen_control,
-            scrollwheel: $map_scroll_zoom,
-            mapTypeId: $mapTheme,
+        googleMaps.gmap3({
+            center: center,
+            address: address,
+            zoom: mapZoom,
+            streetViewControl: map_streeview_control,
+            mapTypeControl: map_type_control,
+            zoomControl: map_zoom_control,
+            fullscreenControl: map_fullscreen_control,
+            scrollwheel: map_scroll_zoom,
+            mapTypeId: mapTheme,
         }).styledmaptype(
             "standard",
             [],
