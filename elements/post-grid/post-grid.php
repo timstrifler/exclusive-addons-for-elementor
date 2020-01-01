@@ -1281,12 +1281,8 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
-    ?>
-
-		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
-        	<?php Helper::exad_get_posts( $settings ); ?>
-    	</div>
-
-		<?php
+		echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_wrapper' ).'>';
+        	Helper::exad_get_posts( $settings );
+    	echo '</div>';
 	}
 }
