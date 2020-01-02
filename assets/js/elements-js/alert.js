@@ -1,5 +1,5 @@
 //Exclusive Alert
-var ExclusiveAlert = function( $scope, $ ) {
+var exclusiveAlert = function( $scope, $ ) {
     var $alertClose = $scope.find('[data-alert]').eq(0);
     $alertClose.each( function(index){
         var alert = $(this);
@@ -12,4 +12,4 @@ var ExclusiveAlert = function( $scope, $ ) {
             alert.fadeOut(500);
         });
     });
-};
+}

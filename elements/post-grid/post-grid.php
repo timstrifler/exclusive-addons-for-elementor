@@ -187,7 +187,7 @@ class Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_image',
 			[
-				'label'        => esc_html__( 'Enable Image.', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Image', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
@@ -200,7 +200,7 @@ class Post_Grid extends Widget_Base {
         $this->add_control(
 			'exad_post_grid_show_title',
 			[
-				'label'        => esc_html__( 'Enable Title.', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'Enable Title', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SWITCHER,
 				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
@@ -212,7 +212,7 @@ class Post_Grid extends Widget_Base {
         $this->add_control(
             'exad_post_grid_show_read_more_btn',
             [
-                'label'        => esc_html__( 'Enable Details Button.', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Details Button', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
@@ -302,7 +302,8 @@ class Post_Grid extends Widget_Base {
                 'type'          => Controls_Manager::TEXT,
                 'default'       => esc_html__('By: ', 'exclusive-addons-elementor' ),
                 'condition'     => [
-                    '.exad_post_grid_show_user_name_tag' => 'yes'
+					'.exad_post_grid_show_user_name_tag' => 'yes',
+					'.exad_post_grid_show_user_name'     => 'yes'
                 ]
             ]
         );
@@ -341,7 +342,8 @@ class Post_Grid extends Widget_Base {
                 'type'          => Controls_Manager::TEXT,
                 'default'       => esc_html__('Date: ', 'exclusive-addons-elementor' ),
                 'condition'     => [
-                    'exad_post_grid_show_date_tag' => 'yes'
+					'exad_post_grid_show_date_tag' => 'yes',
+					'exad_post_grid_show_date'     => 'yes'
                 ]
             ]
         );
@@ -480,15 +482,15 @@ class Post_Grid extends Widget_Base {
                 'options'       => [
                     'left'      => [
                         'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-arrow-left',
+                        'icon'  => 'eicon-arrow-left'
                     ],
                     'top'    	=> [
                         'title' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-arrow-up',
+                        'icon'  => 'eicon-arrow-up'
                     ],
                     'right'     => [
                         'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-                        'icon'  => 'eicon-arrow-right',
+                        'icon'  => 'eicon-arrow-right'
                     ]
                 ]
             ]
@@ -847,7 +849,7 @@ class Post_Grid extends Widget_Base {
 					'right'    => '10',
 					'bottom'   => '1',
 					'left'     => '10',
-					'isLinked' => true
+					'isLinked' => false
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-post-grid-container ul.exad-post-grid-category li a'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
@@ -1279,12 +1281,8 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
-    ?>
-
-		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
-        	<?php Helper::exad_get_posts( $settings ); ?>
-    	</div>
-
-		<?php
+		echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_wrapper' ).'>';
+        	Helper::exad_get_posts( $settings );
+    	echo '</div>';
 	}
 }

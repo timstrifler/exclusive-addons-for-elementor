@@ -189,7 +189,7 @@
   .exad-row-wrapper.exad-col-6 .exad-col {
     flex: 0 0 100%;
     max-width: 100%;
-    padding: 10px 0;
+    padding: 10px 10px;
   }
 }
 
@@ -209,7 +209,7 @@
   .exad-row-wrapper.exad-col-5 .exad-col {
     flex: 0 0 100%;
     max-width: 100%;
-    padding: 10px 0;
+    padding: 10px 10px;
   }
 }
 

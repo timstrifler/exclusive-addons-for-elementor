@@ -1,5 +1,5 @@
 // Accordion one script
-var ExclusiveAccordion = function($scope, $) {
+var exclusiveAccordion = function($scope, $) {
     var $accordionTitle = $scope.find('.exad-accordion-title');
 
     // Open default actived tab
@@ -25,5 +25,5 @@ var ExclusiveAccordion = function($scope, $) {
             $(this).toggleClass("active");
             $(this).next().slideToggle(400);
         }	
-    });        
-};
+    } );        
+}
