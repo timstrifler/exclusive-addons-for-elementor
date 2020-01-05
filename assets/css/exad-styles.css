@@ -888,8 +888,12 @@ ul.exad-call-to-action-buttons {
 
 .exad-call-to-action-primary-btn, .exad-call-to-action-secondary-btn{
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
     z-index: 1;
+}
+
+.exad-call-to-action-primary-btn span, .exad-call-to-action-secondary-btn span{
+    display: block;
 }
 
 .exad-call-to-action-buttons.effect-1 .exad-call-to-action-primary-btn::before{

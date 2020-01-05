@@ -497,7 +497,7 @@ class Call_To_Action extends Widget_Base {
                     'isLinked' => false
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} a.exad-call-to-action-primary-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} a.exad-call-to-action-primary-btn span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -521,18 +521,7 @@ class Call_To_Action extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-call-to-action-primary-btn,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-1 li .exad-call-to-action-primary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:after,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-3 li .exad-call-to-action-primary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-4 li .exad-call-to-action-primary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-5 li .exad-call-to-action-primary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-6 li .exad-call-to-action-primary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-8 li .exad-call-to-action-primary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-9 li .exad-call-to-action-primary-btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0 0;',
-                    '{{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:after' => 'border-radius: 0 0 {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-call-to-action-primary-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ]
             ]
         );
@@ -676,7 +665,7 @@ class Call_To_Action extends Widget_Base {
                     'isLinked' => false
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} a.exad-call-to-action-secondary-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} a.exad-call-to-action-secondary-btn span' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -700,18 +689,7 @@ class Call_To_Action extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-call-to-action-secondary-btn,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-1 li .exad-call-to-action-secondary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:after,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-3 li .exad-call-to-action-secondary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-4 li .exad-call-to-action-secondary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-5 li .exad-call-to-action-secondary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-6 li .exad-call-to-action-secondary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-8 li .exad-call-to-action-secondary-btn::before,
-                    {{WRAPPER}} .exad-call-to-action-buttons.effect-9 li .exad-call-to-action-secondary-btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0 0;',
-                    '{{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:after' => 'border-radius: 0 0 {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-call-to-action-secondary-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
