@@ -320,7 +320,7 @@ class Accordion extends Widget_Base {
 
   		/**
 		 * -------------------------------------------
-		 * Tab Style Exclusive Accordion Content Style
+		 * Tab Style Exclusive Accordion Container Style
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
@@ -378,6 +378,24 @@ class Accordion extends Widget_Base {
             [
 				'name'     => 'exad_exclusive_accordion_container_border',
 				'selector' => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item'
+            ]
+		);
+		
+		$this->add_responsive_control(
+            'exad_exclusive_accordion_container_border_radius',
+            [
+				'label'      => __('Border Radius', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '0',
+					'bottom' => '0',
+					'left'   => '0'
+				],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
 
@@ -938,6 +956,24 @@ class Accordion extends Widget_Base {
                     ]
                 ],
                 'selector'             => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper'
+            ]
+		);
+		
+		$this->add_responsive_control(
+            'exad_accordion_content_border_radius',
+            [
+				'label'      => __('Border Radius', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '0',
+					'bottom' => '0',
+					'left'   => '0'
+				],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
 

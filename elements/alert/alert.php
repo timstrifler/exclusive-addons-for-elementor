@@ -114,6 +114,7 @@ class Alert extends Widget_Base {
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'icon',
                 'options' => [
+                    'none'    => esc_html__( 'None', 'exclusive-addons-elementor' ),
                     'icon'    => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
                     'button'  => esc_html__( 'Button', 'exclusive-addons-elementor' )
                 ]
@@ -428,6 +429,27 @@ class Alert extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'exad_alert_dismiss_icon_size',
+            [
+                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 0,
+                        'max'  => 60,
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 16
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon svg' => 'width: {{SIZE}}px; height: {{SIZE}}px;'
+                ]
+            ]
+        );
+
         $this->add_control(
             'exad_alert_dismiss_icon_color',
             [
@@ -444,40 +466,9 @@ class Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-          'exad_alert_dismiss_icon_pos_top',
-            [
-                'label'      => esc_html__( 'Top', 'exclusive-addons-elementor' ),
-                'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px', '%' ],
-                'default'    => [
-                    'unit'   => 'px',
-                    'size'   => 15
-                ],
-                'range'        => [
-                    'px'       => [
-                        'min'  => 0,
-                        'max'  => 100,
-                        'step' => 1
-                    ],
-                    '%'        => [
-                        'min'  => 0,
-                        'max'  => 100,
-                        'step' => 1
-                    ]
-                ],
-                'selectors'  => [
-                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => 'top: {{SIZE}}{{UNIT}};'
-                ],
-                'condition'  => [
-                    'exad_alert_close_button' => 'icon'
-                ]
-            ]
-        );
-
-        $this->add_responsive_control(
             'exad_alert_dismiss_icon_pos_right',
             [
-                'label'      => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+                'label'      => esc_html__( 'Offset-X', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%' ],
                 'default'    => [
@@ -501,6 +492,37 @@ class Alert extends Widget_Base {
                 ],
                 'condition'  => [
                   'exad_alert_close_button' => 'icon'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+          'exad_alert_dismiss_icon_pos_top',
+            [
+                'label'      => esc_html__( 'Offset-Y', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'default'    => [
+                    'unit'   => 'px',
+                    'size'   => 15
+                ],
+                'range'        => [
+                    'px'       => [
+                        'min'  => 0,
+                        'max'  => 100,
+                        'step' => 1
+                    ],
+                    '%'        => [
+                        'min'  => 0,
+                        'max'  => 100,
+                        'step' => 1
+                    ]
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => 'top: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'  => [
+                    'exad_alert_close_button' => 'icon'
                 ]
             ]
         );
@@ -725,7 +747,7 @@ class Alert extends Widget_Base {
 
                     if( 'icon' === $settings['exad_alert_close_button'] ) {
                         echo '<div class="exad-alert-element-dismiss-icon">';
-                            echo '<svg>';
+                            echo '<svg viewBox="0 0 16 16">';
                                 echo '<path fill-rule="evenodd" d="M2.343 15.071L.929 13.656 6.586 8 .929 2.343 2.343.929 8 6.585 13.657.929l1.414 1.414L9.414 8l5.657 5.656-1.414 1.415L8 9.414l-5.657 5.657z" />';
                             echo '</svg>';
                         echo '</div>';
@@ -792,7 +814,7 @@ class Alert extends Widget_Base {
                         <# } #>
                     </div>
                     <# if( 'icon' === settings.exad_alert_close_button ) { #>
-                        <div class="exad-alert-element-dismiss-icon"><svg>
+                        <div class="exad-alert-element-dismiss-icon"><svg viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M2.343 15.071L.929 13.656 6.586 8 .929 2.343 2.343.929 8 6.585 13.657.929l1.414 1.414L9.414 8l5.657 5.656-1.414 1.415L8 9.414l-5.657 5.657z"></path>
                             </svg>
                         </div>
