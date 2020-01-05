@@ -372,7 +372,7 @@ class Button extends Widget_Base {
 			]
 		);
 
-		if ( 'effect-8' == $settings['exclusive_button_effect'] ) {
+		if ( 'effect-8' === $settings['exclusive_button_effect'] ) {
 			$this->add_render_attribute( 'exad_exclusive_button', 'class', 'mouse-hover-effect' );
 		}
 
@@ -405,7 +405,7 @@ class Button extends Widget_Base {
 					echo esc_html( $settings['exclusive_button_text'] );
 				echo '</span>';
 
-				if ( 'effect-8' == $settings['exclusive_button_effect'] ) {
+				if ( 'effect-8' === $settings['exclusive_button_effect'] ) {
 					echo '<span class="effect-8-position"></span>';
 				}
 
@@ -435,7 +435,7 @@ class Button extends Widget_Base {
 				]
 			} );
 
-			if ( 'effect-8' == settings.exclusive_button_effect ) {
+			if ( 'effect-8' === settings.exclusive_button_effect ) {
 				view.addRenderAttribute( 'exad_exclusive_button', 'class', 'mouse-hover-effect' );
 			}
 
@@ -460,7 +460,7 @@ class Button extends Widget_Base {
 						{{{ settings.exclusive_button_text }}}
 					</span>
 
-					<# if ( 'effect-8' == settings.exclusive_button_effect ) { #>
+					<# if ( 'effect-8' === settings.exclusive_button_effect ) { #>
 						<span class="effect-8-position"></span>
 					<# } #>
 				</a>
