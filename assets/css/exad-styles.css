@@ -886,6 +886,344 @@ ul.exad-call-to-action-buttons {
     }
 }
 
+.exad-call-to-action-primary-btn, .exad-call-to-action-secondary-btn{
+    position: relative;
+    /* overflow: hidden; */
+    z-index: 1;
+}
+
+.exad-call-to-action-buttons.effect-1 .exad-call-to-action-primary-btn::before{
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .3s ease;
+}
+  
+  
+.exad-call-to-action-buttons.effect-1 .exad-call-to-action-primary-btn:hover::before{
+    width: 100%;
+}
+
+.exad-call-to-action-buttons.effect-2 .exad-call-to-action-primary-btn:before, .exad-call-to-action-buttons.effect-2 .exad-call-to-action-primary-btn:after {
+    content: '';
+    height: 50%;
+    width: 0;
+    position: absolute;
+    transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    z-index: -1;
+}
+  
+.exad-call-to-action-buttons.effect-2 .exad-call-to-action-primary-btn:before {
+    top: 0;
+    left: 0;
+    right: auto;
+}
+  
+.exad-call-to-action-buttons.effect-2 .exad-call-to-action-primary-btn:after {
+    bottom: 0;
+    right: 0;
+    left: auto;
+}
+  
+.exad-call-to-action-buttons.effect-2 .exad-call-to-action-primary-btn:hover:before, .exad-call-to-action-buttons.effect-2 .exad-call-to-action-primary-btn:hover:after {
+    width: 100%;
+}
+
+.exad-call-to-action-buttons.effect-3 .exad-call-to-action-primary-btn::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+    transition: all .3s ease;
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+}
+  
+.exad-call-to-action-buttons.effect-3 .exad-call-to-action-primary-btn:hover::before {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+}
+
+.exad-call-to-action-buttons.effect-4 .exad-call-to-action-primary-btn::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    transition: all .3s;
+}
+  
+.exad-call-to-action-buttons.effect-4 .exad-call-to-action-primary-btn:hover::before {
+    height: 100%;
+}
+
+.exad-call-to-action-buttons.effect-5 .exad-call-to-action-primary-btn::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: all .3s ease;
+}
+  
+.exad-call-to-action-buttons.effect-5 .exad-call-to-action-primary-btn:hover::before {
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+}
+
+.exad-call-to-action-buttons.effect-6 .exad-call-to-action-primary-btn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    height: 0;
+    width: 100%;
+    z-index: -1;
+}
+  
+.exad-call-to-action-buttons.effect-6 .exad-call-to-action-primary-btn:hover::before {
+    height: 100%;
+}
+
+.exad-call-to-action-buttons.effect-7 .exad-call-to-action-primary-btn {
+    transition: all .3s ease;
+}
+  
+.exad-call-to-action-buttons.effect-7 .exad-call-to-action-primary-btn:hover {
+    letter-spacing: 5px;
+}
+
+.exad-call-to-action-buttons.effect-8 .exad-call-to-action-primary-btn {
+    transition: all .3s ease;
+}
+  
+.exad-call-to-action-buttons.effect-8 .exad-call-to-action-primary-btn::before {
+    position: absolute;
+    content: '';
+    left: 50%;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: all .3s ease;
+}
+  
+.exad-call-to-action-buttons.effect-8 .exad-call-to-action-primary-btn:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+  
+.exad-call-to-action-buttons.effect-9 .exad-call-to-action-primary-btn:hover {
+    -webkit-animation: anim 0.3s forwards;
+            animation: anim 0.3s forwards;
+}
+  
+@keyframes anim {
+    60% {
+      -webkit-transform: scale3d(0.8, 0.8, 1);
+              transform: scale3d(0.8, 0.8, 1);
+    }
+    85% {
+      -webkit-transform: scale3d(1.1, 1.1, 1);
+              transform: scale3d(1.1, 1.1, 1);
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+              transform: scale3d(1, 1, 1);
+    }
+}
+
+.exad-call-to-action-buttons.effect-10 .exad-call-to-action-primary-btn {
+    transition: all .3s ease;
+}
+
+
+
+.exad-call-to-action-buttons.effect-1 .exad-call-to-action-secondary-btn::before{
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .3s ease;
+}
+  
+  
+.exad-call-to-action-buttons.effect-1 .exad-call-to-action-secondary-btn:hover::before{
+    width: 100%;
+}
+
+.exad-call-to-action-buttons.effect-2 .exad-call-to-action-secondary-btn:before, .exad-call-to-action-buttons.effect-2 .exad-call-to-action-secondary-btn:after {
+    content: '';
+    height: 50%;
+    width: 0;
+    position: absolute;
+    transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    z-index: -1;
+}
+  
+.exad-call-to-action-buttons.effect-2 .exad-call-to-action-secondary-btn:before {
+    top: 0;
+    left: 0;
+    right: auto;
+}
+  
+.exad-call-to-action-buttons.effect-2 .exad-call-to-action-secondary-btn:after {
+    bottom: 0;
+    right: 0;
+    left: auto;
+}
+  
+.exad-call-to-action-buttons.effect-2 .exad-call-to-action-secondary-btn:hover:before, .exad-call-to-action-buttons.effect-2 .exad-call-to-action-secondary-btn:hover:after {
+    width: 100%;
+}
+
+.exad-call-to-action-buttons.effect-3 .exad-call-to-action-secondary-btn::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+    transition: all .3s ease;
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+}
+  
+.exad-call-to-action-buttons.effect-3 .exad-call-to-action-secondary-btn:hover::before {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+}
+
+.exad-call-to-action-buttons.effect-4 .exad-call-to-action-secondary-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    transition: all .3s;
+}
+  
+.exad-call-to-action-buttons.effect-4 .exad-call-to-action-secondary-btn:hover::before {
+    height: 100%;
+}
+
+.exad-call-to-action-buttons.effect-5 .exad-call-to-action-secondary-btn::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: all .3s ease;
+}
+  
+.exad-call-to-action-buttons.effect-5 .exad-call-to-action-secondary-btn:hover::before {
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+}
+
+.exad-call-to-action-buttons.effect-6 .exad-call-to-action-secondary-btn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    height: 0;
+    width: 100%;
+    z-index: -1;
+}
+  
+.exad-call-to-action-buttons.effect-6 .exad-call-to-action-secondary-btn:hover::before {
+    height: 100%;
+}
+
+.exad-call-to-action-buttons.effect-7 .exad-call-to-action-secondary-btn {
+    transition: all .3s ease;
+}
+  
+.exad-call-to-action-buttons.effect-7 .exad-call-to-action-secondary-btn:hover {
+    letter-spacing: 5px;
+}
+
+.exad-call-to-action-buttons.effect-8 .exad-call-to-action-secondary-btn {
+    transition: all .3s ease;
+}
+  
+.exad-call-to-action-buttons.effect-8 .exad-call-to-action-secondary-btn::before {
+    position: absolute;
+    content: '';
+    left: 50%;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: all .3s ease;
+}
+  
+.exad-call-to-action-buttons.effect-8 .exad-call-to-action-secondary-btn:hover::before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+  
+.exad-call-to-action-buttons.effect-9 .exad-call-to-action-secondary-btn:hover {
+    -webkit-animation: anim 0.3s forwards;
+            animation: anim 0.3s forwards;
+}
+  
+@keyframes anim {
+    60% {
+      -webkit-transform: scale3d(0.8, 0.8, 1);
+              transform: scale3d(0.8, 0.8, 1);
+    }
+    85% {
+      -webkit-transform: scale3d(1.1, 1.1, 1);
+              transform: scale3d(1.1, 1.1, 1);
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+              transform: scale3d(1, 1, 1);
+    }
+}
+
+.exad-call-to-action-buttons.effect-10 .exad-call-to-action-secondary-btn {
+    transition: all .3s ease;
+}
+
 /* CTA style end */
 
 /* Card Style Start */

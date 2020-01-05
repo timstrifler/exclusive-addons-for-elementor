@@ -163,6 +163,27 @@ class Call_To_Action extends Widget_Base {
                 'label' => __( 'Container', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE
 			]
+        );
+        
+        $this->add_control(
+			'exad_section_cta_btn_effect',
+			[
+				'label'   => esc_html__( 'Button Effect', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'effect-2',
+				'options' => [
+					'effect-1' 	=> esc_html__( 'Effect 1', 	'exclusive-addons-elementor' ),
+					'effect-2' 	=> esc_html__( 'Effect 2', 	'exclusive-addons-elementor' ),
+					'effect-3' 	=> esc_html__( 'Effect 3', 	'exclusive-addons-elementor' ),
+					'effect-4' 	=> esc_html__( 'Effect 4', 	'exclusive-addons-elementor' ),
+					'effect-5' 	=> esc_html__( 'Effect 5', 	'exclusive-addons-elementor' ),
+					'effect-6' 	=> esc_html__( 'Effect 6', 	'exclusive-addons-elementor' ),
+					'effect-7' 	=> esc_html__( 'Effect 7', 	'exclusive-addons-elementor' ),
+					'effect-8' 	=> esc_html__( 'Effect 8', 	'exclusive-addons-elementor' ),
+					'effect-9' => esc_html__( 'Effect 9', 'exclusive-addons-elementor' ),
+					'effect-10' => esc_html__( 'Effect 10', 'exclusive-addons-elementor' )
+				]
+			]
 		);
 
         $this->add_responsive_control(
@@ -221,7 +242,6 @@ class Call_To_Action extends Widget_Base {
                 'name'            => 'exad_cta_container_bg_color',
                 'types'           => [ 'classic', 'gradient' ],
                 'selector'        => '{{WRAPPER}} .exad-call-to-action',
-                'exclude'         => [ 'image' ],
                 'fields_options'  => [
                     'background'  => [
                         'default' => 'classic'
@@ -501,7 +521,18 @@ class Call_To_Action extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} a.exad-call-to-action-primary-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-call-to-action-primary-btn,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-1 li .exad-call-to-action-primary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:after,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-3 li .exad-call-to-action-primary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-4 li .exad-call-to-action-primary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-5 li .exad-call-to-action-primary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-6 li .exad-call-to-action-primary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-8 li .exad-call-to-action-primary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-9 li .exad-call-to-action-primary-btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0 0;',
+                    '{{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:after' => 'border-radius: 0 0 {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -574,7 +605,17 @@ class Call_To_Action extends Widget_Base {
                     'type'      => Controls_Manager::COLOR,
                     'default'   => '#04c1c1',
                     'selectors' => [
-                        '{{WRAPPER}} a.exad-call-to-action-primary-btn:hover' => 'background-color: {{VALUE}};'
+                        '{{WRAPPER}} .exad-call-to-action-buttons.effect-1 li .exad-call-to-action-primary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-primary-btn:after,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-3 li .exad-call-to-action-primary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-4 li .exad-call-to-action-primary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-5 li .exad-call-to-action-primary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-6 li .exad-call-to-action-primary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-7 li .exad-call-to-action-primary-btn:hover,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-8 li .exad-call-to-action-primary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-9 li .exad-call-to-action-primary-btn:hover,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-10 li .exad-call-to-action-primary-btn:hover' => 'background: {{VALUE}};'
                     ]
                 ]
             );
@@ -659,7 +700,18 @@ class Call_To_Action extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} a.exad-call-to-action-secondary-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-call-to-action-secondary-btn,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-1 li .exad-call-to-action-secondary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:after,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-3 li .exad-call-to-action-secondary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-4 li .exad-call-to-action-secondary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-5 li .exad-call-to-action-secondary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-6 li .exad-call-to-action-secondary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-8 li .exad-call-to-action-secondary-btn::before,
+                    {{WRAPPER}} .exad-call-to-action-buttons.effect-9 li .exad-call-to-action-secondary-btn:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0 0;',
+                    '{{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:after' => 'border-radius: 0 0 {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -749,7 +801,17 @@ class Call_To_Action extends Widget_Base {
                     'type'      => Controls_Manager::COLOR,
                     'default'   => $exad_primary_color,
                     'selectors' => [
-                        '{{WRAPPER}} a.exad-call-to-action-secondary-btn:hover' => 'background-color: {{VALUE}};'
+                        '{{WRAPPER}} .exad-call-to-action-buttons.effect-1 li .exad-call-to-action-secondary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-2 li .exad-call-to-action-secondary-btn:after,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-3 li .exad-call-to-action-secondary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-4 li .exad-call-to-action-secondary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-5 li .exad-call-to-action-secondary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-6 li .exad-call-to-action-secondary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-7 li .exad-call-to-action-secondary-btn:hover,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-8 li .exad-call-to-action-secondary-btn::before,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-9 li .exad-call-to-action-secondary-btn:hover,
+                        {{WRAPPER}} .exad-call-to-action-buttons.effect-10 li .exad-call-to-action-secondary-btn:hover' => 'background: {{VALUE}};'
                     ]
                 ]
             );
@@ -851,7 +913,7 @@ class Call_To_Action extends Widget_Base {
 			    echo '</div>';
 
 			    echo '<div class="exad-call-to-action-footer">';
-                    echo '<ul class="exad-call-to-action-buttons">';
+                    echo '<ul class="exad-call-to-action-buttons '. $settings['exad_section_cta_btn_effect'] .'">';
 
                         if ( ! empty( $settings['exad_cta_primary_btn'] ) ) :
                             echo '<li>';
@@ -942,7 +1004,7 @@ class Call_To_Action extends Widget_Base {
                 </div>
 
                 <div class="exad-call-to-action-footer">
-                    <ul class="exad-call-to-action-buttons">
+                    <ul class="exad-call-to-action-buttons {{ settings.exad_section_cta_btn_effect }}">
                         <# if ( settings.exad_cta_primary_btn ) { #>
                             <li>
                                 <a href="{{{ settings.exad_cta_primary_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_cta_primary_btn_link' ) }}}{{{ primaryBtnTarget }}}{{{ primaryBtnNofollow }}}>
