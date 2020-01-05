@@ -232,12 +232,10 @@ class Helper {
 
         while( $posts->have_posts() ) : $posts->the_post(); 
 
-            if ( $settings['template_type'] == 'exad-post-timeline' ) { 
+            if ( 'exad-post-timeline' === $settings['template_type'] ) { 
                 include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
-            } elseif ( $settings['template_type'] == 'exad-post-grid' ) { 
+            } elseif ( 'exad-post-grid' === $settings['template_type'] ) { 
                 include EXAD_TEMPLATES . 'tmpl-post-grid.php';
-            } elseif ( $settings['template_type'] == 'exad-post-carousel' ) { 
-                include EXAD_TEMPLATES . 'tmpl-post-carousel.php';
             } else {
                 _e( 'No Contents Found', 'exclusive-addons-elementor' );
             }

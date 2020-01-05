@@ -635,7 +635,7 @@ class Heading extends Widget_Base {
         echo '<div class="exad-exclusive-heading">';
             echo '<div '.$this->get_render_attribute_string( 'exad_exclusive_heading_wrapper' ).'>';
 
-				if ( 'yes' == $settings['exad_heading_icon_show'] && !empty( $settings['exad_heading_icon']['value'] ) ) :
+				if ( 'yes' === $settings['exad_heading_icon_show'] && !empty( $settings['exad_heading_icon']['value'] ) ) :
           			echo '<span class="exad-heading-icon">';
           				Icons_Manager::render_icon( $settings['exad_heading_icon'] );
           			echo '</span>';
@@ -653,7 +653,7 @@ class Heading extends Widget_Base {
                     echo '</a>';
                 }
 
-				if ( 'yes' == $settings['exad_heading_divider'] ) :
+				if ( 'yes' === $settings['exad_heading_divider'] ) :
 					echo '<div class="exad-heading-separator"></div>';
 				endif;
                 

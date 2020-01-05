@@ -997,7 +997,7 @@ class Filterable_Gallery extends Widget_Base
         do_action('exad_fg_wrapper_before');
         echo '<div class="exad-gallery-items">';
             echo '<div id="exad-gallery-one">';
-                if( 'yes' == $settings['exad_fg_show_constrols'] ):
+                if( 'yes' === $settings['exad_fg_show_constrols'] ):
                     echo '<div id="filters" class="exad-gallery-menu">';
                         do_action('exad_fg_controls_wrapper_before');
                         if(!empty($settings['exad_fg_all_items_text'])):
@@ -1045,7 +1045,7 @@ class Filterable_Gallery extends Widget_Base
 
                                             if( 'none' != $settings['exad_fg_show_icons'] ) :
                                                 echo '<div class="exad-fg-icons">';
-                                                    if( ( 'popup' == $settings['exad_fg_show_icons'] || 'both' == $settings['exad_fg_show_icons'] ) && !empty($settings['exad_section_fg_zoom_icon']) ) :
+                                                    if( ( 'popup' === $settings['exad_fg_show_icons'] || 'both' === $settings['exad_fg_show_icons'] ) && !empty($settings['exad_section_fg_zoom_icon']) ) :
 
                                                         $link_key = 'link_' . $index;
                                                         $this->add_render_attribute( $link_key, [
@@ -1065,7 +1065,7 @@ class Filterable_Gallery extends Widget_Base
                                                         echo '</a>';
                                                     endif; 
 
-                                                    if( ( 'link' == $settings['exad_fg_show_icons'] || 'both' == $settings['exad_fg_show_icons'] )  && !empty($settings['exad_section_fg_link_icon']) ) :
+                                                    if( ( 'link' === $settings['exad_fg_show_icons'] || 'both' === $settings['exad_fg_show_icons'] )  && !empty($settings['exad_section_fg_link_icon']) ) :
                                                         $href = $target = '';
                                                         if ( $gallery['exad_fg_gallery_img_link']['url'] ) {
                                                             $href = 'href="'.esc_url($gallery['exad_fg_gallery_img_link']['url']).'"';
@@ -1083,13 +1083,13 @@ class Filterable_Gallery extends Widget_Base
                                                 echo '</div>'; 
                                             endif; 
 
-                                            if('over-image' == $settings['exad_fg_grid_content_position'] && ('yes' == $show_title || 'yes' == $show_details)):
+                                            if('over-image' === $settings['exad_fg_grid_content_position'] && ('yes' === $show_title || 'yes' === $show_details)):
                                                 echo '<div class="exad-gallery-item-content">';
                                                     do_action('exad_fg_content_wrapper_before');
-                                                    if( 'yes' == $show_title && !empty( $gallery['exad_fg_gallery_item_title'] ) ):
+                                                    if( 'yes' === $show_title && !empty( $gallery['exad_fg_gallery_item_title'] ) ):
                                                         echo '<h2>'.esc_html($gallery['exad_fg_gallery_item_title']).'</h2>';
                                                     endif;
-                                                    if( 'yes' == $show_details && !empty( $gallery['exad_fg_gallery_item_content'] ) ):
+                                                    if( 'yes' === $show_details && !empty( $gallery['exad_fg_gallery_item_content'] ) ):
                                                         echo '<p>'.wp_kses_post( $gallery['exad_fg_gallery_item_content']).'</p>';
                                                     endif;
                                                     do_action('exad_fg_content_wrapper_after');
@@ -1099,13 +1099,13 @@ class Filterable_Gallery extends Widget_Base
                                     echo '</div>';
                                 echo '</div>';
 
-                                if('below-image' == $settings['exad_fg_grid_content_position'] && ('yes' == $show_title || 'yes' == $show_details)):
+                                if('below-image' === $settings['exad_fg_grid_content_position'] && ('yes' === $show_title || 'yes' === $show_details)):
                                     echo '<div class="exad-gallery-item-content below-image">';
                                         do_action('exad_fg_content_wrapper_before');
-                                        if( 'yes' == $show_title && !empty( $gallery['exad_fg_gallery_item_title'] ) ):
+                                        if( 'yes' === $show_title && !empty( $gallery['exad_fg_gallery_item_title'] ) ):
                                             echo '<h2>'.esc_html($gallery['exad_fg_gallery_item_title']).'</h2>';
                                         endif;
-                                        if( 'yes' == $show_details && !empty( $gallery['exad_fg_gallery_item_content'] ) ):
+                                        if( 'yes' === $show_details && !empty( $gallery['exad_fg_gallery_item_content'] ) ):
                                             echo '<p>'.wp_kses_post( $gallery['exad_fg_gallery_item_content']).'</p>';
                                         endif;
                                         do_action('exad_fg_content_wrapper_after');

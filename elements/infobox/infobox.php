@@ -742,7 +742,7 @@ class Infobox extends Widget_Base {
 		            		Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
 						endif;
 
-		            	if( 'img' == $settings['exad_infobox_img_or_icon'] ) :
+		            	if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
 							echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
 						endif;			
 		            echo '</div>';

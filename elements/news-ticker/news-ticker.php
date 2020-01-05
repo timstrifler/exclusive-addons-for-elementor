@@ -802,25 +802,21 @@ class News_Ticker extends Widget_Base {
         $autoplay       = $settings['exad_news_ticker_autoplay'];
         $bottom_fixed   = $settings['exad_news_ticker_set_bottom_fixed'];
         $animation_type = $settings['exad_news_ticker_animation_type'];
-        $arrow = ' no';
-        if('yes' == $settings['exad_news_ticker_show_label_arrow']){
-            $arrow = ' yes-small';
-        }
 
-        ( $animation_type == 'scroll' ) ? $animation_speed = $settings['exad_news_ticker_animation_speed'] : $animation_speed = '';
-        ( $animation_type != 'scroll' ) ? $autoplay_interval = $settings['exad_news_ticker_autoplay_interval'] : $autoplay_interval = '';
-        ( $autoplay == 'yes' ) ? $pause_on_hover = $settings['exad_news_ticker_pause_on_hover'] : $pause_on_hover = '';
+        $arrow             = 'yes' === $settings['exad_news_ticker_show_label_arrow'] ? ' yes-small' : ' no';
+        $animation_speed   = $animation_type === 'scroll' ? $settings['exad_news_ticker_animation_speed'] : '';
+        $autoplay_interval = $animation_type !== 'scroll' ? $settings['exad_news_ticker_autoplay_interval'] : '';
+        $pause_on_hover    = $autoplay       === 'yes' ?$settings['exad_news_ticker_pause_on_hover'] : '';
 
-        $controls     = array('exad-news-ticker');
         $this->add_render_attribute( 'exad-news-ticker-wrapper', 'class', 'exad-news-ticker' );
 
         $this->add_render_attribute( 
             'exad-news-ticker-wrapper', 
             [ 
-                'data-autoplay'          => esc_attr( $autoplay == 'yes' ? 'true' : 'false' ),
-                'data-bottom_fixed'      => esc_attr( $bottom_fixed == 'yes' ? 'fixed-bottom' : 'false' ),
-                'data-pause_on_hover'    => esc_attr( $pause_on_hover == 'yes' ? 'true' : 'false' ),
-                'data-direction'         => ( (is_rtl() || $direction == 'rtl') ? 'rtl' : 'ltr' ),
+                'data-autoplay'          => esc_attr( $autoplay === 'yes' ? 'true' : 'false' ),
+                'data-bottom_fixed'      => esc_attr( $bottom_fixed === 'yes' ? 'fixed-bottom' : 'false' ),
+                'data-pause_on_hover'    => esc_attr( $pause_on_hover === 'yes' ? 'true' : 'false' ),
+                'data-direction'         => ( (is_rtl() || $direction === 'rtl') ? 'rtl' : 'ltr' ),
                 'data-autoplay_interval' => esc_attr( $autoplay_interval ),
                 'data-animation_speed'   => esc_attr( $animation_speed ),
                 'data-ticker_height'     => esc_attr( $ticker_height ),
@@ -828,27 +824,17 @@ class News_Ticker extends Widget_Base {
             ]
         );
 
-        $exad_nt_attr = array(
-            'data-autoplay'          => esc_attr( $autoplay == 'yes' ? 'true' : 'false' ),
-            'data-bottom_fixed'      => esc_attr( $bottom_fixed == 'yes' ? 'fixed-bottom' : 'false' ),
-            'data-pause_on_hover'    => esc_attr( $pause_on_hover == 'yes' ? 'true' : 'false' ),
-            'data-autoplay_interval' => esc_attr( $autoplay_interval ),
-            'data-animation_speed'   => esc_attr( $animation_speed ),
-            'data-ticker_height'     => esc_attr( $ticker_height ),
-            'data-animation'         => esc_attr( $animation_type )
-        );
-
         echo '<div '.$this->get_render_attribute_string( 'exad-news-ticker-wrapper' ).'>';
             do_action( 'exad_news_ticker_wrapper_before' );
-            if(!empty($label) && ('yes' == $show_label)):
-                echo '<div class="exad-bn-label'.esc_attr($arrow).'">';
+            if( !empty( $label ) && ( 'yes' === $show_label ) ):
+                echo '<div class="exad-bn-label'.esc_attr( $arrow ).'">';
                     echo '<div class="exad-nt-label">';
-                        if(!empty($settings['exad_news_ticker_label_icon'])){
+                        if( !empty( $settings['exad_news_ticker_label_icon'] ) ){
                         echo '<span class="exad-news-ticker-icon">';
                             Icons_Manager::render_icon( $settings['exad_news_ticker_label_icon'], [ 'aria-hidden' => 'true' ] );
                         echo '</span>';                                 
                         }
-                        echo esc_html($label);
+                        echo esc_html( $label );
                     echo '</div>';
                 echo '</div>';
             endif;
@@ -875,10 +861,10 @@ class News_Ticker extends Widget_Base {
                 endif;
             echo '</div>';
 
-            if ( 'yes' == $settings['exad_news_ticker_show_controls'] ) :
+            if ( 'yes' === $settings['exad_news_ticker_show_controls'] ) :
                 echo '<div class="exad-nt-controls">';
                     echo '<button><span class="bn-arrow bn-prev"></span></button>';
-                    if( 'yes' == $settings['exad_news_ticker_show_pause_control'] ):
+                    if( 'yes' === $settings['exad_news_ticker_show_pause_control'] ):
                         echo '<button><span class="bn-action"></span></button>';
                     endif;
                     echo '<button><span class="bn-arrow bn-next"></span></button>';

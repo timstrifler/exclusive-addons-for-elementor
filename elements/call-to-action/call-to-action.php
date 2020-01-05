@@ -923,7 +923,7 @@ class Call_To_Action extends Widget_Base {
                             echo '</li>';
                         endif;
 
-                        if( 'vertical' == $settings['exad_cta_skin_type'] && !empty( $settings['exad_cta_secondary_btn'] ) ) :
+                        if( 'vertical' === $settings['exad_cta_skin_type'] && !empty( $settings['exad_cta_secondary_btn'] ) ) :
                             echo '<li>';
                                 echo '<a '.$this->get_render_attribute_string( 'exad_cta_secondary_btn_link' ).'>';
                                     $this->seconday_btn();
@@ -1013,7 +1013,7 @@ class Call_To_Action extends Widget_Base {
                             </li>
                         <# } #>
 
-                        <# if ( settings.exad_cta_secondary_btn && 'vertical' == settings.exad_cta_skin_type ) { #>
+                        <# if ( settings.exad_cta_secondary_btn && 'vertical' === settings.exad_cta_skin_type ) { #>
                             <li>
                                 <a href="{{{ settings.exad_cta_secondary_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_cta_secondary_btn_link' ) }}}{{{ secondaryBtnTarget }}}{{{ secondaryBtnNofollow }}}>
                                     <span {{{ view.getRenderAttributeString( 'exad_cta_secondary_btn' ) }}}>{{{ settings.exad_cta_secondary_btn }}}</span>

@@ -748,10 +748,10 @@ class Logo_Carousel extends Widget_Base {
 				'data-slidestoscroll' => esc_attr( $settings['exad_logo_slide_to_scroll'] )
 			]
 		);
-		if ( 'yes' == $settings['exad_logo_loop'] ) {
+		if ( 'yes' === $settings['exad_logo_loop'] ) {
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-loop', 'true' );
 		}
-		if ( 'yes' == $settings['exad_logo_autoplay'] ) {
+		if ( 'yes' === $settings['exad_logo_autoplay'] ) {
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-autoplay', 'true' );
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-autoplayspeed', esc_attr( $settings['exad_logo_autoplay_speed'] ) );
 		}

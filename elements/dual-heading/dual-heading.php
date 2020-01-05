@@ -463,7 +463,7 @@ class Dual_Heading extends Widget_Base {
         echo '<div class="exad-dual-heading">';
             echo '<div class="exad-dual-heading-wrapper">';
 
-                if ( 'yes' == $settings['exad_dual_heading_icon_show'] && !empty( $settings['exad_dual_heading_icon']['value'] ) ) :
+                if ( 'yes' === $settings['exad_dual_heading_icon_show'] && !empty( $settings['exad_dual_heading_icon']['value'] ) ) :
                     echo '<span class="exad-dual-heading-icon">';
                         Icons_Manager::render_icon( $settings['exad_dual_heading_icon'] );
                     echo '</span>';
