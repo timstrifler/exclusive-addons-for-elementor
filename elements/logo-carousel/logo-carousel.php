@@ -748,6 +748,7 @@ class Logo_Carousel extends Widget_Base {
 				'data-slidestoscroll' => esc_attr( $settings['exad_logo_slide_to_scroll'] )
 			]
 		);
+
 		if ( 'yes' === $settings['exad_logo_loop'] ) {
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-loop', 'true' );
 		}
@@ -756,25 +757,27 @@ class Logo_Carousel extends Widget_Base {
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-autoplayspeed', esc_attr( $settings['exad_logo_autoplay_speed'] ) );
 		}
 
-		echo '<div class="exad-logo-carousel">';
-			echo '<div '.$this->get_render_attribute_string('exad_logo_carousel').'>';
+		if ( is_array( $settings['exad_logo_carousel_repeater'] ) ) :
+			echo '<div class="exad-logo-carousel">';
+				echo '<div '.$this->get_render_attribute_string('exad_logo_carousel').'>';
 
-				foreach ( $settings['exad_logo_carousel_repeater'] as $logo ) :
-					$logo_image         = $logo[ 'exad_logo_carousel_image' ];
-					$logo_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $logo_image['id'], 'logo_image_size', $logo );
-			
-					if ( empty( $logo_image_url_src ) ) {
-						$logo_image_url = $logo_image['url'];
-					}  else {
-						$logo_image_url = $logo_image_url_src;
-					}
+					foreach ( $settings['exad_logo_carousel_repeater'] as $logo ) :
+						$logo_image         = $logo[ 'exad_logo_carousel_image' ];
+						$logo_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $logo_image['id'], 'logo_image_size', $logo );
+				
+						if ( empty( $logo_image_url_src ) ) {
+							$logo_image_url = $logo_image['url'];
+						} else {
+							$logo_image_url = $logo_image_url_src;
+						}
 
-					echo '<div class="exad-logo-carousel-item '.esc_attr( $settings['exad_logo_carousel_alignment'] ).'">';
-						echo '<img src="'.esc_url( $logo_image_url ).'" alt="'.Control_Media::get_image_alt( $logo['exad_logo_carousel_image'] ).'">';
-					echo '</div>';						
-				endforeach;
+						echo '<div class="exad-logo-carousel-item '.esc_attr( $settings['exad_logo_carousel_alignment'] ).'">';
+							echo '<img src="'.esc_url( $logo_image_url ).'" alt="'.Control_Media::get_image_alt( $logo['exad_logo_carousel_image'] ).'">';
+						echo '</div>';						
+					endforeach;
 
+				echo '</div>';
 			echo '</div>';
-		echo '</div>';
+		endif;
 	}
 }
