@@ -164,6 +164,77 @@ class Call_To_Action extends Widget_Base {
                 'tab'   => Controls_Manager::TAB_STYLE
 			]
         );
+
+        $this->add_control(
+			'exad_section_cta_container_position',
+			[
+				'label'   => esc_html__( 'Full Container Position', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'exad-section-cta-default',
+				'options' => [
+					'exad-section-cta-default' 	=> esc_html__( 'Default', 	'exclusive-addons-elementor' ),
+					'exad-section-cta-absolute' 	=> esc_html__( 'Absolute', 	'exclusive-addons-elementor' ),
+				]
+			]
+        );
+        
+        $this->add_responsive_control(
+            'exad_section_cta_container_position_left',
+            [
+                'label'        => esc_html__( 'X Offset', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range'        => [
+                    'px'       => [
+                        'min'  => -1000,
+                        'max'  => 1000,
+                    ],
+                    '%'        => [
+                        'min'  => -100,
+                        'max'  => 100,
+                    ],
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 0
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-section-cta-absolute' => 'margin-left: {{SIZE}}px; margin-right: calc(-0% - {{SIZE}}px );'
+                ],
+                'condition' => [
+                    'exad_section_cta_container_position' => 'exad-section-cta-absolute'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_section_cta_container_position_top',
+            [
+                'label'        => esc_html__( 'Y Offset', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%' ],
+                'range'        => [
+                    'px'       => [
+                        'min'  => -1000,
+                        'max'  => 1000,
+                    ],
+                    '%'       => [
+                        'min'  => -100,
+                        'max'  => 100,
+                    ],
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 0
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-section-cta-absolute' => 'margin-top: {{SIZE}}px;'
+                ],
+                'condition' => [
+                    'exad_section_cta_container_position' => 'exad-section-cta-absolute'
+                ]
+            ]
+        );
         
         $this->add_control(
 			'exad_section_cta_btn_effect',
@@ -844,7 +915,7 @@ class Call_To_Action extends Widget_Base {
         $this->add_render_attribute( 'exad_cta_description', 'class', 'exad-call-to-action-subtitle' );
         $this->add_inline_editing_attributes( 'exad_cta_description' );
 
-        $this->add_render_attribute( 'exad_call_to_action_wrapper', 'class', 'exad-call-to-action skin-'.$settings['exad_cta_skin_type'] );
+        $this->add_render_attribute( 'exad_call_to_action_wrapper', 'class', ['exad-call-to-action skin-'.$settings['exad_cta_skin_type'] , $settings['exad_section_cta_container_position'] ]);
 
         $this->add_render_attribute( 'exad_cta_primary_btn_link', 'class', 'exad-call-to-action-primary-btn' );
 
@@ -931,7 +1002,8 @@ class Call_To_Action extends Widget_Base {
             view.addRenderAttribute( 'exad_call_to_action_wrapper', {
                 'class': [ 
                     'exad-call-to-action', 
-                    'skin-'+settings.exad_cta_skin_type
+                    'skin-'+settings.exad_cta_skin_type,
+                    settings.exad_section_cta_container_position
                 ]
             } );
 

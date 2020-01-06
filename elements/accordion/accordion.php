@@ -580,7 +580,7 @@ class Accordion extends Widget_Base {
 						'label'		=> esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active h3' => 'background-color: {{VALUE}};'
+							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active' => 'background-color: {{VALUE}};'
 						]
 					]
 				);
