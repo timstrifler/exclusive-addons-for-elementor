@@ -8,6 +8,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Repeater;
 use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
 
@@ -55,35 +56,45 @@ class News_Ticker extends Widget_Base {
             ]
         ); 
 
+        $news_ticker_repeater = new Repeater();
+        
+        $news_ticker_repeater->add_control(
+            'exad_news_ticker_title',
+            [
+                'label'   => esc_html__( 'Content', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::TEXTAREA,
+                'default' => esc_html__( 'News item description', 'exclusive-addons-elementor' )
+            ]
+        );
+
+        $news_ticker_repeater->add_control(
+            'exad_news_ticker_link',
+            [
+                'label'           => esc_html__( 'Link', 'exclusive-addons-elementor' ),
+                'type'            => Controls_Manager::URL,
+                'label_block'     => true,
+                'default'         => [
+                    'url'         => '#',
+                    'is_external' => ''
+                ],
+                'show_external'   => true
+            ]
+        );
+
         $this->add_control(
             'exad_news_ticker_items',
             [
-                'label'       => esc_html__( 'Items', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::REPEATER,
+                'fields'      => $news_ticker_repeater->get_controls(),
+                'title_field' => '{{{ exad_news_ticker_title }}}',
                 'default'     => [
-                    [ 'title' => esc_html__( 'Exclusive Elementor News item 1', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exclusive Elementor News item 2', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exclusive Elementor News item 3', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exclusive Elementor News item 4', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exclusive Elementor News item 5', 'exclusive-addons-elementor' ) ],
-                    [ 'title' => esc_html__( 'Exclusive Elementor News item 6', 'exclusive-addons-elementor' ) ]
-                ],
-                'fields'      => [
-                    [
-                        'type'          => Controls_Manager::TEXTAREA,
-                        'name'          => 'title',
-                        'label_block'   => true,
-                        'label'         => esc_html__( 'Content', 'exclusive-addons-elementor' ),
-                        'default'       => esc_html__( 'News item description', 'exclusive-addons-elementor' )
-                    ],
-                    [
-                        'type'          => Controls_Manager::URL,
-                        'name'          => 'link',
-                        'label'         => esc_html__( 'Link', 'exclusive-addons-elementor' ),
-                        'placeholder'   => esc_html__( 'https://yoursite.com', 'exclusive-addons-elementor' )
-                    ]                    
-                ],
-                'title_field' => '{{title}}'
+                    [ 'exad_news_ticker_title' => __( 'Exclusive Elementor News item 1', 'exclusive-addons-elementor' ) ],
+                    [ 'exad_news_ticker_title' => __( 'Exclusive Elementor News item 2', 'exclusive-addons-elementor' ) ],
+                    [ 'exad_news_ticker_title' => __( 'Exclusive Elementor News item 3', 'exclusive-addons-elementor' ) ],
+                    [ 'exad_news_ticker_title' => __( 'Exclusive Elementor News item 4', 'exclusive-addons-elementor' ) ],
+                    [ 'exad_news_ticker_title' => __( 'Exclusive Elementor News item 5', 'exclusive-addons-elementor' ) ],
+                    [ 'exad_news_ticker_title' => __( 'Exclusive Elementor News item 6', 'exclusive-addons-elementor' ) ]
+                ]
             ]
         );
 
@@ -215,7 +226,7 @@ class News_Ticker extends Widget_Base {
             'exad_news_ticker_show_label',
             [
                 'type'         => Controls_Manager::SWITCHER,
-                'label'        => esc_html__( 'Label', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Label', 'exclusive-addons-elementor' ),
                 'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
                 'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
                 'default'      => 'yes',
@@ -227,7 +238,7 @@ class News_Ticker extends Widget_Base {
             'exad_news_ticker_show_label_arrow',
             [
                 'type'         => Controls_Manager::SWITCHER,
-                'label'        => esc_html__( 'Label Arrow', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Label Arrow', 'exclusive-addons-elementor' ),
                 'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
                 'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
                 'default'      => 'no',
@@ -242,7 +253,7 @@ class News_Ticker extends Widget_Base {
             'exad_news_ticker_show_label_icon',
             [
                 'type'         => Controls_Manager::SWITCHER,
-                'label'        => esc_html__( 'Label Icon.', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Label Icon', 'exclusive-addons-elementor' ),
                 'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
                 'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
                 'default'      => 'no',
@@ -489,19 +500,20 @@ class News_Ticker extends Widget_Base {
         $this->add_responsive_control(
             'exad_news_ticker_label_icon_padding',
             [
-                'label'      => __('Padding', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'default'    => [
-                    'top'    => 0,
-                    'bottom' => 0,
-                    'left'   => 0,
-                    'right'  => 15
+                'label'        => __('Padding', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', '%'],
+                'default'      => [
+                    'top'      => '0',
+                    'bottom'   => '0',
+                    'left'     => '0',
+                    'right'    => '10',
+                    'isLinked' => false
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-news-ticker-icon i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'condition' => [
+                'condition'    => [
                     'exad_news_ticker_show_label_icon'    => 'yes',
                     'exad_news_ticker_label_icon[value]!' => ''
                 ]
@@ -803,20 +815,20 @@ class News_Ticker extends Widget_Base {
         $bottom_fixed   = $settings['exad_news_ticker_set_bottom_fixed'];
         $animation_type = $settings['exad_news_ticker_animation_type'];
 
-        $arrow             = 'yes' === $settings['exad_news_ticker_show_label_arrow'] ? ' yes-small' : ' no';
-        $animation_speed   = $animation_type === 'scroll' ? $settings['exad_news_ticker_animation_speed'] : '';
-        $autoplay_interval = $animation_type !== 'scroll' ? $settings['exad_news_ticker_autoplay_interval'] : '';
-        $pause_on_hover    = $autoplay       === 'yes' ?$settings['exad_news_ticker_pause_on_hover'] : '';
+        $arrow             = 'yes'    === $settings['exad_news_ticker_show_label_arrow'] ? ' yes-small' : ' no';
+        $pause_on_hover    = 'yes'    === $autoplay ? $settings['exad_news_ticker_pause_on_hover'] : '';
+        $animation_speed   = 'scroll' === $animation_type ? $settings['exad_news_ticker_animation_speed'] : '';
+        $autoplay_interval = 'scroll' !== $animation_type ? $settings['exad_news_ticker_autoplay_interval'] : '';
 
         $this->add_render_attribute( 'exad-news-ticker-wrapper', 'class', 'exad-news-ticker' );
 
         $this->add_render_attribute( 
             'exad-news-ticker-wrapper', 
             [ 
-                'data-autoplay'          => esc_attr( $autoplay === 'yes' ? 'true' : 'false' ),
-                'data-bottom_fixed'      => esc_attr( $bottom_fixed === 'yes' ? 'fixed-bottom' : 'false' ),
-                'data-pause_on_hover'    => esc_attr( $pause_on_hover === 'yes' ? 'true' : 'false' ),
-                'data-direction'         => ( (is_rtl() || $direction === 'rtl') ? 'rtl' : 'ltr' ),
+                'data-autoplay'          => esc_attr( 'yes' === $autoplay ? 'true' : 'false' ),
+                'data-bottom_fixed'      => esc_attr( 'yes' === $bottom_fixed ? 'fixed-bottom' : 'false' ),
+                'data-pause_on_hover'    => esc_attr( 'yes' === $pause_on_hover ? 'true' : 'false' ),
+                'data-direction'         => 'rtl' === $direction || is_rtl() ? 'rtl' : 'ltr',
                 'data-autoplay_interval' => esc_attr( $autoplay_interval ),
                 'data-animation_speed'   => esc_attr( $animation_speed ),
                 'data-ticker_height'     => esc_attr( $ticker_height ),
@@ -824,17 +836,22 @@ class News_Ticker extends Widget_Base {
             ]
         );
 
+        $this->add_inline_editing_attributes( 'exad_news_ticker_label', 'none' );
+
         echo '<div '.$this->get_render_attribute_string( 'exad-news-ticker-wrapper' ).'>';
             do_action( 'exad_news_ticker_wrapper_before' );
-            if( !empty( $label ) && ( 'yes' === $show_label ) ):
+            if( 'yes' === $show_label ):
                 echo '<div class="exad-bn-label'.esc_attr( $arrow ).'">';
                     echo '<div class="exad-nt-label">';
-                        if( !empty( $settings['exad_news_ticker_label_icon'] ) ){
-                        echo '<span class="exad-news-ticker-icon">';
-                            Icons_Manager::render_icon( $settings['exad_news_ticker_label_icon'], [ 'aria-hidden' => 'true' ] );
-                        echo '</span>';                                 
+                        if( 'yes' === $settings['exad_news_ticker_show_label_icon'] && !empty( $settings['exad_news_ticker_label_icon'] ) ){
+                            echo '<span class="exad-news-ticker-icon">';
+                                Icons_Manager::render_icon( $settings['exad_news_ticker_label_icon'], [ 'aria-hidden' => 'true' ] );
+                            echo '</span>';                                 
                         }
-                        echo esc_html( $label );
+                        
+                        if( !empty( $label ) ) {
+                            echo '<span '.$this->get_render_attribute_string( 'exad_news_ticker_label' ).'>'.wp_kses_post( $label ).'</span>';
+                        }
                     echo '</div>';
                 echo '</div>';
             endif;
@@ -844,17 +861,23 @@ class News_Ticker extends Widget_Base {
                     echo '<ul>';
                         foreach ( $settings['exad_news_ticker_items'] as $key => $list ) :
                             $link_key  = 'link_' . $key;
-                            if( $list['link']['url'] ) :
-                                $this->add_render_attribute( $link_key, 'href', esc_url( $list['link']['url'] ) );
-                                if( $list['link']['is_external'] ) {
+
+                            $title = $this->get_repeater_setting_key( 'exad_news_ticker_title', 'exad_news_ticker_items', $key );
+                            $this->add_inline_editing_attributes( $title, 'basic' );
+
+                            if( $list['exad_news_ticker_link']['url'] ) :
+                                $this->add_render_attribute( $link_key, 'href', esc_url( $list['exad_news_ticker_link']['url'] ) );
+                                if( $list['exad_news_ticker_link']['is_external'] ) {
                                     $this->add_render_attribute( $link_key, 'target', '_blank' );
                                 }
-                                if( $list['link']['nofollow'] ) {
+                                if( $list['exad_news_ticker_link']['nofollow'] ) {
                                     $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
                                 }
-                                echo '<li><a '.$this->get_render_attribute_string( $link_key ).'>'. wp_kses_post( $list['title'] ) .'</a></li>';
+                                echo '<li><a '.$this->get_render_attribute_string( $link_key ).'>';
+                                    echo '<span '.$this->get_render_attribute_string( $title ).'>'.wp_kses_post( $list['exad_news_ticker_title'] ).'</span>';
+                                echo '</a></li>';
                             else :
-                                echo '<li>'.wp_kses_post( $list['title'] ) .'</li>';
+                                echo '<li><span '.$this->get_render_attribute_string( $title ).'>'.wp_kses_post( $list['exad_news_ticker_title'] ).'</span></li>';
                             endif;
                         endforeach; 
                     echo '</ul>';
@@ -864,7 +887,7 @@ class News_Ticker extends Widget_Base {
             if ( 'yes' === $settings['exad_news_ticker_show_controls'] ) :
                 echo '<div class="exad-nt-controls">';
                     echo '<button><span class="bn-arrow bn-prev"></span></button>';
-                    if( 'yes' === $settings['exad_news_ticker_show_pause_control'] ):
+                    if( 'yes' === $settings['exad_news_ticker_show_pause_control'] ) :
                         echo '<button><span class="bn-action"></span></button>';
                     endif;
                     echo '<button><span class="bn-arrow bn-next"></span></button>';
@@ -874,4 +897,107 @@ class News_Ticker extends Widget_Base {
             
         echo '</div>';
     }
+
+    /**
+     * Render news ticker widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 1.0.0
+     * @access protected
+     */
+    protected function _content_template() {
+        ?>
+        <#
+            var label         = settings.exad_news_ticker_label,
+            show_label        = settings.exad_news_ticker_show_label,
+            direction         = settings.exad_news_ticker_animation_direction,
+            ticker_height     = settings.exad_news_ticker_height.size,
+            autoplay          = settings.exad_news_ticker_autoplay,
+            bottom_fixed      = settings.exad_news_ticker_set_bottom_fixed,
+            animation_type    = settings.exad_news_ticker_animation_type,
+            arrow             = 'yes' === settings.exad_news_ticker_show_label_arrow ? ' yes-small' : ' no',
+            pause_on_hover    = 'yes' === autoplay ? settings.exad_news_ticker_pause_on_hover : '';
+            animation_speed   = 'scroll' === animation_type ? settings.exad_news_ticker_animation_speed : '',
+            autoplay_interval = 'scroll' !== animation_type ? settings.exad_news_ticker_autoplay_interval : '';
+
+            var iconHTML = elementor.helpers.renderIcon( view, settings.exad_news_ticker_label_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+            view.addRenderAttribute( 'exad-news-ticker-wrapper', 'class', 'exad-news-ticker' );
+
+            view.addRenderAttribute( 
+                'exad-news-ticker-wrapper', 
+                {
+                    'data-autoplay' : 'yes'       === autoplay ? 'true' : 'false',
+                    'data-bottom_fixed' : 'yes'   === bottom_fixed ? 'fixed-bottom' : 'false',
+                    'data-pause_on_hover' : 'yes' === pause_on_hover ? 'true' : 'false',
+                    'data-direction': 'rtl'       === direction || elementorCommon.config.isRTL ? 'rtl' : 'ltr',
+                    'data-autoplay_interval': autoplay_interval,
+                    'data-animation_speed': animation_speed,
+                    'data-ticker_height': ticker_height,
+                    'data-animation': animation_type
+                }
+            );
+
+            view.addInlineEditingAttributes( 'exad_news_ticker_label', 'basic' );
+
+        #>
+        <div {{{ view.getRenderAttributeString( 'exad-news-ticker-wrapper' ) }}}>
+            <# if( 'yes' === show_label ) { #>
+                <div class="exad-bn-label {{{ arrow }}}">
+                    <div class="exad-nt-label">
+                        <# if( 'yes' === settings.exad_news_ticker_show_label_icon && iconHTML.value ) { #>
+                            <span class="exad-news-ticker-icon">
+                                {{{ iconHTML.value }}}
+                            </span>                             
+                        <# } #>
+                        <# if ( label ) { #>
+                            <span {{{ view.getRenderAttributeString( 'exad_news_ticker_label' ) }}}>{{{ label }}}</span>
+                        <# } #>
+                    </div>
+                </div>
+            <# } #>
+
+            <div class="exad-nt-news">
+                <# if ( settings.exad_news_ticker_items.length ) { #>
+                    <ul>
+                        <# _.each( settings.exad_news_ticker_items, function( item, index ) {
+                            var newsLink  = 'link_' + index;
+                            var title = view.getRepeaterSettingKey( 'exad_news_ticker_title', 'exad_news_ticker_items', index );
+                            view.addInlineEditingAttributes( title, 'basic' );
+
+                            if( item.exad_news_ticker_link.url ) {
+                                view.addRenderAttribute( newsLink, 'href', item.exad_news_ticker_link.url );
+                                if( item.exad_news_ticker_link.is_external ) {
+                                    view.addRenderAttribute( newsLink, 'target', '_blank' );
+                                }
+                                if( item.exad_news_ticker_link.nofollow ) {
+                                    view.addRenderAttribute( newsLink, 'rel', 'nofollow' );
+                                }
+                            #>
+                                <li><a {{{ view.getRenderAttributeString( newsLink ) }}}>
+                                    <span {{{ view.getRenderAttributeString( title ) }}}>{{{ item.exad_news_ticker_title }}}</span>
+                                </a></li>
+                            <# } else { #>
+                                <li><span {{{ view.getRenderAttributeString( title ) }}}>{{{ item.exad_news_ticker_title }}}</span></li>
+                            <# } #>
+                        <# } ); #>
+                    </ul>
+                <# } #>
+            </div>
+
+            <# if ( 'yes' === settings.exad_news_ticker_show_controls ) { #>
+                <div class="exad-nt-controls">
+                    <button><span class="bn-arrow bn-prev"></span></button>
+                    <# if ( 'yes' === settings.exad_news_ticker_show_pause_control ) { #>
+                        <button><span class="bn-action"></span></button>
+                    <# } #>
+                    <button><span class="bn-arrow bn-next"></span></button>
+                </div>
+            <# } #>
+
+        </div>
+        <?php
+    }
+
 }

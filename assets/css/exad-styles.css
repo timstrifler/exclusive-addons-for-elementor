@@ -3410,8 +3410,7 @@ ul.exad-call-to-action-buttons {
   padding: 0 20px 0 0;
 }
 .exad-news-ticker.bn-direction-rtl .exad-bn-label.yes-small:after{
-  left: -4%;
-  right: inherit;
+  right: calc( 100% - 5px );
 }
 .exad-news-ticker .exad-nt-controls button{
   width: 30px;
