@@ -734,165 +734,8 @@ class Team_Member extends Widget_Base {
 		
 		$this->end_controls_section();
 
-		/**
-		 * Call to action Style
-		 */
-
-        $this->start_controls_section(
-            'exad_team_member_cta_btn_style',
-            [
-				'label'     => __('Call to action', 'exclusive-addons-elementor'),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
-					'exad_section_team_members_cta_btn' => 'yes'
-				]
-            ]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name'     => 'exad_team_member_cta_btn_typography',
-				'selector' => '{{WRAPPER}} .exad-team-member-cta'
-			]
-		);
-		
-		$this->add_responsive_control(
-			'exad_team_member_cta_btn_margin',
-			[
-				'label'        => __( 'Margin', 'exclusive-addons-elementor' ),
-				'type'         => Controls_Manager::DIMENSIONS,
-				'size_units'   => [ 'px', '%', 'em' ],
-				'default'      => [
-					'top'      => '0',
-					'right'    => '0',
-					'bottom'   => '20',
-					'left'     => '0',
-					'isLinked' => false
-				],
-				'selectors'    => [
-					'{{WRAPPER}} .exad-team-member-cta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				]
-			]
-		);
-
-		$this->add_responsive_control(
-			'exad_team_member_cta_btn_padding',
-			[
-				'label'        => __( 'Padding', 'exclusive-addons-elementor' ),
-				'type'         => Controls_Manager::DIMENSIONS,
-				'size_units'   => [ 'px', '%', 'em' ],
-				'default'      => [
-					'top'      => '15',
-					'right'    => '30',
-					'bottom'   => '15',
-					'left'     => '30',
-					'isLinked' => false
-				],
-				'selectors'    => [
-					'{{WRAPPER}} .exad-team-member-cta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				]
-			]
-		);
-
-		$this->add_responsive_control(
-			'exad_team_member_cta_btn_radius',
-			[
-				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'default'    => [
-					'top'    => '0',
-					'right'  => '0',
-					'bottom' => '0',
-					'left'   => '0'
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .exad-team-member-cta' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				]
-			]
-		);
-
-		$this->start_controls_tabs( 'exad_team_member_cta_btn_tabs' );
-
-			$this->start_controls_tab( 'exad_team_member_cta_btn_tab_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
-
-				$this->add_control(
-					'exad_team_member_cta_btn_text_color_normal',
-					[
-						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '#222222',
-						'selectors' => [
-							'{{WRAPPER}} .exad-team-member-cta' => 'color: {{VALUE}};'
-						]
-					]
-				);
-
-				$this->add_control(
-					'exad_team_member_cta_btn_background_normal',
-					[
-						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '#d6d6d6',
-						'selectors' => [
-							'{{WRAPPER}} .exad-team-member-cta' => 'background-color: {{VALUE}};'
-						]
-					]
-				);
-
-				$this->add_group_control(
-					Group_Control_Border::get_type(),
-					[
-						'name'     => 'exad_team_member_cta_btn_border_normal',
-						'selector' => '{{WRAPPER}} .exad-team-member-cta'
-					]
-				);
-		
-			$this->end_controls_tab();
-
-			$this->start_controls_tab( 'exad_team_member_cta_btn_tab_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
-
-				$this->add_control(
-					'exad_team_member_cta_btn_text_color_hover',
-					[
-						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '#d6d6d6',
-						'selectors' => [
-							'{{WRAPPER}} .exad-team-member-cta:hover' => 'color: {{VALUE}};'
-						]
-					]
-				);
-
-				$this->add_control(
-					'exad_team_member_cta_btn_background_hover',
-					[
-						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::COLOR,
-						'default'   => '#222222',
-						'selectors' => [
-							'{{WRAPPER}} .exad-team-member-cta:hover' => 'background-color: {{VALUE}};'
-						]
-					]
-				);
-
-				$this->add_group_control(
-					Group_Control_Border::get_type(),
-					[
-						'name'     => 'exad_team_member_cta_btn_border_hover',
-						'selector' => '{{WRAPPER}} .exad-team-member-cta:hover'
-					]
-				);
-
-			$this->end_controls_tab();
-		
-		$this->end_controls_tabs();
-
-		$this->end_controls_section();
-
 		/*
-		* Name, Designation , About Font Color and Typography
+		* Name style
 		*/
 		$this->start_controls_section(
             'section_team_carousel_name',
@@ -1055,11 +898,166 @@ class Team_Member extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		/**
+		 * Call to action Style
+		 */
+        $this->start_controls_section(
+            'exad_team_member_cta_btn_style',
+            [
+				'label'     => __('Call To Action', 'exclusive-addons-elementor'),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_section_team_members_cta_btn' => 'yes'
+				]
+            ]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'exad_team_member_cta_btn_typography',
+				'selector' => '{{WRAPPER}} .exad-team-member-cta'
+			]
+		);
+		
+		$this->add_responsive_control(
+			'exad_team_member_cta_btn_margin',
+			[
+				'label'        => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::DIMENSIONS,
+				'size_units'   => [ 'px', '%', 'em' ],
+				'default'      => [
+					'top'      => '0',
+					'right'    => '0',
+					'bottom'   => '20',
+					'left'     => '0',
+					'isLinked' => false
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-team-member-cta' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_team_member_cta_btn_padding',
+			[
+				'label'        => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::DIMENSIONS,
+				'size_units'   => [ 'px', '%', 'em' ],
+				'default'      => [
+					'top'      => '15',
+					'right'    => '30',
+					'bottom'   => '15',
+					'left'     => '30',
+					'isLinked' => false
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-team-member-cta' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_team_member_cta_btn_radius',
+			[
+				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '0',
+					'bottom' => '0',
+					'left'   => '0'
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-team-member-cta' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_team_member_cta_btn_tabs' );
+
+			$this->start_controls_tab( 'exad_team_member_cta_btn_tab_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_team_member_cta_btn_text_color_normal',
+					[
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#222222',
+						'selectors' => [
+							'{{WRAPPER}} .exad-team-member-cta' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+				$this->add_control(
+					'exad_team_member_cta_btn_background_normal',
+					[
+						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#d6d6d6',
+						'selectors' => [
+							'{{WRAPPER}} .exad-team-member-cta' => 'background-color: {{VALUE}};'
+						]
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name'     => 'exad_team_member_cta_btn_border_normal',
+						'selector' => '{{WRAPPER}} .exad-team-member-cta'
+					]
+				);
+		
+			$this->end_controls_tab();
+
+			$this->start_controls_tab( 'exad_team_member_cta_btn_tab_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_team_member_cta_btn_text_color_hover',
+					[
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#d6d6d6',
+						'selectors' => [
+							'{{WRAPPER}} .exad-team-member-cta:hover' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+				$this->add_control(
+					'exad_team_member_cta_btn_background_hover',
+					[
+						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#222222',
+						'selectors' => [
+							'{{WRAPPER}} .exad-team-member-cta:hover' => 'background-color: {{VALUE}};'
+						]
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name'     => 'exad_team_member_cta_btn_border_hover',
+						'selector' => '{{WRAPPER}} .exad-team-member-cta:hover'
+					]
+				);
+
+			$this->end_controls_tab();
+		
+		$this->end_controls_tabs();
+
+		$this->end_controls_section();
 		
 		/**
 		 * Social icons style
 		 */
-
         $this->start_controls_section(
             'exad_team_member_social_section',
             [
