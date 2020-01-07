@@ -1,13 +1,11 @@
+// news ticker script starts
 
-/**
- * News Ticker
- */  
 var exclusiveNewsTicker = function( $scope, $ ) {
 
-    var $exad_news_ticker = $scope.find( '.exad-news-ticker' );
+    var exad_news_ticker = $scope.find( '.exad-news-ticker' );
 
-    if ( $.isFunction($.fn.breakingNews) ) {  
-        $exad_news_ticker.each(function() {
+    if ( $.isFunction( $.fn.breakingNews ) ) {  
+        exad_news_ticker.each( function() {
             var t            = $(this),
             auto             = t.data( 'autoplay' ) ? !0 : !1,
             animationEffect  = t.data( 'animation' ) ? t.data( 'animation' ) : '',                                   
@@ -18,7 +16,7 @@ var exclusiveNewsTicker = function( $scope, $ ) {
             height           = t.data( 'ticker_height' ) ? t.data( 'ticker_height' ) : '',                                   
             direction        = t.data( 'direction' ) ? t.data( 'direction' ) : ''; 
 
-            $(this).breakingNews({
+            $(this).breakingNews( {
                 position: fixedBottom,
                 play: auto,
                 direction: direction,
@@ -30,7 +28,9 @@ var exclusiveNewsTicker = function( $scope, $ ) {
                 fontSize: 'default',
                 themeColor: 'default',
                 background: 'default'             
-            });    
-        });
+            } );    
+        } );
     }
 };
+
+// news ticker script ends

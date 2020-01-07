@@ -1,7 +1,8 @@
-// Exclusive Tabs script
-var exclusiveTabs = function($scope, $) {
-    var $tabsWrapper = $scope.find( '[data-tabs]' ).eq(0);
-    $tabsWrapper.each( function() {
+// tabs script starts
+
+var exclusiveTabs   = function( $scope, $ ) {
+    var tabsWrapper = $scope.find( '[data-tabs]' ).eq(0);
+    tabsWrapper.each( function() {
         var tab         = $(this),
         isTabActive     = false,
         isContentActive = false;
@@ -9,16 +10,16 @@ var exclusiveTabs = function($scope, $) {
             if( $(this).hasClass( 'active' ) ){
                 isTabActive = true;
             }
-        });
-        tab.find('.exad-advance-tab-content').each( function (){
+        } );
+        tab.find( '.exad-advance-tab-content' ).each( function (){
             if( $(this).hasClass( 'active' ) ){
                 isContentActive = true;
             }
-        });
-        if(!isContentActive){
+        } );
+        if( !isContentActive ){
             tab.find( '.exad-advance-tab-content' ).eq(0).addClass( 'active' );
         }
-        if(!isTabActive){
+        if( !isTabActive ){
             tab.find( '[data-tab]' ).eq(0).addClass( 'active' );
         }
         tab.find( '[data-tab]' ).click(function() {
@@ -26,6 +27,8 @@ var exclusiveTabs = function($scope, $) {
             tab.find( '.exad-advance-tab-content' ).removeClass( 'active' );
             $(this).addClass( 'active' );
             tab.find( '.exad-advance-tab-content' ).eq($(this).index()).addClass( 'active' );
-        });
-    });
+        } );
+    } );
 }
+
+// tabs script ends

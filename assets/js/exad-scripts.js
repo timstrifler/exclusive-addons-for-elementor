@@ -3,51 +3,59 @@
 
     var editMode = false;
     
-// Accordion one script
-var exclusiveAccordion = function($scope, $) {
-    var $accordionTitle = $scope.find('.exad-accordion-title');
+// accordion script starts
+
+var exclusiveAccordion = function( $scope, $ ) {
+    var accordionTitle = $scope.find( '.exad-accordion-title' );
 
     // Open default actived tab
-    $accordionTitle.each(function(){
-        if($(this).hasClass('active-default')){
-            $(this).addClass('active');
-            $(this).next('.exad-accordion-content').slideDown();
+    accordionTitle.each(function(){
+        if($(this).hasClass( 'active-default' ) ){
+            $(this).addClass( 'active' );
+            $(this).next( '.exad-accordion-content' ).slideDown();
         }
     });
     
     // Remove multiple click event for nested accordion
-    $accordionTitle.unbind("click");
+    accordionTitle.unbind( 'click' );
 
     //$accordionWrapper.children('.exad-accordion-content').first().show();
-    $accordionTitle.click(function(e){
+    accordionTitle.click(function(e){
         e.preventDefault();
-        if ($(this).hasClass("active")) {
-            $(this).removeClass('active');
-            $(this).next().slideUp(400);
+        if ($(this).hasClass( 'active' ) ) {
+            $(this).removeClass( 'active' );
+            $(this).next().slideUp( 400 );
         } else {
-            $(this).parent().parent().find(".exad-accordion-title").removeClass("active");
-            $(this).parent().parent().find(".exad-accordion-content").slideUp(400);
-            $(this).toggleClass("active");
-            $(this).next().slideToggle(400);
+            $(this).parent().parent().find( '.exad-accordion-title' ).removeClass( 'active' );
+            $(this).parent().parent().find( '.exad-accordion-content' ).slideUp( 400 );
+            $(this).toggleClass( 'active' );
+            $(this).next().slideToggle( 400 );
         }	
     } );        
 }
-//Exclusive Alert
+
+// accordion script ends
+
+//alert script starts
+
 var exclusiveAlert = function( $scope, $ ) {
-    var $alertClose = $scope.find('[data-alert]').eq(0);
-    $alertClose.each( function(index){
+    var alertClose = $scope.find( '[data-alert]' ).eq(0);
+    alertClose.each( function(index){
         var alert = $(this);
-        alert.find('.exad-alert-element-dismiss-icon').click(function(e){
+        alert.find( '.exad-alert-element-dismiss-icon' ).click(function(e){
             e.preventDefault();
             alert.fadeOut(500);
         });
-        alert.find('.exad-alert-element-dismiss-button').click(function(e){
+        alert.find( '.exad-alert-element-dismiss-button' ).click(function(e){
             e.preventDefault();
             alert.fadeOut(500);
         });
     });
 }
-// Animated text script start
+
+//alert script ends
+
+// animated text script starts
 
 var exclusiveAnimatedText = function( $scope, $ ) {
   
@@ -67,7 +75,7 @@ var exclusiveAnimatedText = function( $scope, $ ) {
 	id                  = animateSelector.attr('id');
 
 	if ( 'function' === typeof Typed ) {
-		if( animationType === 'exad-typed-animation' ){
+		if( 'exad-typed-animation' === animationType ){
 			var typed = new Typed( '#'+id, {
 				strings: animatedWrapper.data('type_string'),
 				loop: loop,
@@ -83,8 +91,8 @@ var exclusiveAnimatedText = function( $scope, $ ) {
 	}
 
 
- 	if ( $.isFunction($.fn.Morphext) ) {
-		if( animationType === 'exad-morphed-animation' ){
+ 	if ( $.isFunction( $.fn.Morphext ) ) {
+		if( 'exad-morphed-animation' === animationType ){
 			$( animateSelector ).Morphext({
 				animation: animationStyle,
 				speed: animationSpeed
@@ -93,83 +101,93 @@ var exclusiveAnimatedText = function( $scope, $ ) {
 	}
 }
 
-// Animated text script end
-// Exclusive Button 
-var exclusiveButton = function ($scope, $) {
+// animated text script ends
+
+// exclusive Button script starts
+
+var exclusiveButton = function ( $scope, $ ) {
     // position on hover a button in button style seven
-    var $mouseHoverEffect8 = $scope.find('.effect-8.mouse-hover-effect').eq(0);
+    var mouseHoverEffect8 = $scope.find( '.effect-8.mouse-hover-effect' ).eq(0);
 
-    $mouseHoverEffect8.on('mouseenter', function (e) {
+    mouseHoverEffect8.on( 'mouseenter', function (e) {
         var parentOffset = $(this).offset(),
         relX = e.pageX - parentOffset.left,
         relY = e.pageY - parentOffset.top;
-        $(this).find('.effect-8-position').css({
+        $(this).find( '.effect-8-position' ).css({
             top: relY,
             left: relX
         })
-    });
+    } );
 
-    $mouseHoverEffect8.on('mouseout', function (e) {
+    mouseHoverEffect8.on( 'mouseout', function (e) {
         var parentOffset = $(this).offset(),
         relX = e.pageX - parentOffset.left,
         relY = e.pageY - parentOffset.top;
-        $(this).find('.effect-8-position').css({
+        $(this).find( '.effect-8-position' ).css({
             top: relY,
             left: relX
-        })
-    });
+        } )
+    } );
     // position on hover a button in button style seven
 }
-// Countdown Timer
-var exclusiveCountdownTimer = function ($scope, $) {
-    var $countdownTimerWrapper = $scope.find('[data-countdown]').eq(0);
 
-    if ( 'undefined' !== typeof $countdownTimerWrapper && null !== $countdownTimerWrapper ) {
-        var $this   = $countdownTimerWrapper,
-        finalDate   = $this.data('countdown'),
-        day         = $this.data('day'),
-        hours       = $this.data('hours'),
-        minutes     = $this.data('minutes'),
-        seconds     = $this.data('seconds'),
-        expiredText = $this.data('expired-text');
+// exclusive Button script ends
 
-        if ( $.isFunction($.fn.countdown) ) {
-            $this.countdown(finalDate, function (event) {
-                $(this).html(event.strftime(' ' +
+// countdown timer script starts
+
+var exclusiveCountdownTimer = function ( $scope, $ ) {
+    var countdownTimerWrapper = $scope.find( '[data-countdown]' ).eq(0);
+
+    if ( 'undefined' !== typeof countdownTimerWrapper && null !== countdownTimerWrapper ) {
+        var $this   = countdownTimerWrapper,
+        finalDate   = $this.data( 'countdown' ),
+        day         = $this.data( 'day' ),
+        hours       = $this.data( 'hours' ),
+        minutes     = $this.data( 'minutes' ),
+        seconds     = $this.data( 'seconds' ),
+        expiredText = $this.data( 'expired-text' );
+
+        if ( $.isFunction( $.fn.countdown ) ) {
+            $this.countdown( finalDate, function ( event ) {
+                $( this ).html( event.strftime(' ' +
                     '<div class="exad-countdown-container"><span class="exad-countdown-count">%-D </span><span class="exad-countdown-title">' + day + '</span></div>' +
                     '<div class="exad-countdown-container"><span class="exad-countdown-count">%H </span><span class="exad-countdown-title">' + hours + '</span></div>' +
                     '<div class="exad-countdown-container"><span class="exad-countdown-count">%M </span><span class="exad-countdown-title">' + minutes + '</span></div>' +
                     '<div class="exad-countdown-container"><span class="exad-countdown-count">%S </span><span class="exad-countdown-title">' + seconds + '</span></div>'));
-            }).on('finish.countdown', function (event) {
-                $(this).html('<p class="message">'+ expiredText +'</p>');
-            });
+            } ).on( 'finish.countdown', function (event) {
+                $(this).html( '<p class="message">'+ expiredText +'</p>' );
+            } );
         }
     }
 }
-// Filterable gallery
+
+// countdown timer script ends
+
+// filterable gallery script starts
+
 var exclusiveFilterableGallery = function( $scope, $ ) {
 
     if ( $.isFunction( $.fn.isotope ) ) {
-        var $galleryWrapper = $scope.find('#exad-gallery-one').eq(0),
-        $galleryElement     = $galleryWrapper.find('.exad-gallery-element'),
-        $galleryFilter      = $galleryWrapper.find('#filters'),
-        $galleryMenu        = $galleryWrapper.find('.exad-gallery-menu');
+        var galleryWrapper = $scope.find( '#exad-gallery-one' ).eq(0),
+        galleryElement     = galleryWrapper.find( '.exad-gallery-element' ),
+        galleryFilter      = galleryWrapper.find( '#filters' ),
+        galleryMenu        = galleryWrapper.find( '.exad-gallery-menu' );
 
         // filter functions
         var filterFns = {
             // show if number is greater than 50
             numberGreaterThan50: function() {
-                var number = $(this).find('.number').text();
+                var number = $(this).find( '.number' ).text();
                 return parseInt( number, 10 ) > 50;
             },
             // show if name ends with -ium
             ium: function() {
-                var name = $(this).find('.name').text();
+                var name = $(this).find( '.name' ).text();
                 return name.match( /ium$/ );
             }
         };    
 
-        var $gallery = $galleryElement.isotope({
+        var $gallery = galleryElement.isotope({
             itemSelector: '#exad-gallery-one .exad-gallery-item',
             layoutMode: 'fitRows',
             getSortData: {
@@ -178,33 +196,35 @@ var exclusiveFilterableGallery = function( $scope, $ ) {
                 number: '.number parseInt',
                 category: '[data-category]',
                 weight: function( itemElem ) {
-                    var weight = $( itemElem ).find('.weight').text();
+                    var weight = $( itemElem ).find( '.weight' ).text();
                     return parseFloat( weight.replace( /[\(\)]/g, '') );
                 }
             }
         });
 
         // bind filter button click
-        $galleryFilter.on( 'click', 'button', function() {
-            var filterValue = $( this ).attr('data-filter');
+        galleryFilter.on( 'click', 'button', function() {
+            var filterValue = $( this ).attr( 'data-filter' );
             // use filterFn if matches value
             filterValue = filterFns[ filterValue ] || filterValue;
             $gallery.isotope({ filter: filterValue });
         });
 
         // change is-checked class on buttons
-        $galleryMenu.each( function( i, buttonGroup ) {
+        galleryMenu.each( function( i, buttonGroup ) {
             var $buttonGroup = $( buttonGroup );
             $buttonGroup.on( 'click', 'button', function() {
-                $buttonGroup.find('.is-checked').removeClass('is-checked');
-                $( this ).addClass('is-checked');
+                $buttonGroup.find( '.is-checked' ).removeClass( 'is-checked' );
+                $( this ).addClass( 'is-checked' );
             });
         });
     }
 }
 
+// filterable gallery script ends
 
-// Google Maps
+// google maps script starts
+
 var exclusiveGoogleMaps = function($scope, $) {
 
     if ( $.isFunction($.fn.gmap3) ) {
@@ -259,7 +279,11 @@ var exclusiveGoogleMaps = function($scope, $) {
         );
     }
 }
-// Image Comparison
+
+// google maps script ends
+
+// image comparison script starts
+
 var exclusiveImageComparison = function($scope, $) {
     var imageComparison  = $scope.find( '.exad-image-comparision-element' ).eq(0),
     exadOrientation      = imageComparison.data( 'exad-oriantation' ),
@@ -279,7 +303,9 @@ var exclusiveImageComparison = function($scope, $) {
     }
 }
 
-// Image Magnifier JS
+// image comparison script ends
+
+// image magnifier script starts
 
 var exclusiveImageMagnifier = function($scope, $) {
 
@@ -329,15 +355,17 @@ var exclusiveImageMagnifier = function($scope, $) {
     })
 }
 
+// image magnifier script ends
 
+// logo carousel script starts
 
-// Logo Carousel
-var exclusiveLogoCarousel = function ($scope, $) {
+var exclusiveLogoCarousel = function ( $scope, $ ) {
 
     var logoCarouselWrapper = $scope.find( '.exad-logo-carousel-element' ).eq(0),
     slidesToShow            = logoCarouselWrapper.data( 'slidestoshow' ),
     slidesToScroll          = logoCarouselWrapper.data( 'slidestoscroll' ),
     carouselNav             = logoCarouselWrapper.data( 'carousel-nav' ),
+    direction               = logoCarouselWrapper.data( 'direction' ),
     loop                    = ( logoCarouselWrapper.data( 'loop' ) !== undefined ) ? logoCarouselWrapper.data( 'loop' ) : false,
     autoPlay                = ( logoCarouselWrapper.data( 'autoplay' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
     autoplaySpeed           = ( logoCarouselWrapper.data( 'autoplayspeed' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
@@ -357,7 +385,7 @@ var exclusiveLogoCarousel = function ($scope, $) {
         dots   = false;
     }
 
-    if ( $.isFunction($.fn.slick) ) {
+    if ( $.isFunction( $.fn.slick ) ) {
         logoCarouselWrapper.slick({
             infinite: loop,
             slidesToShow: slidesToShow,
@@ -365,6 +393,7 @@ var exclusiveLogoCarousel = function ($scope, $) {
             autoplay: autoPlay,
             autoplaySpeed: autoplaySpeed,
             dots: dots,
+            rtl: direction,
             arrows: arrows,
             prevArrow: '<div class="exad-logo-carousel-prev"><i class="eicon-chevron-left"></i></div>',
             nextArrow: '<div class="exad-logo-carousel-next"><i class="eicon-chevron-right"></i></div>',
@@ -392,45 +421,47 @@ var exclusiveLogoCarousel = function ($scope, $) {
     }
 }
 
+// logo carousel script ends
 
+// modal popup script starts
 
 var exclusiveModalPopup = function ($scope, $) {
 
-    var $modalWrapper    = $scope.find( '.exad-modal' ).eq(0),
-    $modalOverlayWrapper = $scope.find( '.exad-modal-overlay' ),
-    $modalItem           = $scope.find( '.exad-modal-item' ),
-    $modalAction         = $modalWrapper.find( '.exad-modal-image-action' ),
-    $closeButton         = $modalWrapper.find( '.exad-close-btn' );
+    var modalWrapper    = $scope.find( '.exad-modal' ).eq(0),
+    modalOverlayWrapper = $scope.find( '.exad-modal-overlay' ),
+    modalItem           = $scope.find( '.exad-modal-item' ),
+    modalAction         = modalWrapper.find( '.exad-modal-image-action' ),
+    closeButton         = modalWrapper.find( '.exad-close-btn' );
 
-    $modalAction.on( "click", function(e) {
+    modalAction.on( 'click', function(e) {
         e.preventDefault();
-        var $modalOverlay = $(this).parents().eq(1).next();
-        var modal         = $(this).data( "exad-modal" );
+        var modalOverlay = $(this).parents().eq(1).next();
+        var modal         = $(this).data( 'exad-modal' );
         
-        var $overlay = $(this).data( "exad-overlay" );
-        $modalItem.css( 'display', 'block' );
+        var overlay = $(this).data( 'exad-overlay' );
+        modalItem.css( 'display', 'block' );
         setTimeout( function() {
             $(modal).addClass( 'active' );
         }, 100);
-        if ( 'yes' === $overlay ) {
-            $modalOverlay.addClass( 'active' );
+        if ( 'yes' === overlay ) {
+            modalOverlay.addClass( 'active' );
         }
         
     });
 
-    $closeButton.click(function() {
-        var $modalOverlay = $(this).parents().eq(3).next();
-        var $modalItem    = $(this).parents().eq(2);
-        $modalOverlay.removeClass( 'active' );
-        $modalItem.removeClass( 'active' );
+    closeButton.click(function() {
+        var modalOverlay = $(this).parents().eq(3).next();
+        var modalItem    = $(this).parents().eq(2);
+        modalOverlay.removeClass( 'active' );
+        modalItem.removeClass( 'active' );
 
-        var $modal_iframe = $modalWrapper.find( 'iframe' ),
-        $modal_video_tag  = $modalWrapper.find( 'video' );
+        var modal_iframe = modalWrapper.find( 'iframe' ),
+        $modal_video_tag  = modalWrapper.find( 'video' );
 
-        if ( $modal_iframe.length ) {
-            var $modal_src = $modal_iframe.attr( "src" ).replace( "&autoplay=1", "" );
-            $modal_iframe.attr( "src", '' );
-            $modal_iframe.attr( "src", $modal_src );
+        if ( modal_iframe.length ) {
+            var modal_src = modal_iframe.attr( 'src' ).replace( '&autoplay=1', '' );
+            modal_iframe.attr( 'src', '' );
+            modal_iframe.attr( 'src', modal_src );
         }
         if ( $modal_video_tag.length ) {
             $modal_video_tag[0].pause();
@@ -439,19 +470,19 @@ var exclusiveModalPopup = function ($scope, $) {
         
     });
 
-    $modalOverlayWrapper.click(function(){
-        var $overlay_click_close = $(this).data( "exad_overlay_click_close" );
-        if( 'yes' === $overlay_click_close ){
+    modalOverlayWrapper.click(function(){
+        var overlay_click_close = $(this).data( 'exad_overlay_click_close' );
+        if( 'yes' === overlay_click_close ){
             $(this).removeClass( 'active' );
             $( '.exad-modal-item' ).removeClass( 'active' );
 
-            var $modal_iframe = $modalWrapper.find( 'iframe' ),
-            $modal_video_tag = $modalWrapper.find( 'video' );
+            var modal_iframe = modalWrapper.find( 'iframe' ),
+            $modal_video_tag = modalWrapper.find( 'video' );
 
-            if ( $modal_iframe.length ) {
-                var $modal_src = $modal_iframe.attr( "src" ).replace( "&autoplay=1", "" );
-                $modal_iframe.attr( "src", '' );
-                $modal_iframe.attr( "src", $modal_src );
+            if ( modal_iframe.length ) {
+                var modal_src = modal_iframe.attr( 'src' ).replace( '&autoplay=1', '' );
+                modal_iframe.attr( 'src', '' );
+                modal_iframe.attr( 'src', modal_src );
             }
             if ( $modal_video_tag.length ) {
                 $modal_video_tag[0].pause();
@@ -461,15 +492,16 @@ var exclusiveModalPopup = function ($scope, $) {
     });
 }
 
-/**
- * News Ticker
- */  
+// modal popup script ends
+
+// news ticker script starts
+
 var exclusiveNewsTicker = function( $scope, $ ) {
 
-    var $exad_news_ticker = $scope.find( '.exad-news-ticker' );
+    var exad_news_ticker = $scope.find( '.exad-news-ticker' );
 
-    if ( $.isFunction($.fn.breakingNews) ) {  
-        $exad_news_ticker.each(function() {
+    if ( $.isFunction( $.fn.breakingNews ) ) {  
+        exad_news_ticker.each( function() {
             var t            = $(this),
             auto             = t.data( 'autoplay' ) ? !0 : !1,
             animationEffect  = t.data( 'animation' ) ? t.data( 'animation' ) : '',                                   
@@ -480,7 +512,7 @@ var exclusiveNewsTicker = function( $scope, $ ) {
             height           = t.data( 'ticker_height' ) ? t.data( 'ticker_height' ) : '',                                   
             direction        = t.data( 'direction' ) ? t.data( 'direction' ) : ''; 
 
-            $(this).breakingNews({
+            $(this).breakingNews( {
                 position: fixedBottom,
                 play: auto,
                 direction: direction,
@@ -492,67 +524,72 @@ var exclusiveNewsTicker = function( $scope, $ ) {
                 fontSize: 'default',
                 themeColor: 'default',
                 background: 'default'             
-            });    
-        });
+            } );    
+        } );
     }
 };
-function animatedProgressbar(id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth){
-    var triggerClass = '.exad-progress-bar-'+id;
+
+// news ticker script ends
+
+// progress bar script starts
+
+function animatedProgressbar( id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth ){
+    var triggerClass = '.exad-progress-bar-' + id;
     if ( 'function' === typeof ldBar ) {
-        if( "line" === type ) {
+        if( 'line' === type ) {
             new ldBar( triggerClass, {
-                "type"              : 'stroke',
-                "path"              : 'M0 10L100 10',
-                "aspect-ratio"      : 'none',
-                "stroke"			: strokeColor,
-                "stroke-trail"	    : trailColor,
-                "stroke-width"      : strokeWidth,
-                "stroke-trail-width": strokeTrailWidth
-            }).set(value);
+                'type'              : 'stroke',
+                'path'              : 'M0 10L100 10',
+                'aspect-ratio'      : 'none',
+                'stroke'			: strokeColor,
+                'stroke-trail'	    : trailColor,
+                'stroke-width'      : strokeWidth,
+                'stroke-trail-width': strokeTrailWidth
+            } ).set( value );
         }
-        if( "line-bubble" === type ) {
+        if( 'line-bubble' === type ) {
             new ldBar( triggerClass, {
-                "type"              : 'stroke',
-                "path"              : 'M0 10L100 10',
-                "aspect-ratio"      : 'none',
-                "stroke"			: strokeColor,
-                "stroke-trail"		: trailColor,
-                "stroke-width"      : strokeWidth,
-                "stroke-trail-width": strokeTrailWidth
-            }).set(value);
-            $($( '.exad-progress-bar-'+id ).find( '.ldBar-label' )).animate({
+                'type'              : 'stroke',
+                'path'              : 'M0 10L100 10',
+                'aspect-ratio'      : 'none',
+                'stroke'			: strokeColor,
+                'stroke-trail'		: trailColor,
+                'stroke-width'      : strokeWidth,
+                'stroke-trail-width': strokeTrailWidth
+            } ).set( value );
+            $( $( '.exad-progress-bar-' + id ).find( '.ldBar-label' ) ).animate( {
                 left: value + '%'
             }, 1000, 'swing');
         }
-        if( "circle" === type ){
+        if( 'circle' === type ) {
             new ldBar( triggerClass, {
-                "type"				: 'stroke',
-                "path"			    : 'M50 10A40 40 0 0 1 50 90A40 40 0 0 1 50 10',
-                "stroke-dir"		: 'normal',
-                "stroke"		    : strokeColor,
-                "stroke-trail"	    : trailColor,
-                "stroke-width"	    : strokeWidth,
-                "stroke-trail-width": strokeTrailWidth,
-            }).set(value);
+                'type'				: 'stroke',
+                'path'			    : 'M50 10A40 40 0 0 1 50 90A40 40 0 0 1 50 10',
+                'stroke-dir'		: 'normal',
+                'stroke'		    : strokeColor,
+                'stroke-trail'	    : trailColor,
+                'stroke-width'	    : strokeWidth,
+                'stroke-trail-width': strokeTrailWidth
+            } ).set( value );
         }
-        if( "fan" === type ){
+        if( 'fan' === type ) {
             new ldBar( triggerClass, {
-                "type": 'stroke',
-                "path": 'M10 90A40 40 0 0 1 90 90',
-                "stroke": strokeColor,
-                "stroke-trail": trailColor,
-                "stroke-width": strokeWidth,
-                "stroke-trail-width": strokeTrailWidth,
-            }).set(value);
+                'type': 'stroke',
+                'path': 'M10 90A40 40 0 0 1 90 90',
+                'stroke': strokeColor,
+                'stroke-trail': trailColor,
+                'stroke-width': strokeWidth,
+                'stroke-trail-width': strokeTrailWidth
+            } ).set( value );
         }
     }
 }
 
-var exclusiveProgressBar = function ($scope, $){
-    var $progressBarWrapper = $scope.find('[data-progress-bar]').eq(0);
-    if ( $.isFunction($.fn.waypoint) ) {
-        $progressBarWrapper.waypoint(function () {
-            var element      = $(this.element),
+var exclusiveProgressBar = function ( $scope, $ ){
+    var progressBarWrapper = $scope.find( '[data-progress-bar]' ).eq( 0 );
+    if ( $.isFunction( $.fn.waypoint ) ) {
+        progressBarWrapper.waypoint( function () {
+            var element      = $( this.element ),
             id               = element.data( 'id' ),
             type             = element.data( 'type' ),
             value            = element.data( 'progress-bar-value' ),
@@ -564,13 +601,17 @@ var exclusiveProgressBar = function ($scope, $){
             this.destroy();
         }, {
             offset: 'bottom-in-view'
-        });
+        } );
     }
 }
-// Exclusive Tabs script
-var exclusiveTabs = function($scope, $) {
-    var $tabsWrapper = $scope.find( '[data-tabs]' ).eq(0);
-    $tabsWrapper.each( function() {
+
+// progress bar script ends
+
+// tabs script starts
+
+var exclusiveTabs   = function( $scope, $ ) {
+    var tabsWrapper = $scope.find( '[data-tabs]' ).eq(0);
+    tabsWrapper.each( function() {
         var tab         = $(this),
         isTabActive     = false,
         isContentActive = false;
@@ -578,16 +619,16 @@ var exclusiveTabs = function($scope, $) {
             if( $(this).hasClass( 'active' ) ){
                 isTabActive = true;
             }
-        });
-        tab.find('.exad-advance-tab-content').each( function (){
+        } );
+        tab.find( '.exad-advance-tab-content' ).each( function (){
             if( $(this).hasClass( 'active' ) ){
                 isContentActive = true;
             }
-        });
-        if(!isContentActive){
+        } );
+        if( !isContentActive ){
             tab.find( '.exad-advance-tab-content' ).eq(0).addClass( 'active' );
         }
-        if(!isTabActive){
+        if( !isTabActive ){
             tab.find( '[data-tab]' ).eq(0).addClass( 'active' );
         }
         tab.find( '[data-tab]' ).click(function() {
@@ -595,9 +636,11 @@ var exclusiveTabs = function($scope, $) {
             tab.find( '.exad-advance-tab-content' ).removeClass( 'active' );
             $(this).addClass( 'active' );
             tab.find( '.exad-advance-tab-content' ).eq($(this).index()).addClass( 'active' );
-        });
-    });
+        } );
+    } );
 }
+
+// tabs script ends
 
 $(window).on('elementor/frontend/init', function () {
     if( elementorFrontend.isEditMode() ) {

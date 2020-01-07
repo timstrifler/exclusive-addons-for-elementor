@@ -1,4 +1,5 @@
-// Image Comparison
+// image comparison script starts
+
 var exclusiveImageComparison = function($scope, $) {
     var imageComparison  = $scope.find( '.exad-image-comparision-element' ).eq(0),
     exadOrientation      = imageComparison.data( 'exad-oriantation' ),
@@ -17,3 +18,5 @@ var exclusiveImageComparison = function($scope, $) {
         } );
     }
 }
+
+// image comparison script ends

@@ -1,4 +1,4 @@
-// Animated text script start
+// animated text script starts
 
 var exclusiveAnimatedText = function( $scope, $ ) {
   
@@ -18,7 +18,7 @@ var exclusiveAnimatedText = function( $scope, $ ) {
 	id                  = animateSelector.attr('id');
 
 	if ( 'function' === typeof Typed ) {
-		if( animationType === 'exad-typed-animation' ){
+		if( 'exad-typed-animation' === animationType ){
 			var typed = new Typed( '#'+id, {
 				strings: animatedWrapper.data('type_string'),
 				loop: loop,
@@ -34,8 +34,8 @@ var exclusiveAnimatedText = function( $scope, $ ) {
 	}
 
 
- 	if ( $.isFunction($.fn.Morphext) ) {
-		if( animationType === 'exad-morphed-animation' ){
+ 	if ( $.isFunction( $.fn.Morphext ) ) {
+		if( 'exad-morphed-animation' === animationType ){
 			$( animateSelector ).Morphext({
 				animation: animationStyle,
 				speed: animationSpeed
@@ -44,4 +44,4 @@ var exclusiveAnimatedText = function( $scope, $ ) {
 	}
 }
 
-// Animated text script end
+// animated text script ends

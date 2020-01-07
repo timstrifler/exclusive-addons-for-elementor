@@ -737,7 +737,8 @@ class Logo_Carousel extends Widget_Base {
 
 	}
 	protected function render() {
-		$settings = $this->get_settings_for_display();
+		$settings  = $this->get_settings_for_display();
+		$direction = is_rtl() ? 'true' : 'false';
 
 		$this->add_render_attribute( 
 			'exad_logo_carousel', 
@@ -745,7 +746,8 @@ class Logo_Carousel extends Widget_Base {
 				'class'               => 'exad-logo-carousel-element',
 				'data-carousel-nav'   => esc_attr( $settings['exad_logo_carousel_nav'] ),
 				'data-slidestoshow'   => esc_attr( $settings['exad_logo_slide_to_show'] ),
-				'data-slidestoscroll' => esc_attr( $settings['exad_logo_slide_to_scroll'] )
+				'data-slidestoscroll' => esc_attr( $settings['exad_logo_slide_to_scroll'] ),
+				'data-direction'      => esc_attr( $direction )
 			]
 		);
 

@@ -1,10 +1,12 @@
-// Logo Carousel
-var exclusiveLogoCarousel = function ($scope, $) {
+// logo carousel script starts
+
+var exclusiveLogoCarousel = function ( $scope, $ ) {
 
     var logoCarouselWrapper = $scope.find( '.exad-logo-carousel-element' ).eq(0),
     slidesToShow            = logoCarouselWrapper.data( 'slidestoshow' ),
     slidesToScroll          = logoCarouselWrapper.data( 'slidestoscroll' ),
     carouselNav             = logoCarouselWrapper.data( 'carousel-nav' ),
+    direction               = logoCarouselWrapper.data( 'direction' ),
     loop                    = ( logoCarouselWrapper.data( 'loop' ) !== undefined ) ? logoCarouselWrapper.data( 'loop' ) : false,
     autoPlay                = ( logoCarouselWrapper.data( 'autoplay' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
     autoplaySpeed           = ( logoCarouselWrapper.data( 'autoplayspeed' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
@@ -24,7 +26,7 @@ var exclusiveLogoCarousel = function ($scope, $) {
         dots   = false;
     }
 
-    if ( $.isFunction($.fn.slick) ) {
+    if ( $.isFunction( $.fn.slick ) ) {
         logoCarouselWrapper.slick({
             infinite: loop,
             slidesToShow: slidesToShow,
@@ -32,6 +34,7 @@ var exclusiveLogoCarousel = function ($scope, $) {
             autoplay: autoPlay,
             autoplaySpeed: autoplaySpeed,
             dots: dots,
+            rtl: direction,
             arrows: arrows,
             prevArrow: '<div class="exad-logo-carousel-prev"><i class="eicon-chevron-left"></i></div>',
             nextArrow: '<div class="exad-logo-carousel-next"><i class="eicon-chevron-right"></i></div>',
@@ -59,3 +62,4 @@ var exclusiveLogoCarousel = function ($scope, $) {
     }
 }
 
+// logo carousel script ends

@@ -1,4 +1,5 @@
-// Google Maps
+// google maps script starts
+
 var exclusiveGoogleMaps = function($scope, $) {
 
     if ( $.isFunction($.fn.gmap3) ) {
@@ -53,3 +54,5 @@ var exclusiveGoogleMaps = function($scope, $) {
         );
     }
 }
+
+// google maps script ends

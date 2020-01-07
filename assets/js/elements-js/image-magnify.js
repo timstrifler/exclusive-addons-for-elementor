@@ -1,5 +1,4 @@
-
-// Image Magnifier JS
+// image magnifier script starts
 
 var exclusiveImageMagnifier = function($scope, $) {
 
@@ -49,4 +48,4 @@ var exclusiveImageMagnifier = function($scope, $) {
     })
 }
 
-
+// image magnifier script ends
