@@ -1,0 +1,18 @@
+.exad-alert .exad-alert-element .exad-alert-element-icon {
+	text-align: right;
+}
+
+ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow {
+    left: -6px;
+    right: inherit;
+}
+
+.exad-call-to-action-buttons li:not(:last-child) {
+    margin-left: 20px;
+    margin-right: inherit;
+}
+
+.exad-countdown.exad-countdown-divider .exad-countdown-container:after {
+    left: 0;
+    right: inherit;
+}

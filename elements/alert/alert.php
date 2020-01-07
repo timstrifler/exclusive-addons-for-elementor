@@ -465,6 +465,7 @@ class Alert extends Widget_Base {
             ]
         );
 
+        $dismiss_icon_spacing = is_rtl() ? 'left: {{SIZE}}{{UNIT}};' : 'right: {{SIZE}}{{UNIT}};';
         $this->add_responsive_control(
             'exad_alert_dismiss_icon_pos_right',
             [
@@ -488,7 +489,7 @@ class Alert extends Widget_Base {
                     ]
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => 'right: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => $dismiss_icon_spacing
                 ],
                 'condition'  => [
                   'exad_alert_close_button' => 'icon'

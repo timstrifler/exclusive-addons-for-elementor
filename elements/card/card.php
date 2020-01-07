@@ -487,6 +487,8 @@ class Card extends Widget_Base {
 			]
 		);
 
+		$badge_align = is_rtl() ? 'right' : 'left';
+
 		$this->add_responsive_control(
 			'exad_section_card_badge_left_offset',
 			[
@@ -508,7 +510,7 @@ class Card extends Widget_Base {
                     'size'     => 0
                 ],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-card-badge' => 'left: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-card-badge' => $badge_align.': {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -638,6 +640,8 @@ class Card extends Widget_Base {
 			]
 		);
 
+		$text_align = is_rtl() ? 'right' : 'left';
+
 		$this->add_control(
 			'exad_card_content_alignment',
 			[
@@ -657,7 +661,7 @@ class Card extends Widget_Base {
 						'icon'  => 'eicon-text-align-right'
 					]
 				],
-				'default'   => 'left',
+				'default'   => $text_align,
 				'toggle'    => false				
 			]
 		);
