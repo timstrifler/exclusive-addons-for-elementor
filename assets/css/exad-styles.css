@@ -1332,15 +1332,22 @@ ul.exad-call-to-action-buttons {
   overflow: hidden;
 }
 
-.exad-card.left .exad-card-thumb img {
+.exad-card.left .exad-card-thumb {
   margin-right: auto;
 }
-.exad-card.center .exad-card-thumb img {
+.exad-card.center .exad-card-thumb {
   margin-left: auto;
   margin-right: auto;
 }
-.exad-card.right .exad-card-thumb img {
+.exad-card.right .exad-card-thumb {
   margin-left: auto;
+}
+
+.exad-card .exad-card-thumb img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
 }
 
 .exad-card.text_on_image .exad-card-thumb img {
@@ -1371,6 +1378,14 @@ ul.exad-call-to-action-buttons {
 
 .exad-card:hover.yes .exad-card-thumb img{
   transform: scale(1.15);
+}
+
+.exad-card{
+  position: relative;
+}
+
+.exad-card-badge{
+  position: absolute;
 }
 
 /* Card Style End */
