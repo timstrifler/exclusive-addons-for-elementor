@@ -71,6 +71,17 @@ class Card extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_card_badge',
+			[
+				'label'       => esc_html__( 'Badge Text', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'separator'   => 'before',
+				'default'     => esc_html__( 'Card Badge', 'exclusive-addons-elementor' )
+			]
+		);
+
+		$this->add_control(
 			'exad_card_title',
 			[
 				'label'       => esc_html__( 'Title', 'exclusive-addons-elementor' ),
@@ -318,6 +329,81 @@ class Card extends Widget_Base {
 				]
 			]
 		);
+
+		$this->add_responsive_control(
+			'exad_section_card_image_height',
+			[
+				'label'       => __( 'Height', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb' => 'height: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_card_layout_type' => 'default'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_section_card_image_width',
+			[
+				'label'       => __( 'Width', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb' => 'width: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_card_layout_type' => 'default'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_card_image_padding',
+			[
+				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '0',
+					'bottom' => '0',
+					'left'   => '0',
+					'unit'   => 'px'
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-card-thumb' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_card_layout_type' => 'default'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'               => 'exad_card_image_border',
+				'selector'           => '{{WRAPPER}} .exad-card-thumb',
+				'condition'  => [
+					'exad_card_layout_type' => 'default'
+				]
+			]
+		);
 		
 		$this->add_responsive_control(
 			'exad_card_image_radius',
@@ -335,6 +421,17 @@ class Card extends Widget_Base {
 				'selectors'  => [
 					'{{WRAPPER}} .exad-card-thumb' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
+				'condition'  => [
+					'exad_card_layout_type' => 'default'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'               => 'exad_card_image_box_shadow',
+				'selector'           => '{{WRAPPER}} .exad-card-thumb',
 				'condition'  => [
 					'exad_card_layout_type' => 'default'
 				]
@@ -359,6 +456,157 @@ class Card extends Widget_Base {
 				'label_off'    => __( 'OFF', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
+			]
+		);
+
+		$this->end_controls_section();
+
+		/*
+		* Card Badge Style Section
+		*/
+		$this->start_controls_section(
+			'exad_section_card_badge_style',
+			[
+				'label' => esc_html__( 'Badge', 'exclusive-addons-elementor' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_section_card_badge_left_offset',
+			[
+				'label'       => __( 'X-Offset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					],
+					'%'      => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'default'      => [
+                    'unit'     => '%',
+                    'size'     => 0
+                ],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-badge' => 'left: {{SIZE}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_section_card_badge_top_offset',
+			[
+				'label'       => __( 'Y-Offset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					],
+					'%'      => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'default'      => [
+                    'unit'     => '%',
+                    'size'     => 0
+                ],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-badge' => 'top: {{SIZE}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_section_card_badge_background',
+			[
+				'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#222222',
+				'selectors' => [
+					'{{WRAPPER}} .exad-card-badge' => 'background: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_section_card_badge_text_color',
+			[
+				'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#fff',
+				'selectors' => [
+					'{{WRAPPER}} .exad-card-badge' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'exad_section_card_badge_typography',
+				'selector' => '{{WRAPPER}} .exad-card-badge'
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_card_badge_padding',
+			[
+				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default'    => [
+					'top'    => '10',
+					'right'  => '15',
+					'bottom' => '10',
+					'left'   => '15',
+					'unit'   => 'px'
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-card-badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'               => 'exad_card_badge_border',
+				'selector'           => '{{WRAPPER}} .exad-card-badge'
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_card_badge_radius',
+			[
+				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default'    => [
+					'top'    => '30',
+					'right'  => '30',
+					'bottom' => '30',
+					'left'   => '30',
+					'unit'   => 'px'
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-card-badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'               => 'exad_card_badge_box_shadow',
+				'selector'           => '{{WRAPPER}} .exad-card-badge'
 			]
 		);
 
@@ -414,6 +662,33 @@ class Card extends Widget_Base {
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-card-body' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'               => 'exad_card_content_border',
+				'selector'           => '{{WRAPPER}} .exad-card-body'
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_card_content_radius',
+			[
+				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '0',
+					'bottom' => '0',
+					'left'   => '0',
+					'unit'   => 'px'
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-card-body' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -867,6 +1142,12 @@ class Card extends Widget_Base {
 	          	echo '</div>';
 			endif;
 
+			if( !empty( $settings['exad_card_badge'] ) ) :
+				echo '<div class="exad-card-badge">';
+					echo $settings['exad_card_badge'];
+				echo '</div>';
+			endif;
+
           	echo '<div class="exad-card-body">';
           		if( $settings['exad_card_title'] ) {
 	          		echo '<a '.$this->get_render_attribute_string( 'exad_card_title_link' ).'>';
@@ -955,6 +1236,12 @@ class Card extends Widget_Base {
 			<# if ( image_url ) { #>
 		    	<div class="exad-card-thumb">
 					<img src="{{{ image_url }}}">
+				</div>
+			<# } #>
+
+			<# if( settings.exad_card_badge ) { #>
+				<div class="exad-card-badge">
+					{{{ settings.exad_card_badge }}}
 				</div>
 			<# } #>
 
