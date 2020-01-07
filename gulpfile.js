@@ -37,7 +37,9 @@ var concat = require('gulp-concat');
 gulp.task('cssmin', function() {
     return gulp.src([
         'admin/assets/css/*.css',
-        'assets/css/*.css'
+        'assets/css/*.css',
+        '!admin/assets/css/*.min.css',
+        '!assets/css/*.min.css'
         ])
         .pipe(cssnano())
         .pipe(rename(function (path) {
@@ -55,7 +57,9 @@ gulp.task('cssmin', function() {
 gulp.task('jsmin', function () {
     return gulp.src([
         'admin/assets/js/*.js',
-        'assets/js/*.js'
+        'assets/js/*.js',
+        '!admin/assets/js/*.min.js',
+        '!assets/js/*.min.js'
         ])
         .pipe(uglify())
         .pipe(rename(function (path) {
