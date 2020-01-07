@@ -71,13 +71,28 @@ class Card extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_card_badge_switcher',
+			[
+				'label' => __( 'Enable Badge', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
 			'exad_card_badge',
 			[
 				'label'       => esc_html__( 'Badge Text', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'separator'   => 'before',
-				'default'     => esc_html__( 'Card Badge', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Card Badge', 'exclusive-addons-elementor' ),
+				'condition'   => [
+					'exad_card_badge_switcher' => 'yes'
+				]
 			]
 		);
 
@@ -1142,7 +1157,7 @@ class Card extends Widget_Base {
 	          	echo '</div>';
 			endif;
 
-			if( !empty( $settings['exad_card_badge'] ) ) :
+			if( $settings['exad_card_badge_switcher'] === 'yes' ) :
 				echo '<div class="exad-card-badge">';
 					echo $settings['exad_card_badge'];
 				echo '</div>';
@@ -1239,7 +1254,7 @@ class Card extends Widget_Base {
 				</div>
 			<# } #>
 
-			<# if( settings.exad_card_badge ) { #>
+			<# if( settings.exad_card_badge_switcher === 'yes' ) { #>
 				<div class="exad-card-badge">
 					{{{ settings.exad_card_badge }}}
 				</div>
