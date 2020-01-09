@@ -378,6 +378,43 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
+        
+        $this->add_responsive_control(
+            'exad_contact_input_field_height',
+            [
+                'label'        => esc_html__( 'Input Field Height', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 0,
+                        'max'  => 150,
+                        'step' => 1
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 50
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-contact-form-7 input[type="text"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="email"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="url"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="password"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="search"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="number"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="tel"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="range"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="date"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="month"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="week"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="time"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="datetime"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="datetime-local"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="color"]' => 'height: {{SIZE}}px;'
+                ]
+            ]
+        );
+
 		$this->add_control(
 			'exad_contact_field_padding',
 			[
