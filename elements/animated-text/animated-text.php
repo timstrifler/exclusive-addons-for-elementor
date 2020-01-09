@@ -370,7 +370,6 @@ class Animated_Text extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_pre_animated_text_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'fields_options'   => [
 		            'font_size'    => [
 		                'default'  => [
@@ -415,7 +414,6 @@ class Animated_Text extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_animated_text_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'fields_options'   => [
 		            'font_size'    => [
 		                'default'  => [
@@ -485,7 +483,6 @@ class Animated_Text extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_post_animated_text_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'fields_options'   => [
 		            'font_size'    => [
 		                'default'  => [

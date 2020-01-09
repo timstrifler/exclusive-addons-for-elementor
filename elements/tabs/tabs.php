@@ -1053,7 +1053,6 @@ class Tabs extends Widget_Base {
 		$this->add_render_attribute(
 			'exad_tab_wrapper',
 			[
-				'id'     => "exad-advance-tabs-{$this->get_id()}",
 				'class'	 => [ 
 					'exad-advance-tab', 
 					esc_attr( $settings['exad_exclusive_tabs_oriantation'] ),

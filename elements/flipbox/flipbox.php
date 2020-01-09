@@ -865,7 +865,6 @@ class Flipbox extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_flipbox_button_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-action',
 			 	'fields_options'  => [
 		            'font_weight' => [

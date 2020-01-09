@@ -12,7 +12,7 @@ var exclusiveImageMagnifier = function($scope, $) {
     $large.css("background","url('" + $small.attr("src") + "') no-repeat");
     
     //Now the mousemove function
-    $magnify.mousemove(function(e){
+    $magnify.mousemove( function(e){
         
         if(!native_width && !native_height) {
             var image_object = new Image();
@@ -45,7 +45,7 @@ var exclusiveImageMagnifier = function($scope, $) {
                 $large.css({left: px, top: py, backgroundPosition: bgp});
             }
         }
-    })
+    } )
 }
 
 // image magnifier script ends

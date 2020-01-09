@@ -278,7 +278,6 @@ class Contact_Form_7 extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
                 'name'     => 'exad_cf7_container_shadow',
-                'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-contact-form'
 			]
 		);
@@ -565,7 +564,6 @@ class Contact_Form_7 extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'           => 'exad_cf7_button_shadow',
-                'label'          => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector'       => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]',
                 'fields_options' => [
                     'box_shadow_type' => [ 

@@ -374,7 +374,6 @@ class Heading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_heading_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} h1.exad-exclusive-heading-title'
 			]
 		);
@@ -427,7 +426,6 @@ class Heading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_heading_text_background_typography',
-				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-heading-text-background .exad-exclusive-heading-title::after'
 			]
 		);

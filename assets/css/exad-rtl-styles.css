@@ -2,11 +2,6 @@
 	text-align: right;
 }
 
-ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow {
-    left: -6px;
-    right: inherit;
-}
-
 .exad-call-to-action-buttons li:not(:last-child) {
     margin-left: 20px;
     margin-right: inherit;
@@ -15,4 +10,39 @@ ul.exad-breadcrumb-items li.exad-breadcrumb-item i.exad-arrow {
 .exad-countdown.exad-countdown-divider .exad-countdown-container:after {
     left: 0;
     right: inherit;
+}
+
+.exad-image-comparision .twentytwenty-handle {
+    right: 50%;
+    left: inherit;
+}
+
+.exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:before {
+    right: 50%;
+    margin-right: 15px;
+    left: inherit;
+    margin-left: inherit;
+}
+
+.exad-image-comparision .twentytwenty-down-arrow, 
+.exad-image-comparision .twentytwenty-up-arrow {
+    right: 50%;
+    margin-right: -6px;
+    left: inherit;
+    margin-left: inherit;
+}
+
+.exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:after {
+    left: 0;
+    margin-left: 15px;
+    right: auto;
+    margin-right: inherit;
+}
+
+.right .exad-pricing-table-features li {
+    justify-content: flex-start;
+}
+
+.left .exad-pricing-table-features li {
+    justify-content: flex-end;
 }

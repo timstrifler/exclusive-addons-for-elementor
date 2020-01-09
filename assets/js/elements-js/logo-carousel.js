@@ -1,15 +1,14 @@
 // logo carousel script starts
 
-var exclusiveLogoCarousel = function ( $scope, $ ) {
-
+var exclusiveLogoCarousel   = function ( $scope, $ ) {
     var logoCarouselWrapper = $scope.find( '.exad-logo-carousel-element' ).eq(0),
     slidesToShow            = logoCarouselWrapper.data( 'slidestoshow' ),
     slidesToScroll          = logoCarouselWrapper.data( 'slidestoscroll' ),
     carouselNav             = logoCarouselWrapper.data( 'carousel-nav' ),
     direction               = logoCarouselWrapper.data( 'direction' ),
-    loop                    = ( logoCarouselWrapper.data( 'loop' ) !== undefined ) ? logoCarouselWrapper.data( 'loop' ) : false,
-    autoPlay                = ( logoCarouselWrapper.data( 'autoplay' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
-    autoplaySpeed           = ( logoCarouselWrapper.data( 'autoplayspeed' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
+    loop                    = undefined !== logoCarouselWrapper.data( 'loop' ) ? logoCarouselWrapper.data( 'loop' ) : false,
+    autoPlay                = undefined !== logoCarouselWrapper.data( 'autoplay' ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
+    autoplaySpeed           = undefined !== logoCarouselWrapper.data( 'autoplayspeed' ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
 
     var arrows, dots;
     if ( 'both' === carouselNav ) {
@@ -27,7 +26,7 @@ var exclusiveLogoCarousel = function ( $scope, $ ) {
     }
 
     if ( $.isFunction( $.fn.slick ) ) {
-        logoCarouselWrapper.slick({
+        logoCarouselWrapper.slick( {
             infinite: loop,
             slidesToShow: slidesToShow,
             slidesToScroll: slidesToScroll,
@@ -58,7 +57,7 @@ var exclusiveLogoCarousel = function ( $scope, $ ) {
                     }
                 }
             ]
-        });	
+        } );	
     }
 }
 
