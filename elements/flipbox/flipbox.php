@@ -120,13 +120,28 @@ class Flipbox extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_flipbox_back_button_enable',
+			[
+				'label' => __( 'Show Button', 'plugin-domain' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'your-plugin' ),
+				'label_off' => __( 'Hide', 'your-plugin' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
 			'exad_flipbox_button_text',
 			[
 				'label'     => __( 'Button Text', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::TEXT,
 				'dynamic'   => [ 'active' => true ],
 				'default'   => __( 'Read More', 'exclusive-addons-elementor' ),
-				'separator' => 'before'
+				'separator' => 'before',
+				'condition' => [
+					'exad_flipbox_back_button_enable' => 'yes'
+				]
 			]
 		);
 
@@ -140,7 +155,10 @@ class Flipbox extends Widget_Base {
 					'url'         => '#',
 					'is_external' => ''
      			],
-     			'show_external' => true
+				'show_external' => true,
+				 'condition' => [
+					'exad_flipbox_back_button_enable' => 'yes'
+				]
 			]
 		);
 
@@ -425,7 +443,7 @@ class Flipbox extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
                     'exad_flipbox_front_icon[value]!' => ''
@@ -744,7 +762,7 @@ class Flipbox extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back i'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back .exad-flip-box-back-image'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 				'condition' => [
                     'exad_flipbox_back_icon[value]!' => ''
@@ -1108,9 +1126,11 @@ class Flipbox extends Widget_Base {
 
 				        do_action('exad_flipbox_backend_content_wrapper_after');
 
-				        echo '<a '.$this->get_render_attribute_string( 'exad_flipbox_button_link' ).'>';
-				        	echo '<span '.$this->get_render_attribute_string( 'exad_flipbox_button_text' ).'>'.esc_html( $settings['exad_flipbox_button_text'] ).'</span>';
-			        	echo '</a>';
+						if ( $settings['exad_flipbox_back_button_enable'] === 'yes' ) {
+							echo '<a '.$this->get_render_attribute_string( 'exad_flipbox_button_link' ).'>';
+								echo '<span '.$this->get_render_attribute_string( 'exad_flipbox_button_text' ).'>'.esc_html( $settings['exad_flipbox_button_text'] ).'</span>';
+							echo '</a>';
+						}
 			        echo '</div>';
 		        echo '</div>';
 	      	echo '</div>';
@@ -1201,8 +1221,8 @@ class Flipbox extends Widget_Base {
 				        	</div>
 				    	<# } #>
 
-				    	<# if ( settings.exad_flipbox_button_text ) { #>
-				            <a href="{{{ settings.exad_flipbox_button_link.url }}}" {{{ view.getRenderAttributeString( 'exad_flipbox_button_link' ) }}}{{{ target }}}{{{ nofollow }}}>
+						<# if ( settings.exad_flipbox_back_button_enable === 'yes' ) { #>
+							<a href="{{{ settings.exad_flipbox_button_link.url }}}" {{{ view.getRenderAttributeString( 'exad_flipbox_button_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 								<span {{{ view.getRenderAttributeString( 'exad_flipbox_button_text' ) }}}>
 									{{{ settings.exad_flipbox_button_text }}}
 								</span>
