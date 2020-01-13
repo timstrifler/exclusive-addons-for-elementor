@@ -1,59 +1,40 @@
+
 // filterable gallery script starts
 
 var exclusiveFilterableGallery = function( $scope, $ ) {
+    // $(window).load(function(){
+    // var $container = $scope.find( '.exad-gallery-element' ).eq(0);
 
-    if ( $.isFunction( $.fn.isotope ) ) {
-        var galleryWrapper = $scope.find( '#exad-gallery-one' ).eq(0),
-        galleryElement     = galleryWrapper.find( '.exad-gallery-element' ),
-        galleryFilter      = galleryWrapper.find( '#filters' ),
-        galleryMenu        = galleryWrapper.find( '.exad-gallery-menu' );
 
-        // filter functions
-        var filterFns = {
-            // show if number is greater than 50
-            numberGreaterThan50: function() {
-                var number = $(this).find( '.number' ).text();
-                return parseInt( number, 10 ) > 50;
-            },
-            // show if name ends with -ium
-            ium: function() {
-                var name = $(this).find( '.name' ).text();
-                return name.match( /ium$/ );
+        var exadGetTable       = $scope.find( '.exad-gallery-element' ).eq(0),
+        currentTableId         = '#' + exadGetTable.attr('id'),
+        $container             = $scope.find( currentTableId ).eq(0);
+        
+        var galleryMainWrapper = $scope.find( '.exad-gallery-items' ).eq(0),
+        galleryItem            = '#' + galleryMainWrapper.attr('id');
+
+
+        $container.isotope({
+            filter: '*',
+            animationOptions: {
+                queue: true
             }
-        };    
+        });
 
-        var $gallery = galleryElement.isotope({
-            itemSelector: '#exad-gallery-one .exad-gallery-item',
-            layoutMode: 'fitRows',
-            getSortData: {
-                name: '.name',
-                symbol: '.symbol',
-                number: '.number parseInt',
-                category: '[data-category]',
-                weight: function( itemElem ) {
-                    var weight = $( itemElem ).find( '.weight' ).text();
-                    return parseFloat( weight.replace( /[\(\)]/g, '') );
+        $( galleryItem + ' .exad-gallery-menu li' ).click(function(){
+            $( galleryItem + ' .exad-gallery-menu li.current' ).removeClass('current');
+            $(this).addClass('current');
+     
+            var selector = $(this).attr('data-filter');
+            $container.isotope({
+                filter: selector,
+                animationOptions: {
+                    queue: true
                 }
-            }
-        });
-
-        // bind filter button click
-        galleryFilter.on( 'click', 'button', function() {
-            var filterValue = $( this ).attr( 'data-filter' );
-            // use filterFn if matches value
-            filterValue = filterFns[ filterValue ] || filterValue;
-            $gallery.isotope({ filter: filterValue });
-        });
-
-        // change is-checked class on buttons
-        galleryMenu.each( function( i, buttonGroup ) {
-            var $buttonGroup = $( buttonGroup );
-            $buttonGroup.on( 'click', 'button', function() {
-                $buttonGroup.find( '.is-checked' ).removeClass( 'is-checked' );
-                $( this ).addClass( 'is-checked' );
-            });
-        });
-    }
+             });
+             return false;
+        }); 
+    // }); 
 }
 
 // filterable gallery script ends

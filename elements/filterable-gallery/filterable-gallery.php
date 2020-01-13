@@ -995,13 +995,16 @@ class Filterable_Gallery extends Widget_Base
         $show_details = $settings['exad_fg_show_details'];
 
         do_action('exad_fg_wrapper_before');
-        echo '<div class="exad-gallery-items">';
-            echo '<div id="exad-gallery-one">';
+        echo '<div id ="exad-filterable-gallery-id-'.$this->get_id().'" class="exad-gallery-items">';
+            echo '<div class="exad-gallery-one exad-gallery-wrapper">';
                 if( 'yes' === $settings['exad_fg_show_constrols'] ):
-                    echo '<div id="filters" class="exad-gallery-menu">';
+                    echo '<ul class="filters exad-gallery-menu">';
+                    // echo '<div '.$this->get_render_attribute_string( 'exad-filter-items-wrapper' ).'>';
                         do_action('exad_fg_controls_wrapper_before');
                         if(!empty($settings['exad_fg_all_items_text'])):
-                            echo '<button class="filter-item is-checked" data-filter="*">'.esc_html($settings['exad_fg_all_items_text']);
+                            echo '<li data-filter="*" class="current"><span>'.esc_html($settings['exad_fg_all_items_text']).'</span></li>';
+                            // echo '<button class="current is-checked" data-filter="*">'.esc_html($settings['exad_fg_all_items_text']);
+                            // echo '<li data-filter="*" class="current"><span>'.esc_html($settings['wpb_ea_image_gallery_cat_control_for_all']).'</span></li>';
                         endif;
                         $exad_gallerycontrols                  = array_column($settings['exad_fg_gallery_items'], 'exad_fg_gallery_control_name');
                         $exad_fg_controls_comma_separated = implode(', ', $exad_gallerycontrols);
@@ -1012,13 +1015,14 @@ class Filterable_Gallery extends Widget_Base
 
                         foreach( $exad_fg_controls_items as $control ) :
                             $control_attribute = preg_replace('#[ -]+#', '-', $control);
-                            echo '<button class="filter-item" data-filter=".'.esc_attr($control_attribute).'">'.esc_attr($control).'</button>';
+                            echo '<li data-filter=".'.esc_attr( $control_attribute ).'"><span>'.esc_attr($control).'</span></li>';
+                            // echo '<button class="filter-item" data-filter=".'.esc_attr($control_attribute).'">'.esc_attr($control).'</button>';
                         endforeach;
                         do_action('exad_fg_controls_wrapper_after');
                     echo '</div>';
                 endif;
 
-                echo '<div class="exad-gallery-element">';
+                echo '<div id ="filters-'.$this->get_id().'" class="exad-gallery-element">';
                     foreach( $settings['exad_fg_gallery_items'] as $index => $gallery ) :
                         $exad_controls                = $gallery['exad_fg_gallery_control_name'];
                         $exad_controls_to_array       = explode(",",$exad_controls);

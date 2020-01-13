@@ -163,62 +163,43 @@ var exclusiveCountdownTimer = function ( $scope, $ ) {
 
 // countdown timer script ends
 
+
 // filterable gallery script starts
 
 var exclusiveFilterableGallery = function( $scope, $ ) {
+    // $(window).load(function(){
+    // var $container = $scope.find( '.exad-gallery-element' ).eq(0);
 
-    if ( $.isFunction( $.fn.isotope ) ) {
-        var galleryWrapper = $scope.find( '#exad-gallery-one' ).eq(0),
-        galleryElement     = galleryWrapper.find( '.exad-gallery-element' ),
-        galleryFilter      = galleryWrapper.find( '#filters' ),
-        galleryMenu        = galleryWrapper.find( '.exad-gallery-menu' );
 
-        // filter functions
-        var filterFns = {
-            // show if number is greater than 50
-            numberGreaterThan50: function() {
-                var number = $(this).find( '.number' ).text();
-                return parseInt( number, 10 ) > 50;
-            },
-            // show if name ends with -ium
-            ium: function() {
-                var name = $(this).find( '.name' ).text();
-                return name.match( /ium$/ );
+        var exadGetTable       = $scope.find( '.exad-gallery-element' ).eq(0),
+        currentTableId         = '#' + exadGetTable.attr('id'),
+        $container             = $scope.find( currentTableId ).eq(0);
+        
+        var galleryMainWrapper = $scope.find( '.exad-gallery-items' ).eq(0),
+        galleryItem            = '#' + galleryMainWrapper.attr('id');
+
+
+        $container.isotope({
+            filter: '*',
+            animationOptions: {
+                queue: true
             }
-        };    
+        });
 
-        var $gallery = galleryElement.isotope({
-            itemSelector: '#exad-gallery-one .exad-gallery-item',
-            layoutMode: 'fitRows',
-            getSortData: {
-                name: '.name',
-                symbol: '.symbol',
-                number: '.number parseInt',
-                category: '[data-category]',
-                weight: function( itemElem ) {
-                    var weight = $( itemElem ).find( '.weight' ).text();
-                    return parseFloat( weight.replace( /[\(\)]/g, '') );
+        $( galleryItem + ' .exad-gallery-menu li' ).click(function(){
+            $( galleryItem + ' .exad-gallery-menu li.current' ).removeClass('current');
+            $(this).addClass('current');
+     
+            var selector = $(this).attr('data-filter');
+            $container.isotope({
+                filter: selector,
+                animationOptions: {
+                    queue: true
                 }
-            }
-        });
-
-        // bind filter button click
-        galleryFilter.on( 'click', 'button', function() {
-            var filterValue = $( this ).attr( 'data-filter' );
-            // use filterFn if matches value
-            filterValue = filterFns[ filterValue ] || filterValue;
-            $gallery.isotope({ filter: filterValue });
-        });
-
-        // change is-checked class on buttons
-        galleryMenu.each( function( i, buttonGroup ) {
-            var $buttonGroup = $( buttonGroup );
-            $buttonGroup.on( 'click', 'button', function() {
-                $buttonGroup.find( '.is-checked' ).removeClass( 'is-checked' );
-                $( this ).addClass( 'is-checked' );
-            });
-        });
-    }
+             });
+             return false;
+        }); 
+    // }); 
 }
 
 // filterable gallery script ends
@@ -319,7 +300,7 @@ var exclusiveImageMagnifier = function($scope, $) {
     $large.css("background","url('" + $small.attr("src") + "') no-repeat");
     
     //Now the mousemove function
-    $magnify.mousemove(function(e){
+    $magnify.mousemove( function(e){
         
         if(!native_width && !native_height) {
             var image_object = new Image();
@@ -352,23 +333,22 @@ var exclusiveImageMagnifier = function($scope, $) {
                 $large.css({left: px, top: py, backgroundPosition: bgp});
             }
         }
-    })
+    } )
 }
 
 // image magnifier script ends
 
 // logo carousel script starts
 
-var exclusiveLogoCarousel = function ( $scope, $ ) {
-
+var exclusiveLogoCarousel   = function ( $scope, $ ) {
     var logoCarouselWrapper = $scope.find( '.exad-logo-carousel-element' ).eq(0),
     slidesToShow            = logoCarouselWrapper.data( 'slidestoshow' ),
     slidesToScroll          = logoCarouselWrapper.data( 'slidestoscroll' ),
     carouselNav             = logoCarouselWrapper.data( 'carousel-nav' ),
     direction               = logoCarouselWrapper.data( 'direction' ),
-    loop                    = ( logoCarouselWrapper.data( 'loop' ) !== undefined ) ? logoCarouselWrapper.data( 'loop' ) : false,
-    autoPlay                = ( logoCarouselWrapper.data( 'autoplay' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
-    autoplaySpeed           = ( logoCarouselWrapper.data( 'autoplayspeed' ) !== undefined ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
+    loop                    = undefined !== logoCarouselWrapper.data( 'loop' ) ? logoCarouselWrapper.data( 'loop' ) : false,
+    autoPlay                = undefined !== logoCarouselWrapper.data( 'autoplay' ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
+    autoplaySpeed           = undefined !== logoCarouselWrapper.data( 'autoplayspeed' ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
 
     var arrows, dots;
     if ( 'both' === carouselNav ) {
@@ -386,7 +366,7 @@ var exclusiveLogoCarousel = function ( $scope, $ ) {
     }
 
     if ( $.isFunction( $.fn.slick ) ) {
-        logoCarouselWrapper.slick({
+        logoCarouselWrapper.slick( {
             infinite: loop,
             slidesToShow: slidesToShow,
             slidesToScroll: slidesToScroll,
@@ -417,7 +397,7 @@ var exclusiveLogoCarousel = function ( $scope, $ ) {
                     }
                 }
             ]
-        });	
+        } );	
     }
 }
 
@@ -447,9 +427,9 @@ var exclusiveModalPopup = function ($scope, $) {
             modalOverlay.addClass( 'active' );
         }
         
-    });
+    } );
 
-    closeButton.click(function() {
+    closeButton.click( function() {
         var modalOverlay = $(this).parents().eq(3).next();
         var modalItem    = $(this).parents().eq(2);
         modalOverlay.removeClass( 'active' );
@@ -468,9 +448,9 @@ var exclusiveModalPopup = function ($scope, $) {
             $modal_video_tag[0].currentTime = 0;
         }
         
-    });
+    } );
 
-    modalOverlayWrapper.click(function(){
+    modalOverlayWrapper.click( function() {
         var overlay_click_close = $(this).data( 'exad_overlay_click_close' );
         if( 'yes' === overlay_click_close ){
             $(this).removeClass( 'active' );
@@ -489,7 +469,7 @@ var exclusiveModalPopup = function ($scope, $) {
                 $modal_video_tag[0].currentTime = 0;
             }
         }
-    });
+    } );
 }
 
 // modal popup script ends
@@ -527,7 +507,7 @@ var exclusiveNewsTicker = function( $scope, $ ) {
             } );    
         } );
     }
-};
+}
 
 // news ticker script ends
 
