@@ -1491,21 +1491,9 @@ ul.exad-call-to-action-buttons {
   transition: all .4s ease;
 }
 
-/* .exad-contact-form-7 .wpcf7-form input[type="submit"]:hover {
-  background-color: #FFF;
-  color: #724cff;
-  border-color: #724cff;
-} */
-
 .exad-contact-form .exad-contact-form-input-action i {
   margin-left: 10px;
 }
-
-/* .exad-contact-form .exad-contact-form-input-action:hover {
-  color: #ff9c44;
-  background: #fff;
-  border: 1px solid #ff9c44;
-} */
 
 .exad-contact-form.two {
   display: flex;
@@ -4313,6 +4301,10 @@ text-align: right;
   right: 30px;
   top: 0;
   z-index: 2;
+}
+
+.exad-pricing-table-promo-label{
+  display: block;
 }
 
 /* Pricing Table End */

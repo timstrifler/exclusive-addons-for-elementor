@@ -94,7 +94,58 @@ class Pricing_Table extends Widget_Base {
 			]	
 		);
 
-  		$this->end_controls_section();
+		$this->end_controls_section();
+		  
+		/**
+  		 * Pricing Table Promo label
+  		 */
+  		$this->start_controls_section(
+			'exad_section_pricing_table_promo_section',
+			[
+				'label' => esc_html__( 'Promo Label', 'exclusive-addons-elementor' )
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_promo_enable',
+			[
+				'label'        => esc_html__( 'Promo Label?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'no'
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_promo_title',
+			[
+				'label'       => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => false,
+				'default'     => esc_html__( 'Recommended', 'exclusive-addons-elementor' ),
+				'condition'   => [
+					'exad_pricing_table_promo_enable' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_promo_position',
+			[
+				'label'        => __( 'Position', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'promo_top',
+				'options'      => [
+					'promo_top'    => __( 'Top', 'exclusive-addons-elementor' ),
+					'promo_bottom' => __( 'Bottom', 'exclusive-addons-elementor' ),
+				],
+				'condition'    => [
+					'exad_pricing_table_promo_enable' => 'yes'
+				]
+			]
+		);
+
+		$this->end_controls_section();
 
   		/**
   		 * Pricing Table Settings
@@ -462,6 +513,120 @@ class Pricing_Table extends Widget_Base {
 
 		/**
 		 * -------------------------------------------
+		 * Style (Promo label)
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'exad_section_pricing_table_promo_style',
+			[
+				'label'     => esc_html__( 'Promo Label', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_pricing_table_promo_enable' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_promo_alignment',
+			[
+				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'toggle'    => false,
+				'options'   => [
+					'left'      => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-left'
+					],
+					'center'    => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-center'
+					],
+					'right'     => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-text-align-right'
+					]
+				],
+				'default'   => 'center',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-promo-label' => 'text-align: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'exad_pricing_table_promo_background',
+				'types'     => [ 'classic', 'gradient' ],
+				'selector'  => '{{WRAPPER}} .exad-pricing-table-promo-label',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'exad_pricing_table_promo_typography',
+				'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-pricing-table-promo-label',
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_promo_text-color',
+			[
+				'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#000',
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-promo-label' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_pricing_table_promo_padding',
+			[
+				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default'    => [
+					'top'      => '15',
+					'right'    => '30',
+					'bottom'   => '15',
+					'left'     => '30',
+					'unit'     => 'px',
+					'isLinked' => false,
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-pricing-table-promo-label' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_pricing_table_promo_radius',
+			[
+				'label'      => __( 'Border radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default'    => [
+					'top'      => '0',
+					'right'    => '0',
+					'bottom'   => '0',
+					'left'     => '0',
+					'isLinked' => true
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-pricing-table-promo-label' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->end_controls_section();
+
+		/**
+		 * -------------------------------------------
 		 * Style (Header)
 		 * -------------------------------------------
 		 */
@@ -492,9 +657,6 @@ class Pricing_Table extends Widget_Base {
 				'name'      => 'exad_pricing_table_header_background',
 				'types'     => [ 'classic', 'gradient' ],
 				'selector'  => '{{WRAPPER}} .exad-pricing-table-header',
-				'condition' => [
-					'exad_pricing_table_header_type' => 'curved-header'
-				]
 			]
 		);
 
@@ -1387,6 +1549,9 @@ class Pricing_Table extends Widget_Base {
 		$this->add_render_attribute( 'exad_pricing_table_featured_tag_text', 'class', 'exad-pricing-featured-tag-text' );
 		$this->add_inline_editing_attributes( 'exad_pricing_table_featured_tag_text', 'none' );
 
+		$this->add_render_attribute( 'exad_pricing_table_promo_title', 'class', 'exad-pricing-table-promo-label' );
+		$this->add_inline_editing_attributes( 'exad_pricing_table_promo_title', 'none' );
+
 		$this->add_render_attribute( 'exad_pricing_table_title', 'class', 'exad-pricing-table-title' );
 		$this->add_inline_editing_attributes( 'exad_pricing_table_title', 'basic' );
 
@@ -1430,6 +1595,11 @@ class Pricing_Table extends Widget_Base {
         $this->add_inline_editing_attributes( 'exad_pricing_table_btn', 'none' );
 
 		echo '<div '.$this->get_render_attribute_string( 'exad_pricing_table_wrapper' ).'>';
+			if( 'promo_top' === $settings['exad_pricing_table_promo_position'] ) {
+				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) {
+					echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_promo_title' ).'>'.$settings['exad_pricing_table_promo_title'].'</span>';
+				}
+			}
 			echo '<div class="exad-pricing-table-badge-wrapper">';
 
 				if ( 'yes' === $settings['exad_pricing_table_featured'] ) {
@@ -1529,6 +1699,11 @@ class Pricing_Table extends Widget_Base {
 					$this->pricing_table_btn();
 				} 
 			echo '</div>';
+			if( 'promo_bottom' === $settings['exad_pricing_table_promo_position'] ) {
+				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) {
+					echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_promo_title' ).'>'.$settings['exad_pricing_table_promo_title'].'</span>';
+				}
+			}
 		echo '</div>';
 	}
 
@@ -1592,6 +1767,11 @@ class Pricing_Table extends Widget_Base {
     	#>
 
     	<div {{{ view.getRenderAttributeString( 'exad_pricing_table_wrapper' ) }}}>
+			<# if( 'promo_top' === settings.exad_pricing_table_promo_position ) { #>
+				<# if( 'yes' === settings.exad_pricing_table_promo_enable ) { #>
+					<span class="exad-pricing-table-promo-label">{{{ settings.exad_pricing_table_promo_title }}}</span>
+				<# } #>
+			<# } #>
     		<div class="exad-pricing-table-badge-wrapper">
 				<# if ( 'yes' === settings.exad_pricing_table_featured ) { #>
 					<span class="exad-pricing-table-badge {{{ settings.exad_pricing_table_featured_type }}}">
@@ -1718,6 +1898,11 @@ class Pricing_Table extends Widget_Base {
 				<# } #>
     		
     		</div>
+			<# if( 'promo_bottom' === settings.exad_pricing_table_promo_position ) { #>
+				<# if( 'yes' === settings.exad_pricing_table_promo_enable ) { #>
+					<span class="exad-pricing-table-promo-label">{{{ settings.exad_pricing_table_promo_title }}}</span>
+				<# } #>
+			<# } #>
     	</div>
     	<?php
     }

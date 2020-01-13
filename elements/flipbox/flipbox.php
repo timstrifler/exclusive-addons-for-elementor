@@ -413,7 +413,8 @@ class Flipbox extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => $exad_primary_color,
 				'selectors' => [
-					'{{WRAPPER}} .exad-flip-box .exad-flip-box-front .exad-flip-box-front-image i' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-front .exad-flip-box-front-image i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-front .exad-flip-box-front-image svg path' => 'fill: {{VALUE}};'
 				],
 				'condition' => [
                     'exad_flipbox_front_icon[value]!' => ''
@@ -731,7 +732,8 @@ class Flipbox extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back i' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back svg path' => 'fill: {{VALUE}};'
 				],
 				'condition' => [
                     'exad_flipbox_back_icon[value]!' => ''

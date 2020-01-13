@@ -132,6 +132,14 @@ class Modal_Popup extends Widget_Base {
 			]
 		);
 
+		$image_repeater->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'      => 'thumbnail',
+				'default'   => 'full',
+			]
+		);
+
 		$image_repeater->add_control(
 			'exad_modal_image_gallery_text',
 			[
@@ -814,6 +822,29 @@ class Modal_Popup extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
+
+		$this->add_control(
+            'exad_modal_close_btn_icon_size',
+            [
+				'label'      => __( 'Icon Size', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+                    'px'       => [
+						'min'  => 0,
+						'max'  => 30,
+                    ],
+                ],
+                'default'   => [
+                    'unit'  => 'px',
+                    'size'  => 20
+                ],
+                'selectors' => [
+					'{{WRAPPER}} .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span::before' => 'width: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn span::after' => 'height: {{SIZE}}{{UNIT}}'
+                ],
+            ]
+        );
 
         $this->add_control(
 			'exad_modal_close_btn_color',
