@@ -18,8 +18,8 @@ var exclusiveFilterableGallery = function( $scope, $ ) {
             }
         });
 
-        $( galleryItem + ' .exad-gallery-menu li' ).click(function(){
-            $( galleryItem + ' .exad-gallery-menu li.current' ).removeClass('current');
+        $( galleryItem + ' .exad-gallery-menu button' ).click(function(){
+            $( galleryItem + ' .exad-gallery-menu button.current' ).removeClass('current');
             $(this).addClass('current');
      
             var selector = $(this).attr('data-filter');

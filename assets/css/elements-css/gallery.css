@@ -6,14 +6,14 @@
 
 .exad-gallery-items .exad-gallery-content-wrapper {
   position: relative;
-    overflow: hidden;
+  overflow: hidden;
 }
 .exad-gallery-items .exad-gallery-image .exad-gallery-thumbnail-holder {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100.1%;
+    height: 100.1%;
     background-position: center;
     background-size: cover;
     z-index: 0;
@@ -21,6 +21,7 @@
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
     will-change: transform;
+    overflow: hidden;
 }
 .exad-gallery-items .exad-gallery-image {
     position: relative;
@@ -182,7 +183,7 @@
   width: 50%;
 }
 .exad-gallery-element .exad-gallery-item.exad-col-3 {
-  width: 33.33%;
+  width: 33.3333333333333%;
 }
 .exad-gallery-element .exad-gallery-item.exad-col-4 {
   width: 25%;
