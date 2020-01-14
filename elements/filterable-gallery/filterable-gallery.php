@@ -127,7 +127,7 @@ class Filterable_Gallery extends Widget_Base
             [
                 'label'   => esc_html__('Columns', 'exclusive-addons-elementor'),
                 'type'    => Controls_Manager::SELECT,
-                'default' => 'exad-col-2',
+                'default' => 'exad-col-3',
                 'options' => [
                     'exad-col-1' => esc_html__('1', 'exclusive-addons-elementor'),
                     'exad-col-2' => esc_html__('2',   'exclusive-addons-elementor'),
@@ -1002,9 +1002,8 @@ class Filterable_Gallery extends Widget_Base
                     // echo '<div '.$this->get_render_attribute_string( 'exad-filter-items-wrapper' ).'>';
                         do_action('exad_fg_controls_wrapper_before');
                         if(!empty($settings['exad_fg_all_items_text'])):
-                            echo '<li data-filter="*" class="current"><span>'.esc_html($settings['exad_fg_all_items_text']).'</span></li>';
-                            // echo '<button class="current is-checked" data-filter="*">'.esc_html($settings['exad_fg_all_items_text']);
-                            // echo '<li data-filter="*" class="current"><span>'.esc_html($settings['wpb_ea_image_gallery_cat_control_for_all']).'</span></li>';
+                            // echo '<li data-filter="*" class="current"><span>'.esc_html($settings['exad_fg_all_items_text']).'</span></li>';
+                            echo '<li data-filter="*" class="current">'.esc_html($settings['exad_fg_all_items_text']).'</li>';
                         endif;
                         $exad_gallerycontrols                  = array_column($settings['exad_fg_gallery_items'], 'exad_fg_gallery_control_name');
                         $exad_fg_controls_comma_separated = implode(', ', $exad_gallerycontrols);
@@ -1015,8 +1014,8 @@ class Filterable_Gallery extends Widget_Base
 
                         foreach( $exad_fg_controls_items as $control ) :
                             $control_attribute = preg_replace('#[ -]+#', '-', $control);
-                            echo '<li data-filter=".'.esc_attr( $control_attribute ).'"><span>'.esc_attr($control).'</span></li>';
-                            // echo '<button class="filter-item" data-filter=".'.esc_attr($control_attribute).'">'.esc_attr($control).'</button>';
+                            // echo '<li data-filter=".'.esc_attr( $control_attribute ).'"><span>'.esc_attr($control).'</span></li>';
+                            echo '<li data-filter=".'.esc_attr($control_attribute).'">'.esc_attr($control).'</li>';
                         endforeach;
                         do_action('exad_fg_controls_wrapper_after');
                     echo '</div>';
@@ -1043,7 +1042,7 @@ class Filterable_Gallery extends Widget_Base
                                     } else { 
                                         $fg_image_url = $fg_image_src_url;
                                     }
-                                    echo '<img src="'.esc_url( $fg_image_url ).'" alt="'.Control_Media::get_image_alt( $gallery['exad_fg_gallery_img'] ).'">';
+                                    echo '<div class="exad-gallery-thumbnail-holder" style="background-image: url('. esc_url( $fg_image_url ) .');"></div>';
                                     echo '<div class="exad-gallery-item-overlay '.esc_attr( $settings['exad_fg_grid_hover_style'] ).'">';
                                         echo '<div class="exad-gallery-item-overlay-content">';
 
@@ -1125,5 +1124,43 @@ class Filterable_Gallery extends Widget_Base
         echo '</div>';
         do_action('exad_fg_wrapper_after');
 
+        if (\Elementor\Plugin::instance()->editor->is_edit_mode()) {
+            $this->render_editor_script();
+        }
+    }
+
+    protected function render_editor_script()
+        {?>
+        <script type="text/javascript">
+            jQuery(document).ready( function($) {
+                $('.exad-gallery-items').each(function(){
+                    var $container  = $(this).find('.exad-gallery-element');
+                    var carouselNav = $container.attr('id');
+
+                    var galleryItem = '#' + $(this).attr('id');
+                    $container.isotope( {
+                        filter: '*',
+                        animationOptions: {
+                            queue: true
+                        }
+                    } );
+
+                    $( galleryItem + ' .exad-gallery-menu li' ).click(function(){
+                        $( galleryItem + ' .exad-gallery-menu .current' ).removeClass( 'current' );
+                        $(this).addClass('current');
+                 
+                        var selector = $(this).attr('data-filter');
+                        $container.isotope( {
+                            filter: selector,
+                            animationOptions: {
+                                queue: true
+                            }
+                        } );
+                        return false;
+                    } );
+                } );
+            } );
+        </script>
+    <?php
     }
 }
