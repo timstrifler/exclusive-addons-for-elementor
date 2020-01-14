@@ -1113,7 +1113,7 @@ class Filterable_Gallery extends Widget_Base
 
     private function filterable_gallery_content( $position, $show_title, $show_details, $title, $content ) {
         $content_position = 'below-image' === $position ? ' below-image' : ''; 
-        
+
         $output = '<div class="exad-gallery-item-content'.esc_attr( $content_position ).'">';
             $output .= do_action( 'exad_fg_content_wrapper_before' );
             if( 'yes' === $show_title && !empty( $title ) ):
@@ -1131,32 +1131,34 @@ class Filterable_Gallery extends Widget_Base
         {?>
         <script type="text/javascript">
             jQuery(document).ready( function($) {
-                $('.exad-gallery-items').each(function(){
-                    var $container  = $(this).find('.exad-gallery-element');
-                    var carouselNav = $container.attr('id');
+                if ( $.isFunction( $.fn.isotope ) ) {
+                    $('.exad-gallery-items').each(function(){
+                        var $container  = $(this).find('.exad-gallery-element');
+                        var carouselNav = $container.attr('id');
 
-                    var galleryItem = '#' + $(this).attr('id');
-                    $container.isotope( {
-                        filter: '*',
-                        animationOptions: {
-                            queue: true
-                        }
-                    } );
-
-                    $( galleryItem + ' .exad-gallery-menu button' ).click(function(){
-                        $( galleryItem + ' .exad-gallery-menu button.current' ).removeClass( 'current' );
-                        $(this).addClass('current');
-                 
-                        var selector = $(this).attr('data-filter');
+                        var galleryItem = '#' + $(this).attr('id');
                         $container.isotope( {
-                            filter: selector,
+                            filter: '*',
                             animationOptions: {
                                 queue: true
                             }
                         } );
-                        return false;
+
+                        $( galleryItem + ' .exad-gallery-menu button' ).click(function(){
+                            $( galleryItem + ' .exad-gallery-menu button.current' ).removeClass( 'current' );
+                            $(this).addClass('current');
+                     
+                            var selector = $(this).attr('data-filter');
+                            $container.isotope( {
+                                filter: selector,
+                                animationOptions: {
+                                    queue: true
+                                }
+                            } );
+                            return false;
+                        } );
                     } );
-                } );
+                }
             } );
         </script>
     <?php
