@@ -438,7 +438,7 @@ class Animated_Text extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => $exad_secondary_color,
 				'selectors' => [
-					'{{WRAPPER}} .exad-animated-text-animated-heading' => 'color: {{VALUE}}'
+					'{{WRAPPER}} .exad-animated-text-animated-heading, {{WRAPPER}} span.typed-cursor' => 'color: {{VALUE}}'
 				]
 			]
 		);
