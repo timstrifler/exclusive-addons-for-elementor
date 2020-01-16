@@ -18,11 +18,50 @@ We'd love to add that for you.
 
 [Check out our Demos](http://exclusiveaddons.com/)
 
+### 30 "USEFUL" FREE WIDGETS and counting...
+
+Unlike other Elementor addons, the Happy Elementor Addons comes with a host of free yet powerful widgets. The magical widgets will impress you so much that you will be confused whether they are premium or free:
+
+1. **[Card](https://demo.happyaddons.com/elementor-card-widget-demo/)** – Incredibly powerful widget to demonstrate your products, articles, news, creative posts using a beautiful combination of texts, links, badge, and image. Using built-in positioning and offset feature you can create eye-candy designs in a twist. [Check demo](https://demo.happyaddons.com/elementor-card-widget-demo/)
+2. **[Gradient Heading](https://demo.happyaddons.com/elementor-gradient-heading-widget-demo/)** – Another gem to create eye candy headings for your websites. You can apply different gradient styles, angles, opacity, and positions to make them look even better across different device screens. [Check demo](https://demo.happyaddons.com/elementor-gradient-heading-widget-demo/)
+3. **[Info Box](https://demo.happyaddons.com/elementor-info-box-widget-demo/)** – Create beautiful information boxes using icons, links, and texts, and make them slick using the built-in positioning features. [Check demo](https://demo.happyaddons.com/elementor-info-box-widget-demo/)
+4. **[Icon Box](https://demo.happyaddons.com/elementor-icon-box-widget-demo/)** – A simplified version of Infobox but comes with powerful display features. Perfect for showcasing interesting information to your users in various styles. [Check demo](https://demo.happyaddons.com/elementor-icon-box-widget-demo/)
+5. **[Image Compare](https://demo.happyaddons.com/elementor-image-compare-widget-demo/)** – Are you a photo-editor, agency or product designer who often needs to showcase their beautiful works in a form of before and after slider? This widget is perfect for this job. And built-in styling options, vertical and horizontal orientation features can help you design these before-after sections with more creativity. [Check demo](https://demo.happyaddons.com/elementor-image-compare-widget-demo/)
+6. **[Team Member](https://demo.happyaddons.com/elementor-team-member-widget-demo/)** – A perfect widget to showcase your beautiful team in various styles using texts, images, and social links. And just like our other widgets, you will find powerful styling options to make them stand out quite easily. [Check demo](https://demo.happyaddons.com/elementor-team-member-widget-demo/)
+7. **[Review](https://demo.happyaddons.com/elementor-review-widget-demo/)** – Showcase your user feedback, reviews, and rating easily than ever using our review widget. Display user photos, texts and star ratings. Make them stand out using built-in offsets and positioning features. [Check demo](https://demo.happyaddons.com/elementor-review-widget-demo/)
+8. **[Skill Bars](https://demo.happyaddons.com/elementor-skill-bars-widget-demo/)** – An essential building block to showcase user skills, task percentage, required tools, and other progressive information in different ways. It comes with incredible customizing options to suit your needs. [Check demo](https://demo.happyaddons.com/elementor-skill-bars-widget-demo/)
+9. **[Contact Form 7](https://demo.happyaddons.com/elementor-contact-form-7-widget-demo/)** – This utility widget helps you to integrate existing forms built using CF7 plugin across your web pages without spending too much time. [Check demo](https://demo.happyaddons.com/elementor-contact-form-7-widget-demo/)
+10. **[Caldera Forms](https://demo.happyaddons.com/elementor-caldera-forms-widget-demo/)** – This widget can help you to display your caldera forms to display on your web pages designed with Elementor. [Check demo](https://demo.happyaddons.com/elementor-caldera-forms-widget-demo/)
+11. **[weForms](https://demo.happyaddons.com/elementor-we-forms-widget-demo/)** – Designed forms using weForms plugin and looking for a way to display those on your Elementor powered pages? This is the answer to that. [Check demo](https://demo.happyaddons.com/elementor-we-forms-widget-demo/)
+12. **[Ninja Forms](https://demo.happyaddons.com/elementor-ninja-form-widget-demo/)** – Use this widget to embed forms created using Ninja Forms to display seamlessly on your web pages. Various styling options will help you to look at them even better. [Check demo](https://demo.happyaddons.com/elementor-ninja-form-widget-demo/)
+13. **[WPForms](https://demo.happyaddons.com/elementor-wpform-widget-demo/)** – Use this widget to embed forms created using WPForms to display seamlessly on your web pages. Various styling options will help you to look at them even better. [Check demo](https://demo.happyaddons.com/elementor-wpform-widget-demo/)
+14. **[Dual Button](https://demo.happyaddons.com/elementor-dual-button-widget-demo/)** – DualButton widget allows you to add two flexible and trendy action buttons in your sections, in different styles. [Check demo](https://demo.happyaddons.com/elementor-dual-button-widget-demo/)
+15. **[Testimonial](https://demo.happyaddons.com/elementor-testimonial-widget-demo/)** – Create beautiful testimonial sections with different look-n-feels using HappyAddons Testimonial widget. [Check demo](https://demo.happyaddons.com/elementor-testimonial-widget-demo/)
+16. **[Justified Grid](https://demo.happyaddons.com/elementor-justified-grid-widget-demo/)** – Another pro-grade widget that can help you to create the beautiful justified grid. It comes packed with tons of options to make it stand out from the crowd. [Check demo](https://demo.happyaddons.com/elementor-justified-grid-widget-demo/)
+17. **[Number](https://demo.happyaddons.com/elementor-number-widget-demo/)** – Simply beautiful, this widget can help you create stunning number blocks with various styles, look-n-feels that’s literally going to blow your mind. [Check demo](https://demo.happyaddons.com/elementor-number-widget-demo/)
+18. **[Logo Grid](https://demo.happyaddons.com/elementor-logo-grid-widget-demo)** – Showcase your clients or products using our logo grid widget, and display these items with styles. [Check demo](https://demo.happyaddons.com/elementor-logo-grid-widget-demo)
+19. **[Carousel](https://demo.happyaddons.com/elementor-carousel-widget-demo/)** – Create interesting image and text carousels using our carousel widget which comes with a lot of options. [Check demo](https://demo.happyaddons.com/elementor-carousel-widget-demo/)
+20. **[Slider](https://demo.happyaddons.com/elementor-slider-widget-demo/)** – Now you can create sliders with beautiful animations and effects using our Slider widget. And just like our other widgets, there are lots of customization options for you. [Check demo](https://demo.happyaddons.com/elementor-slider-widget-demo/)
+21. **[Step Flow](https://demo.happyaddons.com/elementor-step-flow-widget-demo/)** – Create an excellent step by step visual diagram and instructions using this smart widget. Change directions, counters and make them look amazing with icons, texts, and colors. [Check demo](https://demo.happyaddons.com/elementor-step-flow-widget-demo/)
+22. **[Calendly](https://demo.happyaddons.com/elementor-calendly-widget-demo/)** – Schedule meetings without the back-and-forth emails through Calendly. We are happy to integrate this important application in our HappyAddons. [Check demo](https://demo.happyaddons.com/elementor-calendly-widget-demo/)
+23. **[Flip Box](https://demo.happyaddons.com/elementor-flip-box-widget-demo/)** – FlipBox helps you to deliver messages in a beautiful way with before and after-effects. [Check demo](https://demo.happyaddons.com/elementor-flip-box-widget-demo/)
+24. **[Pricing Table](https://demo.happyaddons.com/elementor-pricing-table-widget-demo/)** – Create beautiful pricing tables with lots of customizations and sleek look-n-feel using this widget. [Check demo](https://demo.happyaddons.com/elementor-pricing-table-widget-demo/)
+25. **[Image Grid](https://demo.happyaddons.com/elementor-image-grid-widget-demo/)** – Simply beautiful, this widget can help you create stunning number blocks with various styles, look-n-feels that’s literally going to blow your mind. [Check demo](https://demo.happyaddons.com/elementor-image-grid-widget-demo/)
+26. **[Gravity Forms](https://happyaddons.com/docs/happy-addons-for-elementor/widgets/gravity-forms/)** - While using Gravity forms, you may want to change the appearance of the form fields. With the Happy Addons, you can spruce up your Gravity forms like a pro. [Check demo](https://happyaddons.com/docs/happy-addons-for-elementor/widgets/gravity-forms/)
+27. **[News Ticker](https://happyaddons.com/docs/happy-addons-for-elementor/widgets/news-ticker/)** - Want to show updates, popular content or messages on your website? With the Happy Elementor Addons Content Ticker widget, you can do this at your disposal with great customizability.
+28.
+29.
+30. 
+
+
 ### 30+ Elementor widgets
 We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
 
 ### Global Style Settings
 This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
+
+### Incredibly Customizeable
+Excluisive Addons is Incredibly Customizeable with all the options you could ever imagine. Feel free to shout out if you still need any options.
 
 ### Inline Editing with Live Preview
 We have enabled Inline Editing with Live Preview for most of our elements. That means you can see as you edit your element without the delay of a second.
