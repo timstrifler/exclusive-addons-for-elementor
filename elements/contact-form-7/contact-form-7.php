@@ -598,29 +598,6 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name'           => 'exad_cf7_button_shadow',
-                'label'          => __( 'Box Shadow', 'exclusive-addons-elementor' ),
-                'selector'       => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]',
-                'fields_options' => [
-                    'box_shadow_type' => [ 
-                        'default'     =>'yes' 
-                    ],
-                    'box_shadow'  => [
-                        'default' => [
-                            'horizontal' => 0,
-                            'vertical'   => 13,
-                            'blur'       => 33,
-                            'spread'     => 0,
-                            'color'      => 'rgba(51, 77, 128, 0.2)'
-                        ]
-                    ]
-                ]
-            ]
-        );
-
         $this->start_controls_tabs( 'tabs_button_style' );
 
         $this->start_controls_tab(
@@ -678,6 +655,29 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name'           => 'exad_contact_button_box_shadow_normal',
+                'label'          => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+                'selector'       => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]',
+                'fields_options' => [
+                    'box_shadow_type' => [ 
+                        'default'     =>'yes' 
+                    ],
+                    'box_shadow'  => [
+                        'default' => [
+                            'horizontal' => 0,
+                            'vertical'   => 13,
+                            'blur'       => 33,
+                            'spread'     => 0,
+                            'color'      => 'rgba(51, 77, 128, 0.2)'
+                        ]
+                    ]
+                ]
+            ]
+        );
+
         $this->end_controls_tab();
 
         $this->start_controls_tab(
@@ -716,6 +716,15 @@ class Contact_Form_7 extends Widget_Base {
             [
                 'name'     => 'exad_contact_button_border_hover',
                 'selector' => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]:hover'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name'           => 'exad_contact_button_box_shadow_hover',
+                'label'          => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+                'selector'       => '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]:hover'
             ]
         );
         
