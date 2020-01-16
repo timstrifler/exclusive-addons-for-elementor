@@ -167,15 +167,15 @@ var exclusiveCountdownTimer = function ( $scope, $ ) {
 // filterable gallery script starts
 
 var exclusiveFilterableGallery = function( $scope, $ ) {
-    $(window).load(function(){
+    $( window ).load( function() {
 
         if ( $.isFunction( $.fn.isotope ) ) {
-            var exadGetTable       = $scope.find( '.exad-gallery-element' ).eq(0),
-            currentTableId         = '#' + exadGetTable.attr('id'),
-            $container             = $scope.find( currentTableId ).eq(0);
+            var exadGetTable       = $scope.find( '.exad-gallery-element' ).eq( 0 ),
+            currentTableId         = '#' + exadGetTable.attr( 'id' ),
+            $container             = $scope.find( currentTableId ).eq( 0 );
             
-            var galleryMainWrapper = $scope.find( '.exad-gallery-items' ).eq(0),
-            galleryItem            = '#' + galleryMainWrapper.attr('id');
+            var galleryMainWrapper = $scope.find( '.exad-gallery-items' ).eq( 0 ),
+            galleryItem            = '#' + galleryMainWrapper.attr( 'id' );
 
             $container.isotope({
                 filter: '*',
@@ -184,12 +184,12 @@ var exclusiveFilterableGallery = function( $scope, $ ) {
                 }
             });
 
-            $( galleryItem + ' .exad-gallery-menu button' ).click(function(){
-                $( galleryItem + ' .exad-gallery-menu button.current' ).removeClass('current');
-                $(this).addClass('current');
+            $( galleryItem + ' .exad-gallery-menu button' ).click( function() {
+                $( galleryItem + ' .exad-gallery-menu button.current' ).removeClass( 'current' );
+                $( this ).addClass( 'current' );
          
-                var selector = $(this).attr('data-filter');
-                $container.isotope({
+                var selector = $( this ).attr( 'data-filter' );
+                $container.isotope( {
                     filter: selector,
                     layoutMode: 'fitRows',
                     getSortData: {
@@ -199,17 +199,17 @@ var exclusiveFilterableGallery = function( $scope, $ ) {
                         category: '[data-category]',
                         weight: function( itemElem ) {
                             var weight = $( itemElem ).find( '.weight' ).text();
-                            return parseFloat( weight.replace( /[\(\)]/g, '') );
+                            return parseFloat( weight.replace( /[\(\)]/g, '' ) );
                         }
                     },
                     animationOptions: {
                         queue: true
                     }
-                 });
+                 } );
                  return false;
-            }); 
+            } ); 
         }
-    }); 
+    } ); 
 }
 
 // filterable gallery script ends

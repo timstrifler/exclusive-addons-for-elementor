@@ -257,26 +257,26 @@ class Filterable_Gallery extends Widget_Base
         $this->start_controls_section(
             'exad_fg_item_container_style',
             [
-                'label' => esc_html__('Container', 'exclusive-addons-elementor'),
+                'label' => esc_html__('Gallery Item', 'exclusive-addons-elementor'),
                 'tab'   => Controls_Manager::TAB_STYLE
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Box_Shadow::get_type(),
-            [
-                'name'           => 'exad_fg_container_shadow',
-                'selector'       => '{{WRAPPER}} .exad-gallery-content-wrapper'
             ]
         );
 
         $this->add_responsive_control(
             'exad_fg_container_padding',
             [
-                'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors'  => [
+                'label'        => esc_html__('Padding', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', 'em', '%'],
+                'default'      => [
+                    'top'      => '0',
+                    'right'    => '10',
+                    'bottom'   => '0',
+                    'left'     => '10',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
+                'selectors'    => [
                     '{{WRAPPER}} .exad-gallery-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -285,12 +285,28 @@ class Filterable_Gallery extends Widget_Base
         $this->add_responsive_control(
             'exad_fg_container_margin',
             [
-                'label'      => esc_html__('Margin', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors'  => [
+                'label'        => esc_html__('Margin', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', 'em', '%'],
+                'default'      => [
+                    'top'      => '0',
+                    'right'    => '0',
+                    'bottom'   => '20',
+                    'left'     => '0',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
+                'selectors'    => [
                     '{{WRAPPER}} .exad-gallery-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name'           => 'exad_fg_container_shadow',
+                'selector'       => '{{WRAPPER}} .exad-gallery-content-wrapper'
             ]
         );
 
@@ -315,9 +331,9 @@ class Filterable_Gallery extends Widget_Base
         $this->add_responsive_control(
             'exad_fg_control_container_padding',
             [
-                'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
+                'label'        => esc_html__('Padding', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', 'em', '%'],
                 'default'      => [
                     'top'      => '0',
                     'right'    => '30',
@@ -326,7 +342,7 @@ class Filterable_Gallery extends Widget_Base
                     'unit'     => 'px',
                     'isLinked' => false
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-gallery-menu' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -335,9 +351,9 @@ class Filterable_Gallery extends Widget_Base
         $this->add_responsive_control(
             'exad_fg_control_container_margin',
             [
-                'label'      => esc_html__('Margin', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
+                'label'        => esc_html__('Margin', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', 'em', '%'],
                 'default'      => [
                     'top'      => '0',
                     'right'    => '0',
@@ -346,7 +362,7 @@ class Filterable_Gallery extends Widget_Base
                     'unit'     => 'px',
                     'isLinked' => false
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-gallery-menu' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -355,14 +371,14 @@ class Filterable_Gallery extends Widget_Base
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
-                'name'           => 'exad_fg_control_shadow',
-                'selector'       => '{{WRAPPER}} .exad-gallery-menu',
-                'fields_options' => [
-                    'box_shadow_type' => [ 
-                        'default' =>'yes' 
+                'name'                   => 'exad_fg_control_shadow',
+                'selector'               => '{{WRAPPER}} .exad-gallery-menu',
+                'fields_options'         => [
+                    'box_shadow_type'    => [ 
+                        'default'        =>'yes' 
                     ],
-                    'box_shadow'  => [
-                        'default' => [
+                    'box_shadow'         => [
+                        'default'        => [
                             'horizontal' => 0,
                             'vertical'   => 10,
                             'blur'       => 33,
@@ -790,10 +806,10 @@ class Filterable_Gallery extends Widget_Base
         $this->add_responsive_control(
             'exad_fg_content_padding',
             [
-                'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'default'    => [
+                'label'        => esc_html__('Padding', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', 'em', '%'],
+                'default'      => [
                     'top'      => '0',
                     'right'    => '20',
                     'bottom'   => '15',
@@ -801,7 +817,7 @@ class Filterable_Gallery extends Widget_Base
                     'unit'     => 'px',
                     'isLinked' => false
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -810,11 +826,11 @@ class Filterable_Gallery extends Widget_Base
         $this->add_responsive_control(
             'exad_fg_item_content_alignment',
             [
-                'label'       => esc_html__('Content Alignment', 'exclusive-addons-elementor'),
-                'type'        => Controls_Manager::CHOOSE,
-                'toggle'      => false,
-                'label_block' => true,
-                'options'     => [
+                'label'         => esc_html__('Content Alignment', 'exclusive-addons-elementor'),
+                'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
+                'label_block'   => true,
+                'options'       => [
                     'left'      => [
                         'title' => esc_html__('Left', 'exclusive-addons-elementor'),
                         'icon'  => 'eicon-text-align-left'
@@ -828,7 +844,7 @@ class Filterable_Gallery extends Widget_Base
                         'icon'  => 'eicon-text-align-right'
                     ]
                 ],
-                'selectors'   => [
+                'selectors'     => [
                     '{{WRAPPER}} .exad-gallery-items .exad-gallery-item-content' => 'text-align: {{VALUE}};'
                 ]
             ]
@@ -866,9 +882,9 @@ class Filterable_Gallery extends Widget_Base
             [
                 'name'      => 'exad_fg_item_content_title_typography',
                 'selector'  => '{{WRAPPER}} .exad-gallery-items .exad-gallery-item-content h2',
-                'fields_options'  => [
-                    'font_size'   => [
-                        'default' => [
+                'fields_options'   => [
+                    'font_size'    => [
+                        'default'  => [
                             'unit' => 'px',
                             'size' => 20
                         ]
@@ -883,10 +899,10 @@ class Filterable_Gallery extends Widget_Base
         $this->add_responsive_control(
             'exad_fg_item_content_title_margin',
             [
-                'label'      => esc_html__('Margin', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'default'    => [
+                'label'        => esc_html__('Margin', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', 'em', '%'],
+                'default'      => [
                     'top'      => '10',
                     'right'    => '0',
                     'bottom'   => '10',
@@ -894,10 +910,10 @@ class Filterable_Gallery extends Widget_Base
                     'unit'     => 'px',
                     'isLinked' => false
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-gallery-items .exad-gallery-item-content h2' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'condition'  => [
+                'condition'    => [
                     'exad_fg_show_title' => 'yes'
                 ]
             ]
@@ -944,10 +960,10 @@ class Filterable_Gallery extends Widget_Base
         $this->add_responsive_control(
             'exad_fg_item_details_title_margin',
             [
-                'label'      => esc_html__('Margin', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'default'    => [
+                'label'        => esc_html__('Margin', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', 'em', '%'],
+                'default'      => [
                     'top'      => '10',
                     'right'    => '0',
                     'bottom'   => '10',
@@ -955,10 +971,10 @@ class Filterable_Gallery extends Widget_Base
                     'unit'     => 'px',
                     'isLinked' => false
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-gallery-items .exad-gallery-item-content p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-                'condition'  => [
+                'condition'    => [
                     'exad_fg_show_details' => 'yes'
                 ]
             ]
@@ -1128,15 +1144,15 @@ class Filterable_Gallery extends Widget_Base
     }
 
     private function render_editor_script()
-        {?>
+        { ?>
         <script type="text/javascript">
-            jQuery(document).ready( function($) {
+            jQuery( document ).ready( function($) {
                 if ( $.isFunction( $.fn.isotope ) ) {
-                    $('.exad-gallery-items').each(function(){
-                        var $container  = $(this).find('.exad-gallery-element');
-                        var carouselNav = $container.attr('id');
+                    $( '.exad-gallery-items' ).each( function() {
+                        var $container  = $( this ).find( '.exad-gallery-element' );
+                        var carouselNav = $container.attr( 'id' );
 
-                        var galleryItem = '#' + $(this).attr('id');
+                        var galleryItem = '#' + $(this).attr( 'id' );
                         $container.isotope( {
                             filter: '*',
                             animationOptions: {
@@ -1148,7 +1164,7 @@ class Filterable_Gallery extends Widget_Base
                             $( galleryItem + ' .exad-gallery-menu button.current' ).removeClass( 'current' );
                             $(this).addClass('current');
                      
-                            var selector = $(this).attr('data-filter');
+                            var selector = $(this).attr( 'data-filter' );
                             $container.isotope( {
                                 filter: selector,
                                 animationOptions: {
