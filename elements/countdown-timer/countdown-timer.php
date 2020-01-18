@@ -82,14 +82,29 @@ class Countdown_Timer extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_countdown_container_bg_color',
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
 			[
-				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => $exad_primary_color,
-				'selectors' => [
-					'{{WRAPPER}} .exad-countdown' => 'background: {{VALUE}};'
+				'name'     => 'exad_countdown_container_bg_color',
+				'types'    => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-countdown'
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_countdown_container_padding',
+			[
+				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'default'    => [
+					'top'    => 0,
+					'right'  => 0,
+					'bottom' => 0,
+					'left'   => 0,
+					'unit'   => 'px'
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-countdown' => 'padding: {{TOP}}px {{RIGHT}}px {{BOTTOM}}px {{LEFT}}px;'
 				]
 			]
 		);
@@ -127,6 +142,78 @@ class Countdown_Timer extends Widget_Base {
 			[
 				'label' => esc_html__( 'Counter Box', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'exad_section_countdown_show_box',
+			[
+				'label' => __( 'Enable Box', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'exad_section_countdown_box_width',
+			[
+				'label' => __( 'Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 150
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown .exad-countdown-container' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_section_countdown_show_box' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_section_countdown_box_height',
+			[
+				'label' => __( 'Height', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 150
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-countdown .exad-countdown-container' => 'height: {{SIZE}}{{UNIT}};',
+				],
+				'condition' => [
+					'exad_section_countdown_show_box' => 'yes'
+				]
 			]
 		);
 
@@ -209,7 +296,7 @@ class Countdown_Timer extends Widget_Base {
 			[
 				'label'     => __( 'Divider Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
+				'default'   => '#000000',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-container::after' => 'color: {{VALUE}};'
 				],
@@ -251,16 +338,53 @@ class Countdown_Timer extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'exad_countdown_divider_position',
+			'exad_countdown_divider_position_right',
 			[
-				'label'        => __( 'Position', 'exclusive-addons-elementor' ),
+				'label'        => __( 'Offset X', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::SLIDER,
-				'size_units'   => [ '%' ],
+				'size_units'   => [ 'px', '%' ],
 				'devices'      => [ 'desktop', 'tablet' ],
 				'range'        => [
-					'px'       => [
-						'min'  => 0,
+					'%'       => [
+						'min'  => -50,
 						'max'  => 50,
+						'step' => 1
+					],
+					'px'       => [
+						'min'  => -100,
+						'max'  => 100,
+						'step' => 1
+					]
+				],
+				'default'      => [
+					'unit'     => 'px',
+					'size'     => 0
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-container::after' => 'right: {{SIZE}}{{UNIT}};'
+				],
+				'condition'    => [
+					'exad_countdown_divider_enable' => 'yes'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_countdown_divider_position_left',
+			[
+				'label'        => __( 'Offset Y', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px', '%' ],
+				'devices'      => [ 'desktop', 'tablet' ],
+				'range'        => [
+					'%'       => [
+						'min'  => -50,
+						'max'  => 50,
+						'step' => 1
+					],
+					'px'       => [
+						'min'  => -200,
+						'max'  => 200,
 						'step' => 1
 					]
 				],
@@ -301,7 +425,7 @@ class Countdown_Timer extends Widget_Base {
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
+				'default'   => '#000000',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown-count' => 'color: {{VALUE}};'
 				]
@@ -344,7 +468,7 @@ class Countdown_Timer extends Widget_Base {
 			[
 				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
+				'default'   => '#000000',
 				'selectors' => [
 					'{{WRAPPER}} .exad-countdown-title' => 'color: {{VALUE}};'
 				]
@@ -426,7 +550,7 @@ class Countdown_Timer extends Widget_Base {
 		}
 
 
-		echo '<div class="exad-countdown-content-container">';
+		echo '<div class="exad-countdown-content-container '.$settings['exad_section_countdown_show_box'].'">';
 			echo '<div '.$this->get_render_attribute_string('exad-countdown-timer-attribute').'></div>';
 		echo '</div>';
 	}
@@ -457,7 +581,7 @@ class Countdown_Timer extends Widget_Base {
 			} );
 		#>
 
-		<div class="exad-countdown-content-container">
+		<div class="exad-countdown-content-container {{ settings.exad_section_countdown_show_box }}">
 			<div {{{ view.getRenderAttributeString( 'exad_countdown_timer_attribute' ) }}}>
 			</div>
 		</div>

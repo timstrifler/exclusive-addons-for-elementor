@@ -1537,25 +1537,35 @@ ul.exad-call-to-action-buttons {
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
+  justify-content: center;
 }
 
 .exad-countdown .exad-countdown-container {
   width: calc((100% / 4) - 23px);
-  padding: 17px 10px;
   margin-right: 30px;
   text-align: center;
+}
+
+.exad-countdown-content-container.yes .exad-countdown .exad-countdown-container{
+  position: relative;
+}
+.exad-countdown-content-container.yes .exad-countdown-timer-wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .exad-countdown .exad-countdown-container:last-child {
   margin-right: 0px;
 }
 
-.exad-countdown .exad-countdown-container > span {
+.exad-countdown .exad-countdown-container .exad-countdown-timer-wrapper > span {
   display: block;
 }
 
 .exad-countdown .exad-countdown-count {
-  margin-bottom: 16px;
+  line-height: 1;
 }
 
 

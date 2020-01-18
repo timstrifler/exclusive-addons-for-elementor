@@ -15,10 +15,10 @@ var exclusiveCountdownTimer = function ( $scope, $ ) {
         if ( $.isFunction( $.fn.countdown ) ) {
             $this.countdown( finalDate, function ( event ) {
                 $( this ).html( event.strftime(' ' +
-                    '<div class="exad-countdown-container"><span class="exad-countdown-count">%-D </span><span class="exad-countdown-title">' + day + '</span></div>' +
-                    '<div class="exad-countdown-container"><span class="exad-countdown-count">%H </span><span class="exad-countdown-title">' + hours + '</span></div>' +
-                    '<div class="exad-countdown-container"><span class="exad-countdown-count">%M </span><span class="exad-countdown-title">' + minutes + '</span></div>' +
-                    '<div class="exad-countdown-container"><span class="exad-countdown-count">%S </span><span class="exad-countdown-title">' + seconds + '</span></div>'));
+                    '<div class="exad-countdown-container"><div class="exad-countdown-timer-wrapper"><span class="exad-countdown-count">%-D </span><span class="exad-countdown-title">' + day + '</span></div></div>' +
+                    '<div class="exad-countdown-container"><div class="exad-countdown-timer-wrapper"><span class="exad-countdown-count">%H </span><span class="exad-countdown-title">' + hours + '</span></div></div>' +
+                    '<div class="exad-countdown-container"><div class="exad-countdown-timer-wrapper"><span class="exad-countdown-count">%M </span><span class="exad-countdown-title">' + minutes + '</span></div></div>' +
+                    '<div class="exad-countdown-container"><div class="exad-countdown-timer-wrapper"><span class="exad-countdown-count">%S </span><span class="exad-countdown-title">' + seconds + '</span></div></div>'));
             } ).on( 'finish.countdown', function (event) {
                 $(this).html( '<p class="message">'+ expiredText +'</p>' );
             } );
