@@ -360,6 +360,7 @@ class Contact_Form_7 extends Widget_Base {
             [
                 'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
+                'default'   => '#EDEDED',
                 'selectors' => [
                     '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-text, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-textarea, {{WRAPPER}} .exad-contact-form-7 .wpcf7-form-control.wpcf7-select' => 'background-color: {{VALUE}}'
                 ]

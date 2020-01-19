@@ -291,6 +291,18 @@ class Dual_Heading extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'exad_dual_first_heading_radius',
+            [
+                'label'      => __('Border radius', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .first-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
@@ -361,6 +373,18 @@ class Dual_Heading extends Widget_Base {
                 'size_units' => ['px', '%'],
                 'selectors'  => [
                     '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .second-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_dual_second_heading_radius',
+            [
+                'label'      => __('Border radius', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-title .second-heading' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
