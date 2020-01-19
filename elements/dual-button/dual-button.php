@@ -314,7 +314,7 @@ class Dual_Button extends Widget_Base {
 				],
 				'selectors' => [
                     '{{WRAPPER}} .exad-dual-button-primary'                             => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .exad-dual-button-primary .exad-dual-button-connector' => 'right: calc( -3px - {{SIZE}}{{UNIT}} );',
+                    '{{WRAPPER}} .exad-dual-button-primary .exad-dual-button-connector' => 'right: calc( 0px - {{SIZE}}{{UNIT}} );',
                     '{{WRAPPER}} .exad-dual-button-secondary'                           => 'margin-left: {{SIZE}}{{UNIT}};'
 				]
 			]
