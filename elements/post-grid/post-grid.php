@@ -1141,7 +1141,19 @@ class Post_Grid extends Widget_Base {
 				'name'     => 'exad_post_grid_details_btn_typography',
 				'selector' => '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a'
             ]
-        );
+		);
+		
+		$this->add_control(
+			'exad_post_grid_details_button_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px'],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
 
         $this->start_controls_tabs( 'exad_post_grid_details_button_style_tabs' );
 
@@ -1180,18 +1192,6 @@ class Post_Grid extends Widget_Base {
                 ]
             );
 
-			$this->add_control(
-				'exad_post_grid_details_button_border_radius',
-				[
-					'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px'],
-					'selectors'  => [
-						'{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-					]
-				]
-			);
-
             $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),
                 [
@@ -1226,19 +1226,15 @@ class Post_Grid extends Widget_Base {
                         '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a:hover' => 'background: {{VALUE}};'
                     ]
                 ]
-            );
-
-			$this->add_control(
-				'exad_post_grid_details_button_border_radius_hover',
-				[
-					'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-					'type'       => Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px'],
-					'selectors'  => [
-						'{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a:hover'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-					]
-				]
 			);
+			
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+					[
+						'name'      => 'exad_post_grid_details_btn_border_hover',
+						'selector'  => '{{WRAPPER}} .exad-post-grid-container .exad-post-grid-body .exad-post-footer a:hover'
+					]
+				);
 
             $this->add_group_control(
                 Group_Control_Box_Shadow::get_type(),

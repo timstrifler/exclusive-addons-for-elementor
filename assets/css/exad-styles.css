@@ -3578,7 +3578,7 @@ ul.exad-call-to-action-buttons {
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail {
   position: relative;
-  z-index: -1;
+  z-index: 0;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-thumbnail ul.exad-post-grid-category {
@@ -3669,6 +3669,9 @@ ul.exad-call-to-action-buttons {
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-title {
   display: block;
   text-decoration: none;
+  -ms-word-wrap: break-word;
+      word-wrap: break-word;
+      transition: all .3s ease;
 }
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-grid-title:hover {
@@ -3721,6 +3724,7 @@ ul.exad-call-to-action-buttons {
 
 .exad-post-grid-container .exad-post-grid-body .exad-post-footer a {
   display: inline-block;
+  transition: all .3s ease;
 }
 .exad-post-grid-container.image-position-left,
 .exad-post-grid-container.image-position-right {
