@@ -310,6 +310,12 @@ final class Base {
     public function core_files_enqueue() {
         // Main Plugin Styles
         wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.min.css' );
+
+        if( is_rtl() ) {
+            // Main Plugin RTL Styles
+            wp_enqueue_style( 'exad-rtl-style', EXAD_ASSETS_URL . 'css/exad-rtl-styles.css' );            
+        }
+
         // Main Plugin Scripts
         wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.min.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
     }

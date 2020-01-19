@@ -22,9 +22,9 @@ var exclusiveModalPopup = function ($scope, $) {
             modalOverlay.addClass( 'active' );
         }
         
-    });
+    } );
 
-    closeButton.click(function() {
+    closeButton.click( function() {
         var modalOverlay = $(this).parents().eq(3).next();
         var modalItem    = $(this).parents().eq(2);
         modalOverlay.removeClass( 'active' );
@@ -43,9 +43,9 @@ var exclusiveModalPopup = function ($scope, $) {
             $modal_video_tag[0].currentTime = 0;
         }
         
-    });
+    } );
 
-    modalOverlayWrapper.click(function(){
+    modalOverlayWrapper.click( function() {
         var overlay_click_close = $(this).data( 'exad_overlay_click_close' );
         if( 'yes' === overlay_click_close ){
             $(this).removeClass( 'active' );
@@ -64,7 +64,7 @@ var exclusiveModalPopup = function ($scope, $) {
                 $modal_video_tag[0].currentTime = 0;
             }
         }
-    });
+    } );
 }
 
 // modal popup script ends

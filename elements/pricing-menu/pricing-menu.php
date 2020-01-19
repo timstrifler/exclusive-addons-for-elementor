@@ -197,12 +197,6 @@ class Pricing_Menu extends Widget_Base {
                 'label'        => __( 'Border Radius', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::DIMENSIONS,
                 'size_units'   => [ 'px', '%' ],
-                'default'      => [
-                    'top'      => '',
-                    'right'    => '',
-                    'bottom'   => '',
-                    'left'     => ''
-                ],
                 'selectors'    => [
                     '{{WRAPPER}} .exad-pricing-list .exad-pricing-list-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
@@ -266,11 +260,12 @@ class Pricing_Menu extends Widget_Base {
                 'type'         => Controls_Manager::DIMENSIONS,
                 'size_units'   => [ 'px', '%' ],
                 'default'      => [
-                    'top'      => 20,
-                    'right'    => 0,
-                    'bottom'   => 20,
-                    'left'     => 0,
-                    'unit'     => 'px'
+                    'top'      => '20',
+                    'right'    => '0',
+                    'bottom'   => '20',
+                    'left'     => '0',
+                    'unit'     => 'px',
+                    'isLinked' => false
                 ],
                 'selectors'    => [
                     '{{WRAPPER}} .exad-pricing-list-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
@@ -428,17 +423,18 @@ class Pricing_Menu extends Widget_Base {
         $this->add_responsive_control(
             'exad_pricing_menu_image_margin',
             [
-                'label'      => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', '%' ],
-                'default'    => [
-                    'top'    => 0,
-                    'right'  => 15,
-                    'bottom' => 0,
-                    'left'   => 0,
-                    'unit'   => 'px'
+                'label'        => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => [ 'px', '%' ],
+                'default'      => [
+                    'top'      => '0',
+                    'right'    => '15',
+                    'bottom'   => '0',
+                    'left'     => '0',
+                    'unit'     => 'px',
+                    'isLinked' => false
                 ],
-                'selectors'  => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-pricing-list-item-thumbnail' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
@@ -622,10 +618,10 @@ class Pricing_Menu extends Widget_Base {
                 'type'         => Controls_Manager::DIMENSIONS,
                 'size_units'   => [ 'px', '%' ],
                 'default'      => [
-                    'top'      => 20,
-                    'right'    => 0,
-                    'bottom'   => 10,
-                    'left'     => 0,
+                    'top'      => '20',
+                    'right'    => '0',
+                    'bottom'   => '10',
+                    'left'     => '0',
                     'unit'     => 'px',
                     'isLinked' => false
                 ],
@@ -753,11 +749,12 @@ class Pricing_Menu extends Widget_Base {
                 'type'         => Controls_Manager::DIMENSIONS,
                 'size_units'   => [ 'px', '%' ],
                 'default'      => [
-                    'top'      => 8,
-                    'right'    => 20,
-                    'bottom'   => 8,
-                    'left'     => 20,
-                    'unit'     => 'px'
+                    'top'      => '8',
+                    'right'    => '20',
+                    'bottom'   => '8',
+                    'left'     => '20',
+                    'unit'     => 'px',
+                    'isLinked' => false
                 ],
                 'selectors'    => [
                     '{{WRAPPER}} .exad-pricing-list-item-content-action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'

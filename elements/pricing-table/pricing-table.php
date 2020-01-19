@@ -422,12 +422,12 @@ class Pricing_Table extends Widget_Base {
 			[
 				'name'     => 'exad_pricing_table_content_box_shadow',
 				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper',
-				'fields_options'      => [
-		            'box_shadow_type' => [
-		                'default'     =>'yes'
+				'fields_options'         => [
+		            'box_shadow_type'    => [
+		                'default'        =>'yes'
 		            ],
-		            'box_shadow'  => [
-		                'default' => [
+		            'box_shadow'         => [
+		                'default'        => [
 		                    'horizontal' => 0,
 		                    'vertical'   => 13,
 		                    'blur'       => 33,
@@ -439,14 +439,17 @@ class Pricing_Table extends Widget_Base {
 			]
 		);
 
+		$content_align = is_rtl() ? 'right' : 'left';
+
 		$this->add_control(
 			'exad_pricing_table_content_alignment',
 			[
-				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'toggle'    => false,
-				'separator' => 'after',
-				'options'   => [
+				'label'         => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::CHOOSE,
+				'toggle'        => false,
+				'separator'     => 'after',
+				'default'       => $content_align,
+				'options'       => [
 					'left'      => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-text-align-left'
@@ -459,16 +462,9 @@ class Pricing_Table extends Widget_Base {
 						'title' => __( 'Right', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-text-align-right'
 					]
-				],
-				'default'   => 'left'
+				]
 			]
 		);
-
-		/**
-		 * -------------------------------------------
-		 * Style (Hover)
-		 * -------------------------------------------
-		 */
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
@@ -1115,6 +1111,8 @@ class Pricing_Table extends Widget_Base {
 			]
 		);
 
+		$icon_gap = is_rtl() ? 'left' : 'right';
+
 		$this->add_responsive_control(
 			'exad_pricing_table_featured_list_icon_space',
 			[
@@ -1129,7 +1127,7 @@ class Pricing_Table extends Widget_Base {
 					]
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-pricing-table-features li .exad-pricing-li-icon' => 'margin-right: {{SIZE}}px;'
+					'{{WRAPPER}} .exad-pricing-table-features li .exad-pricing-li-icon' => 'margin-'.$icon_gap.': {{SIZE}}px;'
 				]
 			]
 		);

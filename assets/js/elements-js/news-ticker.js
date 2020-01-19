@@ -31,6 +31,6 @@ var exclusiveNewsTicker = function( $scope, $ ) {
             } );    
         } );
     }
-};
+}
 
 // news ticker script ends

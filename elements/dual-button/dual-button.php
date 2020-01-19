@@ -337,7 +337,6 @@ class Dual_Button extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
                 'name'     => 'exad_container_primary_button_typography',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-dual-button-primary span'
 			]
         );
@@ -454,7 +453,6 @@ class Dual_Button extends Widget_Base {
                     Group_Control_Box_Shadow::get_type(),
                     [
                         'name'     => 'exad_dual_button_primary_button_normal_box_shadow',
-                        'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-dual-button-primary'
                     ]
                 );
@@ -504,7 +502,6 @@ class Dual_Button extends Widget_Base {
                     Group_Control_Box_Shadow::get_type(),
                     [
                         'name'     => 'exad_dual_button_primary_button_hover_box_shadow',
-                        'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-dual-button-primary:hover'
                     ]
                 );
@@ -577,7 +574,6 @@ class Dual_Button extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
                 'name'      => 'exad_dual_button_connector_typoghrphy',
-                'label'     => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector'  => '{{WRAPPER}} .exad-dual-button-connector span',
                 'condition' => [
                     'exad_dual_button_connector_type' => 'text'
@@ -666,7 +662,6 @@ class Dual_Button extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
                 'name'     => 'exad_dual_button_connector_box_shadow',
-                'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-dual-button-connector'
 			]
 		);
@@ -688,7 +683,6 @@ class Dual_Button extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
                 'name'     => 'exad_container_secondary_button_typography',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-dual-button-secondary span'
 			]
         );
@@ -800,7 +794,6 @@ class Dual_Button extends Widget_Base {
                     Group_Control_Box_Shadow::get_type(),
                     [
                         'name'     => 'exad_dual_button_secondary_button_normal_box_shadow',
-                        'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-dual-button-secondary'
                     ]
                 );
@@ -850,7 +843,6 @@ class Dual_Button extends Widget_Base {
                     Group_Control_Box_Shadow::get_type(),
                     [
                         'name'     => 'exad_dual_button_secondary_button_hover_box_shadow',
-                        'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                         'selector' => '{{WRAPPER}} .exad-dual-button-secondary:hover'
                     ]
                 );

@@ -171,7 +171,7 @@ class Alert extends Widget_Base {
         );
 
         $this->add_responsive_control(
-          'exad_alert_border_radius',
+            'exad_alert_border_radius',
             [
                 'label'     => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::DIMENSIONS,
@@ -182,7 +182,7 @@ class Alert extends Widget_Base {
         );
         
         $this->add_responsive_control(
-          'exad_alert_padding',
+            'exad_alert_padding',
             [
                 'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -200,21 +200,20 @@ class Alert extends Widget_Base {
         );
 
         $this->add_group_control(
-      Group_Control_Border::get_type(),
-      [
+            Group_Control_Border::get_type(),
+            [
                 'name'     => 'exad_alert_border',
                 'selector' => '{{WRAPPER}} .exad-alert-wrapper'
-      ]
+            ]
         );
         
         $this->add_group_control(
-      Group_Control_Box_Shadow::get_type(),
-      [
+            Group_Control_Box_Shadow::get_type(),
+            [
                 'name'     => 'exad_alert_box_shadow',
-                'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-alert-wrapper'
-      ]
-    );
+            ]
+        );
 
         $this->end_controls_section();
 
@@ -340,11 +339,10 @@ class Alert extends Widget_Base {
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),
-        [
+            [
                 'name'     => 'exad_alert_title_typography',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-alert-element .exad-alert-element-content h5'
-        ]
+            ]
         );
 
         $this->add_control(
@@ -388,7 +386,6 @@ class Alert extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_alert_description_typography',
-                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-alert-element .exad-alert-element-content .exad-alert-desc'
             ]
         );
@@ -465,6 +462,7 @@ class Alert extends Widget_Base {
             ]
         );
 
+        $dismiss_icon_spacing = is_rtl() ? 'left: {{SIZE}}{{UNIT}};' : 'right: {{SIZE}}{{UNIT}};';
         $this->add_responsive_control(
             'exad_alert_dismiss_icon_pos_right',
             [
@@ -488,7 +486,7 @@ class Alert extends Widget_Base {
                     ]
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => 'right: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-dismiss-icon' => $dismiss_icon_spacing
                 ],
                 'condition'  => [
                   'exad_alert_close_button' => 'icon'
@@ -564,7 +562,6 @@ class Alert extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name'     => 'exad_alert_dismiss_primary_button_text',
-                    'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                     'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-done'
                 ]
             );
@@ -649,7 +646,6 @@ class Alert extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name'     => 'exad_alert_dismiss_secondary_button_text',
-                    'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
                     'selector' => '{{WRAPPER}} .exad-alert-element-dismiss-button .exad-alert-element-dismiss-cancel'
                 ]
             );

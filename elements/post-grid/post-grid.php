@@ -1276,7 +1276,6 @@ class Post_Grid extends Widget_Base {
 		$this->add_render_attribute(
 			'exad_post_grid_wrapper',
 			[
-				'id'                  => "exad-post-grid-{$this->get_id()}",
 				'class'               => "exad-row-wrapper exad-col-{$settings['exad_post_grid_column_no']}"
 			]
 		);

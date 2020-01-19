@@ -247,10 +247,10 @@ class Modal_Popup extends Widget_Base {
         $this->add_control(
             'exad_modal_video_width',
             [
-				'label'      => __( 'Content Width', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range'      => [
+				'label'        => __( 'Content Width', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px', '%' ],
+				'range'        => [
                     'px'       => [
 						'min'  => 0,
 						'max'  => 1000,
@@ -261,15 +261,15 @@ class Modal_Popup extends Widget_Base {
                         'max'  => 100
                     ]
                 ],
-                'default'   => [
-                    'unit'  => 'px',
-                    'size'  => 720
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 720
                 ],
-                'selectors' => [
+                'selectors'    => [
 					'{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe,
 					{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-video-hosted' => 'width: {{SIZE}}{{UNIT}};'
                 ],
-                'condition' => [
+                'condition'    => [
                     'exad_modal_content' => [ 'youtube', 'vimeo', 'external_page', 'external-video' ]
                 ]
             ]
@@ -278,10 +278,10 @@ class Modal_Popup extends Widget_Base {
         $this->add_control(
             'exad_modal_video_height',
             [
-				'label'      => __( 'Content Height', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range'      => [
+				'label'        => __( 'Content Height', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px', '%' ],
+				'range'        => [
                     'px'       => [
 						'min'  => 0,
 						'max'  => 1000,
@@ -292,14 +292,14 @@ class Modal_Popup extends Widget_Base {
 						'max'  => 100
                     ]
                 ],
-                'default'   => [
-					'unit'  => 'px',
-					'size'  => 400
+                'default'      => [
+					'unit'     => 'px',
+					'size'     => 400
                 ],
-                'selectors' => [
+                'selectors'    => [
                     '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe' => 'height: {{SIZE}}{{UNIT}};'
                 ],
-                'condition' => [
+                'condition'    => [
                     'exad_modal_content' => [ 'youtube', 'vimeo', 'external_page' ]
                 ]
             ]
@@ -323,7 +323,7 @@ class Modal_Popup extends Widget_Base {
 				'label'       => __( 'Button Icon', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::ICONS,
-                'default' => [
+                'default'     => [
                     'value'   => 'fab fa-wordpress-simple',
                     'library' => 'fa-brands'
                 ]
@@ -385,9 +385,12 @@ class Modal_Popup extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_modal_btn_align',
 			[
-				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'         => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::CHOOSE,
+				'default'       => 'center',
+				'toggle'        => false,
+				'separator'     => 'before',
+				'options'       => [
 					'left'      => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-text-align-left'
@@ -401,22 +404,19 @@ class Modal_Popup extends Widget_Base {
 						'icon'  => 'eicon-text-align-right'
 					]
 				],
-				'default'   => 'center',
-				'selectors' => [
+				'selectors'     => [
 					'{{WRAPPER}} .exad-modal-button' => 'text-align: {{VALUE}};'
-				],
-				'separator' => 'before',
-				'toggle'    => false
+				]
 			]
 		);
 
 		$this->add_control(
 			'exad_modal_btn_width',
 			[
-				'label'      => esc_html__( 'Width', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range'      => [
+				'label'        => esc_html__( 'Width', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px', '%' ],
+				'range'        => [
 					'px'       => [
 						'min'  => 0,
 						'max'  => 500,
@@ -427,11 +427,11 @@ class Modal_Popup extends Widget_Base {
 						'max'  => 100
 					]
 				],
-				'default'   => [
-					'unit'  => '%',
-					'size'  => 50
+				'default'      => [
+					'unit'     => '%',
+					'size'     => 50
 				],
-				'selectors' => [
+				'selectors'    => [
 					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'width: {{SIZE}}{{UNIT}};'
 				]
 			]
@@ -468,17 +468,18 @@ class Modal_Popup extends Widget_Base {
 		$this->add_control(
 			'exad_modal_btn_padding',
 			[
-				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'default'    => [
-					'top'    => '20',
-					'right'  => '0',
-					'bottom' => '20',
-					'left'   => '0',
-					'unit'   => 'px'
+				'label'        => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::DIMENSIONS,
+				'size_units'   => [ 'px', '%' ],
+				'default'      => [
+					'top'      => '20',
+					'right'    => '0',
+					'bottom'   => '20',
+					'left'     => '0',
+					'unit'     => 'px',
+					'isLinked' => false
 				],
-				'selectors'  => [
+				'selectors'    => [
 					'{{WRAPPER}} .exad-modal-image-action' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
@@ -521,7 +522,7 @@ class Modal_Popup extends Widget_Base {
 						'name'               => 'exad_modal_btn_border_normal',
 						'fields_options'     => [
 							'border'         => [
-								'default'    => 'solid',
+								'default'    => 'solid'
 							],
 							'width'          => [
 								'default'    => [
@@ -551,7 +552,7 @@ class Modal_Popup extends Widget_Base {
 						'default'   => $exad_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover span' => 'color: {{VALUE}};'
-						],
+						]
 					]
 				);
 
@@ -563,7 +564,7 @@ class Modal_Popup extends Widget_Base {
 						'default'   => '#ffffff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:before' => 'background-color: {{VALUE}};'
-						],
+						]
 					]
 				);
 				$this->add_group_control(
@@ -594,6 +595,8 @@ class Modal_Popup extends Widget_Base {
 			]
 		);
 
+		$left_icon_gap  = is_rtl() ? 'left' : 'right';
+		$right_icon_gap = is_rtl() ? 'right' : 'left';
 		$this->add_control(
 			'exad_modal_btn_icon_indent',
 			[
@@ -609,8 +612,8 @@ class Modal_Popup extends Widget_Base {
 					'size'    => 6
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span .exad-modal-action-left-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span .exad-modal-action-right-icon' => 'margin-left: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span .exad-modal-action-left-icon' => 'margin-'.$left_icon_gap.': {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span .exad-modal-action-right-icon' => 'margin-'.$right_icon_gap.': {{SIZE}}{{UNIT}};'
 				],
 				'condition'   => [
                     'exad_modal_btn_icon[value]!' => ''
@@ -637,6 +640,7 @@ class Modal_Popup extends Widget_Base {
 				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::CHOOSE,
 				'toggle'    => false,
+				'default'   => 'center',
 				'options'   => [
 					'left'  => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
@@ -651,7 +655,6 @@ class Modal_Popup extends Widget_Base {
 						'icon'  => 'eicon-text-align-right'
 					]
 				],
-				'default'   => 'center',
 				'selectors' => [
 					'{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element' => 'text-align: {{VALUE}};'
 				],
@@ -722,11 +725,11 @@ class Modal_Popup extends Widget_Base {
 					'left'   => '10',
 					'unit'   => 'px'
 				],
-				'selectors' => [
+				'selectors'  => [
 					'{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
-				'condition' => [
+				'condition'  => [
 					'exad_modal_content' => [ 'image-gallery', 'html_content' ]
 				]
 			]
@@ -741,7 +744,7 @@ class Modal_Popup extends Widget_Base {
                 'selectors'  => [
                     '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element .exad-modal-element-card-body' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
-				'condition' => [
+				'condition'  => [
 					'exad_modal_content' => [ 'image-gallery' ]
 				]
             ]

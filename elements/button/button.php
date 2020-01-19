@@ -150,6 +150,8 @@ class Button extends Widget_Base {
 			]
 		);
 
+		$icon_gap = is_rtl() ? 'left' : 'right';
+
 		$this->add_responsive_control(
 			'exad_exclusive_button_icon_space',
 			[
@@ -167,7 +169,7 @@ class Button extends Widget_Base {
                     'size'    => 10
                 ],
 				'selectors'   => [
-                    '{{WRAPPER}} .exad-button-wrapper .exad-button-action i'  => 'margin-right: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-button-wrapper .exad-button-action i'  => 'margin-'.$icon_gap.': {{SIZE}}{{UNIT}};'
 				],
                 'condition'   => [
                     'exad_exclusive_button_icon[value]!' => ''

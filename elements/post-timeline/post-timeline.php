@@ -592,7 +592,6 @@ class Post_Timeline extends Widget_Base {
 		$this->add_render_attribute(
 			'exad_post_timeline_wrapper',
 			[
-				'id'                  => "exad-post-timeline-{$this->get_id()}",
 				'class'               => 'exad-post-timeline'
 			]
 		);
@@ -600,7 +599,7 @@ class Post_Timeline extends Widget_Base {
 		$this->add_render_attribute(
 			'exad_post_timeline',
 			[
-				'class'	=> [ 'exad-post-timeline', "exad-post-appender-{$this->get_id()}" ]
+				'class'	=> 'exad-post-timeline'
 			]
 		);
 

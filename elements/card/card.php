@@ -280,7 +280,7 @@ class Card extends Widget_Base {
 				'name'               => 'exad_card_border',
 				'fields_options'     => [
                     'border'         => [
-                        'default'    => 'solid',
+                        'default'    => 'solid'
                     ],
                     'width'          => [
                         'default'    => [
@@ -324,7 +324,6 @@ class Card extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_card_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-card'
 			]
 		);
@@ -337,8 +336,8 @@ class Card extends Widget_Base {
 		$this->start_controls_section(
 			'exad_section_card_styles_image',
 			[
-				'label' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label'     => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'exad_card_image[url]!' => ''
 				]
@@ -360,7 +359,7 @@ class Card extends Widget_Base {
 				'selectors'   => [
 					'{{WRAPPER}} .exad-card-thumb' => 'height: {{SIZE}}{{UNIT}};'
 				],
-				'condition'  => [
+				'condition'   => [
 					'exad_card_layout_type' => 'default'
 				]
 			]
@@ -381,7 +380,7 @@ class Card extends Widget_Base {
 				'selectors'   => [
 					'{{WRAPPER}} .exad-card-thumb' => 'width: {{SIZE}}{{UNIT}};'
 				],
-				'condition'  => [
+				'condition'   => [
 					'exad_card_layout_type' => 'default'
 				]
 			]
@@ -412,9 +411,9 @@ class Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'               => 'exad_card_image_border',
-				'selector'           => '{{WRAPPER}} .exad-card-thumb',
-				'condition'  => [
+				'name'      => 'exad_card_image_border',
+				'selector'  => '{{WRAPPER}} .exad-card-thumb',
+				'condition' => [
 					'exad_card_layout_type' => 'default'
 				]
 			]
@@ -445,9 +444,9 @@ class Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'               => 'exad_card_image_box_shadow',
-				'selector'           => '{{WRAPPER}} .exad-card-thumb',
-				'condition'  => [
+				'name'      => 'exad_card_image_box_shadow',
+				'selector'  => '{{WRAPPER}} .exad-card-thumb',
+				'condition' => [
 					'exad_card_layout_type' => 'default'
 				]
 			]
@@ -487,6 +486,8 @@ class Card extends Widget_Base {
 			]
 		);
 
+		$badge_align = is_rtl() ? 'right' : 'left';
+
 		$this->add_responsive_control(
 			'exad_section_card_badge_left_offset',
 			[
@@ -498,7 +499,7 @@ class Card extends Widget_Base {
 						'min' => 0,
 						'max' => 500
 					],
-					'%'      => [
+					'%'       => [
 						'min' => 0,
 						'max' => 100
 					]
@@ -507,9 +508,9 @@ class Card extends Widget_Base {
                     'unit'     => '%',
                     'size'     => 0
                 ],
-				'selectors'   => [
-					'{{WRAPPER}} .exad-card-badge' => 'left: {{SIZE}}{{UNIT}};'
-				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-card-badge' => $badge_align.': {{SIZE}}{{UNIT}};'
+				]
 			]
 		);
 
@@ -524,18 +525,18 @@ class Card extends Widget_Base {
 						'min' => 0,
 						'max' => 500
 					],
-					'%'      => [
+					'%'       => [
 						'min' => 0,
 						'max' => 100
 					]
 				],
-				'default'      => [
-                    'unit'     => '%',
-                    'size'     => 0
+				'default'     => [
+                    'unit'    => '%',
+                    'size'    => 0
                 ],
 				'selectors'   => [
 					'{{WRAPPER}} .exad-card-badge' => 'top: {{SIZE}}{{UNIT}};'
-				],
+				]
 			]
 		);
 
@@ -593,8 +594,8 @@ class Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'               => 'exad_card_badge_border',
-				'selector'           => '{{WRAPPER}} .exad-card-badge'
+				'name'     => 'exad_card_badge_border',
+				'selector' => '{{WRAPPER}} .exad-card-badge'
 			]
 		);
 
@@ -620,8 +621,8 @@ class Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'               => 'exad_card_badge_box_shadow',
-				'selector'           => '{{WRAPPER}} .exad-card-badge'
+				'name'     => 'exad_card_badge_box_shadow',
+				'selector' => '{{WRAPPER}} .exad-card-badge'
 			]
 		);
 
@@ -638,12 +639,14 @@ class Card extends Widget_Base {
 			]
 		);
 
+		$text_align = is_rtl() ? 'right' : 'left';
+
 		$this->add_control(
 			'exad_card_content_alignment',
 			[
-				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
+				'label'         => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::CHOOSE,
+				'options'       => [
 					'left'      => [
 						'title' => __( 'Left', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-text-align-left'
@@ -657,8 +660,8 @@ class Card extends Widget_Base {
 						'icon'  => 'eicon-text-align-right'
 					]
 				],
-				'default'   => 'left',
-				'toggle'    => false				
+				'default'       => $text_align,
+				'toggle'        => false				
 			]
 		);
 		
@@ -684,8 +687,8 @@ class Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
-				'name'               => 'exad_card_content_border',
-				'selector'           => '{{WRAPPER}} .exad-card-body'
+				'name'     => 'exad_card_content_border',
+				'selector' => '{{WRAPPER}} .exad-card-body'
 			]
 		);
 
@@ -1039,7 +1042,6 @@ class Card extends Widget_Base {
 					Group_Control_Box_Shadow::get_type(),
 					[
 						'name'     => 'exad_card_button_normal_box_shadow',
-						'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action'
 					]
 				);
@@ -1084,7 +1086,6 @@ class Card extends Widget_Base {
 					Group_Control_Box_Shadow::get_type(),
 					[
 						'name'     => 'exad_card_button_hover_box_shadow',
-						'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 						'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action:hover'
 					]
 				);

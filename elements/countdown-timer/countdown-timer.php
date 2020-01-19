@@ -230,7 +230,6 @@ class Countdown_Timer extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_countdown_box_shadow',
-				'label'    => __( 'Box Shadow', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-countdown-container'
 			]
 		);
