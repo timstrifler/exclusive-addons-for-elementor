@@ -1720,7 +1720,7 @@ class Pricing_Table extends Widget_Base {
     	<?php
     }
 
-    protected function pricing_table_btn() {
+    private function pricing_table_btn() {
 		echo '<a '.$this->get_render_attribute_string( 'exad_pricing_table_btn_link' ).'>';
 			echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_btn' ).'>';
 				echo esc_html( $this->get_settings_for_display( 'exad_pricing_table_btn' ) );

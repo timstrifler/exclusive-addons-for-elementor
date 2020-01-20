@@ -1078,7 +1078,7 @@ class Tabs extends Widget_Base {
 								} else { 
 								    $tab_title_img_url = $tab_title_img_src_url;
 								}
-								echo '<img class="exad-magnify-small" src="'.esc_url( $tab_title_img_url ).'" alt="'.Control_Media::get_image_alt( $tab['exad_exclusive_tab_title_image'] ).'">';
+								echo '<img src="'.esc_url( $tab_title_img_url ).'" alt="'.Control_Media::get_image_alt( $tab['exad_exclusive_tab_title_image'] ).'">';
 							endif; 
 						?>
 						<span class="exad-tab-title"><?php echo esc_html( $tab['exad_exclusive_tab_title'] ); ?></span>
