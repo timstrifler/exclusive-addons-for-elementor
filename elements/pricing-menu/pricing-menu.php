@@ -876,9 +876,11 @@ class Pricing_Menu extends Widget_Base {
         $this->end_controls_section();
     }
 
-    private function pricing( $param ) {
+    private function pricing( $param, $index ) {
+        $price_key = $this->get_repeater_setting_key( 'exad_pricing_menu_price', 'pricing_menu_repeater', $index );
+        $this->add_inline_editing_attributes( $price_key, 'none' );
         $price = '<div class="exad-pricing-list-item-price">';
-            $price .= '<span>'.esc_html( $param ).'</span>';
+            $price .= '<span '.$this->get_render_attribute_string( $price_key ).'>'.esc_html( $param ).'</span>';
         $price .= '</div>';
         return $price;
     }
@@ -890,44 +892,62 @@ class Pricing_Menu extends Widget_Base {
         echo '<div class="exad-pricing-list">';
             echo '<div class="exad-pricing-list-wrapper '.esc_attr( $settings['exad_pricing_menu_list_item_border_bottom'] ).'">';
                 foreach ( $settings['pricing_menu_repeater'] as $index => $list ) : 
-                    $fg_image         = $list['exad_pricing_menu_image'];
-                    $fg_image_src_url = Group_Control_Image_Size::get_attachment_image_src( $fg_image['id'], 'exad_pricing_menu_img_size', $settings );
+                    $pricing_image         = $list['exad_pricing_menu_image'];
+                    $pricing_image_src_url = Group_Control_Image_Size::get_attachment_image_src( $pricing_image['id'], 'exad_pricing_menu_img_size', $settings );
 
-                    if( empty( $fg_image_src_url ) ) {
-                        $fg_image_url = $fg_image['url']; 
+                    if( empty( $pricing_image_src_url ) ) {
+                        $pricing_image_url = $pricing_image['url']; 
                     } else { 
-                        $fg_image_url = $fg_image_src_url;
+                        $pricing_image_url = $pricing_image_src_url;
                     }
-                    $img_url = $fg_image_url ? ' yes' : '';
-                    echo '<div class="exad-pricing-list-item'.esc_attr( $img_url ).'">';
+                    $img_url = $pricing_image_url ? ' yes' : '';
 
-                        if( !empty( $fg_image_url ) ) {
+                    $each_pricing_menu = 'each_item_' . $index;
+                    $this->add_render_attribute( $each_pricing_menu, 'class', [
+                        'elementor-repeater-item-'.esc_attr( $list['_id'] ),
+                        'exad-pricing-list-item'.$img_url
+                    ] );
+
+                    $pricing_title_key = $this->get_repeater_setting_key( 'exad_pricing_menu_title', 'pricing_menu_repeater', $index );
+                    $this->add_render_attribute( $pricing_title_key, 'class', 'exad-pricing-list-item-content-title' );
+                    $this->add_inline_editing_attributes( $pricing_title_key, 'none' );
+
+                    $pricing_description_key = $this->get_repeater_setting_key( 'exad_pricing_menu_description', 'pricing_menu_repeater', $index );
+                    $this->add_render_attribute( $pricing_description_key, 'class', 'exad-pricing-list-item-content-description' );
+                    $this->add_inline_editing_attributes( $pricing_description_key, 'basic' );
+
+                    echo '<div '.$this->get_render_attribute_string( $each_pricing_menu ).'>';
+                        if( !empty( $pricing_image_url ) ) :
                             echo '<div class="exad-pricing-list-item-thumbnail">';
-                                echo '<img src="'.esc_url( $fg_image_url ).'" alt="'.Control_Media::get_image_alt( $list['exad_pricing_menu_image'] ).'">';
+                                echo '<img src="'.esc_url( $pricing_image_url ).'" alt="'.Control_Media::get_image_alt( $list['exad_pricing_menu_image'] ).'">';
                             echo '</div>';
-                        }
+                        endif;
 
                         echo '<div class="exad-pricing-list-item-content '.esc_attr( $settings['exad_pricing_menu_price_position'] ).'">';
                             echo '<div class="exad-pricing-list-item-content-inner">';
                                 echo '<div class="exad-pricing-title">';
-                                    echo '<h5 class="exad-pricing-list-item-content-title">';
-                                        echo esc_html( $list['exad_pricing_menu_title'] );
-                                    echo '</h5>';
-                                    if( 'yes' === $settings['exad_pricing_menu_title_connector'] ) {
-                                        echo '<span class="exad-pricing-list-item-content-conntector"></span>';
-                                    }
+                                    if ( !empty( $list['exad_pricing_menu_title'] ) ) :
+                                        echo '<h5 '.$this->get_render_attribute_string( $pricing_title_key ).'>'.esc_html( $list['exad_pricing_menu_title'] ).'</h5>';
+                                    endif;
 
-                                    if( 'price_pos_right' === $settings['exad_pricing_menu_price_position'] ) {
-                                        echo $this->pricing( $list['exad_pricing_menu_price'] );
-                                    }
+                                    if( 'yes' === $settings['exad_pricing_menu_title_connector'] ) :
+                                        echo '<span class="exad-pricing-list-item-content-conntector"></span>';
+                                    endif;
+
+                                    if( 'price_pos_right' === $settings['exad_pricing_menu_price_position'] ) :
+                                        echo $this->pricing( $list['exad_pricing_menu_price'], $index );
+                                    endif;
                                 echo '</div>';
 
-                                echo '<p class="exad-pricing-list-item-content-description">';
-                                    echo wp_kses_post( $list['exad_pricing_menu_description'] );
-                                echo '</p>';
+                                if ( !empty( $list['exad_pricing_menu_description'] ) ) :
+                                    echo '<p '.$this->get_render_attribute_string( $pricing_description_key ).'>';
+                                        echo wp_kses_post( $list['exad_pricing_menu_description'] );
+                                    echo '</p>';
+                                endif;
                                 
                                 if( 'yes' === $list['exad_pricing_menu_enable_link'] && !empty( $list['exad_pricing_menu_action_text'] ) ) {
                                     $link_key = 'link_' . $index;
+                                    $this->add_render_attribute( $link_key, 'class', 'exad-pricing-list-item-content-action' );
                                     $exad_heading_link = $list['exad_pricing_menu_btn_link']['url'];
                                     if( $exad_heading_link ) {
                                         $this->add_render_attribute( $link_key, 'href', esc_url( $exad_heading_link ) );
@@ -938,9 +958,13 @@ class Pricing_Menu extends Widget_Base {
                                             $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
                                         }
                                     }
+                                    $pricing_btn_key = $this->get_repeater_setting_key( 'exad_pricing_menu_action_text', 'pricing_menu_repeater', $index );
+                                    $this->add_inline_editing_attributes( $pricing_btn_key, 'none' );
 
-                                    echo '<a class="exad-pricing-list-item-content-action" '.$this->get_render_attribute_string( $link_key ).'>';
-                                        echo esc_html( $list['exad_pricing_menu_action_text'] );
+                                    echo '<a '.$this->get_render_attribute_string( $link_key ).'>';
+                                        echo '<span '.$this->get_render_attribute_string( $pricing_btn_key ).'>';
+                                            echo esc_html( $list['exad_pricing_menu_action_text'] );
+                                        echo '</span>';
                                     echo '</a>';
                                 }
                             echo '</div>';
@@ -953,5 +977,127 @@ class Pricing_Menu extends Widget_Base {
                 endforeach;
             echo '</div>';
         echo '</div>';
+    }
+
+    /**
+     * Render pricing menu widget output in the editor.
+     *
+     * Written as a Backbone JavaScript template and used to generate the live preview.
+     *
+     * @since 1.0.0
+     * @access protected
+     */
+
+    protected function _content_template() {
+        ?>
+        <div class="exad-pricing-list">
+            <div class="exad-pricing-list-wrapper {{{ settings.exad_pricing_menu_list_item_border_bottom }}}">
+                <# if ( settings.pricing_menu_repeater.length ) {
+                    _.each( settings.pricing_menu_repeater, function( list, index ) {
+
+                        if ( list.exad_pricing_menu_image.url ) {
+                            var image = {
+                                id: list.exad_pricing_menu_image.id,
+                                url: list.exad_pricing_menu_image.url,
+                                size: list.exad_pricing_menu_img_size_size,
+                                dimension: list.exad_pricing_menu_img_size_custom_dimension,
+                                model: view.getEditModel()
+                            };
+
+                            var image_url = elementor.imagesManager.getImageUrl( image );
+                        } 
+                        var imgURL = image_url ? ' yes' : '';
+
+                        var eachPricingItem = 'each_list_' + index;
+                        view.addRenderAttribute( eachPricingItem, {
+                            'class': [ 
+                                'elementor-repeater-item-' + list._id,
+                                'exad-pricing-list-item' + imgURL
+                            ]
+                        } );
+
+                        var pricingTitleKey = view.getRepeaterSettingKey( 'exad_pricing_menu_title', 'pricing_menu_repeater', index );
+                        view.addRenderAttribute( pricingTitleKey, 'class', 'exad-pricing-list-item-content-title' );
+                        view.addInlineEditingAttributes( pricingTitleKey, 'none' );
+
+                        var pricingDescriptionKey = view.getRepeaterSettingKey( 'exad_pricing_menu_description', 'pricing_menu_repeater', index );
+                        view.addRenderAttribute( pricingDescriptionKey, 'class', 'exad-pricing-list-item-content-description' );
+                        view.addInlineEditingAttributes( pricingDescriptionKey, 'basic' );
+
+                        var priceKey = view.getRepeaterSettingKey( 'exad_pricing_menu_price', 'pricing_menu_repeater', index );
+                        view.addInlineEditingAttributes( priceKey, 'none' );
+
+                        var priceButtonKey = view.getRepeaterSettingKey( 'exad_pricing_menu_action_text', 'pricing_menu_repeater', index );
+                        view.addInlineEditingAttributes( priceButtonKey, 'none' );
+
+                    #>
+                        <div {{{ view.getRenderAttributeString( eachPricingItem ) }}}>
+                            <# if ( list.exad_pricing_menu_image.url ) { #>
+                                <div class="exad-pricing-list-item-thumbnail">
+                                    <img src="{{ image_url }}">
+                                </div>
+                            <# } #>
+                            <div class="exad-pricing-list-item-content {{{ settings.exad_pricing_menu_price_position }}}">
+                                <div class="exad-pricing-list-item-content-inner">
+                                    <div class="exad-pricing-title">
+                                        <# if ( '' !== list.exad_pricing_menu_title ) { #>
+                                            <h5 {{{ view.getRenderAttributeString( pricingTitleKey ) }}}>{{{ list.exad_pricing_menu_title }}}</h5>
+                                        <# } #>
+                                        <# if( 'yes' === settings.exad_pricing_menu_title_connector ) { #>
+                                            <span class="exad-pricing-list-item-content-conntector"></span>
+                                        <# } #>
+
+                                        <# if( 'price_pos_right' === settings.exad_pricing_menu_price_position ) { #>
+                                            <div class="exad-pricing-list-item-price">
+                                                <span {{{ view.getRenderAttributeString( priceKey ) }}}>
+                                                    {{{ list.exad_pricing_menu_price }}}
+                                                </span>
+                                            </div>
+                                        <# } #>
+                                    </div>
+                                    <# if ( '' !== list.exad_pricing_menu_description ) { #>
+                                        <p {{{ view.getRenderAttributeString( pricingDescriptionKey ) }}}>
+                                            {{{ list.exad_pricing_menu_description }}}
+                                        </p>
+                                    <# } #>
+                                    <# if( 'yes' === list.exad_pricing_menu_enable_link && '' !== list.exad_pricing_menu_action_text ) {
+                                        var ctaLink  = 'link_' + index;
+                                        view.addRenderAttribute( ctaLink, 'class', 'exad-pricing-list-item-content-action' );
+                                        view.addInlineEditingAttributes( ctaLink, 'none' );
+
+                                        if( list.exad_pricing_menu_btn_link.url ) {
+                                            view.addRenderAttribute( ctaLink, 'href', list.exad_pricing_menu_btn_link.url );
+                                            if( list.exad_pricing_menu_btn_link.is_external ) {
+                                                view.addRenderAttribute( ctaLink, 'target', '_blank' );
+                                            }
+                                            if( list.exad_pricing_menu_btn_link.nofollow ) {
+                                                view.addRenderAttribute( ctaLink, 'rel', 'nofollow' );
+                                            }
+                                        } #>
+
+                                        <a {{{ view.getRenderAttributeString( ctaLink ) }}}>
+                                            <span {{{ view.getRenderAttributeString( priceButtonKey ) }}}>
+                                                {{{ list.exad_pricing_menu_action_text }}}
+                                            </span>
+                                        </a>
+                                        
+                                    <# } #>
+                                </div>
+
+                                <# if( 'price_pos_down' === settings.exad_pricing_menu_price_position ) { #>
+                                    <div class="exad-pricing-list-item-price">
+                                        <span {{{ view.getRenderAttributeString( priceKey ) }}}>
+                                            {{{ list.exad_pricing_menu_price }}}
+                                        </span>
+                                    </div>
+                                <# } #>
+                            </div>
+                        </div>
+
+                    <# } );
+                } #>
+            </div>
+        </div>
+        <?php
     }
 }
