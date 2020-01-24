@@ -3273,7 +3273,7 @@ ul.exad-call-to-action-buttons {
 .exad-news-ticker{
   display: block;
   width: 100%;
-  background: #FFF;
+  /* background: #FFF; */
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -3315,7 +3315,7 @@ ul.exad-call-to-action-buttons {
 }
 .exad-news-ticker .exad-bn-label,
 .exad-news-ticker .exad-bn-label.yes-small:after {
-  background-color: #7a56ff;  
+  /* background-color: #7a56ff;   */
 }
 .exad-news-ticker .exad-bn-label.yes-small:after {
   position: absolute;
@@ -3437,7 +3437,6 @@ ul.exad-call-to-action-buttons {
 }
 .exad-news-ticker.bn-direction-rtl .exad-nt-controls{
   flex-direction: row-reverse;
-  padding: 0 20px 0 0;
 }
 .exad-news-ticker.bn-direction-rtl .exad-bn-label.yes-small:after{
   right: calc( 100% - 5px );
@@ -3445,7 +3444,6 @@ ul.exad-call-to-action-buttons {
 .exad-news-ticker .exad-nt-controls button{
   width: 30px;
   padding: 0;
-  margin-right: 5px;
   border: inherit;
   height: 30px;
   cursor: pointer;

@@ -398,7 +398,7 @@ class News_Ticker extends Widget_Base {
             [
                 'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#ffffff',
+                'default'   => '#000000',
                 'selectors' => [
                     '{{WRAPPER}} .exad-news-ticker .exad-bn-label' => 'color: {{VALUE}};'
                 ]              
@@ -433,7 +433,23 @@ class News_Ticker extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'           => 'exad_news_ticker_label_border',
-                'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-bn-label'
+                'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-bn-label',
+                'fields_options' => [
+                    'border'      => [
+                        'default' => 'solid'
+                    ],
+                    'width'       => [
+                        'default' => [
+                            'top'    => '0',
+                            'right'  => '1',
+                            'bottom' => '0',
+                            'left'   => '0'
+                        ]
+                    ],
+                    'color'       => [
+                        'default' => '#DADCEA'
+                    ]
+                ]
             ]
         );
 
@@ -622,7 +638,29 @@ class News_Ticker extends Widget_Base {
                     '.exad_news_ticker_show_controls' => 'yes'
                 ]             
             ]
-        ); 
+        );
+
+        $this->add_control(
+			'exad_news_ticker_control_spacing',
+			[
+				'label' => __( 'Spacing (Left & Right)', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-news-ticker .exad-nt-controls' => 'padding: 0 {{SIZE}}{{UNIT}} 0;',
+				],
+			]
+		);
 
         $this->add_control(
             'exad_news_ticker_control_box_style',
@@ -688,17 +726,27 @@ class News_Ticker extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
-            'exad_news_ticker_control_margin',
-            [
-                'label'      => __('Margin', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors'  => [
-                    '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ]
-            ]
-        );
+        $this->add_control(
+			'exad_news_ticker_control_item_spacing',
+			[
+				'label' => __( 'Control Item Spacing', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->start_controls_tabs( 'exad_news_ticker_controls_tabs' );
 
