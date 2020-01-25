@@ -67,7 +67,7 @@ msgstr ""
 msgid "Save Settings"
 msgstr ""
 
-#: admin/dashboard-settings.php:127, elements/blob-maker/blob-maker.php:78, elements/heading/heading.php:126, elements/image-comparison/image-comparison.php:104
+#: admin/dashboard-settings.php:127, elements/heading/heading.php:126, elements/image-comparison/image-comparison.php:104
 msgid "General"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Contents"
 msgstr ""
 
-#: elements/accordion/accordion.php:55, elements/accordion/accordion.php:104, elements/accordion/accordion.php:243, elements/accordion/accordion.php:864, elements/alert/alert.php:46, elements/animated-text/animated-text.php:45, elements/blob-maker/blob-maker.php:43, elements/call-to-action/call-to-action.php:43, elements/call-to-action/call-to-action.php:360, elements/card/card.php:47, elements/card/card.php:637, elements/dual-button/dual-button.php:45, elements/dual-heading/dual-heading.php:44, elements/filterable-gallery/filterable-gallery.php:769, elements/heading/heading.php:43, elements/infobox/infobox.php:48, elements/logo-box/logo-box.php:41, elements/logo-carousel/logo-carousel.php:50, elements/news-ticker/news-ticker.php:64, elements/post-grid/post-grid.php:505, elements/pricing-menu/pricing-menu.php:48, elements/progress-bar/progress-bar.php:53, elements/tabs/tabs.php:48, elements/tabs/tabs.php:125, elements/team-member/team-member.php:48, elements/team-member/team-member.php:635, elements/tooltip/tooltip.php:71
+#: elements/accordion/accordion.php:55, elements/accordion/accordion.php:104, elements/accordion/accordion.php:243, elements/accordion/accordion.php:864, elements/alert/alert.php:46, elements/animated-text/animated-text.php:45, elements/call-to-action/call-to-action.php:43, elements/call-to-action/call-to-action.php:360, elements/card/card.php:47, elements/card/card.php:637, elements/dual-button/dual-button.php:45, elements/dual-heading/dual-heading.php:44, elements/filterable-gallery/filterable-gallery.php:769, elements/heading/heading.php:43, elements/infobox/infobox.php:48, elements/logo-box/logo-box.php:41, elements/logo-carousel/logo-carousel.php:50, elements/news-ticker/news-ticker.php:64, elements/post-grid/post-grid.php:505, elements/pricing-menu/pricing-menu.php:48, elements/progress-bar/progress-bar.php:53, elements/tabs/tabs.php:48, elements/tabs/tabs.php:125, elements/team-member/team-member.php:48, elements/team-member/team-member.php:635, elements/tooltip/tooltip.php:71
 msgid "Content"
 msgstr ""
 
@@ -667,94 +667,6 @@ msgstr ""
 msgid "Post Animated text"
 msgstr ""
 
-#: elements/blob-maker/blob-maker.php:20
-msgid "Blob Maker"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:50
-msgid "SVG Shape"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:54
-msgid "Shape 1"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:55
-msgid "Shape 2"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:56
-msgid "Shape 3"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:57
-msgid "Shape 4"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:58
-msgid "Shape 5"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:59
-msgid "Shape 6"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:60
-msgid "Shape 7"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:61
-msgid "Shape 8"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:62
-msgid "Shape 9"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:63
-msgid "Shape 10"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:64
-msgid "Shape 11"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:65
-msgid "Shape 12"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:86
-msgid "Shape Color"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:102
-msgid "SVG Size"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:126, elements/logo-box/logo-box.php:136, elements/logo-box/logo-box.php:144, elements/logo-box/logo-box.php:198, elements/logo-box/logo-box.php:206, elements/logo-carousel/logo-carousel.php:272, elements/logo-carousel/logo-carousel.php:317
-msgid "Opacity"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:141
-msgid "Enable as a background"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:143, elements/card/card.php:78, elements/contact-form-7/contact-form-7.php:130, elements/contact-form-7/contact-form-7.php:150, elements/countdown-timer/countdown-timer.php:153, elements/dual-button/dual-button.php:122, elements/infobox/infobox.php:265, elements/infobox/infobox.php:276, elements/logo-box/logo-box.php:72, elements/modal-popup/modal-popup.php:350, elements/pricing-menu/pricing-menu.php:97, elements/pricing-menu/pricing-menu.php:309, elements/pricing-menu/pricing-menu.php:497, elements/pricing-table/pricing-table.php:1183, elements/team-member/team-member.php:454, elements/tooltip/tooltip.php:152
-msgid "Show"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:144, elements/card/card.php:79, elements/contact-form-7/contact-form-7.php:131, elements/contact-form-7/contact-form-7.php:151, elements/countdown-timer/countdown-timer.php:154, elements/dual-button/dual-button.php:123, elements/infobox/infobox.php:266, elements/infobox/infobox.php:277, elements/logo-box/logo-box.php:73, elements/modal-popup/modal-popup.php:351, elements/pricing-menu/pricing-menu.php:98, elements/pricing-menu/pricing-menu.php:310, elements/pricing-menu/pricing-menu.php:498, elements/pricing-table/pricing-table.php:1184, elements/team-member/team-member.php:455, elements/tooltip/tooltip.php:153
-msgid "Hide"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:153
-msgid "Top Offset"
-msgstr ""
-
-#: elements/blob-maker/blob-maker.php:183
-msgid "Left Offset"
-msgstr ""
-
 #: elements/button/button.php:53
 msgid "Download!"
 msgstr ""
@@ -877,6 +789,14 @@ msgstr ""
 
 #: elements/card/card.php:76
 msgid "Enable Badge"
+msgstr ""
+
+#: elements/card/card.php:78, elements/contact-form-7/contact-form-7.php:130, elements/contact-form-7/contact-form-7.php:150, elements/countdown-timer/countdown-timer.php:153, elements/dual-button/dual-button.php:122, elements/infobox/infobox.php:265, elements/infobox/infobox.php:276, elements/logo-box/logo-box.php:72, elements/modal-popup/modal-popup.php:350, elements/pricing-menu/pricing-menu.php:97, elements/pricing-menu/pricing-menu.php:309, elements/pricing-menu/pricing-menu.php:497, elements/pricing-table/pricing-table.php:1183, elements/team-member/team-member.php:454, elements/tooltip/tooltip.php:152
+msgid "Show"
+msgstr ""
+
+#: elements/card/card.php:79, elements/contact-form-7/contact-form-7.php:131, elements/contact-form-7/contact-form-7.php:151, elements/countdown-timer/countdown-timer.php:154, elements/dual-button/dual-button.php:123, elements/infobox/infobox.php:266, elements/infobox/infobox.php:277, elements/logo-box/logo-box.php:73, elements/modal-popup/modal-popup.php:351, elements/pricing-menu/pricing-menu.php:98, elements/pricing-menu/pricing-menu.php:310, elements/pricing-menu/pricing-menu.php:498, elements/pricing-table/pricing-table.php:1184, elements/team-member/team-member.php:455, elements/tooltip/tooltip.php:153
+msgid "Hide"
 msgstr ""
 
 #: elements/card/card.php:88
@@ -1701,6 +1621,10 @@ msgstr ""
 
 #: elements/logo-box/logo-box.php:118, elements/logo-box/logo-box.php:180
 msgid "Background Style"
+msgstr ""
+
+#: elements/logo-box/logo-box.php:136, elements/logo-box/logo-box.php:144, elements/logo-box/logo-box.php:198, elements/logo-box/logo-box.php:206, elements/logo-carousel/logo-carousel.php:272, elements/logo-carousel/logo-carousel.php:317
+msgid "Opacity"
 msgstr ""
 
 #: elements/logo-box/logo-box.php:212
