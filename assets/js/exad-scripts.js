@@ -495,7 +495,7 @@ var exclusiveNewsTicker = function( $scope, $ ) {
             var t            = $(this),
             auto             = t.data( 'autoplay' ) ? !0 : !1,
             animationEffect  = t.data( 'animation' ) ? t.data( 'animation' ) : '',                                   
-            fixedBottom      = t.data( 'bottom_fixed' ) ? t.data( 'bottom_fixed' ) : '',                                   
+            fixedPosition      = t.data( 'fixed_position' ) ? t.data( 'fixed_position' ) : '',                                   
             pauseOnHover     = t.data( 'pause_on_hover' ) ? t.data( 'pause_on_hover' ) : '',                                   
             animationSpeed   = t.data( 'animation_speed' ) ? t.data( 'animation_speed' ) : '',                                   
             autoplayInterval = t.data( 'autoplay_interval' ) ? t.data( 'autoplay_interval' ) : '',                                   
@@ -503,7 +503,7 @@ var exclusiveNewsTicker = function( $scope, $ ) {
             direction        = t.data( 'direction' ) ? t.data( 'direction' ) : ''; 
 
             $(this).breakingNews( {
-                position: fixedBottom,
+                position: fixedPosition,
                 play: auto,
                 direction: direction,
                 scrollSpeed: animationSpeed,

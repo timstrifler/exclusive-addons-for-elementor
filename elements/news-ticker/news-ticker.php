@@ -123,15 +123,17 @@ class News_Ticker extends Widget_Base {
         ); 
 
         $this->add_control(
-            'exad_news_ticker_set_bottom_fixed',
+            'exad_news_ticker_set_fixed_position',
             [
-                'type'         => Controls_Manager::SWITCHER,
-                'label'        => esc_html__( 'Set Bottom', 'exclusive-addons-elementor' ),
-                'label_on'     => __( 'On', 'exclusive-addons-elementor' ),
-                'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
-                'default'      => 'no',
-                'return_value' => 'yes',
-                'description'  => esc_html__('Stick the news ticker to the bottom of the page.', 'exclusive-addons-elementor')
+                'type'         => Controls_Manager::SELECT,
+                'label'        => esc_html__( 'Set Position', 'exclusive-addons-elementor' ),
+				'default' => 'none',
+				'options' => [
+					'none'  => __( 'None', 'exclusive-addons-elementor' ),
+					'fixed-top'  => __( 'Fixed Top', 'exclusive-addons-elementor' ),
+					'fixed-bottom'  => __( 'Fixed Bottom', 'exclusive-addons-elementor' ),
+				],
+                'description'  => esc_html__('Stick the news ticker to the top or bottom of the page.', 'exclusive-addons-elementor')
             ]
         );
 
@@ -396,7 +398,7 @@ class News_Ticker extends Widget_Base {
             [
                 'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
-                'default'   => '#ffffff',
+                'default'   => '#000000',
                 'selectors' => [
                     '{{WRAPPER}} .exad-news-ticker .exad-bn-label' => 'color: {{VALUE}};'
                 ]              
@@ -431,7 +433,23 @@ class News_Ticker extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'           => 'exad_news_ticker_label_border',
-                'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-bn-label'
+                'selector'       => '{{WRAPPER}} .exad-news-ticker .exad-bn-label',
+                'fields_options' => [
+                    'border'      => [
+                        'default' => 'solid'
+                    ],
+                    'width'       => [
+                        'default' => [
+                            'top'    => '0',
+                            'right'  => '1',
+                            'bottom' => '0',
+                            'left'   => '0'
+                        ]
+                    ],
+                    'color'       => [
+                        'default' => '#DADCEA'
+                    ]
+                ]
             ]
         );
 
@@ -620,7 +638,29 @@ class News_Ticker extends Widget_Base {
                     '.exad_news_ticker_show_controls' => 'yes'
                 ]             
             ]
-        ); 
+        );
+
+        $this->add_control(
+			'exad_news_ticker_control_spacing',
+			[
+				'label' => __( 'Spacing (Left & Right)', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-news-ticker .exad-nt-controls' => 'padding: 0 {{SIZE}}{{UNIT}} 0;',
+				],
+			]
+		);
 
         $this->add_control(
             'exad_news_ticker_control_box_style',
@@ -686,17 +726,27 @@ class News_Ticker extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
-            'exad_news_ticker_control_margin',
-            [
-                'label'      => __('Margin', 'exclusive-addons-elementor'),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors'  => [
-                    '{{WRAPPER}} .exad-news-ticker .exad-nt-controls button' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ]
-            ]
-        );
+        $this->add_control(
+			'exad_news_ticker_control_item_spacing',
+			[
+				'label' => __( 'Control Item Spacing', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 10,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-news-ticker .exad-nt-controls button:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->start_controls_tabs( 'exad_news_ticker_controls_tabs' );
 
@@ -812,7 +862,7 @@ class News_Ticker extends Widget_Base {
         $direction      = $settings['exad_news_ticker_animation_direction'];
         $ticker_height  = $settings['exad_news_ticker_height']['size'];
         $autoplay       = $settings['exad_news_ticker_autoplay'];
-        $bottom_fixed   = $settings['exad_news_ticker_set_bottom_fixed'];
+        $fixed_position   = $settings['exad_news_ticker_set_fixed_position'];
         $animation_type = $settings['exad_news_ticker_animation_type'];
 
         $arrow             = 'yes'    === $settings['exad_news_ticker_show_label_arrow'] ? ' yes-small' : ' no';
@@ -826,7 +876,7 @@ class News_Ticker extends Widget_Base {
             'exad-news-ticker-wrapper', 
             [ 
                 'data-autoplay'          => esc_attr( 'yes' === $autoplay ? 'true' : 'false' ),
-                'data-bottom_fixed'      => esc_attr( 'yes' === $bottom_fixed ? 'fixed-bottom' : 'false' ),
+                'data-fixed_position'      => esc_attr( $fixed_position ),
                 'data-pause_on_hover'    => esc_attr( 'yes' === $pause_on_hover ? 'true' : 'false' ),
                 'data-direction'         => 'rtl' === $direction || is_rtl() ? 'rtl' : 'ltr',
                 'data-autoplay_interval' => esc_attr( $autoplay_interval ),
@@ -914,7 +964,7 @@ class News_Ticker extends Widget_Base {
             direction         = settings.exad_news_ticker_animation_direction,
             ticker_height     = settings.exad_news_ticker_height.size,
             autoplay          = settings.exad_news_ticker_autoplay,
-            bottom_fixed      = settings.exad_news_ticker_set_bottom_fixed,
+            fixed_position      = settings.exad_news_ticker_set_fixed_position,
             animation_type    = settings.exad_news_ticker_animation_type,
             arrow             = 'yes' === settings.exad_news_ticker_show_label_arrow ? ' yes-small' : ' no',
             pause_on_hover    = 'yes' === autoplay ? settings.exad_news_ticker_pause_on_hover : '';
@@ -929,7 +979,7 @@ class News_Ticker extends Widget_Base {
                 'exad-news-ticker-wrapper', 
                 {
                     'data-autoplay' : 'yes'       === autoplay ? 'true' : 'false',
-                    'data-bottom_fixed' : 'yes'   === bottom_fixed ? 'fixed-bottom' : 'false',
+                    'data-fixed_position' : fixed_position,
                     'data-pause_on_hover' : 'yes' === pause_on_hover ? 'true' : 'false',
                     'data-direction': 'rtl'       === direction || elementorCommon.config.isRTL ? 'rtl' : 'ltr',
                     'data-autoplay_interval': autoplay_interval,
