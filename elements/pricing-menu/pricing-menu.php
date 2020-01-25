@@ -970,7 +970,7 @@ class Pricing_Menu extends Widget_Base {
                             echo '</div>';
                             
                             if( 'price_pos_down' === $settings['exad_pricing_menu_price_position'] ) {
-                                echo $this->pricing( $list['exad_pricing_menu_price'] );
+                                echo $this->pricing( $list['exad_pricing_menu_price'], $index );
                             }
                         echo '</div>';
                     echo '</div>';
