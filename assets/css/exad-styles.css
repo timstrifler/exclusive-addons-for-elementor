@@ -2435,59 +2435,6 @@ ul.exad-call-to-action-buttons {
 
 /* Flterable gallery End */
 
-
-/* Iconbox css start */
-.exad-iconbox{
-    display: block;
-    transition: all .3s ease;
-}
-.exad-iconbox.exad-iconbox-left{
-    text-align: left;
-}
-.exad-iconbox.exad-iconbox-left .exad-iconbox-icon.yes{
-    margin-right: auto;
-}
-.exad-iconbox.exad-iconbox-center{
-    text-align: center;
-}
-.exad-iconbox.exad-iconbox-center .exad-iconbox-icon.yes{
-    margin-left: auto;
-    margin-right: auto;
-}
-.exad-iconbox.exad-iconbox-right{
-    text-align: right;
-}
-.exad-iconbox.exad-iconbox-right .exad-iconbox-icon.yes{
-    margin-left: auto;
-}
-.exad-iconbox-icon{
-    display: block;
-    transition: all .3s ease;
-}
-.exad-iconbox-icon i{
-    transition: all .3s ease;
-}
-.exad-iconbox-icon.yes{
-    position: relative;
-    transition: all .3s ease;
-}
-.exad-iconbox-icon.yes i, .exad-iconbox-icon.yes svg{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    transition: all .3s ease;
-}
-
-.exad-iconbox-title{
-    margin: 0;
-    transition: all .3s ease;
-}
-.exad-iconbox-description{
-    margin: 0;
-    transition: all .3s ease;
-}
-/* Iconbox css end */
 /* Image Comparison style start */
 
 .exad-image-comparision .exad-image-comparision-element {
