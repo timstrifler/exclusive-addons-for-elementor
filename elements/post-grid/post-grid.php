@@ -743,6 +743,14 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+				'name'     => 'exad_post_grid_excerpt_typography',
+				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body .exad-post-grid-description'
+            ]
+        );
+
         $this->add_responsive_control(
             'exad_post_grid_excerpt_margin',
             [
