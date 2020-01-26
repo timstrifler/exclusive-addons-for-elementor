@@ -1,34 +1,70 @@
 === Exclusive Addons for Elementor ===
-Contributors: devscred, mmaumio
-Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern
+Contributors: devscred, mmaumio, atique_hasan, zabid, fahimahmmed100
+Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.1.1
-Stable tag: 1.2.2
+Tested up to: 5.3
+Stable tag: 2.0
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
-Packed with a bunch of Exclusively designed widget for Elementor that you'll love on the first glance.
+Packed with a bunch of Exclusively designed widget for Elementor with all the customization options you'll ever need.
 
 == Description ==
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
-You don’t need to get your hands dirty designing elements from scratch. We’ve done the hard work for you.
-Choose from the presets. We’re quite sure, you’ll love them.
-
-If you don't, we have a bunch of options for you to design them according to your needs.
+We have filled all the elements with every options that you can think off. Still need one, please feel free to reach out.
+We'd love to add that for you.
 
 [Check out our Demos](http://exclusiveaddons.com/)
 
+### 30 "USEFUL" FREE WIDGETS and counting...
 
-### Weekly Updates with New Element
-We'll update Exclusive Addons with new Elements for you, every week.
+We have packed the most Useful Free Elementor widgets for you in the bundle. Check out our Demos where we demonstrated some interesting use cases for all of our Elements:
 
-### Live Preview
-We have enabled Live Preview for most of our elements. That means you can see as you edit your elements without a delay of second.
+1. **[Card](http://exclusiveaddons.com/card-demo/)**
+2. **[Image Magnifier](http://exclusiveaddons.com/image-magnifier-demo/)** 
+3. **[Info Box](http://exclusiveaddons.com/infobox-demo/)**
+4. **[Call to Action](http://exclusiveaddons.com/call-to-action-demo/)**
+5. **[Image Comparison](http://exclusiveaddons.com/image-comparison-demo/)**
+6. **[Team Member](http://exclusiveaddons.com/team-member-demo)**
+7. **[Testimonial](http://exclusiveaddons.com/testimonial-demo/)**
+8. **[Dual Heading](http://exclusiveaddons.com/dual-heading-demo/)**
+9. **[Contact Form 7](http://exclusiveaddons.com/contact-form-7-demo/)**
+10. **[Heading](http://exclusiveaddons.com/heading-demo/)**
+11. **[Post Timeline](http://exclusiveaddons.com/post-timeline-demo/)**
+12. **[Post Grid](http://exclusiveaddons.com/post-grid-demo/)**
+13. **[Accordion](http://exclusiveaddons.com/accordion-demo/)**
+14. **[Dual Button](http://exclusiveaddons.com/dual-button-demo/)**
+15. **[Testimonial](http://exclusiveaddons.com/testimonial-demo/)**
+16. **[Filterable Gallery](http://exclusiveaddons.com/filterable-gallery-demo/)**
+17. **[Tooltip](http://exclusiveaddons.com/tooltip-demo/)**
+18. **[Logo Carousel](http://exclusiveaddons.com/logo-carousel-demo/)**
+19. **[Google Map](http://exclusiveaddons.com/google-map-demo/)**
+20. **[Pricing Menu](http://exclusiveaddons.com/pricing-menu-demo/)**
+21. **[Modal Popup](http://exclusiveaddons.com/modal-popup-demo/)**
+22. **[Countdown Timer](http://exclusiveaddons.com/countdown-timer-demo/)**
+23. **[Flip Box](http://exclusiveaddons.com/flipbox-demo/)**
+24. **[Pricing Table](http://exclusiveaddons.com/pricing-table-demo/)**
+25. **[Progress Bar](http://exclusiveaddons.com/progress-bar-demo/)**
+26. **[Tabs](http://exclusiveaddons.com/tabs-demo/)**
+27. **[News Ticker](http://exclusiveaddons.com/news-ticker-demo/)**
+28. **[Alert] (http://exclusiveaddons.com/alert-demo/)**
+29. **[Animated Text] (http://exclusiveaddons.com/animated-text-demo/)**
+30. **[Button] (http://exclusiveaddons.com/button-demo/)**
 
-### 20+ Elementor widgets
-We have packed 20+ Elementor widgets for now. We'll continue to add them as time goes on.
+
+### 30+ Elementor widgets
+We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
+
+### Global Style Settings
+This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
+
+### Incredibly Customizeable
+Excluisive Addons is Incredibly Customizeable with all the options you could ever imagine. Feel free to shout out if you still need any options.
+
+### Inline Editing with Live Preview
+We have enabled Inline Editing with Live Preview for most of our elements. That means you can see as you edit your element without the delay of a second.
 
 ### Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -41,7 +77,7 @@ We have added only a handful of third party scripts with the plugin. We optimize
 Note : This plugin works with Elementor. Make sure you have [Elementor](https://wordpress.org/plugins/elementor/) installed.
 
 1. Download "Exclusive Addons for Elementor" plugin
-2. Simply go to the Plugins page, then click on Add new and select the plugin's .zip file which is "ExclusiveAddonsElementor.zip".
+2. Simply go to the Plugins page, then click on Add new and select the plugin's .zip file which is "exclusive-addons-elementor.zip".
 3. Alternatively you can extract the contents of the zip file directly to your wp-content/plugins/ folder
 4. Finally, activate the plugin.
 5. You can type "Ex" on your element tabs within Elementor editor and all the avialable elements of Exclusive Addons will appear.
@@ -49,6 +85,11 @@ Note : This plugin works with Elementor. Make sure you have [Elementor](https://
 
 
 == Frequently Asked Questions ==
+
+= Some of my existing widgets got broken after the update of 2.0 . How to resolve? =
+
+Unfortunately, our new update can not gurantee to keep your existing design intact due to the overall change of the plugin architecture.
+However, in order to achieve the default style (which is great by the way) of our new widget all you have to do is, go to Elementor > Tools > Regenerate CSS and Save Changes.
 
 = Can I use the plugin without Elementor? =
 
@@ -73,6 +114,18 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 7. Dashboard section for enabling/disabling elements
 
 == Changelog ==
+
+= 2.0 - 05/12/2019 =
+- Changed every element from Style based selection to Single style element, reached with enormous options.
+- Added namespace for Elements classes.
+- Changed "DC back to "Ex" on Element editor panel.
+- Added 10 New widgets.
+- Added Default Style settings for all the elements at once in the Dashboard.
+- Changed Plugin Settings page loaction to a Top level menu.
+
+
+= 1.3.2 - 28/10/2019 =
+- Provided a notice for the coming update of Exclusive Addons Elementor 2.0 which might break some of the designs of the existing elements.
 
 = 1.2.2 - 04/05/2019 =
 - Added Tooltip Element.
@@ -114,5 +167,5 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 2.0 =
 No Upgrade instruction yet

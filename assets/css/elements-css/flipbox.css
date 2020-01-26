@@ -1,0 +1,296 @@
+/* Flip Box Start */
+
+.exad-flip-box {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  background-color: transparent;
+}
+
+.exad-flip-box-front-content, .exad-flip-box-back-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.exad-flip-box:hover .left-to-right {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.exad-flip-box:hover .left-to-right .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .right-to-left {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.exad-flip-box:hover .right-to-left .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .top-to-bottom {
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+
+.exad-flip-box:hover .top-to-bottom .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .bottom-to-top {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.exad-flip-box:hover .bottom-to-top .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .top-to-bottom-angle {
+  -webkit-transform: rotate3d(1, 1, 0, -180deg);
+  transform: rotate3d(1, 1, 0, -180deg);
+}
+
+.exad-flip-box:hover .top-to-bottom-angle .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .bottom-to-top-angle {
+  -webkit-transform: rotate3d(1, 1, 0, 180deg);
+  transform: rotate3d(1, 1, 0, 180deg);
+}
+
+.exad-flip-box:hover .bottom-to-top-angle .exad-flip-box-front {
+  opacity: 0;
+}
+
+.exad-flip-box:hover .exad-flip-box-inner.fade-in-out .exad-flip-box-front {
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  z-index: 2;
+}
+
+.exad-flip-box:hover .exad-flip-box-inner.fade-in-out .exad-flip-box-back {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  z-index: 3;
+}
+
+.exad-flip-box .exad-flip-box-inner {
+  position: relative;
+  transition: -webkit-transform 1s cubic-bezier(.17,.67,.47,1.18);
+  transition: transform 1s cubic-bezier(.17,.67,.47,1.18);
+  transition: transform 1s, -webkit-transform 1s cubic-bezier(.17,.67,.47,1.18);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front {
+  transition: all .5s cubic-bezier(.17,.67,.47,1.18);
+}
+
+
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-title {
+  font-size: 30px;
+}
+
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.exad-flip-box .exad-flip-box-front .exad-flip-box-front-image i {
+  font-size: 50px;
+}
+
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-action {
+  text-decoration: none;
+  transition: all .4s ease;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back a.exad-flip-box-back-action:hover {
+  cursor: pointer;
+}
+
+.exad-flip-box .exad-flip-box-inner.left-to-right .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.right-to-left .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.top-to-bottom .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.bottom-to-top .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.top-to-bottom-angle .exad-flip-box-front {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.exad-flip-box .exad-flip-box-inner.top-to-bottom-angle .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotate3d(1, 1, 0, 180deg);
+  transform: rotate3d(1, 1, 0, 180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.bottom-to-top-angle .exad-flip-box-front {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.exad-flip-box .exad-flip-box-inner.bottom-to-top-angle .exad-flip-box-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotate3d(1, 1, 0, -180deg);
+  transform: rotate3d(1, 1, 0, -180deg);
+}
+
+.exad-flip-box .exad-flip-box-inner.fade-in-out .exad-flip-box-front {
+  transition: all .8s cubic-bezier(.17,.67,.47,1.18);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.exad-flip-box .exad-flip-box-inner.fade-in-out .exad-flip-box-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  transition: all .8s cubic-bezier(.17,.67,.47,1.18);
+}
+
+.exad-flip-box .exad-flip-box-inner.three-d-flip .exad-flip-box-front {
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32), -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  min-height: 280px;
+  background: #ffffff;
+}
+
+.exad-flip-box .exad-flip-box-inner.three-d-flip .exad-flip-box-front .exad-flip-box-front-content {
+  -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+          transform: translateY(-50%) translateZ(60px) scale(0.94);
+  top: 50%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  -webkit-perspective: inherit;
+          perspective: inherit;
+}
+
+.exad-flip-box .exad-flip-box-inner.three-d-flip .exad-flip-box-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32), -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  min-height: 280px;
+  height: auto;
+  width: 100%;
+  background: #ffffff;
+}
+
+.exad-flip-box .exad-flip-box-inner.three-d-flip .exad-flip-box-back .exad-flip-box-back-content {
+  -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+          transform: translateY(-50%) translateZ(60px) scale(0.94);
+  top: 50%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  -webkit-perspective: inherit;
+          perspective: inherit;
+}
+
+.exad-flip-box .exad-flip-box-inner.three-d-flip:hover .exad-flip-box-front, .exad-flip-box .exad-flip-box-inner.three-d-flip:hover .exad-flip-box-back {
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32), -webkit-transform 0.7s cubic-bezier(0.4, 0.2, 0.3, 1.32);
+}
+
+.exad-flip-box .exad-flip-box-inner.three-d-flip:hover .exad-flip-box-front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.exad-flip-box .exad-flip-box-inner.three-d-flip:hover .exad-flip-box-back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.exad-flip-box-front.left .exad-flip-box-front-image, .exad-flip-box-back.left .exad-flip-box-back-image {
+  margin-right: auto;
+}
+.exad-flip-box-front.center .exad-flip-box-front-image, .exad-flip-box-back.center .exad-flip-box-back-image {
+  margin-left: auto;
+  margin-right: auto;
+}
+.exad-flip-box-front.right .exad-flip-box-front-image, .exad-flip-box-back.right .exad-flip-box-back-image {
+  margin-left: auto;
+}
+
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image,
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-image {
+  position: relative;
+}
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image i,.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image svg,
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-image i, .exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-image svg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Flip Box End */

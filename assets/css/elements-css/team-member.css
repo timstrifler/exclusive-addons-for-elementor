@@ -1,0 +1,128 @@
+/* Team Member Start */
+
+.exad-left{
+  text-align: left;
+}
+.exad-left .exad-team-member-thumb{
+  margin-right: auto;
+}
+
+.exad-center{
+  text-align: center;
+}
+
+.exad-center .exad-team-member-thumb{
+  margin: 0 auto;
+}
+
+.exad-right{
+  text-align: right;
+}
+
+.exad-right .exad-team-member-thumb{
+  margin-left: auto;
+}
+
+.exad-top-background{
+  clear: both;
+}
+
+.exad-team-item .exad-team-member.exad-position-left,
+.exad-team-item .exad-team-member.exad-position-right {
+  display: flex;
+}
+.exad-position-left .exad-team-member-thumb{
+  width: 40%;
+}
+.exad-position-left .exad-team-member-content{
+  width: 60%;
+}
+.exad-position-right .exad-team-member-thumb{
+  width: 40%;
+  order: 2;
+}
+.exad-position-right .exad-team-member-content{
+  width: 60%;
+  order: 1;
+}
+.exad-team-item .exad-team-member.exad-position-left .exad-team-member-thumb img,
+.exad-team-item .exad-team-member.exad-position-right .exad-team-member-thumb img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.elementor .exad-team-member-thumb img {
+  height: 100%;
+  width: 100%;
+}
+
+.exad-team-member-cta{
+  text-decoration: none;
+  display: inline-block;
+  transition: all .3s ease;
+}
+
+.exad-team-member-social{
+  margin: 0;
+  padding: 0;
+}
+
+.exad-team-member-social li{
+  list-style: none;
+  display: inline-block;
+}
+.exad-team-member-social li a{
+  display: block;
+  position: relative;
+  transition: all .3s ease;
+  text-decoration: none;
+}
+
+.exad-team-member-social li a i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.exad-team-member-thumb img{
+  display: block;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
+
+.exad-team-member-content{
+  position: relative;
+  z-index: 8;
+}
+
+.exad-team-member-name{
+  margin: 0 0 20px 0;
+}
+
+.exad-team-member-designation{
+  margin: 0 0 20px 0;
+  display: block;
+}
+
+.exad-team-member-about{
+  margin: 0 0 20px 0;
+  line-height: 1.5em;
+}
+
+@media (max-width: 480px) {
+  .exad-team-item .exad-team-member.exad-position-left, 
+  .exad-team-item .exad-team-member.exad-position-right {
+    flex-direction: column;
+  }
+  .exad-team-item .exad-team-member.exad-position-left .exad-team-member-thumb img, 
+  .exad-team-item .exad-team-member.exad-position-right .exad-team-member-thumb img,
+  .exad-position-left .exad-team-member-thumb,
+  .exad-position-left .exad-team-member-content,
+  .exad-position-right .exad-team-member-thumb,
+  .exad-position-right .exad-team-member-content {
+    width: 100%;
+  }
+}
+
+/* Team member style eight end */

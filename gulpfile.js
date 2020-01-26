@@ -26,33 +26,20 @@ var cssnano = require('gulp-cssnano');
 var objectfit = require('postcss-object-fit-images');
 var zip = require('gulp-zip');
 var rename = require('gulp-rename');
+var watch = require('gulp-watch');
 var del = require('del');
 var runSequence = require('run-sequence');
 var pot = require('gulp-wp-pot');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
-
-
-// gulp.task('jsconcat', function() {
-//     return gulp.src('./assets/js/elements/*.js')
-//       .pipe(concat('exad-scripts.js'))
-//       .pipe(gulp.dest('./assets/js'));
-// });
-
-gulp.task('cssconcat', function() {
-    return gulp.src('./assets/css/elements-css/*.css')
-      .pipe(concat('exad-styles.css'))
-      .pipe(gulp.dest('./assets/css'));
-});
-
-
-
 // Css Minimy
 gulp.task('cssmin', function() {
     return gulp.src([
-        './admin/assets/css/*.css',
-        './assets/css/*.css'
+        'admin/assets/css/*.css',
+        'assets/css/*.css',
+        '!admin/assets/css/*.min.css',
+        '!assets/css/*.min.css'
         ])
         .pipe(cssnano())
         .pipe(rename(function (path) {
@@ -70,7 +57,9 @@ gulp.task('cssmin', function() {
 gulp.task('jsmin', function () {
     return gulp.src([
         'admin/assets/js/*.js',
-        'assets/js/*.js'
+        'assets/js/*.js',
+        '!admin/assets/js/*.min.js',
+        '!assets/js/*.min.js'
         ])
         .pipe(uglify())
         .pipe(rename(function (path) {
@@ -94,10 +83,67 @@ gulp.task('clean', function () {
  */
 gulp.task('cleanmin', function () {
     return del([
-        '**/*.min.js',
-        '**/*.min.css',
+        'admin/assets/js/*.min.js',
+        'admin/assets/css/*.min.css',
+        'assets/js/*.min.js',
+        'assets/css/*.min.css',
         '!node_modules/**/*'
     ]);
+});
+
+/**
+ * Deletes all minified css files in the project
+ */
+gulp.task('cleancssmin', function () {
+    return del([
+        'admin/assets/css/*.min.css',
+        'assets/css/*.min.css',
+        '!node_modules/**/*'
+    ]);
+});
+
+/**
+ * Deletes all minified js files in the project
+ */
+gulp.task('cleanjsmin', function () {
+    return del([
+        'admin/assets/js/*.min.js',
+        'assets/js/*.min.js',
+        '!node_modules/**/*'
+    ]);
+});
+
+
+/**
+ * Concat Js
+ */
+gulp.task('jsconcat', function() {
+    return gulp.src('assets/js/elements-js/*.js')
+      .pipe(concat('exad-scripts.js'))
+      .pipe(gulp.dest('./assets/js'));
+});
+
+/**
+ * Concat Css
+ */
+gulp.task('cssconcat', function() {
+    return gulp.src('assets/css/elements-css/*.css')
+      .pipe(concat('exad-styles.css'))
+      .pipe(gulp.dest('./assets/css'));
+});
+
+/**
+ * concat and minify css
+ */
+gulp.task('css', function(callback) {
+    return runSequence( 'cssconcat', 'cssmin', callback);
+});
+
+/**
+ * concat and minify js
+ */
+gulp.task('js', function(callback) {
+    return runSequence( 'jsconcat', 'jsmin', callback);
 });
 
 /**
@@ -106,6 +152,10 @@ gulp.task('cleanmin', function () {
 gulp.task('copy', function () {
     return gulp.src([
         '**/*',
+        '!assets/css/elements-css',
+        '!assets/css/elements-css/**',
+        '!assets/js/elements-js',
+        '!assets/js/elements-js/**',
         '!.gitignore',
         '!package.json',
         '!package-lock.json',
@@ -114,7 +164,7 @@ gulp.task('copy', function () {
         '!node_modules',
         '!node_modules/**/*'
     ])
-    .pipe(gulp.dest('dist/exclusiveAddonsElementor'));
+    .pipe(gulp.dest('dist/exclusive-addons-for-elementor'));
 });
 
 
@@ -126,7 +176,7 @@ gulp.task('copy', function () {
  */
 gulp.task('zip', function () {
     return gulp.src('dist/**/*')
-        .pipe(zip('exclusiveAddonsElementor.zip'))
+        .pipe(zip('exclusive-addons-for-elementor.zip'))
         .pipe(gulp.dest('dist'))
 });
 
@@ -153,7 +203,17 @@ gulp.task('prod', function(callback) {
     return runSequence( 'clean', 'pot', 'copy', 'zip', callback);
 });
 
+
+/**
+ * Watch Gulp css and js concat
+ */
+
+gulp.task('watch', function () {
+    gulp.watch('assets/css/elements-css/*.css', ['cssconcat']);
+    gulp.watch('assets/js/elements-js/*.js', ['jsconcat']);
+});
+
 /**
  * Minifies and concatenates JS and CSS
  */
-gulp.task('default', ['cssmin', 'jsmin'] );
+gulp.task('default', ['cssconcat', 'jsconcat'] );

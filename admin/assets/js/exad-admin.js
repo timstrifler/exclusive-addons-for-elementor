@@ -1,8 +1,10 @@
 jQuery(document).ready(function($) {
 	'use strict';
-	/**
-	 * Exad Tabs
-	 */
+
+	// Dashboard Color Picker 
+	$('.exad-dashboard-tab .exad-admin-color-picker').wpColorPicker();
+
+	// Dashboard Tabs
 	$( '.exad-dashboard-tabs li a' ).on( 'click', function(e) {
 		e.preventDefault();
 		$( '.exad-dashboard-tabs li a' ).removeClass( 'active' );
@@ -14,7 +16,7 @@ jQuery(document).ready(function($) {
 
 	// Save Button reacting on any changes
 	var saveHeaderAction = $( '.exad-dashboard-header-wrapper .exad-btn' );
-	$('.exad-dashboard-tab input').on( 'click', function() {
+	$('.exad-dashboard-tab input, .exad-dashboard-tab button').on( 'click', function() {
 		saveHeaderAction.addClass( 'exad-save-now' );
 		saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
 	} );

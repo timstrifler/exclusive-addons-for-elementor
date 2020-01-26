@@ -1,32 +1,31 @@
 /* Image Comparison style start */
 
-
-.exad-image-comparision.one .exad-image-comparision-element {
+.exad-image-comparision .exad-image-comparision-element {
   margin: auto;
   min-height: 700px;
 }
 
-.exad-image-comparision.one .exad-image-comparision-element img {
+.exad-image-comparision .exad-image-comparision-element img {
   width: 100%;
   height: 100%;
 }
 
-.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle {
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle {
   position: relative;
   background: #fff;
-  cursor: ew-resize;
+  cursor: all-scroll;
 }
 
-.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow {
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow {
   position: absolute;
   border-right: none;
-  margin-left: -15px;
+  margin-left: -12px;
 }
 
-.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow::before {
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow::before {
   position: absolute;
-  content: '\f104';
-  font-family: 'FontAwesome';
+  content: '\e909';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -35,28 +34,42 @@
   font-size: 20px;
 }
 
-.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-down-arrow::before {
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-down-arrow::before {
   position: absolute;
-  content: '\f104';
-  font-family: 'FontAwesome';
+  content: '\e92a';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   color: #bebebe;
   font-size: 20px;
+  bottom: -40px;
 }
 
-.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-up-arrow::before {
+  position: absolute;
+  content: '\e90b';
+  font-family: eicons;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #bebebe;
+  font-size: 20px;
+  bottom: -35px;
+}
+
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
   position: absolute;
   border-left: none;
-  margin-right: -15px;
+  margin-right: -12px;
 }
 
-.exad-image-comparision.one .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow::before {
+.exad-image-comparision .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow::before {
   position: absolute;
-  content: '\f105';
-  font-family: 'FontAwesome';
+  content: '\e90a';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -65,35 +78,32 @@
   font-size: 20px;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element {
+.exad-image-comparision .exad-image-comparision-element {
   width: 100%;
   height: 700px;
   max-height: 700px;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element img {
+.exad-image-comparision .exad-image-comparision-element img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
-.exad-image-comparision.two .exad-image-comparision-element .twentytwenty-handle {
-  cursor: ns-resize;
-}
-
-.exad-image-comparision.three .exad-image-comparision-element {
+.exad-image-comparision.handle-style-2 .exad-image-comparision-element {
   width: 100%;
   height: 700px;
   max-height: 700px;
 }
 
-.exad-image-comparision.three .exad-image-comparision-element img {
+.exad-image-comparision.handle-style-2 .exad-image-comparision-element img {
   width: 100%;
   height: 100%;
 }
 
-.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle {
+.exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle {
   position: relative;
-  cursor: ew-resize;
+  cursor: all-scroll;
   background: #fff;
   height: 70px;
   width: 30px;
@@ -105,28 +115,26 @@
   margin-top: 0;
 }
 
-.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle::before {
-  margin: 0;
-  bottom: 100%;
-  width: 2px;
+.exad-image-comparision .twentytwenty-vertical .exad-image-comparision-element.handle-style-2 .twentytwenty-handle {
+  cursor: all-scroll;
+  height: 30px;
+  width: 70px;
 }
 
-.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle::after {
-  margin: 0;
-  top: 100%;
-  width: 2px;
+.exad-image-comparison .twentytwenty-handle {
+  cursor: all-scroll;
 }
 
-.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow {
+.exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-left-arrow {
   position: absolute;
   border-right: none;
   margin-left: -5px;
 }
 
-.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle .twentytwenty-left-arrow::before {
+.exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-left-arrow::before {
   position: absolute;
-  content: '\f0c9';
-  font-family: 'FontAwesome';
+  content: '\e816';
+  font-family: eicons;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -135,7 +143,19 @@
   font-size: 20px;
 }
 
-.exad-image-comparision.three .exad-image-comparision-element .twentytwenty-handle .twentytwenty-right-arrow {
+.exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-down-arrow::before {
+  position: absolute;
+  content: '\e816';
+  font-family: eicons;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -62%);
+          transform: translate(-50%, -62%);
+  color: #A1A1A1;
+  font-size: 20px;
+}
+
+.exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-right-arrow, .exad-image-comparision .exad-image-comparision-element.handle-style-2 .twentytwenty-handle .twentytwenty-up-arrow {
   display: none;
 }
 /* Image Comparison style end */

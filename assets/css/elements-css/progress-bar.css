@@ -1,42 +1,55 @@
 /* Progress Bar Start */
 
-.ldBar{position:relative;}.ldBar.label-center > .ldBar-label{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);text-shadow:0 0 3px #fff}.ldBar-label:after{content:"%";display:inline}.ldBar.no-percent .ldBar-label:after{content:""}
+.ldBar {
+  position:relative;
+}
+
+.ldBar.label-center > .ldBar-label {
+  position:absolute;
+  top:50%;
+  left:50%;
+  -webkit-transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%);
+  text-shadow:0 0 3px #ffffff;
+}
+
+.exad-progress-bar .ldBar-label:after {
+  content:"%";display:inline; 
+  position: absolute;
+}
+
+.ldBar.no-percent .ldBar-label:after {
+  content:""
+}
 
 [class*="exad-progress-bar-"] .ldBar-label {
-  font-family: "Roboto", sans-serif;
+  
 }
 
 [class*="exad-progress-bar-"].line {
   position: relative;
-  margin-bottom: 40px;
 }
 
 [class*="exad-progress-bar-"].line .ldBar-label {
-  font-family: "Roboto", sans-serif;
   position: absolute;
-  top: 0;
+  top: -12px;
   right: 0;
-  color: #132c47;
 }
 
 [class*="exad-progress-bar-"].line-bubble {
   position: relative;
-  margin-bottom: 40px;
 }
 
 [class*="exad-progress-bar-"].line-bubble .ldBar-label {
   position: absolute;
   left: 0;
-  top: 56%;
+  top: 0%;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  line-height: 50px;
-  text-align: center;
-  font-size: 12px;
-  color: #fff;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -webkit-transform: translate(-50%, 25%);
+  transform: translate(-50%, 25%);
+  background-color: #ccc;
+  line-height: 27px;
 }
 
 [class*="exad-progress-bar-"].circle {
@@ -47,8 +60,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 36px;
-  color: #132c47;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
@@ -65,6 +76,10 @@
   position: relative;
 }
 
+[class*="exad-progress-bar-"].fan svg {
+  margin-top: -40%;
+}
+
 [class*="exad-progress-bar-"].fan h3 {
   position: absolute;
   bottom: -20px;
@@ -76,24 +91,32 @@
 [class*="exad-progress-bar-"].fan .ldBar-label {
   position: absolute;
   left: 50%;
-  top: 50%;
   -webkit-transform: translate(-50%, -20%);
-          transform: translate(-50%, -20%);
+  transform: translate(-50%, -20%);
   font-size: 30px;
+  bottom: 7%;
 }
 
 [class*="exad-progress-bar-"].fan .left-title {
   position: absolute;
-  font-size: 14px;
   left: 0;
   bottom: -10px;
 }
 
 [class*="exad-progress-bar-"].fan .right-title {
   position: absolute;
-  font-size: 14px;
   bottom: -10px;
   right: 0;
+}
+
+.exad-progress-bar svg:not(:root) {
+    overflow: hidden;
+    height: inherit;
+}
+
+.exad-progress-bar-title {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* Progress Bar End */

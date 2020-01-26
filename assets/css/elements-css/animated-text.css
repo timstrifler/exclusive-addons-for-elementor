@@ -1,0 +1,34 @@
+/* animatex text style start*/
+
+/* morphext style start*/
+.morphext > .animated {
+  display: inline-block;
+}
+/* morphext style end*/
+
+.exad-animated-text-align-left{
+  text-align: left;
+}
+
+.exad-animated-text-align-center{
+  text-align: center;
+}
+
+.exad-animated-text-align-right{
+  text-align: right;
+}
+
+.exad-typed-strings{
+  margin: 0;
+}
+
+.exad-animated-text-pre-heading,
+.exad-animated-text-animated-heading,
+.exad-animated-text-post-heading {
+	font-size: 30px;
+	font-weight: 600;
+}
+/*span.typed-cursor {
+	font-size: 80px;
+}*/
+/* animatex text style end*/

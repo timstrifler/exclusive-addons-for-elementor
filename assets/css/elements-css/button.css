@@ -2,24 +2,17 @@
 
 /* Global Styles for Buttons */
 .exad-button-wrapper .exad-button-action {
-  font-family: "Roboto", sans-serif;
   text-align: center;
   display: inline-block;
   padding: 15px;
   text-decoration: none;
   position: relative;
   z-index: 1;
-  border: 1px solid #704aff;
   overflow: hidden;
 }
 .exad-button-wrapper {
   margin: 30px auto;
 }
-
-/*.exad-button-wrapper.effect-1 .exad-button-action {
-  -webkit-box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.2);
-  box-shadow: 0px 30px 35px 0px rgba(114, 76, 255, 0.2);
-} */
 
 .exad-button-wrapper.effect-1 .exad-button-action i {
   margin-right: 5px;
@@ -49,7 +42,6 @@
 
 .exad-button-wrapper.effect-2 .exad-button-action:before, .exad-button-wrapper.effect-2 .exad-button-action:after {
   content: '';
-  background: #704aff;
   height: 50%;
   width: 0;
   position: absolute;
@@ -249,10 +241,6 @@
           transform: translate(0, 0);
 }
 
-.exad-button-wrapper.effect-8 .exad-button-action i {
-  margin-right: 10px;
-}
-
 .exad-button-wrapper.effect-8 .exad-button-action span.effect-8-position {
   position: absolute;
   content: '';
@@ -320,30 +308,9 @@
   transition: all .3s ease;
 }
 
-.exad-button-wrapper.effect-11 .exad-button-action::before {
-  position: absolute;
-  content: '';
-  top: -20px;
-  left: -20px;
-  right: -20px;
-  bottom: -20px;
-  background: inherit;
-  z-index: -1;
-  opacity: 0.4;
-  -webkit-transform: scale3d(0.8, 0.5, 1);
-          transform: scale3d(0.8, 0.5, 1);
-  border-radius: 40px;
-  transition: all .3s ease;
-}
-
 .exad-button-wrapper.effect-11 .exad-button-action:hover {
   -webkit-animation: anim 0.3s forwards;
           animation: anim 0.3s forwards;
-}
-
-.exad-button-wrapper.effect-11 .exad-button-action:hover::before {
-  -webkit-animation: anim-1 0.3s forwards;
-          animation: anim-1 0.3s forwards;
 }
 
 @keyframes anim {
@@ -356,14 +323,6 @@
             transform: scale3d(1.1, 1.1, 1);
   }
   100% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-}
-
-@keyframes anim-1 {
-  100% {
-    opacity: 0;
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
   }
@@ -401,7 +360,6 @@
 
 .exad-button-wrapper.effect-12 .exad-button-action:hover {
   background: #fff;
-  color: #704aff;
   box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
 }
 

@@ -1,17 +1,175 @@
 /* Pricing Table Start */
 
-ul.exad-pricing-table-features {
-  list-style: none;
-}
-.exad-pricing-table-price {
-  line-height: 0;
+.left{
+  text-align: left;
 }
 
-.exad-pricing-table-badge {
+.left .exad-pricing-table-features li{
+  justify-content: flex-start;
+}
+
+.left .price-box{
+  margin-right: auto;
+}
+
+.center{
+  text-align: center;
+}
+
+.center.exad-pricing-table-features li{
+  justify-content: center;
+}
+
+.center .price-box{
+  margin: 0 auto;
+}
+
+.right{
+  text-align: right;
+}
+
+.right .exad-pricing-table-features li{
+  justify-content: flex-end;
+}
+
+.right .price-box{
+  margin-left: auto;
+}
+
+.exad-pricing-table-header {
+  position: relative;
+  z-index: -1;
+}
+
+.exad-pricing-table-header .exad-pricing-table-header-curved svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.exad-pricing-table-title{
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.exad-pricing-table-subtitle{
+  margin: 0 0 10px 0;
+}
+
+.price-box{
+  position: relative;
+}
+.exad-pricing-table-price{
+  position: relative;
+}
+.exad-pricing-table-price svg{
+  position: absolute;
+}
+
+.exad-pricing-table-wrapper .exad-pricing-table-price p {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -3.2px;
+}
+
+.exad-pricing-table-wrapper .exad-pricing-table-price span.exad-price-period {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+
+.exad-pricing-table-price p{
+  margin: 0;
+}
+.price-box p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 100%;
+}
+
+.exad-pricing-table-features{
+  margin: 0;
+  padding: 0;
+}
+
+.exad-pricing-table-features li{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+}
+
+.list-border-bottom li:not(:last-child){
+  border-bottom: 1px solid #ff5985;
+}
+
+.exad-pricing-table-features li .exad-pricing-li-icon{
+  margin-right: 7px;
+}
+
+.exad-pricing-table-action {
+  text-decoration: none;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  z-index: 1;
+  display: inline-block;
+}
+
+.exad-pricing-table-badge-wrapper {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.exad-pricing-table-wrapper{
+  transition: all .3s ease;
+}
+
+.exad-pricing-table-wrapper.transition_top{
+  transition: all .3s ease;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+.exad-pricing-table-wrapper.transition_top:hover{
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+}
+
+.exad-pricing-table-wrapper.transition_bottom{
+  transition: all .3s ease;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+.exad-pricing-table-wrapper.transition_bottom:hover{
+  transform: translateY(10px);
+  -webkit-transform: translateY(10px);
+}
+
+.exad-pricing-table-wrapper.transition_zoom{
+  transition: all .3s ease;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+}
+
+.exad-pricing-table-wrapper.transition_zoom:hover{
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+}
+
+.exad-pricing-table-wrapper .text-badge{
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #13c83a;
+  background: #13c83a;
   padding: 13px 50px;
   width: 160px;
     text-align: center;
@@ -20,328 +178,21 @@ ul.exad-pricing-table-features {
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  z-index: 2;
 }
 
-.exad-pricing-table-features li.exad-pricing-table-features-disable {
-  color: #a6a9ad;
-}
-
-.exad-pricing-table-one {
-  text-align: center;
-  position: relative;
-  margin: 20px auto 50px;
-  -webkit-box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
-  box-shadow: 0px 20px 49px 0px rgba(24, 27, 33, 0.1);
-}
-.exad-pricing-table-one .exad-pricing-table-badge-wrapper, .exad-pricing-table-two .exad-pricing-table-badge-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.exad-pricing-table-one .exad-pricing-table-title {
-  font-size: 20px;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin: 30px auto;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price {
-  position: relative;
-  width: 208px;
-  height: 208px;
-  margin: 0 auto;
-  margin-bottom: 45px;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price svg {
+.exad-pricing-table-wrapper .icon-badge {
   position: absolute;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(1) {
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(2) {
-  right: 0;
+  padding: 15px 10px;
+  border-radius: 0 0 40px 40px;
+  background: #13c83a;
+  right: 30px;
   top: 0;
+  z-index: 2;
 }
 
-.exad-pricing-table-one .exad-pricing-table-price svg:nth-child(3) {
-  right: 0;
-  bottom: 0;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price p {
-  /* font-family: "Roboto", sans-serif; */
-  font-size: 60px;
-  line-height: 208px;
-  position: relative;
-  z-index: 1;
-}
-
-.exad-pricing-table-one .exad-pricing-table-price p span {
-  font-size: 20px;
-}
-
-.exad-pricing-table-one .exad-pricing-table-features {
-  padding-left: 0;
-  font-family: "Poppins", sans-serif;
-  color: #132c47;
-  margin-bottom: 50px;
-}
-
-.exad-pricing-table-one .exad-pricing-table-features li {
-  padding: 15px 0;
-}
-
-.exad-pricing-table-one .exad-pricing-table-features li:not(:last-child) {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-
-.exad-pricing-table-one .exad-pricing-table-features .exad-pricing-table-features-disable svg {
-  fill: #8a8d91 !important;
-}
-.entry-content .exad-pricing-table-one .exad-pricing-table-action , .entry-content .exad-pricing-table-two .exad-pricing-table-action
-, .entry-content .exad-pricing-table-three .exad-pricing-table-action , .entry-content .exad-pricing-table-six .exad-pricing-table-action{
-  text-decoration: none;
-}
-.exad-pricing-table-one .exad-pricing-table-action {
-  position: absolute;
+.exad-pricing-table-promo-label{
   display: block;
-  width: 80%;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%, 50%);
-          transform: translate(-50%, 50%);
-  background: #fff;
-  padding: 20px 0;
-  border-radius: 50px;
-  border-style: solid;
-  border-width: 1px;
-  text-transform: uppercase;
-  transition: all .3s ease;
-}
-
-.exad-pricing-table-two {
-  border: 1px solid #e0e2e5;
-  padding: 30px;
-}
-
-.exad-pricing-table-two .exad-pricing-table-title {
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
-  color: #8a8d91;
-  font-weight: 400;
-  margin-bottom: 40px;
-}
-
-.exad-pricing-table-two .exad-pricing-table-price {
-  font-size: 48px;
-  color: #132c47;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-  display: inline-block;
-}
-
-.exad-pricing-table-two .exad-pricing-table-price span {
-  font-size: 20px;
-  font-weight: 500;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-two .exad-pricing-table-features {
-  padding-top: 20px;
-  padding-left: 30px;
-  font-family: "Poppins", sans-serif;
-  color: #132c47;
-  border-top: 1px solid #e5e5e5;
-}
-
-.exad-pricing-table-two .exad-pricing-table-features li {
-  font-size: 15px;
-  padding: 8px 0px;
-}
-
-.exad-pricing-table-two .exad-pricing-table-features li.exad-pricing-table-disabled {
-  color: #a6a9ad;
-}
-
-.exad-pricing-table-two .exad-pricing-table-action {
-  display: block;
-  width: 70%;
-  font-family: "Poppins", sans-serif;
-  padding: 15px 0;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 16px;
-  color: #fff;
-  border: 1px solid transparent;
-  transition: all .5s ease;
-  margin-top: 50px;
-}
-
-.exad-pricing-table-two {
-  border-top-style: solid;
-  border-top-width: 4px;
-}
-
-.exad-pricing-table-three {
-  background: #ffffff;
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.08);
-  padding: 45px 30px;
-  position: relative;
-  overflow: hidden;
-  margin: 20px 0;
-}
-
-.exad-pricing-table-three .exad-pricing-table-title {
-  font-size: 20px;
-  font-family: "Poppins", sans-serif;
-  text-transform: uppercase;
-  color: #8a8d91;
-  font-weight: 400;
-  margin-bottom: 40px;
-}
-
-.exad-pricing-table-three .exad-pricing-table-price {
-  font-size: 48px;
-  color: #132c47;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-  display: inline-block;
-}
-
-.exad-pricing-table-three .exad-pricing-table-price span {
-  font-size: 20px;
-  color: #132c47;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-three .exad-pricing-table-description {
-  font-size: 15px;
-  color: #132c47;
-  line-height: 26px;
-  border-top: 1px solid #e5e5e5;
-  padding-top: 40px;
-  font-family: "Poppins", sans-serif;
-}
-
-.exad-pricing-table-three .exad-pricing-table-features {
-  padding-left: 0;
-  font-family: "Poppins", sans-serif;
-  color: #132c47;
-  list-style: none;
-  margin-bottom: 50px;
-}
-
-.exad-pricing-table-three .exad-pricing-table-features li {
-  font-size: 15px;
-  padding: 8px 0px;
-}
-
-.exad-pricing-table-three .exad-pricing-table-features li svg {
-  fill: #3ac772;
-}
-
-.exad-pricing-table-three .exad-pricing-table-action {
-  display: inline-block;
-  font-family: "Poppins", sans-serif;
-  padding: 15px 30px;
-  text-transform: uppercase;
-  background: #3ac772;
-  text-align: center;
-  font-size: 16px;
-  color: #fff;
-  border: 1px solid transparent;
-  transition: all .5s ease;
-  border-radius: 4px;
-}
-
-.exad-pricing-table-three .exad-pricing-table-action:hover {
-  color: #3ac772;
-  border: 1px solid #3ac772;
-  background: #ffffff;
-}
-
-.exad-pricing-table-six {
-  border-radius: 4px;
-  background-color: #FFF;
-  text-align: center;
-  padding: 45px 30px;
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 60px;
-  -webkit-box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
-  box-shadow: 0px 32px 81px 0px rgba(14, 29, 59, 0.3);
-}
-
-
-
-.exad-pricing-table-six .exad-pricing-table-title {
-  color: #724cff;
-  font-size: 30px;
-  font-weight: 400;
-  font-family: "Open Sans", sans-serif;
-}
-
-.exad-pricing-table-six .exad-pricing-table-price {
-  margin: 0;
-  font-weight: 300;
-  font-family: "Open Sans", sans-serif;
-  display: inline-block;
-}
-
-.exad-pricing-table-six .exad-pricing-table-features {
-  color: #132c47;
-  padding-left: 0;
-  padding-top: 30px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 100;
-  list-style: none;
-  margin-bottom: 50px;
-  border-top: 1px dashed #724cff;
-}
-
-.exad-pricing-table-six .exad-pricing-table-features li {
-  font-size: 15px;
-  padding: 6px 0px;
-}
-
-.exad-pricing-table-six .exad-pricing-table-action {
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  padding: 15px 30px;
-  text-transform: uppercase;
-  background: #724cff;
-  text-align: center;
-  font-size: 16px;
-  color: #FFF;
-  -webkit-box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
-  box-shadow: 0px 13px 33px 0px rgba(51, 77, 128, 0.12);
-  border: 1px solid #fff;
-  transition: all .3s ease;
-  border-radius: 4px;
-}
-
-.exad-pricing-table-six .exad-pricing-table-action:hover {
-  background: #fff;
-  color: #724cff;
-  border: 1px solid #724cff;
-}
-
-@media (max-width: 450px){
-  .exad-pricing-table-six .exad-pricing-table-price {
-    font-size: 40px;
-  }
 }
 
 /* Pricing Table End */

@@ -3,20 +3,14 @@
     position: relative;
 }
 
-.elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element {
-    color: #826EFF;
-}
-
-.elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .icon, .elementor-panel #elementor-panel-category-exclusive-addons-elementor .elementor-element .title, .elementor-panel #elementor-panel-elements .exad-element-wrapper .icon, .elementor-panel #elementor-panel-elements .exad-element-wrapper .title {
-    color: #826EFF;
-} 
-
 .elementor-element .icon .exad-element-icon::after {
     content: "Ex";
-    font-size: 10px;
-    opacity: 0.5;
     position: absolute;
-    right: 5px;
-    top: 5px;
-    color: #826EFF;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    color: #7a56ff;
+    font-size: 10px;
+    padding: 0.2em 0.5em;
+    background: #f3f3f3;
 }

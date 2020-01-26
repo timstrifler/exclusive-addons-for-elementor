@@ -1,7 +1,7 @@
 <?php
-namespace Elementor;
+namespace ExclusiveAddons\Elementor;
 
-class Exad_Helper {
+class Helper {
     /**
      *
      * Get list of Post Types
@@ -199,6 +199,26 @@ class Exad_Helper {
     }
 
     /**
+     * READING TIME
+     *
+     * Calculate an approximate reading-time for a post.
+     *
+     * @param  string $content The content to be measured.
+     * @return  integer Reading-time in seconds.
+     */
+    public static function exad_reading_time( $content ) {
+        
+        $word_count = str_word_count( strip_tags( $content ) );
+        $readingtime = ceil($word_count / 200);
+    
+        $timer = " min read";
+        
+        $totalreadingtime = $readingtime . $timer;
+    
+        return $totalreadingtime;
+    }
+
+    /**
      * 
      * Return the Posts from Database
      *
@@ -212,12 +232,10 @@ class Exad_Helper {
 
         while( $posts->have_posts() ) : $posts->the_post(); 
 
-            if ( $settings['template_type'] == 'exad-post-timeline' ) { 
+            if ( 'exad-post-timeline' === $settings['template_type'] ) { 
                 include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
-            } elseif ( $settings['template_type'] == 'exad-post-grid' ) { 
+            } elseif ( 'exad-post-grid' === $settings['template_type'] ) { 
                 include EXAD_TEMPLATES . 'tmpl-post-grid.php';
-            } elseif ( $settings['template_type'] == 'exad-post-carousel' ) { 
-                include EXAD_TEMPLATES . 'tmpl-post-carousel.php';
             } else {
                 _e( 'No Contents Found', 'exclusive-addons-elementor' );
             }
