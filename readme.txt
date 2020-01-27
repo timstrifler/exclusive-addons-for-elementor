@@ -54,11 +54,11 @@ We have packed the most Useful Free Elementor widgets for you in the bundle. Che
 30. **[Button] (http://exclusiveaddons.com/button-demo/)**
 
 
-### 30+ Elementor widgets
-We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
+### 30 Elementor widgets
+We have packed 30 Elementor widgets for now. We'll continue to add them as time goes on.
 
-### Global Style Settings
-This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
+### Light Weight & Fast Loading
+We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
 
 ### Incredibly Customizeable
 Excluisive Addons is Incredibly Customizeable with all the options you could ever imagine. Feel free to shout out if you still need any options.
@@ -66,8 +66,8 @@ Excluisive Addons is Incredibly Customizeable with all the options you could eve
 ### Inline Editing with Live Preview
 We have enabled Inline Editing with Live Preview for most of our elements. That means you can see as you edit your element without the delay of a second.
 
-### Light Weight & Fast Loading
-We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
+### Global Style Settings
+This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
 
 ### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
 
