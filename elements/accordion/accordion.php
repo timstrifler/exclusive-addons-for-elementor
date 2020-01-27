@@ -420,8 +420,13 @@ class Accordion extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'exad_exclusive_accordion_title_typography',
-				'selector' => '{{WRAPPER}} .exad-accordion-single-item h3'
+				'name'            => 'exad_exclusive_accordion_title_typography',
+				'selector'        => '{{WRAPPER}} .exad-accordion-single-item h3',
+                'fields_options'  => [
+                    'font_weight' => [
+                        'default' => '600'
+                    ]
+                ]
 			]
 		);
 
@@ -905,10 +910,10 @@ class Accordion extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
 				'default'    => [
-					'top'    => '30',
-					'right'  => '30',
-					'bottom' => '30',
-					'left'   => '30'
+					'top'    => '20',
+					'right'  => '20',
+					'bottom' => '20',
+					'left'   => '20'
 				],
                 'selectors'  => [
                     '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-text' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
