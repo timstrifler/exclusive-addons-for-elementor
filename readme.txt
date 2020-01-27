@@ -18,7 +18,7 @@ We'd love to add that for you.
 
 [Check out our Demos](http://exclusiveaddons.com/)
 
-### 30 "USEFUL" FREE WIDGETS and counting...
+### 30 USEFUL (FREE) WIDGETS and counting...
 
 We have packed the most Useful Free Elementor widgets for you in the bundle. Check out our Demos where we demonstrated some interesting use cases for all of our Elements:
 
@@ -78,7 +78,7 @@ This option allows you change the default Color scheme for all the widgets at on
 
 ### User of Exclusive Addons?
 
-- Join our [Facebook Group](https://www.facebook.com/groups/essentialaddons/).
+- Join our [Facebook Group](https://www.facebook.com/groups/exclusiveaddons/).
 - Rate us on [WordPress](https://wordpress.org/support/plugin/exclusive-addons-for-elementor/reviews/?rate=5#new-post) :)
 
 == Installation ==
