@@ -33,10 +33,10 @@ We have packed the most Useful Free Elementor widgets for you in the bundle. Che
 9. **[Contact Form 7](http://exclusiveaddons.com/contact-form-7-demo/)**
 10. **[Heading](http://exclusiveaddons.com/heading-demo/)**
 11. **[Post Timeline](http://exclusiveaddons.com/post-timeline-demo/)**
-12. **[Post Grid](http://exclusiveaddons.com/post-grid-demo/)**
+12. **[Post Grid](http://exclusiveaddons.com/postgrid-demo/)**
 13. **[Accordion](http://exclusiveaddons.com/accordion-demo/)**
 14. **[Dual Button](http://exclusiveaddons.com/dual-button-demo/)**
-15. **[Testimonial](http://exclusiveaddons.com/testimonial-demo/)**
+15. **[Logo Box](http://exclusiveaddons.com/logo-box-demo/)**
 16. **[Filterable Gallery](http://exclusiveaddons.com/filterable-gallery-demo/)**
 17. **[Tooltip](http://exclusiveaddons.com/tooltip-demo/)**
 18. **[Logo Carousel](http://exclusiveaddons.com/logo-carousel-demo/)**
@@ -49,9 +49,9 @@ We have packed the most Useful Free Elementor widgets for you in the bundle. Che
 25. **[Progress Bar](http://exclusiveaddons.com/progress-bar-demo/)**
 26. **[Tabs](http://exclusiveaddons.com/tabs-demo/)**
 27. **[News Ticker](http://exclusiveaddons.com/news-ticker-demo/)**
-28. **[Alert] (http://exclusiveaddons.com/alert-demo/)**
-29. **[Animated Text] (http://exclusiveaddons.com/animated-text-demo/)**
-30. **[Button] (http://exclusiveaddons.com/button-demo/)**
+28. **[Alert](http://exclusiveaddons.com/alert-demo/)**
+29. **[Animated Text](http://exclusiveaddons.com/animated-text-demo/)**
+30. **[Button](http://exclusiveaddons.com/button-demo/)**
 
 
 ### 30 Elementor widgets
@@ -99,6 +99,7 @@ Note : This plugin works with Elementor. Make sure you have [Elementor](https://
 
 Unfortunately, our new update can not guarantee to keep your existing design intact due to the overall change of the plugin architecture.
 However, in order to achieve the default style (which is great by the way) of our new widget all you have to do is, go to Elementor > Tools > Regenerate CSS and Save Changes.
+If you're having issues with the font please go to Elementor > Tools > Font Awesome Upgrade and click "Upgrade to Font Awesome 5".
 
 = Can I use the plugin without Elementor? =
 
