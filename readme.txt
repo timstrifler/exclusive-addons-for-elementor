@@ -71,6 +71,15 @@ This option allows you change the default Color scheme for all the widgets at on
 
 ### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
 
+### Documentation and Support
+
+- For documentation and tutorials please visit [Documentation](http://exclusiveaddons.com/docs/). 
+- Visit our support forum for more questions [Support Forum](https://wordpress.org/support/plugin/exclusive-addons-for-elementor/).
+
+### User of Exclusive Addons?
+
+- Join our [Facebook Group](https://www.facebook.com/groups/essentialaddons/).
+- Rate us on [WordPress](https://wordpress.org/support/plugin/exclusive-addons-for-elementor/reviews/?rate=5#new-post) :)
 
 == Installation ==
 
@@ -88,7 +97,7 @@ Note : This plugin works with Elementor. Make sure you have [Elementor](https://
 
 = Some of my existing widgets got broken after the update of 2.0 . How to resolve? =
 
-Unfortunately, our new update can not gurantee to keep your existing design intact due to the overall change of the plugin architecture.
+Unfortunately, our new update can not guarantee to keep your existing design intact due to the overall change of the plugin architecture.
 However, in order to achieve the default style (which is great by the way) of our new widget all you have to do is, go to Elementor > Tools > Regenerate CSS and Save Changes.
 
 = Can I use the plugin without Elementor? =
@@ -115,7 +124,7 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.0 - 05/12/2019 =
+= 2.0 - 27/1/2019 =
 - Changed every element from Style based selection to Single style element, reached with enormous options.
 - Added namespace for Elements classes.
 - Changed "DC back to "Ex" on Element editor panel.
@@ -123,6 +132,8 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 - Added Default Style settings for all the elements at once in the Dashboard.
 - Changed Plugin Settings page loaction to a Top level menu.
 
+= 1.3.3 - 26/12/2019 =
+- Updated Appsero to fix some security issue.
 
 = 1.3.2 - 28/10/2019 =
 - Provided a notice for the coming update of Exclusive Addons Elementor 2.0 which might break some of the designs of the existing elements.
