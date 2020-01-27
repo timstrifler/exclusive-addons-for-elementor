@@ -243,7 +243,7 @@ textarea.exad-form-control {
 
 .exad-dashboard-checkbox input[type=checkbox]:checked + label:after {
     left: 1.2em;
-    background: #3411FF;
+    background: #786AF9;
     animation: switch-on .3s ease-out;
 }
 
@@ -303,6 +303,7 @@ textarea.exad-form-control {
 
 .exad-dashboard-tab img {
     max-width: 100%;
+    width: 90%;
 }
 
 
@@ -639,7 +640,7 @@ textarea.exad-form-control {
 .exad-admin-banner {
     background-image: url('../img/settings-banner-bg.png');
     background-repeat: no-repeat;
-    padding: 20px;
+    padding: 50px 40px;
     margin-bottom: 20px;
 }
 
