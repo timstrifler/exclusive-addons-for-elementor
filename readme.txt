@@ -1,5 +1,5 @@
 === Exclusive Addons for Elementor ===
-Contributors: devscred, mmaumio, atique_hasan, zabid, fahimahmmed100
+Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.3
@@ -54,8 +54,8 @@ We have packed the most Useful Free Elementor widgets for you in the bundle. Che
 30. **[Button](http://exclusiveaddons.com/button-demo/)**
 
 
-### 30 Elementor widgets
-We have packed 30 Elementor widgets for now. We'll continue to add them as time goes on.
+### 30+ Elementor widgets
+We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
 
 ### Light Weight & Fast Loading
 We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
