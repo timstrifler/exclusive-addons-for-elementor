@@ -165,9 +165,9 @@ class Admin_Settings {
 				$this->exad_settings[ $value ] = 0;
 			}
 		}
-        update_option( 'exad_save_settings', $this->exad_settings );
-        
+        update_option( 'exad_save_settings', $this->exad_settings );        
         update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );
+        update_option( 'eael_save_mailchimp_api', $settings['mailchimp_api_key'] );
         update_option( 'exad_primary_color_option', $settings['exad_primary_color'] );
         update_option( 'exad_secondary_color_option', $settings['exad_secondary_color'] );
         
