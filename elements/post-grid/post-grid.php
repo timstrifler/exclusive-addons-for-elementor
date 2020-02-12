@@ -209,6 +209,30 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_post_grid_title_full',
+			[
+				'label'        => esc_html__( 'Enable Title Length (Full or Short)', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'Full', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Short', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
+		$this->add_control(
+            'exad_grid_title_length',
+            [
+				'label'     => __( 'Title Words Length', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => '10',
+				'condition' => [
+					'exad_post_grid_title_full!' => 'yes'
+				]
+            ]
+        );
+
         $this->add_control(
             'exad_post_grid_show_read_more_btn',
             [
@@ -253,6 +277,19 @@ class Post_Grid extends Widget_Base {
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default'      => 'yes'
+			]
+		);
+
+		$this->add_control(
+			'exad_post_grid_post_data_position',
+			[
+				'label' => __( 'Post Data Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'post_data_middle',
+				'options' => [
+					'post_data_middle'  => __( 'Middle', 'exclusive-addons-elementor' ),
+					'post_data_bottom'  => __( 'Bottom', 'exclusive-addons-elementor' ),
+				],
 			]
 		);
 
@@ -394,6 +431,14 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
+		$this->add_group_control(
+        	Group_Control_Border::get_type(),
+            [
+                'name'      => 'exad_grid_post_container_border',
+                'selector'  => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container'
+            ]
+        );
+
 		$this->add_control(
 			'exad_post_grid_radius',
 			[
@@ -432,7 +477,19 @@ class Post_Grid extends Widget_Base {
                         '{{WRAPPER}} .exad-post-grid-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
-        );
+		);
+		
+		$this->add_control(
+			'exad_post_grid_container_padding',
+			[
+				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -933,7 +990,7 @@ class Post_Grid extends Widget_Base {
 					'isLinked' => false
 				],                 
                 'selectors'     => [
-                    '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-body ul.show-avatar-no' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-post-grid-body .exad-post-data' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -944,6 +1001,28 @@ class Post_Grid extends Widget_Base {
 				'label'     => __( 'Meta', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before'
+			]
+		);
+
+		$this->add_control(
+			'exad_post_grid_meta_spacing',
+			[
+				'label' => __( 'Spacing Between Author & Date', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 150,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 15,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-grid-body .exad-post-data li:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 

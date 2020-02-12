@@ -3824,9 +3824,9 @@ ul.exad-call-to-action-buttons {
 }
 
 
-.exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li:not(last-child) {
+/* .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data li:not(last-child) {
   padding-right: 15px;
-}
+} */
 
 .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body .exad-post-data {
   display: flex;
