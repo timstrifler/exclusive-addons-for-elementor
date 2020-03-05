@@ -560,8 +560,7 @@ class Image_Comparison extends Widget_Base {
 		
 		$this->add_render_attribute( 'exad_image_comparison_wrapper', [
             'class' => [ 
-                'exad-image-comparision-element', 
-                esc_attr( $settings['exad_image_comparison_slider_handle'] )
+                'exad-image-comparision-element'
             ],
             'data-exad-before_label'       => esc_attr( $settings['exad_before_label'] ),
             'data-exad-after_label'        => esc_attr( $settings['exad_after_label'] ),
@@ -626,7 +625,7 @@ class Image_Comparison extends Widget_Base {
             }
 
             view.addRenderAttribute( 'exad_image_comparison_wrapper', {
-                'class'                       : [ 'exad-image-comparision-element', settings.exad_image_comparison_slider_handle ],
+                'class'                       : [ 'exad-image-comparision-element' ],
                 'data-exad-before_label'      : settings.exad_before_label,
                 'data-exad-after_label'       : settings.exad_after_label,
                 'data-exad-default_offset_pct': settings.exad_default_offset_pct,
