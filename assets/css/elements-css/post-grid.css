@@ -189,6 +189,20 @@
   display: flex;
 }
 
+nav.exad-post-pagination {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+nav.exad-post-pagination ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav.exad-post-pagination ul li {
+  display: inline-block;
+}
 @media (max-width: 767px) {
   .exad-row-wrapper.exad-col-6 .exad-col {
     flex: 0 0 100%;

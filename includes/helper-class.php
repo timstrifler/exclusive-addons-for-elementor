@@ -230,17 +230,44 @@ class Helper {
         
         $posts = new \WP_Query( $settings['post_args'] );
 
-        while( $posts->have_posts() ) : $posts->the_post(); 
+        // while( $posts->have_posts() ) : $posts->the_post(); 
 
-            if ( 'exad-post-timeline' === $settings['template_type'] ) { 
-                include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
-            } elseif ( 'exad-post-grid' === $settings['template_type'] ) { 
-                include EXAD_TEMPLATES . 'tmpl-post-grid.php';
-            } else {
-                _e( 'No Contents Found', 'exclusive-addons-elementor' );
-            }
+        //     if ( 'exad-post-timeline' === $settings['template_type'] ) { 
+        //         include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
+        //     } elseif ( 'exad-post-grid' === $settings['template_type'] ) { 
+        //         include EXAD_TEMPLATES . 'tmpl-post-grid.php';
+        //     } else {
+        //         _e( 'No Contents Found', 'exclusive-addons-elementor' );
+        //     }
 
-        endwhile;
+        // endwhile;
+
+        if( $posts->have_posts() ) :
+            while( $posts->have_posts() ) : $posts->the_post();
+                if ( 'exad-post-timeline' === $settings['template_type'] ) :
+                    include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
+                elseif ( 'exad-post-grid' === $settings['template_type'] ) :
+                    include EXAD_TEMPLATES . 'tmpl-post-grid.php';
+                endif;
+            endwhile;
+            if ( 'exad-post-grid' === $settings['template_type'] && 'yes' === $settings['exad_post_grid_enable_pagination'] ) :
+                $big = 999999999; // need an unlikely integer
+                echo '<nav class="exad-post-pagination">';
+                    echo paginate_links( array(
+                        'base'      => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+                        'format'    => '?paged=%#%',
+                        'current'   => max( 1, get_query_var('paged') ),
+                        'total'     => $posts->max_num_pages,
+                        'type'      => 'list',
+                        'mid_size'  => esc_html( $settings['exad_post_grid_pagination_mid_size'] ),
+                        'prev_text' => esc_html( $settings['exad_post_grid_pagination_previous_text'] ),
+                        'next_text' => esc_html( $settings['exad_post_grid_pagination_next_text'] )
+                    ) );
+                echo '</nav>';
+            endif;
+        else:
+            _e( 'No Contents Found', 'exclusive-addons-elementor' );
+        endif;
 
         wp_reset_postdata();
     }
