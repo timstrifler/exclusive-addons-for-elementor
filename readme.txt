@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.3
-Stable tag: 2.0
+Tested up to: 5.3.2
+Stable tag: 2.0.1
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -134,7 +134,12 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.0 - 27/1/2019 =
+= 2.0.1 - 08/03/2020 =
+- Added several customization options on Image Comparison Element.
+- Added some useful options in Post Grid Element.
+- Added spacing between author and date as well.
+
+= 2.0 - 27/1/2020 =
 - Changed every element from Style based selection to Single style element, reached with enormous options.
 - Added namespace for Elements classes.
 - Changed "DC back to "Ex" on Element editor panel.
@@ -188,5 +193,5 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Upgrade Notice ==
 
-= 2.0 =
+= 1.0 =
 No Upgrade instruction yet
