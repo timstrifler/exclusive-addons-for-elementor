@@ -686,7 +686,50 @@ class Infobox extends Widget_Base {
 			]
 		);
 
-        $this->end_controls_section();
+		$this->end_controls_section();
+		
+		/*
+		* Infobox Animating Mask
+		*/
+		
+		$this->start_controls_section(
+			'exad_section_infobox_animating_mask',
+			[
+				'label' 	=> esc_html__( 'Animating Mask', 'exclusive-addons-elementor' ),
+				'tab'   	=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'exad_infobox_animating_mask_switcher',
+			[
+				'label' 		=> __( 'Enable Animating Mask', 'exclusive-addons-elementor' ),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label_on' 		=> __( 'ON', 'exclusive-addons-elementor' ),
+				'label_off' 	=> __( 'OFF', 'exclusive-addons-elementor' ),
+				'return_value' 	=> 'yes',
+				'default' 		=> 'no',
+			]
+		);
+
+		$this->add_control(
+			'exad_infobox_animating_mask_style',
+			[
+				'label'        => __( 'Animating Mask Style', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'style_1',
+				'options'      => [
+					'style_1'  => __( 'Style 1', 'exclusive-addons-elementor' ),
+					'style_2'  => __( 'Style 2', 'exclusive-addons-elementor' ),
+					'style_3'  => __( 'Style 3', 'exclusive-addons-elementor' ),
+				],
+				'condition'		=> [
+					'exad_infobox_animating_mask_switcher' => 'yes'
+				]
+			]
+		);
+
+		$this->end_controls_section();
 		
 	}
 	protected function render() {
@@ -737,15 +780,27 @@ class Infobox extends Widget_Base {
 		echo '<div class="exad-infobox">';
 			echo '<div '.$this->get_render_attribute_string( 'exad_infobox_transition' ).'>';
 			  	if( 'none' !== $settings['exad_infobox_img_or_icon'] ) {
-		            echo '<div class="exad-infobox-icon">';
-		            	if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
-		            		Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
-						endif;
+					if( 'yes' === $settings['exad_infobox_animating_mask_switcher'] ) {
+						echo '<div class="exad-infobox-icon '. $settings['exad_infobox_animating_mask_style'] .'">';
+							if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
+								Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
+							endif;
 
-		            	if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
-							echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
-						endif;			
-		            echo '</div>';
+							if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
+								echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
+							endif;			
+						echo '</div>';
+					} else {
+						echo '<div class="exad-infobox-icon">';
+							if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
+								Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
+							endif;
+
+							if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
+								echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
+							endif;			
+						echo '</div>';
+					}
 			  	}
 	            echo '<div class="exad-infobox-content">';
 	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
@@ -817,17 +872,31 @@ class Infobox extends Widget_Base {
 		<div class="exad-infobox">
 			<div {{{ view.getRenderAttributeString( 'exad_infobox_transition' ) }}}>
 				<# if( 'none' !== settings.exad_infobox_img_or_icon ) { #>
-					<div class="exad-infobox-icon">
-						<# if ( 'icon' === settings.exad_infobox_img_or_icon && iconHTML.value ) { #>
-							<div class="exad-flip-box-front-image">
-								{{{ iconHTML.value }}}
-							</div>
-						<# } #>
+					<# if( 'yes' === settings.exad_infobox_animating_mask_switcher ) { #>
+						<div class="exad-infobox-icon {{ settings.exad_infobox_animating_mask_style }}">
+							<# if ( 'icon' === settings.exad_infobox_img_or_icon && iconHTML.value ) { #>
+								<div class="exad-flip-box-front-image">
+									{{{ iconHTML.value }}}
+								</div>
+							<# } #>
 
-						<# if ( 'img' === settings.exad_infobox_img_or_icon && image_url ) { #>
-							<img src="{{{ image_url }}}">
-						<# } #>
-					</div>
+							<# if ( 'img' === settings.exad_infobox_img_or_icon && image_url ) { #>
+								<img src="{{{ image_url }}}">
+							<# } #>
+						</div>
+					<# } else { #>
+						<div class="exad-infobox-icon">
+							<# if ( 'icon' === settings.exad_infobox_img_or_icon && iconHTML.value ) { #>
+								<div class="exad-flip-box-front-image">
+									{{{ iconHTML.value }}}
+								</div>
+							<# } #>
+
+							<# if ( 'img' === settings.exad_infobox_img_or_icon && image_url ) { #>
+								<img src="{{{ image_url }}}">
+							<# } #>
+						</div>
+					<# } #>
 				<# } #>
 
 				<div class="exad-infobox-content">
