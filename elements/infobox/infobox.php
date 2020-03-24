@@ -420,6 +420,29 @@ class Infobox extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
+			'exad_infobox_icon_image_size',
+			[
+				'label'       => esc_html__( 'Image Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'default'     => [
+					'size'    => 40
+			  	],
+			  	'range'       => [
+				  	'px'      => [
+					  	'max' => 400
+				  	]
+			 	],
+			  	'selectors'   => [
+					'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon img' => 'height: {{SIZE}}px; width: {{SIZE}}px;'
+			  	],
+				'condition'   => [
+					'exad_infobox_img_or_icon'  => 'img',
+					'exad_infobox_icon[value]!' => ''
+				]
+			]
+		);
+
+		$this->add_responsive_control(
 			'exad_infobox_icon_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
