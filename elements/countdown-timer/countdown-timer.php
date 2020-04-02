@@ -389,7 +389,7 @@ class Countdown_Timer extends Widget_Base {
 				],
 				'default'      => [
 					'unit'     => '%',
-					'size'     => 10
+					'size'     => -30
 				],
 				'selectors'    => [
 					'{{WRAPPER}} .exad-countdown.exad-countdown-divider .exad-countdown-container::after' => 'top: {{SIZE}}{{UNIT}};'

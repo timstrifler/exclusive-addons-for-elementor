@@ -241,7 +241,6 @@ class Helper {
             }
 
         endwhile;
-
         wp_reset_postdata();
     }
     

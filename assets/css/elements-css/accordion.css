@@ -8,6 +8,10 @@
   width: 100%;
   font-size: 15px;
 }
+
+.exad-accordion-single-item h3 {
+  font-weight: 600;  
+}
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title:hover {
   cursor: pointer;
 }

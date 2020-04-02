@@ -1220,6 +1220,49 @@ class Team_Member extends Widget_Base {
 
 		$this->end_controls_section();
 
+		/*
+		* Team member Animating Mask
+		*/
+		
+		$this->start_controls_section(
+			'exad_section_team_member_animating_mask',
+			[
+				'label' 	=> esc_html__( 'Animating Mask', 'exclusive-addons-elementor' ),
+				'tab'   	=> Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'exad_team_member_animating_mask_switcher',
+			[
+				'label' 		=> __( 'Enable Animating Mask', 'exclusive-addons-elementor' ),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'label_on' 		=> __( 'ON', 'exclusive-addons-elementor' ),
+				'label_off' 	=> __( 'OFF', 'exclusive-addons-elementor' ),
+				'return_value' 	=> 'yes',
+				'default' 		=> 'no',
+			]
+		);
+
+		$this->add_control(
+			'exad_team_member_animating_mask_style',
+			[
+				'label'        => __( 'Animating Mask Style', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SELECT,
+				'default'      => 'style_1',
+				'options'      => [
+					'style_1'  => __( 'Style 1', 'exclusive-addons-elementor' ),
+					'style_2'  => __( 'Style 2', 'exclusive-addons-elementor' ),
+					'style_3'  => __( 'Style 3', 'exclusive-addons-elementor' ),
+				],
+				'condition'		=> [
+					'exad_team_member_animating_mask_switcher' => 'yes'
+				]
+			]
+		);
+
+		$this->end_controls_section();
+
 		
 	}
 	protected function render() {
@@ -1266,9 +1309,15 @@ class Team_Member extends Widget_Base {
 			echo '<div '.$this->get_render_attribute_string( 'exad_team_member_item' ).'>';
 
 				if( !empty( $team_member_image_url ) ) {
-					echo '<div class="exad-team-member-thumb">';
-						echo '<img src="'.esc_url($team_member_image_url).'" class="circled" alt="'.Control_Media::get_image_alt( $settings['exad_team_member_image'] ).'">';
-					echo '</div>';
+					if( 'yes' === $settings['exad_team_member_animating_mask_switcher'] ) {
+						echo '<div class="exad-team-member-thumb '. $settings['exad_team_member_animating_mask_style'] .'">';
+							echo '<img src="'.esc_url($team_member_image_url).'" class="circled" alt="'.Control_Media::get_image_alt( $settings['exad_team_member_image'] ).'">';
+						echo '</div>';
+					} else {
+						echo '<div class="exad-team-member-thumb">';
+							echo '<img src="'.esc_url($team_member_image_url).'" class="circled" alt="'.Control_Media::get_image_alt( $settings['exad_team_member_image'] ).'">';
+						echo '</div>';
+					}
 				}
 
 				echo '<div class="exad-team-member-content">';
@@ -1394,9 +1443,15 @@ class Team_Member extends Widget_Base {
 		<div class="exad-team-item">
 		    <div {{{ view.getRenderAttributeString( 'exad_team_member_item' ) }}}>
 		    	<# if ( imageURL ) { #>
-			    	<div class="exad-team-member-thumb">
-						<img class="circled" src="{{{ imageURL }}}">
-					</div>
+					<# if( 'yes' === settings.exad_team_member_animating_mask_switcher ) { #>
+						<div class="exad-team-member-thumb {{ settings.exad_team_member_animating_mask_style }}">
+							<img class="circled" src="{{{ imageURL }}}">
+						</div>
+					<# } else { #>
+						<div class="exad-team-member-thumb">
+							<img class="circled" src="{{{ imageURL }}}">
+						</div>
+					<# } #>
 				<# } #>
 		        <div class="exad-team-member-content">
 		        	<# if ( settings.exad_team_member_name ) { #>

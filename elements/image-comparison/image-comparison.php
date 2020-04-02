@@ -7,6 +7,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Typography;
 use \Elementor\Control_Media;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
@@ -96,46 +97,15 @@ class Image_Comparison extends Widget_Base {
         $this->end_controls_section();
 
         /*
-        * image Comparison Style
+        * image Comparison Settings
         */
         $this->start_controls_section(
-            'exad_section_image_comparision_styles_presets',
+            'exad_section_comparison_image_setting',
             [
-                'label' => esc_html__( 'General', 'exclusive-addons-elementor' ),
-                'tab'   => Controls_Manager::TAB_STYLE
-            ]
-        );
-        
-
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name'     => 'exad_img_comparison_border',
-                'selector' => '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element'
+                'label' => esc_html__( 'Settings', 'exclusive-addons-elementor' )
             ]
         );
 
-
-        $this->add_responsive_control(
-            'exad_img_comparison_border_radius',
-            [
-                'label'        => __( 'Border Radius', 'exclusive-addons-elementor' ),
-                'type'         => Controls_Manager::DIMENSIONS,
-                'size_units'   => [ 'px', '%' ],
-                'default'      => [
-                    'top'      => '',
-                    'right'    => '',
-                    'bottom'   => '',
-                    'left'     => '',
-                    'isLinked' => true
-                ],
-                'selectors'    => [
-                    '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-                ]
-            ]
-        );
-
-        
         $this->add_control(
             'exad_image_comparison_handle_type',
             [
@@ -145,19 +115,6 @@ class Image_Comparison extends Widget_Base {
                 'options' => [
                     'vertical'   => esc_html__( 'Horizontal', 'exclusive-addons-elementor' ),
                     'horizontal' => esc_html__( 'Vertical', 'exclusive-addons-elementor' )
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'exad_image_comparison_slider_handle',
-            [
-                'label'   => esc_html__( 'Handle Style', 'exclusive-addons-elementor' ),
-                'type'    => Controls_Manager::SELECT,
-                'default' => 'handle-style-1',
-                'options' => [
-                    'handle-style-1' => esc_html__( 'Style 1', 'exclusive-addons-elementor' ),
-                    'handle-style-2' => esc_html__( 'Style 2', 'exclusive-addons-elementor' )
                 ]
             ]
         );
@@ -194,6 +151,7 @@ class Image_Comparison extends Widget_Base {
             [
                 'label'     => esc_html__( 'Overlay Before Text(On Hover)', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::TEXT,
+                'default'   => esc_html__('Before'),
                 'condition' => [
                     'exad_overlay_enable' => 'on'
                 ]
@@ -205,6 +163,7 @@ class Image_Comparison extends Widget_Base {
             [
                 'label'     => esc_html__( 'Overlay After Text(On Hover)', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::TEXT,
+                'default'   => esc_html__('After'),
                 'condition' => [
                     'exad_overlay_enable' => 'on'
                 ]
@@ -231,7 +190,63 @@ class Image_Comparison extends Widget_Base {
     				'1.0' => __( '10', 'exclusive-addons-elementor' )
                 ]
     		]
-    	);
+        );
+        
+        $this->add_control(
+			'exad_move_slider',
+			[
+				'label' => __( 'Move Slider', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'move_with_handle_only',
+				'options' => [
+					'move_slider_on_hover'  => __( 'Move Slider On Hover', 'exclusive-addons-elementor' ),
+					'move_with_handle_only' => __( 'Move With Handle Only', 'exclusive-addons-elementor' ),
+					'click_to_move' => __( 'Click To Move', 'exclusive-addons-elementor' ),
+				],
+			]
+		);
+
+        $this->end_controls_section();
+
+        /*
+        * image Comparison Style
+        */
+        $this->start_controls_section(
+            'exad_section_image_comparision_styles_presets',
+            [
+                'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE
+            ]
+        );
+        
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'     => 'exad_img_comparison_border',
+                'selector' => '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element'
+            ]
+        );
+
+
+        $this->add_responsive_control(
+            'exad_img_comparison_border_radius',
+            [
+                'label'        => __( 'Border Radius', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => [ 'px', '%' ],
+                'default'      => [
+                    'top'      => '',
+                    'right'    => '',
+                    'bottom'   => '',
+                    'left'     => '',
+                    'isLinked' => true
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-image-comparision .exad-image-comparision-element' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
         
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
@@ -241,6 +256,286 @@ class Image_Comparison extends Widget_Base {
             ]
         );
         
+        $this->end_controls_section();
+
+        /*
+        * image Comparison Handle Style
+        */
+        $this->start_controls_section(
+            'exad_image_comparison_handler',
+            [
+                'label' => esc_html__( 'Handler', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_control(
+			'exad_image_comparison_handler_width',
+			[
+				'label' => __( 'Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 38,
+				],
+				'selectors' => [
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'width: {{SIZE}}{{UNIT}}; margin-left: calc( -{{SIZE}}{{UNIT}} / 2 - {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} )',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:before' => 'margin-left: calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:after' => 'margin-right: calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+				],
+			]
+        );
+        
+        $this->add_control(
+			'exad_image_comparison_handler_height',
+			[
+				'label' => __( 'Height', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 38,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'height: {{SIZE}}{{UNIT}}; margin-top: calc( -{{SIZE}}{{UNIT}} / 2 - {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-handle:before' => 'margin-bottom: calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-handle:after' => 'margin-top: calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+				],
+			]
+        );
+        
+        $this->add_control(
+			'exad_image_comparison_handler_background',
+			[
+				'label' => __( 'Handler Background', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'background: {{VALUE}}',
+				],
+			]
+        );
+        
+        $this->add_control(
+			'exad_image_comparison_handler_bar_color',
+			[
+				'label' => __( 'Handler Bar Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-handle:before,{{WRAPPER}} .twentytwenty-handle:after' => 'background: {{VALUE}}',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_image_comparison_handler_border_color',
+			[
+				'label' => __( 'Handler Border Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'border-color: {{VALUE}}',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_image_comparison_handler_icon_color',
+			[
+				'label' => __( 'Handler Icon Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-up-arrow' => 'border-bottom-color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-right-arrow' => 'border-left-color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-down-arrow' => 'border-top-color: {{VALUE}}',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-left-arrow' => 'border-right-color: {{VALUE}}'
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_image_comparison_handler_border',
+			[
+				'label' => __( 'Handler Border', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 10,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 3,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'border-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:before, 
+                    {{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:after' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-handle:before, 
+                    {{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-handle:after' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+        );
+        
+        $this->add_control(
+			'exad_image_comparison_handler_radius',
+			[
+				'label' => __( 'Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->end_controls_section();
+
+        /*
+        * image Comparison Label Style
+        */
+        $this->start_controls_section(
+            'exad_image_comparison_label',
+            [
+                'label' => esc_html__( 'Label', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'exad_overlay_enable' => 'on'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'exad_image_comparison_label_typography',
+				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-image-comparision .twentytwenty-before-label:before, {{WRAPPER}} .exad-image-comparision .twentytwenty-after-label:before',
+			]
+		);
+
+        $this->add_control(
+			'exad_image_comparison_label_background',
+			[
+				'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-before-label:before,
+                    {{WRAPPER}} .exad-image-comparision .twentytwenty-after-label:before' => 'background: {{VALUE}}',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_image_comparison_label_text_color',
+			[
+				'label' => __( 'Text Color', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-before-label:before,
+                    {{WRAPPER}} .exad-image-comparision .twentytwenty-after-label:before' => 'color: {{VALUE}}',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_image_comparison_label_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-before-label:before,
+                    {{WRAPPER}} .exad-image-comparision .twentytwenty-after-label:before' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_image_comparison_label_x_position',
+			[
+				'label' => __( 'X Offset', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+                    ],
+                    '%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-before-label:before' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-after-label:before' => 'right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-before-label:before' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-after-label:before' => 'left: {{SIZE}}{{UNIT}};',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_image_comparison_label_y_position',
+			[
+				'label' => __( 'Y Offset', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+                    ],
+                    '%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-before-label:before' => 'top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-horizontal .twentytwenty-after-label:before' => 'top: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-before-label:before' => 'top: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-after-label:before' => 'bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+        );
+
+        $this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_image_comparison_label_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-image-comparision .twentytwenty-before-label:before, {{WRAPPER}} .exad-image-comparision .twentytwenty-after-label:before',
+			]
+		);
+
+        $this->add_control(
+			'exad_image_comparison_label_border_radius',
+			[
+				'label' => __( 'Border radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors' => [
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-before-label:before,
+                    {{WRAPPER}} .exad-image-comparision .twentytwenty-after-label:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+        );
+
         $this->end_controls_section();
     }
 
@@ -265,8 +560,7 @@ class Image_Comparison extends Widget_Base {
 		
 		$this->add_render_attribute( 'exad_image_comparison_wrapper', [
             'class' => [ 
-                'exad-image-comparision-element', 
-                esc_attr( $settings['exad_image_comparison_slider_handle'] )
+                'exad-image-comparision-element'
             ],
             'data-exad-before_label'       => esc_attr( $settings['exad_before_label'] ),
             'data-exad-after_label'        => esc_attr( $settings['exad_after_label'] ),
@@ -276,6 +570,15 @@ class Image_Comparison extends Widget_Base {
 
         if( 'on' !== $settings['exad_overlay_enable'] ) {
             $this->add_render_attribute( 'exad_image_comparison_wrapper', 'data-exad-no_overlay', true );
+        }
+        if( 'move_slider_on_hover' == $settings['exad_move_slider'] ) {
+            $this->add_render_attribute( 'exad_image_comparison_wrapper', 'data-exad-move_slider_on_hover', true );
+        }
+        if( 'move_with_handle_only' == $settings['exad_move_slider'] ) {
+            $this->add_render_attribute( 'exad_image_comparison_wrapper', 'data-exad-move_with_handle_only', true );
+        }
+        if( 'click_to_move' == $settings['exad_move_slider'] ) {
+            $this->add_render_attribute( 'exad_image_comparison_wrapper', 'data-exad-click_to_move', true );
         }
 
         echo '<div class="exad-image-comparision">';
@@ -322,7 +625,7 @@ class Image_Comparison extends Widget_Base {
             }
 
             view.addRenderAttribute( 'exad_image_comparison_wrapper', {
-                'class'                       : [ 'exad-image-comparision-element', settings.exad_image_comparison_slider_handle ],
+                'class'                       : [ 'exad-image-comparision-element' ],
                 'data-exad-before_label'      : settings.exad_before_label,
                 'data-exad-after_label'       : settings.exad_after_label,
                 'data-exad-default_offset_pct': settings.exad_default_offset_pct,
@@ -331,6 +634,15 @@ class Image_Comparison extends Widget_Base {
 
             if ( 'on' !== settings.exad_overlay_enable ) {
                 view.addRenderAttribute( 'exad_image_comparison_wrapper', 'data-exad-no_overlay', true );
+            }
+            if( 'move_slider_on_hover' == settings.exad_move_slider ) {
+                view.addRenderAttribute( 'exad_image_comparison_wrapper', 'data-exad-move_slider_on_hover', true );
+            }
+            if( 'move_with_handle_only' == settings.exad_move_slider ) {
+                view.addRenderAttribute( 'exad_image_comparison_wrapper', 'data-exad-move_with_handle_only', true );
+            }
+            if( 'click_to_move' == settings.exad_move_slider ) {
+                view.addRenderAttribute( 'exad_image_comparison_wrapper', 'data-exad-click_to_move', true );
             }
         #>
 

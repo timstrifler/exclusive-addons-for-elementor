@@ -13,7 +13,7 @@
 
 /* Twenty Twenty plugin for Image Comparison */
 
-.twentytwenty-horizontal .twentytwenty-handle:before, .twentytwenty-horizontal .twentytwenty-handle:after, .twentytwenty-vertical .twentytwenty-handle:before, .twentytwenty-vertical .twentytwenty-handle:after {
+/* .twentytwenty-horizontal .twentytwenty-handle:before, .twentytwenty-horizontal .twentytwenty-handle:after, .twentytwenty-vertical .twentytwenty-handle:before, .twentytwenty-vertical .twentytwenty-handle:after {
   content: " ";
   display: block;
   background: #fff;
@@ -262,4 +262,4 @@
   border-top: 6px solid white;
   bottom: 50%;
   margin-bottom: -12px; 
-}
+} */
