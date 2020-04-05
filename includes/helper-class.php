@@ -145,7 +145,11 @@ class Helper {
 
         $author_ids = implode( ", ", $settings[ $prefix . '_authors'] );
 
-        $category_ids = implode( ", ", $settings[ $prefix . '_categories'] );
+        if ( isset( $settings[ $prefix . '_categories'] ) ) {
+            $category_ids = implode( ", ", $settings[ $prefix . '_categories'] );
+        } else {
+            $category_ids = [];
+        }
 
         if ( 'yes' === $settings[ $prefix . '_ignore_sticky'] ) {
             $exad_ignore_sticky = true;
