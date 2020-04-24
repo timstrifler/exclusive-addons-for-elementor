@@ -3,7 +3,7 @@
  * Plugin Name: Exclusive Addons Elementor
  * Plugin URI: http://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
- * Version: 2.1.0
+ * Version: 2.0.1
  * Author: DevsCred.com
  * Author URI: http://devscred.com/
  * Text Domain: exclusive-addons-elementor
