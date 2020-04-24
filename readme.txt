@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.3.2
-Stable tag: 2.0.1
+Stable tag: 2.1.0
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -133,6 +133,12 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.1.0 - 04/24/2020 =
+- Added animated mask option in Team Member.
+- Added animated mask option in Infobox.
+- Added image size in Infobox.
+- Enabled shortcode parsing on Modal Popup.
 
 = 2.0.1 - 08/03/2020 =
 - Added several customization options on Image Comparison Element.
