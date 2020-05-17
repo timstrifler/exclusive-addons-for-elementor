@@ -134,6 +134,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
+= 2.0.2 - 17/05/2020 =
+- Allowed HTML tags on Post Grid Element.
+
 = 2.0.1 - 08/03/2020 =
 - Added several customization options on Image Comparison Element.
 - Added some useful options in Post Grid Element.
