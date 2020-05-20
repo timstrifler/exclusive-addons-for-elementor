@@ -302,7 +302,439 @@ class Corona extends Widget_Base {
                 ]
             ]
         );
+
+        $this->add_control(
+            'exad_corona_columns',
+            [
+                'label'   => __( 'Columns', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'exad-col-4',
+                'options' => [
+                    'exad-col-1' => __( '1', 'exclusive-addons-elementor' ),
+                    'exad-col-2' => __( '2',   'exclusive-addons-elementor' ),
+                    'exad-col-3' => __( '3', 'exclusive-addons-elementor' ),
+                    'exad-col-4' => __( '4',  'exclusive-addons-elementor '),
+                    'exad-col-5' => __( '5',  'exclusive-addons-elementor '),
+                    'exad-col-6' => __( '6',  'exclusive-addons-elementor ')
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_content_type',
+            [
+                'label'   => __( 'Type', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'vertical',
+                'options' => [
+                    'horizontal' => __( 'Horizontal', 'exclusive-addons-elementor' ),
+                    'vertical' => __( 'Vertical',   'exclusive-addons-elementor' )
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_last_update',
+            [
+                'label'        => __( 'Enable Last Update Time', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_update_text',
+            [
+                'label'     => __( 'Updated Text', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::TEXT,
+                'default'   => __( 'Last Updated: ', 'exclusive-addons-elementor' ),
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_date_format',
+            [
+                'label'   => __( 'Date Format', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'Y/m/d h:i A',
+                'options' => [
+                    'Y/m/d h:i A' => __( 'Y/m/d h:i A', 'exclusive-addons-elementor' ),
+                    'Y-m-d h:i A' => __( 'Y-m-d h:i A',   'exclusive-addons-elementor' ),
+                    'Y/M/d h:i A' => __( 'Y/M/d h:i A', 'exclusive-addons-elementor' ),
+                    'Y/M/d' => __( 'Y/M/d',  'exclusive-addons-elementor' ),
+                    'd-M-y' => __( 'd-M-y',  'exclusive-addons-elementor ')
+                ],
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_total_cases',
+            [
+                'label'        => __( 'Enable Total Cases', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_total_deaths',
+            [
+                'label'        => __( 'Enable Total Deaths', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_total_recovered',
+            [
+                'label'        => __( 'Enable Total Recovered', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_total_active',
+            [
+                'label'        => __( 'Enable Total Active', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_today_cases',
+            [
+                'label'        => __( 'Enable Today Cases', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_today_deaths',
+            [
+                'label'        => __( 'Enable Today Deaths', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_critical',
+            [
+                'label'        => __( 'Enable Critical', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_total_tests',
+            [
+                'label'        => __( 'Enable Tests', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
+            ]
+        );
 		
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'exad_corona_item_style',
+            [
+                'label' => __( 'Item', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_corona_content_alignment',
+            [
+                'label'         => __( 'Alignment', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
+                'default'       => 'center',
+                'options'       => [
+                    'flex-start'      => [
+                        'title' => __( 'Left', 'exclusive-addons-elementor' ),
+                        'icon'  => 'eicon-text-align-left'
+                    ],
+                    'center'    => [
+                        'title' => __( 'Center', 'exclusive-addons-elementor' ),
+                        'icon'  => 'eicon-text-align-center'
+                    ],
+                    'flex-end'     => [
+                        'title' => __( 'Right', 'exclusive-addons-elementor' ),
+                        'icon'  => 'eicon-text-align-right'
+                    ]
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-corona-content-vertical' => 'align-items: {{VALUE}};',
+                    '{{WRAPPER}} .exad-corona-content-horizontal' => 'justify-content: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_corona_item_padding',
+            [
+                'label'      => __('Padding', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'default'    => [
+                    'top'    => '20',
+                    'right'  => '20',
+                    'bottom' => '20',
+                    'left'   => '20'
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-corona-item-inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'               => 'exad_corona_item_border',
+                'fields_options'     => [
+                    'border'         => [
+                        'default'    => 'solid'
+                    ],
+                    'width'          => [
+                        'default'    => [
+                            'top'    => '1',
+                            'right'  => '1',
+                            'bottom' => '1',
+                            'left'   => '1'
+                        ]
+                    ],
+                    'color'          => [
+                        'default'    => '#000000'
+                    ]
+                ],
+                'selector'           => '{{WRAPPER}} .exad-corona-item-inner'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_corona_item_border_radius',
+            [
+                'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px'],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-corona-item-inner'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name'     => 'exad_corona_item_box_shadow',
+                'selector' => '{{WRAPPER}} .exad-corona-item-inner'
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'exad_corona_style',
+            [
+                'label' => __( 'Style', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_heading_style',
+            [
+                'label'     => __( 'Heading', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'after',
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_corona_heading_typography',
+                'selector' => '{{WRAPPER}} .exad-corona-heading',
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_heading_color',
+            [
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#000000',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-corona-heading' => 'color: {{VALUE}};'
+                ],
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_corona_heading_alignment',
+            [
+                'label'         => __( 'Alignment', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
+                'default'       => 'center',
+                'options'       => [
+                    'left'      => [
+                        'title' => __( 'Left', 'exclusive-addons-elementor' ),
+                        'icon'  => 'eicon-text-align-left'
+                    ],
+                    'center'    => [
+                        'title' => __( 'Center', 'exclusive-addons-elementor' ),
+                        'icon'  => 'eicon-text-align-center'
+                    ],
+                    'right'     => [
+                        'title' => __( 'Right', 'exclusive-addons-elementor' ),
+                        'icon'  => 'eicon-text-align-right'
+                    ]
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-corona-heading' => 'text-align: {{VALUE}};'
+                ],
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_corona_heading_margin',
+            [
+                'label'        => __('Margin', 'exclusive-addons-elementor'),
+                'type'         => Controls_Manager::DIMENSIONS,
+                'size_units'   => ['px', '%'],
+                'default'      => [
+                    'top'      => '0',
+                    'right'    => '0',
+                    'bottom'   => '30',
+                    'left'     => '0',
+                    'isLinked' => false
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-corona-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ],
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_item_label_style',
+            [
+                'label'     => __( 'Label', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_corona_item_label_typography',
+                'selector' => '{{WRAPPER}} .exad-corona-heading'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_item_label_color',
+            [
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#000000',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-corona-heading' => 'color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_item_label_space_between',
+            [
+                'label'        => esc_html__( 'Space Between', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'default'      => [
+                    'size'     => 10,
+                    'unit'     => 'px'
+                ],  
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-corona-content-horizontal .exad-corona-label' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-corona-content-vertical .exad-corona-label' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+                ],              
+                'range'        => [
+                    'px'       => [
+                        'min'  => 0,
+                        'max'  => 30,
+                        'step' => 1
+                    ]
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_item_data_style',
+            [
+                'label'     => __( 'Data', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_corona_item_data_typography',
+                'selector' => '{{WRAPPER}} .exad-corona-data'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_item_data_color',
+            [
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#000000',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-corona-data' => 'color: {{VALUE}};'
+                ]
+            ]
+        );
+
         $this->end_controls_section();
 
     }
@@ -312,30 +744,101 @@ class Corona extends Widget_Base {
 	 */
     protected function render() {
         $settings = $this->get_settings();
-
         $country = $settings['exad_section_corona_country_base'];
+        $last_update = $settings['exad_corona_enable_last_update'];
 
         $response = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/%s', $country ) );
+        $details_object = json_decode(json_encode($response['body']), true);
+        $details_params = json_decode( $details_object, true );
 
-        echo '<pre>';
-            $details_object = json_decode(json_encode($response['body']), true);
-            $details_params = json_decode( $details_object, true );
-            $dateformat1 = intval( $details_params['updated']/1000 );
-            $dateformat2 = date( 'Y/m/d h:i A', $dateformat1 );
-            echo $dateformat2;
-            print_r( $details_params );
-
-        echo '</pre>';
-        echo "<br>===================<br>";
         ?>
-        <div class="exad-corona-params">
-            <?php _e( 'Total Cases: ', 'exclusive-addons-elementor' ); ?>
-            <?php echo '<span>'. esc_html( $details_params['cases'] ) . '</span>'; ?>
+        <?php if( 'yes' === $last_update ) :
+            $last_updated_time = $settings['exad_corona_date_format'];
+            $last_updated_text = $settings['exad_corona_update_text'];
+            $dateformat1 = intval( $details_params['updated']/1000 );
+            $dateformat2 = date( $last_updated_time, $dateformat1 );
+        ?>
+            <div class="exad-corona-heading">
+                <?php echo esc_html( $last_updated_text );  ?>
+                <span><?php echo esc_html( $dateformat2 ); ?></span>
+            </div>
+        <?php endif; ?>
+        
+        <div class="exad-corona-wrapper <?php echo esc_attr( $settings['exad_corona_columns'] ); ?>">
+            <?php if( 'yes' === $settings['exad_corona_enable_total_cases'] ) : ?>
+                <div class="exad-corona-each-item exad-corona-col">
+                    <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
+                        <span class="exad-corona-label"><?php _e( 'Cases: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_params['cases'] ); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+            
+            <?php if( 'yes' === $settings['exad_corona_enable_total_deaths'] ) : ?>
+                <div class="exad-corona-each-item exad-corona-col">
+                    <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
+                        <span class="exad-corona-label"><?php _e( 'Deaths: ', 'exclusive-addons-elementor' ); ?>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_params['deaths'] ); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if( 'yes' === $settings['exad_corona_enable_total_recovered'] ) : ?>
+                <div class="exad-corona-each-item exad-corona-col">
+                    <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
+                        <span class="exad-corona-label"><?php _e( 'Recovered: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_params['recovered'] ); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if( 'yes' === $settings['exad_corona_enable_total_active'] ) : ?>
+                <div class="exad-corona-each-item exad-corona-col">
+                    <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
+                        <span class="exad-corona-label"><?php _e( 'Active: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_params['active'] ); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if( 'yes' === $settings['exad_corona_enable_today_cases'] ) : ?>
+                <div class="exad-corona-each-item exad-corona-col">
+                    <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
+                        <span class="exad-corona-label"><?php _e( 'Cases Today: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_params['todayCases'] ); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if( 'yes' === $settings['exad_corona_enable_today_deaths'] ) : ?>
+                <div class="exad-corona-each-item exad-corona-col">
+                    <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
+                        <span class="exad-corona-label"><?php _e( 'Deaths Today: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_params['todayDeaths'] ); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if( 'yes' === $settings['exad_corona_enable_critical'] ) : ?>
+                <div class="exad-corona-each-item exad-corona-col">
+                    <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
+                        <span class="exad-corona-label"><?php _e( 'Critical: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_params['critical'] ); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if( 'yes' === $settings['exad_corona_enable_total_tests'] ) : ?>
+                <div class="exad-corona-each-item exad-corona-col">
+                    <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
+                        <span class="exad-corona-label"><?php _e( 'Tests: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_params['tests'] ); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
         </div>
 
         <?php
-        echo '<pre>';
-            print_r( $response );
-        echo '</pre>';
     }
 }
