@@ -1497,6 +1497,86 @@ ul.exad-call-to-action-buttons {
 
 /* Contact Form 7 End */
 
+/* Corona Style Start */
+
+
+
+.exad-corona-wrapper.exad-col-1, 
+.exad-corona-wrapper.exad-col-2, 
+.exad-corona-wrapper.exad-col-3, 
+.exad-corona-wrapper.exad-col-4, 
+.exad-corona-wrapper.exad-col-5, 
+.exad-corona-wrapper.exad-col-6 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+.exad-corona-wrapper .exad-corona-col {
+    padding: 0px 10px 20px 10px;
+}
+.exad-corona-wrapper.exad-col-1 .exad-corona-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.exad-corona-wrapper.exad-col-2 .exad-corona-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.exad-corona-wrapper.exad-col-3 .exad-corona-col {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.exad-corona-wrapper.exad-col-4 .exad-corona-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.exad-corona-wrapper.exad-col-5 .exad-corona-col {
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+.exad-corona-content-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+.exad-corona-content-vertical {
+    display: flex;
+    flex-direction: column;
+}
+.exad-corona-wrapper.exad-col-6 .exad-corona-col {
+    flex: 0 0 16.66666%;
+    max-width: 16.666666%;
+}
+
+@media (max-width: 991px) {
+    .exad-corona-wrapper.exad-col-4 .exad-corona-col,
+    .exad-corona-wrapper.exad-col-5 .exad-corona-col,
+    .exad-corona-wrapper.exad-col-6 .exad-corona-col {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+@media (max-width: 767px) {
+    .exad-corona-wrapper.exad-col-1 .exad-corona-col, 
+    .exad-corona-wrapper.exad-col-2 .exad-corona-col,
+    .exad-corona-wrapper.exad-col-3 .exad-corona-col,
+    .exad-corona-wrapper.exad-col-4 .exad-corona-col,
+    .exad-corona-wrapper.exad-col-5 .exad-corona-col,
+    .exad-corona-wrapper.exad-col-6 .exad-corona-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 10px 20px 10px;
+    }
+}
+
+/* Corona Style End */
+
+
 /* Countdown Timer Start */
 
 .exad-countdown-description {

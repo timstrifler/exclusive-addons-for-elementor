@@ -134,7 +134,11 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.1.0 - 04/24/2020 =
+= 2.1.1 - 17/05/2020 =
+- Allowed HTML tags on Post Grid Element.
+- Added New Widget named Corona Update.
+
+= 2.1.0 - 24/04/2020 =
 - Added animated mask option in Team Member.
 - Added animated mask option in Infobox.
 - Added image size in Infobox.
