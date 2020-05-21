@@ -59,7 +59,8 @@ class Modal_Popup extends Widget_Base {
 					'youtube'        => __( 'Youtube Video', 'exclusive-addons-elementor' ),
 					'vimeo'          => __( 'Vimeo Video', 'exclusive-addons-elementor' ),
 					'external-video' => __( 'Self Hosted Video', 'exclusive-addons-elementor' ),
-					'external_page'  => __( 'External Page', 'exclusive-addons-elementor' )
+					'external_page'  => __( 'External Page', 'exclusive-addons-elementor' ),
+					'shortcode'      => __( 'ShortCode', 'exclusive-addons-elementor' )
 				]
 			]
 		);
@@ -304,6 +305,19 @@ class Modal_Popup extends Widget_Base {
                 ]
             ]
         );
+
+        $this->add_control(
+            'exad_modal_shortcode',
+            [
+				'label'       => __( 'Enter your shortcode', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'placeholder' => __( '[gallery]', 'exclusive-addons-elementor' ),
+				'condition'   => [
+                    'exad_modal_content' => 'shortcode'
+                ]
+            ]
+		);
 
 		$this->add_control(
 			'exad_modal_btn_text',
@@ -987,6 +1001,10 @@ class Modal_Popup extends Widget_Base {
 
 							if ( 'external_page' === $settings['exad_modal_content'] ) {
 								echo '<iframe src="'.esc_url( $settings['exad_modal_external_page_url'] ).'" frameborder="0" allowfullscreen ></iframe>';
+							}
+
+							if ( 'shortcode' === $settings['exad_modal_content'] ) {
+								echo do_shortcode( $settings['exad_modal_shortcode'] );
 							}
 
 							echo '<div class="exad-close-btn">';
