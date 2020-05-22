@@ -492,6 +492,16 @@ class Corona extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'     => 'exad_corona_items_background',
+                'label'    => __( 'Background', 'exclusive-addons-elementor' ),
+                'types'    => ['classic', 'gradient'],
+                'selector' => '{{WRAPPER}} .exad-corona-item-inner',
+            ]
+        );
+
         $this->add_responsive_control(
             'exad_corona_item_padding',
             [
@@ -678,7 +688,7 @@ class Corona extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#000000',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-corona-heading' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-corona-label' => 'color: {{VALUE}};'
                 ]
             ]
         );
@@ -761,6 +771,7 @@ class Corona extends Widget_Base {
             <div class="exad-corona-heading">
                 <?php echo esc_html( $last_updated_text );  ?>
                 <span><?php echo esc_html( $dateformat2 ); ?></span>
+                <h1 class="selected-country"><?php echo esc_html( $settings['exad_section_corona_country_base'] ); ?></h1>
             </div>
         <?php endif; ?>
         
@@ -777,7 +788,7 @@ class Corona extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_total_deaths'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Deaths: ', 'exclusive-addons-elementor' ); ?>
+                        <span class="exad-corona-label"><?php _e( 'Deaths: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $details_params['deaths'] ); ?></span>
                     </div>
                 </div>
