@@ -86,6 +86,7 @@ class Corona extends Widget_Base {
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'USA',
                 'options' => [
+                    'All'  => __( 'Total',  'exclusive-addons-elementor' ),
                     'Afghanistan'  => __( 'Afghanistan',  'exclusive-addons-elementor' ),
                     'Albania'  => __( 'Albania',  'exclusive-addons-elementor' ),
                     'Algeria'  => __( 'Algeria',  'exclusive-addons-elementor' ),
@@ -756,11 +757,13 @@ class Corona extends Widget_Base {
         $settings = $this->get_settings();
         $country = $settings['exad_section_corona_country_base'];
         $last_update = $settings['exad_corona_enable_last_update'];
-
-        $response = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/%s', $country ) );
+        if( 'All' === $country ){
+            $response = wp_remote_get( sprintf( 'https://disease.sh/v2/%s', $country ) );
+        }else{
+            $response = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/%s', $country ) );
+        }
         $details_object = json_decode(json_encode($response['body']), true);
         $details_params = json_decode( $details_object, true );
-
         ?>
         <?php if( 'yes' === $last_update ) :
             $last_updated_time = $settings['exad_corona_date_format'];
