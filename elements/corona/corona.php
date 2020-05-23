@@ -764,6 +764,10 @@ class Corona extends Widget_Base {
         }
         $details_object = json_decode(json_encode($response['body']), true);
         $details_params = json_decode( $details_object, true );
+
+        $allData = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/' ) );
+        $allDataObject = json_decode(json_encode($allData['body']), true);
+        $allDataList = json_decode( $allDataObject, true );
         ?>
         <?php if( 'yes' === $last_update ) :
             $last_updated_time = $settings['exad_corona_date_format'];
@@ -771,6 +775,7 @@ class Corona extends Widget_Base {
             $dateformat1 = intval( $details_params['updated']/1000 );
             $dateformat2 = date( $last_updated_time, $dateformat1 );
         ?>
+        <div class="exad-corona">
             <div class="exad-corona-heading">
                 <?php echo esc_html( $last_updated_text );  ?>
                 <span><?php echo esc_html( $dateformat2 ); ?></span>
@@ -850,7 +855,50 @@ class Corona extends Widget_Base {
                     </div>
                 </div>
             <?php endif; ?>
-
+            <?php
+            // $output="";
+            // foreach( $allDataList as $dataList ) {
+            //     $output .= $dataList['country']. "</br>";
+            // }
+            // echo $output;
+            ?>
+            <div class="search-form">
+                <input type="text" name="search" id="search_data" placeholder="Search by country name">
+            </div>
+            <table id="data_table">
+                <tr>
+                    <th><?php _e( 'Flag', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Country', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Total Cases', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Today Cases', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Total Deaths', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Today Deaths', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Total Recovered', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Active Cases', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Serious Critical', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Total Tests', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Tests/1M', 'exclusive-addons-elementor' ); ?></th>
+                    <th><?php _e( 'Population', 'exclusive-addons-elementor' ); ?></th>
+                </tr>
+                <?php
+                foreach( $allDataList as $dataList ) { ?>
+                <tr class="data_table_row">
+                    <td class="flag"><img src="<?php echo $dataList['countryInfo']["flag"]; ?>" alt="<?php echo $dataList['country']; ?>"></td>
+                    <td><?php echo $dataList['country']; ?></td>
+                    <td><?php echo $dataList['cases']; ?></td>
+                    <td><?php echo $dataList['todayCases']; ?></td>
+                    <td><?php echo $dataList['deaths']; ?></td>
+                    <td><?php echo $dataList['todayDeaths']; ?></td>
+                    <td><?php echo $dataList['recovered']; ?></td>
+                    <td><?php echo $dataList['active']; ?></td>
+                    <td><?php echo $dataList['critical']; ?></td>
+                    <td><?php echo $dataList['tests']; ?></td>
+                    <td><?php echo $dataList['testsPerOneMillion']; ?></td>
+                    <td><?php echo $dataList['population']; ?></td>
+                </tr>
+                <?php } ?>
+            </table>
+        </div>
         </div>
 
         <?php
