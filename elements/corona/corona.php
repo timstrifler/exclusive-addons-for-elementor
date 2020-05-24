@@ -35,7 +35,7 @@ class Corona extends Widget_Base {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Corona Update', 'exclusive-addons-elementor' );
+        return __( 'Covid-19', 'exclusive-addons-elementor' );
     }
 
     /**
@@ -59,7 +59,7 @@ class Corona extends Widget_Base {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'exad-element-icon eicon-mail';
+        return 'exad-element-icon eicon-cog';
     }
 
     /**
@@ -84,7 +84,7 @@ class Corona extends Widget_Base {
             [
                 'label'   => __( 'Country', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::SELECT,
-                'default' => 'USA',
+                'default' => 'All',
                 'options' => [
                     'All'  => __( 'Total',  'exclusive-addons-elementor' ),
                     'Afghanistan'  => __( 'Afghanistan',  'exclusive-addons-elementor' ),
@@ -1108,14 +1108,38 @@ class Corona extends Widget_Base {
                                 <th>
                                 <?php 
                                     switch ($option) {
-                                        case "cases":
-                                        echo "Cases";
-                                        break;
                                         case "country":
                                         echo "Country";
                                         break;
+                                        case "cases":
+                                        echo "Total Cases";
+                                        break;
                                         case "todayCases":
                                         echo "New Cases";
+                                        break;
+                                        case "deaths":
+                                        echo "Total Deaths";
+                                        break;
+                                        case "todayDeaths":
+                                        echo "New Deaths";
+                                        break;
+                                        case "recovered":
+                                        echo "Total Recovered";
+                                        break;
+                                        case "active":
+                                        echo "Active Cases";
+                                        break;
+                                        case "critical":
+                                        echo "Critical";
+                                        break;
+                                        case "tests":
+                                        echo "Total Tests";
+                                        break;
+                                        case "testsPerOneMillion":
+                                        echo "Tests/1M";
+                                        break;
+                                        case "population":
+                                        echo "Population";
                                         break;
                                     } 
                                 ?>
