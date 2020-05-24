@@ -1574,8 +1574,12 @@ ul.exad-call-to-action-buttons {
     }
 }
 
+.flag{
+    width: 60px;
+    height: auto;
+}
 .flag img{
-    width: 40px;
+    width: 100%;
     height: auto;
 }
 
@@ -1587,6 +1591,17 @@ ul.exad-call-to-action-buttons {
 .search-form input{
     height: 100%;
     width: 100%;
+}
+
+.exad-data-table .exad-data-table-row td,
+.exad-data-table .exad-corona-table-heading th{
+    padding: 15px;
+}
+
+.exad-corona-table-heading.yes th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
 }
 
 /* Corona Style End */

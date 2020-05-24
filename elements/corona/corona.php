@@ -454,6 +454,67 @@ class Corona extends Widget_Base {
                 'return_value' => 'yes'
             ]
         );
+
+        $this->add_control(
+            'exad_corona_enable_data_table',
+            [
+                'label'        => __( 'Enable Data Table', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+                'return_value' => 'yes',
+                'default'      => 'yes',
+            ]
+        );
+        $this->add_control(
+            'exad_corona_data_table_column',
+            [
+                'label'       => __( 'Data Table Columns', 'exclusive-addons-elementor' ),
+                'type'        => Controls_Manager::SELECT2,
+                'label_block' => true,
+                'multiple'    => true,
+                'options'     => [
+                    'country'            => __( 'Country', 'exclusive-addons-elementor' ),
+                    'cases'              => __( 'Total Cases', 'exclusive-addons-elementor' ),
+                    'todayCases'         => __( 'New Cases', 'exclusive-addons-elementor' ),
+                    'deaths'             => __( 'Total Deaths', 'exclusive-addons-elementor' ),
+                    'todayDeaths'        => __( 'New Deaths', 'exclusive-addons-elementor' ),
+                    'recovered'          => __( 'Total Recovered', 'exclusive-addons-elementor' ),
+                    'active'             => __( 'Active', 'exclusive-addons-elementor' ),
+                    'critical'           => __( 'Critical', 'exclusive-addons-elementor' ),
+                    'tests'              => __( 'Total Tests', 'exclusive-addons-elementor' ),
+                    'testsPerOneMillion' => __( 'Tests/1M', 'exclusive-addons-elementor' ),
+                    'population'         => __( 'Population', 'exclusive-addons-elementor' ),
+                ],
+                'default'     => [
+                    'country',
+                    'cases',
+                    'todayCases',
+                    'deaths',
+                    'todayDeaths',
+                    'active',
+                    'tests',
+                ],
+                'condition'   => [
+                    'exad_corona_enable_data_table' => 'yes',
+                ],
+            ]
+        );
+        
+        $this->add_control(
+            'exad_corona_enable_search_filter',
+            [
+                'label'        => __( 'Enable Search Filter', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+                'return_value' => 'yes',
+                'default'      => 'yes',
+                'condition'    => [
+                    'exad_corona_enable_data_table' => 'yes',
+                ],
+            ]
+        );
 		
         $this->end_controls_section();
 
@@ -748,6 +809,183 @@ class Corona extends Widget_Base {
 
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'exad_corona_data_table_style',
+            [
+                'label' => __( 'Data Table', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_data_table_heading',
+            [
+                'label'     => __( 'Table Heading', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'after'
+            ]
+        );
+
+        $this->add_control(
+			'exad_corona_enable_data_table_heading_sticky',
+			[
+				'label' => __( 'Enable Table Heading Skicky', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+                'default' => 'no',
+			]
+		);
+
+        $this->add_control(
+            'exad_corona_data_table_heading_bg_color',
+            [
+                'label'     => __( 'Background', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'default'   => '#e3e3e3',
+                'selectors' => [
+                    '{{WRAPPER}} .exad-data-table .exad-corona-table-heading th' => 'background-color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_corona_data_table_heading_typography',
+                'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
+                'selector' => '{{WRAPPER}} .exad-data-table .exad-corona-table-heading th',
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_data_table_heading_text_color',
+            [
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .exad-data-table .exad-corona-table-heading th' => 'color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'exad_corona_data_table_heading_border',
+				'label' => __( 'Border', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-data-table .exad-corona-table-heading th',
+			]
+		);
+
+        $this->add_control(
+            'exad_corona_data_table_row',
+            [
+                'label'     => __( 'Data Row', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::HEADING,
+                'separator' => 'before'
+            ]
+        );
+
+        $this->start_controls_tabs( 'exad_corona_data_table_row_tabs' );
+
+            // Odd state tab
+            $this->start_controls_tab( 'exad_corona_data_table_row_odd', [ 'label' => esc_html__( 'Odd Row', 'exclusive-addons-elementor' ) ] );
+
+                $this->add_control(
+                    'exad_corona_data_table_row_odd_bg_color',
+                    [
+                        'label'     => __( 'Odd Row Background', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#ffffff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-data-table .exad-data-table-row:nth-child(odd) td' => 'background-color: {{VALUE}};'
+                        ]
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Typography::get_type(),
+                    [
+                        'name'     => 'exad_corona_data_table_row_odd_typography',
+                        'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-data-table .exad-data-table-row:nth-child(odd) td',
+                    ]
+                );
+
+                $this->add_control(
+                    'exad_corona_data_table_row_odd_text_color',
+                    [
+                        'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-data-table .exad-data-table-row:nth-child(odd) td' => 'color: {{VALUE}};'
+                        ]
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name' => 'exad_corona_data_table_row_odd_border',
+                        'label' => __( 'Border', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-data-table .exad-data-table-row:nth-child(odd) td',
+                    ]
+                );
+
+            $this->end_controls_tab();
+
+            // Even state tab
+            $this->start_controls_tab( 'exad_corona_data_table_row_even', [ 'label' => esc_html__( 'Even Row', 'exclusive-addons-elementor' ) ] );
+
+                $this->add_control(
+                    'exad_corona_data_table_row_even_bg_color',
+                    [
+                        'label'     => __( 'Even Row Background', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#eee',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-data-table .exad-data-table-row:nth-child(even) td' => 'background-color: {{VALUE}};'
+                        ]
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Typography::get_type(),
+                    [
+                        'name'     => 'exad_corona_data_table_row_even_typography',
+                        'label'    => __( 'Typography', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-data-table .exad-data-table-row:nth-child(even) td',
+                    ]
+                );
+
+                $this->add_control(
+                    'exad_corona_data_table_row_even_text_color',
+                    [
+                        'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-data-table .exad-data-table-row:nth-child(even) td' => 'color: {{VALUE}};'
+                        ]
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name' => 'exad_corona_data_table_row_even_border',
+                        'label' => __( 'Border', 'exclusive-addons-elementor' ),
+                        'selector' => '{{WRAPPER}} .exad-data-table .exad-data-table-row:nth-child(even) td',
+                    ]
+                );
+
+            $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
     }
 
     /**
@@ -855,50 +1093,33 @@ class Corona extends Widget_Base {
                     </div>
                 </div>
             <?php endif; ?>
-            <?php
-            // $output="";
-            // foreach( $allDataList as $dataList ) {
-            //     $output .= $dataList['country']. "</br>";
-            // }
-            // echo $output;
-            ?>
-            <div class="search-form">
-                <input type="text" name="search" id="search_data" placeholder="Search by country name">
             </div>
-            <table id="data_table">
-                <tr>
-                    <th><?php _e( 'Flag', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Country', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Total Cases', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Today Cases', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Total Deaths', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Today Deaths', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Total Recovered', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Active Cases', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Serious Critical', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Total Tests', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Tests/1M', 'exclusive-addons-elementor' ); ?></th>
-                    <th><?php _e( 'Population', 'exclusive-addons-elementor' ); ?></th>
-                </tr>
-                <?php
-                foreach( $allDataList as $dataList ) { ?>
-                <tr class="data_table_row">
-                    <td class="flag"><img src="<?php echo $dataList['countryInfo']["flag"]; ?>" alt="<?php echo $dataList['country']; ?>"></td>
-                    <td><?php echo $dataList['country']; ?></td>
-                    <td><?php echo $dataList['cases']; ?></td>
-                    <td><?php echo $dataList['todayCases']; ?></td>
-                    <td><?php echo $dataList['deaths']; ?></td>
-                    <td><?php echo $dataList['todayDeaths']; ?></td>
-                    <td><?php echo $dataList['recovered']; ?></td>
-                    <td><?php echo $dataList['active']; ?></td>
-                    <td><?php echo $dataList['critical']; ?></td>
-                    <td><?php echo $dataList['tests']; ?></td>
-                    <td><?php echo $dataList['testsPerOneMillion']; ?></td>
-                    <td><?php echo $dataList['population']; ?></td>
-                </tr>
-                <?php } ?>
-            </table>
-        </div>
+            <?php if( 'yes' === $settings['exad_corona_enable_search_filter'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
+                <div class="search-form">
+                    <input type="text" name="search" id="search_data" placeholder="Search by country name">
+                </div>
+            <?php } ?>
+            <?php if( 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
+                <div class="exad-corona-table">
+                    <table id="data_table" class="exad-data-table">
+                        <tr class="exad-corona-table-heading <?php echo $settings['exad_corona_enable_data_table_heading_sticky'] ?>">
+                            <th><?php _e( 'Flag', 'exclusive-addons-elementor' ); ?></th>
+                            <?php foreach ( $settings['exad_corona_data_table_column'] as $options ) { ?>
+                                <th><?php echo $options ?></th>
+                            <?php } ?>
+                        </tr>
+                        <?php
+                        foreach( $allDataList as $dataList ) { ?>
+                        <tr class="data_table_row exad-data-table-row">
+                            <td class="flag"><img src="<?php echo $dataList['countryInfo']["flag"]; ?>" alt="<?php echo $dataList['country']; ?>"></td>
+                            <?php foreach ( $settings['exad_corona_data_table_column'] as $value ) { ?>
+                                <td><?php echo $dataList[$value]; ?></td>
+                            <?php } ?>
+                        </tr>
+                        <?php } ?>
+                    </table>
+                </div>
+            <?php } ?>
         </div>
 
         <?php
