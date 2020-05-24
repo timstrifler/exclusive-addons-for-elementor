@@ -1104,8 +1104,22 @@ class Corona extends Widget_Base {
                     <table id="data_table" class="exad-data-table">
                         <tr class="exad-corona-table-heading <?php echo $settings['exad_corona_enable_data_table_heading_sticky'] ?>">
                             <th><?php _e( 'Flag', 'exclusive-addons-elementor' ); ?></th>
-                            <?php foreach ( $settings['exad_corona_data_table_column'] as $options ) { ?>
-                                <th><?php echo $options ?></th>
+                            <?php foreach ( $settings['exad_corona_data_table_column'] as $option ) { ?>
+                                <th>
+                                <?php 
+                                    switch ($option) {
+                                        case "cases":
+                                        echo "Cases";
+                                        break;
+                                        case "country":
+                                        echo "Country";
+                                        break;
+                                        case "todayCases":
+                                        echo "New Cases";
+                                        break;
+                                    } 
+                                ?>
+                                </th>
                             <?php } ?>
                         </tr>
                         <?php
