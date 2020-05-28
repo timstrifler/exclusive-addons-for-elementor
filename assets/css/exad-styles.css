@@ -1604,6 +1604,14 @@ ul.exad-call-to-action-buttons {
     top: 0;
 }
 
+.exad-covid-continent-btn{
+    transition: all .3s ease;
+    display: inline-block;
+}
+.exad-covid-continent-btn:focus{
+    outline: 0;
+}
+
 /* Corona Style End */
 
 

@@ -35,7 +35,7 @@ class Corona extends Widget_Base {
 	 * @return string Widget title.
 	 */
     public function get_title() {
-        return __( 'Covid-19', 'exclusive-addons-elementor' );
+        return __( 'Covid-19 stat', 'exclusive-addons-elementor' );
     }
 
     /**
@@ -515,6 +515,21 @@ class Corona extends Widget_Base {
                 ],
             ]
         );
+
+        $this->add_control(
+            'exad_corona_enable_continent_menu',
+            [
+                'label'        => __( 'Enable Continent Menu', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+                'return_value' => 'yes',
+                'default'      => 'yes',
+                'condition'    => [
+                    'exad_corona_enable_data_table' => 'yes',
+                ],
+            ]
+        );
 		
         $this->end_controls_section();
 
@@ -810,10 +825,209 @@ class Corona extends Widget_Base {
         $this->end_controls_section();
 
         $this->start_controls_section(
+            'exad_corona_continent_menu',
+            [
+                'label' => __( 'Continent Menu Button', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'exad_corona_enable_continent_menu' => 'yes',
+                    'exad_corona_enable_data_table' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_corona_continent_menu_typography',
+                'selector' => '{{WRAPPER}} .exad-covid-continent-btn'
+            ]
+        );
+
+        $this->add_control(
+			'exad_corona_continent_menu_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'top' => '0',
+                    'right' => '10',
+                    'bottom' => '20',
+                    'left' => '0',
+                    'unit' => 'px',
+                    'isLinked' => false,
+                ],
+				'selectors' => [
+					'{{WRAPPER}} .exad-covid-continent-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_corona_continent_menu_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'top' => '10',
+                    'right' => '20',
+                    'bottom' => '10',
+                    'left' => '20',
+                    'unit' => 'px',
+                    'isLinked' => false,
+                ],
+				'selectors' => [
+					'{{WRAPPER}} .exad-covid-continent-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+        );
+        
+        $this->add_control(
+			'exad_corona_continent_menu_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'top' => '0',
+                    'right' => '0',
+                    'bottom' => '0',
+                    'left' => '0',
+                    'unit' => 'px',
+                    'isLinked' => true,
+                ],
+				'selectors' => [
+					'{{WRAPPER}} .exad-covid-continent-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->start_controls_tabs( 'exad_corona_continent_menu_tab' );
+
+            // Odd state tab
+            $this->start_controls_tab( 'exad_corona_continent_menu_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+                $this->add_control(
+                    'exad_corona_continent_menu_normal_bg_color',
+                    [
+                        'label'     => __( 'Background', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#ffffff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-covid-continent-btn' => 'background-color: {{VALUE}};'
+                        ]
+                    ]
+                );
+
+                $this->add_control(
+                    'exad_corona_continent_menu_normal_text_color',
+                    [
+                        'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#7a56ff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-covid-continent-btn' => 'color: {{VALUE}};'
+                        ]
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name' => 'exad_corona_continent_menu_normal_border',
+                        'label' => __( 'Border', 'pexclusive-addons-elementor' ),
+                        'fields_options'  => [
+                            'border'      => [
+                                'default' => 'solid'
+                            ],
+                            'width'          => [
+                                'default'    => [
+                                    'top'    => '1',
+                                    'right'  => '1',
+                                    'bottom' => '1',
+                                    'left'   => '1'
+                                ]
+                            ],
+                            'color'       => [
+                                'default' => '#7a56ff'
+                            ]
+                        ],
+                        'selector' => '{{WRAPPER}} .exad-covid-continent-btn',
+                    ]
+                );
+
+            $this->end_controls_tab();
+
+            // Even state tab
+            $this->start_controls_tab( 'exad_corona_continent_menu_active', [ 'label' => esc_html__( 'Hover/active', 'exclusive-addons-elementor' ) ] );
+
+                $this->add_control(
+                    'exad_corona_continent_menu_active_bg_color',
+                    [
+                        'label'     => __( 'Background', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#7a56ff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-covid-continent-btn.active' => 'background-color: {{VALUE}};',
+                            '{{WRAPPER}} .exad-covid-continent-btn:hover' => 'background-color: {{VALUE}};'
+                        ]
+                    ]
+                );
+
+                $this->add_control(
+                    'exad_corona_continent_menu_active_text_color',
+                    [
+                        'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                        'type'      => Controls_Manager::COLOR,
+                        'default'   => '#ffffff',
+                        'selectors' => [
+                            '{{WRAPPER}} .exad-covid-continent-btn.active' => 'color: {{VALUE}};',
+                            '{{WRAPPER}} .exad-covid-continent-btn:hover' => 'color: {{VALUE}};'
+                        ]
+                    ]
+                );
+
+                $this->add_group_control(
+                    Group_Control_Border::get_type(),
+                    [
+                        'name' => 'exad_corona_continent_menu_active_border',
+                        'label' => __( 'Border', 'pexclusive-addons-elementor' ),
+                        'fields_options'  => [
+                            'border'      => [
+                                'default' => 'solid'
+                            ],
+                            'width'          => [
+                                'default'    => [
+                                    'top'    => '1',
+                                    'right'  => '1',
+                                    'bottom' => '1',
+                                    'left'   => '1'
+                                ]
+                            ],
+                            'color'       => [
+                                'default' => '#7a56ff'
+                            ]
+                        ],
+                        'selector' => '{{WRAPPER}} .exad-covid-continent-btn.active',
+                    ]
+                );
+
+            $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
             'exad_corona_data_table_style',
             [
                 'label' => __( 'Data Table', 'exclusive-addons-elementor' ),
-                'tab'   => Controls_Manager::TAB_STYLE
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'exad_corona_enable_data_table' => 'yes'
+                ]
             ]
         );
 
@@ -1101,6 +1315,17 @@ class Corona extends Widget_Base {
             <?php } ?>
             <?php if( 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
                 <div class="exad-corona-table">
+                    <?php if( 'yes' === $settings['exad_corona_enable_continent_menu'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
+                        <div id="exad-covid-filters" class="exed-covid-data-continent">
+                            <button class="exad-covid-continent-btn active" id="all">All</button>
+                            <button class="exad-covid-continent-btn" id="europe">Europe</button>
+                            <button class="exad-covid-continent-btn" id="africa">Africa</button>
+                            <button class="exad-covid-continent-btn" id="north-america">North America</button>
+                            <button class="exad-covid-continent-btn" id="south-america">South America</button>
+                            <button class="exad-covid-continent-btn" id="asia">Asia</button>
+                            <button class="exad-covid-continent-btn" id="australia-oceania">Australia/Oceania</button>
+                        </div>
+                    <?php } ?>
                     <table id="data_table" class="exad-data-table">
                         <tr class="exad-corona-table-heading <?php echo $settings['exad_corona_enable_data_table_heading_sticky'] ?>">
                             <th><?php _e( 'Flag', 'exclusive-addons-elementor' ); ?></th>
@@ -1148,7 +1373,16 @@ class Corona extends Widget_Base {
                         </tr>
                         <?php
                         foreach( $allDataList as $dataList ) { ?>
-                        <tr class="data_table_row exad-data-table-row">
+                        <?php 
+                        $continent = $dataList['continent'];
+                        $low_continent = strtolower($continent);
+                        $rep_continent = str_replace( array(' ', '/'), "-",$low_continent);
+                        ?>
+                        <tr class="data_table_row exad-data-table-row <?php
+                        if( 'yes' === $settings['exad_corona_enable_continent_menu'] && 'yes' === $settings['exad_corona_enable_data_table'] ) {
+                        echo $rep_continent; 
+                        }
+                        ?>">
                             <td class="flag"><img src="<?php echo $dataList['countryInfo']["flag"]; ?>" alt="<?php echo $dataList['country']; ?>"></td>
                             <?php foreach ( $settings['exad_corona_data_table_column'] as $value ) { ?>
                                 <td><?php echo $dataList[$value]; ?></td>
