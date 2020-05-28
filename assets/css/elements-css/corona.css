@@ -75,13 +75,11 @@
         padding: 0 10px 20px 10px;
     }
 }
-
-.flag{
-    width: 60px;
-    height: auto;
+.flag-row{
+    width: 80px;
 }
 .flag img{
-    width: 100%;
+    width: 35px;
     height: auto;
 }
 
