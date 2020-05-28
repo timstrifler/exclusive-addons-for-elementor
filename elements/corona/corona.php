@@ -90,7 +90,7 @@ class Corona extends Widget_Base {
             'type'    => Controls_Manager::SELECT,
             'default' => 'All',
             'options' => [
-                'All'                                => __( 'Total', 'exclusive-addons-elementor' ),
+                'All'                                => __( 'All', 'exclusive-addons-elementor' ),
                 'Afghanistan'                        => __( 'Afghanistan', 'exclusive-addons-elementor' ),
                 'Albania'                            => __( 'Albania', 'exclusive-addons-elementor' ),
                 'Algeria'                            => __( 'Algeria', 'exclusive-addons-elementor' ),
@@ -659,7 +659,7 @@ class Corona extends Widget_Base {
         $this->start_controls_section(
             'exad_corona_style',
             [
-                'label' => __( 'Block Container', 'exclusive-addons-elementor' ),
+                'label' => __( 'Container Block', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
@@ -1036,7 +1036,7 @@ class Corona extends Widget_Base {
         $this->start_controls_section(
             'exad_corona_data_table_style',
             [
-                'label' => __( 'Data Table', 'exclusive-addons-elementor' ),
+                'label' => __( 'Info Table', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'exad_corona_enable_data_table' => 'yes'
