@@ -530,6 +530,20 @@ class Corona extends Widget_Base {
         );
 
         $this->add_control(
+			'exad_corona_enable_search_filter_text',
+			[
+				'label' => __( 'Search Filter Placeholder Text', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+				'default' => __( 'Search by country name', 'exclusive-addons-elementor' ),
+                'condition'    => [
+                    'exad_corona_enable_search_filter' => 'yes',
+                    'exad_corona_enable_data_table' => 'yes'
+                ],
+			]
+		);
+
+        $this->add_control(
             'exad_corona_enable_continent_menu',
             [
                 'label'        => __( 'Enable Continent Filter', 'exclusive-addons-elementor' ),
@@ -833,6 +847,154 @@ class Corona extends Widget_Base {
                     '{{WRAPPER}} .exad-corona-data' => 'color: {{VALUE}};'
                 ]
             ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'exad_corona_search_filter_style',
+            [
+                'label' => __( 'Search Filter', 'exclusive-addons-elementor' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'exad_corona_enable_search_filter' => 'yes',
+                    'exad_corona_enable_data_table' => 'yes'
+                ]
+            ]
+        );
+
+        $this->add_control(
+			'exad_corona_search_filter_width',
+			[
+				'label' => __( 'Input Box Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 100,
+						'max' => 600,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 350,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .search-form' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->add_control(
+			'exad_corona_search_filter_height',
+			[
+				'label' => __( 'Input Box Height', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 30,
+						'max' => 80,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 50,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .search-form' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->add_control(
+            'exad_corona_search_filter_background',
+            [
+                'label'     => __( 'Background', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .search-form .exad-corona-search-input' => 'background-color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_corona_search_filter_typography',
+                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input'
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_search_filter_text_color',
+            [
+                'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .search-form .exad-corona-search-input' => 'color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_search_filter_placeholder_color',
+            [
+                'label'     => __( 'Placeholder Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .search-form .exad-corona-search-input::placeholder' => 'color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'exad_corona_search_filter_border',
+                'label' => __( 'Border', 'pexclusive-addons-elementor' ),
+                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input',
+            ]
+        );
+
+        $this->add_control(
+			'exad_corona_search_filter_radius',
+			[
+				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'top' => '0',
+                    'right' => '0',
+                    'bottom' => '0',
+                    'left' => '0',
+                    'unit' => 'px',
+                    'isLinked' => false,
+                ],
+				'selectors' => [
+					'{{WRAPPER}} .search-form .exad-corona-search-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+        );
+
+        $this->add_control(
+			'exad_corona_search_filter_padding',
+			[
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'top' => '0',
+                    'right' => '0',
+                    'bottom' => '0',
+                    'left' => '20',
+                    'unit' => 'px',
+                    'isLinked' => false,
+                ],
+				'selectors' => [
+					'{{WRAPPER}} .search-form .exad-corona-search-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
         );
 
         $this->end_controls_section();
@@ -1323,7 +1485,7 @@ class Corona extends Widget_Base {
             </div>
             <?php if( 'yes' === $settings['exad_corona_enable_search_filter'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
                 <div class="search-form">
-                    <input type="text" name="search" id="search_data" placeholder="Search by country name">
+                    <input class="exad-corona-search-input" type="text" name="search" id="search_data" placeholder="<?php echo esc_attr($settings['exad_corona_enable_search_filter_text']); ?>">
                 </div>
             <?php } ?>
             <?php if( 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
