@@ -1548,14 +1548,12 @@ class Corona extends Widget_Base {
                         </tr>
                         <?php
                         foreach( $allDataList as $dataList ) { ?>
-                        <?php 
-                        $continent = $dataList['continent'];
-                        $low_continent = strtolower($continent);
-                        $rep_continent = str_replace( array(' ', '/'), "-",$low_continent);
-                        ?>
                         <tr class="data_table_row exad-data-table-row <?php
                         if( 'yes' === $settings['exad_corona_enable_continent_menu'] && 'yes' === $settings['exad_corona_enable_data_table'] ) {
-                        echo $rep_continent; 
+                            $continent = $dataList['continent'];
+                            $low_continent = strtolower($continent);
+                            $rep_continent = str_replace( array(' ', '/'), "-",$low_continent);
+                            echo $rep_continent; 
                         }
                         ?>">
                             <td class="flag"><img src="<?php echo $dataList['countryInfo']["flag"]; ?>" alt="<?php echo $dataList['country']; ?>"></td>
