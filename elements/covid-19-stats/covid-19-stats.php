@@ -1104,7 +1104,7 @@ class Covid_19_Stats extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 20,
+					'size' => 12,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .search-form .exad-corona-search-icon' => 'left: {{SIZE}}{{UNIT}};',

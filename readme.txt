@@ -1,9 +1,9 @@
 === Exclusive Addons for Elementor ===
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
-Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy
+Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy, covid-19, corona
 Requires at least: 4.6
-Tested up to: 5.4
-Stable tag: 2.1.0
+Tested up to: 5.4.1
+Stable tag: 2.1.1
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -18,7 +18,7 @@ We'd love to add that for you.
 
 [Check out our Demos](http://exclusiveaddons.com/)
 
-### 30 USEFUL (FREE) WIDGETS and counting...
+### 31 USEFUL (FREE) WIDGETS and counting...
 
 We have packed the most Useful Free Elementor widgets for you in the bundle. Check out our Demos where we demonstrated some interesting use cases for all of our Elements:
 
@@ -135,9 +135,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.1.1 - 17/05/2020 =
+= 2.1.1 - 31/05/2020 =
 - Allowed HTML tags on Post Grid Element.
-- Added New Widget named Corona Update.
+- Added New Widget named Covid-19 Stats.
 
 = 2.1.0 - 24/04/2020 =
 - Added animated mask option in Team Member.
