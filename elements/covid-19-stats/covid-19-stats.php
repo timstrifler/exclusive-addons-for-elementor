@@ -1015,7 +1015,8 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Placeholder Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .search-form .exad-corona-search-input::placeholder' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .search-form .exad-corona-search-input::placeholder' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .search-form .exad-corona-search-icon' => 'color: {{VALUE}};'
                 ]
             ]
         );
@@ -1059,7 +1060,7 @@ class Covid_19_Stats extends Widget_Base {
                     'top' => '0',
                     'right' => '0',
                     'bottom' => '0',
-                    'left' => '20',
+                    'left' => '40',
                     'unit' => 'px',
                     'isLinked' => false,
                 ],
@@ -1088,6 +1089,50 @@ class Covid_19_Stats extends Widget_Base {
 				],
 			]
         );
+
+        $this->add_control(
+			'exad_corona_search_filter_search_icon_position',
+			[
+				'label' => __( 'Search Icon Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .search-form .exad-corona-search-icon' => 'left: {{SIZE}}{{UNIT}};',
+				],
+			]
+        );
+        
+        $this->add_control(
+			'exad_corona_search_filter_search_icon_size',
+			[
+				'label' => __( 'Search Icon Size', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .search-form .exad-corona-search-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->end_controls_section();
 
@@ -1606,6 +1651,7 @@ class Covid_19_Stats extends Widget_Base {
             </div>
             <?php if( 'yes' === $settings['exad_corona_enable_search_filter'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
                 <div class="search-form">
+                    <span class="exad-corona-search-icon"><i class="fa fa-search"></i></span>
                     <input class="exad-corona-search-input" type="text" name="search" id="search_data" placeholder="<?php echo esc_attr($settings['exad_corona_enable_search_filter_text']); ?>">
                 </div>
             <?php } ?>

@@ -1585,6 +1585,13 @@ ul.exad-call-to-action-buttons {
     width: 350px;
     height: 50px;
     margin-bottom: 20px;
+    position: relative;
+}
+.exad-corona-search-icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
 }
 .search-form input{
     height: 100%;
