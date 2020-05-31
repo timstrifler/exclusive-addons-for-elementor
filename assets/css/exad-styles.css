@@ -1613,6 +1613,9 @@ ul.exad-call-to-action-buttons {
     display: flex;
     justify-content: space-between;
 }
+.exad-corona-heading.inline .exad-corona-last-update{
+    order: 2;
+}
 /* Corona Style End */
 
 

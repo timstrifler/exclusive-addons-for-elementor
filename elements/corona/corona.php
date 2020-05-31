@@ -574,7 +574,7 @@ class Corona extends Widget_Base {
         $this->add_control(
 			'exad_corona_heading_position',
 			[
-				'label' => __( 'Heading Position', 'exclusive-addons-elementor' ),
+				'label' => __( 'Position', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'default',
 				'options' => [
@@ -637,7 +637,7 @@ class Corona extends Widget_Base {
         $this->add_control(
             'exad_corona_heading_last_update',
             [
-                'label'     => __( 'Last Update', 'exclusive-addons-elementor' ),
+                'label'     => __( 'Last Updated', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
