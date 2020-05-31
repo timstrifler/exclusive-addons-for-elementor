@@ -52,6 +52,7 @@ We have packed the most Useful Free Elementor widgets for you in the bundle. Che
 28. **[Alert](http://exclusiveaddons.com/alert-demo/)**
 29. **[Animated Text](http://exclusiveaddons.com/animated-text-demo/)**
 30. **[Button](http://exclusiveaddons.com/button-demo/)**
+31. **[Covid-19 Stats](http://exclusiveaddons.com/covid-19-stats-demo/)**
 
 
 ### 30+ Elementor widgets
@@ -205,3 +206,13 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 = 1.0 =
 No Upgrade instruction yet
+
+== Translations ==
+
+* English - default, always included
+
+* Note:* All our plugins are localized/ translateable by default.
+
+== Credits ==
+* We have used [NovelCOVID API](https://github.com/NovelCOVID/API) for our Covid-19 Stats Widget.
+They deserve a huge shoutout for their amazing contribution to the community.

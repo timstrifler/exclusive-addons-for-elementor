@@ -14,7 +14,7 @@ use \ExclusiveAddons\Elementor\Helper;
 /**
  * Corona Element
  */
-class Corona extends Widget_Base {
+class Covid_19_Stats extends Widget_Base {
     
     /**
 	 * Retrieve Corona widget name.
@@ -24,7 +24,7 @@ class Corona extends Widget_Base {
 	 * @return string Widget name.
 	 */
     public function get_name() {
-        return 'exad-corona';
+        return 'exad-covid-19';
     }
 
     /**
@@ -59,11 +59,11 @@ class Corona extends Widget_Base {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'exad-element-icon eicon-cog';
+        return 'exad-element-icon eicon-cogs';
     }
 
     public function get_keywords() {
-        return [ 'covid', 'corona', 'coronavirus' ];
+        return [ 'covid-19', 'corona', 'coronavirus' ];
     }
 
     /**
