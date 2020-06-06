@@ -158,6 +158,16 @@ var exclusiveCorona = function ( $scope, $ ) {
       continentBtn.removeClass('active');
       $(this).addClass('active');
     })
+
+    var parent = document.querySelector('.exad-corona-table-heading.yes th').parentElement;
+
+    while (parent) {
+        var hasOverflow = getComputedStyle(parent).overflow;
+        if(hasOverflow !== 'visible') {
+          parent.style.overflow = "visible"
+        }
+        parent = parent.parentElement;
+    }
 }
 
 // Corona script ends

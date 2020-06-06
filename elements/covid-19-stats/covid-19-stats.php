@@ -326,19 +326,6 @@ class Covid_19_Stats extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_corona_content_type',
-            [
-                'label'   => __( 'Type', 'exclusive-addons-elementor' ),
-                'type'    => Controls_Manager::SELECT,
-                'default' => 'vertical',
-                'options' => [
-                    'horizontal' => __( 'Horizontal', 'exclusive-addons-elementor' ),
-                    'vertical' => __( 'Vertical',   'exclusive-addons-elementor' )
-                ]
-            ]
-        );
-
-        $this->add_control(
             'exad_corona_enable_last_update',
             [
                 'label'        => __( 'Enable Last Update Time', 'exclusive-addons-elementor' ),
@@ -376,6 +363,16 @@ class Covid_19_Stats extends Widget_Base {
                 'condition' => [
                     'exad_corona_enable_last_update' => 'yes'
                 ]
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_enable_country',
+            [
+                'label'        => __( 'Enable Country Name', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'default'      => 'yes',
+                'return_value' => 'yes'
             ]
         );
 
@@ -566,7 +563,8 @@ class Covid_19_Stats extends Widget_Base {
                 'label' => __( 'Heading', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
                 'condition' => [
-                    'exad_corona_enable_last_update' => 'yes'
+                    '!exad_corona_enable_last_update' => 'yes',
+                    '!exad_corona_enable_country' => 'yes'
                 ]
             ]
         );
@@ -580,7 +578,11 @@ class Covid_19_Stats extends Widget_Base {
 				'options' => [
 					'default'  => __( 'Default', 'exclusive-addons-elementor' ),
 					'inline' => __( 'Inline', 'exclusive-addons-elementor' ),
-				],
+                ],
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes',
+                    'exad_corona_enable_country' => 'yes'
+                ]
 			]
 		);
 
@@ -609,7 +611,6 @@ class Covid_19_Stats extends Widget_Base {
                     '{{WRAPPER}} .exad-corona-heading' => 'text-align: {{VALUE}};'
                 ],
                 'condition' => [
-                    'exad_corona_enable_last_update' => 'yes',
                     'exad_corona_heading_position' => 'default'
                 ]
             ]
@@ -640,6 +641,9 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Last Updated', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before',
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes',
+                ]
             ]
         );
 
@@ -648,6 +652,9 @@ class Covid_19_Stats extends Widget_Base {
             [
                 'name'     => 'exad_corona_heading_last_update_typography',
                 'selector' => '{{WRAPPER}} .exad-corona-heading .exad-corona-last-update',
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes',
+                ]
             ]
         );
 
@@ -660,6 +667,9 @@ class Covid_19_Stats extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .exad-corona-heading .exad-corona-last-update' => 'color: {{VALUE}};'
                 ],
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes',
+                ]
             ]
         );
 
@@ -679,6 +689,9 @@ class Covid_19_Stats extends Widget_Base {
                 'selectors'    => [
                     '{{WRAPPER}} .exad-corona-heading .exad-corona-last-update' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
+                'condition' => [
+                    'exad_corona_enable_last_update' => 'yes',
+                ]
             ]
         );
 
@@ -688,6 +701,9 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Country', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::HEADING,
                 'separator' => 'before',
+                'condition' => [
+                    'exad_corona_enable_country' => 'yes'
+                ]
             ]
         );
 
@@ -696,6 +712,9 @@ class Covid_19_Stats extends Widget_Base {
             [
                 'name'     => 'exad_corona_heading_country_typography',
                 'selector' => '{{WRAPPER}} .exad-corona-heading .selected-country',
+                'condition' => [
+                    'exad_corona_enable_country' => 'yes'
+                ]
             ]
         );
 
@@ -708,6 +727,9 @@ class Covid_19_Stats extends Widget_Base {
                 'selectors' => [
                     '{{WRAPPER}} .exad-corona-heading .selected-country' => 'color: {{VALUE}};'
                 ],
+                'condition' => [
+                    'exad_corona_enable_country' => 'yes'
+                ]
             ]
         );
 
@@ -727,6 +749,9 @@ class Covid_19_Stats extends Widget_Base {
                 'selectors'    => [
                     '{{WRAPPER}} .exad-corona-heading .selected-country' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
+                'condition' => [
+                    'exad_corona_enable_country' => 'yes'
+                ]
             ]
         );
 
@@ -737,6 +762,37 @@ class Covid_19_Stats extends Widget_Base {
             [
                 'label' => __( 'Container Block', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE
+            ]
+        );
+
+        $this->add_control(
+            'exad_corona_content_type',
+            [
+                'label'   => __( 'Type', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'vertical',
+                'options' => [
+                    'horizontal' => __( 'Horizontal', 'exclusive-addons-elementor' ),
+                    'vertical' => __( 'Vertical',   'exclusive-addons-elementor' )
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_corona_container_block_spacing',
+            [
+                'label'      => __('Block Spacing', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'top'    => '0',
+                    'right'  => '10',
+                    'bottom' => '20',
+                    'left'   => '10'
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-corona-wrapper .exad-corona-col' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
             ]
         );
 
@@ -1132,7 +1188,15 @@ class Covid_19_Stats extends Widget_Base {
 					'{{WRAPPER}} .search-form .exad-corona-search-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
-		);
+        );
+        
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name'     => 'exad_corona_search_filter_box_shadow',
+                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input'
+            ]
+        );
 
         $this->end_controls_section();
 
@@ -1559,8 +1623,7 @@ class Covid_19_Stats extends Widget_Base {
         $allData = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/' ) );
         $allDataObject = json_decode(json_encode($allData['body']), true);
         $allDataList = json_decode( $allDataObject, true );
-        ?>
-        <?php if( 'yes' === $last_update ) :
+
             $last_updated_time = $settings['exad_corona_date_format'];
             $last_updated_text = $settings['exad_corona_update_text'];
             $dateformat1 = intval( $details_params['updated']/1000 );
@@ -1568,13 +1631,16 @@ class Covid_19_Stats extends Widget_Base {
         ?>
         <div class="exad-corona">
             <div class="exad-corona-heading <?php echo esc_attr( $settings['exad_corona_heading_position'] ); ?>">
-                <div class="exad-corona-last-update">
-                    <?php echo esc_html( $last_updated_text );  ?>
-                    <span><?php echo esc_html( $dateformat2 ); ?></span>
-                </div>
-                <h1 class="selected-country"><?php echo esc_html( $settings['exad_section_corona_country_base'] ); ?></h1>
+                <?php if( 'yes' === $last_update ) { ?>
+                    <div class="exad-corona-last-update">
+                        <?php echo esc_html( $last_updated_text );  ?>
+                        <span><?php echo esc_html( $dateformat2 ); ?></span>
+                    </div>
+                <?php } ?>
+                <?php if( 'yes' === $settings['exad_corona_enable_country'] ) { ?>
+                    <h1 class="selected-country"><?php echo esc_html( $settings['exad_section_corona_country_base'] ); ?></h1>
+                <?php } ?>
             </div>
-        <?php endif; ?>
         
         <div class="exad-corona-wrapper <?php echo esc_attr( $settings['exad_corona_columns'] ); ?>">
             <?php if( 'yes' === $settings['exad_corona_enable_total_cases'] ) : ?>
