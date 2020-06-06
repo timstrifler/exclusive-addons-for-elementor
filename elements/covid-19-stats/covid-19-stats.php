@@ -562,10 +562,6 @@ class Covid_19_Stats extends Widget_Base {
             [
                 'label' => __( 'Heading', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
-                'condition' => [
-                    '!exad_corona_enable_last_update' => 'yes',
-                    '!exad_corona_enable_country' => 'yes'
-                ]
             ]
         );
 
@@ -1494,6 +1490,26 @@ class Covid_19_Stats extends Widget_Base {
 				'label' => __( 'Border', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-data-table .exad-corona-table-heading th',
 			]
+        );
+        
+        $this->add_control(
+			'exad_corona_data_table_heading_padding',
+			[
+				'label' => __( 'Table Heading Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'top' => '15',
+                    'right' => '15',
+                    'bottom' => '15',
+                    'left' => '15',
+                    'unit' => 'px',
+                    'isLinked' => true,
+                ],
+				'selectors' => [
+					'{{WRAPPER}} .exad-data-table .exad-corona-table-heading th' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
 		);
 
         $this->add_control(
@@ -1504,6 +1520,26 @@ class Covid_19_Stats extends Widget_Base {
                 'separator' => 'before'
             ]
         );
+
+        $this->add_control(
+			'exad_corona_data_table_row_padding',
+			[
+				'label' => __( 'Row Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%' ],
+                'default' => [
+                    'top' => '15',
+                    'right' => '15',
+                    'bottom' => '15',
+                    'left' => '15',
+                    'unit' => 'px',
+                    'isLinked' => true,
+                ],
+				'selectors' => [
+					'{{WRAPPER}} .exad-data-table .exad-data-table-row td' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 
         $this->start_controls_tabs( 'exad_corona_data_table_row_tabs' );
 
