@@ -1403,6 +1403,43 @@ class Covid_19_Stats extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+			'exad_corona_enable_data_table_box',
+			[
+				'label' => __( 'Table Box', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+                'default' => 'no',
+			]
+        );
+        
+        $this->add_control(
+            'exad_corona_enable_data_table_box_width',
+            [
+                'label'        => esc_html__( 'Box Width', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 100,
+                        'max'  => 1000,
+                        'step' => 1
+                    ]
+                ],
+                'default'      => [
+                    'size'     => 500,
+                    'unit'     => 'px'
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-corona-table.yes' => 'Height: {{SIZE}}{{UNIT}};',
+                ],              
+                'condition' => [
+                    'exad_corona_enable_data_table_box' => 'yes' 
+                ]
+            ]
+        );
+
         $this->add_responsive_control(
             'exad_corona_data_table_alignment',
             [
@@ -1442,7 +1479,7 @@ class Covid_19_Stats extends Widget_Base {
         $this->add_control(
 			'exad_corona_enable_data_table_heading_sticky',
 			[
-				'label' => __( 'Enable Table Heading Skicky', 'exclusive-addons-elementor' ),
+				'label' => __( 'Sticky Heading', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
 				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
 				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
@@ -1758,7 +1795,7 @@ class Covid_19_Stats extends Widget_Base {
                 </div>
             <?php } ?>
             <?php if( 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
-                <div class="exad-corona-table">
+                <div class="exad-corona-table <?php echo $settings['exad_corona_enable_data_table_box'] ?>">
                     <?php if( 'yes' === $settings['exad_corona_enable_continent_menu'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
                         <div id="exad-covid-filters" class="exed-covid-data-continent">
                             <button class="exad-covid-continent-btn active" id="all">All</button>

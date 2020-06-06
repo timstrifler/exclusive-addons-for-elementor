@@ -108,7 +108,12 @@
 .exad-corona-table-heading.yes th {
     position: sticky;
     position: -webkit-sticky;
-    top: 0;
+    top: -2px;
+}
+.admin-bar .exad-corona-table-heading.yes th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 30px;
 }
 
 .exad-covid-continent-btn{
@@ -124,5 +129,11 @@
 }
 .exad-corona-heading.inline .exad-corona-last-update{
     order: 2;
+}
+.exad-corona-table.yes{
+    overflow-y: scroll!important;
+}
+.admin-bar .exad-corona-table.yes .exad-corona-table-heading.yes th{
+    top: 0;
 }
 /* Corona Style End */
