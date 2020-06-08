@@ -30,7 +30,7 @@ class Call_To_Action extends Widget_Base {
     }
     
     public function get_keywords() {
-        return [ 'cta' ];
+        return [ 'exclusive', 'cta', 'button' ];
     }
 
 	protected function _register_controls() {

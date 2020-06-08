@@ -31,7 +31,7 @@ class News_Ticker extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'news', 'ticker', 'bar', 'horizontal news ticker' ];
+        return [ 'exclusive', 'bar', 'horizontal' ];
     }
     
     public function get_script_depends() {

@@ -33,7 +33,7 @@ class Pricing_Menu extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'pricing', 'list', 'product', 'image', 'menu', 'price' ];
+        return [ 'exclusive', 'list', 'product', 'image', 'menu', 'price' ];
     }
 
     protected function _register_controls() {

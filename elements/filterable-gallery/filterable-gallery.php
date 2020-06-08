@@ -37,7 +37,7 @@ class Filterable_Gallery extends Widget_Base
     }
 
     public function get_keywords() {
-        return [ 'gallery', 'filter', 'masonry', 'portfolio', 'filterable', 'grid' ];
+        return [ 'exclusive', 'gallery', 'filter', 'masonry', 'portfolio', 'filterable', 'grid' ];
     }
 
     protected function _register_controls() {

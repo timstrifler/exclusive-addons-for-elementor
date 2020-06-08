@@ -30,7 +30,7 @@ class Post_Grid extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'post grid', 'post' ];
+        return [ 'exclusive', 'blog' ];
     }
 
 	protected function _register_controls() {

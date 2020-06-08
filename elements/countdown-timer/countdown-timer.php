@@ -25,7 +25,7 @@ class Countdown_Timer extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'down', 'decrease', 'counter down', 'count down' ];
+        return [ 'exclusive', 'coming', 'soon' ];
     }
 
 	public function get_categories() {

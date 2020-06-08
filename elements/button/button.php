@@ -26,7 +26,7 @@ class Button extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'button', 'btn', 'link' ];
+        return [ 'exclusive', 'btn', 'link', 'cta' ];
     }
 
     public function get_categories() {

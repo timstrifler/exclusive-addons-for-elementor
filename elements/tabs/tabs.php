@@ -29,7 +29,7 @@ class Tabs extends Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'tabs', 'accordion', 'toggle' ];
+		return [ 'exclusive', 'toggle' ];
 	}
 
    	public function get_categories() {

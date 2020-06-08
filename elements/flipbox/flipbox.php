@@ -30,7 +30,7 @@ class Flipbox extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'flipbox' ];
+        return [ 'exclusive', 'info' ];
     }
 
 	protected function _register_controls() {

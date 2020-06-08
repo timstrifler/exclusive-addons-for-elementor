@@ -30,7 +30,7 @@ class Alert extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'alert', 'notice', 'message' ];
+        return [ 'exclusive', 'notice', 'message' ];
     }
 
     protected function _register_controls() {

@@ -31,7 +31,7 @@ class Image_Comparison extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'compare', 'comparison', 'multiple' ];
+        return [ 'exclusive', 'compare', 'multiple' ];
     }
 
     public function get_script_depends() {

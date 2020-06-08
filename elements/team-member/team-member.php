@@ -34,7 +34,7 @@ class Team_Member extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'employee', 'staff' ];
+        return [ 'exclusive', 'employee', 'staff' ];
     }
 
 	protected function _register_controls() {

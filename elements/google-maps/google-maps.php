@@ -20,6 +20,10 @@ class Google_Maps extends Widget_Base {
 		return 'exad-element-icon eicon-google-maps';
 	}
 
+	public function get_keywords() {
+        return [ 'exclusive', 'direction', 'roadmap', 'satellite', 'earth' ];
+    }
+
    	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
 	}

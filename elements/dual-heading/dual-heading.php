@@ -29,7 +29,7 @@ class Dual_Heading extends Widget_Base {
 	}
 
     public function get_keywords() {
-        return [ 'header', 'multi heading', 'title', 'double' ];
+        return [ 'exclusive', 'multi', 'double' ];
     }
 
     protected function _register_controls() {

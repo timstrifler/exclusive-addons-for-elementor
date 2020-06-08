@@ -31,7 +31,7 @@ class Progress_Bar extends Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'skill bars', 'circle', 'half circle' ];
+		return [ 'exclusive', 'skill', 'circle', 'bars' ];
 	}
 
 	private function hexToRGB($primaryColor){

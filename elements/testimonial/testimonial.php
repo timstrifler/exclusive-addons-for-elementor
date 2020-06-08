@@ -30,7 +30,7 @@ class Testimonial extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'review', 'feedback' ];
+        return [ 'exclusive', 'review', 'feedback' ];
     }
 		
 	protected function _register_controls() {

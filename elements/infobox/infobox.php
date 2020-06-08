@@ -33,7 +33,7 @@ class Infobox extends Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'information', 'service', 'infobox' ];
+		return [ 'exclusive', 'information', 'service' ];
 	}
 
 	protected function _register_controls() {

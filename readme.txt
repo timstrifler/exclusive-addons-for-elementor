@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy, covid-19, corona
 Requires at least: 4.6
 Tested up to: 5.4.1
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -134,6 +134,12 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.1.2 - 08/06/2020 =
+- Fixed some issues with Covid-19 Stats widget.
+- Added Scrolling Box effect in Covid-19 Stats.
+- Fixed some issues with the Post Grid widget.
+- Typing "exclusive" in Elementor panel will bring all the Exlusive Addons widgets on list now.
 
 = 2.1.1 - 31/05/2020 =
 - Allowed HTML tags on Post Grid Element.

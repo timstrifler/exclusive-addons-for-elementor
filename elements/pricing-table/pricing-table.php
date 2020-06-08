@@ -31,7 +31,7 @@ class Pricing_Table extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'price', 'package', 'product', 'plan' ];
+        return [ 'exclusive', 'price', 'package', 'product', 'plan' ];
     }
 
 	protected function _register_controls() {

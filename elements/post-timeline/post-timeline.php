@@ -26,6 +26,10 @@ class Post_Timeline extends Widget_Base {
 		return 'exad-element-icon eicon-time-line';
 	}
 
+	public function get_keywords() {
+		return [ 'exclusive', 'blog', 'story' ];
+	}
+
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];
 	}
