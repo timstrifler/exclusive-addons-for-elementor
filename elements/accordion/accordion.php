@@ -29,7 +29,7 @@ class Accordion extends Widget_Base {
 
 
 	public function get_keywords() {
-		return [ 'accordion', 'tabs', 'toggle' ];
+		return [ 'exclusive', 'toggle' ];
 	}
 
    public function get_categories() {

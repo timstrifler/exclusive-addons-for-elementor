@@ -29,7 +29,7 @@ class Dual_Button extends Widget_Base {
 	}
 
     public function get_keywords() {
-        return [ 'button', 'multiple', 'dual', 'anchor', 'link', 'btn', 'double' ];
+        return [ 'exclusive', 'multiple', 'dual', 'anchor', 'link', 'btn', 'double' ];
     }
 
 	protected function _register_controls() {

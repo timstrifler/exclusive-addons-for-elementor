@@ -30,7 +30,7 @@ class Modal_Popup extends Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'lightbox', 'popup', 'quickview' ];
+		return [ 'exclusive', 'lightbox', 'popup', 'quickview' ];
 	}
 
 	protected function _register_controls() {

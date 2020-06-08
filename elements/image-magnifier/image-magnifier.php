@@ -30,7 +30,7 @@ class Image_Magnifier extends Widget_Base {
     }
 
     public function get_keywords() {
-		return [ 'magnify', 'zoom', 'magnifier', 'image' ];
+		return [ 'exclusive', 'magnify', 'zoom' ];
 	}
     
 	protected function _register_controls() {

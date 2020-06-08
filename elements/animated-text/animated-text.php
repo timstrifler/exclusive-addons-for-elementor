@@ -26,7 +26,7 @@ class Animated_Text extends Widget_Base {
 	}
 	  
 	public function get_keywords() {
-        return [ 'fancy', 'heading', 'ticking', 'animate', 'headline', 'animation', 'title', 'text' ];
+        return [ 'exclusive', 'fancy', 'heading', 'animate', 'animation' ];
     } 
     
  	public function get_script_depends() {

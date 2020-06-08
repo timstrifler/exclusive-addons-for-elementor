@@ -75,5 +75,65 @@
         padding: 0 10px 20px 10px;
     }
 }
+.flag-row{
+    width: 80px;
+}
+.flag img{
+    width: 35px;
+    height: auto;
+}
 
+.search-form{
+    width: 350px;
+    height: 50px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.exad-corona-search-icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+}
+.search-form input{
+    height: 100%;
+    width: 100%;
+}
+
+.exad-data-table .exad-data-table-row td,
+.exad-data-table .exad-corona-table-heading th{
+    padding: 15px;
+}
+
+.exad-corona-table-heading.yes th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: -2px;
+}
+.admin-bar .exad-corona-table-heading.yes th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 30px;
+}
+
+.exad-covid-continent-btn{
+    transition: all .3s ease;
+    display: inline-block;
+}
+.exad-covid-continent-btn:focus{
+    outline: 0;
+}
+.exad-corona-heading.inline{
+    display: flex;
+    justify-content: space-between;
+}
+.exad-corona-heading.inline .exad-corona-last-update{
+    order: 2;
+}
+.exad-corona-table.yes{
+    overflow-y: scroll!important;
+}
+.admin-bar .exad-corona-table.yes .exad-corona-table-heading.yes th{
+    top: 0;
+}
 /* Corona Style End */

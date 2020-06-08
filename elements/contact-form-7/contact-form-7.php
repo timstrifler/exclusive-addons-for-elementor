@@ -52,7 +52,7 @@ class Contact_Form_7 extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'form', 'contact', 'cf7', 'contact form' ];
+        return [ 'exclusive', 'cf7' ];
     }
 
     /**

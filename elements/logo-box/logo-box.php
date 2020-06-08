@@ -24,6 +24,10 @@ class Logo_Box extends Widget_Base {
 
 	public function get_icon() {
 		return 'exad-element-icon eicon-logo';
+    }
+    
+    public function get_keywords() {
+		return [ 'exclusive', 'brand' ];
 	}
 
 	public function get_categories() {

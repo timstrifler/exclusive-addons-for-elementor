@@ -26,6 +26,10 @@ class Tooltip extends Widget_Base {
         return 'exad-element-icon eicon-tools';
     }
 
+    public function get_keywords() {
+        return [ 'exclusive', 'hover', 'title' ];
+    }
+
     public function get_categories() {
         return [ 'exclusive-addons-elementor' ];
     }

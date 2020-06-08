@@ -33,7 +33,7 @@ class Card extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'blurb', 'infobox', 'content', 'block', 'box' ];
+        return [ 'exclusive', 'info', 'content', 'block', 'box' ];
     }
 
 	protected function _register_controls() {

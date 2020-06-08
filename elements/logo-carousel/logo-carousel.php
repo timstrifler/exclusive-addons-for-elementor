@@ -35,7 +35,7 @@ class Logo_Carousel extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'image', 'slider', 'thumbnail', 'brand', 'logo' ];
+        return [ 'exclusive', 'image', 'slider', 'thumbnail', 'brand' ];
     }
 	
 	protected function _register_controls() {

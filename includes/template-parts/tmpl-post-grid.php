@@ -93,7 +93,7 @@ echo '<article class="exad-post-grid-three exad-col">';
             do_action('exad_post_grid_excerpt_wrapper_before');
             if('yes' === $settings['exad_post_grid_show_excerpt']):
                 echo '<div class="exad-post-grid-description">';
-                    echo wp_kses_post( get_the_excerpt() ), esc_html( $settings['exad_grid_excerpt_length'] );
+                    echo wp_trim_words( get_the_excerpt(), $settings['exad_grid_excerpt_length'], '...' );
                 echo '</div>';
             endif;
             do_action('exad_post_grid_excerpt_wrapper_after');

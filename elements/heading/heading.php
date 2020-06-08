@@ -28,7 +28,7 @@ class Heading extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'header', 'title' ];
+        return [ 'exclusive', 'title' ];
     }
     
 	protected function _register_controls() {
