@@ -83,7 +83,7 @@
     height: auto;
 }
 
-.search-form{
+.exad-corona-search-form{
     width: 350px;
     height: 50px;
     margin-bottom: 20px;
@@ -95,7 +95,7 @@
     transform: translateY(-50%);
     left: 20px;
 }
-.search-form input{
+.exad-corona-search-form input{
     height: 100%;
     width: 100%;
 }

@@ -1581,7 +1581,7 @@ ul.exad-call-to-action-buttons {
     height: auto;
 }
 
-.search-form{
+.exad-corona-search-form{
     width: 350px;
     height: 50px;
     margin-bottom: 20px;
@@ -1593,7 +1593,7 @@ ul.exad-call-to-action-buttons {
     transform: translateY(-50%);
     left: 20px;
 }
-.search-form input{
+.exad-corona-search-form input{
     height: 100%;
     width: 100%;
 }

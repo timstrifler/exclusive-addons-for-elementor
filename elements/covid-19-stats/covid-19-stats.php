@@ -1004,7 +1004,7 @@ class Covid_19_Stats extends Widget_Base {
 					'size' => 350,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .search-form' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1026,7 +1026,7 @@ class Covid_19_Stats extends Widget_Base {
 					'size' => 50,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .search-form' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1037,7 +1037,7 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Background', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .search-form .exad-corona-search-input' => 'background-color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input' => 'background-color: {{VALUE}};'
                 ]
             ]
         );
@@ -1046,7 +1046,7 @@ class Covid_19_Stats extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_corona_search_filter_typography',
-                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input'
+                'selector' => '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input'
             ]
         );
 
@@ -1056,7 +1056,7 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .search-form .exad-corona-search-input' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input' => 'color: {{VALUE}};'
                 ]
             ]
         );
@@ -1067,8 +1067,8 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Placeholder Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .search-form .exad-corona-search-input::placeholder' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .search-form .exad-corona-search-icon' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input::placeholder' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-icon' => 'color: {{VALUE}};'
                 ]
             ]
         );
@@ -1078,7 +1078,7 @@ class Covid_19_Stats extends Widget_Base {
             [
                 'name' => 'exad_corona_search_filter_border',
                 'label' => __( 'Border', 'pexclusive-addons-elementor' ),
-                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input',
+                'selector' => '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input',
             ]
         );
 
@@ -1097,7 +1097,7 @@ class Covid_19_Stats extends Widget_Base {
                     'isLinked' => false,
                 ],
 				'selectors' => [
-					'{{WRAPPER}} .search-form .exad-corona-search-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
@@ -1117,7 +1117,7 @@ class Covid_19_Stats extends Widget_Base {
                     'isLinked' => false,
                 ],
 				'selectors' => [
-					'{{WRAPPER}} .search-form .exad-corona-search-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
@@ -1137,7 +1137,7 @@ class Covid_19_Stats extends Widget_Base {
                     'isLinked' => false,
                 ],
 				'selectors' => [
-					'{{WRAPPER}} .search-form' => 'Margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form' => 'Margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
@@ -1159,7 +1159,7 @@ class Covid_19_Stats extends Widget_Base {
 					'size' => 12,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .search-form .exad-corona-search-icon' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form .exad-corona-search-icon' => 'left: {{SIZE}}{{UNIT}};',
 				],
 			]
         );
@@ -1181,7 +1181,7 @@ class Covid_19_Stats extends Widget_Base {
 					'size' => 20,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .search-form .exad-corona-search-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form .exad-corona-search-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
         );
@@ -1190,7 +1190,7 @@ class Covid_19_Stats extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'exad_corona_search_filter_box_shadow',
-                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input'
+                'selector' => '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input'
             ]
         );
 
@@ -1789,7 +1789,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php endif; ?>
             </div>
             <?php if( 'yes' === $settings['exad_corona_enable_search_filter'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
-                <div class="search-form">
+                <div class="exad-corona-search-form">
                     <span class="exad-corona-search-icon"><i class="fa fa-search"></i></span>
                     <input class="exad-corona-search-input" type="text" name="search" id="search_data" placeholder="<?php echo esc_attr($settings['exad_corona_enable_search_filter_text']); ?>">
                 </div>
