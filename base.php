@@ -212,9 +212,139 @@ final class Base {
                 'class'  => '\ExclusiveAddons\Elements\Button',
                 'tags'   => 'new'
             ],
+            'call-to-action'  => [
+                'title'  => __( 'Call To Action', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Call_To_Action',
+                'tags'   => 'new'
+            ],
+            'card'  => [
+                'title'  => __( 'Card', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Card',
+                'tags'   => 'new'
+            ],
+            'contact-form-7'  => [
+                'title'  => __( 'Contact Form 7', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Contact_Form_7',
+                'tags'   => 'new'
+            ],
+            'countdown-timer'  => [
+                'title'  => __( 'Countdown Timer', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Countdown_Timer',
+                'tags'   => 'new'
+            ],
+            'covid-19-stats'  => [
+                'title'  => __( 'Covid-19 Stats', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Covid_19_Stats',
+                'tags'   => 'new'
+            ],
+            'dual-button'  => [
+                'title'  => __( 'Dual Button', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Dual_Button',
+                'tags'   => 'new'
+            ],
+            'dual-heading'  => [
+                'title'  => __( 'Dual Heading', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Dual_Heading',
+                'tags'   => 'new'
+            ],
+            'filterable-gallery'  => [
+                'title'  => __( 'Filterable Gallery', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Filterable_Gallery',
+                'tags'   => 'new'
+            ],
+            'flipbox'  => [
+                'title'  => __( 'Flip Box', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Flipbox',
+                'tags'   => 'new'
+            ],
+            'google-maps'  => [
+                'title'  => __( 'Google Maps', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Google_Maps',
+                'tags'   => 'new'
+            ],
+            'heading'  => [
+                'title'  => __( 'Heading', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Heading',
+                'tags'   => 'new'
+            ],
+            'image-comparison'  => [
+                'title'  => __( 'Image Comparison', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Image_Comparison',
+                'tags'   => 'new'
+            ],
+            'image-magnifier'  => [
+                'title'  => __( 'Image Magnifier', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Image_Magnifier',
+                'tags'   => 'new'
+            ],
+            'infobox'  => [
+                'title'  => __( 'Info Box', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Infobox',
+                'tags'   => 'new'
+            ],
+            'logo-box'  => [
+                'title'  => __( 'Logo Box', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Logo_Box',
+                'tags'   => 'new'
+            ],
+            'logo-carousel'  => [
+                'title'  => __( 'Logo Carousel', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Logo_Carousel',
+                'tags'   => 'new'
+            ],
+            'modal-popup'  => [
+                'title'  => __( 'Modal Popup', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Modal_Popup',
+                'tags'   => 'new'
+            ],
+            'news-ticker'  => [
+                'title'  => __( 'News Ticker', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\News_Ticker',
+                'tags'   => 'new'
+            ],
+            'post-grid'  => [
+                'title'  => __( 'Post Grid', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Post_Grid',
+                'tags'   => 'new'
+            ],
+            'post-timeline'  => [
+                'title'  => __( 'Post Timeline', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Post_Timeline',
+                'tags'   => 'new'
+            ],
+            'pricing-menu'  => [
+                'title'  => __( 'Pricing Menu', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Pricing_Menu',
+                'tags'   => 'new'
+            ],
+            'pricing-table'  => [
+                'title'  => __( 'Pricing Table', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Pricing_Table',
+                'tags'   => 'new'
+            ],
             'progress-bar'  => [
                 'title'  => __( 'Progress Bar', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Progress_Bar',
+                'tags'   => 'new'
+            ],
+            'tabs'  => [
+                'title'  => __( 'Tabs', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Tabs',
+                'tags'   => 'new'
+            ],
+            'team-member'  => [
+                'title'  => __( 'Team Member', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Team_Member',
+                'tags'   => 'new'
+            ],
+            'testimonial'  => [
+                'title'  => __( 'Testimonial', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Testimonial',
+                'tags'   => 'new'
+            ],
+            'tooltip'  => [
+                'title'  => __( 'Tooltip', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Tooltip',
                 'tags'   => 'new'
             ]
                 
