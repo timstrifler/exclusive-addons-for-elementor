@@ -1,3 +1,7 @@
+<?php
+use \ExclusiveAddons\Elementor\Base;
+?>
+
 <div id="elements" class="exad-dashboard-tab">
     <div class="exad-row">
         <div class="exad-full-width">
@@ -8,15 +12,15 @@
             </div>
             <div class="exad-dashboard-checkbox-container">
                 
-                <?php foreach( \ExclusiveAddons\Elementor\Base::$registered_elements as $widget ) : ?>
-                    <?php if ( isset( $widget ) ) : ?>        
-                        <div class="exad-dashboard-checkbox">
+                <?php foreach( Base::$default_widgets as $key => $widget ) : ?>
+                    <?php if ( isset( $key ) ) : ?>        
+                        <div class="exad-dashboard-checkbox <?php echo esc_attr( $widget['tags'] ); ?>">
                             <div class="exad-dashboard-checkbox-text">
-                                <p class="exad-el-title"><?php echo esc_html( ucwords( str_replace( "-", " ", $widget ) ) ); ?></p>
+                                <p class="exad-el-title"><?php echo esc_html( $widget['title'] ); ?></p>
                             </div>
                             <div class="exad-dashboard-checkbox-label">
-                                <input type="checkbox" id="<?php echo esc_attr( $widget ); ?>" name="<?php echo esc_attr( $widget ); ?>" <?php checked( 1, $this->exad_get_settings[$widget], true ); ?> >
-                                <label for="<?php echo esc_attr( $widget ); ?>"></label>
+                                <input type="checkbox" id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" <?php checked( 1, $this->exad_get_settings[$key], true ); ?> >
+                                <label for="<?php echo esc_attr( $key ); ?>"></label>
                             </div>
                         </div>
                     <?php endif; ?>

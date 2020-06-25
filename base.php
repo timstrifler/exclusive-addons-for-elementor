@@ -48,7 +48,7 @@ final class Base {
      * 
      * @return array
      */
-    public $default_widgets = array(); 
+    public static $default_widgets = []; 
 
     /**
      * 
@@ -97,7 +97,7 @@ final class Base {
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
         
-        self::$registered_elements = apply_filters( 'exad/registered_elements', $this->default_widgets );
+        self::$registered_elements = apply_filters( 'exad/registered_elements', array_keys( self::$default_widgets ) );
         sort( self::$registered_elements );
     }
 
@@ -191,14 +191,36 @@ final class Base {
      */
     public function initiate_elements() {
 
-        $dir = new \RecursiveDirectoryIterator( EXAD_ELEMENTS );
-        $child_dir = new \RecursiveIteratorIterator($dir);
-        $files = new \RegexIterator( $child_dir, '/^.+\.php$/i' );
-        
-        foreach( $files as $file ) {
-            $filename = basename( $file, '.php' );
-            $this->default_widgets[] = $filename;
-        }
+        $widget_lists = [
+            'accordion'  => [
+                'title'  => __( 'Accordion', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Accordion',
+                'tags'   => 'new'
+            ],
+            'alert'  => [
+                'title'  => __( 'Alert', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Alert',
+                'tags'   => 'new'
+            ],
+            'animated-text'  => [
+                'title'  => __( 'Animated Text', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Animated_Text',
+                'tags'   => 'new'
+            ],
+            'button'  => [
+                'title'  => __( 'Button', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Button',
+                'tags'   => 'new'
+            ],
+            'progress-bar'  => [
+                'title'  => __( 'Progress Bar', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Progress_Bar',
+                'tags'   => 'new'
+            ]
+                
+        ];
+
+        self::$default_widgets = apply_filters( 'exad_add_pro_widgets', $widget_lists );
 
     }
 
@@ -473,19 +495,23 @@ final class Base {
     public function initiate_widgets() {
         
         $activated_widgets = $this->activated_widgets();
-        foreach( self::$registered_elements as $widget ) {
-            if ( $activated_widgets[$widget] == true ) {
+
+        foreach( self::$default_widgets as $key => $widget ) {
+            if ( $activated_widgets[$key] == true ) {
                 
-                if ( $widget == 'contact-form-7' ) {
+                if ( $key == 'contact-form-7' ) {
                     if ( ! function_exists( 'wpcf7' ) ) {
                         continue;
                     }	
                 } 
 
-                $widget_name = str_replace( '-', '_', $widget );
-                $widget_class = '\ExclusiveAddons\Elements\\' . ucwords( $widget_name, '_' );
-                if ( class_exists( $widget_class ) ) {
-                    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $widget_class );
+                $widget_file = EXAD_ELEMENTS . $key . '/'. $key .'.php';
+                if ( file_exists( $widget_file ) ) {
+                    require_once $widget_file;
+                }
+
+                if ( class_exists( $widget['class'] ) ) {
+                    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $widget['class'] );
                 }
             }
         }
