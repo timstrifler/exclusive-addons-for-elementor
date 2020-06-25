@@ -48,7 +48,9 @@ final class Base {
      * 
      * @return array
      */
-    public static $default_widgets = []; 
+    public static $default_widgets; 
+
+    public $is_activated_widget;
 
     /**
      * 
@@ -96,8 +98,10 @@ final class Base {
         $this->includes();
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
+
+        $this->is_activated_widget = get_option( 'exad_save_settings' );
         
-        self::$registered_elements = apply_filters( 'exad/registered_elements', array_keys( self::$default_widgets ) );
+        self::$registered_elements = array_keys( self::$default_widgets );
         sort( self::$registered_elements );
     }
 
@@ -409,9 +413,7 @@ final class Base {
     */
     public function enqueue_scripts() {
 
-        $is_activated_widget = $this->activated_widgets();
-
-        if ( $is_activated_widget['progress-bar'] ) {
+        if ( $this->is_activated_widget['progress-bar'] ) {
             // Loading Bar JS
             wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'vendor/js/exad-progress-bar-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
             
@@ -419,7 +421,7 @@ final class Base {
             wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         // Google Map js
-        if ( $is_activated_widget['google-maps'] ) {
+        if ( $this->is_activated_widget['google-maps'] ) {
             if ( '' != get_option('exad_google_map_api_option') ) {
                 wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), EXAD_PLUGIN_VERSION, false );
             }
@@ -427,27 +429,27 @@ final class Base {
             wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'vendor/js/gmap3.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );            
         }	
         
-        if ( $is_activated_widget['countdown-timer'] ) {
+        if ( $this->is_activated_widget['countdown-timer'] ) {
             // jQuery Countdown Js
             wp_register_script( 'exad-countdown', EXAD_ASSETS_URL . 'vendor/js/jquery.countdown.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( $is_activated_widget['image-comparison'] ) {
+        if ( $this->is_activated_widget['image-comparison'] ) {
             // jQuery image-comparison twentytwenty Js
             wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'vendor/js/exad-comparison-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( $is_activated_widget['filterable-gallery'] ) {
+        if ( $this->is_activated_widget['filterable-gallery'] ) {
             // Filterable Gallery
             wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'vendor/js/isotop.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( $is_activated_widget['news-ticker'] ) {
+        if ( $this->is_activated_widget['news-ticker'] ) {
             // News ticker
             wp_register_script( 'exad-news-ticker', EXAD_ASSETS_URL . 'vendor/js/exad-news-ticker.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         
-        if ( $is_activated_widget['animated-text'] ) {
+        if ( $this->is_activated_widget['animated-text'] ) {
             // Animated Text
             wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'vendor/js/typed.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
@@ -592,27 +594,6 @@ final class Base {
         return $classes;
     }
 
-
-    /**
-     * This function returns true for all activated modules
-     *
-    * @since  1.0
-    */
-    public function activated_widgets() {
-        
-        $exad_default_settings  = array_fill_keys( self::$registered_elements, true );
-        $exad_get_settings      = get_option( 'exad_save_settings', $exad_default_settings );
-        $exad_new_settings      = array_diff_key( $exad_default_settings, $exad_get_settings );
-
-        if( ! empty( $exad_new_settings ) ) {
-            $exad_updated_settings = array_merge( $exad_get_settings, $exad_new_settings );
-            update_option( 'exad_save_settings', $exad_updated_settings );
-        }
-
-        return $exad_get_settings = get_option( 'exad_save_settings', $exad_default_settings );
-
-    }
-
     /**
      * Init Widgets
      *
@@ -623,11 +604,9 @@ final class Base {
      * @access public
      */
     public function initiate_widgets() {
-        
-        $activated_widgets = $this->activated_widgets();
 
         foreach( self::$default_widgets as $key => $widget ) {
-            if ( $activated_widgets[$key] == true ) {
+            if ( $this->is_activated_widget[$key] == true ) {
                 
                 if ( $key == 'contact-form-7' ) {
                     if ( ! function_exists( 'wpcf7' ) ) {
