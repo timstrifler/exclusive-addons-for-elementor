@@ -48,9 +48,7 @@ final class Base {
      * 
      * @return array
      */
-    public static $default_widgets; 
-
-    public $is_activated_widget;
+    public static $default_widgets = []; 
 
     /**
      * 
@@ -62,6 +60,17 @@ final class Base {
      * 
      */
     public static $registered_elements;
+
+    /**
+     * 
+     * Static property to that consits all active widgets
+     * 
+     * @access public
+     * @static
+     * 
+     * 
+     */
+    public $is_activated_widget;
 
     /**
      * Instance
@@ -94,12 +103,11 @@ final class Base {
     public function __construct() {
 
         do_action( 'exad/before_init' );
+        $this->activated_widgets();
         $this->initiate_elements();
         $this->includes();
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
-
-        $this->is_activated_widget = get_option( 'exad_save_settings' );
         
         self::$registered_elements = array_keys( self::$default_widgets );
         sort( self::$registered_elements );
@@ -592,6 +600,21 @@ final class Base {
         $classes[] = 'exclusive-addons-elementor';
 
         return $classes;
+    }
+
+
+    /**
+     * This function returns true for all activated modules
+     *
+    * @since  1.0
+    */
+    public function activated_widgets() {
+        
+        $exad_default_settings  = array_fill_keys( self::$default_widgets, true );
+        $exad_get_settings = get_option( 'exad_save_settings', $exad_default_settings );
+
+        $this->is_activated_widget = $exad_get_settings;
+
     }
 
     /**
