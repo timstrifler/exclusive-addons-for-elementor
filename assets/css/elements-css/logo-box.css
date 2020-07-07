@@ -7,14 +7,32 @@
   cursor: pointer;
   text-align: center;
 }
+.exad-logo.exad-logo-left .exad-logo-item {
+  text-align: left;
+}
+.exad-logo.exad-logo-left .exad-logo-item.exad-logo-item-max-height-yes {
+  justify-content: flex-start;
+}
+.exad-logo.exad-logo-center .exad-logo-item {
+  text-align: center;
+}
+.exad-logo.exad-logo-center .exad-logo-item.exad-logo-item-max-height-yes {
+  justify-content: center;
+}
+.exad-logo.exad-logo-right .exad-logo-item {
+  text-align: right;
+}
+.exad-logo.exad-logo-right .exad-logo-item.exad-logo-item-max-height-yes {
+  justify-content: flex-end;
+}
 
 .exad-logo .exad-logo-item img {
   vertical-align: middle;
-}  
+}
 
-
-.exad-logo .exad-logo-item:hover {
-  
+.exad-logo-item.exad-logo-item-max-height-yes{
+  display: flex;
+  align-items: center;
 }
 
 /* Logo Box style end */

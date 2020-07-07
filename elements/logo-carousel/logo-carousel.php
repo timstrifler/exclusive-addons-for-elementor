@@ -180,6 +180,43 @@ class Logo_Carousel extends Widget_Base {
 		);
 
 		$this->add_control(
+            'exad_logo_carousel_max_height_enable',
+            [
+                'label'        => __( 'Minimum Height', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+                'return_value' => 'yes',
+                'default'      => 'no'
+            ]
+        );
+
+        $this->add_control(
+			'exad_logo_carousel_max_height',
+			[
+				'label' => __( 'Height', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+					],
+                ],
+                'default' => [
+					'unit' => 'px',
+					'size' => 150,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-logo-carousel-element.exad-logo-carousel-max-height-yes .exad-logo-carousel-item' => 'min-height: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'exad_logo_carousel_max_height_enable' => 'yes'
+                ]
+			]
+		);
+
+		$this->add_control(
 			'exad_logo_carousel_alignment',
 			[
 				'label'       => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
@@ -428,7 +465,161 @@ class Logo_Carousel extends Widget_Base {
                     '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next, {{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev' => 'height: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}};'
                 ]
             ]
+		);
+		
+		$this->add_control(
+			'exad_logo_carousel_prev_arrow_position',
+			[
+				'label' => __( 'Previous Arrow Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::POPOVER_TOGGLE,
+				'label_off' => __( 'Default', 'exclusive-addons-elementor' ),
+				'label_on' => __( 'Custom', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
         );
+        
+        $this->start_popover();
+
+            $this->add_control(
+                'exad_logo_carousel_prev_arrow_position_x_offset',
+                [
+                    'label' => __( 'X Offset', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => -500,
+                            'max' => 500,
+                        ],
+                        '%' => [
+                            'min' => -100,
+                            'max' => 100,
+                        ],
+                    ],
+                    'default' => [
+                        'unit' => 'px',
+                        'size' => 30,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev' => 'left: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'exad_logo_carousel_prev_arrow_position_y_offset',
+                [
+                    'label' => __( 'Y Offset', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => -500,
+                            'max' => 500,
+                        ],
+                        '%' => [
+                            'min' => -100,
+                            'max' => 100,
+                        ],
+                    ],
+                    'default' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev' => 'top: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+        $this->end_popover();
+
+        $this->add_control(
+			'exad_logo_carousel_next_arrow_position',
+			[
+				'label' => __( 'Next Arrow Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::POPOVER_TOGGLE,
+				'label_off' => __( 'Default', 'exclusive-addons-elementor' ),
+				'label_on' => __( 'Custom', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+        );
+        
+        $this->start_popover();
+
+            $this->add_control(
+                'exad_logo_carousel_next_arrow_position_x_offset',
+                [
+                    'label' => __( 'X Offset', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => -500,
+                            'max' => 500,
+                        ],
+                        '%' => [
+                            'min' => -100,
+                            'max' => 100,
+                        ],
+                    ],
+                    'default' => [
+                        'unit' => 'px',
+                        'size' => 30,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next' => 'right: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'exad_logo_carousel_next_arrow_position_y_offset',
+                [
+                    'label' => __( 'Y Offset', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => -500,
+                            'max' => 500,
+                        ],
+                        '%' => [
+                            'min' => -100,
+                            'max' => 100,
+                        ],
+                    ],
+                    'default' => [
+                        'unit' => '%',
+                        'size' => 50,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next' => 'top: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+		$this->end_popover();
+		
+		$this->add_control(
+			'exad_logo_carousel_arrows_border_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ '%'],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next,{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				],
+				'default'    => [
+					'top'    => 50,
+					'right'  => 50,
+					'bottom' => 50,
+					'left'   => 50
+				] 
+			]
+		);
 
 		$this->start_controls_tabs( 'exad_logo_carousel_arrows_style_tabs' );
 
@@ -467,21 +658,11 @@ class Logo_Carousel extends Widget_Base {
 		            ]
 		        );
 
-				$this->add_control(
-					'exad_logo_carousel_arrows_border_radius',
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
 					[
-						'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-						'type'       => Controls_Manager::DIMENSIONS,
-						'size_units' => [ '%'],
-						'selectors'  => [
-							'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next,{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-						],
-                        'default'    => [
-							'top'    => 50,
-							'right'  => 50,
-							'bottom' => 50,
-							'left'   => 50
-                        ] 
+						'name'     => 'exad_logo_carousel_arrows_shadow',
+						'selector' => '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev, {{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next'
 					]
 				);
 
@@ -523,16 +704,11 @@ class Logo_Carousel extends Widget_Base {
 		            ]
 		        );
 
-
-				$this->add_control(
-					'exad_logo_carousel_arrows_hover_border_radius',
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
 					[
-						'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-						'type'       => Controls_Manager::DIMENSIONS,
-						'size_units' => [ 'px'],
-						'selectors'  => [
-							'{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next:hover, {{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev:hover'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-						]
+						'name'     => 'exad_logo_carousel_arrows_hover_shadow',
+						'selector' => '{{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-prev:hover, {{WRAPPER}} .exad-logo-carousel-element .exad-logo-carousel-next:hover'
 					]
 				);
 
@@ -743,7 +919,7 @@ class Logo_Carousel extends Widget_Base {
 		$this->add_render_attribute( 
 			'exad_logo_carousel', 
 			[ 
-				'class'               => 'exad-logo-carousel-element',
+				'class'               => ['exad-logo-carousel-element', 'exad-logo-carousel-max-height-'.esc_attr($settings['exad_logo_carousel_max_height_enable'])],
 				'data-carousel-nav'   => esc_attr( $settings['exad_logo_carousel_nav'] ),
 				'data-slidestoshow'   => esc_attr( $settings['exad_logo_slide_to_show'] ),
 				'data-slidestoscroll' => esc_attr( $settings['exad_logo_slide_to_scroll'] ),

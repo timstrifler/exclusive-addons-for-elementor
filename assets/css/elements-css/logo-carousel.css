@@ -85,4 +85,8 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.exad-logo-carousel-element.exad-logo-carousel-max-height-yes .exad-logo-carousel-item{
+  display: flex;
+  align-items: center;
+}
 /* Logo Carousel Style End */

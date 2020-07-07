@@ -96,6 +96,43 @@ class Logo_Box extends Widget_Base {
                 ]
             ]
         );
+
+        $this->add_control(
+            'exad_logo_box_max_height_enable',
+            [
+                'label'        => __( 'Minimum Height', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+                'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+                'return_value' => 'yes',
+                'default'      => 'no'
+            ]
+        );
+
+        $this->add_control(
+			'exad_logo_box_max_height',
+			[
+				'label' => __( 'Height', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 500,
+					],
+                ],
+                'default' => [
+					'unit' => 'px',
+					'size' => 150,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-logo-item.exad-logo-item-max-height-yes' => 'min-height: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'exad_logo_box_max_height_enable' => 'yes'
+                ]
+			]
+		);
         
         $this->end_controls_section();
 
@@ -110,6 +147,30 @@ class Logo_Box extends Widget_Base {
                 'tab'   => Controls_Manager::TAB_STYLE
     		]
         );
+
+        $this->add_control(
+			'exad_section_logo_alignment',
+			[
+				'label' => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'exad-logo-left' => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'exad-logo-center' => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'exad-logo-right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
+				],
+				'default' => 'exad-logo-center',
+				'toggle' => true,
+			]
+		);
 
         $this->start_controls_tabs( 'exad_logo_tabs' );
 
@@ -303,8 +364,8 @@ class Logo_Box extends Widget_Base {
 			$logo_image_url = $logo_image_url;
         }
         
-        echo '<div class="exad-logo one">';
-            echo '<div class="exad-logo-item">';
+        echo '<div class="exad-logo one '.$settings['exad_section_logo_alignment'].'">';
+            echo '<div class="exad-logo-item exad-logo-item-max-height-'.$settings['exad_logo_box_max_height_enable'].'">';
                 if( ! empty( $settings['exad_logo_image'] ) ) :
 
                     if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) :
@@ -348,8 +409,8 @@ class Logo_Box extends Widget_Base {
             var target   = settings.exad_logo_box_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_logo_box_link.nofollow ? ' rel="nofollow"' : '';
         #>
-        <div class="exad-logo one">
-            <div class="exad-logo-item">
+        <div class="exad-logo one {{ settings.exad_section_logo_alignment }}">
+            <div class="exad-logo-item exad-logo-item-max-height-{{ settings.exad_logo_box_max_height_enable }}">
                 <# if ( image_url ) { #>
                     <# if ( settings.exad_logo_box_link && 'yes' === settings.exad_logo_box_enable_link ) { #>
                         <a href="{{{ settings.exad_logo_box_link.url }}}"{{{ target }}}{{{ nofollow }}}>
