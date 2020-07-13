@@ -4,6 +4,7 @@ $(window).on('elementor/frontend/init', function () {
     }
     
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-accordion.default', exclusiveAccordion );
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-post-grid.default', exclusivePostGrid );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-alert.default', exclusiveAlert );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-animated-text.default', exclusiveAnimatedText );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-button.default', exclusiveButton );

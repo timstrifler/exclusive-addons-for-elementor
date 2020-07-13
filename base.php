@@ -461,6 +461,10 @@ final class Base {
             // Animated Text
             wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'vendor/js/typed.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
+        if ( $this->is_activated_widget['post-grid'] ) {
+            // Post grid
+            wp_register_script( 'exad-post-grid', EXAD_ASSETS_URL . 'vendor/js/jquery.matchHeight.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
+        }	
         
     }
 

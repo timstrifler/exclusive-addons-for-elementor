@@ -247,5 +247,27 @@ class Helper {
         endwhile;
         wp_reset_postdata();
     }
+
+    public static function exad_pagination_nav() {
+        global $wp_query;
+        $big = 999999999;
+        $total_pages = $wp_query->max_num_pages;
+        // Return pagination html.
+		if ( $total_pages > 1 ) {
+
+			$current_page = $paged;
+			if ( ! $current_page ) {
+				$current_page = 1;
+			}
+
+			echo $links = paginate_links(
+				array(
+					'current' => $current_page,
+					'total'   => $total_pages,
+					'type'    => 'array',
+				)
+			);
+		}
+    }
     
 }

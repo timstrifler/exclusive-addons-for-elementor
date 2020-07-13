@@ -29,6 +29,10 @@ class Post_Grid extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
+	public function get_script_depends() {
+		return [ 'exad-post-grid' ];
+	}
+
 	public function get_keywords() {
         return [ 'exclusive', 'blog' ];
     }
@@ -466,6 +470,18 @@ class Post_Grid extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_post_grid_equal_height',
+			[
+				'label'        => esc_html__( 'Equal Height', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'Yes', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no'
+			]
+		);
+
+		$this->add_control(
 			'exad_grid_post_bg_color',
 			[
 				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
@@ -549,7 +565,7 @@ class Post_Grid extends Widget_Base {
 					'exad_post_grid_show_image' => 'yes'
 				]
             ]
-        );
+		);
 
 		$this->add_control(
 			'exad_section_post_grid_image_padding',
@@ -597,7 +613,28 @@ class Post_Grid extends Widget_Base {
                     ]
                 ]
             ]
-        );
+		);
+		
+		$this->add_control(
+			'exad_post_grid_image-height',
+			[
+				'label'       => __( 'Image Height', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-post-grid-container.image-position-top .exad-post-grid-thumbnail a' => 'min-height: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_post_grid_image_align' => 'top'
+				]
+			]
+		);
 
 		$this->end_controls_section();
 
@@ -1622,7 +1659,8 @@ class Post_Grid extends Widget_Base {
 		);
 
 		echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_wrapper' ).'>';
-        	Helper::exad_get_posts( $settings );            
-    	echo '</div>';
+			Helper::exad_get_posts( $settings );       
+		echo '</div>';
+		Helper:: exad_pagination_nav();
 	}
 }

@@ -7,7 +7,7 @@ if ( 'yes' !== $settings['exad_post_grid_category_default_position'] ) :
 endif;
 
 echo '<article class="exad-post-grid-three exad-col">';
-    echo '<div class="exad-post-grid-container image-position-'.esc_attr( $settings['exad_post_grid_image_align'] ).'">';
+    echo '<div class="exad-post-grid-container image-position-'.esc_attr( $settings['exad_post_grid_image_align'] ).' exad-post-grid-equal-height-'.esc_attr($settings['exad_post_grid_equal_height']).'">';
         do_action('exad_post_grid_each_item_wrapper_before');
         if( 'yes' === $settings['exad_post_grid_show_image'] && has_post_thumbnail() ) :
             echo '<figure class="exad-post-grid-thumbnail">';

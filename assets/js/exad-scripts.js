@@ -562,6 +562,22 @@ var exclusiveNewsTicker = function( $scope, $ ) {
 
 // news ticker script ends
 
+// Post grid script starts
+
+var exclusivePostGrid = function( $scope, $ ) {
+    var exadPostgridWrapped = $scope.find( '.exad-row-wrapper' );
+
+    var exadPostArticle = exadPostgridWrapped.find('.exad-post-grid-three .exad-post-grid-container.exad-post-grid-equal-height-yes');
+
+    // Match Height
+    exadPostArticle.matchHeight({
+        byRow: 0
+    });
+          
+}
+
+// post grid script ends
+
 // progress bar script starts
 
 function animatedProgressbar( id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth ){
@@ -679,6 +695,7 @@ $(window).on('elementor/frontend/init', function () {
     }
     
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-accordion.default', exclusiveAccordion );
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-post-grid.default', exclusivePostGrid );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-alert.default', exclusiveAlert );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-animated-text.default', exclusiveAnimatedText );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-button.default', exclusiveButton );

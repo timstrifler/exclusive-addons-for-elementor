@@ -4324,6 +4324,11 @@ nav.exad-post-pagination ul li {
 .exad-post-grid-description{
   line-height: 1.8;
 }
+
+.exad-post-grid-container.image-position-top .exad-post-grid-thumbnail a img{
+  object-fit: cover;
+  -o-object-fit: cover;
+}
 /* Post Grid End */
 
 /* Post Timeline Start */
