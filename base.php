@@ -157,6 +157,10 @@ final class Base {
         add_action( 'elementor/widgets/widgets_registered', [ $this, 'initiate_widgets' ] );
         // Add Body Class 
         add_filter( 'body_class', [ $this, 'add_body_classes' ] );
+        \ExclusiveAddons\Elementor\Helper::init();
+
+        // add_action( 'wp_ajax_ajax_pagination', [ $this, 'exad_ajax_pagination' ] );
+        // add_action( 'wp_ajax_nopriv_ajax_pagination', [ $this, 'exad_ajax_pagination' ] );
 
     }
 
@@ -484,6 +488,12 @@ final class Base {
 
         // Main Plugin Scripts
         wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.min.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
+
+        global $wp_query;
+        wp_localize_script( 'exad-main-script', 'exad_ajax_object', array(
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'query_vars' => json_encode( $wp_query->query )
+        ));
     }
 
     /**
@@ -653,4 +663,35 @@ final class Base {
         }
 
     }
+
+    // public function exad_ajax_pagination( $settings ){
+
+    //     // $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+    //     $paged = $_POST['page'];
+
+    //     $q = new \WP_Query( array(
+    //         'posts_per_page' => 4,
+    //         'post_type' => 'post',
+    //         'paged' => $paged
+    //     ) );
+
+    //     // $posts = new \WP_Query( $settings['post_args'] );
+
+    //     $html = '';
+
+    //     // $html .= Helper::exad_get_posts( $settings );
+
+    //     if( $q->have_posts() ){
+    //         while( $q->have_posts() ) : $q->the_post(); 
+    
+    //             $html .= include EXAD_TEMPLATES . 'tmpl-post-timeline.php';;
+    
+    //         endwhile;
+    //         wp_reset_query();
+    //     } else {
+    //         echo "No post Found";
+    //     }
+    //     echo $html;
+    //     die();
+    // }
 }

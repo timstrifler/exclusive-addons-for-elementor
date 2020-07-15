@@ -1658,9 +1658,11 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
-		echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_wrapper' ).'>';
-			Helper::exad_get_posts( $settings );       
+		echo '<div class="exad-post-grid">';
+			echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_wrapper' ).'>';
+				Helper::exad_get_posts( $settings );       
+			echo '</div>';
+			echo '<a class="paginate-btn" href="#">Button</a>';
 		echo '</div>';
-		Helper:: exad_pagination_nav();
 	}
 }

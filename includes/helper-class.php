@@ -2,6 +2,10 @@
 namespace ExclusiveAddons\Elementor;
 
 class Helper {
+    public static function init() {
+        add_action( 'wp_ajax_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );
+        add_action( 'wp_ajax_nopriv_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );
+    }
     /**
      *
      * Get list of Post Types
@@ -248,26 +252,92 @@ class Helper {
         wp_reset_postdata();
     }
 
-    public static function exad_pagination_nav() {
-        global $wp_query;
-        $big = 999999999;
-        $total_pages = $wp_query->max_num_pages;
-        // Return pagination html.
-		if ( $total_pages > 1 ) {
+    public static function exad_ajax_pagination( $settings ){
 
-			$current_page = $paged;
-			if ( ! $current_page ) {
-				$current_page = 1;
-			}
+        $paged = $_POST['page'];
 
-			echo $links = paginate_links(
-				array(
-					'current' => $current_page,
-					'total'   => $total_pages,
-					'type'    => 'array',
-				)
-			);
-		}
+        $post_args = array(
+            'post_type'        => 'post',
+            'posts_per_page'        => 3,
+            'paged'            => $paged,
+        );
+
+        $posts = new \WP_Query( $post_args );
+
+        $html = '';
+
+        while( $posts->have_posts() ) : $posts->the_post(); 
+
+            // $html .= '<li>'.get_the_title().'</li>';
+            $html .= include EXAD_TEMPLATES . 'tmpl-post-grid.php';
+
+        endwhile;
+        wp_reset_postdata();
+
+        echo $html;
+        // var_dump( $html );
+        die();
     }
+
+    // public static function exad_ajax_pagination( $settings ){
+    // // public static function exad_ajax_pagination( $settings, $prefix ){
     
+    //     // $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+    //     // $posts = new \WP_Query( $settings['post_args'] );
+    //     $paged = $_POST['page'];
+
+    //     $q = new \WP_Query( array(
+    //         'posts_per_page' => 3,
+    //         'post_type' => 'post',
+    //         'paged' => $paged,
+    //         'ignore_sticky_posts' => 0,
+    //         // 'post_type'        => $settings[ $prefix . '_type'],
+    //         // 'posts_per_page'   => $settings[ $prefix .'_per_page'],
+    //         // 'offset'           => $settings[ $prefix . '_offset'],
+    //         // 'cat'              => $category_ids,
+    //         // 'category_name'    => '',
+    //         // 'ignore_sticky_posts' => $exad_ignore_sticky,
+    //         // 'orderby'          => 'date',
+    //         // 'order'            => $settings[ $prefix . '_order'],
+    //         // 'include'          => '',
+    //         // 'exclude'          => '',
+    //         // 'meta_key'         => '',
+    //         // 'meta_value'       => '',
+    //         // 'post_mime_type'   => '',
+    //         // 'post_parent'      => '',
+    //         // 'author'           => $author_ids,
+    //         // 'author_name'      => '',
+    //         // 'post_status'      => 'publish',
+    //         // 'suppress_filters' => true,
+    //         // 'tag__in'          => $settings[ $prefix . '_tags'],
+    //         // 'post__not_in'     => '',
+    //     ) );
+
+    //     // $posts = new \WP_Query( $settings['post_args'] );
+
+    //     $html = '';
+
+    //     // $html .= Helper::exad_get_posts( $settings );
+
+    //     if( $q->have_posts() ){
+    //         $posts = new \WP_Query( $settings['post_args'] );
+
+    //     while( $posts->have_posts() ) : $posts->the_post(); 
+
+    //         if ( 'exad-post-timeline' === $settings['template_type'] ) { 
+    //             include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
+    //         } elseif ( 'exad-post-grid' === $settings['template_type'] ) { 
+    //             include EXAD_TEMPLATES . 'tmpl-post-grid.php';
+    //         } else {
+    //             _e( 'No Contents Found', 'exclusive-addons-elementor' );
+    //         }
+
+    //     endwhile;
+    //         wp_reset_query();
+    //     } else {
+    //         echo "No post Found";
+    //     }
+    //     var_dump( $html );
+    //     die();
+    // }
 }
