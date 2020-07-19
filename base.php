@@ -416,7 +416,7 @@ final class Base {
      * 
      */
     public function editor_scripts() {
-        wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.css' );
+        wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.min.css' );
     }
 
     /**
