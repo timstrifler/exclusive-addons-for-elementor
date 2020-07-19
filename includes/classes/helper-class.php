@@ -1,6 +1,10 @@
 <?php
 namespace ExclusiveAddons\Elementor;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Helper {
     public static function init() {
         add_action( 'wp_ajax_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );

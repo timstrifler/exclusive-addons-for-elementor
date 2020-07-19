@@ -172,7 +172,11 @@ final class Base {
      */
     public function includes() {
         // Helper Class
-        include_once EXAD_PATH . 'includes/helper-class.php';
+        include_once EXAD_PATH . 'includes/classes/helper-class.php';
+        // Cache manager 
+        include_once EXAD_PATH . 'includes/classes/cache-manager.php';
+        include_once EXAD_PATH . 'includes/classes/assets-manager.php';
+        include_once EXAD_PATH . 'includes/classes/widgets-cache.php';
         if( is_admin() ) {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
