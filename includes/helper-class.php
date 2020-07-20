@@ -252,13 +252,33 @@ class Helper {
         wp_reset_postdata();
     }
 
-    public static function exad_ajax_pagination( $settings ){
+    public static function exad_ajax_pagination() {
 
         $paged = $_POST['page'];
 
+        $settings = [];
+        $settings['exad_post_grid_show_image'] = $_POST['thumbnail'];
+        $settings['exad_post_grid_category_default_position'] = true;
+        $settings['exad_post_grid_category_position_over_image'] = '-top-right';
+        $settings['exad_post_grid_show_category'] = 'yes';
+        $settings['exad_post_grid_category_default_position'] = 'no';
+        $settings['exad_post_grid_show_user_avatar'] = 'yes';
+        $settings['exad_post_grid_show_user_name'] = 'yes';
+        $settings['exad_post_grid_show_date'] = 'yes';
+        $settings['exad_post_grid_show_date'] = 'yes';
+        $settings['exad_post_grid_show_title'] = 'yes';
+        $settings['exad_post_grid_title_full'] = 'yes';
+        $settings['exad_grid_title_length'] = 20;
+        $settings['exad_post_grid_show_read_time'] = 'yes';
+        $settings['exad_post_grid_show_comment'] = 'yes';
+        $settings['exad_post_grid_show_excerpt'] = 'yes';
+        $settings['exad_grid_excerpt_length'] = 20;
+
+
+
         $post_args = array(
             'post_type'        => 'post',
-            'posts_per_page'        => 3,
+            'posts_per_page'   => 3,
             'paged'            => $paged,
         );
 
@@ -268,7 +288,6 @@ class Helper {
 
         while( $posts->have_posts() ) : $posts->the_post(); 
 
-            // $html .= '<li>'.get_the_title().'</li>';
             $html .= include EXAD_TEMPLATES . 'tmpl-post-grid.php';
 
         endwhile;
@@ -278,6 +297,7 @@ class Helper {
         // var_dump( $html );
         die();
     }
+    
 
     // public static function exad_ajax_pagination( $settings ){
     // // public static function exad_ajax_pagination( $settings, $prefix ){

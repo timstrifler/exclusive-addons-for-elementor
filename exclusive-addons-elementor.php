@@ -25,8 +25,6 @@ if ( ! defined( 'EXAD_PLUGIN_VERSION' ) ) define( 'EXAD_PLUGIN_VERSION', '2.1.3'
 if ( ! defined( 'MINIMUM_ELEMENTOR_VERSION' ) ) define( 'MINIMUM_ELEMENTOR_VERSION', '2.0.0' );
 if ( ! defined( 'MINIMUM_PHP_VERSION' ) ) define( 'MINIMUM_PHP_VERSION', '5.4' );
 
-//include_once EXAD_PATH . DIRECTORY_SEPARATOR . 'autoloader.php';
-
 
 /**
  * 

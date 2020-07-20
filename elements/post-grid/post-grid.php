@@ -1654,15 +1654,26 @@ class Post_Grid extends Widget_Base {
 		$this->add_render_attribute(
 			'exad_post_grid_wrapper',
 			[
-				'class'               => "exad-row-wrapper exad-col-{$settings['exad_post_grid_column_no']}"
+				'class' => "exad-row-wrapper exad-col-{$settings['exad_post_grid_column_no']}",
+				'data-thumbnail' => $settings['exad_post_grid_show_image']
 			]
 		);
+
+		$this->add_render_attribute(
+			'exad_post_grid_load_more_button',
+			[
+				'data-thumbnail' => $settings['exad_post_grid_show_image']
+			]
+		);
+		
 
 		echo '<div class="exad-post-grid">';
 			echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_wrapper' ).'>';
 				Helper::exad_get_posts( $settings );       
 			echo '</div>';
-			echo '<a class="paginate-btn" href="#">Button</a>';
+			echo '<a class="paginate-btn"' .$this->get_render_attribute_string( 'exad_post_grid_wrapper' ). 'href="#">Button</a>';
 		echo '</div>';
 	}
+
+	
 }

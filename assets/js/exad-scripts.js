@@ -585,14 +585,14 @@ var exclusivePostGrid = function( $scope, $ ) {
 			url: exad_ajax_object.ajax_url,
 			type: 'POST',
 			data: {
-				action: 'ajax_pagination',
-                page : page,
+                action: 'ajax_pagination',
+                thumbnail: $(this).data('thumbnail'),
+                page : page
 			},
             success: function( html ) {
                 // $('#info').empty();
                 $('.exad-row-wrapper').append( html );
                 page++;
-                console.log(html);
             },
             // beforeSend: function(){
             //     // $('.exad-row-wrapper').empty();
