@@ -254,7 +254,7 @@ class Helper {
 
     public static function exad_ajax_pagination() {
 
-        $paged = $_POST['page'];
+        $paged = $_POST['paged'];
 
         $settings = [];
         $settings['exad_post_grid_show_image'] = $_POST['thumbnail'];
@@ -279,23 +279,27 @@ class Helper {
         $post_args = array(
             'post_type'        => 'post',
             'posts_per_page'   => 3,
+            'post_status'      => 'publish',
             'paged'            => $paged,
         );
 
         $posts = new \WP_Query( $post_args );
 
-        $html = '';
+        $result = '';
 
         while( $posts->have_posts() ) : $posts->the_post(); 
+            ob_start();
 
-            $html .= include EXAD_TEMPLATES . 'tmpl-post-grid.php';
+            include EXAD_TEMPLATES . 'tmpl-post-grid.php';
+            $result .= ob_get_contents();
+            ob_end_clean();
 
         endwhile;
         wp_reset_postdata();
 
-        echo $html;
+        wp_send_json($result);
         // var_dump( $html );
-        die();
+        wp_die();
     }
     
 

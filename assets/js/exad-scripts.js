@@ -577,7 +577,7 @@ var exclusivePostGrid = function( $scope, $ ) {
     var btn = exadPostgridWrapped.find('.paginate-btn');
 
     var posts_per_page = 6;
-    var page = 1;
+    var page = 2;
 
     $(btn).on("click", function(e){
         e.preventDefault();
@@ -587,7 +587,7 @@ var exclusivePostGrid = function( $scope, $ ) {
 			data: {
                 action: 'ajax_pagination',
                 thumbnail: $(this).data('thumbnail'),
-                page : page
+                paged: page
 			},
             success: function( html ) {
                 // $('#info').empty();
