@@ -98,7 +98,7 @@ echo '<article class="exad-post-grid-three exad-col">';
             endif;
             do_action('exad_post_grid_excerpt_wrapper_after');
 
-            if( !empty($settings['exad_post_grid_read_more_btn_text']) && 'yes' === $settings['exad_post_grid_show_read_more_btn'] ) :
+            if( ! empty( $settings['exad_post_grid_read_more_btn_text'] ) && 'yes' === $settings[ 'exad_post_grid_show_read_more_btn' ] ) :
                 echo '<div class="exad-post-footer"><a href="'.esc_url( get_the_permalink() ).'" class="read-more">'.esc_html( $settings['exad_post_grid_read_more_btn_text'] ).'</a></div>';
             endif;
 

@@ -586,7 +586,10 @@ var exclusivePostGrid = function( $scope, $ ) {
 			type: 'POST',
 			data: {
                 action: 'ajax_pagination',
-                thumbnail: $(this).data('thumbnail'),
+                post_type: $(this).data('post-type'),
+                posts_per_page: $(this).data('posts_per_page'),
+            	post_offset: $(this).data('post-offset'),
+                post_thumbnail: $(this).data('post-thumbnail'),
                 paged: page
 			},
             success: function( html ) {

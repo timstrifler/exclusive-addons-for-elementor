@@ -273,12 +273,13 @@ class Helper {
         $settings['exad_post_grid_show_comment'] = 'yes';
         $settings['exad_post_grid_show_excerpt'] = 'yes';
         $settings['exad_grid_excerpt_length'] = 20;
-
+        $settings['exad_post_grid_read_more_btn_text'] = "read-more";
+        $settings[ 'exad_post_grid_show_read_more_btn' ] = 'yes';
 
 
         $post_args = array(
-            'post_type'        => 'post',
-            'posts_per_page'   => 3,
+            'post_type'        => $_POST['post_type'],
+            'posts_per_page'   => $_POST['posts_per_page'],
             'post_status'      => 'publish',
             'paged'            => $paged,
         );
