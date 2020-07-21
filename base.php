@@ -487,7 +487,7 @@ final class Base {
         }
 
         // Main Plugin Scripts
-        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.min.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
 
         global $wp_query;
         wp_localize_script( 'exad-main-script', 'exad_ajax_object', array(
