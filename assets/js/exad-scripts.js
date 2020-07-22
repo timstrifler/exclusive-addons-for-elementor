@@ -577,7 +577,7 @@ var exclusivePostGrid = function( $scope, $ ) {
     var btn = exadPostgridWrapped.find('.paginate-btn');
 
     var posts_per_page = 6;
-    var page = 2;
+    var page = 1;
 
     $(btn).on("click", function(e){
         e.preventDefault();
@@ -585,17 +585,14 @@ var exclusivePostGrid = function( $scope, $ ) {
 			url: exad_ajax_object.ajax_url,
 			type: 'POST',
 			data: {
-                action: 'ajax_pagination',
-                post_type: $(this).data('post-type'),
-                posts_per_page: $(this).data('posts_per_page'),
-            	post_offset: $(this).data('post-offset'),
-                post_thumbnail: $(this).data('post-thumbnail'),
-                paged: page
+				action: 'ajax_pagination',
+                page : page,
 			},
             success: function( html ) {
                 // $('#info').empty();
                 $('.exad-row-wrapper').append( html );
                 page++;
+                console.log(html);
             },
             // beforeSend: function(){
             //     // $('.exad-row-wrapper').empty();

@@ -210,7 +210,9 @@ gulp.task('prod', function(callback) {
 
 gulp.task('watch', function () {
     gulp.watch('assets/css/elements-css/*.css', ['cssconcat']);
+    gulp.watch('assets/css/*.css', ['cssmin']);
     gulp.watch('assets/js/elements-js/*.js', ['jsconcat']);
+    gulp.watch('assets/js/*.js', ['jsmin']);
 });
 
 /**
