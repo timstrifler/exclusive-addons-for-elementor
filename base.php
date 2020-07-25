@@ -211,157 +211,219 @@ final class Base {
             'accordion'  => [
                 'title'  => __( 'Accordion', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Accordion',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'alert'  => [
                 'title'  => __( 'Alert', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Alert',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/alert-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'animated-text'  => [
                 'title'  => __( 'Animated Text', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Animated_Text',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'button'  => [
                 'title'  => __( 'Button', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Button',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'call-to-action'  => [
                 'title'  => __( 'Call To Action', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Call_To_Action',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'card'  => [
                 'title'  => __( 'Card', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Card',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'contact-form-7'  => [
                 'title'  => __( 'Contact Form 7', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Contact_Form_7',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'countdown-timer'  => [
                 'title'  => __( 'Countdown Timer', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Countdown_Timer',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'covid-19-stats'  => [
                 'title'  => __( 'Covid-19 Stats', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Covid_19_Stats',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'dual-button'  => [
                 'title'  => __( 'Dual Button', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Dual_Button',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'dual-heading'  => [
                 'title'  => __( 'Dual Heading', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Dual_Heading',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'filterable-gallery'  => [
                 'title'  => __( 'Filterable Gallery', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Filterable_Gallery',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'flipbox'  => [
                 'title'  => __( 'Flip Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Flipbox',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'google-maps'  => [
                 'title'  => __( 'Google Maps', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Google_Maps',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'heading'  => [
                 'title'  => __( 'Heading', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Heading',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'image-comparison'  => [
                 'title'  => __( 'Image Comparison', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Image_Comparison',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'image-magnifier'  => [
                 'title'  => __( 'Image Magnifier', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Image_Magnifier',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'infobox'  => [
                 'title'  => __( 'Info Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Infobox',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'logo-box'  => [
                 'title'  => __( 'Logo Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Logo_Box',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'logo-carousel'  => [
                 'title'  => __( 'Logo Carousel', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Logo_Carousel',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'modal-popup'  => [
                 'title'  => __( 'Modal Popup', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Modal_Popup',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'news-ticker'  => [
                 'title'  => __( 'News Ticker', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\News_Ticker',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'post-grid'  => [
                 'title'  => __( 'Post Grid', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Post_Grid',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'post-timeline'  => [
                 'title'  => __( 'Post Timeline', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Post_Timeline',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'pricing-menu'  => [
                 'title'  => __( 'Pricing Menu', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Pricing_Menu',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'pricing-table'  => [
                 'title'  => __( 'Pricing Table', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Pricing_Table',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'progress-bar'  => [
                 'title'  => __( 'Progress Bar', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Progress_Bar',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'tabs'  => [
                 'title'  => __( 'Tabs', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Tabs',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'team-member'  => [
                 'title'  => __( 'Team Member', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Team_Member',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'testimonial'  => [
                 'title'  => __( 'Testimonial', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Testimonial',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ],
             'tooltip'  => [
                 'title'  => __( 'Tooltip', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Tooltip',
-                'tags'   => 'new'
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ]
                 
         ];
