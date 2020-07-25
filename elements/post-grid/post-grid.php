@@ -259,9 +259,9 @@ class Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
-            'exad_post_grid_enable_pagination',
+            'exad_post_grid_enable_load_more_btn',
             [
-                'label'        => esc_html__( 'Enable Pagination', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Enable Load More Button', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
@@ -270,41 +270,14 @@ class Post_Grid extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'exad_post_grid_pagination_mid_size',
-            [
-				'label'   => __( 'Mid Size', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::NUMBER,
-				'default' => '2',
-				'description' => __( 'How many numbers to either side of the current pages'. 'exclusive-addons-elementor' ),
-				'condition'     => [
-                    '.exad_post_grid_enable_pagination' => 'yes'
-                ]
-            ]
-		);
-
 		$this->add_control(
-            'exad_post_grid_pagination_previous_text',
+            'exad_post_grid_enable_load_more_btn_text',
             [   
-                'label'         => esc_html__( 'Previous Page Text.', 'exclusive-addons-elementor' ),
+                'label'         => esc_html__( 'Load More Button text', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::TEXT,
-                'placeholder'   => esc_html__('Previous', 'exclusive-addons-elementor'),
-                'default'       => esc_html__('Previous', 'exclusive-addons-elementor' ),
+                'default'       => esc_html__('Load More', 'exclusive-addons-elementor' ),
                 'condition'     => [
-                    '.exad_post_grid_enable_pagination' => 'yes'
-                ]
-            ]
-        );
-
-		$this->add_control(
-            'exad_post_grid_pagination_next_text',
-            [   
-                'label'         => esc_html__( 'Next Page Text.', 'exclusive-addons-elementor' ),
-                'type'          => Controls_Manager::TEXT,
-                'placeholder'   => esc_html__('Next', 'exclusive-addons-elementor'),
-                'default'       => esc_html__('Next', 'exclusive-addons-elementor' ),
-                'condition'     => [
-                    '.exad_post_grid_enable_pagination' => 'yes'
+                    '.exad_post_grid_enable_load_more_btn' => 'yes'
                 ]
             ]
         );
@@ -628,7 +601,7 @@ class Post_Grid extends Widget_Base {
 					]
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-post-grid-container.image-position-top .exad-post-grid-thumbnail a' => 'min-height: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-post-grid-container.image-position-top .exad-post-grid-thumbnail > a' => 'min-height: {{SIZE}}{{UNIT}};'
 				],
 				'condition' => [
 					'exad_post_grid_image_align' => 'top'
@@ -1065,7 +1038,29 @@ class Post_Grid extends Widget_Base {
 				'label' => __( 'Author & Date', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
             ]
-        );
+		);
+		
+		$this->add_control(
+			'exad_post_grid_author_image_size',
+			[
+				'label'       => __( 'Author Image Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'default'     => [
+					'unit'    => 'px',
+					'size'    => 40
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-author-avatar img' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
+				]
+			]
+		);
 
         $this->add_responsive_control(
             'exad_post_grid_author_date_margin',
@@ -1428,195 +1423,191 @@ class Post_Grid extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->end_controls_section();
-
+		
+		/**
+         * -------------------------------------------
+         * Load More Button style
+         * -------------------------------------------
+         */
         $this->start_controls_section(
-            'exad_post_grid_pagination_style',
+            'exad_post_grid_load_more_btn_style',
             [
-				'label'     => __( 'Pagination', 'exclusive-addons-elementor' ),
+				'label'     => esc_html__( 'Load More Button', 'exclusive-addons-elementor' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'exad_post_grid_enable_pagination' => 'yes'
-				]
-            ]
-		);
-
-        $this->add_control(
-			'exad_post_grid_pagination_top_spacing',
-			[
-				'label'       => __( 'Top Spacing', 'exclusive-addons-elementor' ),
-				'type'        => Controls_Manager::SLIDER,
-				'size_units'  => [ 'px' ],
-				'range'       => [
-					'px'      => [
-						'min' => 0,
-						'max' => 150
-					]
-				],
-				'default'     => [
-					'unit'    => 'px',
-					'size'    => 25
-				],
-				'selectors'   => [
-					'{{WRAPPER}} nav.exad-post-pagination ul' => 'margin-top: {{SIZE}}{{UNIT}};'
-				]
-			]
-		);
-
-		$this->add_responsive_control(
-            'exad_post_grid_pagination_padding',
-            [
-				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,           
-				'size_units' => [ 'px', 'em', '%' ],
-				'default'    => [
-					'top'    => '10',
-					'right'  => '15',
-					'bottom' => '10',
-					'left'   => '15'
-				],
-				'selectors'  => [
-                    '{{WRAPPER}} nav.exad-post-pagination ul li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '.exad_post_grid_enable_load_more_btn' => 'yes'
                 ]
             ]
-        );
-
-        $this->add_control(
-			'exad_post_grid_pagination_margin',
-			[
-				'label'       => __( 'Space Between', 'exclusive-addons-elementor' ),
-				'type'        => Controls_Manager::SLIDER,
-				'size_units'  => [ 'px' ],
-				'range'       => [
-					'px'      => [
-						'min' => 0,
-						'max' => 50
-					]
-				],
-				'default'     => [
-					'unit'    => 'px',
-					'size'    => 8
-				],
-				'selectors'   => [
-					'{{WRAPPER}} nav.exad-post-pagination ul li:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};'
-				]
-			]
 		);
 
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-				'name'      => 'exad_post_grid_pagination_typography',
-				'selector' => '{{WRAPPER}} nav.exad-post-pagination ul li, {{WRAPPER}} nav.exad-post-pagination ul li a'
-            ]
-		);
-		
 		$this->add_control(
-			'exad_post_grid_pagination_border_radius',
+			'exad_post_grid_load_more_btn_padding',
 			[
-				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px'],
-				'selectors'  => [
-					'{{WRAPPER}} nav.exad-post-pagination ul li'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				]
+				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '10',
+					'right' => '30',
+					'bottom' => '10',
+					'left' => '30',
+					'unit' => 'px',
+					'isLinked' => false,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-grid-paginate-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
 			]
 		);
 
-        $this->start_controls_tabs( 'exad_post_grid_pagination_style_tabs' );
+		$this->add_control(
+			'exad_post_grid_load_more_btn_margin',
+			[
+				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '20',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'unit' => 'px',
+					'isLinked' => false,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-grid-paginate-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_post_grid_load_more_btn_radius',
+			[
+				'label' => __( 'Radius', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '0',
+					'left' => '0',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-post-grid-paginate-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'exad_post_grid_load_more_btn_typography',
+				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-post-grid-paginate-btn',
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_post_grid_load_more_btn_tabs' );
 
             // normal state tab
-            $this->start_controls_tab( 'exad_post_grid_pagination_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+			$this->start_controls_tab( 'exad_post_grid_load_more_btn_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+			
+				$this->add_control(
+					'exad_post_grid_load_more_btn_normal_bg_color',
+					[
+						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default' 	=> $exad_primary_color,
+						'selectors' => [
+							'{{WRAPPER}} .exad-post-grid-paginate-btn' => 'background: {{VALUE}};'
+						]
+					]
+				);
 
-            $this->add_control(
-                'exad_post_grid_pagination_normal_text_color',
-                [
-					'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
-					'type'      => Controls_Manager::COLOR,
-					'default'   => '#ffffff',
-					'selectors' => [
-                        '{{WRAPPER}} nav.exad-post-pagination ul li, {{WRAPPER}} nav.exad-post-pagination ul li a' => 'color: {{VALUE}};'
-                    ]
-                ]
-            );
+				$this->add_control(
+					'exad_post_grid_load_more_btn_normal_text_color',
+					[
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default' 	=> '#ffffff',
+						'selectors' => [
+							'{{WRAPPER}} .exad-post-grid-paginate-btn' => 'color: {{VALUE}};'
+						]
+					]
+				);
 
-            $this->add_control(
-                'exad_post_grid_pagination_normal_bg_color',
-                [
-                    'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-                    'type'      => Controls_Manager::COLOR,
-                    'default'   => $exad_primary_color,
-                    'selectors' => [
-                        '{{WRAPPER}} nav.exad-post-pagination ul li' => 'background: {{VALUE}};'
-                    ]
-                ]
-            );
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name' => 'exad_post_grid_load_more_btn_normal_border',
+						'label' => __( 'Border', 'exclusive-addons-elementor' ),
+						'selector' => '{{WRAPPER}} .exad-post-grid-paginate-btn',
+					]
+				);
 
-            $this->add_group_control(
-            Group_Control_Border::get_type(),
-                [
-                    'name'      => 'exad_post_grid_pagination_border',
-                    'selector'  => '{{WRAPPER}} nav.exad-post-pagination ul li'
-                ]
-            );
-
-            $this->add_group_control(
-                Group_Control_Box_Shadow::get_type(),
-                [
-					'name'      => 'exad_post_grid_pagination_shadow',
-					'selector'  => '{{WRAPPER}} nav.exad-post-pagination ul li'
-                ]
-            );
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name' => 'exad_post_grid_load_more_btn_normal_box_shadow',
+						'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+						'selector' => '{{WRAPPER}} .exad-post-grid-paginate-btn',
+					]
+				);
 
             $this->end_controls_tab();
 
             // hover state tab
-            $this->start_controls_tab( 'exad_post_grid_pagination_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
-
-            $this->add_control(
-                'exad_post_grid_pagination_hover_text_color',
-                [
-                    'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
-                    'type'      => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} nav.exad-post-pagination ul li:hover, {{WRAPPER}} nav.exad-post-pagination ul li a:hover' => 'color: {{VALUE}};'
-                    ]
-                ]
-            );
-
-            $this->add_control(
-                'exad_post_grid_pagination_hover_bg_color',
-                [
-                    'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
-                    'type'      => Controls_Manager::COLOR,
-                    'selectors' => [
-                        '{{WRAPPER}} nav.exad-post-pagination ul li:hover' => 'background: {{VALUE}};'
-                    ]
-                ]
-			);
+			$this->start_controls_tab( 'exad_post_grid_load_more_btn_Hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
 			
-			$this->add_group_control(
-				Group_Control_Border::get_type(),
+				$this->add_control(
+					'exad_post_grid_load_more_btn_hover_bg_color',
 					[
-						'name'      => 'exad_post_grid_pagination_border_hover',
-						'selector'  => '{{WRAPPER}} nav.exad-post-pagination ul li:hover'
+						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default' 	=> "#ffffff",
+						'selectors' => [
+							'{{WRAPPER}} .exad-post-grid-paginate-btn:hover' => 'background: {{VALUE}};'
+						]
 					]
 				);
 
-            $this->add_group_control(
-                Group_Control_Box_Shadow::get_type(),
-                [
-                    'name'      => 'exad_post_grid_pagination_hover_shadow',
-                    'selector'  => '{{WRAPPER}} nav.exad-post-pagination ul li:hover'
-                ]
-            );
+				$this->add_control(
+					'exad_post_grid_load_more_btn_hover_text_color',
+					[
+						'label'     => esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default' 	=> $exad_primary_color,
+						'selectors' => [
+							'{{WRAPPER}} .exad-post-grid-paginate-btn:hover' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name' => 'exad_post_grid_load_more_btn_hover_border',
+						'label' => __( 'Border', 'exclusive-addons-elementor' ),
+						'selector' => '{{WRAPPER}} .exad-post-grid-paginate-btn:hover',
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name' => 'exad_post_grid_load_more_btn_hover_box_shadow',
+						'label' => __( 'Box Shadow', 'exclusive-addons-elementor' ),
+						'selector' => '{{WRAPPER}} .exad-post-grid-paginate-btn:hover',
+					]
+				);
 
             $this->end_controls_tab();
 
         $this->end_controls_tabs();
-
-        $this->end_controls_section();
-
-        $this->end_controls_section();
+		
+		$this->end_controls_section();
 	}
 
     public function render_image( $image_id, $settings ) {
@@ -1646,12 +1637,34 @@ class Post_Grid extends Widget_Base {
 		$this->add_render_attribute(
 			'exad_post_grid_load_more_button',
 			[
-				'data-post-type'  => $settings['exad_post_grid_type'],
-				'data-posts_per_page'   => $settings[ 'exad_post_grid_per_page'],
-            	'data-post-offset'           => $settings[ 'exad_post_grid_offset'],
-				'data-post-order'            => $settings[ 'exad_post_grid_order'],
-				'data-post-tag__in'          => $settings[ 'exad_post_grid_tags'],
-				'data-post-thumbnail' => $settings['exad_post_grid_show_image']
+				'data-post-type'      => $settings['exad_post_grid_type'],
+				'data-posts_per_page' => $settings['exad_post_grid_per_page'],
+				'data-post-offset'    => $settings['exad_post_grid_offset'],
+				'data-post-order'     => $settings['exad_post_grid_order'],
+				'data-post-tag__in'   => $settings['exad_post_grid_tags'],
+				'data-post-thumbnail' => $settings['exad_post_grid_show_image'],
+				'data-equal_height' => $settings['exad_post_grid_equal_height'],
+				'data-enable_details_btn' => $settings['exad_post_grid_show_read_more_btn'],
+				'data-details_btn_text' => $settings['exad_post_grid_read_more_btn_text'],
+				'data-show-user-avatar' => $settings['exad_post_grid_show_user_avatar'],
+				'data-show_user_name' => $settings['exad_post_grid_show_user_name'],
+				'data-post_data_position' => $settings['exad_post_grid_post_data_position'],
+				'data-show_title' => $settings['exad_post_grid_show_title'],
+				'data-title_full' => $settings['exad_post_grid_title_full'],
+				'data-show_read_time' => $settings['exad_post_grid_show_read_time'],
+				'data-show_comment' => $settings['exad_post_grid_show_comment'],
+				'data-show_excerpt' => $settings['exad_post_grid_show_excerpt'],
+				'data-excerpt_length' => $settings['exad_grid_excerpt_length'],
+				'data-show_user_name_tag' => $settings['exad_post_grid_show_user_name_tag'],
+				'data-user_name_tag' => $settings['exad_post_grid_user_name_tag'],
+				'data-show_date' => $settings['exad_post_grid_show_date'],
+				'data-show_date_tag' => $settings['exad_post_grid_show_date_tag'],
+				'data-date_tag' => $settings['exad_post_grid_date_tag'],
+				'data-title_length' => $settings['exad_grid_title_length'],
+				'data-image_align' => $settings['exad_post_grid_image_align'],
+				'data-show_category' => $settings['exad_post_grid_show_category'],
+				'data-category_default_position' => $settings['exad_post_grid_category_default_position'],
+				'data-category_position_over_image' => $settings['exad_post_grid_category_position_over_image'],
 			]
 		);
 		
@@ -1660,7 +1673,11 @@ class Post_Grid extends Widget_Base {
 			echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_wrapper' ).'>';
 				Helper::exad_get_posts( $settings );       
 			echo '</div>';
-			echo '<a class="paginate-btn"' .$this->get_render_attribute_string( 'exad_post_grid_load_more_button' ). 'href="#">Button</a>';
+			echo '<div class="exad-post-grid-load-btn">';
+				if( 'yes' === $settings['exad_post_grid_enable_load_more_btn'] ){
+					echo '<a class="exad-post-grid-paginate-btn"' .$this->get_render_attribute_string( 'exad_post_grid_load_more_button' ). 'href="#">'.esc_html( $settings['exad_post_grid_enable_load_more_btn_text'] ).'</a>';
+				}
+			echo '</div>';
 		echo '</div>';
 	}
 

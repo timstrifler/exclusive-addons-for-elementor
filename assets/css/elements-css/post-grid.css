@@ -333,4 +333,13 @@ nav.exad-post-pagination ul li {
   object-fit: cover;
   -o-object-fit: cover;
 }
+.exad-post-grid-load-btn{
+  text-align: center;
+}
+.exad-post-grid-paginate-btn{
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  transition: all .3s ease;
+}
 /* Post Grid End */
