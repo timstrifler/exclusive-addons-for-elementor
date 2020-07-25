@@ -41,7 +41,7 @@ final class Base {
 
     /**
      * 
-     * Static property that consists all the default widget names
+     * Static property that consists all the default widget array
      * 
      * @access public
      * @static
@@ -52,18 +52,27 @@ final class Base {
 
     /**
      * 
-     * Static property to add all the Free and Pro widgets
+     * Static property to hold all widget names in an array
      * 
      * @access public
      * @static
      * 
      * 
      */
-    public static $registered_elements;
-
+    public static $widget_names;
     /**
      * 
-     * Static property to that consits all active widgets
+     * Static property to hold default settings for the database
+     * 
+     * @access public
+     * @static
+     * 
+     * 
+     */
+    public static $widget_settings;
+    /**
+     * 
+     * Static property that consits all active widgets
      * 
      * @access public
      * @static
@@ -103,14 +112,12 @@ final class Base {
     public function __construct() {
 
         do_action( 'exad/before_init' );
-        $this->activated_widgets();
-        $this->initiate_elements();
         $this->includes();
+        $this->widget_map_free();     
+        $this->activated_widgets(); 
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
         
-        self::$registered_elements = array_keys( self::$default_widgets );
-        sort( self::$registered_elements );
     }
 
     // register hooks
@@ -157,10 +164,6 @@ final class Base {
         add_action( 'elementor/widgets/widgets_registered', [ $this, 'initiate_widgets' ] );
         // Add Body Class 
         add_filter( 'body_class', [ $this, 'add_body_classes' ] );
-        \ExclusiveAddons\Elementor\Helper::init();
-
-        // add_action( 'wp_ajax_ajax_pagination', [ $this, 'exad_ajax_pagination' ] );
-        // add_action( 'wp_ajax_nopriv_ajax_pagination', [ $this, 'exad_ajax_pagination' ] );
 
     }
 
@@ -205,7 +208,7 @@ final class Base {
      * 
      * @since 1.2.2
      */
-    public function initiate_elements() {
+    public function widget_map_free() {
 
         $widget_lists = [
             'accordion'  => [
@@ -559,6 +562,56 @@ final class Base {
     }
 
     /**
+     * This function returns true for all activated modules
+     *
+    * @since  1.0
+    */
+    public function activated_widgets() {
+        self::$widget_names = array_keys( self::$default_widgets );
+        self::$widget_settings  = array_fill_keys( self::$widget_names, true );
+        $this->is_activated_widget = get_option( 'exad_save_settings', self::$widget_settings );
+    }
+
+    public function is_excluisve_addons_pro_active() {
+        return defined( EXAD_PRO_PLUGIN_VERSION );
+    }
+
+    /**
+     * Init Widgets
+     *
+     * Include widgets files and register them
+     *
+     * @since 1.0.0
+     *
+     * @access public
+     */
+    public function initiate_widgets() {
+
+        ksort(self::$default_widgets);
+        foreach( self::$default_widgets as $key => $widget ) {
+            if ( $this->is_activated_widget[$key] == true ) {
+                
+                if ( $key == 'contact-form-7' ) {
+                    if ( ! function_exists( 'wpcf7' ) ) {
+                        continue;
+                    }	
+                } 
+
+                $widget_file = EXAD_ELEMENTS . $key . '/'. $key .'.php';
+                if ( file_exists( $widget_file ) ) {
+                    require_once $widget_file;
+                }
+
+                if ( class_exists( $widget['class'] ) ) {
+                    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $widget['class'] );
+                }
+            }
+        }
+
+    }
+
+
+    /**
      * Admin notice
      * Warning when the site doesn't have Elementor installed or activated.
      *
@@ -679,81 +732,4 @@ final class Base {
     }
 
 
-    /**
-     * This function returns true for all activated modules
-     *
-    * @since  1.0
-    */
-    public function activated_widgets() {
-        
-        $exad_default_settings  = array_fill_keys( self::$default_widgets, true );
-        $exad_get_settings = get_option( 'exad_save_settings', $exad_default_settings );
-
-        $this->is_activated_widget = $exad_get_settings;
-
-    }
-
-    /**
-     * Init Widgets
-     *
-     * Include widgets files and register them
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     */
-    public function initiate_widgets() {
-
-        foreach( self::$default_widgets as $key => $widget ) {
-            if ( $this->is_activated_widget[$key] == true ) {
-                
-                if ( $key == 'contact-form-7' ) {
-                    if ( ! function_exists( 'wpcf7' ) ) {
-                        continue;
-                    }	
-                } 
-
-                $widget_file = EXAD_ELEMENTS . $key . '/'. $key .'.php';
-                if ( file_exists( $widget_file ) ) {
-                    require_once $widget_file;
-                }
-
-                if ( class_exists( $widget['class'] ) ) {
-                    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $widget['class'] );
-                }
-            }
-        }
-
-    }
-
-    // public function exad_ajax_pagination( $settings ){
-
-    //     // $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-    //     $paged = $_POST['page'];
-
-    //     $q = new \WP_Query( array(
-    //         'posts_per_page' => 4,
-    //         'post_type' => 'post',
-    //         'paged' => $paged
-    //     ) );
-
-    //     // $posts = new \WP_Query( $settings['post_args'] );
-
-    //     $html = '';
-
-    //     // $html .= Helper::exad_get_posts( $settings );
-
-    //     if( $q->have_posts() ){
-    //         while( $q->have_posts() ) : $q->the_post(); 
-    
-    //             $html .= include EXAD_TEMPLATES . 'tmpl-post-timeline.php';;
-    
-    //         endwhile;
-    //         wp_reset_query();
-    //     } else {
-    //         echo "No post Found";
-    //     }
-    //     echo $html;
-    //     die();
-    // }
 }

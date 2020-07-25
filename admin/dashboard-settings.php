@@ -5,7 +5,9 @@ namespace ExclusiveAddons\Elementor\Dashboard;
  * Dashboard Settings Page
  */
 
-if( ! defined( 'ABSPATH' ) ) exit();
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 use \ExclusiveAddons\Elementor\Base;
 
@@ -23,14 +25,14 @@ class Admin_Settings {
 	 * @var array
 	 * @since 1.0
 	 */
-	private $exad_settings;
+	private $save_dashboard_settings;
 
 	/**
 	 * Settings values from database
 	 * @var array
 	 * @since 1.0
 	 */
-	private $exad_get_settings;
+	private $get_dashboard_settings;
 
 	/**
 	 * Constructor of the class
@@ -89,22 +91,23 @@ class Admin_Settings {
 		);
 		wp_localize_script( 'exad-admin-js', 'js_exad_settings', $js_info );
 
-	    $this->exad_default_settings = array_fill_keys( Base::$registered_elements, true );
-	    $this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
-	    $exad_new_settings = array_diff_key( $this->exad_default_settings, $this->exad_get_settings );
+		
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Base::$widget_settings );
+	    $exad_new_settings = array_diff_key( Base::$widget_settings, $this->get_dashboard_settings );
 
 	    if( ! empty( $exad_new_settings ) ) {
-			$exad_updated_settings = array_merge( $this->exad_get_settings, $exad_new_settings );
+			$exad_updated_settings = array_merge( $this->get_dashboard_settings, $exad_new_settings );
 			update_option( 'exad_save_settings', $exad_updated_settings );
-        }
+		}
+		
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Base::$widget_settings );
         
-		$this->exad_get_settings = get_option( 'exad_save_settings', $this->exad_default_settings );
         
         ?>
         <div class="exad-elements-dashboard-wrapper">
             <form action="" method="POST" id="exad-elements-settings" name="exad-elements-settings">
 
-                <?php wp_nonce_field( 'exad_settings_nonce_action' ); ?>
+                <?php wp_nonce_field( 'save_dashboard_settings_nonce_action' ); ?>
                 
                 <div class="exad-dashboard-header-wrapper">
                     <div class="exad-dashboard-header-left">
@@ -157,16 +160,16 @@ class Admin_Settings {
 			return;
 		}
 
-		$this->exad_settings = [];
+		$this->save_dashboard_settings = [];
 
-		foreach( Base::$registered_elements as $value ){
+		foreach( Base::$widget_names as $value ){
 			if( isset( $settings[ $value ] ) ) {
-				$this->exad_settings[ $value ] = 1;
+				$this->save_dashboard_settings[ $value ] = 1;
 			} else {
-				$this->exad_settings[ $value ] = 0;
+				$this->save_dashboard_settings[ $value ] = 0;
 			}
 		}
-        update_option( 'exad_save_settings', $this->exad_settings );        
+        update_option( 'exad_save_settings', $this->save_dashboard_settings );        
         update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );
         update_option( 'exad_save_mailchimp_api', $settings['mailchimp_api_key'] );
         update_option( 'exad_primary_color_option', $settings['exad_primary_color'] );

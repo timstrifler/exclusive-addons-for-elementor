@@ -40,7 +40,7 @@ use \ExclusiveAddons\Elementor\Base;
                 </div>
             </div>
             <div class="exad-dashboard-checkbox-container">
-                
+                <?php ksort(Base::$default_widgets); ?>
                 <?php foreach( Base::$default_widgets as $key => $widget ) : ?>
                     <?php if ( isset( $key ) ) : ?>        
                         <div class="exad-dashboard-checkbox <?php echo esc_attr( $widget['tags'] ); ?>" data-tag="<?php echo esc_attr( $widget['tags'] ); ?>">
@@ -51,7 +51,7 @@ use \ExclusiveAddons\Elementor\Base;
                             <?php } ?>
                             <div class="exad-dashboard-checkbox-text">
                                 <p class="exad-el-title"><?php echo esc_html( $widget['title'] ); ?></p>
-                                <a href="<?php echo esc_html( $widget['demo_link'] ); ?>" class="exad-element-demo-link" target="_blank">
+                                <a href="<?php echo ( isset( $widget['demo_link'] ) ? esc_url( $widget['demo_link'] ) : '#' ); ?>" class="exad-element-demo-link" target="_blank">
                                     <span class="exad-element-demo">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="9.389" height="9.889" viewBox="0 0 9.389 9.889">
                                             <path d="M0 8.475L6.475 2H1.389V0h8v8h-2V3.914L1.414 9.889z" fill="#6636f6"/>
@@ -60,7 +60,7 @@ use \ExclusiveAddons\Elementor\Base;
                                 </a>
                             </div>
                             <div class="exad-dashboard-checkbox-label">
-                                <input class="exad-dashboard-input" type="checkbox" id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" <?php checked( 1, $this->exad_get_settings[$key], true ); ?>>
+                                <input class="exad-dashboard-input" type="checkbox" id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" <?php checked( 1, $this->get_dashboard_settings[$key], true ); ?>>
                                 <label for="<?php echo esc_attr( $key ); ?>"></label>
                             </div>
                         </div>
