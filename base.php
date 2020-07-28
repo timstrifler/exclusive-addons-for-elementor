@@ -176,6 +176,7 @@ final class Base {
     public function includes() {
         // Helper Class
         include_once EXAD_PATH . 'includes/helper-class.php';
+        include_once EXAD_PATH . 'includes/custom-control.php';
         if( is_admin() ) {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
@@ -228,203 +229,203 @@ final class Base {
             'animated-text'  => [
                 'title'  => __( 'Animated Text', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Animated_Text',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/animated-text-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'button'  => [
                 'title'  => __( 'Button', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Button',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/button-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'call-to-action'  => [
                 'title'  => __( 'Call To Action', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Call_To_Action',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/call-to-action-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'card'  => [
                 'title'  => __( 'Card', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Card',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/card-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'contact-form-7'  => [
                 'title'  => __( 'Contact Form 7', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Contact_Form_7',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/contact-form-7-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'countdown-timer'  => [
                 'title'  => __( 'Countdown Timer', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Countdown_Timer',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/countdown-timer-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'covid-19-stats'  => [
                 'title'  => __( 'Covid-19 Stats', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Covid_19_Stats',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/covid-19-stats-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'dual-button'  => [
                 'title'  => __( 'Dual Button', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Dual_Button',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/dual-button-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'dual-heading'  => [
                 'title'  => __( 'Dual Heading', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Dual_Heading',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/dual-heading-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'filterable-gallery'  => [
                 'title'  => __( 'Filterable Gallery', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Filterable_Gallery',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/filterable-gallery-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'flipbox'  => [
                 'title'  => __( 'Flip Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Flipbox',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/flipbox-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'google-maps'  => [
                 'title'  => __( 'Google Maps', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Google_Maps',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/google-map-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'heading'  => [
                 'title'  => __( 'Heading', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Heading',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/heading-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'image-comparison'  => [
                 'title'  => __( 'Image Comparison', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Image_Comparison',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/image-comparison-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'image-magnifier'  => [
                 'title'  => __( 'Image Magnifier', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Image_Magnifier',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/image-magnifier-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'infobox'  => [
                 'title'  => __( 'Info Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Infobox',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/infobox-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'logo-box'  => [
                 'title'  => __( 'Logo Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Logo_Box',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/logo-box-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'logo-carousel'  => [
                 'title'  => __( 'Logo Carousel', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Logo_Carousel',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/logo-carousel-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'modal-popup'  => [
                 'title'  => __( 'Modal Popup', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Modal_Popup',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/modal-popup-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'news-ticker'  => [
                 'title'  => __( 'News Ticker', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\News_Ticker',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/news-ticker-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'post-grid'  => [
                 'title'  => __( 'Post Grid', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Post_Grid',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/postgrid-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'post-timeline'  => [
                 'title'  => __( 'Post Timeline', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Post_Timeline',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/post-timeline-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'pricing-menu'  => [
                 'title'  => __( 'Pricing Menu', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Pricing_Menu',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/pricing-menu-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'pricing-table'  => [
                 'title'  => __( 'Pricing Table', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Pricing_Table',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/pricing-table-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'progress-bar'  => [
                 'title'  => __( 'Progress Bar', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Progress_Bar',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/progress-bar-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'tabs'  => [
                 'title'  => __( 'Tabs', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Tabs',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/tabs-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'team-member'  => [
                 'title'  => __( 'Team Member', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Team_Member',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/team-member-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'testimonial'  => [
                 'title'  => __( 'Testimonial', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Testimonial',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/testimonial-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],
             'tooltip'  => [
                 'title'  => __( 'Tooltip', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Tooltip',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/tooltip-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
             ]
@@ -730,6 +731,13 @@ final class Base {
 
         return $classes;
     }
+
+    public function register_controls() {
+
+		$controls_manager = Plugin::$instance->controls_manager;
+		$controls_manager->register_control( 'svg-selector', new Custom_Control() );
+
+	}
 
 
 }

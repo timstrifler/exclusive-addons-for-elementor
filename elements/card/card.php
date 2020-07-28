@@ -13,6 +13,8 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Custom_Control;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Card extends Widget_Base {
 	
@@ -66,6 +68,181 @@ class Card extends Widget_Base {
 				'default'   => 'full',
 				'condition' => [
 					'exad_card_image[url]!' => ''
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_card_enable_image_mask',
+			[
+				'label' => __( 'Enable Image Mask', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'exad_card_mask_shape_mask_shape',
+			[
+				'label'                => __( 'Mask Shape', 'exclusive-addons-elementor' ),
+				'type'                 => Custom_Control::SVGSELECTOR,
+				'options'              => Helper::exad_masking_shape_list( 'list' ),
+				'default'              => 'shape-1',
+				'toggle'               => false,
+				'label_block'          => true,
+                'selectors_dictionary' => Helper::exad_masking_shape_list( 'url' ),
+				'selectors'            => [
+                    '{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-image: url({{VALUE}}); mask-image: url({{VALUE}});'
+				],
+				'condition' 		   => [
+					'exad_card_enable_image_mask' => 'yes'
+				]
+			]
+		);
+		
+		$this->add_control(
+			'exad_card_mask_shape_position',
+			[
+				'label'       => __( 'Position', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'center',
+				'label_block' => true,
+				'options'     => [
+					'top'     => __( 'Top', 'exclusive-addons-elementor' ),
+					'center'  => __( 'Center', 'exclusive-addons-elementor' ),
+					'left'    => __( 'Left', 'exclusive-addons-elementor' ),
+					'right'   => __( 'Right', 'exclusive-addons-elementor' ),
+					'bottom'  => __( 'Bottom', 'exclusive-addons-elementor' ),
+					'custom'  => __( 'Custom', 'exclusive-addons-elementor' )
+                ],
+                'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-position: {{VALUE}};'
+				],
+				'condition' 		   => [
+					'exad_card_enable_image_mask' => 'yes'
+				]
+			]
+		);
+		
+		$this->add_control(
+			'exad_card_mask_shape_position_x_offset',
+			[
+				'label'       => __( 'X Offset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-position-y: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_card_enable_image_mask' => 'yes',
+                    'exad_card_mask_shape_position' => 'custom'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_card_mask_shape_position_y_offset',
+			[
+				'label'       => __( 'Y Offset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-position-x: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_card_enable_image_mask' => 'yes',
+                    'exad_card_mask_shape_position' => 'custom'
+				]
+			]
+		);
+        
+        $this->add_control(
+			'exad_card_mask_shape_size',
+			[
+				'label'       => __( 'Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'auto',
+				'label_block' => true,
+				'options'     => [
+					'auto'    => __( 'Auto', 'exclusive-addons-elementor' ),
+					'contain' => __( 'Contain', 'exclusive-addons-elementor' ),
+					'cover'   => __( 'Cover', 'exclusive-addons-elementor' ),
+					'custom'  => __( 'Custom', 'exclusive-addons-elementor' )
+                ],
+                'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-size: {{VALUE}};'
+				],
+				'condition' 		   => [
+					'exad_card_enable_image_mask' => 'yes'
+				]
+			]
+        );
+
+        $this->add_control(
+			'exad_card_mask_shape_custome_size',
+			[
+				'label'       => __( 'Mask Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 600
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-size: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_card_enable_image_mask' => 'yes',
+                    'exad_card_mask_shape_size' => 'custom'
+				]
+			]
+		);
+
+        $this->add_control(
+			'exad_card_mask_shape_repeat',
+			[
+				'label'         => __( 'Repeat', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::SELECT,
+				'default'       => 'no-repeat',
+				'label_block'   => true,
+				'options'       => [
+					'no-repeat' => __( 'No repeat', 'exclusive-addons-elementor' ),
+					'repeat'    => __( 'Repeat', 'exclusive-addons-elementor' )
+                ],
+                'selectors'     => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-repeat: {{VALUE}};'
+				],
+				'condition' 	=> [
+					'exad_card_enable_image_mask' => 'yes'
 				]
 			]
 		);

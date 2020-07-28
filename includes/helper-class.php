@@ -281,29 +281,6 @@ class Helper {
         $settings['exad_post_grid_show_read_more_btn'] = $_POST['enable_details_btn'];
         $settings['exad_post_grid_post_data_position'] = $_POST['post_data_position'];
 
-        // $settings['exad_post_grid_show_image'] = $_POST['post_thumbnail'];
-        // $settings['exad_post_grid_category_default_position'] = true;
-        // $settings['exad_post_grid_category_position_over_image'] = '-top-right';
-        // $settings['exad_post_grid_show_category'] = 'yes';
-        // $settings['exad_post_grid_category_default_position'] = 'no';
-        // $settings['exad_post_grid_show_user_avatar'] = $_POST['show_user_avatar'];
-        // $settings['exad_post_grid_show_user_name'] = $_POST['show_user_name'];
-        // $settings['exad_post_grid_show_date'] = 'yes';
-        // $settings['exad_post_grid_post_data_position'] = 'post_data_middle';
-        // $settings['exad_post_grid_user_name_tag'] = 'By:';
-        // // $settings['exad_post_grid_show_date'] = 'yes';
-        // $settings['exad_post_grid_show_title'] = 'yes';
-        // $settings['exad_post_grid_title_full'] = 'yes';
-        // $settings['exad_grid_title_length'] = 20;
-        // $settings['exad_post_grid_show_read_time'] = 'yes';
-        // $settings['exad_post_grid_show_comment'] = 'yes';
-        // $settings['exad_post_grid_show_excerpt'] = 'yes';
-        // $settings['exad_grid_excerpt_length'] = 20;
-        // $settings['exad_post_grid_read_more_btn_text'] = "read-more";
-        // $settings[ 'exad_post_grid_show_read_more_btn' ] = $_POST['enable_details_btn'];
-        // $settings[ 'exad_post_grid_equal_height' ] = $_POST['equal_height'];
-
-
         $post_args = array(
             'post_type'        => $_POST['post_type'],
             'posts_per_page'   => $_POST['posts_per_page'],
@@ -326,70 +303,31 @@ class Helper {
         wp_reset_postdata();
 
         wp_send_json($result);
-        // var_dump( $html );
         wp_die();
     }
-    
 
-    // public static function exad_ajax_pagination( $settings ){
-    // // public static function exad_ajax_pagination( $settings, $prefix ){
-    
-    //     // $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-    //     // $posts = new \WP_Query( $settings['post_args'] );
-    //     $paged = $_POST['page'];
-
-    //     $q = new \WP_Query( array(
-    //         'posts_per_page' => 3,
-    //         'post_type' => 'post',
-    //         'paged' => $paged,
-    //         'ignore_sticky_posts' => 0,
-    //         // 'post_type'        => $settings[ $prefix . '_type'],
-    //         // 'posts_per_page'   => $settings[ $prefix .'_per_page'],
-    //         // 'offset'           => $settings[ $prefix . '_offset'],
-    //         // 'cat'              => $category_ids,
-    //         // 'category_name'    => '',
-    //         // 'ignore_sticky_posts' => $exad_ignore_sticky,
-    //         // 'orderby'          => 'date',
-    //         // 'order'            => $settings[ $prefix . '_order'],
-    //         // 'include'          => '',
-    //         // 'exclude'          => '',
-    //         // 'meta_key'         => '',
-    //         // 'meta_value'       => '',
-    //         // 'post_mime_type'   => '',
-    //         // 'post_parent'      => '',
-    //         // 'author'           => $author_ids,
-    //         // 'author_name'      => '',
-    //         // 'post_status'      => 'publish',
-    //         // 'suppress_filters' => true,
-    //         // 'tag__in'          => $settings[ $prefix . '_tags'],
-    //         // 'post__not_in'     => '',
-    //     ) );
-
-    //     // $posts = new \WP_Query( $settings['post_args'] );
-
-    //     $html = '';
-
-    //     // $html .= Helper::exad_get_posts( $settings );
-
-    //     if( $q->have_posts() ){
-    //         $posts = new \WP_Query( $settings['post_args'] );
-
-    //     while( $posts->have_posts() ) : $posts->the_post(); 
-
-    //         if ( 'exad-post-timeline' === $settings['template_type'] ) { 
-    //             include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
-    //         } elseif ( 'exad-post-grid' === $settings['template_type'] ) { 
-    //             include EXAD_TEMPLATES . 'tmpl-post-grid.php';
-    //         } else {
-    //             _e( 'No Contents Found', 'exclusive-addons-elementor' );
-    //         }
-
-    //     endwhile;
-    //         wp_reset_query();
-    //     } else {
-    //         echo "No post Found";
-    //     }
-    //     var_dump( $html );
-    //     die();
-    // }
+    /**
+     * Contain masking shape list
+     * @param $element
+     * @return array
+     */
+    public static function exad_masking_shape_list( $element ) {
+        $dir = EXAD_ASSETS_URL . 'img/masking/';
+        $shape_name = 'shape-';
+        $extension = '.svg';
+        $list = [];
+        if ( 'list' == $element ) {
+            for ($i = 1; $i <= 64; $i++) {
+                $list[$shape_name.$i] = [
+                    'title' => ucwords($shape_name.''.$i),
+                    'url' => $dir . $shape_name . $i . $extension,
+                ];
+            }
+        } elseif ( 'url' == $element ) {
+            for ($i = 1; $i <= 64; $i++) {
+                $list[$shape_name.$i] = $dir . $shape_name . $i . $extension;
+            }
+        }
+        return $list;
+    }
 }

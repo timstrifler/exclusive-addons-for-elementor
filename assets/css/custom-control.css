@@ -1,0 +1,26 @@
+.exad-selector-wrapper{
+    overflow-y: scroll;
+    margin-top: 10px;
+	max-height: 160px;
+    width: 100%;
+}
+.exad-selector-wrapper input[type="radio"]{
+    display: none;
+}
+
+.exad-selector-label{
+    height: 70px;
+    width: 70px;
+    display: block;
+    float: left;
+    cursor: pointer;
+}
+.exad-selector-label img{
+    height: 100% !important;
+    width: 100%;
+    padding: 5px;
+}
+
+.exad-selector-wrapper input[type="radio"]:checked + .exad-selector-label {
+	border: 1px solid #ffffff;
+}
