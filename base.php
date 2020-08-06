@@ -165,6 +165,11 @@ final class Base {
         // Add Body Class 
         add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 
+        // ajax load more hook
+
+        add_action( 'wp_ajax_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );
+        add_action( 'wp_ajax_nopriv_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );
+
     }
 
 
@@ -560,6 +565,61 @@ final class Base {
             'ajax_url' => admin_url( 'admin-ajax.php' ),
             'query_vars' => json_encode( $wp_query->query )
         ));
+    }
+
+    // Ajax Load More For Post Grid
+    public static function exad_ajax_pagination() {
+
+        $paged = $_POST['paged'];
+
+        $settings = [];
+        $settings['exad_post_grid_category_default_position'] = $_POST['category_default_position'];
+        $settings['exad_post_grid_category_position_over_image'] = $_POST['category_position_over_image'];
+        $settings['exad_post_grid_image_align'] = $_POST['image_align'];
+        $settings['exad_post_grid_equal_height'] = $_POST['equal_height'];
+        $settings['exad_post_grid_show_image'] = $_POST['post_thumbnail'];
+        $settings['exad_post_grid_show_category'] = $_POST['show_category'];
+        $settings['exad_post_grid_show_user_avatar'] = $_POST['show_user_avatar'];
+        $settings['exad_post_grid_show_user_name'] = $_POST['show_user_name'];
+        $settings['exad_post_grid_show_user_name_tag'] = $_POST['show_user_name_tag'];
+        $settings['exad_post_grid_user_name_tag'] = $_POST['user_name_tag'];
+        $settings['exad_post_grid_show_date'] = $_POST['show_date'];
+        $settings['exad_post_grid_show_date_tag'] = $_POST['show_date_tag'];
+        $settings['exad_post_grid_date_tag'] = $_POST['date_tag'];
+        $settings['exad_post_grid_show_title'] = $_POST['show_title'];
+        $settings['exad_post_grid_title_full'] = $_POST['title_full'];
+        $settings['exad_grid_title_length'] = $_POST['title_length'];
+        $settings['exad_post_grid_show_read_time'] = $_POST['show_read_time'];
+        $settings['exad_post_grid_show_comment'] = $_POST['show_comment'];
+        $settings['exad_post_grid_show_excerpt'] = $_POST['show_excerpt'];
+        $settings['exad_grid_excerpt_length'] = $_POST['excerpt_length'];
+        $settings['exad_post_grid_read_more_btn_text'] = $_POST['details_btn_text'];
+        $settings['exad_post_grid_show_read_more_btn'] = $_POST['enable_details_btn'];
+        $settings['exad_post_grid_post_data_position'] = $_POST['post_data_position'];
+
+        $post_args = array(
+            'post_type'        => $_POST['post_type'],
+            'posts_per_page'   => $_POST['posts_per_page'],
+            'post_status'      => 'publish',
+            'paged'            => $paged,
+        );
+
+        $posts = new \WP_Query( $post_args );
+
+        $result = '';
+
+        while( $posts->have_posts() ) : $posts->the_post(); 
+            ob_start();
+
+            include EXAD_TEMPLATES . 'tmpl-post-grid.php';
+            $result .= ob_get_contents();
+            ob_end_clean();
+
+        endwhile;
+        wp_reset_postdata();
+
+        wp_send_json($result);
+        wp_die();
     }
 
     /**

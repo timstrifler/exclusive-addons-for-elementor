@@ -58,7 +58,7 @@ var exclusivePostGrid = function( $scope, $ ) {
                     });
                 }, 10);
             },
-		})
+		});
     });
 
     

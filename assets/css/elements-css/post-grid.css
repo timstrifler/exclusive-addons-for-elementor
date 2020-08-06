@@ -342,4 +342,21 @@ nav.exad-post-pagination ul li {
   text-decoration: none;
   transition: all .3s ease;
 }
+.exad-post-grid-container ul.exad-post-grid-category li a{
+  display: block;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes article.exad-post-grid-three:first-child{
+  flex: 100%;
+  max-width: 100%;
+}
+
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container{
+  display: flex;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-thumbnail{
+  width: 50%;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-body{
+  width: 50%;
+}
 /* Post Grid End */
