@@ -356,6 +356,14 @@ nav.exad-post-pagination ul li {
 .exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-thumbnail{
   width: 50%;
 }
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-thumbnail a{
+  height: 100%;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-thumbnail a img{
+  height: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
 .exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-body{
   width: 50%;
 }

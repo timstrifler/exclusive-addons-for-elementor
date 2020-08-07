@@ -565,6 +565,18 @@ class Post_Grid extends Widget_Base {
             ]
 		);
 
+		$this->add_control(
+			'exad_post_grid_feature_post_padding',
+			[
+				'label'      => esc_html__( 'Content Padding', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px' ],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-body'=> 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
 		$this->end_controls_section();
 
 		// Image Styles
