@@ -162,6 +162,8 @@ final class Base {
         add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'editor_scripts' ] );
         // Add Elementor Widgets
         add_action( 'elementor/widgets/widgets_registered', [ $this, 'initiate_widgets' ] );
+        // Register controls
+		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
         // Add Body Class 
         add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 
@@ -792,9 +794,14 @@ final class Base {
         return $classes;
     }
 
+    /**
+     * 
+     * Registering Custom SVG Control
+     * 
+     */
     public function register_controls() {
 
-		$controls_manager = Plugin::$instance->controls_manager;
+		$controls_manager = \Elementor\Plugin::$instance->controls_manager;
 		$controls_manager->register_control( 'svg-selector', new Custom_Control() );
 
 	}
