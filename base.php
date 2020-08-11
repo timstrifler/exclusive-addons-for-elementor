@@ -41,6 +41,12 @@ final class Base {
 
     /**
      * 
+     * Check to See if Pro version is enabled
+     */
+    public static $is_pro_active;
+
+    /**
+     * 
      * Static property that consists all the default widget array
      * 
      * @access public
@@ -112,6 +118,8 @@ final class Base {
     public function __construct() {
 
         do_action( 'exad/before_init' );
+        // Look for Pro Version
+        self::$is_pro_active = apply_filters( 'exad/pro_activated', false );
         $this->includes();
         $this->widget_map_free();     
         $this->activated_widgets(); 
@@ -439,9 +447,211 @@ final class Base {
                 
         ];
 
-        self::$default_widgets = apply_filters( 'exad_add_pro_widgets', $widget_lists );
+        if ( self::$is_pro_active ) {
+            self::$default_widgets = apply_filters( 'exad_add_pro_widgets', $widget_lists );
+        } else {
+            self::$default_widgets = array_merge( $widget_lists, $this->widget_map_pro() );
+        }
 
     }
+
+    public function widget_map_pro() {
+        return [
+            'animated-shape'  => [
+                'title'  => __( 'Animated Shape', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Animated_Shape',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'blob-maker'  => [
+                'title'  => __( 'Blob Maker', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Blob_Maker',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'breadcrumb'  => [
+                'title'  => __( 'Breadcrumb', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Breadcrumb',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'business-hours'  => [
+                'title'  => __( 'Business Hours', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Business_Hours',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'chart'  => [
+                'title'  => __( 'Chart', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Chart',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'comparison-table'  => [
+                'title'  => __( 'Comparison Table', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Comparison_Table',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'content-switcher'  => [
+                'title'  => __( 'Content Switcher', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Content_Switcher',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'cookie-consent'  => [
+                'title'  => __( 'Cookie Consent', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Cookie_Consent',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'counter'  => [
+                'title'  => __( 'Counter', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Counter',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'gravity-form'  => [
+                'title'  => __( 'Gravity Form', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Gravity_Form',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'iconbox'  => [
+                'title'  => __( 'Iconbox', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Iconbox',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'image-carousel'  => [
+                'title'  => __( 'Image Carousel', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Image_Carousel',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'image-hotspot'  => [
+                'title'  => __( 'Image Hotspot', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Image_Hotspot',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'image-mask'  => [
+                'title'  => __( 'Image Mask', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Image_Mask',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'instagram-feed'  => [
+                'title'  => __( 'Instagram Feed', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Instagram_Feed',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'login-register'  => [
+                'title'  => __( 'Login/Register Form', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Login_Register',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'mailchimp'  => [
+                'title'  => __( 'MailChimp', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\MailChimp',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'navigation-menu'  => [
+                'title'  => __( 'Navigation Menu', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Navigation_Menu',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'news-ticker'  => [
+                'title'  => __( 'News Ticker', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\News_Ticker_Pro',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'off-canvas'  => [
+                'title'  => __( 'Off Canvas', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Off_Canvas',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'post-carousel'  => [
+                'title'  => __( 'Post Carousel', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Post_Carousel',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'post-slider'  => [
+                'title'  => __( 'Post Slider', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Post_Slider',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'promo-box'  => [
+                'title'  => __( 'Promo Box', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Promo_Box',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'social-share'  => [
+                'title'  => __( 'Social Share', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Social_Share',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'slider'  => [
+                'title'  => __( 'Slider', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Slider',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'source-code'  => [
+                'title'  => __( 'Source Code', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Source_Code',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'table'  => [
+                'title'  => __( 'Table', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Table',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'team-carousel'  => [
+                'title'  => __( 'Team Carousel', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Team_Carousel',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'testimonial-carousel'  => [
+                'title'  => __( 'Testimonial Carousel', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Testimonial_Carousel',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'thumb-preview'  => [
+                'title'  => __( 'Thumb Preview', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Thumb_Preview',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'woo-category'  => [
+                'title'  => __( 'Woo category', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Category',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'woo-products'  => [
+                'title'  => __( 'Woo Products', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Products',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+        ];
+    }
+
 
     /**
      * Initialize the tracker
@@ -633,10 +843,6 @@ final class Base {
         self::$widget_names = array_keys( self::$default_widgets );
         self::$widget_settings  = array_fill_keys( self::$widget_names, true );
         $this->is_activated_widget = get_option( 'exad_save_settings', self::$widget_settings );
-    }
-
-    public function is_excluisve_addons_pro_active() {
-        return defined( EXAD_PRO_PLUGIN_VERSION );
     }
 
     /**
