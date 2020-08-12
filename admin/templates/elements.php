@@ -42,7 +42,8 @@ use \ExclusiveAddons\Elementor\Base;
             <div class="exad-dashboard-checkbox-container">
                 <?php ksort(Base::$default_widgets); ?>
                 <?php foreach( Base::$default_widgets as $key => $widget ) : ?>
-                    <?php if ( isset( $key ) ) : ?>        
+                
+                    <?php if ( isset( $key ) ) : ?>
                         <div class="exad-dashboard-checkbox <?php echo esc_attr( $widget['tags'] ); ?>" data-tag="<?php echo esc_attr( $widget['tags'] ); ?>">
                             <?php if( true === $widget['is_pro'] ) { ?>
                                 <div class="exad-dashboard-item-label">
@@ -60,7 +61,7 @@ use \ExclusiveAddons\Elementor\Base;
                                 </a>
                             </div>
                             <div class="exad-dashboard-checkbox-label">
-                                <input class="exad-dashboard-input" type="checkbox" id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" <?php checked( 1, $this->get_dashboard_settings[$key], true ); ?>>
+                                <input class="exad-dashboard-input" type="checkbox" <?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? 'disabled' : ''; ?> id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" <?php ( $widget['is_pro'] && !Base::$is_pro_active ? '' : checked( 1, $this->get_dashboard_settings[$key], true ) ); ?>>
                                 <label for="<?php echo esc_attr( $key ); ?>"></label>
                             </div>
                         </div>
