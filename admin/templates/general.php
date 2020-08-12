@@ -6,11 +6,11 @@
                     <?php echo __( 'Exclusive Addons For Elementor', 'exclusive-addons-elementor' ); ?>
                 </a>
             </div>
-            <div class="exad-admin-block-upgrade-button">
+            <!-- <div class="exad-admin-block-upgrade-button">
                 <a href="http://exclusiveaddons.com/" target="_blank">
                     <?php echo __( 'Upgrade To Pro', 'exclusive-addons-elementor' ); ?>
                 </a>
-            </div>
+            </div> -->
         </div>
         <!--preview image end-->
         <div class="exad-admin-general-inner">
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <!--admin block-wrapper end-->
-            <h1 class="exad-upgrade-title">Why you should upgrade</br> to Premium Version?</h1>
+            <!-- <h1 class="exad-upgrade-title">Why you should upgrade</br> to Premium Version?</h1>
             <div class="exad-upgrade-pro-wrapper">
                 <div class="exad-upgrade-pro-info">
                     <div class="exad-upgrade-pro-info-thumb">
@@ -100,7 +100,7 @@
                     <h1 class="exad-upgrade-pro-info-title">Secondary-color</h1>
                     <p class="exad-upgrade-pro-info-content">Choose the primary color which will be applied as the default color for all the elements. Default: #7a56ff You might have to Regenerate the CSS from Elementor > Tools > Regenerate CSS for this to work.</p>
                 </div>
-            </div>
+            </div> -->
 
             <div class="exad-admin-footer-banner-wrapper">
                 <div class="exad-admin-footer-banner">
@@ -108,7 +108,7 @@
                     The premium version helps us to continue development of the product</br> incorporating even more features and enhancements.</br></br>
                     You will also get world class support from our dedicated team, 24/7.
                     </p>
-                    <a href="http://exclusiveaddons.com/" class="exad-admin-footer-banner-btn">Upgrade To Pro</a>
+                    <a href="" class="exad-admin-footer-banner-btn">Upgrade To Pro</a>
                 </div>
             </div>
 
