@@ -61,7 +61,7 @@ use \ExclusiveAddons\Elementor\Base;
                                 </a>
                             </div>
                             <div class="exad-dashboard-checkbox-label">
-                                <input class="exad-dashboard-input" type="checkbox" <?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? 'disabled' : ''; ?> id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" <?php ( $widget['is_pro'] && !Base::$is_pro_active ? '' : checked( 1, $this->get_dashboard_settings[$key], true ) ); ?>>
+                                <input class="exad-dashboard-input" type="checkbox" <?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? 'disabled="disabled"' : ''; ?> id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" <?php ( $widget['is_pro'] && !Base::$is_pro_active ? '' : checked( 1, $this->get_dashboard_settings[$key], true ) ); ?>>
                                 <label for="<?php echo esc_attr( $key ); ?>"></label>
                             </div>
                         </div>
