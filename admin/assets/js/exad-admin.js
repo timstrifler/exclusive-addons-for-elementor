@@ -4,6 +4,11 @@ jQuery(document).ready(function($) {
 	// Dashboard Color Picker 
 	$('.exad-dashboard-tab .exad-admin-color-picker').wpColorPicker();
 
+	// $('.exad-admin-footer-banner-btn').prop('disabled', true);
+	$('.exad-admin-footer-banner-btn').on('click',function(e) {
+		e.preventDefault();
+	});
+
 	// Dashboard Tabs
 	$( '.exad-dashboard-tabs li.exad-tab-btn a' ).on( 'click', function(e) {
 		e.preventDefault();
