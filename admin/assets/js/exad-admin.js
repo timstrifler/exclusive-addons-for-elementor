@@ -81,9 +81,10 @@ jQuery(document).ready(function($) {
 
 	$('.exad-element-enable').click(function(e){
 		e.preventDefault();
-		$(".exad-dashboard-checkbox.active").addClass("selected");
 		$(inputCheck).each(function() {
-			if ( $(this).closest(".exad-dashboard-checkbox.active").css('display') == 'flex' ) {
+			var checkBoxActive = $(this).closest(".exad-dashboard-checkbox.active");
+			if ( checkBoxActive.css('display') == 'flex' ) {
+				checkBoxActive.addClass("selected");
 				$(this).prop('checked', true).change();
 			}
         });
@@ -92,9 +93,10 @@ jQuery(document).ready(function($) {
 
 	$('.exad-element-disable').click(function(e){
 		e.preventDefault();
-		$(".exad-dashboard-checkbox.active").remove("selected");
 		$(inputCheck).each(function() {
-			if ( $(this).closest(".exad-dashboard-checkbox.active").css('display') == 'flex' ) {
+			var checkBoxActive = $(this).closest(".exad-dashboard-checkbox.active")
+			if ( checkBoxActive.css('display') == 'flex' ) {
+				checkBoxActive.remove("selected");
 				$(this).prop('checked', false).change();
 			}
         });
