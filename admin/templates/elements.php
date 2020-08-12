@@ -44,7 +44,7 @@ use \ExclusiveAddons\Elementor\Base;
                 <?php foreach( Base::$default_widgets as $key => $widget ) : ?>
                 
                     <?php if ( isset( $key ) ) : ?>
-                        <div class="exad-dashboard-checkbox <?php echo esc_attr( $widget['tags'] ); ?>" data-tag="<?php echo esc_attr( $widget['tags'] ); ?>">
+                        <div class="exad-dashboard-checkbox <?php echo esc_attr( $widget['tags'] ); ?><?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? ' inactive' : ' active'; ?>" data-tag="<?php echo esc_attr( $widget['tags'] ); ?>">
                             <?php if( true === $widget['is_pro'] ) { ?>
                                 <div class="exad-dashboard-item-label">
                                     <span class="exad-el-label"><?php echo esc_html( $widget['tags'] ); ?></span>

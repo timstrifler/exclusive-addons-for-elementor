@@ -44,7 +44,9 @@ class Admin_Settings {
 		add_action( 'admin_menu', array( $this, 'create_admin_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		add_action( 'wp_ajax_exad_ajax_save_elements_setting', array( $this, 'ajax_save_elements_setting_function' ) );
-    }
+	}
+	
+	
 
 	/**
 	 * Loading required scripts

@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 
 	// Save Button reacting on any changes
 	var saveHeaderAction = $( '.exad-dashboard-header-wrapper .exad-btn' );
-	$('.exad-dashboard-tab input, .exad-dashboard-tab button').on( 'click', function() {
+	$('#apikeys.exad-dashboard-tab input, .exad-dashboard-tab button').on( 'click', function() {
 		saveHeaderAction.addClass( 'exad-save-now' );
 		saveHeaderAction.removeAttr('disabled').css('cursor', 'pointer');
 	} );
@@ -59,34 +59,39 @@ jQuery(document).ready(function($) {
 	} );
 
 	// add class for change input:check
-	var inputCheck = $('.exad-dashboard-checkbox .exad-dashboard-checkbox-label input');
+	
+	var inputCheck = $('.exad-dashboard-checkbox.active .exad-dashboard-checkbox-label input');
 	$.each( inputCheck, function() {
 		if ($(this).prop("checked")) {
-			$(this).closest(".exad-dashboard-checkbox").addClass("selected");
+			$(this).closest(".exad-dashboard-checkbox.active").addClass("selected");
 		}
 	});
 	$(inputCheck).change(function(){
 		if($(this).is(":checked")) {
-			$(this).closest(".exad-dashboard-checkbox").addClass("selected");
+			$(this).closest(".exad-dashboard-checkbox.active").addClass("selected");
 		} else {
-			$(this).closest(".exad-dashboard-checkbox").removeClass("selected");
+			$(this).closest(".exad-dashboard-checkbox.active").removeClass("selected");
 		}
 	});
 
 	$('.exad-element-enable').click(function(e){
 		e.preventDefault();
-		$(".exad-dashboard-checkbox").addClass("selected");
-		$(inputCheck).each(function(i) {
-			$(this).prop('checked', true).change();
+		$(".exad-dashboard-checkbox.active").addClass("selected");
+		$(inputCheck).each(function() {
+			if ( $(this).closest(".exad-dashboard-checkbox.active").css('display') == 'flex' ) {
+				$(this).prop('checked', true).change();
+			}
         });
 		saveHeaderAction.addClass( 'exad-save-now' );
 	});
 
 	$('.exad-element-disable').click(function(e){
 		e.preventDefault();
-		$(".exad-dashboard-checkbox").remove("selected");
-		$(inputCheck).each(function(i) {
-			$(this).prop('checked', false).change();
+		$(".exad-dashboard-checkbox.active").remove("selected");
+		$(inputCheck).each(function() {
+			if ( $(this).closest(".exad-dashboard-checkbox.active").css('display') == 'flex' ) {
+				$(this).prop('checked', false).change();
+			}
         });
 		saveHeaderAction.addClass( 'exad-save-now' );
 	});
