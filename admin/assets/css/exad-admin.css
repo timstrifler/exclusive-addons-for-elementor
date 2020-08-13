@@ -542,6 +542,7 @@ button.exad-btn:focus {
 .exad-dashboard-checkbox-container {
     display: grid;
     grid-template-columns: repeat( 5, 1fr );
+    grid-gap: 20px;
 }
 @media (max-width: 1400px){
     .exad-dashboard-checkbox-container {
@@ -577,7 +578,7 @@ button.exad-btn:focus {
     border-radius: 12px;
     background: #ffffff;
     justify-content: space-between;
-    margin: 10px;
+    /* margin: 10px; */
     position: relative;
     transition: .3s ease;
     overflow: hidden;
@@ -656,7 +657,7 @@ button.exad-btn:focus {
 
 /* Filter Action */
 .exad-element-filter {
-    padding: 30px 20px 10px 10px;
+    padding: 30px 2px 10px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
