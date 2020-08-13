@@ -150,10 +150,9 @@ final class Base {
                 return;
             }
 
-            add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
+            add_filter('plugin_action_links_' . EXAD_PBNAME, array($this, 'insert_go_pro_url'));
 
-            // Plugin Settings URL
-            add_filter( 'plugin_action_links_'.EXAD_PBNAME, array( $this, 'plugin_settings_action' ) );
+            add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
 
         }
 
@@ -675,15 +674,7 @@ final class Base {
     }
 
 
-    /**
-     * 
-     * Add Plugin Action link for settings page
-     */
-    public function plugin_settings_action( $links ) {
-        $settings_link = sprintf( '<a href="admin.php?page=exad-settings">' . __( 'Settings', 'exclusive-addons-elementor' ) . '</a>' );
-        array_push( $links, $settings_link );
-        return $links;
-    }
+
 
     /**
      * 
@@ -877,6 +868,25 @@ final class Base {
             }
         }
 
+    }
+
+
+    /**
+     * Extending plugin links
+     *
+     * @since 3.0.0
+     */
+    public function insert_go_pro_url($links)
+    {
+        // settings
+        $links[] = sprintf('<a href="admin.php?page=exad-settings">' . __('Settings', 'exclusive-addons-elementor') . '</a>');
+
+        // go pro
+        if ( !self::$is_pro_active ) {
+            $links[] = sprintf('<a href="https://exclusiveaddons.com/" target="_blank" style="color: #7A56FF; font-weight: bold;">' . __('Go Pro', 'exclusive-addons-elementor') . '</a>');
+        }
+
+        return $links;
     }
 
 
