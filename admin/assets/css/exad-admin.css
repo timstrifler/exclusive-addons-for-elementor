@@ -540,13 +540,36 @@ button.exad-btn:focus {
 
 /* dashboard element  */
 .exad-dashboard-checkbox-container {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat( 5, 1fr );
+}
+@media (max-width: 1400px){
+    .exad-dashboard-checkbox-container {
+        grid-template-columns: repeat( 4, 1fr );
+    }
+}
+@media (max-width: 1200px){
+    .exad-dashboard-checkbox-container {
+        grid-template-columns: repeat( 3, 1fr );
+    }
+}
+@media (max-width: 991px){
+    .exad-dashboard-checkbox-container {
+        grid-template-columns: repeat( 3, 1fr );
+    }
+}
+@media (max-width: 767px){
+    .exad-dashboard-checkbox-container {
+        grid-template-columns: repeat( 2, 1fr );
+    }
+}
+@media (max-width: 400px){
+    .exad-dashboard-checkbox-container {
+        grid-template-columns: repeat( 1, 1fr );
+    }
 }
 
 .exad-dashboard-checkbox {
-    min-width: 270px;
     padding: 40px 20px;
     display: flex;
     align-items: center;
@@ -991,11 +1014,6 @@ input.color-picker.exad-admin-color-picker.wp-color-picker:focus{
         margin: 30px 0 0 0;
     }
 }
-@media (max-width: 1200px){
-    .exad-dashboard-checkbox{
-        min-width: 250px;
-    }
-}
 @media (max-width: 767px){
     .exad-dashboard-color-wrapper{
         flex-wrap: wrap;
@@ -1007,6 +1025,15 @@ input.color-picker.exad-admin-color-picker.wp-color-picker:focus{
     .exad-secondary-color-field{
         width: 100%;
         margin: 0;
+    }
+    .exad-element-filter-text{
+        flex-direction: column;
+    }
+    .exad-element-filter-btn ul{
+        display: grid;
+    }
+    .exed-element-filter-dropdown{
+        margin-bottom: 10px;
     }
 }
 
