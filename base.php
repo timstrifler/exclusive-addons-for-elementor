@@ -856,7 +856,7 @@ final class Base {
      */
     public function initiate_widgets() {
 
-        ksort(self::$default_widgets);
+        ksort( self::$default_widgets );
         foreach( self::$default_widgets as $key => $widget ) {
             if ( $this->is_activated_widget[$key] == true ) {
                 
