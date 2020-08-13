@@ -80,7 +80,7 @@ class Team_Member extends Widget_Base {
 				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
 				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => 'no',
 			]
 		);
 
@@ -1471,7 +1471,7 @@ class Team_Member extends Widget_Base {
 		}
 
 		$this->add_render_attribute( 'exad_team_members_cta_btn_link', 'class', 'exad-team-member-cta' );
-		if( $settings['exad_team_members_cta_btn_link']['url'] ) {
+		if( isset( $settings['exad_team_members_cta_btn_link']['url'] ) ) {
             $this->add_render_attribute( 'exad_team_members_cta_btn_link', 'href', esc_url( $settings['exad_team_members_cta_btn_link']['url'] ) );
 	        if( $settings['exad_team_members_cta_btn_link']['is_external'] ) {
 	            $this->add_render_attribute( 'exad_team_members_cta_btn_link', 'target', '_blank' );

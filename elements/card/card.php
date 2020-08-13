@@ -80,7 +80,7 @@ class Card extends Widget_Base {
 				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
 				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => 'no',
 			]
 		);
 
