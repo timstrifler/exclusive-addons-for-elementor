@@ -156,6 +156,8 @@ final class Base {
 
         }
 
+        // Exclusive Addons Elementor activated checking hook
+        do_action( 'exad/exclusive_addons_active' );
         add_action( 'init', [ $this, 'i18n' ] );
         // Placeholder image replacement
         add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'set_placeholder_image' ], 30 );
@@ -175,7 +177,6 @@ final class Base {
         add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 
         // ajax load more hook
-
         add_action( 'wp_ajax_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );
         add_action( 'wp_ajax_nopriv_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );
 
@@ -564,7 +565,7 @@ final class Base {
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
-            'news-ticker'  => [
+            'news-ticker-pro'  => [
                 'title'  => __( 'News Ticker', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\News_Ticker_Pro',
                 'tags'   => 'pro',

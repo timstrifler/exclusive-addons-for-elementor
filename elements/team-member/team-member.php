@@ -1341,7 +1341,7 @@ class Team_Member extends Widget_Base {
 					[
 						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#FFF',
+						'default'   => '',
 						'selectors' => [
 							'{{WRAPPER}} .exad-team-member-social li a' => 'background-color: {{VALUE}};'
 						]
