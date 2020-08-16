@@ -16,3 +16,10 @@
     background: #c7c7c738;
     border-bottom-left-radius: 3px;
 }
+
+.exad-panel-notice {
+    line-height: 20px;
+    background-color: #fdf8c0;
+    color: #8a6822;
+    padding: 10px;
+}
