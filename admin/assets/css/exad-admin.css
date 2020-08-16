@@ -199,13 +199,40 @@ button.exad-btn:focus {
 }
 
 .exad-dashboard-tabs li a.active {
-    background: #6A36FF;
     color: #fff;
+}
+
+.exad-dashboard-tabs .active-switcher{
+    background: #6A36FF;
+    height: 50px;
+    width: 128.98px;
+    position: absolute;
+    left: 30px;
+    top: 15px;
+    z-index: -1;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+.exad-dashboard-tabs {
+    position: relative;
+    z-index: 1;
 }
 
 .exad-dashboard-tabs li a:focus {
     outline: 0;
     box-shadow: none;
+}
+
+.exad-dashboard-tabs li.exad-tab-btn a img.exad-tab-image-normal {
+}
+.exad-dashboard-tabs li.exad-tab-btn a img.exad-tab-image-active {
+    display: none;
+}
+.exad-dashboard-tabs li.exad-tab-btn a.active img.exad-tab-image-normal {
+    display: none;
+}
+.exad-dashboard-tabs li.exad-tab-btn a.active img.exad-tab-image-active {
+    display: flex;
 }
 
 /* Content Wrapper */
@@ -431,6 +458,8 @@ button.exad-btn:focus {
     background-color: #6A36FF;
     border-radius: 20px;
     background-image: url('../img/banner-bg.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .exad-admin-footer-banner-content{
     color: #ffffff;
