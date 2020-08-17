@@ -852,11 +852,11 @@ final class Base {
         foreach( self::$default_widgets as $key => $widget ) {
             if ( $this->is_activated_widget[$key] == true ) {
                 
-                if ( $key == 'contact-form-7' ) {
-                    if ( ! function_exists( 'wpcf7' ) ) {
-                        continue;
-                    }	
-                } 
+                // if ( $key == 'contact-form-7' ) {
+                //     if ( ! function_exists( 'wpcf7' ) ) {
+                //         continue;
+                //     }	
+                // } 
 
                 $widget_file = EXAD_ELEMENTS . $key . '/'. $key .'.php';
                 if ( file_exists( $widget_file ) ) {

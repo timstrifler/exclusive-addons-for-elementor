@@ -75,6 +75,28 @@ class Contact_Form_7 extends Widget_Base {
 	 */
     protected function _register_controls() {
         $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
+
+        if( ! class_exists( 'WPCF7_ContactForm' ) ) {
+            $this->start_controls_section(
+                'exad_contact_from_panel_notice',
+                [
+                    'label' => __('Notice!', 'exclusive-addons-elementor'),
+                ]
+            );
+
+            $this->add_control(
+                'exad_contact_from_panel_notice_text',
+                [
+                    'type'            => Controls_Manager::RAW_HTML,
+                    'raw'             => __('<strong>contact Form 7</strong> is not installed/activated on your site. Please install and activate <a href="plugin-install.php?s=contact+form+7&tab=search&type=term" target="_blank">Contact Form 7</a> first.',
+                        'exclusive-addons-elementor'),
+                    'content_classes' => 'exad-panel-notice',
+                ]
+            );
+
+            $this->end_controls_section();
+            return;
+        }
         
         /**
          * Content Tab: Contact Form
@@ -889,7 +911,7 @@ class Contact_Form_7 extends Widget_Base {
 			]
 		);
         
-        if ( function_exists( 'wpcf7' ) ) {
+        // if ( function_exists( 'wpcf7' ) ) {
             if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>
                 <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
                         
@@ -904,6 +926,6 @@ class Contact_Form_7 extends Widget_Base {
                 
                 <?php
             }
-        }
+        // }
     }
 }

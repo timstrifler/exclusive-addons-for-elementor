@@ -28,7 +28,7 @@ class Helper {
      */
     
     public static function exad_retrive_contact_form() {
-        if ( function_exists( 'wpcf7' ) ) {
+        // if ( function_exists( 'wpcf7' ) ) {
             $wpcf7_form_list = get_posts(array(
                 'post_type' => 'wpcf7_contact_form',
                 'showposts' => 999,
@@ -43,7 +43,7 @@ class Helper {
                 $options[0] = esc_html__( 'Create a Form First', 'exclusive-addons-elementor' );
             }
             return $options;
-        }
+        // }
     }
 
     /** 
