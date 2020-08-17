@@ -8,7 +8,6 @@ jQuery(document).ready(function($) {
 	$('.exad-admin-footer-banner-btn').on('click',function(e) {
 		e.preventDefault();
 	});
-
 	// Dashboard Tabs
 	$( '.exad-dashboard-tabs li.exad-tab-btn a' ).on( 'click', function(e) {
 		e.preventDefault();
@@ -17,6 +16,10 @@ jQuery(document).ready(function($) {
 		var tab = $(this).attr( 'href' );
 		$( '.exad-dashboard-tab' ).removeClass( 'active' );
 		$( '.exad-dashboard-tabs-wrapper' ).find( tab ).addClass( 'active' );
+        console.log($(this).width());
+        console.log($(this).position());
+        $(".exad-dashboard-tabs .active-switcher").css('width', $(this).width()+50);
+        $(".exad-dashboard-tabs .active-switcher").css('left', $(this).position().left);
 	});
 
 	// Save Button reacting on any changes
