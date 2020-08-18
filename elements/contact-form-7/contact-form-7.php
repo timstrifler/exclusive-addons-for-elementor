@@ -902,6 +902,10 @@ class Contact_Form_7 extends Widget_Base {
 	 * @access protected
 	 */
     protected function render() {
+        if( ! class_exists( 'WPCF7_ContactForm' ) ) {
+            return;
+        }        
+
         $settings = $this->get_settings();
         
         $this->add_render_attribute( 'exad-contact-form', 'class', [
