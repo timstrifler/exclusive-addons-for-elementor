@@ -1081,6 +1081,26 @@
          margin-bottom: 10px;
      }
  }
+
+ .exad-licence-key-submit-btn{
+     padding: 15px 30px;
+     border-radius: 10px;
+     background: #6A36FF;
+     color: #ffffff;
+     border: 1px solid transparent;
+     transition: all .3s ease;
+     cursor: pointer;
+     font-size: 15px;
+     font-family: 'Roboto', sans-serif;
+ }
+ .exad-licence-key-submit-btn:hover{
+     background: #ffffff;
+     color: #6A36FF;
+     border: 1px solid #6A36FF;
+ }
+ .exad-licence-key-submit-btn:focus{
+     outline: 0;
+ }
  
  /* nice select css start */
  .nice-select {
