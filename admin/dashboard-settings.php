@@ -60,8 +60,8 @@ class Admin_Settings {
 		if( isset( $hook ) && $hook == 'toplevel_page_exad-settings' ) {
 			wp_enqueue_style( 'exad-admin-css', EXAD_ADMIN_URL . 'assets/css/exad-admin.min.css' );
 			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.min.js', array( 'jquery', 'wp-color-picker' ), EXAD_PLUGIN_VERSION, true );
-			wp_enqueue_style( 'wp-color-picker' );
-	        wp_enqueue_script( 'wp-color-picker-alpha', EXAD_ADMIN_URL . 'assets/vendor/js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), EXAD_PLUGIN_VERSION, true );
+			// wp_enqueue_style( 'wp-color-picker' );
+	        // wp_enqueue_script( 'wp-color-picker-alpha', EXAD_ADMIN_URL . 'assets/vendor/js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), EXAD_PLUGIN_VERSION, true );
 		}
 	}
 
