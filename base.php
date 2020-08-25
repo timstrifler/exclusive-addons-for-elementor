@@ -878,7 +878,7 @@ final class Base {
 
         // go pro
         if ( !self::$is_pro_active ) {
-            $links[] = sprintf('<a href="https://exclusiveaddons.com/" target="_blank" style="color: #7A56FF; font-weight: bold;">' . __('Go Pro', 'exclusive-addons-elementor') . '</a>');
+            $links[] = sprintf('<a href="https://exclusiveaddons.com/" class="exad-go-pro" target="_blank">' . __('Go Pro', 'exclusive-addons-elementor') . '</a>');
         }
 
         return $links;

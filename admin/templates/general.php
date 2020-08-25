@@ -13,7 +13,9 @@
             </div> -->
         </div>
         <!--preview image end-->
+        
         <div class="exad-admin-general-inner">
+            <?php do_action( 'exad/add_admin_license_page' ); ?>
             <div class="exad-admin-block-wrapper">
 
                 <div class="exad-admin-block exad-admin-block-banner">
@@ -27,8 +29,6 @@
                         <p><?php _e( 'Please feel free to report any issues in our Github repo about Exclusive Addons for Elementor. Send pull requests at', 'exclusive-addons-elementor' ); ?> <a href="https://github.com/mmaumio/exclusive-addons-for-elementor" target="_blank"><?php _e( 'Github.', 'exclusive-addons-elementor' ); ?></a></p>
                         <a href="https://github.com/mmaumio/exclusive-addons-for-elementor/issues/new" class="exad-admin-block-contribution-button" target="_blank"><?php _e( 'Report Bug', 'exclusive-addons-elementor' ); ?></a>
                     </div>
-
-
                 </div>
                 <!--preview image end-->
                 <div class="exad-admin-block exad-admin-block-docs">

@@ -179,7 +179,6 @@ class Admin_Settings {
                     <?php include_once EXAD_ADMIN . 'templates/elements.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/api-keys.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/style-settings.php'; ?>
-                    <?php do_action( 'exad_add_admin_license_page' ); ?>
                 </div>
             </form> <!-- Form End -->
         </div>
