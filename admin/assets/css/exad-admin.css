@@ -120,7 +120,7 @@
  .exad-dashboard-header-right .exad-btn {
      background: #E6EAF5;
      border-radius: 10px;
-     padding: 17px 55px;
+     padding: 15px 25px;
      border: none;
      font-family: 'Nunito', sans-serif;
      font-size: 14px;
@@ -179,6 +179,7 @@
      color: #ffffff;
      display: flex;
      align-items: center;
+     cursor: not-allowed;
  }
  
  .exad-dashboard-tabs li a {
@@ -280,6 +281,7 @@
      font-size: 14px;
      font-weight: 600;
      border-radius: 10px;
+     cursor: not-allowed;
  }
  
  /* Admin block wrapper */
@@ -1101,6 +1103,145 @@
  .exad-licence-key-submit-btn:focus{
      outline: 0;
  }
+
+ /* Licence Part Style Start */
+.exad-license-wrapper{
+    margin: 30px 15% 30px 15%;
+    background: #ffffff;
+    padding: 30px 30px 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 100px 0 rgba(29,38,101,.08);
+}
+.exad-license-header{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 80px;
+    position: relative;
+}
+.exad-license-header::before{
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: #E6EAF5;
+    left: 0;
+    bottom: -40px;
+}
+.exad-license-header-support, .exad-license-header-update{
+    display: flex;
+}
+.exad-license-header-update{
+    padding-left: 25px;
+}
+.exad-license-header-support-icon, .exad-license-header-update-icon{
+    flex-basis: 70px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: relative;
+}
+.exad-license-header-support-icon{
+    background: #6A36FF;
+}
+.exad-license-header-update-icon{
+    background: #DB58FA;
+}
+.exad-license-header-support-icon svg, .exad-license-header-update-icon svg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.exad-license-header-support-content, .exad-license-header-update-content{
+    flex-basis: calc(100% - 100px);
+    padding: 0 0 0 20px;
+}
+.exad-license-header-support-content h3, .exad-license-header-update-content h3{
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 24px;
+}
+.exad-license-header-support-content p, .exad-license-header-update-content p{
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    line-height: 22px;
+    color: #595868;
+    font-weight: 400;
+}
+.exad-license-container{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.exad-license-icon{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+.exad-license-input{
+    width: 520px;
+    height: 50px;
+    margin-right: 20px;
+    position: relative;
+}
+.exad-license-input input{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border: 1px solid #F45276;
+    border-radius: 10px;
+    padding: 15px 20px 15px 50px;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    color: #595868;
+    background: #fff;
+}
+.exad-license-input input:disabled{
+    border: 1px solid #46D39A;
+    color: rgba(89, 88, 104, .37);
+}
+.exad-license-input input:focus{
+    outline: 0;
+    box-shadow: none;
+    border: 1px solid #F45276;
+}
+.exad-license-buttons .button{
+    min-height: 50px;
+    padding: 0 60px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    border: none;
+    transition: all .3s ease;
+}
+.exad-license-buttons .button:focus{
+    outline: 0;
+    border: none;
+    color: #fff;
+    box-shadow: none;
+}
+.exad-license-buttons .button.exad-license-activation-btn{
+    background: #F45276;
+}
+.exad-license-buttons .button.exad-license-activation-btn:hover{
+    background: #e75776;
+    color: #fff;
+}
+.exad-license-buttons .button.exad-license-deactivation-btn{
+    background: #46D39A;
+}
+.exad-license-buttons .button.exad-license-deactivation-btn:hover{
+    background: #4ce2a6;
+    color: #fff;
+}
+/* Licence Part Style end */
  
  /* nice select css start */
  .nice-select {

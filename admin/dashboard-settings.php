@@ -157,19 +157,11 @@ class Admin_Settings {
 								<span><?php _e( 'API Keys', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
-                        <li class="exad-tab-btn">
-							<a href="">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/EX-extensions-normal.svg'; ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/EX-extensions-active.svg'; ?>">
-								<span><?php _e( 'Exclusive Extention', 'exclusive-addons-elementor' ); ?></span>
-							</a>
-						</li>
-						<?php if ( Base::$is_pro_active ) : ?>
-                        <li class="exad-tab-btn">
-							<a href="#licence">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/EX-extensions-normal.svg'; ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/EX-extensions-active.svg'; ?>">
-								<span><?php _e( 'Licence', 'exclusive-addons-elementor' ); ?></span>
+						<?php if ( !Base::$is_pro_active ) : ?>
+						<li class="exad-get-pro">
+							<a href="http://exclusiveaddons.com/" target="_blank">
+								<img src="<?php echo EXAD_ADMIN_URL . 'assets/img/get-pro-icon.svg'; ?>">
+								<span><?php _e( 'Get Pro', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
 						<?php endif; ?>

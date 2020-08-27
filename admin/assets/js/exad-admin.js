@@ -8,6 +8,12 @@ jQuery(document).ready(function($) {
 	$('.exad-admin-footer-banner-btn').on('click',function(e) {
 		e.preventDefault();
 	});
+	$('.exad-get-pro a').on('click',function(e) {
+		e.preventDefault();
+	});
+	$('.exad-admin-block-upgrade-button a').on('click',function(e) {
+		e.preventDefault();
+	});
 	// Dashboard Tabs
 	$( '.exad-dashboard-tabs li.exad-tab-btn a' ).on( 'click', function(e) {
 		e.preventDefault();

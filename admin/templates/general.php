@@ -1,17 +1,22 @@
+<?php 
+use \ExclusiveAddons\Elementor\Base;
+?>
 <div id="general" class="exad-dashboard-tab active">
     <div class="exad-row exad-admin-general-wrapper">
-        <div class="exad-row exad-admin-banner">
-            <div class="exad-admin-block-banner-content">
-                <a class="exad-admin-block-banner-title" href="http://exclusiveaddons.com/" target="_blank">
-                    <?php echo __( 'Exclusive Addons For Elementor', 'exclusive-addons-elementor' ); ?>
-                </a>
+        <?php if ( !Base::$is_pro_active ) : ?>
+            <div class="exad-row exad-admin-banner">
+                <div class="exad-admin-block-banner-content">
+                    <a class="exad-admin-block-banner-title" href="http://exclusiveaddons.com/" target="_blank">
+                        <?php echo __( 'Exclusive Addons For Elementor', 'exclusive-addons-elementor' ); ?>
+                    </a>
+                </div>
+                <div class="exad-admin-block-upgrade-button">
+                    <a href="http://exclusiveaddons.com/" target="_blank">
+                        <?php echo __( 'Upgrade To Pro', 'exclusive-addons-elementor' ); ?>
+                    </a>
+                </div>
             </div>
-            <!-- <div class="exad-admin-block-upgrade-button">
-                <a href="http://exclusiveaddons.com/" target="_blank">
-                    <?php echo __( 'Upgrade To Pro', 'exclusive-addons-elementor' ); ?>
-                </a>
-            </div> -->
-        </div>
+        <?php endif; ?>
         <!--preview image end-->
         
         <div class="exad-admin-general-inner">
@@ -102,6 +107,7 @@
                 </div>
             </div> -->
 
+            <?php if ( !Base::$is_pro_active ) : ?>
             <div class="exad-admin-footer-banner-wrapper">
                 <div class="exad-admin-footer-banner">
                     <p class="exad-admin-footer-banner-content">
@@ -111,6 +117,7 @@
                     <a href="" class="exad-admin-footer-banner-btn">Upgrade To Pro</a>
                 </div>
             </div>
+            <?php endif; ?>
 
         </div>
 
