@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy, covid-19, corona
 Requires at least: 4.6
-Tested up to: 5.4.1
-Stable tag: 2.1.2
+Tested up to: 5.5
+Stable tag: 2.1.3
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -134,6 +134,13 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.1.3 - 27/10/2020 =
+- Added Ajax pagination for Post Grid
+- Whole new design of the Dashboard
+- Image masking Custom Control added for Team Member and Card Widget
+- Plugin architecture changes
+- Overall Bug fixing and improvements on different widgets
 
 = 2.1.2 - 08/06/2020 =
 - Fixed some issues with Covid-19 Stats widget.

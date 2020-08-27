@@ -364,15 +364,14 @@
      font-size: 20px;
      font-family: 'Roboto', sans-serif;
      line-height: 27px;
-     margin: 0 0 5px 0;
+     margin: 0 0 10px 0;
      color: #000;
      font-weight: 600;
  }
  
  .exad-admin-block-header p {
      font-size: 16px;
-     font-family: 'Nunito', sans-serif;
-     line-height: 22px;
+     line-height: 26px;
      color: #595868;
      margin: 0 0 25px 0;
  }
