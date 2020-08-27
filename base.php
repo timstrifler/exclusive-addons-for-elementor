@@ -874,9 +874,9 @@ final class Base {
         $links[] = sprintf('<a href="admin.php?page=exad-settings">' . __('Settings', 'exclusive-addons-elementor') . '</a>');
 
         // go pro
-        // if ( !self::$is_pro_active ) {
-        //     $links[] = sprintf('<a href="https://exclusiveaddons.com/" class="exad-go-pro" target="_blank">' . __('Go Pro', 'exclusive-addons-elementor') . '</a>');
-        // }
+        if ( !self::$is_pro_active ) {
+            $links[] = sprintf('<a href="https://exclusiveaddons.com/" class="exad-go-pro" target="_blank">' . __('Go Pro', 'exclusive-addons-elementor') . '</a>');
+        }
 
         return $links;
     }
