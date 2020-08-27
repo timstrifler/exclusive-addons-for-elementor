@@ -1690,6 +1690,9 @@ class Covid_19_Stats extends Widget_Base {
         }else{
             $response = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/%s', $country ) );
         }
+
+        //var_dump($response);
+
         $details_object = json_decode(json_encode($response['body']), true);
         $details_params = json_decode( $details_object, true );
 
@@ -1791,7 +1794,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_search_filter'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
                 <div class="exad-corona-search-form">
                     <span class="exad-corona-search-icon"><i class="fa fa-search"></i></span>
-                    <input class="exad-corona-search-input" type="text" name="search" id="search_data" placeholder="<?php echo esc_attr($settings['exad_corona_enable_search_filter_text']); ?>">
+                    <input class="exad-corona-search-input" type="text" name="search" id="exad_search_data" placeholder="<?php echo esc_attr($settings['exad_corona_enable_search_filter_text']); ?>">
                 </div>
             <?php } ?>
             <?php if( 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
