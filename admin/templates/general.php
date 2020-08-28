@@ -111,10 +111,10 @@ use \ExclusiveAddons\Elementor\Base;
             <div class="exad-admin-footer-banner-wrapper">
                 <div class="exad-admin-footer-banner">
                     <p class="exad-admin-footer-banner-content">
-                    The premium version helps us to continue development of the product</br> incorporating even more features and enhancements.</br></br>
-                    You will also get world class support from our dedicated team, 24/7.
+                    <?php echo __('The premium version helps us to continue development of the product</br> incorporating even more features and enhancements.</br></br>
+                    You will also get world class support from our dedicated team, 24/7.','exclusive-addons-elementor' ); ?>
                     </p>
-                    <a href="" class="exad-admin-footer-banner-btn">Upgrade To Pro</a>
+                    <a href="" class="exad-admin-footer-banner-btn"><?php echo __('Upgrade To Pro','exclusive-addons-elementor'); ?></a>
                 </div>
             </div>
             <?php endif; ?>
