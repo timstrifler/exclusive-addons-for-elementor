@@ -4689,11 +4689,20 @@ text-align: right;
 .exad-pricing-table-price{
   position: relative;
 }
+.exad-pricing-table-price.exad-discount-price-yes{
+  display: inline-flex;
+  align-items: flex-end;
+}
+.exad-pricing-table-price.exad-discount-price-yes .exad-pricing-table-regular-price{
+  text-decoration: line-through;
+  font-size: 20px;
+  color: #e5e5e5;
+}
 .exad-pricing-table-price svg{
   position: absolute;
 }
 
-.exad-pricing-table-wrapper .exad-pricing-table-price p {
+.exad-pricing-table-wrapper .exad-pricing-table-price p.exad-pricing-table-new-price {
   font-size: 48px;
   font-weight: 600;
   letter-spacing: -3.2px;
