@@ -631,9 +631,9 @@ final class Base {
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
-            'thumb-preview'  => [
-                'title'  => __( 'Thumb Preview', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Thumb_Preview',
+            'demo-previewer'  => [
+                'title'  => __( 'Demo Previewer', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Demo_Previewer',
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
