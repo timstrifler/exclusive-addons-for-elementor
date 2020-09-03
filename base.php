@@ -776,6 +776,9 @@ final class Base {
         // Main Plugin Styles
         wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.min.css' );
 
+        // fonts style
+        wp_enqueue_style( 'exad-font-style', EXAD_ASSETS_URL . 'fonts/style.css' );
+
         if( is_rtl() ) {
             // Main Plugin RTL Styles
             wp_enqueue_style( 'exad-rtl-style', EXAD_ASSETS_URL . 'css/exad-rtl-styles.css' );            
