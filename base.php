@@ -125,6 +125,10 @@ final class Base {
         $this->activated_widgets(); 
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
+
+        if ( is_user_logged_in() ) {
+			Template_Library_Manager::init();
+        }
         
     }
 
