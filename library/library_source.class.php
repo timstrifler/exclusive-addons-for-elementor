@@ -35,19 +35,19 @@ class Template_Library_Source extends Source_Base {
 	public function register_data() {}
 
 	public function save_item( $template_data ) {
-		return new \WP_Error( 'invalid_request', 'Cannot save template to a happpy library' );
+		return new \WP_Error( 'invalid_request', 'Cannot save template to Template Library' );
 	}
 
 	public function update_item( $new_data ) {
-		return new \WP_Error( 'invalid_request', 'Cannot update template to a happpy library' );
+		return new \WP_Error( 'invalid_request', 'Cannot update template to Template Library' );
 	}
 
 	public function delete_template( $template_id ) {
-		return new \WP_Error( 'invalid_request', 'Cannot delete template from a happpy library' );
+		return new \WP_Error( 'invalid_request', 'Cannot delete template from Template Library' );
 	}
 
 	public function export_template( $template_id ) {
-		return new \WP_Error( 'invalid_request', 'Cannot export template from a happpy library' );
+		return new \WP_Error( 'invalid_request', 'Cannot export template from Template Library' );
 	}
 
 	public function get_items( $args = [] ) {
