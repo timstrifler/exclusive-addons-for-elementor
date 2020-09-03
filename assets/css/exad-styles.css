@@ -457,14 +457,23 @@
 .exad-button-wrapper .exad-button-action {
   text-align: center;
   display: inline-block;
-  padding: 15px;
   text-decoration: none;
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 .exad-button-wrapper {
-  margin: 30px auto;
+  margin: 0 auto;
+}
+.exad-button-wrapper.exad-button-fixed-height-yes .exad-button-action{
+  position: relative;
+}
+.exad-button-wrapper.exad-button-fixed-height-yes .exad-button-action span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .exad-button-wrapper.effect-1 .exad-button-action i {
@@ -489,9 +498,9 @@
 }
 
 
-.exad-button-wrapper.effect-2 .exad-button-action i {
+/* .exad-button-wrapper.effect-2 .exad-button-action i {
   margin-right: 10px;
-}
+} */
 
 .exad-button-wrapper.effect-2 .exad-button-action:before, .exad-button-wrapper.effect-2 .exad-button-action:after {
   content: '';
@@ -3687,6 +3696,17 @@ ul.exad-call-to-action-buttons {
 	-webkit-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
 	visibility: visible;
+  }
+
+  .exad-modal-button.exad-modal-btn-fixed-width-yes .exad-modal-image-action{
+    position: relative;
+  }
+  .exad-modal-button.exad-modal-btn-fixed-width-yes .exad-modal-image-action span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
   
   /* Modal Style End */

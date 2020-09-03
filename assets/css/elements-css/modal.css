@@ -259,6 +259,17 @@
 			transform: translate(-50%, -50%);
 	visibility: visible;
   }
+
+  .exad-modal-button.exad-modal-btn-fixed-width-yes .exad-modal-image-action{
+    position: relative;
+  }
+  .exad-modal-button.exad-modal-btn-fixed-width-yes .exad-modal-image-action span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
   
   /* Modal Style End */
 

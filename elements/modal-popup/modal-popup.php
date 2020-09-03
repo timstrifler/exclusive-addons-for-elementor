@@ -425,6 +425,91 @@ class Modal_Popup extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_modal_btn_enable_fixed_width_height',
+			[
+				'label' => __( 'Enable Fixed Height & Width?', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'exad_modal_btn_fixed_width_height',
+			[
+				'label' => __( 'Fixed Height & Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::POPOVER_TOGGLE,
+				'label_off' => __( 'Default', 'exclusive-addons-elementor' ),
+				'label_on' => __( 'Custom', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'condition' => [
+					'exad_modal_btn_enable_fixed_width_height' => 'yes'
+				]
+			]
+        );
+        
+        $this->start_popover();
+
+			$this->add_responsive_control(
+				'exad_modal_btn_fixed_width',
+				[
+					'label'      => esc_html__( 'Width', 'exclusive-addons-elementor' ),
+					'type'       => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range'      => [
+						'px'     => [
+							'min'  => 0,
+							'max'  => 500,
+							'step' => 1
+						],
+						'%'        => [
+							'min'  => 0,
+							'max'  => 100
+						]
+					],
+					'default'    => [
+						'unit'   => 'px',
+						'size'   => 100
+					],
+					'selectors'  => [
+						'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'width: {{SIZE}}{{UNIT}};'
+					],
+				]
+			);
+
+            $this->add_responsive_control(
+				'exad_modal_btn_fixed_height',
+				[
+					'label'      => esc_html__( 'Height', 'exclusive-addons-elementor' ),
+					'type'       => Controls_Manager::SLIDER,
+					'size_units' => [ 'px', '%' ],
+					'range'      => [
+						'px'     => [
+							'min'  => 0,
+							'max'  => 500,
+							'step' => 1
+						],
+						'%'        => [
+							'min'  => 0,
+							'max'  => 100
+						]
+					],
+					'default'    => [
+						'unit'   => 'px',
+						'size'   => 100
+					],
+					'selectors'  => [
+						'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'height: {{SIZE}}{{UNIT}};'
+					],
+				]
+			);
+
+        $this->end_popover();
+
+		$this->add_control(
 			'exad_modal_btn_width',
 			[
 				'label'        => esc_html__( 'Width', 'exclusive-addons-elementor' ),
@@ -447,6 +532,9 @@ class Modal_Popup extends Widget_Base {
 				],
 				'selectors'    => [
 					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'width: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_modal_btn_enable_fixed_width_height!' => 'yes'
 				]
 			]
 		);
@@ -936,7 +1024,7 @@ class Modal_Popup extends Widget_Base {
 		echo '<div class="exad-modal">';
           	echo '<div class="exad-modal-wrapper">';
 
-            	echo '<div class="exad-modal-button">';
+            	echo '<div class="exad-modal-button exad-modal-btn-fixed-width-'.$settings['exad_modal_btn_enable_fixed_width_height'].'">';
               		echo '<a href="#" '.$this->get_render_attribute_string('exad_modal_action').'>';
 						echo '<span>';
 							if( 'left' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
