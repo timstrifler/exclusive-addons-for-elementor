@@ -477,6 +477,9 @@ class Modal_Popup extends Widget_Base {
 					'selectors'  => [
 						'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'width: {{SIZE}}{{UNIT}};'
 					],
+					'condition' => [
+						'exad_modal_btn_enable_fixed_width_height' => 'yes'
+					]
 				]
 			);
 
@@ -504,6 +507,9 @@ class Modal_Popup extends Widget_Base {
 					'selectors'  => [
 						'{{WRAPPER}} .exad-modal-button .exad-modal-image-action' => 'height: {{SIZE}}{{UNIT}};'
 					],
+					'condition' => [
+						'exad_modal_btn_enable_fixed_width_height' => 'yes'
+					]
 				]
 			);
 
@@ -696,9 +702,7 @@ class Modal_Popup extends Widget_Base {
                 ]
 			]
 		);
-
-		$left_icon_gap  = is_rtl() ? 'left' : 'right';
-		$right_icon_gap = is_rtl() ? 'right' : 'left';
+		
 		$this->add_control(
 			'exad_modal_btn_icon_indent',
 			[
@@ -714,8 +718,8 @@ class Modal_Popup extends Widget_Base {
 					'size'    => 6
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span .exad-modal-action-left-icon' => 'margin-'.$left_icon_gap.': {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span .exad-modal-action-right-icon' => 'margin-'.$right_icon_gap.': {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span.exad-modal-action-icon-left i' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span.exad-modal-action-icon-right i' => 'margin-left: {{SIZE}}{{UNIT}};'
 				],
 				'condition'   => [
                     'exad_modal_btn_icon[value]!' => ''
@@ -1026,13 +1030,13 @@ class Modal_Popup extends Widget_Base {
 
             	echo '<div class="exad-modal-button exad-modal-btn-fixed-width-'.$settings['exad_modal_btn_enable_fixed_width_height'].'">';
               		echo '<a href="#" '.$this->get_render_attribute_string('exad_modal_action').'>';
-						echo '<span>';
+						echo '<span class="exad-modal-action-icon-'.$settings['exad_modal_btn_icon_align'].'">';
 							if( 'left' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
-								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true', 'class' => 'exad-modal-action-left-icon' ] );
+								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true' ] );
 							}
 							echo esc_html( $settings['exad_modal_btn_text'] );
 							if( 'right' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
-								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true', 'class' => 'exad-modal-action-right-icon' ] );
+								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true' ] );
 							}
 						echo '</span>';
               		echo '</a>';
