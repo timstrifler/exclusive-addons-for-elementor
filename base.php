@@ -683,9 +683,6 @@ final class Base {
         // Active insights
         $client->insights()->init();
 
-        // Active automatic updater
-        $client->updater();
-
     }
 
 
