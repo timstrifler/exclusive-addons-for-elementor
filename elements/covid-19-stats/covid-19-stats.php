@@ -1682,27 +1682,30 @@ class Covid_19_Stats extends Widget_Base {
 	 * @access protected
 	 */
     protected function render() {
-        $settings = $this->get_settings();
+        $settings = $this->get_settings_for_display();
         $country = $settings['exad_section_corona_country_base'];
         $last_update = $settings['exad_corona_enable_last_update'];
-        if( 'All' === $country ){
-            $response = wp_remote_get( sprintf( 'https://disease.sh/v2/%s', $country ) );
-        }else{
-            $response = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/%s', $country ) );
+
+        $args = array(
+            'user-agent'  =>  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2',
+            'sslverify' => false,
+        ); 
+
+        if( 'All' === $country ) {
+            $response = wp_remote_get( sprintf( 'https://disease.sh/v3/covid-19/%s', $country ), $args );
+        } else {
+            $response = wp_remote_get( sprintf( 'https://disease.sh/v3/covid-19/countries/%s', $country ), $args );
         }
+        
 
-        //var_dump($response);
+        $details_object = json_decode( wp_remote_retrieve_body( $response ), true );
 
-        $details_object = json_decode(json_encode($response['body']), true);
-        $details_params = json_decode( $details_object, true );
-
-        $allData = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/' ) );
-        $allDataObject = json_decode(json_encode($allData['body']), true);
-        $allDataList = json_decode( $allDataObject, true );
+        $all_response = wp_remote_get( 'https://disease.sh/v3/covid-19/countries', $args );
+        $all_data_list = json_decode( wp_remote_retrieve_body( $all_response ), true );
 
             $last_updated_time = $settings['exad_corona_date_format'];
             $last_updated_text = $settings['exad_corona_update_text'];
-            $dateformat1 = intval( $details_params['updated']/1000 );
+            $dateformat1 = intval( $details_object['updated']/1000 );
             $dateformat2 = date( $last_updated_time, $dateformat1 );
         ?>
         <div class="exad-corona">
@@ -1723,7 +1726,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Cases: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['cases'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_object['cases'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1732,7 +1735,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Deaths: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['deaths'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_object['deaths'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1741,7 +1744,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Recovered: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['recovered'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_object['recovered'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1750,7 +1753,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Active: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['active'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_object['active'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1759,7 +1762,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Cases Today: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['todayCases'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_object['todayCases'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1768,7 +1771,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Deaths Today: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['todayDeaths'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_object['todayDeaths'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1777,7 +1780,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Critical: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['critical'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_object['critical'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1786,7 +1789,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Tests: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['tests'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $details_object['tests'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1856,18 +1859,18 @@ class Covid_19_Stats extends Widget_Base {
                             <?php } ?>
                         </tr>
                         <?php
-                        foreach( $allDataList as $dataList ) { ?>
+                        foreach( $all_data_list as $data_list ) { ?>
                         <tr class="data_table_row exad-data-table-row <?php
                         if( 'yes' === $settings['exad_corona_enable_continent_menu'] && 'yes' === $settings['exad_corona_enable_data_table'] ) {
-                            $continent = $dataList['continent'];
+                            $continent = $data_list['continent'];
                             $low_continent = strtolower($continent);
                             $rep_continent = str_replace( array(' ', '/'), "-",$low_continent);
                             echo $rep_continent; 
                         }
                         ?>">
-                            <td class="flag"><img src="<?php echo $dataList['countryInfo']["flag"]; ?>" alt="<?php echo $dataList['country']; ?>"></td>
+                            <td class="flag"><img src="<?php echo $data_list['countryInfo']["flag"]; ?>" alt="<?php echo $data_list['country']; ?>"></td>
                             <?php foreach ( $settings['exad_corona_data_table_column'] as $value ) { ?>
-                                <td><?php echo $dataList[$value]; ?></td>
+                                <td><?php echo $data_list[$value]; ?></td>
                             <?php } ?>
                         </tr>
                         <?php } ?>
