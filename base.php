@@ -591,6 +591,12 @@ final class Base {
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
+            'post-navigation'  => [
+                'title'  => __( 'Post Navigation', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Post_Navigation',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'post-slider'  => [
                 'title'  => __( 'Post Slider', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Post_Slider',
