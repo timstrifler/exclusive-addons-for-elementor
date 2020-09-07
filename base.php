@@ -678,7 +678,7 @@ final class Base {
             require_once __DIR__ . '/vendor/appsero/src/Client.php';
         }
 
-        $client = new \Appsero\Client( '74b80636-5fd5-4e65-a526-935acc9f260e', 'Exclusive Addons Elementor', __FILE__ );
+        $client = new \Appsero\Client( 'c3e3c997-fabf-42ad-bbd9-15cba7ab18ca', 'Exclusive Addons for Elementor', __FILE__ );
 
         // Active insights
         $client->insights()->init();
