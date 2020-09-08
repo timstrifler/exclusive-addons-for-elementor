@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy, covid-19, corona
 Requires at least: 4.6
-Tested up to: 5.5
-Stable tag: 2.1.3
+Tested up to: 5.5.1
+Stable tag: 2.1.4
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -93,6 +93,15 @@ Note : This plugin works with Elementor. Make sure you have [Elementor](https://
 5. You can type "Ex" on your element tabs within Elementor editor and all the avialable elements of Exclusive Addons will appear.
 6. Also you can find them under the category "Exclusive Addons" on your element/widget list.
 
+### Privacy Policy 
+Exclusive Addons Elementor uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+
+Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users. 
+
+Integrating Appsero SDK **DOES NOT IMMEDIATELY** start gathering data, **without confirmation from users in any case.**
+
+Learn more about how [Appsero collects and uses this data](https://appsero.com/privacy-policy/).
+
 
 == Frequently Asked Questions ==
 
@@ -135,7 +144,15 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.1.3 - 27/10/2020 =
+= 2.1.4 - 7/9/2020 =
+- Template Library Added
+- Covid 19 Bug fixed
+- Improvements on Modal Popup button
+- Improvements on Button widget
+- Improvements on Pricing Table widget
+- Overall Bug fixing and improvements on different places
+
+= 2.1.3 - 27/8/2020 =
 - Added Ajax pagination for Post Grid
 - Whole new design of the Dashboard
 - Image masking Custom Control added for Team Member and Card Widget
