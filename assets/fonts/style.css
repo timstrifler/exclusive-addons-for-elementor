@@ -10,7 +10,7 @@
   font-display: block;
 }
 
-[class^="exad-"], [class*=" exad-"] {
+.elementor-add-exad-button .exad-logo {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'exad-logo';
   speak: never;
