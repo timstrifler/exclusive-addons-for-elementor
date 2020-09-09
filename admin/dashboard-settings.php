@@ -143,6 +143,13 @@ class Admin_Settings {
 								<span><?php _e( 'Elements', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
+                        <li class="exad-tab-btn">
+							<a href="#extention">
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-normal.svg'; ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-active.svg'; ?>">
+								<span><?php _e( 'Extention', 'exclusive-addons-elementor' ); ?></span>
+							</a>
+						</li>
 						<li class="exad-tab-btn">
 							<a href="#style-settings">
 								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/style-normal.svg'; ?>">
@@ -169,6 +176,7 @@ class Admin_Settings {
                     </ul>
                     <?php include_once EXAD_ADMIN . 'templates/general.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/elements.php'; ?>
+                    <?php include_once EXAD_ADMIN . 'templates/extention.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/api-keys.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/style-settings.php'; ?>
                 </div>
