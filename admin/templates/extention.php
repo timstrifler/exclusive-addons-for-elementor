@@ -1,4 +1,6 @@
 <?php
-use \ExclusiveAddons\Elementor\Base;
+// use \ExclusiveAddons\Elementor\Base;
 ?>
-<h1>Extention</h1>
+<div id="extention" class="exad-dashboard-tab">
+    <h1>Extention</h1>
+</div>
