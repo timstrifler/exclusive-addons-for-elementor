@@ -56,6 +56,18 @@ final class Base {
      */
     public static $default_widgets = []; 
 
+
+    /**
+     * 
+     * Static property that consists all the default extensions array
+     * 
+     * @access public
+     * @static
+     * 
+     * @return array
+     */
+    public static $default_extensions = []; 
+
     /**
      * 
      * Static property to hold all widget names in an array
@@ -65,7 +77,8 @@ final class Base {
      * 
      * 
      */
-    public static $widget_names;
+    public static $all_activated_features;
+
     /**
      * 
      * Static property to hold default settings for the database
@@ -121,8 +134,10 @@ final class Base {
         // Look for Pro Version
         self::$is_pro_active = apply_filters( 'exad/pro_activated', false );
         $this->includes();
-        $this->widget_map_free();     
-        $this->activated_widgets(); 
+        $this->widget_map_free(); 
+        $this->extensions_map_free();     
+        $this->activated_features(); 
+        //$this->activated_extensions();
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
 
@@ -666,6 +681,51 @@ final class Base {
         ];
     }
 
+    public function extensions_map_free() {
+        $extensions = [
+            'test-extension'  => [
+                'title'  => __( 'Test', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Test_Extension',
+                'tags'   => 'free',
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'is_pro' => false
+            ]
+        ];
+
+        if ( self::$is_pro_active ) {
+            self::$default_extensions = apply_filters( 'exad_add_pro_extensions', $extensions );
+        } else {
+            self::$default_extensions = array_merge( $extensions, $this->extensions_map_pro() );
+        }
+
+    }
+
+    public function extensions_map_pro() {
+        return [
+            'section-particles'  => [
+                'title'  => __( 'Particles', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Exad_Particle_Section',
+                'tags'   => 'pro',
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'is_pro' => true
+            ],
+            'section-parallax'  => [
+                'title'  => __( 'Parallax', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Section_Parallax',
+                'tags'   => 'pro',
+                'demo_link' => 'https://exclusiveaddons.com/alert-demo/',
+                'is_pro' => true
+            ],
+            'section-background-animation'  => [
+                'title'  => __( 'Background Animation', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Exad_Background_Color_Change',
+                'tags'   => 'pro',
+                'demo_link' => 'https://exclusiveaddons.com/animated-text-demo/',
+                'is_pro' => true
+            ] 
+        ];
+    }
+
 
     /**
      * Initialize the tracker
@@ -853,13 +913,13 @@ final class Base {
     }
 
     /**
-     * This function returns true for all activated modules
+     * This function returns true for all activated widgets
      *
     * @since  1.0
     */
-    public function activated_widgets() {
-        self::$widget_names = array_keys( self::$default_widgets );
-        self::$widget_settings  = array_fill_keys( self::$widget_names, true );
+    public function activated_features() {
+        self::$all_activated_features = array_merge( array_keys( self::$default_widgets ), array_keys( self::$default_extensions ) );
+        self::$widget_settings  = array_fill_keys( self::$all_activated_features, true );
         $this->is_activated_widget = get_option( 'exad_save_settings', self::$widget_settings );
     }
 

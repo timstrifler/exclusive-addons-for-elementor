@@ -144,10 +144,10 @@ class Admin_Settings {
 							</a>
 						</li>
                         <li class="exad-tab-btn">
-							<a href="#extention">
+							<a href="#extensions">
 								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-normal.svg'; ?>">
 								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-active.svg'; ?>">
-								<span><?php _e( 'Extention', 'exclusive-addons-elementor' ); ?></span>
+								<span><?php _e( 'Extensions', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
 						<li class="exad-tab-btn">
@@ -176,9 +176,9 @@ class Admin_Settings {
                     </ul>
                     <?php include_once EXAD_ADMIN . 'templates/general.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/elements.php'; ?>
-                    <?php include_once EXAD_ADMIN . 'templates/extention.php'; ?>
+                    <?php include_once EXAD_ADMIN . 'templates/extensions.php'; ?>
+					<?php include_once EXAD_ADMIN . 'templates/style-settings.php'; ?>
                     <?php include_once EXAD_ADMIN . 'templates/api-keys.php'; ?>
-                    <?php include_once EXAD_ADMIN . 'templates/style-settings.php'; ?>
                 </div>
             </form> <!-- Form End -->
         </div>
@@ -204,13 +204,14 @@ class Admin_Settings {
 
 		$this->save_dashboard_settings = [];
 
-		foreach( Base::$widget_names as $value ){
+		foreach( Base::$all_activated_features as $value ){
 			if( isset( $settings[ $value ] ) ) {
 				$this->save_dashboard_settings[ $value ] = 1;
 			} else {
 				$this->save_dashboard_settings[ $value ] = 0;
 			}
 		}
+
         update_option( 'exad_save_settings', $this->save_dashboard_settings );        
         update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );
         update_option( 'exad_save_mailchimp_api', $settings['mailchimp_api_key'] );
