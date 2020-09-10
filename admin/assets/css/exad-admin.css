@@ -141,6 +141,11 @@
  }
  
  /* Dashboard Tab */
+
+ #extensions{
+    margin-top: 30px;
+}
+
  .exad-dashboard-tab {
      display: none;
  }
