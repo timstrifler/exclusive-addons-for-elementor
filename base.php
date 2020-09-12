@@ -703,22 +703,22 @@ final class Base {
     public function extensions_map_pro() {
         return [
             'section-particles'  => [
-                'title'  => __( 'Particles', 'exclusive-addons-elementor' ),
-                'class'  => '\Exclusive_Addons\Elementor\Extensions\Exad_Particle_Section',
+                'title'  => __( 'Section Particles', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Section_Particles',
                 'tags'   => 'pro',
                 'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
                 'is_pro' => true
             ],
             'section-parallax'  => [
-                'title'  => __( 'Parallax', 'exclusive-addons-elementor' ),
+                'title'  => __( 'Section Parallax', 'exclusive-addons-elementor' ),
                 'class'  => '\Exclusive_Addons\Elementor\Extensions\Section_Parallax',
                 'tags'   => 'pro',
                 'demo_link' => 'https://exclusiveaddons.com/alert-demo/',
                 'is_pro' => true
             ],
-            'section-background-animation'  => [
-                'title'  => __( 'Background Animation', 'exclusive-addons-elementor' ),
-                'class'  => '\Exclusive_Addons\Elementor\Extensions\Exad_Background_Color_Change',
+            'gradient-animation'  => [
+                'title'  => __( 'Gradient Animation', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Gradient_Animation',
                 'tags'   => 'pro',
                 'demo_link' => 'https://exclusiveaddons.com/animated-text-demo/',
                 'is_pro' => true
