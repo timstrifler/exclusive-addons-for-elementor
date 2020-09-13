@@ -137,7 +137,6 @@ final class Base {
         $this->widget_map_free(); 
         $this->extensions_map_free();     
         $this->activated_features(); 
-        //$this->activated_extensions();
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
 
@@ -169,7 +168,7 @@ final class Base {
                 return;
             }
 
-            add_filter('plugin_action_links_' . EXAD_PBNAME, array($this, 'insert_go_pro_url'));
+            add_filter( 'plugin_action_links_' . EXAD_PBNAME, [ $this, 'insert_go_pro_url' ] );
 
             add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
 
@@ -227,7 +226,7 @@ final class Base {
 
     /**
      * 
-     * Register Exclusive Elementor Addons category
+     * Register Exclusive Addons Elementor category
      *
      */
     public function register_category( $elements_manager ) {
@@ -235,7 +234,7 @@ final class Base {
         $elements_manager->add_category(
             'exclusive-addons-elementor',
             [
-                'title' => __( 'Exclusve Addons', 'exclusive-addons-elementor' ),
+                'title' => __( 'Exclusive Addons', 'exclusive-addons-elementor' ),
                 'icon' => 'font',
             ]
         );
