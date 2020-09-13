@@ -505,6 +505,46 @@
      text-transform: capitalize;
      padding: 21px 55px;
  } */
+
+ /* Dashboard Popup */
+
+.exad-dashboard-popup-message{
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.5);
+    z-index: 2;
+    padding: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease;
+    text-align: center;
+    border-radius: 20px;
+}
+.exad-dashboard-popup-overlay{
+    position: fixed;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+.exad-dashboard-popup-message.popup-active{
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+.exad-dashboard-popup-overlay.popup-active{
+    visibility: visible;
+    opacity: 1;
+}
  
  @media (max-width:1400px) {
      .exad-admin-block-wrapper {

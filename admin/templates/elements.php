@@ -68,6 +68,16 @@ use \ExclusiveAddons\Elementor\Base;
                     <?php endif; ?>
                 <?php endforeach; ?>
 
+                <?php if ( !Base::$is_pro_active ) : ?>
+                    <div class="exad-dashboard-popup-message">
+                        <h1 class="exad-dashboard-popup-message-title">Buy Premium</h1>
+                        <p class="exad-dashboard-popup-message-discription">
+                            Buy our <a href="http://exclusiveaddons.com/">premium edition</a> to unlock these pro parts!
+                        </p>
+                    </div>
+                    <div class="exad-dashboard-popup-overlay"></div>
+                <?php endif; ?>
+
             </div><!--./checkbox-container-->
         </div>
         

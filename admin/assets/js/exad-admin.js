@@ -141,7 +141,24 @@ jQuery(document).ready(function($) {
 				$(this).show();
 			});
 		}
-	}
+    }
+    
+    // Popup Message
+
+    var popup = $('.exad-dashboard-checkbox-container').find('.exad-dashboard-checkbox.pro .exad-dashboard-checkbox-label');
+    popup.click(function(){
+        $('.exad-dashboard-popup-message').addClass('popup-active');
+        $('.exad-dashboard-popup-overlay').addClass('popup-active');
+        setTimeout(function(){
+            $('.exad-dashboard-popup-message').removeClass('popup-active');
+            $('.exad-dashboard-popup-overlay').removeClass('popup-active');
+        }, 5000);
+    });
+
+    $('.exad-dashboard-popup-overlay').click(function(){
+        $('.exad-dashboard-popup-message').removeClass('popup-active');
+        $('.exad-dashboard-popup-overlay').removeClass('popup-active');
+    });
 
 });
 
