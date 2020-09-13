@@ -11,7 +11,7 @@ use \Elementor\Base_Data_Control;
  *
  * @since 1.0.0
  */
-class Custom_Control extends Base_Data_Control {
+class Image_Mask_SVG_Control extends Base_Data_Control {
 
     const SVGSELECTOR = 'svg-selector';
 

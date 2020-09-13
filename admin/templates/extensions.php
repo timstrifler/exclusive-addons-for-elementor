@@ -12,7 +12,7 @@ use \ExclusiveAddons\Elementor\Base;
                 <?php foreach( Base::$default_extensions as $key => $extension ) : ?>
                 
                     <?php if ( isset( $key ) ) : ?>
-                        <div class="exad-dashboard-checkbox <?php echo esc_attr( $extension['tags'] ); ?><?php echo ( $extension['is_pro'] ) ? ' inactive' : ' active'; ?>" data-tag="<?php echo esc_attr( $extension['tags'] ); ?>">
+                        <div class="exad-dashboard-checkbox <?php echo esc_attr( $extension['tags'] ); ?><?php echo ( $extension['is_pro'] && !Base::$is_pro_active ) ? ' inactive' : ' active'; ?>" data-tag="<?php echo esc_attr( $extension['tags'] ); ?>">
                             <?php if( true === $extension['is_pro'] ) { ?>
                                 <div class="exad-dashboard-item-label">
                                     <span class="exad-el-label"><?php echo esc_html( $extension['tags'] ); ?></span>
