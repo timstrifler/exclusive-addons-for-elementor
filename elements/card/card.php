@@ -13,7 +13,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
-use \ExclusiveAddons\Elementor\Custom_Control;
+use \ExclusiveAddons\Elementor\Image_Mask_SVG_Control;
 use \ExclusiveAddons\Elementor\Helper;
 
 class Card extends Widget_Base {
@@ -88,7 +88,7 @@ class Card extends Widget_Base {
 			'exad_card_mask_shape_mask_shape',
 			[
 				'label'                => __( 'Mask Shape', 'exclusive-addons-elementor' ),
-				'type'                 => Custom_Control::SVGSELECTOR,
+				'type'                 => Image_Mask_SVG_Control::SVGSELECTOR,
 				'options'              => Helper::exad_masking_shape_list( 'list' ),
 				'default'              => 'shape-1',
 				'toggle'               => false,

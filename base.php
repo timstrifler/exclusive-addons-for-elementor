@@ -210,7 +210,7 @@ final class Base {
     public function includes() {
         // Helper Class
         include_once EXAD_PATH . 'includes/helper-class.php';
-        include_once EXAD_PATH . 'includes/custom-control.php';
+        include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
         if( is_admin() ) {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
@@ -1092,13 +1092,13 @@ final class Base {
 
     /**
      * 
-     * Registering Custom SVG Control
+     * Registering Custom Image Mask Control
      * 
      */
     public function register_controls() {
 
 		$controls_manager = \Elementor\Plugin::$instance->controls_manager;
-		$controls_manager->register_control( 'svg-selector', new Custom_Control() );
+		$controls_manager->register_control( 'svg-selector', new Image_Mask_SVG_Control() );
 
 	}
 
