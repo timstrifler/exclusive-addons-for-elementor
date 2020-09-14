@@ -123,10 +123,10 @@
      border-radius: 10px;
      padding: 15px 25px;
      border: none;
-     font-family: 'Nunito', sans-serif;
+     font-family: 'Roboto', sans-serif;
      font-size: 14px;
      cursor: pointer;
-     font-weight: 600;
+     font-weight: 400;
      text-transform: uppercase;
      transition: all .3s ease;
  }
@@ -509,18 +509,53 @@
  /* Dashboard Popup */
 
 .exad-dashboard-popup-message{
-    background: #fff;
+    background-color: #fff;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(.5);
     z-index: 2;
-    padding: 20px;
+    padding: 40px 90px;
     visibility: hidden;
     opacity: 0;
     transition: all .3s ease;
     text-align: center;
     border-radius: 20px;
+    background-image: url(../img/popup-message-background.svg);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+.exad-dashboard-popup-message-img{
+    margin-bottom: 40px;
+}
+.exad-dashboard-popup-message-title{
+    margin: 0 0 12px 0;
+    line-height: 24px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.exad-dashboard-popup-message-discription{
+    margin: 0 0 25px 0;
+    line-height: 22px;
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+}
+.exad-dashboard-popup-message-action{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 18px 44px;
+    color: #ffffff;
+    background: #46D39A;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all .3s ease;
+}
+.exad-dashboard-popup-message-action:hover{
+    background: #2dbb82;
+    color: #ffffff;
 }
 .exad-dashboard-popup-overlay{
     position: fixed;

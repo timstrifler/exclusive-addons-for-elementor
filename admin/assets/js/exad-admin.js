@@ -152,7 +152,7 @@ jQuery(document).ready(function($) {
         setTimeout(function(){
             $('.exad-dashboard-popup-message').removeClass('popup-active');
             $('.exad-dashboard-popup-overlay').removeClass('popup-active');
-        }, 5000);
+        }, 8000);
     });
 
     $('.exad-dashboard-popup-overlay').click(function(){
