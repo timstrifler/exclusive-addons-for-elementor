@@ -150,23 +150,6 @@ final class Base {
     public function register_hooks() {
 
         if ( is_admin() ) {
-            // Check if Elementor installed and activated
-            if ( ! did_action( 'elementor/loaded' ) ) {
-                add_action( 'admin_notices', [ $this, 'admin_notice_missing_main_plugin' ] );
-                return;
-            }
-
-            // Check for required Elementor version
-            if ( ! version_compare( ELEMENTOR_VERSION, MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
-                add_action( 'admin_notices', [ $this, 'admin_notice_minimum_elementor_version' ] );
-                return;
-            }
-
-            // Check for required PHP version
-            if ( version_compare( PHP_VERSION, MINIMUM_PHP_VERSION, '<' ) ) {
-                add_action( 'admin_notices', [ $this, 'admin_notice_minimum_php_version' ] );
-                return;
-            }
 
             add_filter( 'plugin_action_links_' . EXAD_PBNAME, [ $this, 'insert_go_pro_url' ] );
 
@@ -838,21 +821,16 @@ final class Base {
         // Main Plugin Styles
         wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.min.css' );
 
-        // fonts style
-        wp_enqueue_style( 'exad-font-style', EXAD_ASSETS_URL . 'fonts/style.css' );
-
         if( is_rtl() ) {
             // Main Plugin RTL Styles
-            wp_enqueue_style( 'exad-rtl-style', EXAD_ASSETS_URL . 'css/exad-rtl-styles.css' );            
+            wp_enqueue_style( 'exad-rtl-style', EXAD_ASSETS_URL . 'css/exad-rtl-styles.min.css' );            
         }
 
         // Main Plugin Scripts
         wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.min.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
 
-        global $wp_query;
         wp_localize_script( 'exad-main-script', 'exad_ajax_object', array(
             'ajax_url' => admin_url( 'admin-ajax.php' ),
-            'query_vars' => json_encode( $wp_query->query )
         ));
     }
 
@@ -969,90 +947,7 @@ final class Base {
     }
 
 
-    /**
-     * Admin notice
-     * Warning when the site doesn't have Elementor installed or activated.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     */
-    public function admin_notice_missing_main_plugin() {
-
-        if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
-
-        $elementor_path = 'elementor/elementor.php';
-
-        if ( $this->is_elementor_activated() ) {
-            if( ! current_user_can( 'activate_plugins' ) ) {
-                return;
-            }
-            $activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $elementor_path . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $elementor_path );
-            $message = __( '<strong>Exclusive Addons for Elementor</strong> won\'t work without the help of <strong>Elementor</strong> plugin. Please activate Elementor.', 'exclusive-addons-elementor' );
-            $button_text = __( 'Activate Elementor', 'exclusive-addons-elementor' );
-            } else {
-            if( ! current_user_can( 'install_plugins' ) ) {
-                return;
-            }
-            $activation_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=elementor' ), 'install-plugin_elementor' );
-            $message = sprintf( __( '<strong>Exclusive Addons for Elementor</strong> won\'t work without the help of <strong>Elementor</strong> plugin. Please install Elementor.', 'exclusive-addons-elementor' ), '<strong>', '</strong>' );
-            $button_text = __( 'Install Elementor', 'exclusive-addons-elementor' );
-            }
-
-        $button = '<p><a href="' . $activation_url . '" class="button-primary">' . $button_text . '</a></p>';
-        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p>%2$s</div>', __( $message ), $button );
-
-    }
-
-    /**
-     * Admin notice
-     *
-     * Warning when the site doesn't have a minimum required Elementor version.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     */
-    public function admin_notice_minimum_elementor_version() {
-
-        if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
-
-        $message = sprintf(
-            /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'exclusive-addons-elementor' ),
-            '<strong>' . esc_html__( 'Exclusive Addons Elementor', 'exclusive-addons-elementor' ) . '</strong>',
-            '<strong>' . esc_html__( 'Elementor', 'exclusive-addons-elementor' ) . '</strong>',
-            MINIMUM_ELEMENTOR_VERSION
-        );
-
-        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-
-    }
-
-    /**
-     * Admin notice
-     *
-     * Warning when the site doesn't have a minimum required PHP version.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     */
-    public function admin_notice_minimum_php_version() {
-
-        if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
-
-        $message = sprintf(
-            /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-            esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'exclusive-addons-elementor' ),
-            '<strong>' . esc_html__( 'Exclusive Addons Elementor', 'exclusive-addons-elementor' ) . '</strong>',
-            '<strong>' . esc_html__( 'PHP', 'exclusive-addons-elementor' ) . '</strong>',
-            MINIMUM_PHP_VERSION
-        );
-
-        printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-
-    }
+   
 
     /**
      * Plugin Redirect Hook
