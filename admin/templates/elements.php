@@ -68,20 +68,6 @@ use \ExclusiveAddons\Elementor\Base;
                     <?php endif; ?>
                 <?php endforeach; ?>
 
-                <?php if ( !Base::$is_pro_active ) : ?>
-                    <div class="exad-dashboard-popup-message">
-                        <div class="exad-dashboard-popup-message-img">
-                            <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/download-popup.svg'; ?>">
-                        </div>
-                        <h1 class="exad-dashboard-popup-message-title">Attractive and emotional headline goes here</h1>
-                        <p class="exad-dashboard-popup-message-discription">
-                            Choose the primary color which will be applied as the default color<br> for all the elements. Default
-                        </p>
-                        <a href="http://exclusiveaddons.com/" target="_blank" class="exad-dashboard-popup-message-action">Upgrade to Pro</a>
-                    </div>
-                    <div class="exad-dashboard-popup-overlay"></div>
-                <?php endif; ?>
-
             </div><!--./checkbox-container-->
         </div>
         
