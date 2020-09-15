@@ -14,6 +14,9 @@ jQuery(document).ready(function($) {
 	$('.exad-admin-block-upgrade-button a').on('click',function(e) {
 		e.preventDefault();
 	});
+	$('.exad-dashboard-popup-message-action').on('click',function(e) {
+		e.preventDefault();
+	});
 	// Dashboard Tabs
 	$( '.exad-dashboard-tabs li.exad-tab-btn a' ).on( 'click', function(e) {
 		e.preventDefault();
