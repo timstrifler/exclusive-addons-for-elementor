@@ -185,12 +185,12 @@ class Admin_Settings {
 								<img src="<?php echo EXAD_ADMIN_URL . 'assets/img/download-popup.svg'; ?>">
 							</div>
 							<h1 class="exad-dashboard-popup-message-title">
-								<?php _e( 'Attractive and emotional headline goes here', 'exclusive-addons-elementor' ); ?>
+								<?php _e( 'Your contribution to our enormous effort means a lot', 'exclusive-addons-elementor' ); ?>
 							</h1>
 							<p class="exad-dashboard-popup-message-discription">
-								<?php _e( 'Choose the primary color which will be applied as the default color<br> for all the elements. Default', 'exclusive-addons-elementor' ); ?>
+								<?php _e( 'We\'re working real hard to deliver the smoothest Elementor page building experience for you. <br> Consider this as a contribution to the team to keep up the pace.', 'exclusive-addons-elementor' ); ?>
 							</p>
-							<a href="http://exclusiveaddons.com/" target="_blank" class="exad-dashboard-popup-message-action"><?php __( 'Upgrade to Pro', 'excluseve-addons-elementor'); ?></a>
+							<a href="http://exclusiveaddons.com/" target="_blank" class="exad-dashboard-popup-message-action"><?php _e( 'Upgrade to Pro', 'excluseve-addons-elementor'); ?></a>
 						</div>
 						<div class="exad-dashboard-popup-overlay"></div>
 					<?php endif; ?>
