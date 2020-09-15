@@ -552,6 +552,7 @@
     font-weight: 600;
     border-radius: 10px;
     transition: all .3s ease;
+    cursor: not-allowed;
 }
 .exad-dashboard-popup-message-action:hover{
     background: #2dbb82;
