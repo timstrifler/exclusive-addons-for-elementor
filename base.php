@@ -664,15 +664,7 @@ final class Base {
     }
 
     public function extensions_map_free() {
-        $extensions = [
-            'test-extension'  => [
-                'title'  => __( 'Test', 'exclusive-addons-elementor' ),
-                'class'  => '\Exclusive_Addons\Elementor\Extensions\Test_Extension',
-                'tags'   => 'free',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
-                'is_pro' => false
-            ]
-        ];
+        $extensions = [];
 
         if ( self::$is_pro_active ) {
             self::$default_extensions = apply_filters( 'exad_add_pro_extensions', $extensions );
