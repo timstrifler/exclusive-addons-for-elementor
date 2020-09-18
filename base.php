@@ -193,6 +193,7 @@ final class Base {
         // Helper Class
         include_once EXAD_PATH . 'includes/helper-class.php';
         include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
+        include_once EXAD_PATH . 'extensions/post-duplicator.php';
         if( is_admin() ) {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
@@ -664,7 +665,15 @@ final class Base {
     }
 
     public function extensions_map_free() {
-        $extensions = [];
+        $extensions = [
+            'post-duplicator'  => [
+                'title'  => __( 'Post Duplicator', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Post_Duplicator',
+                'tags'   => 'free',
+                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
+                'is_pro' => false
+            ],
+        ];
 
         if ( self::$is_pro_active ) {
             self::$default_extensions = apply_filters( 'exad_add_pro_extensions', $extensions );
