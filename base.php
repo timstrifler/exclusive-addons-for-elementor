@@ -583,6 +583,12 @@ final class Base {
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
+            'page-title'  => [
+                'title'  => __( 'Page Title', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Page_Title',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'post-carousel'  => [
                 'title'  => __( 'Post Carousel', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Post_Carousel',
