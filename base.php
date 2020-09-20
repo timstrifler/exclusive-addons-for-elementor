@@ -77,7 +77,7 @@ final class Base {
      * 
      * 
      */
-    public static $all_activated_features;
+    public static $all_feature_array;
 
     /**
      * 
@@ -88,7 +88,7 @@ final class Base {
      * 
      * 
      */
-    public static $widget_settings;
+    public static $all_feature_settings;
     /**
      * 
      * Static property that consits all active widgets
@@ -98,7 +98,7 @@ final class Base {
      * 
      * 
      */
-    public $is_activated_widget;
+    public $is_activated_feature;
 
     /**
      * Instance
@@ -772,7 +772,7 @@ final class Base {
     */
     public function enqueue_scripts() {
 
-        if ( $this->is_activated_widget['progress-bar'] ) {
+        if ( $this->is_activated_feature['progress-bar'] ) {
             // Loading Bar JS
             wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'vendor/js/exad-progress-bar-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
             
@@ -780,7 +780,7 @@ final class Base {
             wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         // Google Map js
-        if ( $this->is_activated_widget['google-maps'] ) {
+        if ( $this->is_activated_feature['google-maps'] ) {
             if ( '' != get_option('exad_google_map_api_option') ) {
                 wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), EXAD_PLUGIN_VERSION, false );
             }
@@ -788,31 +788,31 @@ final class Base {
             wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'vendor/js/gmap3.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );            
         }	
         
-        if ( $this->is_activated_widget['countdown-timer'] ) {
+        if ( $this->is_activated_feature['countdown-timer'] ) {
             // jQuery Countdown Js
             wp_register_script( 'exad-countdown', EXAD_ASSETS_URL . 'vendor/js/jquery.countdown.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( $this->is_activated_widget['image-comparison'] ) {
+        if ( $this->is_activated_feature['image-comparison'] ) {
             // jQuery image-comparison twentytwenty Js
             wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'vendor/js/exad-comparison-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( $this->is_activated_widget['filterable-gallery'] ) {
+        if ( $this->is_activated_feature['filterable-gallery'] ) {
             // Filterable Gallery
             wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'vendor/js/isotop.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( $this->is_activated_widget['news-ticker'] ) {
+        if ( $this->is_activated_feature['news-ticker'] ) {
             // News ticker
             wp_register_script( 'exad-news-ticker', EXAD_ASSETS_URL . 'vendor/js/exad-news-ticker.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         
-        if ( $this->is_activated_widget['animated-text'] ) {
+        if ( $this->is_activated_feature['animated-text'] ) {
             // Animated Text
             wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'vendor/js/typed.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
-        if ( $this->is_activated_widget['post-grid'] ) {
+        if ( $this->is_activated_feature['post-grid'] ) {
             // Post grid
             wp_register_script( 'exad-post-grid', EXAD_ASSETS_URL . 'vendor/js/jquery.matchHeight.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
@@ -902,9 +902,9 @@ final class Base {
     * @since  1.0
     */
     public function activated_features() {
-        self::$all_activated_features = array_merge( array_keys( self::$default_widgets ), array_keys( self::$default_extensions ) );
-        self::$widget_settings  = array_fill_keys( self::$all_activated_features, true );
-        $this->is_activated_widget = get_option( 'exad_save_settings', self::$widget_settings );
+        self::$all_feature_array = array_merge( array_keys( self::$default_widgets ), array_keys( self::$default_extensions ) );
+        self::$all_feature_settings  = array_fill_keys( self::$all_feature_array, true );
+        $this->is_activated_feature = get_option( 'exad_save_settings', self::$all_feature_settings );
     }
 
     /**
@@ -916,7 +916,7 @@ final class Base {
         include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
 
         // Post Duplicator extention
-        if( $this->is_activated_widget['post-duplicator'] ){
+        if( $this->is_activated_feature['post-duplicator'] ){
             include_once EXAD_PATH . 'extensions/post-duplicator.php';
         }
     }
@@ -934,7 +934,7 @@ final class Base {
 
         ksort( self::$default_widgets );
         foreach( self::$default_widgets as $key => $widget ) {
-            if ( $this->is_activated_widget[$key] == true ) {
+            if ( $this->is_activated_feature[$key] == true ) {
 
                 $widget_file = EXAD_ELEMENTS . $key . '/'. $key .'.php';
                 if ( file_exists( $widget_file ) ) {

@@ -94,15 +94,15 @@ class Admin_Settings {
 		wp_localize_script( 'exad-admin-js', 'js_exad_settings', $js_info );
 
 		
-		$this->get_dashboard_settings = get_option( 'exad_save_settings', Base::$widget_settings );
-	    $exad_new_settings = array_diff_key( Base::$widget_settings, $this->get_dashboard_settings );
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Base::$all_feature_settings );
+	    $exad_new_settings = array_diff_key( Base::$all_feature_settings, $this->get_dashboard_settings );
 
 	    if( ! empty( $exad_new_settings ) ) {
 			$exad_updated_settings = array_merge( $this->get_dashboard_settings, $exad_new_settings );
 			update_option( 'exad_save_settings', $exad_updated_settings );
 		}
 		
-		$this->get_dashboard_settings = get_option( 'exad_save_settings', Base::$widget_settings );
+		$this->get_dashboard_settings = get_option( 'exad_save_settings' );
         
         
         ?>
@@ -219,7 +219,7 @@ class Admin_Settings {
 
 		$this->save_dashboard_settings = [];
 
-		foreach( Base::$all_activated_features as $value ){
+		foreach( Base::$all_feature_array as $value ){
 			if( isset( $settings[ $value ] ) ) {
 				$this->save_dashboard_settings[ $value ] = 1;
 			} else {
