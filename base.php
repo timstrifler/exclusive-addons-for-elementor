@@ -139,6 +139,7 @@ final class Base {
         $this->activated_features(); 
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
+        $this->extention_manager();
 
         if ( is_user_logged_in() ) {
 			Template_Library_Manager::init();
@@ -193,7 +194,6 @@ final class Base {
         // Helper Class
         include_once EXAD_PATH . 'includes/helper-class.php';
         include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
-        include_once EXAD_PATH . 'extensions/post-duplicator.php';
         if( is_admin() ) {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
@@ -899,6 +899,20 @@ final class Base {
         self::$all_activated_features = array_merge( array_keys( self::$default_widgets ), array_keys( self::$default_extensions ) );
         self::$widget_settings  = array_fill_keys( self::$all_activated_features, true );
         $this->is_activated_widget = get_option( 'exad_save_settings', self::$widget_settings );
+    }
+
+    /**
+     * 
+     * Including extention assets
+     * @since 2.1.5
+     */
+    public function extention_manager() {
+        include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
+
+        // Post Duplicator extention
+        if( $this->is_activated_widget['post-duplicator'] ){
+            include_once EXAD_PATH . 'extensions/post-duplicator.php';
+        }
     }
 
     /**

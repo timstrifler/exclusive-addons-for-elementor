@@ -5,32 +5,12 @@ class Post_Duplicator {
 
     public static function init() {
 		add_filter( 'admin_action_exad_duplicate', array( __CLASS__, 'duplicate_post' ) );
-        // add_action( 'admin_bar_menu', array( __CLASS__, 'admin_bar_menu' ), 10000 );
         add_filter( 'post_row_actions', array( __CLASS__, 'duplicate_actions' ), 10, 2 );
         add_filter( 'page_row_actions', array( __CLASS__, 'duplicate_actions' ), 10, 2 );
     }
 
-    // public static function admin_bar_menu( $wp_admin_bar ){
-    //     global $pagenow;
-    //     global $post;
-
-
-    //     if( ! is_admin() || $pagenow !== 'post.php' ) {
-    //         return;
-    //     }
-
-    //     $duplicate_url = admin_url('admin.php?action=exad_duplicate&post=' . $post->ID );
-    //     $duplicate_url = wp_nonce_url( $duplicate_url, 'exad_duplicator' );
-    //     $wp_admin_bar->add_menu( 
-    //         array( 
-    //             'id' => 'exad-duplicator', 
-    //             'title' => __( 'Exad Duplicator', 'exclusive-addons-elementor'),
-    //             'href' => $duplicate_url
-    //         ) 
-    //     );
-    // }
     /**
-     * EA Duplicator Button added in table row
+     * "Ex Duplicator" added to the row action
      *
      * @param array $actions
      * @param WP_Post $post
@@ -45,8 +25,9 @@ class Post_Duplicator {
         }
         return $actions;
     }
+    
     /**
-     * Duplicate a post
+     * Duplicate a post function
      * @return void
      */
     public static function duplicate_post() {
