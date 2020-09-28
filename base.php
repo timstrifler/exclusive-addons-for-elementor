@@ -613,6 +613,24 @@ final class Base {
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
+            'search-form'  => [
+                'title'  => __( 'Search Form', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Search_Form',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'site-title'  => [
+                'title'  => __( 'Site Title', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Site_Title',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'site-tagline'  => [
+                'title'  => __( 'Site Tagline', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Site_Tagline',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'social-share'  => [
                 'title'  => __( 'Social Share', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Social_Share',
