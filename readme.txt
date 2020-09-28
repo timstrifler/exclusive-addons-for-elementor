@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy, covid-19, corona
 Requires at least: 4.6
 Tested up to: 5.5.1
-Stable tag: 2.1.5
+Stable tag: 2.1.6
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -143,6 +143,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.1.6 - 28/9/2020 =
+- Fixed issue with extension icon not showing.
 
 = 2.1.5 - 15/9/2020 =
 - Issue fixed with Custom Font Icon
