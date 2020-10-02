@@ -535,6 +535,12 @@ final class Base {
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
+            'image-effect'  => [
+                'title'  => __( 'Image Effect', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Image_Effect',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
             'image-hotspot'  => [
                 'title'  => __( 'Image Hotspot', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Image_Hotspot',
@@ -952,7 +958,7 @@ final class Base {
 
         ksort( self::$default_widgets );
         foreach( self::$default_widgets as $key => $widget ) {
-            if ( $this->is_activated_feature[$key] == true ) {
+            if ( isset( $this->is_activated_feature[$key] ) && $this->is_activated_feature[$key] == true ) {
 
                 $widget_file = EXAD_ELEMENTS . $key . '/'. $key .'.php';
                 if ( file_exists( $widget_file ) ) {
