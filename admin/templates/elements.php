@@ -1,4 +1,5 @@
 <?php
+use \ExclusiveAddons\Elementor\Widgets_Manager;
 use \ExclusiveAddons\Elementor\Base;
 ?>
 
@@ -40,8 +41,8 @@ use \ExclusiveAddons\Elementor\Base;
                 </div>
             </div>
             <div class="exad-dashboard-checkbox-container">
-                <?php ksort(Base::$default_widgets); ?>
-                <?php foreach( Base::$default_widgets as $key => $widget ) : ?>
+                <?php ksort(Widgets_Manager::$default_widgets); ?>
+                <?php foreach( Widgets_Manager::$default_widgets as $key => $widget ) : ?>
                 
                     <?php if ( isset( $key ) ) : ?>
                         <div class="exad-dashboard-checkbox <?php echo esc_attr( $widget['tags'] ); ?><?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? ' inactive' : ' active'; ?>" data-tag="<?php echo esc_attr( $widget['tags'] ); ?>">

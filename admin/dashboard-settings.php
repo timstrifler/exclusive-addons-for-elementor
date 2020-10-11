@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use \ExclusiveAddons\Elementor\Widgets_Manager;
 use \ExclusiveAddons\Elementor\Base;
 
 class Admin_Settings {
@@ -60,8 +61,6 @@ class Admin_Settings {
 		if( isset( $hook ) && $hook == 'toplevel_page_exad-settings' ) {
 			wp_enqueue_style( 'exad-admin-css', EXAD_ADMIN_URL . 'assets/css/exad-admin.min.css' );
 			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.min.js', array( 'jquery', 'wp-color-picker' ), EXAD_PLUGIN_VERSION, true );
-			// wp_enqueue_style( 'wp-color-picker' );
-	        // wp_enqueue_script( 'wp-color-picker-alpha', EXAD_ADMIN_URL . 'assets/vendor/js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), EXAD_PLUGIN_VERSION, true );
 		}
 	}
 
@@ -94,8 +93,8 @@ class Admin_Settings {
 		wp_localize_script( 'exad-admin-js', 'js_exad_settings', $js_info );
 
 		
-		$this->get_dashboard_settings = get_option( 'exad_save_settings', Base::$all_feature_settings );
-	    $exad_new_settings = array_diff_key( Base::$all_feature_settings, $this->get_dashboard_settings );
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Widgets_Manager::$all_feature_settings );
+	    $exad_new_settings = array_diff_key( Widgets_Manager::$all_feature_settings, $this->get_dashboard_settings );
 
 	    if( ! empty( $exad_new_settings ) ) {
 			$exad_updated_settings = array_merge( $this->get_dashboard_settings, $exad_new_settings );
@@ -219,7 +218,7 @@ class Admin_Settings {
 
 		$this->save_dashboard_settings = [];
 
-		foreach( Base::$all_feature_array as $value ){
+		foreach( Widgets_Manager::$all_feature_array as $value ){
 			if( isset( $settings[ $value ] ) ) {
 				$this->save_dashboard_settings[ $value ] = 1;
 			} else {
