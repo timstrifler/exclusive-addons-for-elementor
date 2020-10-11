@@ -103,3 +103,5 @@ class Template_Library_Manager {
 		];
 	}
 }
+
+Template_Library_Manager::init();

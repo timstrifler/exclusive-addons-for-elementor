@@ -79,15 +79,8 @@ final class Base {
         // Look for Pro Version
         self::$is_pro_active = apply_filters( 'exad/pro_activated', false );
         $this->includes();
-        //$this->extensions_map_free();     
-        //$this->activated_features(); 
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
-        //$this->extention_manager();
-
-        if ( is_user_logged_in() ) {
-			Template_Library_Manager::init();
-        }
         
     }
 
@@ -95,11 +88,8 @@ final class Base {
     public function register_hooks() {
 
         if ( is_admin() ) {
-
             add_filter( 'plugin_action_links_' . EXAD_PBNAME, [ $this, 'insert_go_pro_url' ] );
-
             add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
-
         }
 
         // Exclusive Addons Elementor activated checking hook
@@ -109,12 +99,6 @@ final class Base {
         add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'set_placeholder_image' ], 30 );
         // Registering Elementor Widget Category
         add_action( 'elementor/elements/categories_registered', [ $this, 'register_category' ] );
-        // Enqueue Styles and Scripts
-        add_action( 'elementor/frontend/after_register_scripts', [ $this, 'enqueue_scripts' ], 20 );
-        // Load Main script
-        add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'core_files_enqueue' ] );
-        // Elementor Editor Styles
-        add_action( 'elementor/editor/after_enqueue_scripts', [ $this, 'editor_scripts' ] );
         // Register controls
 		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
         // Add Body Class 
@@ -133,14 +117,15 @@ final class Base {
      * @since 1.0.2
      */
     public function includes() {
-        include_once EXAD_PATH . 'includes/widgets-manager-class.php';
         include_once EXAD_PATH . 'includes/helper-class.php';
+        include_once EXAD_PATH . 'includes/assets-manager-class.php';
+        include_once EXAD_PATH . 'includes/widgets-manager-class.php';
         if( is_admin() ) {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
         if ( is_user_logged_in() ) {
-            include_once EXAD_PATH . 'library/library_manager.class.php' ;
-            include_once EXAD_PATH . 'library/library_source.class.php' ;   
+            include_once EXAD_PATH . 'library/library-manager.class.php' ;
+            include_once EXAD_PATH . 'library/library-source.class.php' ;   
         }
     }
 
@@ -191,104 +176,6 @@ final class Base {
      */
     public function set_placeholder_image() {
         return EXAD_ASSETS_URL . 'img/placeholder.png';
-    }
-
-    /**
-     * 
-     * Enqueue Elementor Editor Styles
-     * 
-     */
-    public function editor_scripts() {
-        wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.min.css' );
-        wp_enqueue_style( 'exad-template-library-style', EXAD_ASSETS_URL . 'css/template-library.css', [ 'elementor-editor' ], EXAD_PLUGIN_VERSION );
-        wp_enqueue_script( 'exad-template-library-script', EXAD_ASSETS_URL . 'js/template-library.js', [ 'elementor-editor', 'jquery-hover-intent' ], EXAD_PLUGIN_VERSION, true );
-
-		$localized_data = [
-			'i18n' => [
-				'templatesEmptyTitle' => esc_html__( 'No Templates Found', 'exclusive-addons-elementor' ),
-				'templatesEmptyMessage' => esc_html__( 'Try different category or sync for new templates.', 'exclusive-addons-elementor' ),
-				'templatesNoResultsTitle' => esc_html__( 'No Results Found', 'exclusive-addons-elementor' ),
-				'templatesNoResultsMessage' => esc_html__( 'Please make sure your search is spelled correctly or try a different word.', 'exclusive-addons-elementor' ),
-			]
-	
-		];
-
-        wp_localize_script( 'exad-template-library-script', 'ExclusiveAddonsEditor', $localized_data );
-    }
-
-    /**
-    * Enqueue Plugin Styles and Scripts
-    *
-    */
-    public function enqueue_scripts() {
-
-        if ( $this->is_activated_feature['progress-bar'] ) {
-            // Loading Bar JS
-            wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'vendor/js/exad-progress-bar-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-            
-            // Waypoints JS
-            wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-        }
-        // Google Map js
-        if ( $this->is_activated_feature['google-maps'] ) {
-            if ( '' != get_option('exad_google_map_api_option') ) {
-                wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), EXAD_PLUGIN_VERSION, false );
-            }
-            // Gmap 3 Js
-            wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'vendor/js/gmap3.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );            
-        }	
-        
-        if ( $this->is_activated_feature['countdown-timer'] ) {
-            // jQuery Countdown Js
-            wp_register_script( 'exad-countdown', EXAD_ASSETS_URL . 'vendor/js/jquery.countdown.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-        }
-
-        if ( $this->is_activated_feature['image-comparison'] ) {
-            // jQuery image-comparison twentytwenty Js
-            wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'vendor/js/exad-comparison-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-        }
-
-        if ( $this->is_activated_feature['filterable-gallery'] ) {
-            // Filterable Gallery
-            wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'vendor/js/isotop.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-        }
-
-        if ( $this->is_activated_feature['news-ticker'] ) {
-            // News ticker
-            wp_register_script( 'exad-news-ticker', EXAD_ASSETS_URL . 'vendor/js/exad-news-ticker.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-        }
-        
-        if ( $this->is_activated_feature['animated-text'] ) {
-            // Animated Text
-            wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'vendor/js/typed.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-        }	
-        if ( $this->is_activated_feature['post-grid'] ) {
-            // Post grid
-            wp_register_script( 'exad-post-grid', EXAD_ASSETS_URL . 'vendor/js/jquery.matchHeight.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-        }	
-        
-    }
-
-
-    /**
-     * Front end main script
-     * 
-     */
-    public function core_files_enqueue() {
-        // Main Plugin Styles
-        wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.min.css' );
-
-        if( is_rtl() ) {
-            // Main Plugin RTL Styles
-            wp_enqueue_style( 'exad-rtl-style', EXAD_ASSETS_URL . 'css/exad-rtl-styles.min.css' );            
-        }
-
-        // Main Plugin Scripts
-        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.min.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
-
-        wp_localize_script( 'exad-main-script', 'exad_ajax_object', array(
-            'ajax_url' => admin_url( 'admin-ajax.php' ),
-        ));
     }
 
     // Ajax Load More For Post Grid
@@ -365,9 +252,6 @@ final class Base {
 
         return $links;
     }
-
-
-   
 
     /**
      * Plugin Redirect Hook
