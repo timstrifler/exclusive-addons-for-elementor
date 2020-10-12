@@ -41,11 +41,12 @@ use \ExclusiveAddons\Elementor\Base;
                 </div>
             </div>
             <div class="exad-dashboard-checkbox-container">
-                <?php ksort(Widgets_Manager::$default_widgets); ?>
+                <?php ksort( Widgets_Manager::$default_widgets ); ?>
                 <?php foreach( Widgets_Manager::$default_widgets as $key => $widget ) : ?>
                 
                     <?php if ( isset( $key ) ) : ?>
-                        <div class="exad-dashboard-checkbox <?php echo esc_attr( $widget['tags'] ); ?><?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? ' inactive' : ' active'; ?>" data-tag="<?php echo esc_attr( $widget['tags'] ); ?>">
+                        <div class="exad-dashboard-checkbox <?php echo esc_attr( $widget['tags'] ); ?><?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? ' inactive' : ' active'; ?>" 
+                        data-tag="<?php echo esc_attr( $widget['tags'] ); ?>">
                             <?php if( true === $widget['is_pro'] ) { ?>
                                 <div class="exad-dashboard-item-label">
                                     <span class="exad-el-label"><?php echo esc_html( $widget['tags'] ); ?></span>
@@ -62,7 +63,9 @@ use \ExclusiveAddons\Elementor\Base;
                                 </a>
                             </div>
                             <div class="exad-dashboard-checkbox-label">
-                                <input class="exad-dashboard-input" type="checkbox" <?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? 'disabled="disabled"' : ''; ?> id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" <?php ( $widget['is_pro'] && !Base::$is_pro_active ? '' : checked( 1, $this->get_dashboard_settings[$key], true ) ); ?>>
+                                <input class="exad-dashboard-input" type="checkbox" <?php echo ( $widget['is_pro'] && !Base::$is_pro_active ) ? 'disabled="disabled"' : ''; ?> 
+                                id="<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>" 
+                                <?php checked( 1, $this->get_dashboard_settings[$key], true ); ?>>
                                 <label for="<?php echo esc_attr( $key ); ?>"></label>
                             </div>
                         </div>

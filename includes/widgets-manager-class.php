@@ -11,17 +11,6 @@ class Widgets_Manager {
 
     /**
      * 
-     * Static property that consists all the default extensions array
-     * 
-     * @access public
-     * @static
-     * 
-     * @return array
-     */
-    public static $default_extensions = []; 
-
-    /**
-     * 
      * Static property to hold all widget names in an array
      * 
      * @access public
@@ -63,14 +52,37 @@ class Widgets_Manager {
      */
     public static $default_widgets = [];
 
+
+    /**
+     * 
+     * Static property that consists all the default widget array
+     * 
+     * @access public
+     * @static
+     * 
+     * @return array
+     */
+    public static $pro_widget_value;
+
+    /**
+     * 
+     * Static property that consists all the default extensions array
+     * 
+     * @access public
+     * @static
+     * 
+     * @return array
+     */
+    public static $default_extensions = []; 
+
 	/**
 	 * Initialize
 	 */
 	public static function init() {
-        add_action( 'elementor/widgets/widgets_registered', [ __CLASS__, 'initiate_widgets' ] );
         self::widget_manager();
         self::extension_manager();
         self::activated_features();
+        add_action( 'elementor/widgets/widgets_registered', [ __CLASS__, 'initiate_widgets' ] );
     }
 
 
@@ -635,6 +647,8 @@ class Widgets_Manager {
             include_once EXAD_PATH . 'extensions/post-duplicator.php';
         }
     }
+
+
 
     /**
      * This function returns true for all activated widgets

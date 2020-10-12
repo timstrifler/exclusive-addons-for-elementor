@@ -47,7 +47,6 @@ class Admin_Settings {
 		add_action( 'wp_ajax_exad_ajax_save_elements_setting', array( $this, 'ajax_save_elements_setting_function' ) );
 	}
 	
-	
 
 	/**
 	 * Loading required scripts
@@ -91,7 +90,7 @@ class Admin_Settings {
 			'ajax_nonce' => wp_create_nonce( 'exad_settings_nonce_action' )
 		);
 		wp_localize_script( 'exad-admin-js', 'js_exad_settings', $js_info );
-
+		
 		
 		$this->get_dashboard_settings = get_option( 'exad_save_settings', Widgets_Manager::$all_feature_settings );
 	    $exad_new_settings = array_diff_key( Widgets_Manager::$all_feature_settings, $this->get_dashboard_settings );
@@ -101,7 +100,7 @@ class Admin_Settings {
 			update_option( 'exad_save_settings', $exad_updated_settings );
 		}
 		
-		$this->get_dashboard_settings = get_option( 'exad_save_settings' );
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Widgets_Manager::$all_feature_settings );
         
         
         ?>
@@ -225,6 +224,8 @@ class Admin_Settings {
 				$this->save_dashboard_settings[ $value ] = 0;
 			}
 		}
+
+		var_dump($_POST['fields']);
 
         update_option( 'exad_save_settings', $this->save_dashboard_settings );        
         update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );
