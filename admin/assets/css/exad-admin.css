@@ -762,7 +762,7 @@
      border: 1px solid #D0D6E5;
  }
  
- .exad-dashboard-checkbox.active label:after {
+ .exad-dashboard-checkbox label:after {
      content: '';
      position: absolute;
      left: 7px;
@@ -777,7 +777,7 @@
      display: none;
  }
  
- .exad-dashboard-checkbox.active input[type=checkbox]:checked+label:before {
+ .exad-dashboard-checkbox input[type=checkbox]:checked+label:before {
      background: #6636F6;
      border: 1px solid #6636F6;
  }

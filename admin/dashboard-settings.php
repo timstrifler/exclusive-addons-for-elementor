@@ -217,15 +217,17 @@ class Admin_Settings {
 
 		$this->save_dashboard_settings = [];
 
-		foreach( Widgets_Manager::$all_feature_array as $value ){
-			if( isset( $settings[ $value ] ) ) {
+		$pro_widgets_value = array_keys( Widgets_Manager::widget_map_pro() );
+
+		foreach( Widgets_Manager::$all_feature_array as $value ) {
+			if ( isset( $settings[ $value ] ) ) {
+				$this->save_dashboard_settings[ $value ] = 1;
+			} else if ( !Base::$is_pro_active ) {
 				$this->save_dashboard_settings[ $value ] = 1;
 			} else {
 				$this->save_dashboard_settings[ $value ] = 0;
 			}
 		}
-
-		var_dump($_POST['fields']);
 
         update_option( 'exad_save_settings', $this->save_dashboard_settings );        
         update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );

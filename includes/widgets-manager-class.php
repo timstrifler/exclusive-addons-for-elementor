@@ -83,6 +83,7 @@ class Widgets_Manager {
         self::extension_manager();
         self::activated_features();
         add_action( 'elementor/widgets/widgets_registered', [ __CLASS__, 'initiate_widgets' ] );
+        self::initiate_extensions();
     }
 
 
@@ -91,6 +92,15 @@ class Widgets_Manager {
             self::$default_widgets = apply_filters( 'exad_add_pro_widgets', self::widget_map_free() );
         } else {
             self::$default_widgets = array_merge( self::widget_map_free(), self::widget_map_pro() );
+        }
+    }
+
+    public static function initiate_extensions() {
+        include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
+
+        // Post Duplicator extention
+        if( self::$is_activated_feature['post-duplicator'] ){
+            include_once EXAD_PATH . 'extensions/post-duplicator.php';
         }
     }
     
@@ -640,12 +650,6 @@ class Widgets_Manager {
             self::$default_extensions = array_merge( self::extensions_map_free(), self::extensions_map_pro() );
         }
         
-        include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
-
-        // Post Duplicator extention
-        if( self::$is_activated_feature['post-duplicator'] ){
-            include_once EXAD_PATH . 'extensions/post-duplicator.php';
-        }
     }
 
 
