@@ -55,17 +55,6 @@ class Widgets_Manager {
 
     /**
      * 
-     * Static property that consists all the default widget array
-     * 
-     * @access public
-     * @static
-     * 
-     * @return array
-     */
-    public static $pro_widget_value;
-
-    /**
-     * 
      * Static property that consists all the default extensions array
      * 
      * @access public
@@ -95,6 +84,20 @@ class Widgets_Manager {
         }
     }
 
+    /**
+     * 
+     * Including extention assets
+     * @since 2.1.5
+     */
+    public static function extension_manager() {
+        if ( Base::$is_pro_active ) {
+            self::$default_extensions = apply_filters( 'exad_add_pro_extensions', self::extensions_map_free() );
+        } else {
+            self::$default_extensions = array_merge( self::extensions_map_free(), self::extensions_map_pro() );
+        }
+    }
+
+
     public static function initiate_extensions() {
         include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
 
@@ -103,7 +106,7 @@ class Widgets_Manager {
             include_once EXAD_PATH . 'extensions/post-duplicator.php';
         }
     }
-    
+
     /**
      * Init Widgets
      *
@@ -130,6 +133,17 @@ class Widgets_Manager {
             }
         }
 
+    }
+
+    /**
+     * This function returns true for all activated widgets
+     *
+    * @since  1.0
+    */
+    public static function activated_features() {
+        self::$all_feature_array = array_merge( array_keys( self::$default_widgets ), array_keys( self::$default_extensions ) );
+        self::$all_feature_settings  = array_fill_keys( self::$all_feature_array, true );
+        self::$is_activated_feature = get_option( 'exad_save_settings', self::$all_feature_settings );
     }
 
 
@@ -635,34 +649,6 @@ class Widgets_Manager {
                 'is_pro' => true
             ] 
         ];
-    }
-
-    /**
-     * 
-     * Including extention assets
-     * @since 2.1.5
-     */
-    public static function extension_manager() {
-
-        if ( Base::$is_pro_active ) {
-            self::$default_extensions = apply_filters( 'exad_add_pro_extensions', self::extensions_map_free() );
-        } else {
-            self::$default_extensions = array_merge( self::extensions_map_free(), self::extensions_map_pro() );
-        }
-        
-    }
-
-
-
-    /**
-     * This function returns true for all activated widgets
-     *
-    * @since  1.0
-    */
-    public static function activated_features() {
-        self::$all_feature_array = array_merge( array_keys( self::$default_widgets ), array_keys( self::$default_extensions ) );
-        self::$all_feature_settings  = array_fill_keys( self::$all_feature_array, true );
-        self::$is_activated_feature = get_option( 'exad_save_settings', self::$all_feature_settings );
     }
 
 }

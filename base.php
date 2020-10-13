@@ -81,7 +81,6 @@ final class Base {
         $this->includes();
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
-        
     }
 
     // register hooks
@@ -118,7 +117,7 @@ final class Base {
      */
     public function includes() {
         include_once EXAD_PATH . 'includes/helper-class.php';
-        include_once EXAD_PATH . 'includes/widgets-manager-class.php';
+        include_once EXAD_PATH . 'includes/features-manager-class.php';
         include_once EXAD_PATH . 'includes/assets-manager-class.php';
         if( is_admin() ) {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
