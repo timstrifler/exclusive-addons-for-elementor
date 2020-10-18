@@ -17,15 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<span><?php echo __( 'Back to Library', 'exclusive-addons-elemntor' ); ?></span>
 </script>
 
-<script type="text/template" id="template-exad-templateLibrary-header-menu">
-	<div class="elementor-component-tab exad-TemplateLibrary-menu-item elementor-active" data-tab="templates">
-		<span><?php esc_html_e( 'Templates', 'exclusive-addons-elementor' ); ?></span>
-	</div>
-	<div class="elementor-component-tab exad-TemplateLibrary-menu-item" data-tab="demos">
-		<span><?php esc_html_e( 'Demos', 'exclusive-addons-elementor' ); ?></span>
-	</div>
-</script>
-
 <script type="text/template" id="template-exad-templateLibrary-header-actions">
 	<div id="exad-templateLibrary-header-sync" class="elementor-templates-modal__header__item">
 		<i class="eicon-sync" aria-hidden="true" title="<?php esc_attr_e( 'Sync Library', 'exclusive-addons-elemntor' ); ?>"></i>
