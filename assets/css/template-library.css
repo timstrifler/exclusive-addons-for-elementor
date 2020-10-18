@@ -90,6 +90,13 @@
 	color: #000;
 }
 
+#elementor-template-exad-templateLibrary-header-menu .exad-TemplateLibrary-menu-item {
+    display: inline-block;
+    padding: 12px 0;
+    width: 115px;
+    cursor: pointer;
+}
+
 #exad-templateLibrary-templates {
 	height: calc(100% + 30px);
 }

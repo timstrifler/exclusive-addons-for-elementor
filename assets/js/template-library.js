@@ -90,6 +90,19 @@
             exad.library.showBlocksView();
         },
     })),
+    (i.Views.HeaderMenu = Marionette.ItemView.extend({
+        template: "#template-exad-templateLibrary-header-menu",
+        id: "elementor-template-exad-templateLibrary-header-menu",
+        className: "exad-templateLibrary-header-menu",
+        ui: { items: "> .elementor-component-tab" },
+        events: { "click @ui.items": "onTabItemClick" },
+        onTabItemClick: function (t) {
+            var a = e(t.currentTarget),
+                n = a.data("tabs");
+            i.library.channels.tabs.trigger("change:device", n, a);
+        },
+
+    })),
     (i.Views.Actions = Marionette.ItemView.extend({
         template: "#template-exad-templateLibrary-header-actions",
         id: "elementor-template-library-header-actions",
@@ -240,12 +253,16 @@
         showLogo: function (e) {
             this.getHeaderView().logoArea.show(new i.Views.Logo(e));
         },
+        showHeaderMenu: function () {
+            this.getHeaderView().menuArea.show(new i.Views.HeaderMenu());
+        },
         showDefaultHeader: function () {
             this.showLogo({
                 title: "Exclusive Addons"
             });
+            this.showHeaderMenu();
             var e = this.getHeaderView();
-            e.tools.show(new i.Views.Actions()), e.menuArea.reset();
+            e.tools.show(new i.Views.Actions());
         },
         showPreviewView: function (e) {
             var t = this.getHeaderView();
@@ -357,7 +374,6 @@
         }),
         (this.showBlocksView = function () {
             m.getModal().showDefaultHeader(),
-                m.setFilter("category", "", !0),
                 m.setFilter("category", "", !0),
                 m.loadTemplates(function () {
                     m.getModal().showBlocksView(d);

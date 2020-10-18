@@ -18,9 +18,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 </script>
 
 <script type="text/template" id="template-exad-templateLibrary-header-menu">
-	<# _.each( tabs, function( args, tab ) { var activeClass = args.active ? 'elementor-active' : ''; #>
-		<div class="elementor-component-tab elementor-template-library-menu-item {{activeClass}}" data-tab="{{{ tab }}}">{{{ args.title }}}</div>
-	<# } ); #>
+	<div class="elementor-component-tab exad-TemplateLibrary-menu-item elementor-active" data-tab="templates">
+		<span><?php esc_html_e( 'Templates', 'exclusive-addons-elementor' ); ?></span>
+	</div>
+	<div class="elementor-component-tab exad-TemplateLibrary-menu-item" data-tab="demos">
+		<span><?php esc_html_e( 'Demos', 'exclusive-addons-elementor' ); ?></span>
+	</div>
 </script>
 
 <script type="text/template" id="template-exad-templateLibrary-header-actions">

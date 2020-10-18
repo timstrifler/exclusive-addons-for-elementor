@@ -22,7 +22,7 @@ class Template_Library_Manager {
 	}
 
 	public static function enqueue_preview_styles() {
-		wp_enqueue_style( 'exad-template-preview-style', EXAD_ASSETS_URL . 'css/template-preview.css', EXAD_PLUGIN_VERSION );
+		wp_enqueue_style( 'exad-template-preview-style', EXAD_ASSETS_URL . 'css/template-preview.min.css', EXAD_PLUGIN_VERSION );
 	}
 
 	/**
