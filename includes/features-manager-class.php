@@ -282,6 +282,13 @@ class Widgets_Manager {
                 'tags'   => 'free',
                 'is_pro' => false
             ],
+            'info-list' => [
+                'title' => __( 'Info List', 'exclusive-addons-elementor' ),
+                'class' => '\ExclusiveAddons\Elements\Infolist',
+                'demo_link' => '#',
+                'tags' => 'free',
+                'is_pro' => false
+            ],
             'logo-box'  => [
                 'title'  => __( 'Logo Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Logo_Box',
