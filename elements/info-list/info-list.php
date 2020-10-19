@@ -216,6 +216,303 @@ class Infolist extends Widget_Base {
             ]
         );
         $this->end_controls_section();
+
+        /**
+		 * -------------------------------------------
+		 * Tab Style Exclusive Infolist Container Style
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'exad_section_exclusive_infolist_container_style',
+			[
+				'label'	=> esc_html__( 'Container', 'exclusive-addons-elementor' ),
+				'tab'	=> Controls_Manager::TAB_STYLE
+			]
+		);		
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'     => 'exad_infolist_container_background_color',
+                'types'    => [ 'classic', 'gradient' ],
+                'selector' => '{{WRAPPER}} .exad-list-container'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_exclusive_infolist_container_padding',
+            [
+				'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
+                    '{{WRAPPER}} .exad-list-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_exclusive_infolist_container_margin',
+            [
+				'label'        => esc_html__('Margin', 'exclusive-addons-elementor'),
+				'type'         => Controls_Manager::DIMENSIONS,
+				'size_units'   => ['px', '%'],
+				'default'      => [
+					'top'      => '0',
+					'right'    => '0',
+					'bottom'   => '20',
+					'left'     => '0',
+					'isLinked' => false
+				],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-list-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+        	Group_Control_Border::get_type(),
+            [
+				'name'     => 'exad_exclusive_infolist_container_border',
+				'selector' => '{{WRAPPER}} .exad-list-container'
+            ]
+		);
+		
+		$this->add_responsive_control(
+            'exad_exclusive_infolist_container_border_radius',
+            [
+				'label'      => esc_html__('Border Radius', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '0',
+					'bottom' => '0',
+					'left'   => '0'
+				],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-list-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'exad_infolist_container_box_shadow',
+				'selector' => '{{WRAPPER}} .exad-list-container'
+			]
+        );
+
+		$this->end_controls_section();
+
+        /**
+		 * -------------------------------------------
+		 * Tab Style Exclusive Infolist List Style
+		 * -------------------------------------------
+		 */
+        $this->start_controls_section(
+			'exad_section_exclusive_infolist_list_style',
+			[
+				'label'	=> esc_html__( 'List Style', 'exclusive-addons-elementor' ),
+				'tab'	=> Controls_Manager::TAB_STYLE
+			]
+        );		
+        
+        $this->add_responsive_control(
+            'exad_section_exclusive_infolist_list_item_space',
+            [
+              'label'    => esc_html__( 'List Space', 'exclusive-addons-elementor' ),
+              'type'     => Controls_Manager::SLIDER,
+              'default'  => [
+                    'size' => 10
+              ],
+              'range'    => [
+                    'px'   => [
+                        'max' => 50
+                    ]
+              ],
+              'selectors' => [
+                    '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item' => 'margin-bottom: {{SIZE}}px;'
+              ]
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_exclusive_infolist_list_item_border_radius',
+            [
+				'label'      => esc_html__('Border Radius', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '0',
+					'bottom' => '0',
+					'left'   => '0'
+				],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'exad_infolist_list_item_box_shadow',
+				'selector' => '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item'
+			]
+        );
+
+        $this->add_control(
+			'exad_infolist_icon_position',
+			[
+				'label'        => __( 'List Position', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::CHOOSE,
+				'label_block'  => false,
+				'toggle'       => false,
+				'default'      => 'left',
+				'options'      => [
+					'left'  => [
+						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-h-align-left',
+                    ],
+					'top'   => [
+						'title' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-v-align-top',
+                    ],
+					'right' => [
+						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-h-align-right',
+                    ],
+				],
+				'prefix_class' => 'exad-info-list-icon-',
+            ]
+		);
+        $this->end_controls_section();
+
+        /**
+		 * -------------------------------------------
+		 * Tab Style Exclusive Infolist List Style
+		 * -------------------------------------------
+		 */
+        $this->start_controls_section(
+			'exad_section_exclusive_infolist_content_style',
+			[
+				'label'	=> esc_html__( 'Content Style', 'exclusive-addons-elementor' ),
+				'tab'	=> Controls_Manager::TAB_STYLE
+			]
+        );	
+
+        $this->add_responsive_control(
+			'exad_infolist_content_align',
+			[
+				'label'     => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'left'    => [
+						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
+						'icon'  => 'fa fa-align-left',
+                    ],
+					'center'  => [
+						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
+						'icon'  => 'fa fa-align-center',
+                    ],
+					'right'   => [
+						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+						'icon'  => 'fa fa-align-right',
+                    ],
+					'justify' => [
+						'title' => esc_html__( 'Justified', 'exclusive-addons-elementor' ),
+						'icon'  => 'fa fa-align-justify',
+                    ],
+                ],
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .exad-info-list-item-content-wrapper' => 'text-align: {{VALUE}};',
+                ],
+            ]
+		);
+
+        $this->add_control(
+			'exad_infolist_content_title_heading',
+			[
+				'label'     => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+            ]
+        );
+        $this->add_control(
+			'exad_infolist_content_title_color',
+			[
+				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#000000',
+				'selectors' => [
+					'{{WRAPPER}} .exad-list-container .exad-info-list-item-content-wrapper .infolist-title' => 'color: {{VALUE}};',
+                ],
+            ]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'exad_infolist_content_title_typography',
+				'label'    => esc_html__( 'Typography', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-list-container .exad-info-list-item-content-wrapper .infolist-title',
+            ]
+        );
+        
+        $this->add_responsive_control(
+            'exad_infolist_content_title_bottom_space',
+            [
+              'label'    => esc_html__( 'Space', 'exclusive-addons-elementor' ),
+              'type'     => Controls_Manager::SLIDER,
+              'default'  => [
+                    'size' => 10
+              ],
+              'range'    => [
+                    'px'   => [
+                        'max' => 50
+                    ]
+              ],
+              'selectors' => [
+                    '{{WRAPPER}} .exad-list-container .exad-info-list-item-content-wrapper .infolist-title' => 'margin-bottom: {{SIZE}}px;'
+              ]
+            ]
+        );
+        
+        $this->add_control(
+			'exad_infolist_content_description_heading',
+			[
+				'label'     => esc_html__( 'Description', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+            ]
+		);
+
+		$this->add_control(
+			'exad_infolist_content_description_color',
+			[
+				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-list-container .exad-info-list-item-content-wrapper .infolist-description' => 'color: {{VALUE}};',
+                ],
+            ]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'exad_infolist_content_description_typography',
+				'label'    => esc_html__( 'Typography', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-list-container .exad-info-list-item-content-wrapper .infolist-description',
+            ]
+		);
+
+        $this->end_controls_section();
     }
 
     protected function render() {
@@ -227,7 +524,7 @@ class Infolist extends Widget_Base {
         $this->add_render_attribute('exad-info-list-items', 'class', 'exad-info-list-items');
         $this->add_render_attribute('exad-info-list-item', 'class', 'exad-info-list-item');
         $this->add_render_attribute('exad-info-list-item-inner', 'class', 'exad-info-list-item-inner');
-        $this->add_render_attribute('exad-info-list-item-inner', 'class', 'exad-info-list-item-inner');
+        //$this->add_render_attribute('exad-info-list-item-inner', 'class', 'exad-info-list-item-inner');
         $this->add_render_attribute('exad-info-list-item-icon-image-wrapper', 'class', 'exad-info-list-item-icon-image-wrapper');
         $this->add_render_attribute('exad-info-list-item-content-wrapper', 'class', 'exad-info-list-item-content-wrapper');
 
