@@ -83,6 +83,7 @@ class Template_Library_Source extends Source_Base {
 			'type'        => $template_data['type'],
 			'thumbnail'   => $template_data['thumbnail'],
 			'category'    => $template_data['category'],
+			'isPro'       => $template_data['is_pro'],
 			'url'         => $template_data['url'],
 		];
 	}

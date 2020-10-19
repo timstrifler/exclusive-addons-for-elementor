@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+use ExclusiveAddons\Elementor\Base;
 use ExclusiveAddons\Elementor\Widgets_Manager;
 
 class Assets_Manager {
@@ -29,9 +30,11 @@ class Assets_Manager {
     public static function editor_scripts() {
         wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.min.css' );
         wp_enqueue_style( 'exad-template-library-style', EXAD_ASSETS_URL . 'css/template-library.min.css', [ 'elementor-editor' ], EXAD_PLUGIN_VERSION );
-        wp_enqueue_script( 'exad-template-library-script', EXAD_ASSETS_URL . 'js/template-library.min.js', [ 'elementor-editor', 'jquery-hover-intent' ], EXAD_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'exad-template-library-script', EXAD_ASSETS_URL . 'js/template-library.js', [ 'elementor-editor', 'jquery-hover-intent' ], EXAD_PLUGIN_VERSION, true );
 
 		$localized_data = [
+            'exadProWidgets' => [],
+			'isProActive' => Base::$is_pro_active,
 			'i18n' => [
 				'templatesEmptyTitle' => esc_html__( 'No Templates Found', 'exclusive-addons-elementor' ),
 				'templatesEmptyMessage' => esc_html__( 'Try different category or sync for new templates.', 'exclusive-addons-elementor' ),
@@ -39,7 +42,11 @@ class Assets_Manager {
 				'templatesNoResultsMessage' => esc_html__( 'Please make sure your search is spelled correctly or try a different word.', 'exclusive-addons-elementor' ),
 			]
 	
-		];
+        ];
+        
+        if ( ! Base::$is_pro_active ) {
+			$localized_data['exadProWidgets'] = Widgets_Manager::widget_map_pro();
+		}
 
         wp_localize_script( 'exad-template-library-script', 'ExclusiveAddonsEditor', $localized_data );
     }

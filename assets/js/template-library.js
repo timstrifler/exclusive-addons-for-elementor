@@ -6,27 +6,28 @@
     }
 
     var i = {
-        Views: {},
-        Models: {},
-        Collections: {},
-        Behaviors: {},
-        Layout: null,
-        Manager: null
+        LibraryViews: {},
+        LibraryModels: {},
+        LibraryCollections: {},
+        LibraryBehaviors: {},
+        LibraryLayout: null,
+        LibraryManager: null
     };
-    (i.Models.Template = Backbone.Model.extend({
+    (i.LibraryModels.Template = Backbone.Model.extend({
         defaults: {
             template_id: 0,
             title: "",
             type: "",
             thumbnail: "",
             url: "",
+            isPro: !1,
             category: []
         }
     })),
-    (i.Collections.Template = Backbone.Collection.extend({
-        model: i.Models.Template
+    (i.LibraryCollections.Template = Backbone.Collection.extend({
+        model: i.LibraryModels.Template
     })),
-    (i.Behaviors.InsertTemplate = Marionette.Behavior.extend({
+    (i.LibraryBehaviors.InsertTemplate = Marionette.Behavior.extend({
         ui: {
             insertButton: ".exad-templateLibrary-insert-button"
         },
@@ -39,7 +40,33 @@
             });
         },
     })),
-    (i.Views.EmptyTemplateCollection = Marionette.ItemView.extend({
+    (i.LibraryViews.Loading = Marionette.ItemView.extend({
+        template: "#template-exad-templateLibrary-loading",
+        id: "exad-templateLibrary-loading"
+    })),
+    (i.LibraryViews.Logo = Marionette.ItemView.extend({
+        template: "#template-exad-templateLibrary-header-logo",
+        className: "exad-templateLibrary-header-logo",
+        templateHelpers: function () {
+            return {
+                title: this.getOption("title")
+            };
+        },
+    })),
+    (i.LibraryViews.BackButton = Marionette.ItemView.extend({
+        template: "#template-exad-templateLibrary-header-back",
+        id: "elementor-template-library-header-preview-back",
+        className: "exad-templateLibrary-header-back",
+        events: function () {
+            return {
+                click: "onClick"
+            };
+        },
+        onClick: function () {
+            exad.library.showBlocksView();
+        },
+    })),
+    (i.LibraryViews.EmptyTemplateCollection = Marionette.ItemView.extend({
         id: "elementor-template-library-templates-empty",
         template: "#template-exad-templateLibrary-empty",
         ui: {
@@ -64,33 +91,7 @@
             this.ui.title.html(e.title), this.ui.message.html(e.message);
         },
     })),
-    (i.Views.Loading = Marionette.ItemView.extend({
-        template: "#template-exad-templateLibrary-loading",
-        id: "exad-templateLibrary-loading"
-    })),
-    (i.Views.Logo = Marionette.ItemView.extend({
-        template: "#template-exad-templateLibrary-header-logo",
-        className: "exad-templateLibrary-header-logo",
-        templateHelpers: function () {
-            return {
-                title: this.getOption("title")
-            };
-        },
-    })),
-    (i.Views.BackButton = Marionette.ItemView.extend({
-        template: "#template-exad-templateLibrary-header-back",
-        id: "elementor-template-library-header-preview-back",
-        className: "exad-templateLibrary-header-back",
-        events: function () {
-            return {
-                click: "onClick"
-            };
-        },
-        onClick: function () {
-            exad.library.showBlocksView();
-        },
-    })),
-    (i.Views.Actions = Marionette.ItemView.extend({
+    (i.LibraryViews.Actions = Marionette.ItemView.extend({
         template: "#template-exad-templateLibrary-header-actions",
         id: "elementor-template-library-header-actions",
         ui: {
@@ -111,16 +112,16 @@
                 });
         },
     })),
-    (i.Views.InsertWrapper = Marionette.ItemView.extend({
+    (i.LibraryViews.InsertWrapper = Marionette.ItemView.extend({
         template: "#template-exad-templateLibrary-header-insert",
         id: "elementor-template-library-header-preview",
         behaviors: {
             insertTemplate: {
-                behaviorClass: i.Behaviors.InsertTemplate
+                behaviorClass: i.LibraryBehaviors.InsertTemplate
             }
         },
     })),
-    (i.Views.Preview = Marionette.ItemView.extend({
+    (i.LibraryViews.Preview = Marionette.ItemView.extend({
         template: "#template-exad-templateLibrary-preview",
         className: "exad-templateLibrary-preview",
         ui: function () {
@@ -131,19 +132,19 @@
         onRender: function () {
             this.ui.iframe.attr("src", this.getOption("url")).hide();
             var e = this,
-                t = new i.Views.Loading().render();
+                t = new i.LibraryViews.Loading().render();
             this.$el.append(t.el),
                 this.ui.iframe.on("load", function () {
                     e.$el.find("#exad-templateLibrary-loading").remove(), e.ui.iframe.show();
                 });
         },
     })),
-    (i.Views.TemplateCollection = Marionette.CompositeView.extend({
+    (i.LibraryViews.TemplateCollection = Marionette.CompositeView.extend({
         template: "#template-exad-templateLibrary-templates",
         id: "exad-templateLibrary-templates",
         childViewContainer: "#exad-templateLibrary-templates-list",
         emptyView: function () {
-            return new i.Views.EmptyTemplateCollection();
+            return new i.LibraryViews.EmptyTemplateCollection();
         },
         ui: {
             templatesWindow: ".exad-templateLibrary-templates-window",
@@ -156,7 +157,7 @@
             "change @ui.categoryFilter": "onCategoryFilterClick"
         },
         getChildView: function (e) {
-            return i.Views.Template;
+            return i.LibraryViews.Template;
         },
         initialize: function () {
             this.listenTo(exad.library.channels.templates, "filter:change", this._renderChildren);
@@ -204,7 +205,7 @@
             this.$("#exad-templateLibrary-filter-category").select2({ placeholder: "Filter By Widget", allowClear: !0, width: 200 }), this.updatePerfectScrollbar();
         },
     })),
-    (i.Views.Template = Marionette.ItemView.extend({
+    (i.LibraryViews.Template = Marionette.ItemView.extend({
         template: "#template-exad-templateLibrary-template",
         className: "exad-templateLibrary-template",
         ui: {
@@ -215,7 +216,7 @@
         },
         behaviors: {
             insertTemplate: {
-                behaviorClass: i.Behaviors.InsertTemplate
+                behaviorClass: i.LibraryBehaviors.InsertTemplate
             }
         },
         onPreviewButtonClick: function () {
@@ -234,35 +235,35 @@
             };
         },
         getTemplateActionButton: function (e) {
-            var t = "insert-button";
+            var t = e.isPro && !ExclusiveAddonsEditor.isProActive ? "pro-button" : "insert-button";
             return (viewId = "#template-exad-templateLibrary-" + t), (template = Marionette.TemplateCache.get(viewId)), Marionette.Renderer.render(template);
         },
         showLogo: function (e) {
-            this.getHeaderView().logoArea.show(new i.Views.Logo(e));
+            this.getHeaderView().logoArea.show(new i.LibraryViews.Logo(e));
         },
         showDefaultHeader: function () {
             this.showLogo({
                 title: "Exclusive Addons"
             });
             var e = this.getHeaderView();
-            e.tools.show(new i.Views.Actions());
+            e.tools.show(new i.LibraryViews.Actions());
         },
         showPreviewView: function (e) {
             var t = this.getHeaderView();
-            t.logoArea.show(new i.Views.BackButton()), t.tools.show(new i.Views.InsertWrapper({
+            t.logoArea.show(new i.LibraryViews.BackButton()), t.tools.show(new i.LibraryViews.InsertWrapper({
                 model: e
             })), 
-            this.modalContent.show(new i.Views.Preview({
+            this.modalContent.show(new i.LibraryViews.Preview({
                 url: e.get("url")
             }));
         },
         showBlocksView: function (e) {
-            this.modalContent.show(new i.Views.TemplateCollection({
+            this.modalContent.show(new i.LibraryViews.TemplateCollection({
                 collection: e
             }));
         },
     })),
-    (i.Manager = function () {
+    (i.LibraryManager = function () {
         function a() {
             var t = e(this).closest(".elementor-top-section"),
                 i = t.data("model-cid"),
@@ -279,18 +280,12 @@
             t.length && t.before($exadLibraryButton), e.on("click.onAddElement", ".elementor-editor-section-settings .elementor-editor-element-add", a);
         }
 
-        function r(t, i) {
-            i.addClass("elementor-active").siblings().removeClass("elementor-active");
-            var a = devicesResponsiveMap[t] || devicesResponsiveMap.desktop;
-            e(".exad-templateLibrary-preview").css("width", a);
-        }
-
         function o() {
             var e = window.elementor.$previewContents,
                 t = setInterval(function () {
                     n(e), e.find(".elementor-add-new-section").length > 0 && clearInterval(t);
                 }, 100);
-            e.on("click.onAddTemplateButton", ".elementor-add-exad-button", m.showModal.bind(m)), this.channels.tabs.on("change:device", r);
+            e.on("click.onAddTemplateButton", ".elementor-add-exad-button", m.showModal.bind(m));
         }
         var l,
             s,
@@ -299,14 +294,8 @@
             m = this;
         (FIND_SELECTOR = ".elementor-add-new-section .elementor-add-section-drag-title"),
         ($exadLibraryButton = '<div class="elementor-add-section-area-button elementor-add-exad-button"><i class="exad exad-logo"></i></div>'),
-        (devicesResponsiveMap = {
-            desktop: "100%",
-            tab: "768px",
-            mobile: "360px"
-        }),
         (this.atIndex = -1),
         (this.channels = {
-            tabs: Backbone.Radio.channel("tabs"),
             templates: Backbone.Radio.channel("templates")
         }),
         (this.updateBlocksView = function () {
@@ -379,7 +368,7 @@
             var t = {
                 data: {},
                 success: function (t) {
-                    (d = new i.Collections.Template(t.templates)), t.category && (s = t.category), e.onUpdate && e.onUpdate();
+                    (d = new i.LibraryCollections.Template(t.templates)), t.category && (s = t.category), e.onUpdate && e.onUpdate();
                 },
             };
             e.forceSync && (t.data.sync = !0), elementorCommon.ajax.addRequest("exad_get_template_library_data", t);
@@ -430,12 +419,12 @@
                 .show();
         }),
         (this.getErrorDialog = function () {
-            return c || (c = elementorCommon.dialogsManager.createWidget("alert", {
+            return c || (c = elementorCommon.dialogsLibraryManager.createWidget("alert", {
                 id: "elementor-template-library-error-dialog",
                 headerMessage: "An error occurred"
             })), c;
         });
     }),
-    (window.exad.library = new i.Manager()),
+    (window.exad.library = new i.LibraryManager()),
     window.exad.library.init();
 })(jQuery, window.elementor);
