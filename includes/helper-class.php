@@ -22,6 +22,51 @@ class Helper {
         return $post_lists;
     }
 
+    /**
+     * Custom wp_ksese function
+     * 
+     * @param string
+     * @return array
+     */
+    public static function exad_wp_kses( $string ) {
+        $allowed_html = [
+            'b' => [],
+            's' => [],
+            'strong' => [],
+            'i' => [],
+            'u' => [],
+            'br' => [],
+            'em' => [],
+            'del' => [],
+            'ins' => [],
+            'sup' => [],
+            'sub' => [],
+            'code' => [],
+            'small' => [],
+            'strike' => [],
+            'abbr' => [
+                'title' => [],
+            ],
+            'span' => [
+                'class' => [],
+            ],
+            'a' => [
+				'href' => [],
+				'title' => [],
+				'class' => [],
+				'id' => [],
+			],
+			'img' => [
+				'src' => [],
+				'alt' => [],
+				'height' => [],
+				'width' => [],
+			],
+			'hr' => [],
+        ];
+        return wp_kses( $string, $allowed_html );
+    }
+
 
     /**
      * Retrive the list of Contact Form 7 Forms [ if plugin activated ]

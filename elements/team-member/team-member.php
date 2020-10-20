@@ -1509,11 +1509,11 @@ class Team_Member extends Widget_Base {
 				echo '<div class="exad-team-member-content">';
 					do_action('exad_team_member_content_area_before');
 					if ( !empty( $settings['exad_team_member_name'] ) ) :
-                        echo '<h2 '.$this->get_render_attribute_string( 'exad_team_member_name' ).'>'.esc_html( $settings['exad_team_member_name'] ).'</h2>';
+                        echo '<h2 '.$this->get_render_attribute_string( 'exad_team_member_name' ).'>'.Helper::exad_wp_kses( $settings['exad_team_member_name'] ).'</h2>';
 					endif;
 
 					if ( !empty( $settings['exad_team_member_designation'] ) ) :
-                        echo '<span '.$this->get_render_attribute_string( 'exad_team_member_designation' ).'>'.esc_html( $settings['exad_team_member_designation'] ).'</span>';
+                        echo '<span '.$this->get_render_attribute_string( 'exad_team_member_designation' ).'>'.Helper::exad_wp_kses( $settings['exad_team_member_designation'] ).'</span>';
 					endif;
 
 					do_action('exad_team_member_description_before');
