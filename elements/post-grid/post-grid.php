@@ -9,6 +9,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use \Elementor\Group_Control_Css_Filter;
 use \ExclusiveAddons\Elementor\Helper;
 
 class Post_Grid extends Widget_Base {
@@ -657,6 +658,14 @@ class Post_Grid extends Widget_Base {
 				'condition' => [
 					'exad_post_grid_image_align' => 'top'
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_post_grid_image_css_filter',
+				'selector' => '{{WRAPPER}} .exad-post-grid-container.image-position-top .exad-post-grid-thumbnail > a img',
 			]
 		);
 

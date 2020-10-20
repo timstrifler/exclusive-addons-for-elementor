@@ -8,6 +8,7 @@ use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
 use \Elementor\Control_Media;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 
@@ -379,6 +380,14 @@ class Testimonial extends Widget_Base {
 				'condition'   => [
 					'exad_testimonial_container_alignment' => 'exad-testimonial-align-bottom'
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_testimonial_image_box_css_filter',
+				'selector' => '{{WRAPPER}} .exad-testimonial-thumb img',
 			]
 		);
 

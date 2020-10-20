@@ -11,6 +11,7 @@ use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 
@@ -465,6 +466,18 @@ class Infobox extends Widget_Base {
 			[
 				'name'     => 'exad_infobox_icon_box_shadow',
 				'selector' => '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon'
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_infobox_image_css_filter',
+				'selector' => '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon img',
+				'condition'   => [
+					'exad_infobox_img_or_icon'  => 'img',
+					'exad_infobox_icon[value]!' => ''
+				]
 			]
 		);
 

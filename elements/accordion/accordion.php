@@ -8,6 +8,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Repeater;
@@ -1050,7 +1051,15 @@ class Accordion extends Widget_Base {
                     '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
-        );
+		);
+		
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_accordion_image_css_filter',
+				'selector' => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-image img',
+			]
+		);
 
   		$this->end_controls_section();
 

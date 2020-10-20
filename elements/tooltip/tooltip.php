@@ -6,6 +6,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
@@ -122,6 +123,18 @@ class Tooltip extends Widget_Base {
                 ]
             ]
         );
+
+        $this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_tooltip_image_css_filter',
+                'selector' => '{{WRAPPER}} .exad-tooltip .exad-tooltip-content img',
+                'condition' => [
+                    'exad_tooltip_type' => [ 'image' ],
+                    'exad_tooltip_img_content[url]!' => ''
+				]
+			]
+		);
 
         $this->add_control(
             'tooltip_style_section_align',

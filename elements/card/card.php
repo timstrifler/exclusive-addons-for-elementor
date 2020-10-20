@@ -11,6 +11,7 @@ use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \ExclusiveAddons\Elementor\Image_Mask_SVG_Control;
@@ -626,6 +627,14 @@ class Card extends Widget_Base {
 				'condition' => [
 					'exad_card_layout_type' => 'default'
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_card_image_filter',
+				'selector' => '{{WRAPPER}} .exad-card-thumb img',
 			]
 		);
 

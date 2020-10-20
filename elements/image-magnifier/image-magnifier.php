@@ -7,6 +7,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Control_Media;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
@@ -60,6 +61,14 @@ class Image_Magnifier extends Widget_Base {
         [
             'name'    => 'magnify_image_size',
             'default' => 'full'
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Css_Filter::get_type(),
+        [
+            'name' => 'magnify_image_css_filter',
+            'selector' => '{{WRAPPER}} .exad-magnify-small',
         ]
     );
 

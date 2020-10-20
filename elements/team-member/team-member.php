@@ -12,6 +12,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \ExclusiveAddons\Elementor\Image_Mask_SVG_Control;
@@ -798,6 +799,14 @@ class Team_Member extends Widget_Base {
 				'condition' => [
 					'exad_section_team_members_thumbnail_box' => 'yes'
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_section_team_members_thumbnail_css_filter',
+				'selector' => '{{WRAPPER}} .exad-team-member-thumb img',
 			]
 		);
 

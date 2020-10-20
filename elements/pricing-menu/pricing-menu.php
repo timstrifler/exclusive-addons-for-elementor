@@ -11,6 +11,7 @@ use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Control_Media;
 use \Elementor\Group_Control_Background;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 
@@ -474,6 +475,14 @@ class Pricing_Menu extends Widget_Base {
                 'selector' => '{{WRAPPER}} .exad-pricing-list-item-thumbnail'
             ]
         );
+
+        $this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_pricing_menu_image_css_filter',
+				'selector' => '{{WRAPPER}} .exad-pricing-list-item-thumbnail img',
+			]
+		);
 
         $this->end_controls_section();
 

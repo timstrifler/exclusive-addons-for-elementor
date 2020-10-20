@@ -13,6 +13,7 @@ use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \Elementor\Group_Control_Css_Filter;
 
 class Tabs extends Widget_Base {
 
@@ -846,7 +847,15 @@ class Tabs extends Widget_Base {
                 ],
                 'default' => 'exad-tab-image-right'
             ]
-        );
+		);
+		
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_tab_image_css_filter',
+				'selector' => '{{WRAPPER}} .exad-advance-tab-content-thumb img',
+			]
+		);
 		
 		$this->end_controls_section();
 		  
