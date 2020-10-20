@@ -204,7 +204,7 @@ class Infolist extends Widget_Base {
             
         );
         $this->add_control(
-            'exad_vertical_line_style_switcher',
+            'exad_line_style_switcher',
             [
                 'label'=> esc_html__( 'Line Style', 'exclusive-addons-elementor' ),
                 'type' =>Controls_Manager::SWITCHER,
@@ -219,7 +219,7 @@ class Infolist extends Widget_Base {
 
         /**
 		 * -------------------------------------------
-		 * Tab Style Exclusive Infolist Container Style
+		 * Exclusive Infolist Container Style
 		 * -------------------------------------------
 		 */
 		$this->start_controls_section(
@@ -308,7 +308,7 @@ class Infolist extends Widget_Base {
 
         /**
 		 * -------------------------------------------
-		 * Tab Style Exclusive Infolist List Style
+		 * Exclusive List Style
 		 * -------------------------------------------
 		 */
         $this->start_controls_section(
@@ -322,7 +322,7 @@ class Infolist extends Widget_Base {
         $this->add_responsive_control(
             'exad_section_exclusive_infolist_list_item_space',
             [
-              'label'    => esc_html__( 'List Space', 'exclusive-addons-elementor' ),
+              'label'    => esc_html__( 'Item Spacing', 'exclusive-addons-elementor' ),
               'type'     => Controls_Manager::SLIDER,
               'default'  => [
                     'size' => 10
@@ -333,7 +333,15 @@ class Infolist extends Widget_Base {
                     ]
               ],
               'selectors' => [
-                    '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item' => 'margin-bottom: {{SIZE}}px;'
+                    '{{WRAPPER}}.exad-info-list-icon-left .exad-info-list-item:not(:last-child) .exad-info-list-item-inner, {{WRAPPER}}.exad-info-list-icon-right .exad-info-list-item:not(:last-child) .exad-info-list-item-inner' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.exad-info-list-icon-top .exad-info-list-item .exad-info-list-item-inner' => 'margin-right: calc({{SIZE}}{{UNIT}}/2); margin-left: calc({{SIZE}}{{UNIT}}/2);',
+					'{{WRAPPER}}.exad-info-list-icon-top .exad-info-list-items' => 'margin-right: calc(-{{SIZE}}{{UNIT}}/2); margin-left: calc(-{{SIZE}}{{UNIT}}/2);',
+
+					'(tablet){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-item .exad-info-list-item-inner' => 'margin-bottom: {{SIZE}}{{UNIT}}; margin-left: 0; margin-right: 0;',
+					'(tablet){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-items' => 'margin-right: 0; margin-left: 0;',
+
+					'(mobile){{WRAPPER}}.exad-info-list-icon-top .pp-info-list-item .exad-info-list-item-inner' => 'margin-bottom: {{SIZE}}{{UNIT}}; margin-left: 0; margin-right: 0;',
+					'(mobile){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-items' => 'margin-right: 0; margin-left: 0;',
               ]
             ]
         );
@@ -367,7 +375,7 @@ class Infolist extends Widget_Base {
         $this->add_control(
 			'exad_infolist_icon_position',
 			[
-				'label'        => __( 'List Position', 'exclusive-addons-elementor' ),
+				'label'        => esc_html__( 'List Position', 'exclusive-addons-elementor' ),
 				'type'         => Controls_Manager::CHOOSE,
 				'label_block'  => false,
 				'toggle'       => false,
@@ -393,7 +401,321 @@ class Infolist extends Widget_Base {
 
         /**
 		 * -------------------------------------------
-		 * Tab Style Exclusive Infolist List Style
+		 * Exclusive Icon Style
+		 * -------------------------------------------
+		 */
+        $this->start_controls_section(
+			'exad_section_exclusive_infolist_icon_style',
+			[
+				'label'	=> esc_html__( 'Icon Style', 'exclusive-addons-elementor' ),
+				'tab'	=> Controls_Manager::TAB_STYLE
+			]
+        );	
+
+        $this->add_control(
+			'exad_infolist_icon_vertical_align',
+			[
+				'label'                => esc_html__( 'Vertical Align', 'exclusive-addons-elementor' ),
+				'type'                 => Controls_Manager::CHOOSE,
+				'label_block'          => false,
+				'toggle'               => false,
+				'default'              => 'middle',
+				'options'              => [
+					'top'    => [
+						'title' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-v-align-top',
+					],
+					'middle' => [
+						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-v-align-middle',
+					],
+					'bottom' => [
+						'title' => esc_html__( 'Bottom', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-v-align-bottom',
+					],
+				],
+				'selectors_dictionary' => [
+					'top'    => 'flex-start',
+					'middle' => 'center',
+					'bottom' => 'flex-end',
+				],
+				'prefix_class'         => 'exad-info-list-icon-vertical-',
+				'condition'            => [
+					'exad_infolist_icon_position' => [ 'left', 'right' ],
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_infolist_icon_horizontal_align',
+			[
+				'label'                => esc_html__( 'Horizontal Align', 'exclusive-addons-elementor' ),
+				'type'                 => Controls_Manager::CHOOSE,
+				'label_block'          => false,
+				'toggle'               => false,
+				'options'              => [
+					'left'   => [
+						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-h-align-left',
+                    ],
+					'center' => [
+						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-h-align-center',
+                    ],
+					'right'  => [
+						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-h-align-right',
+                    ],
+                    ],
+				'default'              => 'left',
+				'selectors_dictionary' => [
+					'left'   => 'flex-start',
+					'center' => 'center',
+					'right'  => 'flex-end',
+                ],
+				'prefix_class'         => 'exad-info-list-icon-horizontal-',
+				'condition'            => [
+					'exad_infolist_icon_position' => 'top',
+                ],
+			]
+        );
+        
+        $this->add_responsive_control(
+            'exad_infolist_icon_size',
+            [
+                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 150,
+                        'step' => 2
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 20
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-info-list-items .exad-info-list-item .infolist-has-icon i' => 'font-size: {{SIZE}}{{UNIT}}; line-height: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-info-list-items .exad-info-list-item .infolist-has-icon img' => 'width: {{SIZE}}{{UNIT}};',
+                ]
+            ]
+        );   
+
+	    $this->add_responsive_control(
+      		'exad_infolist_icon_width',
+      		[
+				'label'    => esc_html__( 'Width', 'exclusive-addons-elementor' ),
+				'type'     => Controls_Manager::SLIDER,
+				'default'  => [
+		      		'size' => 60
+		    	],
+		        'range'    => [
+		          	'px'   => [
+		              	'max' => 100
+		          	]
+		        ],
+		        'selectors' => [
+                    '{{WRAPPER}} .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+
+					'{{WRAPPER}}.exad-info-list-icon-left .exad-list-container .exad-info-list-item-icon-image-wrapper:before' => 'left: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.exad-info-list-icon-left .exad-list-container .exad-info-list-item-icon-image-wrapper:after' => 'left: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); top: {{SIZE}}{{UNIT}};',
+
+					'{{WRAPPER}}.exad-info-list-icon-right .exad-list-container .exad-info-list-item-icon-image-wrapper:before' => 'right: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.exad-info-list-icon-right .exad-list-container .exad-info-list-item-icon-image-wrapper:after' => 'right: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); top: {{SIZE}}{{UNIT}};',
+
+					'{{WRAPPER}}.exad-info-list-icon-top .exad-list-container .exad-info-list-item-icon-image-wrapper:before' => 'top: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.exad-info-list-icon-top .exad-list-container .exad-info-list-item-icon-image-wrapper:after' => 'top: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); left: {{SIZE}}{{UNIT}};',
+
+					'(tablet){{WRAPPER}}.exad-info-list-icon-top .exad-list-container .exad-info-list-item-icon-image-wrapper:before' => 'left: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); bottom: {{SIZE}}{{UNIT}}; right: auto; top: auto;',
+					'(tablet){{WRAPPER}}.exad-info-list-icon-top .exad-list-container .exad-info-list-item-icon-image-wrapper:after' => 'left: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); top: {{SIZE}}{{UNIT}};',
+
+					'(mobile){{WRAPPER}}.exad-info-list-icon-top .exad-list-container .exad-info-list-item-icon-image-wrapper:before' => 'left: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); bottom: {{SIZE}}{{UNIT}}; right: auto; top: auto;',
+					'(mobile){{WRAPPER}}.exad-info-list-icon-top .exad-list-container .exad-info-list-item-icon-image-wrapper:after' => 'left: calc(({{SIZE}}px/2) - ({{exad_infolist_connector_width.SIZE}}px/2)); top: {{SIZE}}{{UNIT}};',
+		        ]
+	      	]
+	    );
+
+        $this->add_responsive_control(
+            'exad_infolist_icon_spacing',
+            [
+                'label'        => esc_html__( 'Spacing', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 10,
+                        'max'  => 50,
+                        'step' => 2
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 10
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}}.exad-info-list-icon-left .exad-info-list-item-icon-image-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.exad-info-list-icon-right .exad-info-list-item-icon-image-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}}.exad-info-list-icon-top .exad-info-list-item-icon-image-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+
+					'(tablet){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-item-icon-image-wrapper' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: 0;',
+
+					'(mobile){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-item-icon-image-wrapper' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: 0;',
+                ]
+            ]
+        );   
+
+        $this->add_responsive_control(
+            'exad_infolist_icon_padding',
+            [
+				'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'selectors'  => [
+                    '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+        	Group_Control_Border::get_type(),
+            [
+				'name'     => 'exad_infolist_icon_border',
+				'selector' => '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_infolist_icon_border_radius',
+            [
+				'label'      => esc_html__('Border Radius', 'exclusive-addons-elementor'),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%'],
+				'default'    => [
+					'top'    => '0',
+					'right'  => '0',
+					'bottom' => '0',
+					'left'   => '0'
+				],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'exad_infolist_icon_box_shadow',
+				'selector' => '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper'
+			]
+        );
+
+        $this->start_controls_tabs( 'exad_infolist_icon_style_tabs' );
+
+        	// normal state tab
+        	$this->start_controls_tab( 'exad_infolist_icon_general_style', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_infolist_icon_color',
+				[
+					'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
+					'type'		=> Controls_Manager::COLOR,
+					'selectors'	=> [
+						'{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .infolist-has-icon' => 'color: {{VALUE}};',
+					    '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .infolist-has-icon svg' => 'fill: {{VALUE}};',
+					]
+				]
+			);
+
+			$this->add_control(
+				'exad_infolist_icon_bg_color',
+				[
+					'label'		=> esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+					'type'		=> Controls_Manager::COLOR,
+					'selectors'	=> [
+						'{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper' => 'background-color: {{VALUE}};'
+					]
+				]
+			);
+
+			$this->end_controls_tab();
+
+			// active state tab
+        	$this->start_controls_tab( 'exad_infolist_icon_hover_style', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_control(
+				'exad_infolist_icon_hover_color',
+				[
+					'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
+					'type'		=> Controls_Manager::COLOR,
+					'selectors'	=> [
+						'{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper:hover .infolist-has-icon' => 'color: {{VALUE}};',
+					    '{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper:hover .infolist-has-icon svg' => 'fill: {{VALUE}};',
+					]
+				]
+			);
+
+			$this->add_control(
+				'exad_infolist_icon_hover_bg_color',
+				[
+					'label'		=> esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
+					'type'		=> Controls_Manager::COLOR,
+					'selectors'	=> [
+						'{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item-icon-image-wrapper:hover' => 'background-color: {{VALUE}};'
+					]
+				]
+            );
+            
+            $this->add_control(
+				'exad_infolist_icon_hover_border_color',
+				[
+					'label'		=> esc_html__( 'Border Color', 'exclusive-addons-elementor' ),
+					'type'		=> Controls_Manager::COLOR,
+					'selectors'	=> [
+						'{{WRAPPER}} .exad-list-container .exad-info-list-items .exad-info-list-item-icon-image-wrapper:hover' => 'border-color: {{VALUE}};'
+					]
+				]
+			);
+
+			$this->end_controls_tab();
+        $this->end_controls_tabs();
+
+        $this->add_control(
+			'exad_infolist_icon_text_number_heading',
+			[
+				'label'     => esc_html__( 'Icon Type: Number', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before',
+            ]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'exad_infolist_icon_text_number_typography',
+				'label'    => esc_html__( 'Typography', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper .infolist-has-icon-text',
+            ]
+        );
+        
+        $this->add_control(
+			'exad_infolist_icon_text_number_color',
+			[
+				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#000000',
+				'selectors' => [
+					'{{WRAPPER}} .exad-info-list-items .exad-info-list-item .exad-info-list-item-icon-image-wrapper .infolist-has-icon-text' => 'color: {{VALUE}};',
+                ],
+            ]
+		);
+        
+        $this->end_controls_section();
+
+        /**
+		 * -------------------------------------------
+		 * Exclusive Content Style
 		 * -------------------------------------------
 		 */
         $this->start_controls_section(
@@ -513,12 +835,102 @@ class Infolist extends Widget_Base {
 		);
 
         $this->end_controls_section();
+
+            /**
+		 * -------------------------------------------
+		 * Exclusive Connector Style
+		 * -------------------------------------------
+		 */
+		$this->start_controls_section(
+			'exad_infolist_section_connector_style',
+			[
+				'label'     => esc_html__( 'Connector', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_line_style_switcher' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_infolist_connector_color',
+			[
+				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '',
+				'selectors' => [
+					'{{WRAPPER}} .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}} .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-color: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_line_style_switcher' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_infolist_connector_style',
+			[
+				'label'     => esc_html__( 'Style', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => [
+					'solid'  => esc_html__( 'Solid', 'exclusive-addons-elementor' ),
+					'double' => esc_html__( 'Double', 'exclusive-addons-elementor' ),
+					'dotted' => esc_html__( 'Dotted', 'exclusive-addons-elementor' ),
+					'dashed' => esc_html__( 'Dashed', 'exclusive-addons-elementor' ),
+				],
+				'default'   => 'solid',
+				'selectors' => [
+					'{{WRAPPER}}.exad-info-list-icon-left .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-left .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-right-style: {{VALUE}};',
+					'{{WRAPPER}}.exad-info-list-icon-right .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-right .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-left-style: {{VALUE}};',
+					'{{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-top-style: {{VALUE}};',
+
+					'(tablet){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-right-style: {{VALUE}};',
+
+					'(mobile){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-right-style: {{VALUE}};',
+				],
+				'condition' => [
+					'exad_line_style_switcher' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_infolist_connector_width',
+			[
+				'label'     => esc_html__( 'Width', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => 1,
+                ],
+				'range'     => [
+					'px' => [
+						'min' => 1,
+						'max' => 20,
+                    ],
+                ],
+				'selectors' => [
+					'{{WRAPPER}}.exad-info-list-icon-left .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-left .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-right-width: {{SIZE}}px;',
+					'{{WRAPPER}}.exad-info-list-icon-right .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-right .exad-info-list-item-icon-image-wrapper:after' => 'border-left-width: {{SIZE}}px;',
+					'{{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-top-width: {{SIZE}}px;',
+
+					'(tablet){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-right-width: {{SIZE}}px;',
+
+					'(mobile){{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:before, {{WRAPPER}}.exad-info-list-icon-top .exad-info-list-connector .exad-info-list-item-icon-image-wrapper:after' => 'border-right-width: {{SIZE}}px;',
+                ],
+				'condition' => [
+					'exad_line_style_switcher' => 'yes',
+                ],
+            ]
+		);
+
+		$this->end_controls_section();
+
     }
 
     protected function render() {
         $settings =  $this->get_settings_for_display();
         $this->add_render_attribute('exad-info-list-container', 'class', 'exad-list-container');
-        if ( $settings['exad_vertical_line_style_switcher'] == 'yes' ) {
+        if ( $settings['exad_line_style_switcher'] == 'yes' ) {
 			$this->add_render_attribute( 'exad-info-list-container', 'class', 'exad-info-list-connector' );
 		}
         $this->add_render_attribute('exad-info-list-items', 'class', 'exad-info-list-items');
