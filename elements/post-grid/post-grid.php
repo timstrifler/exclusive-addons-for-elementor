@@ -504,7 +504,21 @@ class Post_Grid extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_post_grid_box_shadow',
-				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container'
+				'fields_options'         => [
+                    'box_shadow_type'    => [ 
+                        'default'        =>'yes' 
+                    ],
+                    'box_shadow'         => [
+                        'default'        => [
+                            'horizontal' => 0,
+                            'vertical'   => 10,
+                            'blur'       => 30,
+                            'spread'     => 0,
+                            'color'      => 'rgba(0,0,0,.1)'
+                        ]
+                    ]
+				],
+				'selector' => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container',
 			]
 		);
 
@@ -747,20 +761,6 @@ class Post_Grid extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'                   => 'exad_post_grid_content_box_shadow',
-				'fields_options'         => [
-                    'box_shadow_type'    => [ 
-                        'default'        =>'yes' 
-                    ],
-                    'box_shadow'         => [
-                        'default'        => [
-                            'horizontal' => 0,
-                            'vertical'   => 10,
-                            'blur'       => 30,
-                            'spread'     => 0,
-                            'color'      => 'rgba(0,0,0,.1)'
-                        ]
-                    ]
-                ],
 				'selector'               => '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body'
 			]
 		);
