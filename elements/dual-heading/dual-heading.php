@@ -9,6 +9,7 @@ use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Border;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Dual_Heading extends Widget_Base {
 	
@@ -497,8 +498,8 @@ class Dual_Heading extends Widget_Base {
                     if( !empty( $settings['exad_dual_heading_title_link']['url'] ) ) :
                         echo '<a '.$this->get_render_attribute_string( 'exad_dual_heading_title_link' ).'>';
                     endif;
-                    echo '<span '.$this->get_render_attribute_string( 'exad_dual_first_heading' ).'>'.esc_html( $settings['exad_dual_first_heading'] ).'</span>';
-                    echo '<span '.$this->get_render_attribute_string( 'exad_dual_second_heading' ).'>'.esc_html( $settings['exad_dual_second_heading'] ).'</span>';
+                    echo '<span '.$this->get_render_attribute_string( 'exad_dual_first_heading' ).'>'.Helper::exad_wp_kses( $settings['exad_dual_first_heading'] ).'</span>';
+                    echo '<span '.$this->get_render_attribute_string( 'exad_dual_second_heading' ).'>'.Helper::exad_wp_kses( $settings['exad_dual_second_heading'] ).'</span>';
                     if( !empty( $settings['exad_dual_heading_title_link']['url'] ) ) {
                         echo '</a>';
                     }

@@ -1353,11 +1353,11 @@ class Card extends Widget_Base {
           	echo '<div class="exad-card-body">';
           		if( $settings['exad_card_title'] ) {
 	          		echo '<a '.$this->get_render_attribute_string( 'exad_card_title_link' ).'>';
-	            		echo '<span '.$this->get_render_attribute_string( 'exad_card_title' ).'>'.esc_html( $settings['exad_card_title'] ).'</span>';
+	            		echo '<span '.$this->get_render_attribute_string( 'exad_card_title' ).'>'.Helper::exad_wp_kses( $settings['exad_card_title'] ).'</span>';
 	        		echo '</a>';          			
           		}
 
-        		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', esc_html( $settings['exad_card_tag'] ) ) : '';
+        		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', Helper::exad_wp_kses( $settings['exad_card_tag'] ) ) : '';
 
         		$settings['exad_card_description'] ? printf( '<div '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</div>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
 

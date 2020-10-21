@@ -1133,7 +1133,7 @@ class Filterable_Gallery extends Widget_Base
         $output = '<div class="exad-gallery-item-content'.esc_attr( $content_position ).'">';
             $output .= do_action( 'exad_fg_content_wrapper_before' );
             if( 'yes' === $show_title && !empty( $title ) ):
-                $output .= '<h2>'.esc_html( $title ).'</h2>';
+                $output .= '<h2>'.Helper::exad_wp_kses( $title ).'</h2>';
             endif;
             if( 'yes' === $show_details && !empty( $content ) ):
                 $output .= '<p>'.wp_kses_post( $content ).'</p>';

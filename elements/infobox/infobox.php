@@ -14,6 +14,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Infobox extends Widget_Base {
 	
@@ -842,7 +843,7 @@ class Infobox extends Widget_Base {
 	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
                         echo '<a '.$this->get_render_attribute_string( 'exad_infobox_title_link' ).'>';
                     }
-	            	$title ? printf( '<h3 '.$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</h3>', esc_html( $title ) ) : '';
+	            	$title ? printf( '<h3 '.$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</h3>', Helper::exad_wp_kses( $title ) ) : '';
 	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
                         echo '</a>';
                     }

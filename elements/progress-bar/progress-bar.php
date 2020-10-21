@@ -7,6 +7,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Progress_Bar extends Widget_Base {
 	
@@ -402,7 +403,7 @@ class Progress_Bar extends Widget_Base {
 		}
 		
 		echo '<div '.$this->get_render_attribute_string('exad-progress-bar').' data-progress-bar>';
-			echo $title ? '<h6 '.$this->get_render_attribute_string( 'exad_progress_bar_title' ).'>'.esc_html( $title ).'</h6>' : '';
+			echo $title ? '<h6 '.$this->get_render_attribute_string( 'exad_progress_bar_title' ).'>'.Helper::exad_wp_kses( $title ).'</h6>' : '';
 		echo '</div>';
 	}
 }

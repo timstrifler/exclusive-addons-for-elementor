@@ -10,6 +10,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Flipbox extends Widget_Base {
 
@@ -1105,7 +1106,7 @@ class Flipbox extends Widget_Base {
 		          				Icons_Manager::render_icon( $settings['exad_flipbox_front_icon'] );
 			        		echo '</div>';
 			        	}
-				        $front_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_front_title' ).'>%s</h2>', esc_html( $front_title ) ) : '';
+				        $front_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_front_title' ).'>%s</h2>', Helper::exad_wp_kses( $front_title ) ) : '';
 				        $front_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_front_description' ).'>%s</div>', wp_kses_post( $front_desc ) ) : '';
 
 				        do_action('exad_flipbox_frontend_content_wrapper_after');
@@ -1122,7 +1123,7 @@ class Flipbox extends Widget_Base {
 		          			echo '</div>';
 			        	}
 
-				        $back_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_back_title' ).'>%s</h2>', esc_html( $back_title) ) : '';
+				        $back_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_back_title' ).'>%s</h2>', Helper::exad_wp_kses( $back_title) ) : '';
 				        $back_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_back_description' ).'>%s</div>', wp_kses_post( $back_desc ) ) : '';
 
 				        do_action('exad_flipbox_backend_content_wrapper_after');

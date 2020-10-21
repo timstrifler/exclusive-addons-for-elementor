@@ -14,6 +14,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Pricing_Menu extends Widget_Base {
     
@@ -936,7 +937,7 @@ class Pricing_Menu extends Widget_Base {
                             echo '<div class="exad-pricing-list-item-content-inner">';
                                 echo '<div class="exad-pricing-title">';
                                     if ( !empty( $list['exad_pricing_menu_title'] ) ) :
-                                        echo '<h5 '.$this->get_render_attribute_string( $pricing_title_key ).'>'.esc_html( $list['exad_pricing_menu_title'] ).'</h5>';
+                                        echo '<h5 '.$this->get_render_attribute_string( $pricing_title_key ).'>'.Helper::exad_wp_kses( $list['exad_pricing_menu_title'] ).'</h5>';
                                     endif;
 
                                     if( 'yes' === $settings['exad_pricing_menu_title_connector'] ) :
