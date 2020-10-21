@@ -13,6 +13,7 @@ use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Repeater;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Accordion extends Widget_Base {
 
@@ -1301,7 +1302,7 @@ class Accordion extends Widget_Base {
 							echo '</span>';
 						endif; 
 
-                        echo '<h3 '.$this->get_render_attribute_string( 'exad_accordion_heading' ).'>'.esc_html($accordion['exad_exclusive_accordion_title']).'</h3>';
+                        echo '<h3 '.$this->get_render_attribute_string( 'exad_accordion_heading' ).'>'.Helper::exad_wp_kses($accordion['exad_exclusive_accordion_title']).'</h3>';
 
                         if( 'yes' === $settings['exad_exclusive_accordion_tab_title_show_active_inactive_icon']):
                             echo '<div class="exad-active-inactive-icon">';

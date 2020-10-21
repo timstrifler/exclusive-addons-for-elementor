@@ -11,6 +11,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Testimonial extends Widget_Base { 
 
@@ -880,10 +881,10 @@ class Testimonial extends Widget_Base {
 
 					echo '<div class="exad-testimonial-reviewer">';
 						if ( !empty( $settings['exad_testimonial_name'] ) ) :
-							echo '<h4 '.$this->get_render_attribute_string( 'exad_testimonial_name' ).'>'.esc_html( $settings['exad_testimonial_name'] ).'</h4>';
+							echo '<h4 '.$this->get_render_attribute_string( 'exad_testimonial_name' ).'>'.Helper::exad_wp_kses( $settings['exad_testimonial_name'] ).'</h4>';
 						endif;
 						if ( !empty( $settings['exad_testimonial_designation'] ) ) :
-							echo '<span '.$this->get_render_attribute_string( 'exad_testimonial_designation' ).'>'.esc_html( $settings['exad_testimonial_designation'] ).'</span>';
+							echo '<span '.$this->get_render_attribute_string( 'exad_testimonial_designation' ).'>'.Helper::exad_wp_kses( $settings['exad_testimonial_designation'] ).'</span>';
 						endif;
 					echo '</div>';					
 
