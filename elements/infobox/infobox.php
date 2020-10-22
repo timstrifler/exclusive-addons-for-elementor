@@ -159,6 +159,22 @@ class Infobox extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'exad_infobox_container_min_height',
+			[
+				'label'       => esc_html__( 'Min Height', 'exclusive-addons-elementor' ),
+				'type'    	  => Controls_Manager::SLIDER,
+			  	'range'       => [
+				  	'px'      => [
+					  	'max' => 1000
+				  	]
+			 	],
+			  	'selectors'   => [
+				  	'{{WRAPPER}} .exad-infobox .exad-infobox-item' => 'min-height: {{SIZE}}px;',
+				],
+			]
+		);
+
 		$this->add_control(
 			'exad_infobox_alignment',
             [
