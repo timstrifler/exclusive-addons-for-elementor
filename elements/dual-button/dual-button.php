@@ -333,6 +333,46 @@ class Dual_Button extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+			'exad_container_primary_button_padding',
+			[
+                'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'top'      => '',
+                    'right'    => '',
+                    'bottom'   => '',
+                    'left'     => '',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-dual-button-primary' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+        );
+
+        $this->add_responsive_control(
+			'exad_container_primary_button_margin',
+			[
+                'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'top'      => '',
+                    'right'    => '',
+                    'bottom'   => '',
+                    'left'     => '',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-dual-button-primary' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+        );
+
         $this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
@@ -677,6 +717,46 @@ class Dual_Button extends Widget_Base {
                 'label' => esc_html__( 'Secondary Button', 'exclusive-addons-elementor' ),
                 'tab'   => Controls_Manager::TAB_STYLE
             ]
+        );
+
+        $this->add_responsive_control(
+			'exad_container_secondary_button_padding',
+			[
+                'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'top'      => '',
+                    'right'    => '',
+                    'bottom'   => '',
+                    'left'     => '',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-dual-button-secondary' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+        );
+
+        $this->add_responsive_control(
+			'exad_container_secondary_button_margin',
+			[
+                'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px' ],
+                'default'    => [
+                    'top'      => '',
+                    'right'    => '',
+                    'bottom'   => '',
+                    'left'     => '',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-dual-button-secondary' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
         );
 
         $this->add_group_control(
