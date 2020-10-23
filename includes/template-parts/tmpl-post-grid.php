@@ -55,7 +55,7 @@ echo '<article class="exad-post-grid-three exad-col">';
                             echo '<li class="exad-post-date">';
                                 echo '<span>';
                                     echo ( 'yes' === $settings['exad_post_grid_show_date_tag'] ) ? esc_html( $settings['exad_post_grid_date_tag'] ) : '' ;
-                                    echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date(apply_filters( 'exad_post_grid_date_format', 'jS M Y' ) ).'</a>
+                                    echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date(apply_filters( 'exad_post_grid_date_format', get_option( 'date_format' ) ) ).'</a>
                                 </span>';                           
                             echo '</li>'; 
                         endif;
@@ -125,7 +125,7 @@ echo '<article class="exad-post-grid-three exad-col">';
                             echo '<li class="exad-post-date">';
                                 echo '<span>';
                                     echo ( 'yes' === $settings['exad_post_grid_show_date_tag'] ) ? esc_html( $settings['exad_post_grid_date_tag'] ) : '' ;
-                                    echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date(apply_filters( 'exad_post_grid_date_format', 'jS M Y' ) ).'</a>
+                                    echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date(apply_filters( 'exad_post_grid_date_format', get_option( 'date_format' ) ) ).'</a>
                                 </span>';                           
                             echo '</li>'; 
                         endif;

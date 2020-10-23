@@ -24,9 +24,6 @@ echo '<article class="exad-post-grid-three exad-col">';
                     Helper::exad_get_categories_for_post();
                 echo '</ul>';
         
-
-           
-                
                     echo '<ul class="exad-post-data show-avatar-'.esc_attr( $settings['exad_post_grid_show_user_avatar'] ).'">';
                         do_action('exad_post_grid_meta_before');
                        
@@ -40,22 +37,17 @@ echo '<article class="exad-post-grid-three exad-col">';
                                         echo '</span>';
                                 
                             echo '</li>';
-                        
-
-                        
+                            
                             echo '<li class="exad-post-date">';
                                 echo '<span>';
                                     echo ( 'yes' === $settings['exad_post_grid_show_date_tag'] ) ? esc_html( $settings['exad_post_grid_date_tag'] ) : '' ;
-                                    echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date(apply_filters( 'exad_post_grid_date_format', 'jS M Y' ) ).'</a>
+                                    echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date(apply_filters( 'exad_post_grid_date_format', get_option( 'date_format' ) ) ).'</a>
                                 </span>';                           
                             echo '</li>'; 
                        
                         do_action('exad_post_grid_meta_after');      
                     echo '</ul>'; 
-                
-            
 
-            
                     echo '<h3>';
                         echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-title">'.get_the_title().'</a>';
                     echo '</h3>';
@@ -64,13 +56,9 @@ echo '<article class="exad-post-grid-three exad-col">';
                         echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-title">'.wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ).'</a>';
                     echo '</h3>';
                 
-
-            
                 echo '<ul class="exad-post-grid-time-comment">';
                     
                         echo '<li class="exad-post-grid-read-time">'.Helper::exad_reading_time( get_the_content() ).'</li>';
-                    
-
                     
                     echo '<li>';
                         echo '<a class="exad-post-grid-comment" href="'.get_comments_link().'">'.get_comments_number().get_comments_number_text( ' comment', ' comment', ' comments' ).'</a>';
@@ -114,7 +102,7 @@ echo '<article class="exad-post-grid-three exad-col">';
                             echo '<li class="exad-post-date">';
                                 echo '<span>';
                                     echo ( 'yes' === $settings['exad_post_grid_show_date_tag'] ) ? esc_html( $settings['exad_post_grid_date_tag'] ) : '' ;
-                                    echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date(apply_filters( 'exad_post_grid_date_format', 'jS M Y' ) ).'</a>
+                                    echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-author-date">'.get_the_date(apply_filters( 'exad_post_grid_date_format', get_option( 'date_format' ) ) ).'</a>
                                 </span>';                           
                             echo '</li>'; 
                         endif;
