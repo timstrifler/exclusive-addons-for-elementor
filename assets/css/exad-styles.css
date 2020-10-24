@@ -4727,6 +4727,10 @@ text-align: right;
   position: relative;
 }
 
+.exad-pricing-table-price-subtitle{
+  display: block;
+}
+
 /* Pricing Table End */
 /* Progress Bar Start */
 
