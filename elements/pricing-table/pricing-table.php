@@ -171,8 +171,8 @@ class Pricing_Table extends Widget_Base {
 			'exad_pricing_table_subtitle',
 			[
 				'label'       => esc_html__( 'Subtitle', 'exclusive-addons-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-				'label_block' => false
+				'type'        => Controls_Manager::TEXTAREA,
+				'label_block' => true
 			]
 		);
 
@@ -1138,6 +1138,88 @@ class Pricing_Table extends Widget_Base {
 				'condition' => [
 					'exad_pricing_table_discount_price' => 'yes'
 				]
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_pricing_curency_heading',
+			[
+				'label'     => esc_html__( 'Pricing Curency', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::HEADING,
+				'separator' => 'before'
+			]
+		);
+
+		$this->add_control(
+			'exad_pricing_table_pricing_curency_spacing',
+			[
+				'label' => __( 'Spacing', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::POPOVER_TOGGLE,
+				'label_off' => __( 'Default', 'exclusive-addons-elementor' ),
+				'label_on' => __( 'Custom', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+		
+		$this->start_popover();
+
+			$this->add_responsive_control(
+				'exad_pricing_table_pricing_curency_bottom_spacing',
+				[
+					'label'      => esc_html__( 'Bottom Spacing', 'exclusive-addons-elementor' ),
+					'type'       => Controls_Manager::SLIDER,
+					'size_units' => [ 'px' ],
+					'range'      => [
+						'px'     => [
+							'min'  => -100,
+							'max'  => 100,
+							'step' => 1
+						],
+					],
+					'selectors'  => [
+						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price span.exad-pricing-table-currency' => 'top: {{SIZE}}{{UNIT}};'
+					],
+				]
+			);
+
+            $this->add_responsive_control(
+				'exad_pricing_table_pricing_curency_right_spacing',
+				[
+					'label'      => esc_html__( 'Right Spacing', 'exclusive-addons-elementor' ),
+					'type'       => Controls_Manager::SLIDER,
+					'size_units' => [ 'px' ],
+					'range'      => [
+						'px'     => [
+							'min'  => 0,
+							'max'  => 200,
+							'step' => 1
+						],
+					],
+					'selectors'  => [
+						'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price span.exad-pricing-table-currency' => 'margin-right: {{SIZE}}{{UNIT}};'
+					],
+				]
+			);
+
+        $this->end_popover();
+
+		$this->add_control(
+			'exad_pricing_table_pricing_curency_color',
+			[
+				'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price span.exad-pricing-table-currency' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'exad_pricing_table_price_curency_typography',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper .exad-pricing-table-price span.exad-pricing-table-currency',
 			]
 		);
 

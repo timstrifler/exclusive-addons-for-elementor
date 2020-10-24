@@ -73,6 +73,7 @@
   text-decoration: line-through;
   font-size: 20px;
   color: #e5e5e5;
+  line-height: 2.1em;
 }
 .exad-pricing-table-price svg{
   position: absolute;
@@ -202,6 +203,9 @@
 
 .exad-pricing-table-promo-label{
   display: block;
+}
+.exad-pricing-table-currency{
+  position: relative;
 }
 
 /* Pricing Table End */
