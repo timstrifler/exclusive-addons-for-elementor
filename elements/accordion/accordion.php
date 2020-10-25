@@ -576,7 +576,7 @@ class Accordion extends Widget_Base {
 						'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active h3' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active h3' => 'color: {{VALUE}} !important;'
 						]
 					]
 				);
@@ -888,7 +888,7 @@ class Accordion extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-accordion-single-item .exad-accordion-text' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper' => 'background-color: {{VALUE}};'
 				]
 			]
 		);

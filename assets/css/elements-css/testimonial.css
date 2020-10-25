@@ -16,6 +16,9 @@
   display: block;
   object-fit: cover;
 }
+.exad-testimonial-thumb {
+  background: #ffffff;
+}
 
 .exad-testimonial-wrapper.exad-testimonial-align-center{
   text-align: center;

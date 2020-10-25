@@ -276,11 +276,12 @@ class Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_icon_color',
 			[
-				'label'     => __('Color', 'exclusive-addons-elementor'),
+				'label'     => __('Icon Color', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-heading-icon i' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-heading-icon i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-heading-icon svg path' => 'fill: {{VALUE}};'
 				]
 			]
 		);
@@ -294,8 +295,8 @@ class Heading extends Widget_Base {
 				'range'      => [
 					'px'     => [
 						'min'  => 0,
-						'max'  => 100,
-						'step' => 5
+						'max'  => 300,
+						'step' => 1
 					]
 				],
 				'default'    => [
@@ -303,7 +304,8 @@ class Heading extends Widget_Base {
 					'size'   => 30
 				],
 				'selectors' => [
-					'{{WRAPPER}} .exad-heading-icon i' => 'font-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-heading-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-heading-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}'
 				]
 			]
 		);

@@ -3266,7 +3266,8 @@ ul.exad-call-to-action-buttons {
   position: relative;
 }
 
-.exad-heading-icon-box-yes .exad-heading-icon i{
+.exad-heading-icon-box-yes .exad-heading-icon i,
+.exad-heading-icon-box-yes .exad-heading-icon svg{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -5221,6 +5222,9 @@ text-align: right;
   width: 100%;
   display: block;
   object-fit: cover;
+}
+.exad-testimonial-thumb {
+  background: #ffffff;
 }
 
 .exad-testimonial-wrapper.exad-testimonial-align-center{
