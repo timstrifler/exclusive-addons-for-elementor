@@ -437,7 +437,7 @@ class Pricing_Table extends Widget_Base {
 						'default' => '#ffffff'
 					]
 				],
-				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-badge-wrapper',
 				'condition' => [
 					'exad_pricing_table_header_type' => 'simple'
 				]
@@ -452,7 +452,7 @@ class Pricing_Table extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#ffffff',
 				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-table-wrapper' => 'background-color: {{VALUE}};',
+					'{{WRAPPER}} .exad-pricing-table-badge-wrapper' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .exad-pricing-table-header .exad-pricing-table-header-curved svg path' => 'fill: {{VALUE}};'
 				],
 				'condition' => [
@@ -484,7 +484,7 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_pricing_table_content_border',
-				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper'
+				'selector' => '{{WRAPPER}} .exad-pricing-table-badge-wrapper'
 			]
 		);
 
@@ -502,7 +502,7 @@ class Pricing_Table extends Widget_Base {
                     'unit'     => 'px'
                 ],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-pricing-table-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-pricing-table-badge-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					'{{WRAPPER}} .exad-pricing-table-header' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0 0;',
 					'{{WRAPPER}} .exad-pricing-table-header .exad-pricing-table-header-svg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} 0 0;'
 				]
@@ -513,7 +513,7 @@ class Pricing_Table extends Widget_Base {
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_pricing_table_content_box_shadow',
-				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-badge-wrapper',
 				'fields_options'         => [
 		            'box_shadow_type'    => [
 		                'default'        =>'yes'
@@ -647,6 +647,14 @@ class Pricing_Table extends Widget_Base {
 			[
 				'name'      => 'exad_pricing_table_promo_background',
 				'types'     => [ 'classic', 'gradient' ],
+				'fields_options'  => [
+					'background'  => [
+						'default' => 'classic'
+					],
+					'color'       => [
+						'default' => '#ffffff'
+					]
+				],
 				'selector'  => '{{WRAPPER}} .exad-pricing-table-promo-label',
 			]
 		);
