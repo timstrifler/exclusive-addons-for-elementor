@@ -563,7 +563,7 @@ class Pricing_Table extends Widget_Base {
 			[
 				'name'     => 'exad_pricing_table_transition_shadow',
 				'label'    => __( 'Hover Box Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper:hover',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-wrapper:hover .exad-pricing-table-badge-wrapper',
 				'fields_options'      => [
 		            'box_shadow_type' => [
 		                'default'     =>'yes'

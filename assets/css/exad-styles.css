@@ -4656,6 +4656,7 @@ text-align: right;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  transition: all .3s ease;
 }
 
 .exad-pricing-table-wrapper{
