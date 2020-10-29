@@ -1,5 +1,5 @@
 <?php
-use \ExclusiveAddons\Elementor\Widgets_Manager;
+use \ExclusiveAddons\Elementor\Addons_Manager;
 use \ExclusiveAddons\Elementor\Base;
 
 ?>
@@ -10,7 +10,7 @@ use \ExclusiveAddons\Elementor\Base;
         <div class="exad-full-width">
             <div class="exad-dashboard-checkbox-container">
                 
-                <?php foreach( Widgets_Manager::$default_extensions as $key => $extension ) : ?>
+                <?php foreach( Addons_Manager::$default_extensions as $key => $extension ) : ?>
                 
                     <?php if ( isset( $key ) ) : ?>
                         <div class="exad-dashboard-checkbox <?php echo esc_attr( $extension['tags'] ); ?><?php echo ( $extension['is_pro'] && !Base::$is_pro_active ) ? ' inactive' : ' active'; ?>" data-tag="<?php echo esc_attr( $extension['tags'] ); ?>">

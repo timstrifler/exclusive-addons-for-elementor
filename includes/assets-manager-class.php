@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use ExclusiveAddons\Elementor\Base;
-use ExclusiveAddons\Elementor\Widgets_Manager;
+use ExclusiveAddons\Elementor\Addons_Manager;
 
 class Assets_Manager {
 
@@ -45,7 +45,7 @@ class Assets_Manager {
         ];
         
         if ( ! Base::$is_pro_active ) {
-			$localized_data['exadProWidgets'] = Widgets_Manager::widget_map_pro();
+			$localized_data['exadProWidgets'] = Addons_Manager::widget_map_pro();
 		}
 
         wp_localize_script( 'exad-template-library-script', 'ExclusiveAddonsEditor', $localized_data );
@@ -57,7 +57,7 @@ class Assets_Manager {
     */
     public static function enqueue_scripts() {
 
-        if ( Widgets_Manager::$is_activated_feature['progress-bar'] ) {
+        if ( Addons_Manager::$is_activated_feature['progress-bar'] ) {
             // Loading Bar JS
             wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'vendor/js/exad-progress-bar-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
             
@@ -65,7 +65,7 @@ class Assets_Manager {
             wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         // Google Map js
-        if ( Widgets_Manager::$is_activated_feature['google-maps'] ) {
+        if ( Addons_Manager::$is_activated_feature['google-maps'] ) {
             if ( '' != get_option('exad_google_map_api_option') ) {
                 wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), EXAD_PLUGIN_VERSION, false );
             }
@@ -73,31 +73,31 @@ class Assets_Manager {
             wp_register_script( 'exad-gmap3', EXAD_ASSETS_URL . 'vendor/js/gmap3.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );            
         }	
         
-        if ( Widgets_Manager::$is_activated_feature['countdown-timer'] ) {
+        if ( Addons_Manager::$is_activated_feature['countdown-timer'] ) {
             // jQuery Countdown Js
             wp_register_script( 'exad-countdown', EXAD_ASSETS_URL . 'vendor/js/jquery.countdown.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( Widgets_Manager::$is_activated_feature['image-comparison'] ) {
+        if ( Addons_Manager::$is_activated_feature['image-comparison'] ) {
             // jQuery image-comparison twentytwenty Js
             wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'vendor/js/exad-comparison-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( Widgets_Manager::$is_activated_feature['filterable-gallery'] ) {
+        if ( Addons_Manager::$is_activated_feature['filterable-gallery'] ) {
             // Filterable Gallery
             wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'vendor/js/isotop.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( Widgets_Manager::$is_activated_feature['news-ticker'] ) {
+        if ( Addons_Manager::$is_activated_feature['news-ticker'] ) {
             // News ticker
             wp_register_script( 'exad-news-ticker', EXAD_ASSETS_URL . 'vendor/js/exad-news-ticker.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         
-        if ( Widgets_Manager::$is_activated_feature['animated-text'] ) {
+        if ( Addons_Manager::$is_activated_feature['animated-text'] ) {
             // Animated Text
             wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'vendor/js/typed.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
-        if ( Widgets_Manager::$is_activated_feature['post-grid'] ) {
+        if ( Addons_Manager::$is_activated_feature['post-grid'] ) {
             // Post grid
             wp_register_script( 'exad-post-grid', EXAD_ASSETS_URL . 'vendor/js/jquery.matchHeight.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	

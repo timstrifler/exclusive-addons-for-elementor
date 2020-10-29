@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use ExclusiveAddons\Elementor\Base;
 
-class Widgets_Manager {
+class Addons_Manager {
 
     /**
      * 
@@ -660,4 +660,4 @@ class Widgets_Manager {
 
 }
 
-Widgets_Manager::init();
+Addons_Manager::init();

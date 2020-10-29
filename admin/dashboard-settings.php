@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use \ExclusiveAddons\Elementor\Widgets_Manager;
+use \ExclusiveAddons\Elementor\Addons_Manager;
 use \ExclusiveAddons\Elementor\Base;
 
 class Admin_Settings {
@@ -92,15 +92,15 @@ class Admin_Settings {
 		wp_localize_script( 'exad-admin-js', 'js_exad_settings', $js_info );
 		
 		
-		$this->get_dashboard_settings = get_option( 'exad_save_settings', Widgets_Manager::$all_feature_settings );
-	    $exad_new_settings = array_diff_key( Widgets_Manager::$all_feature_settings, $this->get_dashboard_settings );
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Addons_Manager::$all_feature_settings );
+	    $exad_new_settings = array_diff_key( Addons_Manager::$all_feature_settings, $this->get_dashboard_settings );
 
 	    if( ! empty( $exad_new_settings ) ) {
 			$exad_updated_settings = array_merge( $this->get_dashboard_settings, $exad_new_settings );
 			update_option( 'exad_save_settings', $exad_updated_settings );
 		}
 		
-		$this->get_dashboard_settings = get_option( 'exad_save_settings', Widgets_Manager::$all_feature_settings );
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Addons_Manager::$all_feature_settings );
         
         
         ?>
@@ -217,9 +217,9 @@ class Admin_Settings {
 
 		$this->save_dashboard_settings = [];
 
-		$pro_widgets_value = array_keys( Widgets_Manager::widget_map_pro() );
+		$pro_widgets_value = array_keys( Addons_Manager::widget_map_pro() );
 
-		foreach( Widgets_Manager::$all_feature_array as $value ) {
+		foreach( Addons_Manager::$all_feature_array as $value ) {
 			if ( isset( $settings[ $value ] ) ) {
 				$this->save_dashboard_settings[ $value ] = 1;
 			} else if ( !Base::$is_pro_active ) {
