@@ -386,9 +386,9 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
-            'blob-maker'  => [
-                'title'  => __( 'Blob Maker', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Blob_Maker',
+            'floating-animation'  => [
+                'title'  => __( 'Floating Animation', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Floating_Animation',
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
@@ -531,8 +531,8 @@ class Addons_Manager {
                 'is_pro' => true
             ], 
             'promo-box'  => [
-                'title'  => __( 'Promo Box', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Promo_Box',
+                'title'  => __( 'Campaign', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Campaign',
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
