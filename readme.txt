@@ -22,37 +22,38 @@ We'd love to add that for you.
 
 We have packed the most Useful Free Elementor widgets for you in the bundle. Check out our Demos where we demonstrated some interesting use cases for all of our Elements:
 
-1. **[Card](http://exclusiveaddons.com/card-demo/)**
-2. **[Image Magnifier](http://exclusiveaddons.com/image-magnifier-demo/)** 
-3. **[Info Box](http://exclusiveaddons.com/infobox-demo/)**
-4. **[Call to Action](http://exclusiveaddons.com/call-to-action-demo/)**
-5. **[Image Comparison](http://exclusiveaddons.com/image-comparison-demo/)**
-6. **[Team Member](http://exclusiveaddons.com/team-member-demo)**
-7. **[Testimonial](http://exclusiveaddons.com/testimonial-demo/)**
-8. **[Dual Heading](http://exclusiveaddons.com/dual-heading-demo/)**
+1. **[Card](http://exclusiveaddons.com/card-demo/)** - Card allows you to display every bits of information in a uniform way with the help of our limitless styles and options.
+2. **[Image Magnifier](http://exclusiveaddons.com/image-magnifier-demo/)** - A simple and handy widget allow you to zoom in the photo.
+3. **[Info Box](http://exclusiveaddons.com/infobox-demo/)** - Show any kind of information in every possible way you can imagine with our Info Box widget. We have covered all the options for you, hopefully.
+4. **[Call to Action](http://exclusiveaddons.com/call-to-action-demo/)** - Create user interactive Call to Action block and place anywhere suitable. We have provided all the fields you might need.
+5. **[Image Comparison](http://exclusiveaddons.com/image-comparison-demo/)** - Compare your product or any before/after status of an Image using this widget. Our exclusive options give you flexibility to show your creativity with it.
+6. **[Team Member](http://exclusiveaddons.com/team-member-demo)** - The perfect widget to showcase your beautiful team in a unique style using texts, images, social links and many more. You can add animated mask to member Avatar too.
+7. **[Testimonial](http://exclusiveaddons.com/testimonial-demo/)** - Showcase your Client reviews in a beautiful and trust worthy manner. Our versatile design can be used for any niche you like.
+8. **[Dual Heading](http://exclusiveaddons.com/dual-heading-demo/)** - A couple of modern and trendy Button for your Call to Action with options to customize to suit your design.
 9. **[Contact Form 7](http://exclusiveaddons.com/contact-form-7-demo/)**
-10. **[Heading](http://exclusiveaddons.com/heading-demo/)**
+10. **[Heading](http://exclusiveaddons.com/heading-demo/)** - Unique and Versatile heading style to enhance the beauty of it with our limitless options.
 11. **[Post Timeline](http://exclusiveaddons.com/post-timeline-demo/)**
 12. **[Post Grid](http://exclusiveaddons.com/postgrid-demo/)**
-13. **[Accordion](http://exclusiveaddons.com/accordion-demo/)**
-14. **[Dual Button](http://exclusiveaddons.com/dual-button-demo/)**
-15. **[Logo Box](http://exclusiveaddons.com/logo-box-demo/)**
-16. **[Filterable Gallery](http://exclusiveaddons.com/filterable-gallery-demo/)**
-17. **[Tooltip](http://exclusiveaddons.com/tooltip-demo/)**
-18. **[Logo Carousel](http://exclusiveaddons.com/logo-carousel-demo/)**
-19. **[Google Map](http://exclusiveaddons.com/google-map-demo/)**
-20. **[Pricing Menu](http://exclusiveaddons.com/pricing-menu-demo/)**
-21. **[Modal Popup](http://exclusiveaddons.com/modal-popup-demo/)**
-22. **[Countdown Timer](http://exclusiveaddons.com/countdown-timer-demo/)**
-23. **[Flip Box](http://exclusiveaddons.com/flipbox-demo/)**
-24. **[Pricing Table](http://exclusiveaddons.com/pricing-table-demo/)**
-25. **[Progress Bar](http://exclusiveaddons.com/progress-bar-demo/)**
-26. **[Tabs](http://exclusiveaddons.com/tabs-demo/)**
-27. **[News Ticker](http://exclusiveaddons.com/news-ticker-demo/)**
-28. **[Alert](http://exclusiveaddons.com/alert-demo/)**
-29. **[Animated Text](http://exclusiveaddons.com/animated-text-demo/)**
-30. **[Button](http://exclusiveaddons.com/button-demo/)**
-31. **[Covid-19 Stats](http://exclusiveaddons.com/covid-19-stats-demo/)**
+13. **[Accordion](http://exclusiveaddons.com/accordion-demo/)** - Create beautiful Accordion widget on your WordPress website every possible way.
+14. **[Dual Button](http://exclusiveaddons.com/dual-button-demo/)** - A couple of beautiful buttons to enhance the beauty of your call to action.
+15. **[Logo Box](http://exclusiveaddons.com/logo-box-demo/)** - Represent your brand with creative logo box and connected to peoples's memory.
+16. **[Filterable Gallery](http://exclusiveaddons.com/filterable-gallery-demo/)** - Create gallery, portfolio anything you like with our Filterable Gallery widget. We have options to add Title and Description with it.
+And have the most beautiful design, not to mention.
+17. **[Tooltip](http://exclusiveaddons.com/tooltip-demo/)** - Display your icon, text, images or any content in a versatile way with mouse hover effect to make it more user interacting.
+18. **[Logo Carousel](http://exclusiveaddons.com/logo-carousel-demo/)** - Build your social proof and introduce your valuable clients to your new potential customer using exclusive logo carousel widget.
+19. **[Google Map](http://exclusiveaddons.com/google-map-demo/)** - Integrate Google Maps in your Website with control over several useful options and styles to enhance the beauty of Maps.
+20. **[Pricing Menu](http://exclusiveaddons.com/pricing-menu-demo/)** - Display your food menu list in a mouth watering manner with our Exclusive Pricing Menu Widget.
+21. **[Modal Popup](http://exclusiveaddons.com/modal-popup-demo/)** - Showcase your videos, images, gallery, iframe, shortcode and any other content in a popup with Exclusive Modal Popup. Set Overlay and animation to grab users attention in a lucrative way.
+22. **[Countdown Timer](http://exclusiveaddons.com/countdown-timer-demo/)** - Our Countdown Timer widget offers a variety of options to style it to fit your desired design with ease.
+23. **[Flip Box](http://exclusiveaddons.com/flipbox-demo/)** - Our Flipbox widget has some unique effects that you might haven't seen before.
+24. **[Pricing Table](http://exclusiveaddons.com/pricing-table-demo/)** - An essential widget to showcase your pricing table in an effective way to boost your sales and engage more potential buyers.
+25. **[Progress Bar](http://exclusiveaddons.com/progress-bar-demo/)** - Showcase user skills, task progress and other progressive information in versatile way without any coding knowledge.
+26. **[Tabs](http://exclusiveaddons.com/tabs-demo/)** - Create awesome tabbed contents using our rich in options Tab Widget. The options for styling are limitless. More than what you can see here in the Demo. 
+27. **[News Ticker](http://exclusiveaddons.com/news-ticker-demo/)** - A multi-functional horizontal data display widget to provide latest information on any topic.
+28. **[Alert](http://exclusiveaddons.com/alert-demo/)** - Simple and colourful message to alert your visitors.
+29. **[Animated Text](http://exclusiveaddons.com/animated-text-demo/)** - Turn your text contents stand out in the crowd with some eye catchy animating effects from the plethora of options.
+30. **[Button](http://exclusiveaddons.com/button-demo/)** - Pick from a list of our unique hover effects to suit your needs. Style them every possible way you can think of.
+31. **[Covid-19 Stats](http://exclusiveaddons.com/covid-19-stats-demo/)** - Simple and clean Covid 19 stats for your visitors.
 
 
 ### 30+ Elementor widgets
