@@ -441,7 +441,7 @@ class Addons_Manager {
                 'is_pro' => true
             ], 
             'iconbox'  => [
-                'title'  => __( 'Iconbox', 'exclusive-addons-elementor' ),
+                'title'  => __( 'Icon Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Iconbox',
                 'tags'   => 'pro',
                 'is_pro' => true
