@@ -12,6 +12,7 @@ use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Filterable_Gallery extends Widget_Base
 {

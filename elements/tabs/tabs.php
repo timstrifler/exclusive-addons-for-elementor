@@ -14,6 +14,7 @@ use \Elementor\Icons_Manager;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \Elementor\Group_Control_Css_Filter;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Tabs extends Widget_Base {
 
