@@ -164,7 +164,7 @@ class Admin_Settings {
 						</li>
 						<?php if ( !Base::$is_pro_active ) : ?>
 						<li class="exad-get-pro">
-							<a href="http://exclusiveaddons.com/" target="_blank">
+							<a href="http://exclusiveaddons.com/pricing/" target="_blank">
 								<img src="<?php echo EXAD_ADMIN_URL . 'assets/img/get-pro-icon.svg'; ?>">
 								<span><?php _e( 'Get Pro', 'exclusive-addons-elementor' ); ?></span>
 							</a>

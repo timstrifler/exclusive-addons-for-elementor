@@ -11,7 +11,7 @@ use \ExclusiveAddons\Elementor\Base;
                     </a>
                 </div>
                 <div class="exad-admin-block-upgrade-button">
-                    <a href="http://exclusiveaddons.com/" target="_blank">
+                    <a href="http://exclusiveaddons.com/pricing/" target="_blank">
                         <?php echo __( 'Upgrade To Pro', 'exclusive-addons-elementor' ); ?>
                     </a>
                 </div>
@@ -74,38 +74,6 @@ use \ExclusiveAddons\Elementor\Base;
                     </div>
                 </div>
             </div>
-            <!--admin block-wrapper end-->
-            <!-- <h1 class="exad-upgrade-title">Why you should upgrade</br> to Premium Version?</h1>
-            <div class="exad-upgrade-pro-wrapper">
-                <div class="exad-upgrade-pro-info">
-                    <div class="exad-upgrade-pro-info-thumb">
-                        <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/security.svg'; ?>">
-                    </div>
-                    <h1 class="exad-upgrade-pro-info-title">Secondary-color</h1>
-                    <p class="exad-upgrade-pro-info-content">Choose the primary color which will be applied as the default color for all the elements. Default: #7a56ff You might have to Regenerate the CSS from Elementor > Tools > Regenerate CSS for this to work.</p>
-                </div>
-                <div class="exad-upgrade-pro-info">
-                    <div class="exad-upgrade-pro-info-thumb">
-                        <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/payment-processing.svg'; ?>">
-                    </div>
-                    <h1 class="exad-upgrade-pro-info-title">Secondary-color</h1>
-                    <p class="exad-upgrade-pro-info-content">Choose the primary color which will be applied as the default color for all the elements. Default: #7a56ff You might have to Regenerate the CSS from Elementor > Tools > Regenerate CSS for this to work.</p>
-                </div>
-                <div class="exad-upgrade-pro-info">
-                    <div class="exad-upgrade-pro-info-thumb">
-                        <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/education.svg'; ?>">
-                    </div>
-                    <h1 class="exad-upgrade-pro-info-title">Secondary-color</h1>
-                    <p class="exad-upgrade-pro-info-content">Choose the primary color which will be applied as the default color for all the elements. Default: #7a56ff You might have to Regenerate the CSS from Elementor > Tools > Regenerate CSS for this to work.</p>
-                </div>
-                <div class="exad-upgrade-pro-info">
-                    <div class="exad-upgrade-pro-info-thumb">
-                        <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/downloading.svg'; ?>">
-                    </div>
-                    <h1 class="exad-upgrade-pro-info-title">Secondary-color</h1>
-                    <p class="exad-upgrade-pro-info-content">Choose the primary color which will be applied as the default color for all the elements. Default: #7a56ff You might have to Regenerate the CSS from Elementor > Tools > Regenerate CSS for this to work.</p>
-                </div>
-            </div> -->
 
             <?php if ( !Base::$is_pro_active ) : ?>
             <div class="exad-admin-footer-banner-wrapper">
@@ -114,7 +82,7 @@ use \ExclusiveAddons\Elementor\Base;
                     <?php echo __('The premium version helps us to continue development of the product</br> incorporating even more features and enhancements.</br></br>
                     You will also get world class support from our dedicated team, 24/7.','exclusive-addons-elementor' ); ?>
                     </p>
-                    <a href="" class="exad-admin-footer-banner-btn"><?php echo __('Upgrade To Pro','exclusive-addons-elementor'); ?></a>
+                    <a href="http://exclusiveaddons.com/pricing/" class="exad-admin-footer-banner-btn" target="_blank"><?php echo __('Upgrade To Pro','exclusive-addons-elementor'); ?></a>
                 </div>
             </div>
             <?php endif; ?>
