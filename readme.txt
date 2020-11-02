@@ -13,6 +13,12 @@ Packed with a bunch of Exclusively designed widget for Elementor with all the cu
 == Description ==
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
+It gives you the ability to build a sophisticated website experience with 70+ highly customizable and creative widgets and extensions.
+A collection of 600+ premade blocks will help you build your websites in less time with no coding.
+
+An easy to use interface and several customizations and unique widgets make your next WordPress page and post design easier and prettier than ever before. Exclusive Addons Elementor page builders take your WordPress website to the next level by making your page more eye-catching.
+We have stuffed all the factors with every choice that you may think. Still need one, please feel free to reach out. We might love to feature that to you.
+
 We have filled all the elements with every options that you can think off. Still need one, please feel free to reach out.
 We'd love to add that for you.
 
@@ -30,10 +36,10 @@ We have packed the most Useful Free Elementor widgets for you in the bundle. Che
 6. **[Team Member](http://exclusiveaddons.com/team-member-demo)** - The perfect widget to showcase your beautiful team in a unique style using texts, images, social links and many more. You can add animated mask to member Avatar too.
 7. **[Testimonial](http://exclusiveaddons.com/testimonial-demo/)** - Showcase your Client reviews in a beautiful and trust worthy manner. Our versatile design can be used for any niche you like.
 8. **[Dual Heading](http://exclusiveaddons.com/dual-heading-demo/)** - A couple of modern and trendy Button for your Call to Action with options to customize to suit your design.
-9. **[Contact Form 7](http://exclusiveaddons.com/contact-form-7-demo/)**
+9. **[Contact Form 7](http://exclusiveaddons.com/contact-form-7-demo/)** - This widget integrates Contact Form 7 in your site and allows you to design it to look like your own.
 10. **[Heading](http://exclusiveaddons.com/heading-demo/)** - Unique and Versatile heading style to enhance the beauty of it with our limitless options.
-11. **[Post Timeline](http://exclusiveaddons.com/post-timeline-demo/)**
-12. **[Post Grid](http://exclusiveaddons.com/postgrid-demo/)**
+11. **[Post Timeline](http://exclusiveaddons.com/post-timeline-demo/)** - Exclusive Post Timeline will let you display blog posts, pages or any custom post types in a vertical timeline style layout. Clean, Elegant and easy to use design will stand it out from the crowd.
+12. **[Post Grid](http://exclusiveaddons.com/postgrid-demo/)** - Create beautiful and elegent Post Grid design on your WordPress website using Exclusive Addons for Elements.
 13. **[Accordion](http://exclusiveaddons.com/accordion-demo/)** - Create beautiful Accordion widget on your WordPress website every possible way.
 14. **[Dual Button](http://exclusiveaddons.com/dual-button-demo/)** - A couple of beautiful buttons to enhance the beauty of your call to action.
 15. **[Logo Box](http://exclusiveaddons.com/logo-box-demo/)** - Represent your brand with creative logo box and connected to peoples's memory.
@@ -70,6 +76,54 @@ We have enabled Inline Editing with Live Preview for most of our elements. That 
 
 ### Global Style Settings
 This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
+
+
+### 37 USEFUL (PRO) WIDGETS and counting...
+
+1. **[Demo Previewer](https://exclusiveaddons.com/demo-previewer/)** - Demo Previewer Widget offers the opportunity to showcase a demo or short preview of any product and provide an idea about the pricing on your WordPress site.
+2. **[Breadcrumb](https://exclusiveaddons.com/exclusive-addons/breadcrumb/)** - Breadcrumb Widget is a fully responsive navigator, that can trace the visitor’s footsteps on a certain path on a website. Every step of that path is clickable, from the homepage to the current location.
+3. **[Business Hour](https://exclusiveaddons.com/business-hours/)** - Set your available time and dates so that your visitors and customers get to know when to meet you and when not to it. Business hours widget is satisfying for your visitors and customers because all they need is to visit your website and find out the time and days you are available on. There will be no more confusion over your availability.
+4. **[Chart](https://exclusiveaddons.com/chart/)** - Visualization of data is old but still the most effective way to represent. With our Exclusive Addons Chart Widget, data visualization on your website is now easy for you.
+5. **[Comparision Table](https://exclusiveaddons.com/comparison-table/)** - Give users a better experience with Exclusive Addons Comparison Table Widget, a fully customizable user-friendly widget that lets the users compare various products and choose the best match for them.
+6. **[Cookie Consent](https://exclusiveaddons.com/cookie-consent/)** - Use Exclusive Addons Cookie Consent Widget to ensure that the users know about the use of cookies on your website and legally collect their personal data.
+7. **[Counter](https://exclusiveaddons.com/counter/)** - Make a great impression of your website in mere seconds by showcasing your milestones and significant stats with Exclusive Addons Counter Widget.
+8. **[Animated Shape](https://exclusiveaddons.com/animated-shape/)** - Do you wanna attract more and more visitors to your website? Well, our Exclusive Addon's unique Animated Shape Widget can certainly make things easy for you!
+9. **[Icon Box](https://exclusiveaddons.com/icon-box/)** - Elementor Icons Box Widget allows you to display elementor icons in a stylish and interactive box with dozens of customizable options.
+10. **[Image Hotspot](https://exclusiveaddons.com/image-hotspot/)** - Image Hotspot Widget allows you to place several interactive hotspots on an image. When in action, the hotspot will unveil a popup also known as a tooltip, that contains an image, text, header, subheader, or a button.
+11. **[Instagram Feed](https://exclusiveaddons.com/instagram-feed/)** - Exhibit the Instagram feed and engage more visitors to your website with extraordinarily designed Exclusive Addons Instagram Feed Widget. With the Instagram widget, you can control everything on the feed including photos, post, caption of the post, user information number of column to display, and so on.
+12. **[Table](https://exclusiveaddons.com/table/)** - Showcase Elementor Table of data in an optimal way with easily customizable and beautifully designed Exclusive Addons Data Table widget.
+13. **[Mailchimp](https://exclusiveaddons.com/mailchimp/)** - Run your email campaign with Exclusive Addons Mailchimp WordPress widget and showcase your Mailchimp subscription form on your web page and provoke them to subscribe to your newsletter.
+14. **[Off Canvas](https://exclusiveaddons.com/off-canvas/)** - Exclusive Addons elementor Off-Canvas is the ultimate pro widget helps to create a unique and attractive Off-Canvas menu for your WordPress website.
+15. **[Slider](https://exclusiveaddons.com/slider/)** - Make a great impression and draw instant attention from your visitors with trendy and elegant looking sliders on your website. Exclusive Addons gives you a vast number of customizable options with SlideShow Widget to create a unique design for your Elementor slider.
+16. **[Source Code](https://exclusiveaddons.com/source-code/)** - Display 50+ computer programming language codes (like HTML, CSS, PHP, Java, JavaScript) with Exclusive Addons WordPress Source Code Widget on your documentation site or tutorial site where you want to share the source code with others.
+17. **[Team Carousel](https://exclusiveaddons.com/team-carousel/)** - Showcasing your team’s details is more important than you think. Introduce your team members with a trendy and stylish sliding carousel using Exclusive Addons Team Carousel Widget.
+18. **[Floating Animation](https://exclusiveaddons.com/floating-animation/)** - Fascinating is the word we use for our Floating Effects. Create unique, organic, and fancy Floating Animated Shapes for your WordPress website as we at Exclusive Addons provide you the easiest way of adding fancy animated floating effects to your website.
+19. **[Campaign](https://exclusiveaddons.com/campaign/)** - Set your available time and dates so that your visitors and customers get to know when to meet you and when not to it. Business hours widget is satisfying for your visitors and customers because all they need is to visit your website and find out the time and days you are available on. There will be no more confusion over your availability.
+20. **[Navigation Menu](https://exclusiveaddons.com/navigation-menu/)** - Create a trendy Nav menu bar with Exclusive Addons. An easy to use Navigation Menu Widget that helps users to find what they're looking for.
+21. **[Testimonial Carousel](https://exclusiveaddons.com/testimonial-carousel/)** - Showcase your user review in a modern and elegant way and gain the trust of new visitors with Exclusive Addons Testimonial Carousel Widget.
+22. **[Login Register](https://exclusiveaddons.com/login-register/)** - Exclusive Add Ons Login Register Widget can help to design elementor login-registration forms easily with lots of customization options. With the widget, you can assist the users to register and the already registered members to login readily to your website.
+23. **[Social Share](https://exclusiveaddons.com/social-share/)** - Social Media, you may like it, may not like it, but cannot ignore it! Adding a social media share button will definitely increase the popularity and enhance user experience of your website.
+24. **[Image Mask](https://exclusiveaddons.com/image-mask/)** - Exclusive Addons provides the best image masking options for elementor to create interesting image shapes and display them on your WordPress site.
+25. **[Content Switcher](https://exclusiveaddons.com/content-switcher/)** - The Elementor Toggle allows users to switch between two contents, or saved templates. This is an interactive way to let the users browse your website without much scrolling.
+26. **[Image Carousel](https://exclusiveaddons.com/image-carousel/)** - With Exclusive Addons Image Carousel, create an interactive and stylish slider to highlight your photos on your web page.
+27. **[Post Carousel](https://exclusiveaddons.com/post-carousel/)** - Put your important post in the spotlight and grab the attention of your visitors using Exclusive Addons Post Carousel Widget with a diverse number of styling and customizable options.
+28. **[Post Slider](https://exclusiveaddons.com/post-slider/)** - A trendy and attractive way to show your website contents with a scrolling Elementor slider and draw instant attention of the visitors using Exclusive Addons Post Slider Widget.
+29. **[Post Navigation](https://exclusiveaddons.com/post-navigation/)** - Exclusive Addons Post Navigation is a handy widget that allows the visitors to easily navigate between the posts on your website.
+30. **[News Tricker Pro](https://exclusiveaddons.com/news-tricker-pro/)** - Exclusive Addons News Ticker widget for elementor pro allows you to show news headlines or the post title from an actual news post, page, product, and elementor header or footer. Each item of the news ticker is dynamic, so any changes made in the original post will automatically update the ticker item.
+31. **[Gravity Form](https://exclusiveaddons.com/gravity-form/)** - With Exclusive Addons Gravity Form Widget, you can create nearly all sorts of forms including the user registration form, survey forms, polls, online orders, support requests, quizzes, and questionnaires, and way further.
+32. **[Woo Product](https://exclusiveaddons.com/woo-product/)** - What’s the most conventional way shoppers grab the customers’ attention? They display their products in an attractive way in front of the customers. With Exclusive Addons woocommerce product addons, showcase all your products on your e-commerce site in a stunning way and urge the users to buy from you.
+33. **[Woo Category](https://exclusiveaddons.com/woo-category/)** - Exclusive Addons Woo-category is the ultimate woocommerce product categories widget to display your products in an organized categorical way. It’s everything you will need for your e-commerce site.
+34. **[Search](https://exclusiveaddons.com/search/)** - Take your site search into new level
+35. **[Page Title](https://exclusiveaddons.com/page-title/)** - Visualize your page title with custom styles
+36. **[Site Tagline](https://exclusiveaddons.com/site-tagline/)** - Site Tagline for the header or anywhere else you feel suitable.
+37. **[Site Title](https://exclusiveaddons.com/site-title/)** - Display your Site Title anywhere you want. 
+
+
+List of our Free and Pro Extensions:
+1. **[Gradient animation](https://exclusiveaddons.com/gradient-animation/)** 
+2. **[Section Particles](https://exclusiveaddons.com/section-particles/)**
+3. **[Section Parallax](https://exclusiveaddons.com/section-parallax/)**
+4. **[Post Duplicator](#)** 
 
 ### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
 
