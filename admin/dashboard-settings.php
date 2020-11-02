@@ -188,7 +188,7 @@ class Admin_Settings {
 							<p class="exad-dashboard-popup-message-discription">
 								<?php _e( 'We\'re working real hard to deliver the smoothest Elementor page building experience for you. <br> Consider this as a contribution to the team to keep up the pace.', 'exclusive-addons-elementor' ); ?>
 							</p>
-							<a href="http://exclusiveaddons.com/" target="_blank" class="exad-dashboard-popup-message-action"><?php _e( 'Upgrade to Pro', 'excluseve-addons-elementor'); ?></a>
+							<a href="http://exclusiveaddons.com/pricing/" target="_blank" class="exad-dashboard-popup-message-action"><?php _e( 'Upgrade to Pro', 'excluseve-addons-elementor'); ?></a>
 						</div>
 						<div class="exad-dashboard-popup-overlay"></div>
 					<?php endif; ?>

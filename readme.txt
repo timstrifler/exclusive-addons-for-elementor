@@ -2,7 +2,7 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy, covid-19, corona
 Requires at least: 4.6
-Tested up to: 5.5.1
+Tested up to: 5.5.3
 Stable tag: 2.1.6
 Requires PHP: 5.4
 License: GPLv3
@@ -61,6 +61,8 @@ And have the most beautiful design, not to mention.
 30. **[Button](http://exclusiveaddons.com/button-demo/)** - Pick from a list of our unique hover effects to suit your needs. Style them every possible way you can think of.
 31. **[Covid-19 Stats](http://exclusiveaddons.com/covid-19-stats-demo/)** - Simple and clean Covid 19 stats for your visitors.
 
+FREE EXTENSION:
+1. **[Post Duplicator](#)**
 
 ### 30+ Elementor widgets
 We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
@@ -78,7 +80,7 @@ We have enabled Inline Editing with Live Preview for most of our elements. That 
 This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
 
 
-### 37 USEFUL (PRO) WIDGETS and counting...
+### 37 USEFUL WIDGETS and 3 EXTENSIONS ON OUR [PREMIUM VERSION](https://exclusiveaddons.com/pricing)
 
 1. **[Demo Previewer](https://exclusiveaddons.com/demo-previewer/)** - Demo Previewer Widget offers the opportunity to showcase a demo or short preview of any product and provide an idea about the pricing on your WordPress site.
 2. **[Breadcrumb](https://exclusiveaddons.com/exclusive-addons/breadcrumb/)** - Breadcrumb Widget is a fully responsive navigator, that can trace the visitor’s footsteps on a certain path on a website. Every step of that path is clickable, from the homepage to the current location.
@@ -119,11 +121,16 @@ This option allows you change the default Color scheme for all the widgets at on
 37. **[Site Title](https://exclusiveaddons.com/site-title/)** - Display your Site Title anywhere you want. 
 
 
-List of our Free and Pro Extensions:
+LIST OF OUR PRO EXTENSIONS:
 1. **[Gradient animation](https://exclusiveaddons.com/gradient-animation/)** 
 2. **[Section Particles](https://exclusiveaddons.com/section-particles/)**
 3. **[Section Parallax](https://exclusiveaddons.com/section-parallax/)**
-4. **[Post Duplicator](#)** 
+
+
+### Exclusive Header-Footer Builder on PRO
+Exclusive Addons comes with the ultimate Header-Footer builder for Elementor. Create header or footer templates and place any pages you like.
+
+ 
 
 ### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
 
@@ -198,6 +205,12 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.2.0 - 02/11/2020 =
+- Fixed issue Post Grid date format to match with the WordPress Setting.
+- Added Image effect to most of the widgets having image.
+- Allowed widget title allowing basic html tags.
+- Overall enhancements and bug fixes.
 
 = 2.1.6 - 28/9/2020 =
 - Fixed issue with extension icon not showing.
