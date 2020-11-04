@@ -548,7 +548,7 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
-            'promo-box'  => [
+            'campaign'  => [
                 'title'  => __( 'Campaign', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Campaign',
                 'demo_link' => 'https://exclusiveaddons.com/campaign/',

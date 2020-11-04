@@ -143,8 +143,8 @@ class Admin_Settings {
 						</li>
                         <li class="exad-tab-btn">
 							<a href="#extensions">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/EX-extensions-normal.svg'; ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/EX-extensions-active.svg'; ?>">
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-normal.svg'; ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-active.svg'; ?>">
 								<span><?php _e( 'Extensions', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
