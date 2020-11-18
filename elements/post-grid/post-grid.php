@@ -105,6 +105,21 @@ class Post_Grid extends Widget_Base {
 				'type'    => Controls_Manager::NUMBER,
 				'default' => '0'
             ]
+		);
+		
+		$this->add_control(
+        	'exad_post_grid_exclude_post',
+        	[
+				'label'       => __( 'Exclude Post', 'exclusive-addons-elementor' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::SELECT2,
+				'multiple'    => true,
+				'default'     => [],
+				'options'     => Helper::exad_get_all_posts(),
+				'condition'   => [
+					'exad_post_grid_type' => 'post'
+				]
+            ]
         );
 
         $this->add_control(
@@ -117,7 +132,7 @@ class Post_Grid extends Widget_Base {
 				'default'     => [],
 				'options'     => Helper::exad_get_authors()
             ]
-        );
+		);
 
         $this->add_control(
         	'exad_post_grid_categories',
@@ -671,6 +686,28 @@ class Post_Grid extends Widget_Base {
 				],
 				'condition' => [
 					'exad_post_grid_image_align' => 'top'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_post_grid_image_width',
+			[
+				'label'       => __( 'Image Width', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ '%' ],
+				'range'       => [
+					'%'      => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-post-grid-container.image-position-left>figure' => 'width: {{SIZE}}%;',
+					'{{WRAPPER}} .exad-post-grid-container.image-position-right>figure' => 'width: {{SIZE}}%;',
+				],
+				'condition' => [
+					'exad_post_grid_image_align' => [ 'left', 'right' ]
 				]
 			]
 		);

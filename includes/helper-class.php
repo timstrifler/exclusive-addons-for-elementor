@@ -150,6 +150,22 @@ class Helper {
     }
 
     /**
+     * All post title
+     * @return array
+     */
+    public static function exad_get_all_posts() {
+        $post_array = array(
+            'posts_per_page' => -1
+        );
+        $posts = get_posts( $post_array );
+        foreach ( $posts as $post ) {
+            $post_array[$post->ID] = $post->post_title;
+        }
+
+        return $post_array;
+    } 
+
+    /**
      *
      * Post Excerpt based on ID and Excerpt Length
      * @param  int $post_id
@@ -222,7 +238,7 @@ class Helper {
             'post_status'      => 'publish',
             'suppress_filters' => true,
             'tag__in'          => $settings[ $prefix . '_tags'],
-            'post__not_in'     => '',
+            'post__not_in'     => $settings['exad_post_grid_exclude_post'],
         );
 
         return $post_args;
