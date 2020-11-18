@@ -206,6 +206,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
+= 2.2.1 -  =
+- Added Exclude Post and Image Width for Post Grid Widget.
+
 = 2.2.0 - 02/11/2020 =
 - Fixed issue Post Grid date format to match with the WordPress Setting.
 - Added Image effect to most of the widgets having image.
