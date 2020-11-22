@@ -4259,6 +4259,9 @@ nav.exad-post-pagination ul li {
 .exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-body{
   width: 50%;
 }
+.exad-post-grid .exad-row-wrapper .exad-post-grid-container .exad-post-grid-thumbnail::before{
+  display: none;
+}
 /* Post Grid End */
 
 /* Post Timeline Start */

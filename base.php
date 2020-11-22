@@ -229,12 +229,15 @@ final class Base {
         $settings['exad_post_grid_read_more_btn_text'] = $_POST['details_btn_text'];
         $settings['exad_post_grid_show_read_more_btn'] = $_POST['enable_details_btn'];
         $settings['exad_post_grid_post_data_position'] = $_POST['post_data_position'];
+        // $settings['exad_post_grid_offset'] = $_POST['offset'];
 
         $post_args = array(
             'post_type'        => $_POST['post_type'],
             'posts_per_page'   => $_POST['posts_per_page'],
             'post_status'      => 'publish',
             'paged'            => $paged,
+            'category__in'     => $_POST['category'],
+            // 'offset'           => $_POST['offset']+2
         );
 
         $posts = new \WP_Query( $post_args );

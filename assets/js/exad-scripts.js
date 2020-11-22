@@ -579,6 +579,9 @@ var exclusivePostGrid = function( $scope, $ ) {
 
     $(btn).on("click", function(e){
         e.preventDefault();
+        var $offset = $(this).data('offset');
+        // console.log('var'+$offset);
+        console.log(typeof $offset);
         $.ajax({
 			url: exad_ajax_object.ajax_url,
 			type: 'POST',
@@ -611,6 +614,8 @@ var exclusivePostGrid = function( $scope, $ ) {
                 category_default_position: $(this).data('category_default_position'),
                 category_position_over_image: $(this).data('category_position_over_image'),
                 show_category: $(this).data('show_category'),
+                category: $(this).data('category'),
+                offset: $(this).data('offset'),
 			},
             success: function( html ) {
                 $('.exad-row-wrapper').append( html );
