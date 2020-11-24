@@ -1830,6 +1830,7 @@ class Post_Grid extends Widget_Base {
 				'data-category_default_position' => $settings['exad_post_grid_category_default_position'],
 				'data-category_position_over_image' => $settings['exad_post_grid_category_position_over_image'],
 				'data-category' => $settings['exad_post_grid_categories'],
+				'data-tags' => $settings['exad_post_grid_tags'],
 				'data-offset' => $settings['exad_post_grid_offset'],
 			]
 		);

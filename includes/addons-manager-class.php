@@ -678,13 +678,6 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'demo_link' => 'https://exclusiveaddons.com/animated-text-demo/',
                 'is_pro' => true
-            ],
-            'test-parallax'  => [
-                'title'  => __( 'Test Parallax', 'exclusive-addons-elementor' ),
-                'class'  => '\Exclusive_Addons\Elementor\Extensions\Test_Parallax',
-                'tags'   => 'pro',
-                'demo_link' => 'https://exclusiveaddons.com/accordion-demo/',
-                'is_pro' => true
             ]
         ];
     }

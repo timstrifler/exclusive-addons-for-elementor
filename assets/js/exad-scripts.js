@@ -574,14 +574,12 @@ var exclusivePostGrid = function( $scope, $ ) {
     });
 
     var btn = exadPostgridWrapped.find('.exad-post-grid-paginate-btn');
+    var btnText = btn.text();
 
     var page = 2;
 
     $(btn).on("click", function(e){
         e.preventDefault();
-        var $offset = $(this).data('offset');
-        // console.log('var'+$offset);
-        console.log(typeof $offset);
         $.ajax({
 			url: exad_ajax_object.ajax_url,
 			type: 'POST',
@@ -615,17 +613,26 @@ var exclusivePostGrid = function( $scope, $ ) {
                 category_position_over_image: $(this).data('category_position_over_image'),
                 show_category: $(this).data('show_category'),
                 category: $(this).data('category'),
+                tags: $(this).data('tags'),
                 offset: $(this).data('offset'),
+            },
+            beforeSend : function ( xhr ) {
+				btn.text('Loading...');
 			},
             success: function( html ) {
-                $('.exad-row-wrapper').append( html );
-                page++;
-                setTimeout(function(){
-                    var newExadPostArticle = exadPostgridWrapped.find('.exad-post-grid-three .exad-post-grid-container.exad-post-grid-equal-height-yes');
-                    newExadPostArticle.matchHeight({
-                        byRow: 0
-                    });
-                }, 10);
+                if( html.length > 0 ){
+                    btn.text(btnText);
+                    $('.exad-row-wrapper').append( html );
+                    page++;
+                    setTimeout(function(){
+                        var newExadPostArticle = exadPostgridWrapped.find('.exad-post-grid-three .exad-post-grid-container.exad-post-grid-equal-height-yes');
+                        newExadPostArticle.matchHeight({
+                            byRow: 0
+                        });
+                    }, 10);
+                } else {
+					btn.remove();
+				}
             },
 		});
     });
