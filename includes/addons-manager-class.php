@@ -639,6 +639,13 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
+            'author-box'  => [
+                'title'  => __( 'Author Box', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Author_Box',
+                'demo_link' => 'https://exclusiveaddons.com/author-box/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
         ];
     }
 
