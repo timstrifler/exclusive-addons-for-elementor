@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy, covid-19, corona
 Requires at least: 4.6
 Tested up to: 5.5.3
-Stable tag: 2.2.2
+Stable tag: 2.2.3
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -206,8 +206,12 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.2.1 -  =
+= 2.2.3 - 26/11/2020 =
 - Added Exclude Post and Image Width for Post Grid Widget.
+- Overall improvements on Post Grid Widget.
+
+= 2.2.2 - 05/11/2020 =
+- Several bug fixes.
 
 = 2.2.0 - 02/11/2020 =
 - Fixed issue Post Grid date format to match with the WordPress Setting.
