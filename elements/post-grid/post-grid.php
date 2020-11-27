@@ -704,6 +704,8 @@ class Post_Grid extends Widget_Base {
 				],
 				'selectors'   => [
 					'{{WRAPPER}} .exad-post-grid-container.image-position-left>figure' => 'width: {{SIZE}}%;',
+					'{{WRAPPER}} .exad-post-grid-container.image-position-left>div.exad-post-grid-body' => 'width: calc( 100% - {{SIZE}}% );',
+					'{{WRAPPER}} .exad-post-grid-container.image-position-right>div.exad-post-grid-body' => 'width: calc( 100% - {{SIZE}}% );',
 					'{{WRAPPER}} .exad-post-grid-container.image-position-right>figure' => 'width: {{SIZE}}%;',
 				],
 				'condition' => [
