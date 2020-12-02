@@ -1,9 +1,9 @@
 === Exclusive Addons for Elementor ===
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
-Tags: elementor, elements, addons, elementor widget, page builder, elementor addon, builder, visual editor, wordpress page builder, exclusive, modern, trendy, covid-19, corona
+Tags: elementor, elementor addon, elements, addons, elementor widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.5.3
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -210,6 +210,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.2.4 - 02/12/2020 =
+- Fixed issues with Post Grid.
+- Removed non persistent admin notice.
 
 = 2.2.3 - 26/11/2020 =
 - Added Exclude Post and Image Width for Post Grid Widget.
