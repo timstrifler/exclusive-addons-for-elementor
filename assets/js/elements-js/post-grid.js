@@ -4,6 +4,7 @@ var exclusivePostGrid = function( $scope, $ ) {
     var exadPostgridWrapped = $scope.find( '.exad-post-grid' );
 
     var exadPostArticle = exadPostgridWrapped.find('.exad-post-grid-three .exad-post-grid-container.exad-post-grid-equal-height-yes');
+    var exadPostWrapper = exadPostgridWrapped.find('.exad-row-wrapper');
     // Match Height
     exadPostArticle.matchHeight({
         byRow: 0
@@ -58,7 +59,7 @@ var exclusivePostGrid = function( $scope, $ ) {
             success: function( html ) {
                 if( html.length > 0 ){
                     btn.text(btnText);
-                    $('.exad-row-wrapper').append( html );
+                    exadPostWrapper.append( html );
                     page++;
                     setTimeout(function(){
                         var newExadPostArticle = exadPostgridWrapped.find('.exad-post-grid-three .exad-post-grid-container.exad-post-grid-equal-height-yes');
