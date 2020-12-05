@@ -15,9 +15,9 @@ class Assets_Manager {
 	 */
 	public static function init() {
         // Enqueue Styles and Scripts
-        add_action( 'elementor/frontend/after_register_scripts', [ __CLASS__, 'enqueue_scripts' ], 20 );
+        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ], 20 );
         // Load Main script
-        add_action( 'elementor/frontend/after_enqueue_scripts', [ __CLASS__, 'core_files_enqueue' ] );
+        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'core_scripts_enqueue' ] );
         // Elementor Editor Styles
         add_action( 'elementor/editor/after_enqueue_scripts', [ __CLASS__, 'editor_scripts' ] );
     }
@@ -109,7 +109,7 @@ class Assets_Manager {
      * Front end main script
      * 
      */
-    public static function core_files_enqueue() {
+    public static function core_scripts_enqueue() {
         // Main Plugin Styles
         wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.min.css' );
 
