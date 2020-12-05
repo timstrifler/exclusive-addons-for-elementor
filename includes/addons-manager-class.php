@@ -387,6 +387,13 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
+            'author-box'  => [
+                'title'  => __( 'Author Box', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Author_Box',
+                'demo_link' => 'https://exclusiveaddons.com/author-box/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'floating-animation'  => [
                 'title'  => __( 'Floating Animation', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Floating_Animation',
@@ -496,6 +503,13 @@ class Addons_Manager {
                 'title'  => __( 'MailChimp', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\MailChimp',
                 'demo_link' => 'https://exclusiveaddons.com/mailchimp/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'mega-menu'  => [
+                'title'  => __( 'Mega Menu', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Mega_Menu',
+                'demo_link' => 'https://exclusiveaddons.com/mega-menu/',
                 'tags'   => 'pro',
                 'is_pro' => true
             ],

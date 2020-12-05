@@ -15,9 +15,9 @@ class Assets_Manager {
 	 */
 	public static function init() {
         // Enqueue Styles and Scripts
-        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ], 20 );
+        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_dep_scripts' ], 20 );
         // Load Main script
-        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'core_scripts_enqueue' ] );
+        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ] );
         // Elementor Editor Styles
         add_action( 'elementor/editor/after_enqueue_scripts', [ __CLASS__, 'editor_scripts' ] );
     }
@@ -55,12 +55,11 @@ class Assets_Manager {
     * Enqueue Plugin Styles and Scripts
     *
     */
-    public static function enqueue_scripts() {
+    public static function enqueue_dep_scripts() {
 
         if ( Addons_Manager::$is_activated_feature['progress-bar'] ) {
             // Loading Bar JS
             wp_register_script( 'exad-progress-bar', EXAD_ASSETS_URL . 'vendor/js/exad-progress-bar-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
-            
             // Waypoints JS
             wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
@@ -109,7 +108,7 @@ class Assets_Manager {
      * Front end main script
      * 
      */
-    public static function core_scripts_enqueue() {
+    public static function enqueue_scripts() {
         // Main Plugin Styles
         wp_enqueue_style( 'exad-main-style', EXAD_ASSETS_URL . 'css/exad-styles.min.css' );
 

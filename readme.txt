@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addon, elements, addons, elementor widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.5.3
-Stable tag: 2.2.4
+Stable tag: 2.2.5
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -124,6 +124,7 @@ This option allows you change the default Color scheme for all the widgets at on
 35. **[Page Title](https://exclusiveaddons.com/page-title/)** - Visualize your page title with custom styles
 36. **[Site Tagline](https://exclusiveaddons.com/site-tagline/)** - Site Tagline for the header or anywhere else you feel suitable.
 37. **[Site Title](https://exclusiveaddons.com/site-title/)** - Display your Site Title anywhere you want. 
+38. ** [Author Box]
 
 
 LIST OF OUR PRO EXTENSIONS:
@@ -210,6 +211,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.2.5 - 05/12/2020 =
+- Fixed issues Enqueueing styles.
 
 = 2.2.4 - 02/12/2020 =
 - Fixed issues with Post Grid.
