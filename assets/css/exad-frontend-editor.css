@@ -106,7 +106,7 @@
   .exad-breadcrumb:before {
     content: "\e904";
   }
-  .exad-business-hour:before {
+  .exad-business-hours:before {
     content: "\e905";
   }
   .exad-button:before {
@@ -128,7 +128,7 @@
     content: "\e90a";
     
   }
-  .exad-comparision-table:before {
+  .exad-comparison-table:before {
     content: "\e90b";
     
   }
@@ -140,7 +140,7 @@
     content: "\e90d";
     
   }
-  .exad-cookies-consent:before {
+  .exad-cookie-consent:before {
     content: "\e90e";
     
   }
@@ -311,7 +311,7 @@
     content: "\e938";
     
   }
-  .exad-search:before {
+  .exad-search-form:before {
     content: "\e939";
     
   }
@@ -375,7 +375,7 @@
     content: "\e948";
     
   }
-  .exad-woo-product:before {
+  .exad-woo-products:before {
     content: "\e949";
     
   }
