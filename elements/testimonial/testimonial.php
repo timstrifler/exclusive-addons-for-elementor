@@ -24,7 +24,7 @@ class Testimonial extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad exad-logo eicon-testimonial';
+		return 'exad exad-logo exad-testimonial';
 	}
 
 	public function get_categories() {
