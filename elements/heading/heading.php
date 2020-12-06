@@ -21,7 +21,7 @@ class Heading extends Widget_Base {
 		return esc_html__( 'Heading', 'exclusive-addons-elementor' );
 	}
 	public function get_icon() {
-		return 'exad-element-icon eicon-heading';
+		return 'exad exad-logo exad-heading';
 	}
 	public function get_categories() {
 		return [ 'exclusive-addons-elementor' ];

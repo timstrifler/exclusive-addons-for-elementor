@@ -22,7 +22,7 @@ class Dual_Heading extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-archive-title';
+		return 'exad exad-logo exad-dual-heading';
 	}
 
 	public function get_categories() {

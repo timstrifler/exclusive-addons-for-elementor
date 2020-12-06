@@ -18,7 +18,7 @@ class Animated_Text extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-text';
+		return 'exad exad-logo exad-animated-text';
 	}
 
    	public function get_categories() {

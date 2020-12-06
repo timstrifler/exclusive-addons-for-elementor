@@ -23,7 +23,7 @@ class Post_Timeline extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-time-line';
+		return 'exad exad-logo exad-post-timeline';
 	}
 
 	public function get_keywords() {

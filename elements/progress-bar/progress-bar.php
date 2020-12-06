@@ -20,7 +20,7 @@ class Progress_Bar extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-skill-bar';
+		return 'exad exad-logo exad-progress-bar';
 	}
 
 	public function get_categories() {

@@ -21,7 +21,7 @@ class Countdown_Timer extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-countdown';
+		return 'exad exad-logo exad-countdown-timer';
 	}
 
 	public function get_keywords() {

@@ -27,7 +27,7 @@ class Infobox extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-info-box';
+		return 'exad exad-logo exad-infobox';
 	}
 
 	public function get_categories() {

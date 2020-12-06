@@ -28,7 +28,7 @@ class Card extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-image-box';
+		return 'exad exad-logo exad-card';
 	}
 
 	public function get_categories() {

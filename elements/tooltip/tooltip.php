@@ -24,7 +24,7 @@ class Tooltip extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'exad-element-icon eicon-tools';
+        return 'exad exad-logo exad-tooltip';
     }
 
     public function get_keywords() {

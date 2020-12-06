@@ -23,7 +23,7 @@ class Image_Magnifier extends Widget_Base {
     }
     
 	public function get_icon() {
-		return 'exad-element-icon eicon-zoom-in';
+		return 'exad exad-logo exad-image-magnifier';
     }
     
 	public function get_categories() {

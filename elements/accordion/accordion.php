@@ -26,7 +26,7 @@ class Accordion extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad exad-exad-logo exad-accordion';
+		return 'exad exad-logo exad-accordion';
 	}
 
 

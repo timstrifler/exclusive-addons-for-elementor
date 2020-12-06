@@ -17,7 +17,7 @@ class Google_Maps extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-google-maps';
+		return 'exad exad-logo exad-google-map';
 	}
 
 	public function get_keywords() {

@@ -59,7 +59,7 @@ class Covid_19_Stats extends Widget_Base {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'exad-element-icon eicon-cogs';
+        return 'exad exad-logo exad-covid-19';
     }
 
     public function get_keywords() {

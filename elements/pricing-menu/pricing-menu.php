@@ -27,7 +27,7 @@ class Pricing_Menu extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'exad-element-icon eicon-price-list';
+        return 'exad exad-logo exad-pricing-menu';
     }
 
     public function get_categories() {

@@ -23,7 +23,7 @@ class Logo_Carousel extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-media-carousel';
+		return 'exad exad-logo exad-logo-carousel';
 	}
 
 	public function get_categories() {

@@ -29,7 +29,7 @@ class Team_Member extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-lock-user';
+		return 'exad exad-logo exad-team-member';
 	}
 
 	public function get_categories() {

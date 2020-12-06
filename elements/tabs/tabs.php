@@ -27,7 +27,7 @@ class Tabs extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-tabs';
+		return 'exad exad-logo exad-tabs';
 	}
 
 	public function get_keywords() {

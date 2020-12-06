@@ -23,7 +23,7 @@ class Image_Comparison extends Widget_Base {
     }
     
 	public function get_icon() {
-		return 'exad-element-icon eicon-image';
+		return 'exad exad-logo exad-image-comparison';
     }
     
 	public function get_categories() {

@@ -23,7 +23,7 @@ class Flipbox extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-flip-box';
+		return 'exad exad-logo exad-flipbox';
 	}
 
    	public function get_categories() {

@@ -22,7 +22,7 @@ class Alert extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'exad exad-logo eicon-alert';
+        return 'exad exad-logo exad-alert';
     }
 
     public function get_categories() {

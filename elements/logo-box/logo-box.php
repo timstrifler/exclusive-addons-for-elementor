@@ -23,7 +23,7 @@ class Logo_Box extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-logo';
+		return 'exad exad-logo exad-logo-box';
     }
     
     public function get_keywords() {

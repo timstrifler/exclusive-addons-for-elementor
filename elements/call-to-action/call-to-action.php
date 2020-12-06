@@ -22,7 +22,7 @@ class Call_To_Action extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-flip-box';
+		return 'exad exad-logo exad-call-to-action';
 	}
 
    	public function get_categories() {

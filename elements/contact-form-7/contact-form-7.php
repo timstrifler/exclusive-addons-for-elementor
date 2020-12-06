@@ -63,7 +63,7 @@ class Contact_Form_7 extends Widget_Base {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'exad-element-icon eicon-mail';
+        return 'exad exad-logo exad-contact-form-7';
     }
 
     /**

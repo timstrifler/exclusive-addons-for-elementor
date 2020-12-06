@@ -26,7 +26,7 @@ class Filterable_Gallery extends Widget_Base
     }
 
     public function get_icon(){
-        return 'exad-element-icon eicon-gallery-grid';
+        return 'exad exad-logo exad-filterable-gallery';
     }
 
     public function get_categories(){

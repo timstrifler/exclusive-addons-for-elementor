@@ -21,7 +21,7 @@ class Dual_Button extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-button';
+		return 'exad exad-logo exad-dual-button';
 	}
 
 	public function get_categories() {

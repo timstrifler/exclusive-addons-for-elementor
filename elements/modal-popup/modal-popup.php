@@ -22,7 +22,7 @@ class Modal_Popup extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-eye';
+		return 'exad exad-logo exad-modal-popup';
 	}
 
 	public function get_categories() {

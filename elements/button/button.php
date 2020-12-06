@@ -22,7 +22,7 @@ class Button extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-button';
+		return 'exad exad-logo exad-button';
 	}
 
 	public function get_keywords() {
