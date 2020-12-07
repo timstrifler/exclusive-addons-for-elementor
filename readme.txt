@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addon, elements, addons, elementor widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.5.3
-Stable tag: 2.2.5
+Stable tag: 2.2.6
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -136,7 +136,6 @@ LIST OF OUR PRO EXTENSIONS:
 ### Exclusive Header-Footer Builder on PRO
 Exclusive Addons comes with the ultimate Header-Footer builder for Elementor. Create header or footer templates and place any pages you like.
 
- 
 
 ### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
 
@@ -211,6 +210,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.2.6 - 07/12/2020 =
+- Added support for custom Font Icon.
+- Added Custom Icon to Editor Panel.
 
 = 2.2.5 - 05/12/2020 =
 - Fixed issues Enqueueing styles.
