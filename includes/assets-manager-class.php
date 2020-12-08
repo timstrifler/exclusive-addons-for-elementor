@@ -14,8 +14,8 @@ class Assets_Manager {
 	 * Initialize
 	 */
 	public static function init() {
-        // Enqueue Styles and Scripts
-        add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_dep_scripts' ], 20 );
+        // Register dependency scripts
+        add_action( 'elementor/frontend/after_register_scripts', [ __CLASS__, 'register_dependency_scripts' ], 20 );
         // Load Main script
         add_action( 'wp_enqueue_scripts', [ __CLASS__, 'enqueue_scripts' ] );
         // Elementor Editor Styles
@@ -30,7 +30,7 @@ class Assets_Manager {
     public static function editor_scripts() {
         wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.min.css' );
         wp_enqueue_style( 'exad-template-library-style', EXAD_ASSETS_URL . 'css/template-library.min.css', [ 'elementor-editor' ], EXAD_PLUGIN_VERSION );
-        wp_enqueue_script( 'exad-template-library-script', EXAD_ASSETS_URL . 'js/template-library.js', [ 'elementor-editor', 'jquery-hover-intent' ], EXAD_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'exad-template-library-script', EXAD_ASSETS_URL . 'js/template-library.min.js', [ 'elementor-editor', 'jquery-hover-intent' ], EXAD_PLUGIN_VERSION, true );
 
 		$localized_data = [
             'exadProWidgets' => [],
@@ -55,7 +55,7 @@ class Assets_Manager {
     * Enqueue Plugin Styles and Scripts
     *
     */
-    public static function enqueue_dep_scripts() {
+    public static function register_dependency_scripts() {
 
         if ( Addons_Manager::$is_activated_feature['progress-bar'] ) {
             // Loading Bar JS
