@@ -98,7 +98,7 @@ class Assets_Manager {
         }	
         if ( Addons_Manager::$is_activated_feature['post-grid'] ) {
             // Post grid
-            wp_register_script( 'exad-post-grid', EXAD_ASSETS_URL . 'vendor/js/jquery.matchHeight.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
+            wp_register_script( 'exad-post-grid', EXAD_ASSETS_URL . 'vendor/js/jquery.matchHeight.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
         
     }

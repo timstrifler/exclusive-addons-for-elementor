@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addon, elements, addons, elementor widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.5.3
-Stable tag: 2.2.6
+Stable tag: 2.2.7
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -210,6 +210,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.2.7 - 08/12/2020 =
+- Bug fix on front end script loading.
 
 = 2.2.6 - 07/12/2020 =
 - Added support for custom Font Icon.
