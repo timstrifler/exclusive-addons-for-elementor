@@ -61,6 +61,10 @@ class Admin_Settings {
 			wp_enqueue_style( 'exad-admin-css', EXAD_ADMIN_URL . 'assets/css/exad-admin.min.css' );
 			wp_enqueue_script( 'exad-admin-js', EXAD_ADMIN_URL . 'assets/js/exad-admin.min.js', array( 'jquery', 'wp-color-picker' ), EXAD_PLUGIN_VERSION, true );
 		}
+
+		// Admin Notice Dismiss
+		wp_enqueue_script( 'exad-dismiss-notice', EXAD_ADMIN_URL . 'assets/js/exad-dismiss-notice.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
+		wp_localize_script( 'exad-dismiss-notice', 'dismissible_notice', array( 'nonce' => wp_create_nonce( 'dismissible-notice' ) ) );
 	}
 
 	/**
