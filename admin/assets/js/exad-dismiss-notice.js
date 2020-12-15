@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-    'use strict';
+    
 
     $( 'div[data-dismissible] button.notice-dismiss' ).click(
         function (event) {
@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
                 'nonce': dismissible_notice.nonce
             };
 
-            $.post( ajaxurl, data );
+            $.post( 'https://devscred.local/wp-admin/admin-ajax.php', data );
         }
     );
 }(jQuery));
