@@ -685,6 +685,13 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'demo_link' => 'https://exclusiveaddons.com/animated-text-demo/',
                 'is_pro' => true
+            ],
+            'cross-site-copy-paste'  => [
+                'title'  => __( 'Cross Site Copy Paste', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Cross_Site_Copy_Paste',
+                'tags'   => 'pro',
+                'demo_link' => 'https://exclusiveaddons.com/cross-site-copy-paste',
+                'is_pro' => true
             ]
         ];
     }
