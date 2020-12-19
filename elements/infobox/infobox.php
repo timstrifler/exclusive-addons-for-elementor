@@ -900,10 +900,18 @@ class Infobox extends Widget_Base {
 	}
 	protected function render() {
 		$settings                  = $this->get_settings_for_display();		
-		$infobox_image             = $settings['exad_infobox_image'];
-		$infobox_image_url         = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
 		$title                     = $settings['exad_infobox_title'];
 		$details                   = $settings['exad_infobox_description'];
+
+		if ( $settings['exad_infobox_img_or_icon'] == 'img' ) {
+			$infobox_image             = $settings['exad_infobox_image'];
+			$infobox_image_url         = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
+			if ( empty( $infobox_image_url ) ) {
+				$infobox_image_url = $infobox_image['url'];
+			}  else {
+				$infobox_image_url = $infobox_image_url;
+			}
+		}
 
 		$this->add_render_attribute( 'exad_infobox_transition',[
 			'class' => [
@@ -922,13 +930,7 @@ class Infobox extends Widget_Base {
 			$this->add_render_attribute( 'exad_infobox_transition', 'class', 'zoom-transition' );
 		}
 
-		if ( empty( $infobox_image_url ) ) {
-			$infobox_image_url = $infobox_image['url'];
-		}  else {
-			$infobox_image_url = $infobox_image_url;
-		} 
-
-		if( $settings['exad_infobox_title_link']['url'] ) {
+		if( isset( $settings['exad_infobox_title_link']['url'] ) ) {
             $this->add_render_attribute( 'exad_infobox_title_link', 'href', esc_url( $settings['exad_infobox_title_link']['url'] ) );
 		    if( $settings['exad_infobox_title_link']['is_external'] ) {
 		        $this->add_render_attribute( 'exad_infobox_title_link', 'target', '_blank' );

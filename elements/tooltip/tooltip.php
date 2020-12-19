@@ -565,17 +565,19 @@ class Tooltip extends Widget_Base {
     protected function render() {
 
         $settings        = $this->get_settings_for_display();
-        $tooltip_img     = $settings['exad_tooltip_img_content'];
-        $tooltip_img_url = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
-        if ( empty( $tooltip_img_url ) ) {
-            $tooltip_img_url = $tooltip_img['url'];
-        }  else {
-            $tooltip_img_url = $tooltip_img_url;
+        if ( $settings['exad_tooltip_type'] == 'image' ) {
+            $tooltip_img     = $settings['exad_tooltip_img_content'];
+            $tooltip_img_url = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
+            if ( empty( $tooltip_img_url ) ) {
+                $tooltip_img_url = $tooltip_img['url'];
+            }  else {
+                $tooltip_img_url = $tooltip_img_url;
+            }
         }
 
         $this->add_render_attribute( 'exad_tooltip_wrapper', 'class', 'exad-tooltip' );
 
-        if( $settings['exad_tooltip_link']['url'] ) {
+        if( isset( $settings['exad_tooltip_link']['url'] ) ) {
             $this->add_render_attribute( 'exad_tooltip_link', 'href', esc_url( $settings['exad_tooltip_link']['url'] ) );
             if( $settings['exad_tooltip_link']['is_external'] ) {
                 $this->add_render_attribute( 'exad_tooltip_link', 'target', '_blank' );
