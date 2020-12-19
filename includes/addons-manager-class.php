@@ -506,6 +506,13 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
+            'mega-menu'  => [
+                'title'  => __( 'Mega Menu', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Mega_Menu',
+                'demo_link' => 'https://exclusiveaddons.com/mega-menu/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'navigation-menu'  => [
                 'title'  => __( 'Navigation Menu', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Navigation_Menu',
