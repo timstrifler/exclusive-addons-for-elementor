@@ -6,12 +6,12 @@ use \ExclusiveAddons\Elementor\Base;
         <?php if ( !Base::$is_pro_active ) : ?>
             <div class="exad-row exad-admin-banner">
                 <div class="exad-admin-block-banner-content">
-                    <a class="exad-admin-block-banner-title" href="http://exclusiveaddons.com/" target="_blank">
+                    <a class="exad-admin-block-banner-title" href="https://exclusiveaddons.com/" target="_blank">
                         <?php echo __( 'Exclusive Addons For Elementor', 'exclusive-addons-elementor' ); ?>
                     </a>
                 </div>
                 <div class="exad-admin-block-upgrade-button">
-                    <a href="http://exclusiveaddons.com/pricing/" target="_blank">
+                    <a href="https://exclusiveaddons.com/pricing/" target="_blank">
                         <?php echo __( 'Upgrade To Pro', 'exclusive-addons-elementor' ); ?>
                     </a>
                 </div>
@@ -46,7 +46,7 @@ use \ExclusiveAddons\Elementor\Base;
                     <div class="exad-admin-block-header">
                         <h4 class="exad-admin-title"><?php _e( 'Documentation', 'exclusive-addons-elementor' ); ?></h4>
                         <p><?php _e( 'Get yourself used to with the easy to read documentation we have till now. We\'re always working to make it easier for you.', 'exclusive-addons-elementor' ); ?></p>
-                        <a href="http://exclusiveaddons.com/docs" class="exad-admin-block-docs-button" target="_blank"><?php _e( 'Documentation', 'exclusive-addons-elementor' ); ?></a>
+                        <a href="https://exclusiveaddons.com/docs" class="exad-admin-block-docs-button" target="_blank"><?php _e( 'Documentation', 'exclusive-addons-elementor' ); ?></a>
                     </div>
                 </div>
                 <div class="exad-admin-block exad-admin-block-contribution">
@@ -82,7 +82,7 @@ use \ExclusiveAddons\Elementor\Base;
                     <?php echo __('The premium version helps us to continue development of the product</br> incorporating even more features and enhancements.</br></br>
                     You will also get world class support from our dedicated team, 24/7.','exclusive-addons-elementor' ); ?>
                     </p>
-                    <a href="http://exclusiveaddons.com/pricing/" class="exad-admin-footer-banner-btn" target="_blank"><?php echo __('Upgrade To Pro','exclusive-addons-elementor'); ?></a>
+                    <a href="https://exclusiveaddons.com/pricing/" class="exad-admin-footer-banner-btn" target="_blank"><?php echo __('Upgrade To Pro','exclusive-addons-elementor'); ?></a>
                 </div>
             </div>
             <?php endif; ?>

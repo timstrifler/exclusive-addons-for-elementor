@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Exclusive Addons Elementor
- * Plugin URI: http://exclusiveaddons.com/
+ * Plugin URI: https://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widget for Elementor.
  * Version: 2.2.8
  * Author: DevsCred.com

@@ -116,6 +116,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="elementor-template-library-blank-message"></div>
 	<div class="elementor-template-library-blank-footer">
 		<?php esc_html_e( 'Want to learn more about the Exclusive Addons?', 'exclusive-addons-elemntor' ); ?>
-		<a class="elementor-template-library-blank-footer-link" href="http://exclusiveaddons.com/" target="_blank"><?php echo __( 'Click here', 'exclusive-addons-elementor' ); ?></a>
+		<a class="elementor-template-library-blank-footer-link" href="https://exclusiveaddons.com/" target="_blank"><?php echo __( 'Click here', 'exclusive-addons-elementor' ); ?></a>
 	</div>
 </script>
