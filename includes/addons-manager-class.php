@@ -642,7 +642,7 @@ class Addons_Manager {
             'woo-add-to-cart'  => [
                 'title'  => __( 'Woo Add To Cart', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Woo_Add_To_Cart',
-                'demo_link' => 'https://exclusiveaddons.com/woo-product/',
+                'demo_link' => 'https://exclusiveaddons.com/woo-add-to-cart/',
                 'tags'   => 'pro',
                 'is_pro' => true
             ],

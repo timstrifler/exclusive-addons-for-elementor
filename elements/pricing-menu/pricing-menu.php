@@ -890,7 +890,7 @@ class Pricing_Menu extends Widget_Base {
         $price_key = $this->get_repeater_setting_key( 'exad_pricing_menu_price', 'pricing_menu_repeater', $index );
         $this->add_inline_editing_attributes( $price_key, 'none' );
         $price = '<div class="exad-pricing-list-item-price">';
-            $price .= '<span '.$this->get_render_attribute_string( $price_key ).'>'.esc_html( $param ).'</span>';
+            $price .= '<span '.$this->get_render_attribute_string( $price_key ).'>'. $param .'</span>';
         $price .= '</div>';
         return $price;
     }
@@ -945,7 +945,7 @@ class Pricing_Menu extends Widget_Base {
                                     endif;
 
                                     if( 'price_pos_right' === $settings['exad_pricing_menu_price_position'] ) :
-                                        echo $this->pricing( $list['exad_pricing_menu_price'], $index );
+                                        echo $this->pricing( wp_kses_post( $list['exad_pricing_menu_price'] ), $index );
                                     endif;
                                 echo '</div>';
 
@@ -980,7 +980,7 @@ class Pricing_Menu extends Widget_Base {
                             echo '</div>';
                             
                             if( 'price_pos_down' === $settings['exad_pricing_menu_price_position'] ) {
-                                echo $this->pricing( $list['exad_pricing_menu_price'], $index );
+                                echo $this->pricing( wp_kses_post( $list['exad_pricing_menu_price'] ), $index );
                             }
                         echo '</div>';
                     echo '</div>';
