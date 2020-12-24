@@ -96,6 +96,14 @@
     width: 115px;
     cursor: pointer;
 }
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	top: -1px;
+	right: 5px;
+}
+
+.exad-TemplateLibrary_header-menu .elementor-template-library-menu-item.elementor-active {
+	border-color: #6556ff;
+}
 
 #exad-templateLibrary-templates {
 	height: calc(100% + 30px);
