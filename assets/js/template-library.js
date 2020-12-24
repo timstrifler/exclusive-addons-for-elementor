@@ -63,7 +63,23 @@
             };
         },
         onClick: function () {
-            exad.library.showBlocksView();
+            exad.library.showTemplatesView();
+        },
+    })),
+    (i.LibraryViews.Menu = Marionette.ItemView.extend({
+        template: "#template-exad-TemplateLibrary_header-menu",
+        id: "elementor-template-library-header-menu",
+        className: "exad-TemplateLibrary_header-menu",
+        templateHelpers: function () {
+            return exad.library.getTabs();
+        },
+        ui: { menuItem: ".elementor-template-library-menu-item" },
+        events: { "click @ui.menuItem": "onMenuItemClick" },
+        onMenuItemClick: function (e) {
+            exad.library.setFilter("category", ""), 
+            exad.library.setFilter("text", ""), 
+            exad.library.setFilter("type", e.currentTarget.dataset.tab, !0), 
+            exad.library.showTemplatesView();
         },
     })),
     (i.LibraryViews.EmptyTemplateCollection = Marionette.ItemView.extend({
@@ -246,7 +262,8 @@
                 title: "Exclusive Addons"
             });
             var e = this.getHeaderView();
-            e.tools.show(new i.LibraryViews.Actions());
+            //e.tools.show(new i.LibraryViews.Actions());
+            e.tools.show(new i.LibraryViews.Actions()), e.menuArea.show(new i.LibraryViews.Menu());
         },
         showPreviewView: function (e) {
             var t = this.getHeaderView();
@@ -261,6 +278,9 @@
             this.modalContent.show(new i.LibraryViews.TemplateCollection({
                 collection: e
             }));
+        },
+        showTemplatesView: function (e) {
+            this.showDefaultHeader(), this.modalContent.show(new i.LibraryViews.TemplateCollection({ collection: e }));
         },
     })),
     (i.LibraryManager = function () {
@@ -279,27 +299,29 @@
             var t = e.find(FIND_SELECTOR);
             t.length && t.before($exadLibraryButton), e.on("click.onAddElement", ".elementor-editor-section-settings .elementor-editor-element-add", a);
         }
-
+        function r(t, i) {
+            i.addClass("elementor-active").siblings().removeClass("elementor-active");
+        }
         function o() {
             var e = window.elementor.$previewContents,
                 t = setInterval(function () {
                     n(e), e.find(".elementor-add-new-section").length > 0 && clearInterval(t);
                 }, 100);
-            e.on("click.onAddTemplateButton", ".elementor-add-exad-button", m.showModal.bind(m));
+            //e.on("click.onAddTemplateButton", ".elementor-add-exad-button", m.showModal.bind(m));
+            e.on("click.onAddTemplateButton", ".elementor-add-exad-button", m.showModal.bind(m)), this.channels.tabs.on("change:device", r);
         }
         var l,
             s,
             d,
+            src,
             c,
             m = this;
         (FIND_SELECTOR = ".elementor-add-new-section .elementor-add-section-drag-title"),
         ($exadLibraryButton = '<div class="elementor-add-section-area-button elementor-add-exad-button"><i class="exad exad-logo"></i></div>'),
         (this.atIndex = -1),
-        (this.channels = {
-            templates: Backbone.Radio.channel("templates")
-        }),
+        (this.channels = { tabs: Backbone.Radio.channel("tabs"), templates: Backbone.Radio.channel("templates") }),
         (this.updateBlocksView = function () {
-            m.setFilter("category", "", !0), m.setFilter("text", "", !0), m.getModal().showBlocksView(d);
+            m.setFilter("category", "", !0), m.setFilter("text", "", !0), m.getModal().showTemplatesView(d);
         }),
         (this.setFilter = function (e, t, i) {
             m.channels.templates.reply("filter:" + e, t), i || m.channels.templates.trigger("filter:change");
@@ -327,10 +349,15 @@
                         );
                     },
                 },
+                type: {
+                    callback: function (e) {
+                        return this.get("type") === e;
+                    },
+                },
             };
         }),
         (this.showModal = function () {
-            m.getModal().showModal(), m.showBlocksView();
+            m.getModal().showModal(), m.showTemplatesView();
         }),
         (this.closeModal = function () {
             this.getModal().hideModal();
@@ -339,17 +366,34 @@
             return l || (l = new i.Modal()), l;
         }),
         (this.init = function () {
-            t.on("preview:loaded", o.bind(this));
+            //t.on("preview:loaded", o.bind(this));
+            m.setFilter("type", "page", !0), t.on("preview:loaded", o.bind(this));
+        }),
+        (this.getTabs = function () {
+            var e = this.getFilter("type");
+            return (
+                (tabs = { page: { title: "Pages" }, block: { title: "Blocks" } }),
+                _.each(tabs, function (t, i) {
+                    e === i && (tabs[e].active = !0);
+                }),
+                { tabs: tabs }
+            );
         }),
         (this.getCategory = function () {
             return s;
         }),
-        (this.showBlocksView = function () {
-            m.getModal().showDefaultHeader(),
-                m.setFilter("category", "", !0),
-                m.loadTemplates(function () {
-                    m.getModal().showBlocksView(d);
-                });
+        (this.getTypeCategory = function () {
+            var e = m.getFilter("type");
+            return src[e];
+        }),
+        (this.showTemplatesView = function () {
+            m.setFilter("category", "", !0),
+                m.setFilter("text", "", !0),
+                d
+                    ? m.getModal().showTemplatesView(d)
+                    : m.loadTemplates(function () {
+                          m.getModal().showTemplatesView(d);
+                      });
         }),
         (this.showPreviewView = function (e) {
             m.getModal().showPreviewView(e);
@@ -368,7 +412,10 @@
             var t = {
                 data: {},
                 success: function (t) {
-                    (d = new i.LibraryCollections.Template(t.templates)), t.category && (s = t.category), e.onUpdate && e.onUpdate();
+                    (d = new i.LibraryCollections.Template(t.templates)), 
+                    t.category && (s = t.category),
+                    t.type_category && (src = t.type_category),
+                    e.onUpdate && e.onUpdate();
                 },
             };
             e.forceSync && (t.data.sync = !0), elementorCommon.ajax.addRequest("exad_get_template_library_data", t);

@@ -17,6 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<span><?php echo __( 'Back to Library', 'exclusive-addons-elemntor' ); ?></span>
 </script>
 
+<script type="text/template" id="template-exad-TemplateLibrary_header-menu">
+	<# _.each( tabs, function( args, tab ) { var activeClass = args.active ? 'elementor-active' : ''; #>
+		<div class="elementor-component-tab elementor-template-library-menu-item {{activeClass}}" data-tab="{{{ tab }}}">{{{ args.title }}}</div>
+	<# } ); #>
+</script>
+
 <script type="text/template" id="template-exad-templateLibrary-header-actions">
 	<div id="exad-templateLibrary-header-sync" class="elementor-templates-modal__header__item">
 		<i class="eicon-sync" aria-hidden="true" title="<?php esc_attr_e( 'Sync Library', 'exclusive-addons-elemntor' ); ?>"></i>
@@ -65,12 +71,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <script type="text/template" id="template-exad-templateLibrary-templates">
 	<div id="exad-templateLibrary-toolbar">
 		<div id="exad-templateLibrary-toolbar-filter" class="exad-templateLibrary-toolbar-filter">
-			<# if ( exad.library.getCategory() ) { #>
+			<# if ( exad.library.getTypeCategory() ) { #>
 	
 				<select id="exad-templateLibrary-filter-category" class="exad-templateLibrary-filter-category">
-					<option value="" data-tag=""><?php esc_html_e( 'All Demos', 'exclusive-addons-elemntor' ); ?></option>
-					<# _.each( exad.library.getCategory(), function( name, slug ) { #>
-						<option value="{{ slug }}" data-tag="{{ slug }}">{{{ name }}}</option>
+					<option class="exad-templateLibrary-category-filter-item active" value="" data-tag=""><?php esc_html_e( 'All Demos', 'exclusive-addons-elemntor' ); ?></option>
+					<# _.each( exad.library.getTypeCategory(), function( slug ) { #>
+						<option class="exad-templateLibrary-category-filter-item" value="{{ slug }}" data-tag="{{ slug }}">{{{ exad.library.getCategory()[slug] }}}</option>
 					<# } ); #>
 				</select>
 			<# } #>

@@ -100,6 +100,7 @@ class Template_Library_Manager {
 		return [
 			'templates' => $source->get_items(),
 			'category' => $source->get_categories(),
+			'type_category' => $source->get_type_category(),
 		];
 	}
 }

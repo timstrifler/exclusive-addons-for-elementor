@@ -17,12 +17,12 @@ class Template_Library_Source extends Source_Base {
 	/**
 	 * Template info api url
 	 */
-	const TEMPLATE_LIBRARY_API_INFO = 'https://sites.exclusiveaddons.com/wp-json/exad/v1/library-config';
+	const TEMPLATE_LIBRARY_API_INFO = 'https://docs.exclusiveaddons.com/wp-json/exad/v1/library-config';
 
 	/**
 	 * Template data api url
 	 */
-	const TEMPLATE_LIBRARY_ITEMS_API = 'https://sites.exclusiveaddons.com/wp-json/exad/v1/library/';
+	const TEMPLATE_LIBRARY_ITEMS_API = 'https://docs.exclusiveaddons.com/wp-json/exad/v1/library/';
 
 	public function get_id() {
 		return 'exclusive-addons-library';
@@ -68,6 +68,12 @@ class Template_Library_Source extends Source_Base {
 		$library_data = self::get_library_data();
 
 		return ( ! empty( $library_data['categories'] ) ? $library_data['categories'] : [] );
+	}
+
+	public function get_type_category() {
+		$library_data = self::get_library_data();
+
+		return ( ! empty( $library_data['type_category'] ) ? $library_data['type_category'] : [] );
 	}
 
 	/**
