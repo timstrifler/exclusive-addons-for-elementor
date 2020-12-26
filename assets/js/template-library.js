@@ -364,12 +364,12 @@
             return l || (l = new i.Modal()), l;
         }),
         (this.init = function () {
-            m.setFilter("type", "page", !0), t.on("preview:loaded", o.bind(this));
+            m.setFilter("type", "section", !0), t.on("preview:loaded", o.bind(this));
         }),
         (this.getTabs = function () {
             var e = this.getFilter("type");
             return (
-                (tabs = { page: { title: "Pages" }, block: { title: "Blocks" } }),
+                (tabs = { section: { title: "Blocks" }, page: { title: "Pages" } }),
                 _.each(tabs, function (t, i) {
                     e === i && (tabs[e].active = !0);
                 }),
