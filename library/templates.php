@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<# if ( exad.library.getTypeCategory() ) { #>
 	
 				<select id="exad-templateLibrary-filter-category" class="exad-templateLibrary-filter-category">
-					<option class="exad-templateLibrary-category-filter-item active" value="" data-tag=""><?php esc_html_e( 'All Demos', 'exclusive-addons-elemntor' ); ?></option>
+					<option class="exad-templateLibrary-category-filter-item active" value="" data-tag=""><?php esc_html_e( 'Filter', 'exclusive-addons-elemntor' ); ?></option>
 					<# _.each( exad.library.getTypeCategory(), function( slug ) { #>
 						<option class="exad-templateLibrary-category-filter-item" value="{{ slug }}" data-tag="{{ slug }}">{{{ exad.library.getCategory()[slug] }}}</option>
 					<# } ); #>

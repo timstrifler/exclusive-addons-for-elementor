@@ -17,12 +17,12 @@ class Template_Library_Source extends Source_Base {
 	/**
 	 * Template info api url
 	 */
-	const TEMPLATE_LIBRARY_API_INFO = 'https://docs.exclusiveaddons.com/wp-json/exad/v1/library-config';
+	const TEMPLATE_LIBRARY_API_INFO = 'https://sites.exclusiveaddons.com/wp-json/exad/v1/library-config';
 
 	/**
 	 * Template data api url
 	 */
-	const TEMPLATE_LIBRARY_ITEMS_API = 'https://docs.exclusiveaddons.com/wp-json/exad/v1/library/';
+	const TEMPLATE_LIBRARY_ITEMS_API = 'https://sites.exclusiveaddons.com/wp-json/exad/v1/library/';
 
 	public function get_id() {
 		return 'exclusive-addons-library';

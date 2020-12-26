@@ -179,7 +179,7 @@ msgstr ""
 msgid "Modal Popup"
 msgstr ""
 
-#: includes/addons-manager-class.php:307, includes/addons-manager-class.php:510, elements/news-ticker/news-ticker.php:22
+#: includes/addons-manager-class.php:307, includes/addons-manager-class.php:524, elements/news-ticker/news-ticker.php:22
 msgid "News Ticker"
 msgstr ""
 
@@ -224,159 +224,175 @@ msgid "Animated Shape"
 msgstr ""
 
 #: includes/addons-manager-class.php:391
-msgid "Floating Animation"
+msgid "Author Box"
 msgstr ""
 
 #: includes/addons-manager-class.php:398
-msgid "Breadcrumb"
+msgid "Floating Animation"
 msgstr ""
 
 #: includes/addons-manager-class.php:405
-msgid "Business Hours"
+msgid "Breadcrumb"
 msgstr ""
 
 #: includes/addons-manager-class.php:412
-msgid "Chart"
+msgid "Business Hours"
 msgstr ""
 
 #: includes/addons-manager-class.php:419
-msgid "Comparison Table"
+msgid "Chart"
 msgstr ""
 
 #: includes/addons-manager-class.php:426
-msgid "Content Switcher"
+msgid "Comparison Table"
 msgstr ""
 
 #: includes/addons-manager-class.php:433
+msgid "Content Switcher"
+msgstr ""
+
+#: includes/addons-manager-class.php:440
 msgid "Cookie Consent"
 msgstr ""
 
-#: includes/addons-manager-class.php:440, elements/countdown-timer/countdown-timer.php:409
+#: includes/addons-manager-class.php:447, elements/countdown-timer/countdown-timer.php:409
 msgid "Counter"
 msgstr ""
 
-#: includes/addons-manager-class.php:447
+#: includes/addons-manager-class.php:454
 msgid "Gravity Form"
 msgstr ""
 
-#: includes/addons-manager-class.php:454, elements/heading/heading.php:176, elements/tabs/tabs.php:536
+#: includes/addons-manager-class.php:461, elements/heading/heading.php:176, elements/tabs/tabs.php:536
 msgid "Icon Box"
 msgstr ""
 
-#: includes/addons-manager-class.php:461
+#: includes/addons-manager-class.php:468
 msgid "Image Carousel"
 msgstr ""
 
-#: includes/addons-manager-class.php:468
+#: includes/addons-manager-class.php:475
 msgid "Image Hotspot"
 msgstr ""
 
-#: includes/addons-manager-class.php:475
+#: includes/addons-manager-class.php:482
 msgid "Image Mask"
 msgstr ""
 
-#: includes/addons-manager-class.php:482
+#: includes/addons-manager-class.php:489
 msgid "Instagram Feed"
 msgstr ""
 
-#: includes/addons-manager-class.php:489
+#: includes/addons-manager-class.php:496
 msgid "Login/Register Form"
 msgstr ""
 
-#: includes/addons-manager-class.php:496
+#: includes/addons-manager-class.php:503
 msgid "MailChimp"
 msgstr ""
 
-#: includes/addons-manager-class.php:503
-msgid "Navigation Menu"
+#: includes/addons-manager-class.php:510
+msgid "Mega Menu"
 msgstr ""
 
 #: includes/addons-manager-class.php:517
-msgid "Off Canvas"
-msgstr ""
-
-#: includes/addons-manager-class.php:524
-msgid "Page Title"
+msgid "Navigation Menu"
 msgstr ""
 
 #: includes/addons-manager-class.php:531
-msgid "Post Carousel"
+msgid "Off Canvas"
 msgstr ""
 
 #: includes/addons-manager-class.php:538
-msgid "Post Navigation"
+msgid "Page Title"
 msgstr ""
 
 #: includes/addons-manager-class.php:545
-msgid "Post Slider"
+msgid "Post Carousel"
 msgstr ""
 
 #: includes/addons-manager-class.php:552
-msgid "Campaign"
+msgid "Post Navigation"
 msgstr ""
 
 #: includes/addons-manager-class.php:559
-msgid "Search Form"
+msgid "Post Slider"
 msgstr ""
 
 #: includes/addons-manager-class.php:566
-msgid "Site Title"
+msgid "Campaign"
 msgstr ""
 
 #: includes/addons-manager-class.php:573
-msgid "Site Tagline"
+msgid "Search Form"
 msgstr ""
 
 #: includes/addons-manager-class.php:580
-msgid "Social Share"
+msgid "Site Title"
 msgstr ""
 
 #: includes/addons-manager-class.php:587
-msgid "Slider"
+msgid "Site Tagline"
 msgstr ""
 
 #: includes/addons-manager-class.php:594
-msgid "Source Code"
+msgid "Social Share"
 msgstr ""
 
 #: includes/addons-manager-class.php:601
-msgid "Table"
+msgid "Slider"
 msgstr ""
 
 #: includes/addons-manager-class.php:608
-msgid "Team Carousel"
+msgid "Source Code"
 msgstr ""
 
 #: includes/addons-manager-class.php:615
-msgid "Testimonial Carousel"
+msgid "Table"
 msgstr ""
 
 #: includes/addons-manager-class.php:622
-msgid "Demo Previewer"
+msgid "Team Carousel"
 msgstr ""
 
 #: includes/addons-manager-class.php:629
-msgid "Woo Category"
+msgid "Testimonial Carousel"
 msgstr ""
 
 #: includes/addons-manager-class.php:636
+msgid "Demo Previewer"
+msgstr ""
+
+#: includes/addons-manager-class.php:643
+msgid "Woo Add To Cart"
+msgstr ""
+
+#: includes/addons-manager-class.php:650
+msgid "Woo Category"
+msgstr ""
+
+#: includes/addons-manager-class.php:657
 msgid "Woo Products"
 msgstr ""
 
-#: includes/addons-manager-class.php:649
+#: includes/addons-manager-class.php:670
 msgid "Post Duplicator"
 msgstr ""
 
-#: includes/addons-manager-class.php:662
+#: includes/addons-manager-class.php:683
 msgid "Section Particles"
 msgstr ""
 
-#: includes/addons-manager-class.php:669
+#: includes/addons-manager-class.php:690
 msgid "Section Parallax"
 msgstr ""
 
-#: includes/addons-manager-class.php:676
+#: includes/addons-manager-class.php:697
 msgid "Gradient Animation"
+msgstr ""
+
+#: includes/addons-manager-class.php:704
+msgid "Cross Site Copy Paste"
 msgstr ""
 
 #: includes/assets-manager-class.php:39
@@ -423,11 +439,11 @@ msgstr ""
 msgid "Template Library"
 msgstr ""
 
-#: library/library-source.class.php:192
+#: library/library-source.class.php:198
 msgid "Template does not have any content"
 msgstr ""
 
-#: library/templates.php:119
+#: library/templates.php:124
 msgid "Click here"
 msgstr ""
 

@@ -218,7 +218,7 @@
             })), (this.perfectScrollbar.isRtl = !1), this.perfectScrollbar.update();
         },
         onRender: function () {
-            this.$("#exad-templateLibrary-filter-category").select2({ placeholder: "Filter By Widget", allowClear: !0, width: 200 }), this.updatePerfectScrollbar();
+            this.$("#exad-templateLibrary-filter-category").select2({ placeholder: "Filter", allowClear: !0, width: 200 }), this.updatePerfectScrollbar();
         },
     })),
     (i.LibraryViews.Template = Marionette.ItemView.extend({
