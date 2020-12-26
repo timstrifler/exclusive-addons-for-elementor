@@ -116,7 +116,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 <script type="text/template" id="template-exad-templateLibrary-empty">
 	<div class="elementor-template-library-blank-icon">
 		<i class="eicon-search-results"></i>
-		<!-- <img src="<?php echo EXAD_ASSETS_URL . 'img/exad-logo.svg'; ?>" class="elementor-template-library-no-results" /> -->
 	</div>
 	<div class="elementor-template-library-blank-title"></div>
 	<div class="elementor-template-library-blank-message"></div>

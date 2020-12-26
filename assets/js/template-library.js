@@ -262,7 +262,6 @@
                 title: "Exclusive Addons"
             });
             var e = this.getHeaderView();
-            //e.tools.show(new i.LibraryViews.Actions());
             e.tools.show(new i.LibraryViews.Actions()), e.menuArea.show(new i.LibraryViews.Menu());
         },
         showPreviewView: function (e) {
@@ -307,7 +306,6 @@
                 t = setInterval(function () {
                     n(e), e.find(".elementor-add-new-section").length > 0 && clearInterval(t);
                 }, 100);
-            //e.on("click.onAddTemplateButton", ".elementor-add-exad-button", m.showModal.bind(m));
             e.on("click.onAddTemplateButton", ".elementor-add-exad-button", m.showModal.bind(m)), this.channels.tabs.on("change:device", r);
         }
         var l,
@@ -366,7 +364,6 @@
             return l || (l = new i.Modal()), l;
         }),
         (this.init = function () {
-            //t.on("preview:loaded", o.bind(this));
             m.setFilter("type", "page", !0), t.on("preview:loaded", o.bind(this));
         }),
         (this.getTabs = function () {
