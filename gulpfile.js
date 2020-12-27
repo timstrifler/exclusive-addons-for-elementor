@@ -156,6 +156,7 @@ gulp.task('copy', function () {
         '!assets/css/elements-css/**',
         '!assets/js/elements-js',
         '!assets/js/elements-js/**',
+        '!assets/js/template-library.js',
         '!.gitignore',
         '!package.json',
         '!package-lock.json',
