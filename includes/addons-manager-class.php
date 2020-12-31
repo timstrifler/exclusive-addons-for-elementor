@@ -498,7 +498,14 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/login-register/',
                 'tags'   => 'pro',
                 'is_pro' => true
-            ], 
+            ],
+            'lottie-animation'  => [
+                'title'  => __( 'Lottie Animation', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Lottie_Animation',
+                'demo_link' => 'https://exclusiveaddons.com/lottie-animation/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'mailchimp'  => [
                 'title'  => __( 'MailChimp', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\MailChimp',
