@@ -284,14 +284,15 @@
     })),
     (i.LibraryManager = function () {
         function a() {
-            var t = e(this).closest(".elementor-top-section"),
-                i = t.data("model-cid"),
-                a = window.elementor.sections;
-            a.currentView.collection.length &&
-                _.each(a.currentView.collection.models, function (e, t) {
+            var n = e(this).closest(".elementor-top-section"),
+                i = n.data("model-cid"),
+                p = t.documents.getCurrent().container.children,
+                r = n.prev(".elementor-add-section");
+           p &&
+                _.each(p, function (e, t) {
                     i === e.cid && (m.atIndex = t);
                 }),
-                t.prev(".elementor-add-section").find(FIND_SELECTOR).before($exadLibraryButton);
+                r.find(".elementor-add-exad-button").length || r.find(FIND_SELECTOR).before($exadLibraryButton);
         }
 
         function n(e) {
