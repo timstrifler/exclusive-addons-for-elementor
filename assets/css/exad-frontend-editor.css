@@ -49,6 +49,9 @@
   font-family: 'Exclusive Addons';
 }
 
+.exad-lottie-animation:before {
+  content: "\e94a";
+}
 .exad-accordion:before {
   content: "\e900";
 }
@@ -58,13 +61,13 @@
 .exad-animated-text:before {
   content: "\e902";
 }
-.exad-alert:before {
+.exad-atert:before {
   content: "\e903";
 }
 .exad-breadcrumb:before {
   content: "\e904";
 }
-.exad-business-hours:before {
+.exad-business-hour:before {
   content: "\e905";
 }
 .exad-button:before {
@@ -72,270 +75,201 @@
 }
 .exad-call-to-action:before {
   content: "\e907";
-  
 }
 .exad-campaign:before {
   content: "\e908";
-  
 }
 .exad-card:before {
   content: "\e909";
-  
 }
 .exad-chart:before {
   content: "\e90a";
-  
 }
-.exad-comparison-table:before {
+.exad-comparision-table:before {
   content: "\e90b";
-  
 }
 .exad-contact-form-7:before {
   content: "\e90c";
-  
 }
 .exad-content-switcher:before {
   content: "\e90d";
-  
 }
-.exad-cookie-consent:before {
+.exad-cookies-consent:before {
   content: "\e90e";
-  
 }
 .exad-countdown-timer:before {
   content: "\e90f";
-  
 }
 .exad-counter:before {
   content: "\e910";
-  
 }
 .exad-covid-19:before {
   content: "\e911";
-  
 }
 .exad-demo-previewer:before {
   content: "\e912";
-  
 }
 .exad-dual-button:before {
   content: "\e913";
-  
 }
 .exad-dual-heading:before {
   content: "\e914";
-  
 }
-/* .exad-exad-logo:before {
-  content: "\e915";
-  
-} */
 .exad-filterable-gallery:before {
   content: "\e916";
-  
 }
 .exad-flipbox:before {
   content: "\e917";
-  
 }
 .exad-floating-animation:before {
   content: "\e918";
-  
 }
 .exad-google-map:before {
   content: "\e919";
-  
 }
 .exad-gradient-animation:before {
   content: "\e91a";
-  
 }
 .exad-gravity-form:before {
   content: "\e91b";
-  
 }
 .exad-header-footer:before {
   content: "\e91c";
-  
 }
 .exad-heading:before {
   content: "\e91d";
-  
 }
 .exad-iconbox:before {
   content: "\e91e";
-  
 }
 .exad-image-carousel:before {
   content: "\e91f";
-  
 }
-.exad-image-comparison:before {
+.exad-image-comparision:before {
   content: "\e920";
-  
 }
 .exad-image-hotspot:before {
   content: "\e921";
-  
 }
 .exad-image-magnifier:before {
   content: "\e922";
-  
 }
 .exad-image-mask:before {
   content: "\e923";
-  
 }
 .exad-infobox:before {
   content: "\e924";
 }
 .exad-instagram-feed:before {
   content: "\e925";
-  
 }
 .exad-login-register:before {
   content: "\e926";
-  
 }
 .exad-logo-box:before {
   content: "\e927";
-  
 }
 .exad-logo-carousel:before {
   content: "\e928";
-  
 }
 .exad-mailchimp:before {
   content: "\e929";
-  
 }
 .exad-modal-popup:before {
   content: "\e92a";
-  
 }
 .exad-navigation-menu:before {
   content: "\e92b";
-  
 }
 .exad-news-ticker:before {
   content: "\e92c";
-  
 }
 .exad-news-ticker-pro:before {
   content: "\e92d";
-  
 }
 .exad-off-canvas:before {
   content: "\e92e";
-  
 }
 .exad-page-title:before {
   content: "\e92f";
-  
 }
 .exad-post-carousel:before {
   content: "\e930";
-  
 }
 .exad-post-duplicator:before {
   content: "\e931";
-  
 }
 .exad-post-grid:before {
   content: "\e932";
-  
 }
 .exad-post-navigation:before {
   content: "\e933";
-  
 }
 .exad-post-slider:before {
   content: "\e934";
-  
 }
 .exad-post-timeline:before {
   content: "\e935";
-  
 }
 .exad-pricing-menu:before {
   content: "\e936";
-  
 }
 .exad-pricing-table:before {
   content: "\e937";
-  
 }
 .exad-progress-bar:before {
   content: "\e938";
-  
 }
-.exad-search-form:before {
+.exad-search:before {
   content: "\e939";
-  
 }
 .exad-section-parallax:before {
   content: "\e93a";
-  
 }
 .exad-section-particles:before {
   content: "\e93b";
-  
 }
 .exad-site-tagline:before {
   content: "\e93c";
-  
 }
 .exad-site-title:before {
   content: "\e93d";
-  
 }
 .exad-slider:before {
   content: "\e93e";
-  
 }
 .exad-social-share:before {
   content: "\e93f";
-  
 }
 .exad-source-code:before {
   content: "\e940";
-  
 }
 .exad-table:before {
   content: "\e941";
-  
 }
 .exad-tabs:before {
   content: "\e942";
-  
 }
 .exad-team-carousel:before {
   content: "\e943";
-  
 }
-.exad-team-member:before {
+.exad-team-menber:before {
   content: "\e944";
-  
 }
 .exad-testimonial:before {
   content: "\e945";
-  
 }
 .exad-testimonial-carousel:before {
   content: "\e946";
-  
 }
 .exad-tooltip:before {
   content: "\e947";
-  
 }
 .exad-woo-category:before {
   content: "\e948";
-  
 }
-.exad-woo-products:before {
+.exad-woo-product:before {
   content: "\e949";
-  
 }
 
 
