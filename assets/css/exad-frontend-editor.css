@@ -61,13 +61,13 @@
 .exad-animated-text:before {
   content: "\e902";
 }
-.exad-atert:before {
+.exad-alert:before {
   content: "\e903";
 }
 .exad-breadcrumb:before {
   content: "\e904";
 }
-.exad-business-hour:before {
+.exad-business-hours:before {
   content: "\e905";
 }
 .exad-button:before {
@@ -85,7 +85,7 @@
 .exad-chart:before {
   content: "\e90a";
 }
-.exad-comparision-table:before {
+.exad-comparison-table:before {
   content: "\e90b";
 }
 .exad-contact-form-7:before {
@@ -94,7 +94,7 @@
 .exad-content-switcher:before {
   content: "\e90d";
 }
-.exad-cookies-consent:before {
+.exad-cookie-consent:before {
   content: "\e90e";
 }
 .exad-countdown-timer:before {
@@ -145,7 +145,7 @@
 .exad-image-carousel:before {
   content: "\e91f";
 }
-.exad-image-comparision:before {
+.exad-image-comparison:before {
   content: "\e920";
 }
 .exad-image-hotspot:before {
@@ -220,7 +220,7 @@
 .exad-progress-bar:before {
   content: "\e938";
 }
-.exad-search:before {
+.exad-search-form:before {
   content: "\e939";
 }
 .exad-section-parallax:before {
@@ -253,7 +253,7 @@
 .exad-team-carousel:before {
   content: "\e943";
 }
-.exad-team-menber:before {
+.exad-team-member:before {
   content: "\e944";
 }
 .exad-testimonial:before {
@@ -268,7 +268,7 @@
 .exad-woo-category:before {
   content: "\e948";
 }
-.exad-woo-product:before {
+.exad-woo-products:before {
   content: "\e949";
 }
 
