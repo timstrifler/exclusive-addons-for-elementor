@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -127,6 +127,7 @@ This option allows you change the default Color scheme for all the widgets at on
 38. **[Author Box](https://exclusiveaddons.com/author-box/)** - Display information about the user who's logged in.
 39. **[Woo Add to Cart](https://exclusiveaddons.com/woo-add-to-cart/)** - Add an Woocommerce Add to cart button anywhere in your site, anyway you like with the products being added real time and the price calculated.
 40. **[Mega Menu](https://exclusiveaddons.com/mega-menu/)** - One of the best Mega Menu widgets for Elementor with unlimited customization options and design variations you might need.
+41. **[Lottie Animation](https://exclusiveaddons.com/lottie-animation/)** - The lightweight, new revolution in the Animation industry is one click away with Excluisve Addons Lottie Animation widget.
 
 
 LIST OF OUR PRO EXTENSIONS:
@@ -213,6 +214,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.3.1 - 12/01/2021 =
+- Bug fixed in Template Library.
+- Bug fixes in Icon rendering.
 
 = 2.3.0 - 27/12/2020 =
 - Fixed Conflicts in Template Library.
