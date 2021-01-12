@@ -191,7 +191,7 @@ class Logo_Box extends Widget_Base {
                     'name'      => 'exad_logo_background',
                     'types'     => [ 'classic', 'gradient' ],
                     'separator' => 'before',
-                    'selector'  => '{{WRAPPER}} .exad-logo .exad-logo-item'
+                    'selector'  => '{{WRAPPER}} .exad-logo-box .exad-logo-item'
     			]
             );
 
@@ -213,7 +213,7 @@ class Logo_Box extends Widget_Base {
                         'max'   => 1
             		],
                     'selectors' => [
-                        '{{WRAPPER}} .exad-logo .exad-logo-item img' => 'opacity: {{VALUE}};'
+                        '{{WRAPPER}} .exad-logo-box .exad-logo-item img' => 'opacity: {{VALUE}};'
                     ]
                 ]
             );
@@ -230,7 +230,7 @@ class Logo_Box extends Widget_Base {
                 Group_Control_Box_Shadow::get_type(),
                 [
                     'name'     => 'exad_logo_box_shadow',
-                    'selector' => '{{WRAPPER}} .exad-logo .exad-logo-item'
+                    'selector' => '{{WRAPPER}} .exad-logo-box .exad-logo-item'
                 ]
             );
 
@@ -253,7 +253,7 @@ class Logo_Box extends Widget_Base {
                     'name'      => 'exad_logo_hover_background_hover',
                     'types'     => [ 'classic', 'gradient' ],
                     'separator' => 'before',
-                    'selector'  => '{{WRAPPER}} .exad-logo .exad-logo-item:hover'
+                    'selector'  => '{{WRAPPER}} .exad-logo-box .exad-logo-item:hover'
                 ]
             );
 
@@ -276,7 +276,7 @@ class Logo_Box extends Widget_Base {
                     ],
                     'default'   => __( 'From 0.1 to 1', 'exclusive-addons-elementor' ),
                     'selectors' => [
-                        '{{WRAPPER}} .exad-logo .exad-logo-item:hover img' => 'opacity: {{VALUE}};'
+                        '{{WRAPPER}} .exad-logo-box .exad-logo-item:hover img' => 'opacity: {{VALUE}};'
                     ]
                 ]
             );
@@ -293,7 +293,7 @@ class Logo_Box extends Widget_Base {
                 Group_Control_Box_Shadow::get_type(),
                 [
                     'name'     => 'exad_logo_box_hover_shadow',
-                    'selector' => '{{WRAPPER}} .exad-logo .exad-logo-item:hover'
+                    'selector' => '{{WRAPPER}} .exad-logo-box .exad-logo-item:hover'
                 ]
             );
 
@@ -316,7 +316,7 @@ class Logo_Box extends Widget_Base {
                     'unit'   => 'px'
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-logo .exad-logo-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-logo-box .exad-logo-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -325,7 +325,7 @@ class Logo_Box extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'     => 'border',
-                'selector' => '{{WRAPPER}} .exad-logo .exad-logo-item'
+                'selector' => '{{WRAPPER}} .exad-logo-box .exad-logo-item'
             ]
         );
         $this->add_control(
@@ -335,7 +335,7 @@ class Logo_Box extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-logo .exad-logo-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-logo-box .exad-logo-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -364,7 +364,7 @@ class Logo_Box extends Widget_Base {
 			$logo_image_url = $logo_image_url;
         }
         
-        echo '<div class="exad-logo one '.$settings['exad_section_logo_alignment'].'">';
+        echo '<div class="exad-logo-box one '.$settings['exad_section_logo_alignment'].'">';
             echo '<div class="exad-logo-item exad-logo-item-max-height-'.$settings['exad_logo_box_max_height_enable'].'">';
                 if( ! empty( $settings['exad_logo_image'] ) ) :
 
@@ -409,7 +409,7 @@ class Logo_Box extends Widget_Base {
             var target   = settings.exad_logo_box_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_logo_box_link.nofollow ? ' rel="nofollow"' : '';
         #>
-        <div class="exad-logo one {{ settings.exad_section_logo_alignment }}">
+        <div class="exad-logo-box one {{ settings.exad_section_logo_alignment }}">
             <div class="exad-logo-item exad-logo-item-max-height-{{ settings.exad_logo_box_max_height_enable }}">
                 <# if ( image_url ) { #>
                     <# if ( settings.exad_logo_box_link && 'yes' === settings.exad_logo_box_enable_link ) { #>
