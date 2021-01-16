@@ -15,6 +15,7 @@ use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \Elementor\Group_Control_Css_Filter;
 use \ExclusiveAddons\Elementor\Helper;
+use \Elementor\Plugin;
 
 class Tabs extends Widget_Base {
 
@@ -116,24 +117,64 @@ class Tabs extends Widget_Base {
 						]
 					],
 					[
+						'name'	  => 'exad_exclusive_tab_content_type',
+						'label'   => __( 'Content Type', 'exclusive-addons-elementor' ),
+						'type'    => Controls_Manager::SELECT,
+						'default' => 'content',
+						'options' => [
+							'content'       => __( 'Content', 'exclusive-addons-elementor' ),
+							'save_template' => __( 'Save Template', 'exclusive-addons-elementor' ),
+							'shortcode'     => __( 'ShortCode', 'exclusive-addons-elementor' )
+						]
+					],
+					[
+						'name'      => 'exad_tab_content_save_template',
+						'label'     => __( 'Select Section', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::SELECT,
+						'options'   => $this->get_saved_template( 'section' ),
+						'default'   => '-1',
+						'condition' => [
+							'exad_exclusive_tab_content_type' => 'save_template'
+						]
+					],
+					[
+						'name' 		  => 'exad_tab_content_shortcode',
+						'label'       => __( 'Enter your shortcode', 'exclusive-addons-elementor' ),
+						'type'        => Controls_Manager::TEXT,
+						'label_block' => true,
+						'placeholder' => __( '[gallery]', 'exclusive-addons-elementor' ),
+						'condition'   => [
+							'exad_exclusive_tab_content_type' => 'shortcode'
+						]
+					],
+					[
 						'name'    => 'exad_exclusive_tab_title',
 						'label'   => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 						'type'    => Controls_Manager::TEXT,
 						'default' => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
-						'dynamic' => [ 'active' => true ]
+						'dynamic' => [ 'active' => true ],
+						'condition' => [
+							'exad_exclusive_tab_content_type' => 'content'
+						]
 					],
 					[
 						'name'    => 'exad_exclusive_tab_content',
 						'label'   => esc_html__( 'Content', 'exclusive-addons-elementor' ),
 						'type'    => Controls_Manager::WYSIWYG,
-						'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' )
+						'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' ),
+						'condition' => [
+							'exad_exclusive_tab_content_type' => 'content'
+						]
 					],
 					[
 						'name'         => 'exad_exclusive_tab_detail_btn_switcher',
 						'label'        => __( 'Details Button?', 'exclusive-addons-elementor' ),
 						'type'         => Controls_Manager::SWITCHER,
 						'default'      => 'yes',
-						'return_value' => 'yes'
+						'return_value' => 'yes',
+						'condition' => [
+							'exad_exclusive_tab_content_type' => 'content'
+						]
 					],
 					[
 						'name'      => 'exad_exclusive_tab_detail_btn',
@@ -141,7 +182,8 @@ class Tabs extends Widget_Base {
 						'type'      => Controls_Manager::TEXT,
 						'default'   => esc_html__( 'Read More', 'exclusive-addons-elementor' ),
 						'condition' => [
-							'exad_exclusive_tab_detail_btn_switcher' => 'yes'
+							'exad_exclusive_tab_detail_btn_switcher' => 'yes',
+							'exad_exclusive_tab_content_type' => 'content'
 						]
 					],
 					[
@@ -154,13 +196,17 @@ class Tabs extends Widget_Base {
 						],
 						'show_external' => true,
 						'condition' => [
-							'exad_exclusive_tab_detail_btn_switcher' => 'yes'
+							'exad_exclusive_tab_detail_btn_switcher' => 'yes',
+							'exad_exclusive_tab_content_type' => 'content'
 						]
 					],
 					[
 						'name'  => 'exad_exclusive_tab_image',
 						'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
-						'type'  => Controls_Manager::MEDIA
+						'type'  => Controls_Manager::MEDIA,
+						'condition' => [
+							'exad_exclusive_tab_content_type' => 'content'
+						]
 					]
 				],
 				'title_field' => '{{exad_exclusive_tab_title}}'
@@ -1044,6 +1090,63 @@ class Tabs extends Widget_Base {
 
 	}
 
+	/**
+	 *  Get Saved Widgets
+	 *
+	 *  @param string $type Type.
+	 *  @since 0.0.1
+	 *  @return string
+	 */
+	public function get_saved_template( $type = 'page' ) {
+
+		$saved_widgets = $this->get_post_template( $type );
+		$options[-1]   = __( 'Select', 'exclusive-addons-elementor' );
+		if ( count( $saved_widgets ) ) :
+			foreach ( $saved_widgets as $saved_row ) :
+				$options[ $saved_row['id'] ] = $saved_row['name'];
+			endforeach;
+		else :
+			$options['no_template'] = __( 'No section template is added.', 'exclusive-addons-elementor' );
+		endif;
+		return $options;
+	}
+
+	/**
+	 *  Get Templates based on category
+	 *
+	 *  @param string $type Type.
+	 *  @since 0.0.1
+	 *  @return string
+	 */
+	public function get_post_template( $type = 'page' ) {
+		$posts = get_posts(
+			array(
+				'post_type'        => 'elementor_library',
+				'orderby'          => 'title',
+				'order'            => 'ASC',
+				'posts_per_page'   => '-1',
+				'tax_query'        => array(
+					array(
+						'taxonomy' => 'elementor_library_type',
+						'field'    => 'slug',
+						'terms'    => $type
+					)
+				)
+			)
+		);
+
+		$templates = array();
+
+		foreach ( $posts as $post ) :
+			$templates[] = array(
+				'id'   => $post->ID,
+				'name' => $post->post_title
+			);
+		endforeach;
+
+		return $templates;
+	}
+
 	private function exad_tab_content_render_image( $tab, $settings ) {
         $image_id   = $tab['exad_exclusive_tab_image']['id'];
 		$image_size = $settings['exad_tab_image_size_size'];
@@ -1114,20 +1217,26 @@ class Tabs extends Widget_Base {
 		        }
 			?>
 				<div class="exad-advance-tab-content exad-tab-image-has-<?php echo esc_attr($has_image); ?> <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_tab_image_align'] ); ?>">
-					<div class="exad-advance-tab-content-element">
-						<div class="exad-advance-tab-content-description"><?php echo wp_kses_post( $tab['exad_exclusive_tab_content'] ); ?></div>
-						<?php 
-							if ( 'yes' === $tab['exad_exclusive_tab_detail_btn_switcher'] ) {
-								echo '<a '.$this->get_render_attribute_string( $link_key ).'>';
-									echo esc_html( $tab['exad_exclusive_tab_detail_btn'] );
-								echo '</a>';
-							} 
-						?>
-					</div>
-					<?php if ( ! empty( $tab['exad_exclusive_tab_image']['url'] ) ) { ?>
-						<div class="exad-advance-tab-content-thumb">
-                            <?php echo $this->exad_tab_content_render_image( $tab, $settings ); ?>
+					<?php if( 'save_template' === $tab['exad_exclusive_tab_content_type'] ) { ?>
+                        <?php echo Plugin::$instance->frontend->get_builder_content_for_display( wp_kses_post( $tab['exad_tab_content_save_template'] ) ); ?>
+                    <?php } else if( 'shortcode' === $tab['exad_exclusive_tab_content_type'] ) { ?>
+                        <?php echo do_shortcode( $tab['exad_tab_content_shortcode'] ); ?>
+                    <?php } else { ?>
+						<div class="exad-advance-tab-content-element">
+							<div class="exad-advance-tab-content-description"><?php echo wp_kses_post( $tab['exad_exclusive_tab_content'] ); ?></div>
+							<?php 
+								if ( 'yes' === $tab['exad_exclusive_tab_detail_btn_switcher'] ) {
+									echo '<a '.$this->get_render_attribute_string( $link_key ).'>';
+										echo esc_html( $tab['exad_exclusive_tab_detail_btn'] );
+									echo '</a>';
+								} 
+							?>
 						</div>
+						<?php if ( ! empty( $tab['exad_exclusive_tab_image']['url'] ) ) { ?>
+							<div class="exad-advance-tab-content-thumb">
+								<?php echo $this->exad_tab_content_render_image( $tab, $settings ); ?>
+							</div>
+						<?php } ?>
 					<?php } ?>
 				</div>
 			<?php endforeach; ?>
