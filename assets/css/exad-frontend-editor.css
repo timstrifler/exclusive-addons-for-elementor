@@ -40,7 +40,7 @@
 
 .exad-logo:after {
   content: "\e915";
-  color: #d6d6d6;
+  /* color: #d6d6d6; */
   position: absolute;
   top: 5px;
   right: 5px;
@@ -50,9 +50,9 @@
 }
 
 i.exad-extention-logo::after {
-  top: 10px;
+  top: 11px;
   right: 15px;
-  color: #6A36FF;
+  font-size: 16px;
 }
 
 .exad-lottie-animation:before {
