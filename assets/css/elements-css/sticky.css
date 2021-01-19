@@ -1,0 +1,11 @@
+
+/* Sticky css start  */
+
+.exad-sticky-section-yes{
+    position: sticky !important;
+}
+.exad-column-sticky .inner-wrapper-sticky{
+    width: 100%;
+}
+
+/* Sticky css end  */

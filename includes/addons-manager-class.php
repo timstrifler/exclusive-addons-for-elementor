@@ -105,6 +105,9 @@ class Addons_Manager {
         if( self::$is_activated_feature['post-duplicator'] ){
             include_once EXAD_PATH . 'extensions/post-duplicator.php';
         }
+        if( self::$is_activated_feature['sticky'] ){
+            include_once EXAD_PATH . 'extensions/sticky.php';
+        }
     }
 
     /**
@@ -679,7 +682,14 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'demo_link' => 'https://exclusiveaddons.com/post-duplicator/',
                 'is_pro' => false
-            ]
+            ],
+            'sticky'  => [
+                'title'  => __( 'Exclusive Sticky', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Sticky',
+                'tags'   => 'free',
+                'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
+                'is_pro' => false
+            ],
         ];
 
     }
