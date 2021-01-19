@@ -21,7 +21,7 @@ class Sticky {
         $section->start_controls_section(
             'exad_sticky_section',
             [
-                'label' => 'Exclusive Sticky',
+                'label' => 'Exclusive Sticky <i class="exad-extention-logo exad exad-logo"></i>',
                 'tab'   => Controls_Manager::TAB_ADVANCED
             ]
         );
