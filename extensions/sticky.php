@@ -66,24 +66,6 @@ class Sticky {
 				'frontend_available' => true,
             ]
         );
-        
-        $section->add_control(
-			'exad_sticky_z_index',
-			[
-				'label' => __( 'Z Index', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::NUMBER,
-				'min' => 0,
-				'max' => 10000,
-				'step' => 1,
-                'default' => 20,
-                'selectors' => [
-                	'{{WRAPPER}} .exad-sticky-section-yes' => 'z-index: {{VALUE}};',
-                ],
-                'condition' => [
-                    'exad_enable_section_sticky' => 'yes'
-                ],
-            ]
-		);
 
         $section->end_controls_section();
 
