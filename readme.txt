@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.6
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -23,6 +23,10 @@ We have filled all the elements with every options that you can think off. Still
 We'd love to add that for you.
 
 [Check out our Demos](https://exclusiveaddons.com/)
+
+**Our friend Tom made a 20 minutes long in depth review of Exclusive Addons**
+
+https://www.youtube.com/watch?v=w-PGZkH6t6c&t
 
 **An Overview from a Full Stack Web Developer and a Reviewer**
 
@@ -66,8 +70,9 @@ And have the most beautiful design, not to mention.
 30. **[Button](https://exclusiveaddons.com/button-demo/)** - Pick from a list of our unique hover effects to suit your needs. Style them every possible way you can think of.
 31. **[Covid-19 Stats](https://exclusiveaddons.com/covid-19-stats-demo/)** - Simple and clean Covid 19 stats for your visitors.
 
-FREE EXTENSION:
-1. **[Post Duplicator](#)**
+FREE EXTENSIONS:
+1. **[Post Duplicator](#)** - Duplicate and Post/Page in just a single click.
+2. **[Sticky Extension](#)** Make any secttion, Column or widget as sticky. This does not work in Editor mode by now. It works on the Frontend flawlessly.
 
 ### 30+ Elementor widgets
 We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
@@ -176,12 +181,6 @@ Learn more about how [Appsero collects and uses this data](https://appsero.com/p
 
 == Frequently Asked Questions ==
 
-= Some of my existing widgets got broken after the update of 2.0 . How to resolve? =
-
-Unfortunately, our new update can not guarantee to keep your existing design intact due to the overall change of the plugin architecture.
-However, in order to achieve the default style (which is great by the way) of our new widget all you have to do is, go to Elementor > Tools > Regenerate CSS and Save Changes.
-If you're having issues with the font please go to Elementor > Tools > Font Awesome Upgrade and click "Upgrade to Font Awesome 5".
-
 = Can I use the plugin without Elementor? =
 
 Unfortunately, No. You've to install Elementor first. Exclusive Addons is dependent on Elementor plugin.
@@ -214,6 +213,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.3.2 - 25/01/2021 =
+- Added Sticky Extension for any section, column or widget.
+- Enable Shortcode in Tabs widget.
 
 = 2.3.1 - 12/01/2021 =
 - Bug fixed in Template Library.

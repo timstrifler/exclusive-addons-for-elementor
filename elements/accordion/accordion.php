@@ -96,6 +96,7 @@ class Accordion extends Widget_Base {
 			'exad_exclusive_accordion_title', [
 				'label'   => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => esc_html__( 'Accordion Title', 'exclusive-addons-elementor' ),
 				'dynamic' => [ 'active' => true ]
 			]

@@ -151,6 +151,7 @@ class Tabs extends Widget_Base {
 						'name'    => 'exad_exclusive_tab_title',
 						'label'   => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 						'type'    => Controls_Manager::TEXT,
+						'label_block' => true,
 						'default' => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
 						'dynamic' => [ 'active' => true ],
 						'condition' => [
