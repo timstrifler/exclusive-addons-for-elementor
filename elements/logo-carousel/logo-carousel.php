@@ -31,7 +31,7 @@ class Logo_Carousel extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return [ 'jquery-slick' ];
+		return [ 'exad-slick' ];
 	}
 
 	public function get_keywords() {

@@ -77,6 +77,11 @@ class Assets_Manager {
             wp_register_script( 'exad-countdown', EXAD_ASSETS_URL . 'vendor/js/jquery.countdown.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
+        if ( Addons_Manager::$is_activated_feature['logo-carousel'] ) {
+            // jQuery Countdown Js
+            wp_register_script( 'exad-slick', EXAD_ASSETS_URL . 'vendor/js/slick.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
+        }
+
         if ( Addons_Manager::$is_activated_feature['image-comparison'] ) {
             // jQuery image-comparison twentytwenty Js
             wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'vendor/js/exad-comparison-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
