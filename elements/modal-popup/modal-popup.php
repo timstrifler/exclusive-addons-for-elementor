@@ -245,7 +245,7 @@ class Modal_Popup extends Widget_Base {
             ]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_modal_video_width',
             [
 				'label'        => __( 'Content Width', 'exclusive-addons-elementor' ),
@@ -268,7 +268,8 @@ class Modal_Popup extends Widget_Base {
                 ],
                 'selectors'    => [
 					'{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe,
-					{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-video-hosted' => 'width: {{SIZE}}{{UNIT}};'
+					{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-video-hosted' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-modal-item' => 'width: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'    => [
                     'exad_modal_content' => [ 'youtube', 'vimeo', 'external_page', 'external-video' ]
@@ -276,7 +277,7 @@ class Modal_Popup extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_modal_video_height',
             [
 				'label'        => __( 'Content Height', 'exclusive-addons-elementor' ),
@@ -298,7 +299,8 @@ class Modal_Popup extends Widget_Base {
 					'size'     => 400
                 ],
                 'selectors'    => [
-                    '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe' => 'height: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-modal-item .exad-modal-content .exad-modal-element iframe' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-modal-item' => 'height: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'    => [
                     'exad_modal_content' => [ 'youtube', 'vimeo', 'external_page' ]
@@ -317,6 +319,31 @@ class Modal_Popup extends Widget_Base {
                     'exad_modal_content' => 'shortcode'
                 ]
             ]
+		);
+
+		$this->add_responsive_control(
+			'exad_modal_content_width',
+			[
+				'label' => __( 'Content Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 2000,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-modal-item' => 'width: {{SIZE}}{{UNIT}};',
+				],
+				'condition'    => [
+                    'exad_modal_content' => [ 'image', 'image-gallery', 'html_content', 'shortcode' ]
+                ]
+			]
 		);
 
 		$this->add_control(
@@ -931,6 +958,66 @@ class Modal_Popup extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
+
+		$this->add_control(
+			'exad_modal_close_btn_position',
+			[
+				'label' => __( 'Close Button Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::POPOVER_TOGGLE,
+				'label_off' => __( 'Default', 'exclusive-addons-elementor' ),
+				'label_on' => __( 'Custom', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+        );
+        
+        $this->start_popover();
+
+            $this->add_responsive_control(
+                'exad_modal_close_btn_position_x_offset',
+                [
+                    'label' => __( 'X Offset', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => -4000,
+                            'max' => 4000,
+                        ],
+                        '%' => [
+                            'min' => -100,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn' => 'left: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+            $this->add_responsive_control(
+                'exad_modal_close_btn_position_y_offset',
+                [
+                    'label' => __( 'Y Offset', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => -4000,
+                            'max' => 4000,
+                        ],
+                        '%' => [
+                            'min' => -100,
+                            'max' => 100,
+                        ],
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-modal-item.modal-vimeo .exad-modal-content .exad-close-btn' => 'top: {{SIZE}}{{UNIT}};',
+                    ],
+                ]
+            );
+
+        $this->end_popover();
 
 		$this->add_control(
             'exad_modal_close_btn_icon_size',
