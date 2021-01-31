@@ -16,6 +16,7 @@ use \Elementor\Widget_Base;
 use \Elementor\Group_Control_Css_Filter;
 use \ExclusiveAddons\Elementor\Helper;
 use \Elementor\Plugin;
+use \Elementor\Repeater;
 
 class Tabs extends Widget_Base {
 
@@ -51,10 +52,197 @@ class Tabs extends Widget_Base {
   				'label' => esc_html__( 'Content', 'exclusive-addons-elementor' )
   			]
   		);
+  		$tabs_repeater = new Repeater();
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_show_as_default',
+			[
+				'label'        => __( 'Active as Default', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'active'
+			]
+		);
+		
+		$tabs_repeater->add_control(
+			'exad_exclusive_tabs_icon_type',
+			[
+				'label'       => esc_html__( 'Icon Type', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::CHOOSE,
+				'toggle'      => false,
+				'label_block' => false,
+				'options'     => [
+					'none'      => [
+						'title' => esc_html__( 'None', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-ban'
+					],
+					'icon'      => [
+						'title' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-info-circle'
+					],
+					'image'     => [
+						'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-image-bold'
+					]
+				],
+				'default'       => 'none'
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_title_icon',
+			[
+				'label'     => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::ICONS,
+				'default'   => [
+					'value'   => 'fas fa-home',
+					'library' => 'fa-solid'
+				],			
+				'condition' => [
+					'exad_exclusive_tabs_icon_type' => 'icon'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_title_image',
+			[
+				'label'   => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => [
+					'url' => Utils::get_placeholder_image_src()
+				],
+				'condition' => [
+					'exad_exclusive_tabs_icon_type' => 'image'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_content_type',
+			[
+				'label'   => __( 'Content Type', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'content',
+				'options' => [
+					'content'       => __( 'Content', 'exclusive-addons-elementor' ),
+					'save_template' => __( 'Save Template', 'exclusive-addons-elementor' ),
+					'shortcode'     => __( 'ShortCode', 'exclusive-addons-elementor' )
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_tab_content_save_template',
+			[
+				'label'     => __( 'Select Section', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SELECT,
+				'options'   => $this->get_saved_template( 'section' ),
+				'default'   => '-1',
+				'condition' => [
+					'exad_exclusive_tab_content_type' => 'save_template'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_tab_content_shortcode',
+			[
+				'label'       => __( 'Enter your shortcode', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'placeholder' => __( '[gallery]', 'exclusive-addons-elementor' ),
+				'condition'   => [
+					'exad_exclusive_tab_content_type' => 'shortcode'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_title',
+			[
+				'label'   => esc_html__( 'Title', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::TEXT,
+				'label_block' => true,
+				'default' => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
+				'dynamic' => [ 'active' => true ],
+				'condition' => [
+					'exad_exclusive_tab_content_type' => 'content'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_content',
+			[
+				'label'   => esc_html__( 'Content', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::WYSIWYG,
+				'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' ),
+				'condition' => [
+					'exad_exclusive_tab_content_type' => 'content'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_detail_btn_switcher',
+			[
+				'label'        => __( 'Details Button?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'default'      => 'yes',
+				'return_value' => 'yes',
+				'condition' => [
+					'exad_exclusive_tab_content_type' => 'content'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_detail_btn',
+			[
+				'label'     => __( 'Details Button Text', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::TEXT,
+				'default'   => esc_html__( 'Read More', 'exclusive-addons-elementor' ),
+				'condition' => [
+					'exad_exclusive_tab_detail_btn_switcher' => 'yes',
+					'exad_exclusive_tab_content_type' => 'content'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_detail_btn_link',
+			[
+				'label'   => __( 'Details Button Link', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::URL,
+				'default' => [
+					'url'         => '#',
+					'is_external' => ''
+				],
+				'show_external' => true,
+				'condition' => [
+					'exad_exclusive_tab_detail_btn_switcher' => 'yes',
+					'exad_exclusive_tab_content_type' => 'content'
+				]
+			]
+		);
+
+		$tabs_repeater->add_control(
+			'exad_exclusive_tab_image',
+			[
+				'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
+				'type'  => Controls_Manager::MEDIA,
+				'condition' => [
+					'exad_exclusive_tab_content_type' => 'content'
+				]
+			]
+		);
+
   		$this->add_control(
 			'exad_exclusive_tabs',
 			[
+				'label'   => esc_html__( 'Tabs', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::REPEATER,
+				'fields'  => $tabs_repeater->get_controls(),
 				'seperator' => 'before',
 				'default'   => [
 					[ 'exad_exclusive_tab_title' => esc_html__( 'Tab Title 1', 'exclusive-addons-elementor' ) ],
@@ -63,152 +251,6 @@ class Tabs extends Widget_Base {
 						'exad_exclusive_tab_content' => esc_html__( 'A quick brown fox jumps over the lazy dog. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' )
 					],
 					[ 'exad_exclusive_tab_title' => esc_html__( 'Tab Title 3', 'exclusive-addons-elementor' ) ]
-				],
-				'fields'    => [
-					[
-						'name'         => 'exad_exclusive_tab_show_as_default',
-						'label'        => __( 'Active as Default', 'exclusive-addons-elementor' ),
-						'type'         => Controls_Manager::SWITCHER,
-						'return_value' => 'active'
-				  	],
-                    [
-						'name'        => 'exad_exclusive_tabs_icon_type',
-						'label'       => esc_html__( 'Icon Type', 'exclusive-addons-elementor' ),
-                        'type'        => Controls_Manager::CHOOSE,
-                        'toggle'      => false,
-                        'label_block' => false,
-                        'options'     => [
-                            'none'      => [
-                                'title' => esc_html__( 'None', 'exclusive-addons-elementor' ),
-                                'icon'  => 'eicon-ban'
-                            ],
-                            'icon'      => [
-                                'title' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-                                'icon'  => 'eicon-info-circle'
-                            ],
-                            'image'     => [
-                                'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-                                'icon'  => 'eicon-image-bold'
-                            ]
-                        ],
-                        'default'       => 'none'
-					],
-					[
-						'name'      => 'exad_exclusive_tab_title_icon',
-						'label'     => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::ICONS,
-						'default'   => [
-		                    'value'   => 'fas fa-home',
-		                    'library' => 'fa-solid'
-		                ],			
-						'condition' => [
-							'exad_exclusive_tabs_icon_type' => 'icon'
-						]
-					],
-					[
-						'name'    => 'exad_exclusive_tab_title_image',
-						'label'   => esc_html__( 'Image', 'exclusive-addons-elementor' ),
-						'type'    => Controls_Manager::MEDIA,
-						'default' => [
-							'url' => Utils::get_placeholder_image_src()
-						],
-						'condition' => [
-							'exad_exclusive_tabs_icon_type' => 'image'
-						]
-					],
-					[
-						'name'	  => 'exad_exclusive_tab_content_type',
-						'label'   => __( 'Content Type', 'exclusive-addons-elementor' ),
-						'type'    => Controls_Manager::SELECT,
-						'default' => 'content',
-						'options' => [
-							'content'       => __( 'Content', 'exclusive-addons-elementor' ),
-							'save_template' => __( 'Save Template', 'exclusive-addons-elementor' ),
-							'shortcode'     => __( 'ShortCode', 'exclusive-addons-elementor' )
-						]
-					],
-					[
-						'name'      => 'exad_tab_content_save_template',
-						'label'     => __( 'Select Section', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::SELECT,
-						'options'   => $this->get_saved_template( 'section' ),
-						'default'   => '-1',
-						'condition' => [
-							'exad_exclusive_tab_content_type' => 'save_template'
-						]
-					],
-					[
-						'name' 		  => 'exad_tab_content_shortcode',
-						'label'       => __( 'Enter your shortcode', 'exclusive-addons-elementor' ),
-						'type'        => Controls_Manager::TEXT,
-						'label_block' => true,
-						'placeholder' => __( '[gallery]', 'exclusive-addons-elementor' ),
-						'condition'   => [
-							'exad_exclusive_tab_content_type' => 'shortcode'
-						]
-					],
-					[
-						'name'    => 'exad_exclusive_tab_title',
-						'label'   => esc_html__( 'Title', 'exclusive-addons-elementor' ),
-						'type'    => Controls_Manager::TEXT,
-						'label_block' => true,
-						'default' => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
-						'dynamic' => [ 'active' => true ],
-						'condition' => [
-							'exad_exclusive_tab_content_type' => 'content'
-						]
-					],
-					[
-						'name'    => 'exad_exclusive_tab_content',
-						'label'   => esc_html__( 'Content', 'exclusive-addons-elementor' ),
-						'type'    => Controls_Manager::WYSIWYG,
-						'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' ),
-						'condition' => [
-							'exad_exclusive_tab_content_type' => 'content'
-						]
-					],
-					[
-						'name'         => 'exad_exclusive_tab_detail_btn_switcher',
-						'label'        => __( 'Details Button?', 'exclusive-addons-elementor' ),
-						'type'         => Controls_Manager::SWITCHER,
-						'default'      => 'yes',
-						'return_value' => 'yes',
-						'condition' => [
-							'exad_exclusive_tab_content_type' => 'content'
-						]
-					],
-					[
-						'name'      => 'exad_exclusive_tab_detail_btn',
-						'label'     => __( 'Details Button Text', 'exclusive-addons-elementor' ),
-						'type'      => Controls_Manager::TEXT,
-						'default'   => esc_html__( 'Read More', 'exclusive-addons-elementor' ),
-						'condition' => [
-							'exad_exclusive_tab_detail_btn_switcher' => 'yes',
-							'exad_exclusive_tab_content_type' => 'content'
-						]
-					],
-					[
-						'name'    => 'exad_exclusive_tab_detail_btn_link',
-						'label'   => __( 'Details Button Link', 'exclusive-addons-elementor' ),
-						'type'    => Controls_Manager::URL,
-						'default' => [
-							'url'         => '#',
-							'is_external' => ''
-						],
-						'show_external' => true,
-						'condition' => [
-							'exad_exclusive_tab_detail_btn_switcher' => 'yes',
-							'exad_exclusive_tab_content_type' => 'content'
-						]
-					],
-					[
-						'name'  => 'exad_exclusive_tab_image',
-						'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
-						'type'  => Controls_Manager::MEDIA,
-						'condition' => [
-							'exad_exclusive_tab_content_type' => 'content'
-						]
-					]
 				],
 				'title_field' => '{{exad_exclusive_tab_title}}'
 			]
