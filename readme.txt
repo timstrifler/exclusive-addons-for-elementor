@@ -130,7 +130,7 @@ This option allows you change the default Color scheme for all the widgets at on
 36. **[Site Tagline](https://exclusiveaddons.com/site-tagline/)** - Site Tagline for the header or anywhere else you feel suitable.
 37. **[Site Title](https://exclusiveaddons.com/site-title/)** - Display your Site Title anywhere you want. 
 38. **[Author Box](https://exclusiveaddons.com/author-box/)** - Display information about the user who's logged in.
-39. **[Woo Add to Cart](https://exclusiveaddons.com/woo-add-to-cart/)** - Add an Woocommerce Add to cart button anywhere in your site, anyway you like with the products being added real time and the price calculated.
+39. **[Woo Mini Cart](https://exclusiveaddons.com/woo-mini-cart/)** - Add an Woocommerce Add to cart button anywhere in your site, anyway you like with the products being added real time and the price calculated.
 40. **[Mega Menu](https://exclusiveaddons.com/mega-menu/)** - One of the best Mega Menu widgets for Elementor with unlimited customization options and design variations you might need.
 41. **[Lottie Animation](https://exclusiveaddons.com/lottie-animation/)** - The lightweight, new revolution in the Animation industry is one click away with Excluisve Addons Lottie Animation widget.
 

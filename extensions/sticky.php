@@ -45,7 +45,6 @@ class Sticky {
                 'render_type'  => 'template',
 				'label_on'     => __( 'Enable', 'exclusive-addons-elementor' ),
                 'label_off'    => __( 'Disable', 'exclusive-addons-elementor' ),
-                'default' => __( 'This extention does not work in Editor page.', 'exclusive-addons-elementor' ),
                 'prefix_class' => 'exad-sticky-section-',
             ]
         );
