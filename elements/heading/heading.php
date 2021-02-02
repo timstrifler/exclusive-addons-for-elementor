@@ -128,7 +128,7 @@ class Heading extends Widget_Base {
 			]
 		);
 
-        $this->add_responsive_control(
+        $this->add_control(
 			'exad_heading_title_alignment',
 			[
 				'label'       => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),

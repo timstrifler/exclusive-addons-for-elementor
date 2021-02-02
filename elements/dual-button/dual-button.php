@@ -252,7 +252,7 @@ class Dual_Button extends Widget_Base {
             ]
         );
 
-        $this->add_responsive_control(
+        $this->add_control(
 			'exad_dual_button_container_alignment',
 			[
                 'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
