@@ -9,6 +9,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Control_Media;
+use \Elementor\REPEATER;
 use \Elementor\Icons_Manager;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
@@ -55,10 +56,65 @@ class Filterable_Gallery extends Widget_Base
             ]
         );
 
+        $filter_repeater = new Repeater();
+
+        $filter_repeater->add_control(
+			'exad_fg_gallery_item_title',
+			[
+                'label'       => esc_html__('Title', 'exclusive-addons-elementor'),
+                'type'        => Controls_Manager::TEXT,
+                'label_block' => true,
+                'default'     => esc_html__('Gallery item title', 'exclusive-addons-elementor')
+            ]
+        );
+
+        $filter_repeater->add_control(
+			'exad_fg_gallery_item_content',
+			[
+                'label'       => esc_html__('Details', 'exclusive-addons-elementor'),
+                'type'        => Controls_Manager::TEXTAREA,
+                'label_block' => true,
+                'default'     => esc_html__('Lorem ipsum dolor sit amet.', 'exclusive-addons-elementor')
+            ]
+        );
+
+        $filter_repeater->add_control(
+			'exad_fg_gallery_control_name',
+			[
+                'label'       => esc_html__('Control Name', 'exclusive-addons-elementor'),
+                'type'        => Controls_Manager::TEXT,
+                'label_block' => true,
+                'description' => __( '<b>Comma separated gallery controls. Example: Design, Branding</b>', 'exclusive-addons-elementor' )
+            ]
+        );
+
+        $filter_repeater->add_control(
+			'exad_fg_gallery_img',
+			[
+                'label'       => esc_html__('Image', 'exclusive-addons-elementor'),
+                'type'        => Controls_Manager::MEDIA,
+                'default'     => [
+                    'url'     => Utils::get_placeholder_image_src()
+                ]
+            ]
+        );
+
+        $filter_repeater->add_control(
+			'exad_fg_gallery_img_link',
+			[
+                'type'        => Controls_Manager::URL,
+                'label_block' => true,
+                'default'     => [
+                    'url'     => '#'
+                ]
+            ]
+        );
+
         $this->add_control(
             'exad_fg_gallery_items',
             [
                 'type'      => Controls_Manager::REPEATER,
+                'fields'  => $filter_repeater->get_controls(),
                 'seperator' => 'before',
                 'default' => [
                     ['exad_fg_gallery_control_name' => 'Design, Branding'],
@@ -67,45 +123,6 @@ class Filterable_Gallery extends Widget_Base
                     ['exad_fg_gallery_control_name' => 'Design, Interior'],
                     ['exad_fg_gallery_control_name' => 'Branding, Development'],
                     ['exad_fg_gallery_control_name' => 'Design, Development']
-                ],
-                'fields' => [
-                    [
-                        'name'        => 'exad_fg_gallery_item_title',
-                        'label'       => esc_html__('Title', 'exclusive-addons-elementor'),
-                        'type'        => Controls_Manager::TEXT,
-                        'label_block' => true,
-                        'default'     => esc_html__('Gallery item title', 'exclusive-addons-elementor')
-                    ],
-                    [
-                        'name'        => 'exad_fg_gallery_item_content',
-                        'label'       => esc_html__('Details', 'exclusive-addons-elementor'),
-                        'type'        => Controls_Manager::TEXTAREA,
-                        'label_block' => true,
-                        'default'     => esc_html__('Lorem ipsum dolor sit amet.', 'exclusive-addons-elementor')
-                    ],
-                    [
-                        'name'        => 'exad_fg_gallery_control_name',
-                        'label'       => esc_html__('Control Name', 'exclusive-addons-elementor'),
-                        'type'        => Controls_Manager::TEXT,
-                        'label_block' => true,
-                        'description' => __( '<b>Comma separated gallery controls. Example: Design, Branding</b>', 'exclusive-addons-elementor' )
-                    ],
-                    [
-                        'name'        => 'exad_fg_gallery_img',
-                        'label'       => esc_html__('Image', 'exclusive-addons-elementor'),
-                        'type'        => Controls_Manager::MEDIA,
-                        'default'     => [
-                            'url'     => Utils::get_placeholder_image_src()
-                        ]
-                    ],
-                    [
-                        'name'        => 'exad_fg_gallery_img_link',
-                        'type'        => Controls_Manager::URL,
-                        'label_block' => true,
-                        'default'     => [
-                            'url'     => '#'
-                        ]
-                    ]
                 ],
                 'title_field' => '{{exad_fg_gallery_item_title}}'
             ]

@@ -252,7 +252,7 @@ class Dual_Button extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_dual_button_container_alignment',
 			[
                 'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
@@ -281,7 +281,7 @@ class Dual_Button extends Widget_Base {
 			[
                 'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px' ],
+                'size_units' => [ 'px', '%', 'em' ],
                 'default'    => [
                     'top'      => '12',
                     'right'    => '45',
@@ -338,7 +338,7 @@ class Dual_Button extends Widget_Base {
 			[
                 'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px' ],
+                'size_units' => [ 'px', '%', 'em' ],
                 'default'    => [
                     'top'      => '',
                     'right'    => '',
@@ -358,7 +358,7 @@ class Dual_Button extends Widget_Base {
 			[
                 'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px' ],
+                'size_units' => [ 'px', '%', 'em' ],
                 'default'    => [
                     'top'      => '',
                     'right'    => '',
@@ -724,7 +724,7 @@ class Dual_Button extends Widget_Base {
 			[
                 'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px' ],
+                'size_units' => [ 'px', '%', 'em' ],
                 'default'    => [
                     'top'      => '',
                     'right'    => '',
@@ -744,7 +744,7 @@ class Dual_Button extends Widget_Base {
 			[
                 'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px' ],
+                'size_units' => [ 'px', '%', 'em' ],
                 'default'    => [
                     'top'      => '',
                     'right'    => '',
