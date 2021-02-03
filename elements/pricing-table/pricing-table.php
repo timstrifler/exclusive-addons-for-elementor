@@ -10,6 +10,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Background;
 use \Elementor\Widget_Base;
+use \Elementor\Repeater;
 
 class Pricing_Table extends Widget_Base {
 	
@@ -45,12 +46,50 @@ class Pricing_Table extends Widget_Base {
   			[
   				'label' => esc_html__( 'Features', 'exclusive-addons-elementor' )
   			]
-  		);
+		);
+		  
+		$pricing_repeater = new Repeater();
+
+		$pricing_repeater->add_control(
+			'exad_pricing_table_item',
+			[
+				'name'        => 'exad_pricing_table_item',
+				'label'       => esc_html__( 'List Item', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'label_block' => true,
+				'default'     => esc_html__( 'Pricing table list item', 'exclusive-addons-elementor' )
+			]
+		);
+		
+		$pricing_repeater->add_control(
+			'exad_pricing_table_list_icon',
+			[
+				'name'        => 'exad_pricing_table_list_icon',
+				'label'       => esc_html__( 'List Icon', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
+					'value'   => 'fas fa-check',
+					'library' => 'fa-solid'
+				]
+			]
+		);
+		
+		$pricing_repeater->add_control(
+			'exad_pricing_table_icon_mood',
+			[
+				'name'         => 'exad_pricing_table_icon_mood',
+				'label'        => esc_html__( 'Item Active?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+        );
 
   		$this->add_control(
 			'exad_pricing_table_items',
 			[
 				'type'        => Controls_Manager::REPEATER,
+				'fields'  => $pricing_repeater->get_controls(),
 				'seperator'   => 'before',
 				'default'     => [
 					[ 'exad_pricing_table_item' => esc_html__( 'Responsive Live', 'exclusive-addons-elementor' ) ],
@@ -63,31 +102,6 @@ class Pricing_Table extends Widget_Base {
 					[ 
 						'exad_pricing_table_item'      => esc_html__( 'Free Support', 'exclusive-addons-elementor' ),
 						'exad_pricing_table_icon_mood' => 'no'
-					]
-				],
-				'fields'      => [
-					[
-						'name'        => 'exad_pricing_table_item',
-						'label'       => esc_html__( 'List Item', 'exclusive-addons-elementor' ),
-						'type'        => Controls_Manager::TEXT,
-						'label_block' => true,
-						'default'     => esc_html__( 'Pricing table list item', 'exclusive-addons-elementor' )
-					],
-					[
-						'name'        => 'exad_pricing_table_list_icon',
-						'label'       => esc_html__( 'List Icon', 'exclusive-addons-elementor' ),
-						'type'        => Controls_Manager::ICONS,
-						'default'     => [
-							'value'   => 'fas fa-check',
-							'library' => 'fa-solid'
-						]
-					],
-					[
-						'name'         => 'exad_pricing_table_icon_mood',
-						'label'        => esc_html__( 'Item Active?', 'exclusive-addons-elementor' ),
-						'type'         => Controls_Manager::SWITCHER,
-						'return_value' => 'yes',
-						'default'      => 'yes'
 					]
 				],	
 				'title_field' => '{{exad_pricing_table_item}}'
