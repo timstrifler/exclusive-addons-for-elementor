@@ -906,7 +906,7 @@ class Contact_Form_7 extends Widget_Base {
             return;
         }        
 
-        $settings = $this->get_settings();
+        $settings = $this->get_settings_for_display();
         
         $this->add_render_attribute( 'exad-contact-form', 'class', [
 				'exad-contact-form',
@@ -915,21 +915,20 @@ class Contact_Form_7 extends Widget_Base {
 			]
 		);
         
-        // if ( function_exists( 'wpcf7' ) ) {
-            if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>
-                <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
+        if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>
+            <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
+                    
+                <?php if ( '' != $settings['exad_contact_form_title_text'] ) { ?>
+                    <h3 class="exad-contact-form-title exad-contact-form-7-title">
+                        <?php echo esc_html( $settings['exad_contact_form_title_text'] ); ?>
+                    </h3>
+                <?php } ?>
                         
-                    <?php if ( '' != $settings['exad_contact_form_title_text'] ) { ?>
-                        <h3 class="exad-contact-form-title exad-contact-form-7-title">
-                            <?php echo esc_html( $settings['exad_contact_form_title_text'] ); ?>
-                        </h3>
-                    <?php } ?>
-                            
-                    <?php echo do_shortcode( '[contact-form-7 id="' . esc_attr($settings['exad_contact_form_list']) . '" ]' ); ?>
-                </div>
-                
-                <?php
-            }
-        // }
+                <?php echo do_shortcode( '[contact-form-7 id="' . $settings['exad_contact_form_list'] . '" ]' ); ?>
+            </div>
+            
+            <?php
+        }
+        
     }
 }
