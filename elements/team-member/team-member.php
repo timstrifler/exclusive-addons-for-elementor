@@ -502,6 +502,25 @@ class Team_Member extends Widget_Base {
 			]
 		);
 
+		// $this->add_control(
+		// 	'exad_team_members_glass_effect',
+		// 	[
+		// 		'label' => __( 'Blur Size', 'exclusive-addons-elementor' ),
+		// 		'type' => Controls_Manager::SLIDER,
+		// 		'size_units' => [ 'px' ],
+		// 		'range' => [
+		// 			'px' => [
+		// 				'min' => 0,
+		// 				'max' => 100,
+		// 				'step' => 1,
+		// 			],
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .exad-team-member' => 'backdrop-filter: blur({{SIZE}}{{UNIT}});',
+		// 		],
+		// 	]
+		// );
+
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
