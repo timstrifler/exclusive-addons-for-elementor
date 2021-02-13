@@ -1053,7 +1053,7 @@ class Filterable_Gallery extends Widget_Base
                     echo '</div>';
                 endif;
 
-                echo '<div id ="filters-'.$this->get_id().'" class="exad-gallery-element">';
+                echo '<div id="filters-'.$this->get_id().'" class="exad-gallery-element">';
                     foreach( $settings['exad_fg_gallery_items'] as $index => $gallery ) :
                         $exad_controls                = $gallery['exad_fg_gallery_control_name'];
                         $exad_controls_to_array       = explode( ",",$exad_controls );
@@ -1164,7 +1164,7 @@ class Filterable_Gallery extends Widget_Base
     private function render_editor_script()
         { ?>
         <script type="text/javascript">
-            jQuery( document ).ready( function($) {
+            ( function($) {
                 if ( $.isFunction( $.fn.isotope ) ) {
                     $( '.exad-gallery-items' ).each( function() {
                         var $container  = $( this ).find( '.exad-gallery-element' );
@@ -1193,7 +1193,8 @@ class Filterable_Gallery extends Widget_Base
                         } );
                     } );
                 }
-            } );
+            } )(jQuery);
+            
         </script>
     <?php
     }

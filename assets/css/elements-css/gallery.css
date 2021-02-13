@@ -41,6 +41,11 @@
   text-transform: capitalize;
 }
 
+.exad-gallery-items .exad-gallery-element {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .exad-gallery-items .exad-gallery-element .exad-gallery-item {
   position: relative;
   overflow: hidden;
