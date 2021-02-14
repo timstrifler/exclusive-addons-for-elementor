@@ -452,7 +452,14 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/counter/',
                 'tags'   => 'pro',
                 'is_pro' => true
-            ], 
+            ],
+            'demo-previewer'  => [
+                'title'  => __( 'Demo Previewer', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Demo_Previewer',
+                'demo_link' => 'https://exclusiveaddons.com/demo-previewer/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'gravity-form'  => [
                 'title'  => __( 'Gravity Form', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Gravity_Form',
@@ -641,18 +648,11 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/testimonial-carousel/',
                 'tags'   => 'pro',
                 'is_pro' => true
-            ], 
-            'demo-previewer'  => [
-                'title'  => __( 'Demo Previewer', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Demo_Previewer',
-                'demo_link' => 'https://exclusiveaddons.com/demo-previewer/',
-                'tags'   => 'pro',
-                'is_pro' => true
             ],
             'woo-add-to-cart'  => [
-                'title'  => __( 'Woo Add To Cart', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Woo_Add_To_Cart',
-                'demo_link' => 'https://exclusiveaddons.com/woo-add-to-cart/',
+                'title'  => __( 'Woo Mini Cart', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Mini_Cart',
+                'demo_link' => 'https://exclusiveaddons.com/woo-add-to-cart',
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
@@ -667,6 +667,20 @@ class Addons_Manager {
                 'title'  => __( 'Woo Products', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Woo_Products',
                 'demo_link' => 'https://exclusiveaddons.com/woo-product/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'woo-cart'  => [
+                'title'  => __( 'Woo Cart', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Cart',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'woo-checkout'  => [
+                'title'  => __( 'Woo Checkout', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Checkout',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
                 'tags'   => 'pro',
                 'is_pro' => true
             ]
