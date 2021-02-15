@@ -218,7 +218,8 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 == Changelog ==
 
 = 2.3.5 - 15/02/2021 =
-- Fixed compatibility issue of Tabs widget.
+- Fixed issues with Contact Form 7 plugin.
+- Fixed issue with Filterable gallery.
 
 = 2.3.4 - 02/02/2021 =
 - Fixed compatibility issue of Tabs widget.
