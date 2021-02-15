@@ -503,7 +503,7 @@ class Addons_Manager {
                 'is_pro' => true
             ], 
             'login-register'  => [
-                'title'  => __( 'Login/Register Form', 'exclusive-addons-elementor' ),
+                'title'  => __( 'Login Form', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Login_Register',
                 'demo_link' => 'https://exclusiveaddons.com/login-register/',
                 'tags'   => 'pro',
