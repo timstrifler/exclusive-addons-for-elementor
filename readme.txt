@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.6
-Stable tag: 2.3.4
+Tested up to: 5.6.1
+Stable tag: 2.3.5
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -13,8 +13,8 @@ Packed with a bunch of Exclusively designed widget for Elementor with all the cu
 == Description ==
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
-The elementor addons gives you the ability to build a sophisticated website experience with 70+ highly customizable and creative widgets and extensions.
-A collection of 600+ premade blocks will help you build your websites in less time with no coding.
+The elementor addons gives you the ability to build a sophisticated website experience with 80+ highly customizable and creative widgets and extensions.
+A collection of 700+ premade blocks and 10+ useable templates will help you build your websites in less time with no coding.
 
 An easy to use interface and several customizations and unique widgets make your next WordPress page and post design easier and prettier than ever before. Exclusive Addons Elementor page builders take your WordPress website to the next level by making your page more eye-catching.
 We have stuffed all the factors with every choice that you may think. Still need one, please feel free to reach out. We might love to feature that to you.
@@ -133,6 +133,8 @@ This option allows you change the default Color scheme for all the widgets at on
 39. **[Woo Mini Cart](https://exclusiveaddons.com/woo-mini-cart/)** - Add an Woocommerce Add to cart button anywhere in your site, anyway you like with the products being added real time and the price calculated.
 40. **[Mega Menu](https://exclusiveaddons.com/mega-menu/)** - One of the best Mega Menu widgets for Elementor with unlimited customization options and design variations you might need.
 41. **[Lottie Animation](https://exclusiveaddons.com/lottie-animation/)** - The lightweight, new revolution in the Animation industry is one click away with Excluisve Addons Lottie Animation widget.
+42. **[Woo Cart](https://exclusiveaddons.com/shop/)** - Style Woocommerce Cart page from Exclusive Addons as you like with tons of customization options.
+43. **[Woo Checkout](https://exclusiveaddons.com/shop/)** - Style Your Woocommerce Checkout page without a Theme. With the help of all the customization options you might need.
 
 
 LIST OF OUR PRO EXTENSIONS:
@@ -214,6 +216,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.3.5 - 15/02/2021 =
+- Fixed compatibility issue of Tabs widget.
 
 = 2.3.4 - 02/02/2021 =
 - Fixed compatibility issue of Tabs widget.
