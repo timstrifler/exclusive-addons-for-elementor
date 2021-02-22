@@ -165,9 +165,6 @@ class Tabs extends Widget_Base {
 				'label_block' => true,
 				'default' => esc_html__( 'Tab Title', 'exclusive-addons-elementor' ),
 				'dynamic' => [ 'active' => true ],
-				'condition' => [
-					'exad_exclusive_tab_content_type' => 'content'
-				]
 			]
 		);
 
