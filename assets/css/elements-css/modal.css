@@ -228,6 +228,17 @@
 	visibility: hidden;
   }
 
+  @media (max-width: 991px){
+    .exad-modal-item.modal-vimeo {
+      height: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    .exad-modal-item.modal-vimeo::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   .exad-modal-item.modal-vimeo .exad-modal-content .exad-modal-element img{
     display: block;
     width: 100%;

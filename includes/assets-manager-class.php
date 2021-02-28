@@ -110,6 +110,10 @@ class Assets_Manager {
             // Sticky Sidebar
             wp_enqueue_script( 'exad-sticky-jquery', EXAD_ASSETS_URL . 'vendor/js/jquery.sticky-sidebar.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
+        // if ( Addons_Manager::$is_activated_feature['reading-progressbar'] ) {
+        //     // Sticky Sidebar
+        //     wp_enqueue_script( 'exad-reading-progress', EXAD_ASSETS_URL . 'exad-reading-progress.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
+        // }
         
     }
 
@@ -129,6 +133,7 @@ class Assets_Manager {
 
         // Main Plugin Scripts
         wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.min.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
+        // wp_enqueue_script( 'exad-reading-progress', EXAD_ASSETS_URL . 'js/exad-reading-progress.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
 
         wp_localize_script( 'exad-main-script', 'exad_ajax_object', array(
             'ajax_url' => admin_url( 'admin-ajax.php' ),

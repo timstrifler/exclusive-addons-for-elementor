@@ -9,6 +9,8 @@ use ExclusiveAddons\Elementor\Base;
 
 class Addons_Manager {
 
+    public $extensions_data = [];
+
     /**
      * 
      * Static property to hold all widget names in an array
@@ -107,6 +109,9 @@ class Addons_Manager {
         }
         if( self::$is_activated_feature['sticky'] ){
             include_once EXAD_PATH . 'extensions/sticky.php';
+        }
+        if( self::$is_activated_feature['reading-progressbar'] ){
+            include_once EXAD_PATH . 'extensions/reading-progressbar.php';
         }
     }
 
@@ -700,6 +705,13 @@ class Addons_Manager {
             'sticky'  => [
                 'title'  => __( 'Exclusive Sticky', 'exclusive-addons-elementor' ),
                 'class'  => '\Exclusive_Addons\Elementor\Extensions\Sticky',
+                'tags'   => 'free',
+                'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
+                'is_pro' => false
+            ],
+            'reading-progressbar'  => [
+                'title'  => __( 'Reading Progressbar', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Reading_Progress',
                 'tags'   => 'free',
                 'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
                 'is_pro' => false

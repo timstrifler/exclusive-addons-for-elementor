@@ -542,7 +542,7 @@ class Modal_Popup extends Widget_Base {
 
         $this->end_popover();
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_modal_btn_width',
 			[
 				'label'        => esc_html__( 'Width', 'exclusive-addons-elementor' ),
@@ -794,6 +794,29 @@ class Modal_Popup extends Widget_Base {
 				'condition' => [
 					'exad_modal_content' => ['image-gallery', 'html_content']
 				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_modal_content_height',
+			[
+				'label' => __( 'Contant Height for Tablet & Mobile', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range'        => [
+					'px'       => [
+						'min'  => 0,
+						'max'  => 500,
+						'step' => 1
+					],
+					'%'        => [
+						'min'  => 0,
+						'max'  => 100
+					]
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-modal-item.modal-vimeo' => 'height: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -1073,9 +1096,9 @@ class Modal_Popup extends Widget_Base {
 	protected function render() { 
 		$settings            = $this->get_settings_for_display();		
 		$modal_image         = $settings['exad_modal_image'];
-		$modal_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $modal_image['id'], 'thumbnail', $settings );
+		$modal_image_url_src = Group_Control_Image_Size::get_attachment_image_src( !empty( $modal_image['id'] ), 'thumbnail', $settings );
 		if( empty( $modal_image_url_src ) ) {
-			$modal_image_url = $modal_image['url']; 
+			$modal_image_url = !empty( $modal_image['url'] ); 
 		} else { 
 			$modal_image_url = $modal_image_url_src;
 		}

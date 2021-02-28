@@ -20,6 +20,7 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-tabs.default', exclusiveTabs );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-covid-19.default', exclusiveCorona );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/section', exclusiveSticky);
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/global', readingProgressBar);
 });	
 
 }(jQuery));

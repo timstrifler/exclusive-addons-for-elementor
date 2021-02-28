@@ -722,6 +722,24 @@ var exclusiveProgressBar = function ( $scope, $ ){
 
 
 // Sticky script starts
+var readingProgressBar = function ( $scope ) {
+
+    if ( $scope.data( 'eael_ext_reading_progress' ) ){
+		// $scope.shake();
+        console.log("hello");
+	}
+
+	// $( window ).scroll(function () { 
+    //     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    //     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    //     var scrolled = (winScroll / height) * 100;
+    //     document.getElementById("myBar").style.width = scrolled + "%";
+    // });
+}
+// Sticky script ends
+
+
+// Sticky script starts
 var exclusiveSticky = function ($scope, $) {
 	var exadStickySection = $scope.find('.exad-sticky-section-yes').eq(0);
 
@@ -830,6 +848,7 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-tabs.default', exclusiveTabs );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-covid-19.default', exclusiveCorona );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/section', exclusiveSticky);
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/global', readingProgressBar);
 });	
 
 }(jQuery));

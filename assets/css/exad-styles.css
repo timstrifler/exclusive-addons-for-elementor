@@ -3292,6 +3292,17 @@ ul.exad-call-to-action-buttons {
 	visibility: hidden;
   }
 
+  @media (max-width: 991px){
+    .exad-modal-item.modal-vimeo {
+      height: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    .exad-modal-item.modal-vimeo::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   .exad-modal-item.modal-vimeo .exad-modal-content .exad-modal-element img{
     display: block;
     width: 100%;
@@ -4609,6 +4620,26 @@ text-align: right;
 }
 
 /* Progress Bar End */
+
+/* Reading Progress bar CSS Start  */
+
+.exad-reading-progress {
+    width: 100%;
+    /* height: 8px; */
+    /* background: #ccc; */
+    position: fixed;
+    top: 0;
+    z-index: 1111111;
+}
+  
+.exad-reading-progress-fill {
+    height: 100%;
+    background: #4caf50;
+    width: 0%;
+}
+
+/* Reading Progress bar CSS End  */
+
 
 /* Sticky css start  */
 
