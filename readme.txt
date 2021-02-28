@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.6.1
-Stable tag: 2.3.5
+Stable tag: 2.3.6
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -121,7 +121,7 @@ This option allows you change the default Color scheme for all the widgets at on
 27. **[Post Carousel](https://exclusiveaddons.com/post-carousel/)** - Put your important post in the spotlight and grab the attention of your visitors using Exclusive Addons Post Carousel Widget with a diverse number of styling and customizable options.
 28. **[Post Slider](https://exclusiveaddons.com/post-slider/)** - A trendy and attractive way to show your website contents with a scrolling Elementor slider and draw instant attention of the visitors using Exclusive Addons Post Slider Widget.
 29. **[Post Navigation](https://exclusiveaddons.com/post-navigation/)** - Exclusive Addons Post Navigation is a handy widget that allows the visitors to easily navigate between the posts on your website.
-30. **[News Tricker Pro](https://exclusiveaddons.com/news-tricker-pro/)** - Exclusive Addons News Ticker widget for elementor pro allows you to show news headlines or the post title from an actual news post, page, product, and elementor header or footer. Each item of the news ticker is dynamic, so any changes made in the original post will automatically update the ticker item.
+30. **[News Ticker Pro](https://exclusiveaddons.com/news-ticker-pro/)** - Exclusive Addons News Ticker widget for elementor pro allows you to show news headlines or the post title from an actual news post, page, product, and elementor header or footer. Each item of the news ticker is dynamic, so any changes made in the original post will automatically update the ticker item.
 31. **[Gravity Form](https://exclusiveaddons.com/gravity-form/)** - With Exclusive Addons Gravity Form Widget, you can create nearly all sorts of forms including the user registration form, survey forms, polls, online orders, support requests, quizzes, and questionnaires, and way further.
 32. **[Woo Product](https://exclusiveaddons.com/woo-product/)** - What’s the most conventional way shoppers grab the customers’ attention? They display their products in an attractive way in front of the customers. With Exclusive Addons woocommerce product addons, showcase all your products on your e-commerce site in a stunning way and urge the users to buy from you.
 33. **[Woo Category](https://exclusiveaddons.com/woo-category/)** - Exclusive Addons Woo-category is the ultimate woocommerce product categories widget to display your products in an organized categorical way. It’s everything you will need for your e-commerce site.
@@ -216,6 +216,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.3.6 - 22/02/2021 =
+- Fixed title issue with Tabs Widget.
 
 = 2.3.5 - 15/02/2021 =
 - Fixed issues with Contact Form 7 plugin.
