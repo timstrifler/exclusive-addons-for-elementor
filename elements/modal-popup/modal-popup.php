@@ -1098,7 +1098,7 @@ class Modal_Popup extends Widget_Base {
 		$modal_image         = $settings['exad_modal_image'];
 		$modal_image_url_src = Group_Control_Image_Size::get_attachment_image_src( !empty( $modal_image['id'] ), 'thumbnail', $settings );
 		if( empty( $modal_image_url_src ) ) {
-			$modal_image_url = !empty( $modal_image['url'] ); 
+			$modal_image_url = $modal_image['url']; 
 		} else { 
 			$modal_image_url = $modal_image_url_src;
 		}
