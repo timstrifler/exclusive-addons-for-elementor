@@ -715,7 +715,7 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
                 'is_pro' => false
-            ],
+            ]
         ];
 
     }

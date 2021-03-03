@@ -1,23 +1,16 @@
 <?php
 namespace ExclusiveAddons\Elementor;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
-use \ExclusiveAddons\Elementor\Helper;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
 use Elementor\Group_Control_Background;
 
 class Reading_Progress {
 
-    public static $extensions_data = [];
-
     public static function init() {
         add_action( 'elementor/documents/register_controls', array( __CLASS__, 'register_controls' ), 10);
         add_action( 'wp_footer', array( __CLASS__, 'render_global_html') );
-        add_action('elementor/editor/after_save', array( __CLASS__, 'save_global_values'), 10, 2 );
+        //add_action( 'elementor/editor/after_save', array( __CLASS__, 'save_global_values'), 10, 2 );
     }
 
     public static function register_controls($element) {
@@ -232,9 +225,9 @@ class Reading_Progress {
         //     return;
         // }
 
-        if (!is_singular()) {
-            return;
-        }
+        // if (!is_singular()) {
+        //     return;
+        // }
         
         $global_settings = $setting_data = $document = [];
 
@@ -274,7 +267,7 @@ class Reading_Progress {
                 </script>
                 <?php
             // }
-        }
+        } 
 
         // Reading Progress Bar
         // if ($this->get_settings('reading-progressbar') == true) {
@@ -330,37 +323,33 @@ class Reading_Progress {
         echo $html;
     }
 
-    public static function save_global_values( $post_id, $editor_data ){
+    // public static function save_global_values( $post_id, $editor_data ){
 
-        $document = Plugin::$instance->documents->get($post_id, false);
-        $global_settings = get_option('eael_global_settings');
+    //     $document = Plugin::$instance->documents->get($post_id, false);
+    //     $global_settings = get_option('eael_global_settings');
 
-        if ($document->get_settings('eael_ext_reading_progress_global') == 'yes' && $document->get_settings('eael_ext_reading_progress') == 'yes') {
-            $global_settings['reading_progress'] = [
-                'post_id' => $post_id,
-                'enabled' => true,
-                'eael_ext_reading_progress_global_display_condition' => $document->get_settings('eael_ext_reading_progress_global_display_condition'),
-                'eael_ext_reading_progress_position' => $document->get_settings('eael_ext_reading_progress_position'),
-                'eael_ext_reading_progress_height' => $document->get_settings('eael_ext_reading_progress_height'),
-                'eael_ext_reading_progress_bg_color' => $document->get_settings('eael_ext_reading_progress_bg_color'),
-                'eael_ext_reading_progress_fill_color' => $document->get_settings('eael_ext_reading_progress_fill_color'),
-                'eael_ext_reading_progress_animation_speed' => $document->get_settings('eael_ext_reading_progress_animation_speed'),
-            ];
-        } else {
-            if (isset($global_settings['reading_progress']['post_id']) && $global_settings['reading_progress']['post_id'] == $post_id) {
-                $global_settings['reading_progress'] = [
-                    'post_id' => null,
-                    'enabled' => false,
-                ];
-            }
-        }
+    //     if ($document->get_settings('eael_ext_reading_progress_global') == 'yes' && $document->get_settings('eael_ext_reading_progress') == 'yes') {
+    //         $global_settings['reading_progress'] = [
+    //             'post_id' => $post_id,
+    //             'enabled' => true,
+    //             'eael_ext_reading_progress_global_display_condition' => $document->get_settings('eael_ext_reading_progress_global_display_condition'),
+    //             'eael_ext_reading_progress_position' => $document->get_settings('eael_ext_reading_progress_position'),
+    //             'eael_ext_reading_progress_height' => $document->get_settings('eael_ext_reading_progress_height'),
+    //             'eael_ext_reading_progress_bg_color' => $document->get_settings('eael_ext_reading_progress_bg_color'),
+    //             'eael_ext_reading_progress_fill_color' => $document->get_settings('eael_ext_reading_progress_fill_color'),
+    //             'eael_ext_reading_progress_animation_speed' => $document->get_settings('eael_ext_reading_progress_animation_speed'),
+    //         ];
+    //     } else {
+    //         if (isset($global_settings['reading_progress']['post_id']) && $global_settings['reading_progress']['post_id'] == $post_id) {
+    //             $global_settings['reading_progress'] = [
+    //                 'post_id' => null,
+    //                 'enabled' => false,
+    //             ];
+    //         }
+    //     }
 
-        update_option('eael_global_settings', $global_settings);
-    }
+    //     update_option('eael_global_settings', $global_settings);
+    // }
 
-    public static function get_extensions_value($key = '')
-    {
-        return isset($this->extensions_data[$key]) ? $this->extensions_data[$key] : '';
-    }
 }
 Reading_Progress::init();
