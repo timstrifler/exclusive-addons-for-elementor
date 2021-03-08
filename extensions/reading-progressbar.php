@@ -213,6 +213,7 @@ class Reading_Progress {
         );
 
         $element->end_controls_section();
+        // $element->end_controls_section();
     }
 
      /**
