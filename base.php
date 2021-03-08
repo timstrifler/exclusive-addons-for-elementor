@@ -208,13 +208,16 @@ final class Base {
         $settings['exad_post_grid_post_data_position'] = $_POST['post_data_position'];
         $settings['exad_post_grid_offset'] = (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] );
 
+        $cat_array = explode(" ", $_POST['category'] );
+        $tags_array = explode(" ", $_POST['tags'] );
+
         $post_args = array(
             'post_type'        => $_POST['post_type'],
             'posts_per_page'   => $_POST['posts_per_page'],
             'post_status'      => 'publish',
             'paged'            => $paged,
-            'category__in'     => $_POST['category'],
-            'tags__in'     => $_POST['tags'],
+            'category__in'     => $cat_array,
+            'tags__in'         => $tags_array,
             'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] )
         );
 
