@@ -2,7 +2,7 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.6.1
+Tested up to: 5.6.2
 Stable tag: 2.3.7
 Requires PHP: 5.4
 License: GPLv3
@@ -218,8 +218,8 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 == Changelog ==
 
 = 2.3.7 - 08/03/2021 =
-- Fixed category issue with Post Grid Widget.
-- Fixed issue Modal Popup Widget.
+- Fixed some bugs with Post Grid Widget.
+- Fixed bugs with Modal Popup Widget after Elementor Update.
 - Overall enhancements and bug fixes.
 
 = 2.3.6 - 22/02/2021 =
