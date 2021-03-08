@@ -3831,6 +3831,7 @@ ul.exad-call-to-action-buttons {
 .exad-post-grid-container.image-position-right > figure img {
   height: 100%;
   object-fit: cover;
+  width: 100%;
 }
 .exad-post-grid-container.image-position-right > figure {
   order: 2;
@@ -3985,6 +3986,7 @@ nav.exad-post-pagination ul li {
 .exad-post-grid-container.image-position-top .exad-post-grid-thumbnail a img{
   object-fit: cover;
   -o-object-fit: cover;
+  width: 100%;
 }
 .exad-post-grid-load-btn{
   text-align: center;
