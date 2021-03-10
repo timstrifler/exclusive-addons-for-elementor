@@ -20,6 +20,7 @@ if ( ! defined( 'EXAD_PATH' ) ) define( 'EXAD_PATH', plugin_dir_path( __FILE__ )
 if ( ! defined( 'EXAD_ADMIN' ) ) define( 'EXAD_ADMIN', EXAD_PATH . 'admin/' );	
 if ( ! defined( 'EXAD_ADMIN_URL' ) ) define( 'EXAD_ADMIN_URL', plugins_url( '/', __FILE__ ) . 'admin/' );	
 if ( ! defined( 'EXAD_ELEMENTS' ) ) define( 'EXAD_ELEMENTS', EXAD_PATH . 'elements/' );
+if ( ! defined( 'EXAD_EXTENSIONS' ) ) define( 'EXAD_EXTENSIONS', plugin_dir_path( __FILE__ ) . 'extensions/' );
 if ( ! defined( 'EXAD_TEMPLATES' ) ) define( 'EXAD_TEMPLATES', EXAD_PATH . 'includes/template-parts/' );
 if ( ! defined( 'EXAD_URL' ) ) define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
 if ( ! defined( 'EXAD_ASSETS_URL' ) ) define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );
