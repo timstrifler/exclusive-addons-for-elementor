@@ -104,6 +104,9 @@ class Addons_Manager {
         include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
 
         // Post Duplicator extention
+        if( self::$is_activated_feature['glass-effect'] ){
+            include_once EXAD_PATH . 'extensions/glass-effect.php';
+        }
         if( self::$is_activated_feature['post-duplicator'] ){
             include_once EXAD_PATH . 'extensions/post-duplicator.php';
         }
@@ -699,6 +702,13 @@ class Addons_Manager {
     
     public static function extensions_map_free() {
         return [
+            'glass-effect'  => [
+                'title'  => __( 'Glassmorphism Effect', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\GlassEffect',
+                'tags'   => 'free',
+                'demo_link' => 'https://exclusiveaddons.com/post-duplicator/',
+                'is_pro' => false
+            ],
             'post-duplicator'  => [
                 'title'  => __( 'Post Duplicator', 'exclusive-addons-elementor' ),
                 'class'  => '\Exclusive_Addons\Elementor\Extensions\Post_Duplicator',
