@@ -107,6 +107,170 @@ final class Base {
         add_action( 'wp_ajax_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );
         add_action( 'wp_ajax_nopriv_ajax_pagination', [ __CLASS__, 'exad_ajax_pagination' ] );
 
+        // Facebook Load More
+        add_action( 'wp_ajax_exad_facebook_feed_action', [ $this, 'exad_facebook_feed_ajax' ] );
+        add_action( 'wp_ajax_nopriv_exad_facebook_feed_action', [ $this, 'exad_facebook_feed_ajax' ] );
+
+    }
+
+    /**
+     * Facebook Feed ajax call
+     *
+     * @return array
+     */
+    public function exad_facebook_feed_ajax() {
+
+        $security = check_ajax_referer('exclusive_addons_nonce', 'security');
+
+        if ( true == $security && isset( $_POST['query_settings'] ) ) :
+            $settings = $_POST['query_settings'];
+            $loaded_item = $_POST['loaded_item'];
+
+            $exad_facebook_feed_cash = '_' . $settings['widget_id'] . '_facebook_cash';
+            $transient_key = $settings['exad_facebook_page_id'] . $exad_facebook_feed_cash;
+            $facebook_feed_data = get_transient($transient_key);
+
+            if ( false === $facebook_feed_data ) {
+                $url_queries = 'fields=status_type,created_time,from,message,story,full_picture,permalink_url,attachments.limit(1){type,media_type,title,description,unshimmed_url},comments.summary(total_count),reactions.summary(total_count)';
+                $url = "https://graph.facebook.com/{$settings['page_id']}/posts?{$url_queries}&access_token={$settings['access_token']}";
+                $data = wp_remote_get( $url );
+                $facebook_feed_data = json_decode( wp_remote_retrieve_body( $data ), true );
+                set_transient( $transient_key, $facebook_feed_data, 0 );
+            }
+            if ( $settings['remove_cash'] == 'yes' ) {
+                delete_transient( $transient_key );
+            }
+
+            switch ($settings['exad_facebook_sort_by']) {
+                case 'old-posts':
+                    usort($facebook_feed_data['data'], function ($a,$b) {
+                        if ( strtotime($a['created_time']) == strtotime($b['created_time']) ) return 0;
+                        return ( strtotime($a['created_time']) < strtotime($b['created_time']) ? -1 : 1 );
+                    });
+                    break;
+                case 'like_count':
+                    usort($facebook_feed_data['data'], function ($a,$b){
+                        if ($a['reactions']['summary'] == $b['reactions']['summary']) return 0;
+                        return ($a['reactions']['summary'] > $b['reactions']['summary']) ? -1 : 1 ;
+                    });
+                    break;
+                case 'comment_count':
+                    usort($facebook_feed_data['data'], function ($a,$b){
+                        if ($a['comments']['summary'] == $b['comments']['summary']) return 0;
+                        return ($a['comments']['summary'] > $b['comments']['summary']) ? -1 : 1 ;
+                    });
+                    break;
+                default:
+                    $facebook_feed_data;
+            }
+
+
+            $items = array_splice($facebook_feed_data['data'], $loaded_item, $settings['post_limit'] );
+
+            foreach ($items as $item) :
+
+                $page_url = "https://facebook.com/{$item['from']['id']}";
+                $avatar_url = "https://graph.facebook.com/{{$item['from']['id']}/picture";
+
+                $description = explode( ' ', $item['message'] );
+                if ( !empty( $settings['description_word_count'] ) && count( $description ) > $settings['description_word_count'] ) {
+                    $description_shorten = array_slice( $description, 0, $settings['description_word_count'] );
+                    $description = implode( ' ', $description_shorten ) . '...';
+                } else {
+                    $description = $item['message'];
+                }
+                ?>
+
+                <div class="exad-facebook-feed-item exad-col">
+
+                    <?php if ( $settings['exad_facebook_show_feature_image'] == 'yes' && !empty( $item['full_picture'] ) ) : ?>
+                        <div class="exad-facebook-feed-feature-image">
+                            <a href="<?php echo esc_url( $item['permalink_url'] ); ?>" target="_blank">
+                                <img src="<?php echo esc_url( $item['full_picture'] ); ?>" alt="<?php esc_url( $item['from']['name'] ); ?>">
+                            </a>
+                        </div>
+                    <?php endif ?>
+
+                    <div class="exad-facebook-inner-wrapper">
+
+                        <div class="exad-facebook-author">
+                            <?php if ( $settings['show_user_image'] == 'yes' ) : ?>
+                                <a href="<?php echo esc_url( $page_url ); ?>">
+                                    <img
+                                        src="<?php echo esc_url( $avatar_url ); ?>"
+                                        alt="<?php echo esc_attr( $item['from']['name'] ); ?>"
+                                        class="exad-facebook-avatar"
+                                    >
+                                </a>
+                            <?php endif; ?>
+
+                            <div class="exad-facebook-user">
+                                <?php if ( $settings['show_name'] == 'yes' ) : ?>
+                                    <a href="<?php echo esc_url( $page_url ); ?>" class="exad-facebook-author-name">
+                                        <?php echo esc_html( $item['from']['name'] ); ?>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( $settings['show_date'] == 'yes' ) : ?>
+                                    <div class="exad-facebook-date">
+                                        <?php echo esc_html( date("M d Y", strtotime( $item['created_time'] ) ) ); ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="exad-facebook-content">
+                            <p>
+                                <?php
+                                echo esc_html( $description );
+                                if ( $settings['read_more'] == 'yes' ) :
+                                    ?>
+                                    <a href="<?php echo esc_url( $item['permalink_url'] ); ?>" target="_blank">
+                                        <?php echo esc_html( $settings['read_more_text'] ); ?>
+                                    </a>
+                                <?php endif; ?>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <?php if ( $settings['show_likes'] == 'yes' || $settings['show_comments'] == 'yes' ) : ?>
+                        <div class="exad-facebook-footer-wrapper">
+                            <div class="exad-facebook-footer">
+
+                                <div class="exad-facebook-meta">
+                                    <?php if ( $settings['show_likes'] == 'yes' ) : ?>
+                                        <div class="exad-facebook-likes">
+                                            <?php echo esc_html( $item['reactions']['summary']['total_count'] ); ?>
+                                            <i class="far fa-thumbs-up"></i>
+                                            <?php if( $settings['exad_facebook_show_likes_text'] == 'yes' ) { ?>
+												<?php _e( 'Like', 'exclusive-addons-elementor' ); ?>
+											<?php } ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if ( $settings['show_comments'] == 'yes' ) : ?>
+                                        <div class="exad-facebook-comments">
+                                            <?php echo esc_html( $item['comments']['summary']['total_count'] ); ?>
+                                            <i class="far fa-comment"></i>
+                                            <?php if( $settings['exad_facebook_show_comment_text'] =='yes' ) { ?>
+												<?php _e( 'Comment', 'exclusive-addons-elementor' ); ?>
+											<?php } ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+
+            <?php
+            endforeach;
+
+        endif;
+        wp_die();
     }
 
 
