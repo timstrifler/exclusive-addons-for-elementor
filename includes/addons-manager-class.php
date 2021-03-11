@@ -248,6 +248,13 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'is_pro' => false
             ], 
+            'facebook-reviews'  => [
+                'title'  => __( 'Facebook Reviews', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Facebook_Reviews',
+                'demo_link' => 'https://exclusiveaddons.com/facebook-reviews/',
+                'tags'   => 'free',
+                'is_pro' => false
+            ],
             'filterable-gallery'  => [
                 'title'  => __( 'Filterable Gallery', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Filterable_Gallery',
