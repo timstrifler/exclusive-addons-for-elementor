@@ -126,8 +126,8 @@ final class Base {
             $settings = $_POST['query_settings'];
             $loaded_item = $_POST['loaded_item'];
 
-            $exad_facebook_feed_cash = '_' . $settings['widget_id'] . '_facebook_cash';
-            $transient_key = $settings['exad_facebook_page_id'] . $exad_facebook_feed_cash;
+            $exad_facebook_feed_cache = '_' . $settings['widget_id'] . '_facebook_cache';
+            $transient_key = $settings['exad_facebook_page_id'] . $exad_facebook_feed_cache;
             $facebook_feed_data = get_transient($transient_key);
 
             if ( false === $facebook_feed_data ) {
@@ -137,7 +137,7 @@ final class Base {
                 $facebook_feed_data = json_decode( wp_remote_retrieve_body( $data ), true );
                 set_transient( $transient_key, $facebook_feed_data, 0 );
             }
-            if ( $settings['remove_cash'] == 'yes' ) {
+            if ( $settings['clear_cache'] == 'yes' ) {
                 delete_transient( $transient_key );
             }
 

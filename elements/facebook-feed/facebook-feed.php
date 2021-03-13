@@ -173,9 +173,9 @@ class Facebook_Feed extends Widget_Base {
 		);
 
 		$this->add_control(
-			'remove_cash',
+			'clear_cache',
 			[
-				'label' => __('Remove Cache', 'exclusive-addons-elementor'),
+				'label' => __('Clear Cache', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::SWITCHER,
 				'return_value' => 'yes',
 				'default' => 'no',
@@ -1470,8 +1470,8 @@ class Facebook_Feed extends Widget_Base {
 			]
 		);
 
-		$exad_facebook_feed_cash = '_' . $id . '_facebook_cash';
-		$transient_key = $page_id . $exad_facebook_feed_cash;
+		$exad_facebook_feed_cache = '_' . $id . '_facebook_cache';
+		$transient_key = $page_id . $exad_facebook_feed_cache;
 		$facebook_feed_data = get_transient($transient_key);
 		$messages = [];
 
@@ -1483,7 +1483,7 @@ class Facebook_Feed extends Widget_Base {
 
 			set_transient( $transient_key, $facebook_feed_data, 0 );
 		}
-		if ( $settings['remove_cash'] == 'yes' ) {
+		if ( $settings['clear_cache'] == 'yes' ) {
 			delete_transient( $transient_key );
 		}
 
@@ -1504,7 +1504,7 @@ class Facebook_Feed extends Widget_Base {
 			'widget_id' 		=> $id,
 			'page_id' 			=> $page_id,
 			'access_token' 		=> $access_token,
-			'remove_cash' 		=> $settings['remove_cash'],
+			'clear_cache' 		=> $settings['clear_cache'],
 			'exad_facebook_sort_by' => $settings['exad_facebook_sort_by'],
 			'post_limit' 		=> $settings['post_limit'],
 			'exad_facebook_show_feature_image' => $settings['exad_facebook_show_feature_image'],
