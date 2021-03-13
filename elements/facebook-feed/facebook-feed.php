@@ -537,7 +537,7 @@ class Facebook_Feed extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 220,
+					'size' => 150,
 				],
 				'condition' => [
 					'exad_facebook_show_feature_image' => 'yes',
@@ -623,7 +623,7 @@ class Facebook_Feed extends Widget_Base {
 		$this->add_responsive_control(
 			'user_info_spacing',
 			[
-				'label' => __( 'User Info Spacing', 'exclusive-addons-elementor' ),
+				'label' => __( 'Spacing', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'default' => [
@@ -679,7 +679,7 @@ class Facebook_Feed extends Widget_Base {
 		$this->add_responsive_control(
 			'profile_image_spacing',
 			[
-				'label' => __( 'Spacing', 'exclusive-addons-elementor' ),
+				'label' => __( 'Right Spacing', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => ['px', '%'],
 				'default' => [
