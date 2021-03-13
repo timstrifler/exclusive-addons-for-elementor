@@ -249,6 +249,20 @@ final class Base {
                                         </div>
                                     <?php endif; ?>
 
+                                    <?php if ( $settings['exad_facebook_show_share'] == 'yes' ) : ?>
+										<div class="exad-facebook-comments">
+											<?php if( isset( $item['shares']['count'] ) && ( $item['shares']['count'] != '' ) ){ 
+												echo esc_html( $item['shares']['count'] );
+											} else {
+												_e( '0', 'exclusive-addons-elementor' );
+											} ?>
+											<i class="far fa-share-square"></i>
+											<?php if( 'yes' === $settings['exad_facebook_show_share_text'] ) { ?>
+												<?php _e( 'Share', 'exclusive-addons-elementor' ); ?>
+											<?php } ?>
+										</div>
+									<?php endif; ?>
+
                                     <?php if ( $settings['show_comments'] == 'yes' ) : ?>
                                         <div class="exad-facebook-comments">
                                             <?php echo esc_html( $item['comments']['summary']['total_count'] ); ?>

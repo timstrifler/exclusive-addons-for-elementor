@@ -3,6 +3,7 @@
 var exadFacebookFeed = function($scope) {
     var button = $scope.find('.exad-facebook-load-more');
     var facebook_wrap = $scope.find('.exad-facebook-feed-wrapper');
+    
     button.on("click", function(e) {
         e.preventDefault();
         var $self = $(this),

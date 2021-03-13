@@ -93,9 +93,9 @@ class Addons_Manager {
      */
     public static function extension_manager() {
         if ( Base::$is_pro_active ) {
-            self::$default_extensions = apply_filters( 'exad_add_pro_extensions', self::extension_map_free() );
+            self::$default_extensions = apply_filters( 'exad_add_pro_extensions', self::extensions_map_free() );
         } else {
-            self::$default_extensions = array_merge( self::extension_map_free(), self::extension_map_pro() );
+            self::$default_extensions = array_merge( self::extensions_map_free(), self::extensions_map_pro() );
         }
     }
 
@@ -103,16 +103,16 @@ class Addons_Manager {
     public static function initiate_extensions() {
         include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
 
-        foreach( self::extension_map_free() as $key => $extension ) {
-            if ( isset( self::$is_activated_feature[$key] ) && self::$is_activated_feature[$key] == true ) {
-
-                $extension_file = EXAD_EXTENSIONS . $key .'.php';
-                if ( file_exists( $extension_file ) ) {
-                    include_once $extension_file;
-                }
-            }
+        // Post Duplicator extention
+        if( self::$is_activated_feature['glass-effect'] ){
+            include_once EXAD_PATH . 'extensions/glass-effect.php';
         }
-
+        if( self::$is_activated_feature['post-duplicator'] ){
+            include_once EXAD_PATH . 'extensions/post-duplicator.php';
+        }
+        if( self::$is_activated_feature['sticky'] ){
+            include_once EXAD_PATH . 'extensions/sticky.php';
+        }
     }
 
     /**
@@ -700,13 +700,13 @@ class Addons_Manager {
     }
 
     
-    public static function extension_map_free() {
+    public static function extensions_map_free() {
         return [
             'glass-effect'  => [
                 'title'  => __( 'Glassmorphism Effect', 'exclusive-addons-elementor' ),
                 'class'  => '\Exclusive_Addons\Elementor\Extensions\GlassEffect',
                 'tags'   => 'free',
-                'demo_link' => 'https://exclusiveaddons.com/glassmorphism/',
+                'demo_link' => 'https://exclusiveaddons.com/post-duplicator/',
                 'is_pro' => false
             ],
             'post-duplicator'  => [
@@ -727,7 +727,7 @@ class Addons_Manager {
 
     }
 
-    public static function extension_map_pro() {
+    public static function extensions_map_pro() {
         return [
             'section-particles'  => [
                 'title'  => __( 'Section Particles', 'exclusive-addons-elementor' ),

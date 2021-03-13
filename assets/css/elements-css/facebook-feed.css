@@ -24,6 +24,13 @@
     position: relative;
     display: flex;
 }
+.exad-facebook-feed-wrapper.exad-layout-2 .exad-facebook-feed-item .exad-facebook-feed-feature-image,
+.exad-facebook-feed-wrapper.exad-layout-3 .exad-facebook-feed-item .exad-facebook-feed-feature-image{
+    flex-direction: row;
+}
+.exad-facebook-feed-wrapper.exad-layout-3 .exad-facebook-feed-item .exad-facebook-feed-feature-image{
+    order: 2;
+}
 .exad-facebook-feed-wrapper .exad-facebook-feed-item .exad-facebook-feed-feature-image img{
     width: 100%;
     height: 100%;

@@ -41,7 +41,7 @@ class Facebook_Feed extends Widget_Base {
 		$this->start_controls_section(
 			'exad_facebook_feed_wrapper',
 			[
-				'label' => __( 'Facebook Feed', 'exclusive-addons-elementor' ),
+				'label' => __( 'Facebook Feed Content', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -104,6 +104,20 @@ class Facebook_Feed extends Widget_Base {
 				'default' => 6,
 				'style_transfer' => true,
 			]
+		);
+
+		$this->add_control(
+            'exad_facebook_feed_layout',
+            [
+				'label'   => __( 'Layout', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'default' => 'layout-1',
+				'options' => [
+					'layout-1' => esc_html__( 'Layout 1', 'exclusive-addons-elementor' ),
+					'layout-2' => esc_html__( 'Layout 2', 'exclusive-addons-elementor' ),
+					'layout-3' => esc_html__( 'Layout 3', 'exclusive-addons-elementor' )
+				],
+            ]
 		);
 
 		$this->add_responsive_control(
@@ -236,6 +250,31 @@ class Facebook_Feed extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_facebook_show_share',
+			[
+				'label' => __('Show Share Count', 'exclusive-addons-elementor'),
+				'type' => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'style_transfer' => true,
+			]
+		);
+
+		$this->add_control(
+			'exad_facebook_show_share_text',
+			[
+				'label' => __('Show Share Text', 'exclusive-addons-elementor'),
+				'type' => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default' => 'yes',
+				'style_transfer' => true,
+				'condition' => [
+					'exad_facebook_show_share' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
 			'show_comments',
 			[
 				'label' => __('Show Comments Count', 'exclusive-addons-elementor'),
@@ -276,7 +315,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'label' => __('Read More Text', 'exclusive-addons-elementor'),
 				'type' => Controls_Manager::TEXT,
-				'default' => 'Read More',
+				'default' => 'See More',
 				'condition' => [
 					'read_more' => 'yes',
 				],
@@ -320,79 +359,6 @@ class Facebook_Feed extends Widget_Base {
 
 		$this->end_controls_section();
 
-		$this->start_controls_section(
-			'_section_general_settings',
-			[
-				'label' => __('General Settings', 'exclusive-addons-elementor'),
-				'tab' => Controls_Manager::TAB_CONTENT,
-			]
-		);
-
-		$this->add_control(
-			'like_comment_position',
-			[
-				'label' => __( 'Footer Alignment', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'label_block' => false,
-				'options' => [
-					'left' => [
-						'title' => __( 'Left', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-center',
-					],
-					'right' => [
-						'title' => __( 'Right', 'exclusive-addons-elementor' ),
-						'icon' => 'fa fa-align-right',
-					],
-				],
-				'prefix_class' => 'exad-facebook-user-',
-				'selectors_dictionary' => [
-					'left' => 'justify-content: flex-start',
-					'center' => 'justify-content: space-between',
-					'right' => 'justify-content: flex-end',
-				],
-				'default' => 'center',
-				'toggle' => true,
-				'selectors' => [
-					'{{WRAPPER}} .exad-facebook-meta' => '{{VALUE}};'
-				]
-			]
-		);
-
-		$this->add_control(
-			'feature_image_position',
-			[
-				'label' => __( 'Feature Image Position', 'exclusive-addons-elementor' ),
-				'type' => Controls_Manager::CHOOSE,
-				'label_block' => false,
-				'options' => [
-					'top' => [
-						'title' => __( 'Top', 'exclusive-addons-elementor' ),
-						'icon' => 'eicon-arrow-up',
-					],
-					'bottom' => [
-						'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
-						'icon' => 'eicon-arrow-down',
-					],
-				],
-				'default' => 'top',
-				'toggle' => false,
-				'prefix_class' => 'exad-facebook-user-',
-				'selectors_dictionary' => [
-					'top' => 'flex-direction: column; justify-content: flex-start;',
-					'bottom' => 'flex-direction: column-reverse; justify-content: flex-end;',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .exad-facebook-feed-wrapper .exad-facebook-feed-item' => '{{VALUE}};'
-				]
-			]
-		);
-
-		$this->end_controls_section();
-
 
 	/**
 	 * Register styles related controls
@@ -411,6 +377,14 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', '%'],
+				'default' => [
+					'top' => '0',
+					'right' => '0',
+					'bottom' => '60',
+					'left' => '0',
+					'unit' => 'px',
+					'isLinked' => true,
+				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-feed-wrapper .exad-facebook-feed-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -483,20 +457,43 @@ class Facebook_Feed extends Widget_Base {
 		$this->start_controls_section(
 			'exad_facebook_feature_image_style',
 			[
-				'label' => __('Feature Image', 'exclusive-addons-elementor'),
+				'label' => __('Feed Image', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
+				'condition' => [
+					'exad_facebook_show_feature_image' => 'yes',
+				],
 			]
 		);
 
 		$this->add_control(
-			'feature_image_note',
+			'feature_image_position',
 			[
-				'label' => false,
-				'type' => Controls_Manager::RAW_HTML,
-				'condition' => [
-					'exad_facebook_show_feature_image' => '',
+				'label' => __( 'Feature Image Position', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'options' => [
+					'top' => [
+						'title' => __( 'Top', 'exclusive-addons-elementor' ),
+						'icon' => 'eicon-arrow-up',
+					],
+					'bottom' => [
+						'title' => __( 'Bottom', 'exclusive-addons-elementor' ),
+						'icon' => 'eicon-arrow-down',
+					],
 				],
-				'raw' => __( 'Feature Image is hidden from <strong>Facebook Feed Settings</strong> section.', 'exclusive-addons-elementor' ),
+				'default' => 'top',
+				'toggle' => false,
+				'prefix_class' => 'exad-facebook-user-',
+				'selectors_dictionary' => [
+					'top' => 'flex-direction: column; justify-content: flex-start;',
+					'bottom' => 'flex-direction: column-reverse; justify-content: flex-end;',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-facebook-feed-wrapper.exad-layout-1 .exad-facebook-feed-item' => '{{VALUE}};'
+				],
+				'condition' => [
+					'exad_facebook_feed_layout' => 'layout-1'
+				]
 			]
 		);
 
@@ -517,10 +514,38 @@ class Facebook_Feed extends Widget_Base {
 					'size' => 220,
 				],
 				'condition' => [
-					'exad_facebook_show_feature_image' => 'yes'
+					'exad_facebook_show_feature_image' => 'yes',
+					'exad_facebook_feed_layout' => 'layout-1'
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-feed-feature-image img' => 'height: {{SIZE}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'feature_image_width',
+			[
+				'label' => __( 'Image Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px', '%'],
+				'range' => [
+					'px' => [
+						'min' => 10,
+						'max' => 400,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 220,
+				],
+				'condition' => [
+					'exad_facebook_show_feature_image' => 'yes',
+					'exad_facebook_feed_layout' => [ 'layout-2', 'layout-3' ]
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-facebook-feed-feature-image' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-facebook-inner-wrapper' => 'width: calc( 100% - {{SIZE}}{{UNIT}} );'
 				],
 			]
 		);
@@ -590,7 +615,7 @@ class Facebook_Feed extends Widget_Base {
 		$this->start_controls_section(
 			'_section_facebook_user_info',
 			[
-				'label' => __( 'User Info', 'exclusive-addons-elementor' ),
+				'label' => __( 'User Information', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -709,7 +734,7 @@ class Facebook_Feed extends Widget_Base {
 		$this->add_control(
 			'name_heading',
 			[
-				'label' => __( 'Name', 'exclusive-addons-elementor' ),
+				'label' => __( 'User Name', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before'
 			]
@@ -817,21 +842,12 @@ class Facebook_Feed extends Widget_Base {
 		$this->add_control(
 			'date_heading',
 			[
-				'label' => __( 'Date', 'exclusive-addons-elementor' ),
+				'label' => __( 'Post Date', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
-				'separator' => 'before'
-			]
-		);
-
-		$this->add_control(
-			'date_note',
-			[
-				'label' => false,
-				'type' => Controls_Manager::RAW_HTML,
+				'separator' => 'before',
 				'condition' => [
 					'show_date' => ''
 				],
-				'raw' => __( 'Date is hidden from <strong>Facebook Feed Settings</strong> section.', 'exclusive-addons-elementor' ),
 			]
 		);
 
@@ -867,7 +883,7 @@ class Facebook_Feed extends Widget_Base {
 		$this->start_controls_section(
 			'_section_facebook_content',
 			[
-				'label' => __('Content', 'exclusive-addons-elementor'),
+				'label' => __('Post Content', 'exclusive-addons-elementor'),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -944,7 +960,7 @@ class Facebook_Feed extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 90,
+					'size' => 20,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-content p' => 'margin-bottom: {{SIZE}}{{UNIT}};'
@@ -1045,6 +1061,40 @@ class Facebook_Feed extends Widget_Base {
 		);
 
 		$this->add_control(
+			'like_comment_position',
+			[
+				'label' => __( 'Footer Alignment', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::CHOOSE,
+				'label_block' => false,
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon' => 'fa fa-align-right',
+					],
+				],
+				'prefix_class' => 'exad-facebook-user-',
+				'selectors_dictionary' => [
+					'left' => 'justify-content: flex-start',
+					'center' => 'justify-content: space-between',
+					'right' => 'justify-content: flex-end',
+				],
+				'default' => 'center',
+				'toggle' => true,
+				'selectors' => [
+					'{{WRAPPER}} .exad-facebook-meta' => '{{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_control(
             'footer_padding',
             [
                 'label' => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -1103,7 +1153,7 @@ class Facebook_Feed extends Widget_Base {
 		$this->add_control(
 			'like_comment_heading',
 			[
-				'label' => __( 'Like & Comment', 'exclusive-addons-elementor' ),
+				'label' => __( 'Like, Share & Comment', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING
 			]
 		);
@@ -1119,7 +1169,8 @@ class Facebook_Feed extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-likes i' => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-facebook-comments i' => 'font-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-comments i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-facebook-share i' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -1135,7 +1186,8 @@ class Facebook_Feed extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-likes' => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-facebook-comments' => 'font-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-facebook-comments' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-facebook-share' => 'font-size: {{SIZE}}{{UNIT}};'
 				],
 			]
 		);
@@ -1148,6 +1200,7 @@ class Facebook_Feed extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-likes' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .exad-facebook-comments' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-share' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1160,6 +1213,7 @@ class Facebook_Feed extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-likes i' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .exad-facebook-comments i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-facebook-share i' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -1175,18 +1229,9 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'label' => __( 'Load More Button', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'button_note',
-			[
-				'label' => false,
-				'type' => Controls_Manager::RAW_HTML,
 				'condition' => [
 					'load_more' => ''
 				],
-				'raw' => __( 'Button is hidden from <strong>Facebook Feed Settings</strong> section.', 'exclusive-addons-elementor' ),
 			]
 		);
 
@@ -1421,7 +1466,7 @@ class Facebook_Feed extends Widget_Base {
 			'exad_facebook_feed_wrapper',
 			[	
 				'id' => "exad-facebook-feed-wrapper",
-				'class' => "exad-facebook-feed-wrapper exad-col-{$settings['exad_facebook_feed_column']}"
+				'class' => "exad-facebook-feed-wrapper exad-col-{$settings['exad_facebook_feed_column']} exad-{$settings['exad_facebook_feed_layout']}"
 			]
 		);
 
@@ -1431,10 +1476,11 @@ class Facebook_Feed extends Widget_Base {
 		$messages = [];
 
 		if ( false === $facebook_feed_data ) {
-			$url_queries = 'fields=status_type,created_time,from,message,story,full_picture,permalink_url,attachments.limit(1){type,media_type,title,description,unshimmed_url},comments.summary(total_count),reactions.summary(total_count)';
+			$url_queries = 'fields=status_type,created_time,shares,from,message,story,full_picture,permalink_url,attachments.limit(1){type,media_type,title,description,unshimmed_url},comments.summary(total_count),reactions.summary(total_count)';
 			$url = "https://graph.facebook.com/{$page_id}/posts?{$url_queries}&access_token={$access_token}";
-			$data = wp_remote_get( $url );
+			$data = wp_remote_get( $url ); 
 			$facebook_feed_data = json_decode( wp_remote_retrieve_body( $data ), true );
+
 			set_transient( $transient_key, $facebook_feed_data, 0 );
 		}
 		if ( $settings['remove_cash'] == 'yes' ) {
@@ -1467,8 +1513,10 @@ class Facebook_Feed extends Widget_Base {
 			'show_date' 				=> $settings['show_date'],
 			'show_likes' 				=> $settings['show_likes'],
 			'show_comments' 			=> $settings['show_comments'],
+			'exad_facebook_show_share' 			=> $settings['exad_facebook_show_share'],
 			'exad_facebook_show_likes_text' => $settings['exad_facebook_show_likes_text'],
 			'exad_facebook_show_comment_text' => $settings['exad_facebook_show_comment_text'],
+			'exad_facebook_show_share_text' => $settings['exad_facebook_show_share_text'],
 			'description_word_count'	=> $settings['description_word_count'],
 			'read_more'	=> $settings['read_more'],
 			'read_more_text'	=> $settings['read_more_text']
@@ -1504,6 +1552,8 @@ class Facebook_Feed extends Widget_Base {
 		if ( empty( $settings['post_limit'] ) ) {
 			$items = $facebook_feed_data['data'];
 		}
+
+		// var_dump($items[1]);
 
 		?>
 
@@ -1583,6 +1633,21 @@ class Facebook_Feed extends Widget_Base {
 											<?php } ?>
 										</div>
 									<?php endif; ?>
+
+									<?php if ( $settings['exad_facebook_show_share'] == 'yes' ) : ?>
+										<div class="exad-facebook-share">
+											<?php if( isset( $item['shares']['count'] ) && ( $item['shares']['count'] != '' ) ){ 
+												echo esc_html( $item['shares']['count'] );
+											} else {
+												_e( '0', 'exclusive-addons-elementor' );
+											} ?>
+											<i class="far fa-share-square"></i>
+											<?php if( 'yes' === $settings['exad_facebook_show_share_text'] ) { ?>
+												<?php _e( 'Share', 'exclusive-addons-elementor' ); ?>
+											<?php } ?>
+										</div>
+									<?php endif; ?>
+
 
 									<?php if ( $settings['show_comments'] == 'yes' ) : ?>
 										<div class="exad-facebook-comments">

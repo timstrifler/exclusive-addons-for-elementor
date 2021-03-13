@@ -110,6 +110,11 @@ class Assets_Manager {
             // Sticky Sidebar
             wp_enqueue_script( 'exad-sticky-jquery', EXAD_ASSETS_URL . 'vendor/js/jquery.sticky-sidebar.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
+
+        // if ( Addons_Manager::$is_activated_feature['sticky'] ) {
+        //     // Facebook Feed Sidebar
+        //     wp_enqueue_script( 'exad-fb-feed', EXAD_ASSETS_URL . 'vendor/js/masonry.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
+        // }
         
     }
 
