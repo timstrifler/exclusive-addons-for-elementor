@@ -38,6 +38,7 @@ class Facebook_Feed extends Widget_Base {
 	 * Register controls
 	 */
 	protected function _register_controls() {
+		$exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
 		$this->start_controls_section(
 			'exad_facebook_feed_wrapper',
 			[
@@ -1230,7 +1231,7 @@ class Facebook_Feed extends Widget_Base {
 				'label' => __( 'Load More Button', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'load_more' => ''
+					'load_more' => 'yes'
 				],
 			]
 		);
@@ -1358,6 +1359,7 @@ class Facebook_Feed extends Widget_Base {
 					[
 						'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
+						'default' => $exad_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .exad-facebook-load-more' => 'background-color: {{VALUE}};'
 						],
@@ -1369,6 +1371,7 @@ class Facebook_Feed extends Widget_Base {
 					[
 						'label' => __( 'Color', 'exclusive-addons-elementor' ),
 						'type' => Controls_Manager::COLOR,
+						'default' => '#ffffff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-facebook-load-more' => 'color: {{VALUE}};'
 						],
@@ -1380,6 +1383,22 @@ class Facebook_Feed extends Widget_Base {
 					[
 						'name' => 'exad_facebook_button_border',
 						'label' => __( 'Border', 'exclusive-addons-elementor' ),
+						'fields_options'  => [
+							'border' 	  => [
+								'default' => 'solid'
+							],
+							'width'  	  => [
+								'default' 	 => [
+									'top'    => '1',
+									'right'  => '1',
+									'bottom' => '1',
+									'left'   => '1'
+								]
+							],
+							'color' 	  => [
+								'default' => $exad_primary_color
+							]
+						],
 						'selector' => '{{WRAPPER}} .exad-facebook-load-more',
 					]
 				);
@@ -1406,6 +1425,7 @@ class Facebook_Feed extends Widget_Base {
 					[
 						'label' => __('Background Color', 'exclusive-addons-elementor'),
 						'type' => Controls_Manager::COLOR,
+						'default' => '#ffffff',
 						'selectors' => [
 							'{{WRAPPER}} .exad-facebook-load-more:hover' => 'background-color: {{VALUE}};'
 						],
@@ -1417,6 +1437,7 @@ class Facebook_Feed extends Widget_Base {
 					[
 						'label' => __('Color', 'exclusive-addons-elementor'),
 						'type' => Controls_Manager::COLOR,
+						'default' => $exad_primary_color,
 						'selectors' => [
 							'{{WRAPPER}} .exad-facebook-load-more:hover' => 'color: {{VALUE}};'
 						],
@@ -1428,6 +1449,22 @@ class Facebook_Feed extends Widget_Base {
 					[
 						'name' => 'exad_facebook_button_border_hover',
 						'label' => __( 'Border', 'exclusive-addons-elementor' ),
+						'fields_options'  => [
+							'border' 	  => [
+								'default' => 'solid'
+							],
+							'width'  	  => [
+								'default' 	 => [
+									'top'    => '1',
+									'right'  => '1',
+									'bottom' => '1',
+									'left'   => '1'
+								]
+							],
+							'color' 	  => [
+								'default' => $exad_primary_color
+							]
+						],
 						'selector' => '{{WRAPPER}} .exad-facebook-load-more:hover',
 					]
 				);
