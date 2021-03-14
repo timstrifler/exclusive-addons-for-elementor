@@ -984,6 +984,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
+				'default' => '#5B5B5B',
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-content p' => 'color: {{VALUE}}',
 				],
@@ -1190,6 +1191,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
+				'default' => '#5B5B5B',
 				'selectors' => [
 					'{{WRAPPER}} .exad-facebook-likes' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .exad-facebook-comments' => 'color: {{VALUE}}',
