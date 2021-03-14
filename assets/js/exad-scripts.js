@@ -222,11 +222,11 @@ var exadFacebookFeed = function($scope) {
             success: function(response) {
                 if(total > items){
                     $(response).appendTo(facebook_wrap);
-                }else{
+                } else {
                     $self.text('All Loaded').addClass('loaded');
                     setTimeout( function(){
                         $self.css({"display": "none"});
-                    },800);
+                    },3000);
                 }
             },
             error: function(error) {}
