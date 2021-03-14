@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.6.2
-Stable tag: 2.3.7
+Tested up to: 5.7
+Stable tag: 2.3.8
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -33,7 +33,7 @@ https://www.youtube.com/watch?v=w-PGZkH6t6c&t
 https://www.youtube.com/watch?v=Gn4BkI63dF0
 
 
-### 31 USEFUL (FREE) WIDGETS and counting...
+### 32 USEFUL (FREE) WIDGETS and counting...
 
 We have packed our Elementor Addons with the most Useful Free Elementor widgets for you in the bundle. Check out our Demos where we demonstrated some interesting use cases for all of our Elements:
 
@@ -69,13 +69,17 @@ And have the most beautiful design, not to mention.
 29. **[Animated Text](https://exclusiveaddons.com/animated-text-demo/)** - Turn your text contents stand out in the crowd with some eye catchy animating effects from the plethora of options.
 30. **[Button](https://exclusiveaddons.com/button-demo/)** - Pick from a list of our unique hover effects to suit your needs. Style them every possible way you can think of.
 31. **[Covid-19 Stats](https://exclusiveaddons.com/covid-19-stats-demo/)** - Simple and clean Covid 19 stats for your visitors.
+32. **[Facebook Feed](https://exclusiveaddons.com/facebook-feed/)** - Display your Facebook page's posts with Likes, Comments and Shares in real time.
+
+https://exclusiveaddons.com/glassmorphism/
 
 FREE EXTENSIONS:
 1. **[Post Duplicator](#)** - Duplicate and Post/Page in just a single click.
 2. **[Sticky Extension](https://exclusiveaddons.com/sticky/)** Make any secttion, Column or widget as sticky. This does not work in Editor mode by now. It works on the Frontend flawlessly.
+3. **[Glassmorphism Effect](https://exclusiveaddons.com/glassmorphism/)** - Make your site standout with the modern and trendy Glassmorphism effect for any section, column or widget background.
 
-### 30+ Elementor widgets
-We have packed 30+ Elementor widgets for now. We'll continue to add them as time goes on.
+### 35+ Elementor widgets & extensions
+We have packed 35+ Elementor widgets & extensions for now. We'll continue to add them as time goes on.
 
 ### Light Weight & Fast Loading
 Our Elementor Addons itself is very lightweight. We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -216,6 +220,11 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.3.8 - 14/03/2021 =
+- Added Facebook Fee widget.
+- Added a new extension called Glassmorphism.
+- Overall enhancements and bug fixes.
 
 = 2.3.7 - 08/03/2021 =
 - Fixed some bugs with Post Grid Widget.
