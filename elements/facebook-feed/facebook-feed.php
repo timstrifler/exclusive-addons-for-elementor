@@ -847,7 +847,7 @@ class Facebook_Feed extends Widget_Base {
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
-					'show_date' => ''
+					'show_date' => 'yes'
 				],
 			]
 		);
@@ -870,6 +870,7 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'label' => __( 'Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
+				'default' => '#5B5B5B',
 				'condition' => [
 					'show_date' => 'yes'
 				],
@@ -994,19 +995,10 @@ class Facebook_Feed extends Widget_Base {
 			[
 				'label' => __( 'Read More', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::HEADING,
-				'separator' => 'before'
-			]
-		);
-
-		$this->add_control(
-			'read_more_note',
-			[
-				'label' => false,
-				'type' => Controls_Manager::RAW_HTML,
+				'separator' => 'before',
 				'condition' => [
-					'read_more' => ''
+					'read_more' => 'yes'
 				],
-				'raw' => __( 'Read More is hidden from <strong>Facebook Feed Settings</strong> section.', 'exclusive-addons-elementor' ),
 			]
 		);
 
