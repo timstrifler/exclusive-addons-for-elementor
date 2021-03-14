@@ -706,7 +706,7 @@ class Addons_Manager {
                 'title'  => __( 'Glassmorphism Effect', 'exclusive-addons-elementor' ),
                 'class'  => '\Exclusive_Addons\Elementor\Extensions\GlassEffect',
                 'tags'   => 'free',
-                'demo_link' => 'https://exclusiveaddons.com/post-duplicator/',
+                'demo_link' => 'https://exclusiveaddons.com/glassmorphism/',
                 'is_pro' => false
             ],
             'post-duplicator'  => [
