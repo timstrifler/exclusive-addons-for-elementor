@@ -1094,14 +1094,7 @@ class Modal_Popup extends Widget_Base {
 	}
 
 	protected function render() { 
-		$settings            = $this->get_settings_for_display();		
-		$modal_image         = $settings['exad_modal_image'];
-		$modal_image_url_src = Group_Control_Image_Size::get_attachment_image_src( !empty( $modal_image['id'] ), 'thumbnail', $settings );
-		if( empty( $modal_image_url_src ) ) {
-			$modal_image_url = $modal_image['url']; 
-		} else { 
-			$modal_image_url = $modal_image_url_src;
-		}
+		$settings            = $this->get_settings_for_display();
 
 		if( 'youtube' === $settings['exad_modal_content'] ){
 			$url = $settings['exad_modal_youtube_video_url'];
@@ -1156,22 +1149,14 @@ class Modal_Popup extends Widget_Base {
              		echo '<div class="exad-modal-content">';
                 		echo '<div class="exad-modal-element '.esc_attr( $settings['exad_modal_image_gallery_column'] ).'">';
 							if ( 'image' === $settings['exad_modal_content'] ) {
-								echo '<img src="'.esc_url( $modal_image_url ).'" />';
+								echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_modal_image' );
 							}
 
 							if ( 'image-gallery' === $settings['exad_modal_content'] ) {
 								foreach ( $settings['exad_modal_image_gallery_repeater'] as $gallery ) :
-									$image_gallery     = $gallery[ 'exad_modal_image_gallery' ];
-									$image_gallery_url = Group_Control_Image_Size::get_attachment_image_src( $image_gallery['id'], 'thumbnail', $gallery );
-							
-									if ( empty( $image_gallery_url ) ) {
-										$image_gallery_url = $image_gallery['url'];
-									} else {
-										$image_gallery_url = $image_gallery_url;
-									}
 									echo '<div class="exad-modal-element-card">';
 										echo '<div class="exad-modal-element-card-thumb">';
-											echo '<img src="'.esc_url( $image_gallery_url ).'" >';
+											echo Group_Control_Image_Size::get_attachment_image_html( $gallery, 'thumbnail', 'exad_modal_image_gallery' );
 										echo '</div>';
 										if ( !empty( $gallery['exad_modal_image_gallery_text'] ) ) {
 											echo '<div class="exad-modal-element-card-body">';
