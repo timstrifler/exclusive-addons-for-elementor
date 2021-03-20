@@ -1244,9 +1244,9 @@ class Tabs extends Widget_Base {
 				$has_image = !empty( $tab['exad_exclusive_tab_image']['url'] ) ? 'yes' : 'no';
 				$link_key  = 'link_' . $key;
 
-				$exad_tab_btn_link = !empty( $tab['exad_exclusive_tab_detail_btn_link']['url'] );
+				$exad_tab_btn_link = $tab['exad_exclusive_tab_detail_btn_link']['url'];
 				$this->add_render_attribute( $link_key, 'class', 'exad-tab-btn' );
-				if( $exad_tab_btn_link ) {
+				if( !empty( $exad_tab_btn_link ) ) {
 		            $this->add_render_attribute( $link_key, 'href', esc_url( $exad_tab_btn_link ) );
 					if( $tab['exad_exclusive_tab_detail_btn_link']['is_external'] ) {
 					    $this->add_render_attribute( $link_key, 'target', '_blank' );
