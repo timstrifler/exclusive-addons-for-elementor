@@ -22,7 +22,7 @@ class Facebook_Feed extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-logo eicon-facebook';
+		return 'exad exad-logo exad-facebook-feed';
 	}
 
 	public function get_keywords() {

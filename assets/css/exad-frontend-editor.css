@@ -10,7 +10,7 @@
     padding: 10px;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Exclusive Addons';
   src:  url('fonts/Exclusive-Addons.eot?kndv7j');
   src:  url('fonts/Exclusive-Addons.eot?kndv7j#iefix') format('embedded-opentype'),
@@ -20,10 +20,37 @@
   font-weight: normal;
   font-style: normal;
   font-display: block;
+} */
+
+@font-face {
+  font-family: 'Exclusive Addons';
+  src:  url('fonts/Exclusive-Addons.eot?taoi5p');
+  src:  url('fonts/Exclusive-Addons.eot?taoi5p#iefix') format('embedded-opentype'),
+    url('fonts/Exclusive-Addons.ttf?taoi5p') format('truetype'),
+    url('fonts/Exclusive-Addons.woff?taoi5p') format('woff'),
+    url('fonts/Exclusive-Addons.svg?taoi5p#Exclusive-Addons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
 
 /* [class^="exad-"], [class*=" exad-"] { */
-  .exad {
+  /* .exad { */
+  /* use !important to prevent issues with browser extensions that change fonts */
+  /* font-family: 'Exclusive Addons' !important; */
+  /* speak: never; */
+  /* font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1; */
+
+  /* Better Font Rendering =========== */
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+.exad {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'Exclusive Addons' !important;
   /* speak: never; */
@@ -55,6 +82,21 @@ i.exad-extention-logo::after {
   font-size: 16px;
 }
 
+.exad-facebook-feed:before {
+  content: "\e94b";
+}
+.exad-woo-cart:before {
+  content: "\e94c";
+}
+.exad-woo-checkout:before {
+  content: "\e94d";
+}
+.exad-woo-minicart:before {
+  content: "\e94e";
+}
+.exad-author-box:before {
+  content: "\e94f";
+}
 .exad-lottie-animation:before {
   content: "\e94a";
 }
