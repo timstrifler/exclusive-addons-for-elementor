@@ -100,6 +100,9 @@ i.exad-extention-logo::after {
 .exad-lottie-animation:before {
   content: "\e94a";
 }
+.exad-lottie:before {
+  content: "\e950";
+}
 .exad-accordion:before {
   content: "\e900";
 }
