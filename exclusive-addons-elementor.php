@@ -36,6 +36,9 @@ if ( ! defined( 'MINIMUM_PHP_VERSION' ) ) define( 'MINIMUM_PHP_VERSION', '5.4' )
  */	
 function exad_initiate_plugin() {
 
+	// Exclusive Addons Elementor activated checking hook
+	do_action( 'exad/exclusive_addons_active' );
+	
 	// Check if Elementor installed and activated
 	if ( ! did_action( 'elementor/loaded' ) ) {
 		add_action( 'admin_notices', 'exad_admin_notice_missing_elementor' );

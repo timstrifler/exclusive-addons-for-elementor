@@ -91,8 +91,6 @@ final class Base {
             add_action( 'admin_init', [ $this, 'plugin_redirect_hook' ] );
         }
 
-        // Exclusive Addons Elementor activated checking hook
-        do_action( 'exad/exclusive_addons_active' );
         add_action( 'init', [ $this, 'i18n' ] );
         // Placeholder image replacement
         add_filter( 'elementor/utils/get_placeholder_image_src', [ $this, 'set_placeholder_image' ], 30 );
