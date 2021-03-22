@@ -1239,6 +1239,13 @@ ul.exad-call-to-action-buttons {
 
 .exad-contact-form-7 .wpcf7-form input[type="submit"] {
   transition: all .4s ease;
+  display: flex;
+}
+
+.exad-contact-form-7 .exad-cf7-column{
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 15px;
 }
 
 .exad-contact-form .exad-contact-form-input-action i {
@@ -1249,6 +1256,8 @@ ul.exad-call-to-action-buttons {
   display: flex;
   flex-wrap: wrap;
 }
+
+.exad-contact-form-7 br{ display: none;}
 
 /* Contact Form 7 End */
 
