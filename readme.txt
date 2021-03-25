@@ -222,7 +222,7 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 == Changelog ==
 
 = 2.3.84 - 25/03/2021 =
-- Improves some customization options with Contact Form 7.
+- Improved some customization options with Contact Form 7.
 - Fixed Admin notices for Pro version.
 
 = 2.3.83 - 21/03/2021 =
