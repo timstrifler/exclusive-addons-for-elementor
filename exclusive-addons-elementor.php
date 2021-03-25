@@ -2,12 +2,12 @@
 /**
  * Plugin Name: Exclusive Addons Elementor
  * Plugin URI: https://exclusiveaddons.com/
- * Description: Packed with a bunch of Exclusively designed widgets for Elementor.
- * Version: 2.3.83
+ * Description: Packed with a bunch of Exclusively designed widgets for Elementor with all the customizations you ever imagined.
+ * Version: 2.3.84
  * Author: DevsCred.com
  * Author URI: https://devscred.com/
  * Elementor tested up to: 3.1.4
- * Elementor Pro tested up to: 3.2.0
+ * Elementor Pro tested up to: 3.2.1
  * Text Domain: exclusive-addons-elementor
  * Domain Path: /languages
  * License: GPL3
@@ -24,7 +24,7 @@ if ( ! defined( 'EXAD_EXTENSIONS' ) ) define( 'EXAD_EXTENSIONS', plugin_dir_path
 if ( ! defined( 'EXAD_TEMPLATES' ) ) define( 'EXAD_TEMPLATES', EXAD_PATH . 'includes/template-parts/' );
 if ( ! defined( 'EXAD_URL' ) ) define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
 if ( ! defined( 'EXAD_ASSETS_URL' ) ) define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );
-if ( ! defined( 'EXAD_PLUGIN_VERSION' ) ) define( 'EXAD_PLUGIN_VERSION', '2.3.83' );
+if ( ! defined( 'EXAD_PLUGIN_VERSION' ) ) define( 'EXAD_PLUGIN_VERSION', '2.3.84' );
 if ( ! defined( 'MINIMUM_ELEMENTOR_VERSION' ) ) define( 'MINIMUM_ELEMENTOR_VERSION', '2.0.0' );
 if ( ! defined( 'MINIMUM_PHP_VERSION' ) ) define( 'MINIMUM_PHP_VERSION', '5.4' );
 

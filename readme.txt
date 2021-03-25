@@ -3,12 +3,12 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.7
-Stable tag: 2.3.83
+Stable tag: 2.3.84
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
-Packed with a bunch of Exclusively designed widget for Elementor with all the customization options you'll ever need.
+Packed with a bunch of Exclusively designed widgets for Elementor with all the customizations you ever imagined.
 
 == Description ==
 
@@ -220,6 +220,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.3.84 - 25/03/2021 =
+- Improves some customization options with Contact Form 7.
+- Fixed Admin notices for Pro version.
 
 = 2.3.83 - 21/03/2021 =
 - Fixed issue with Tab widget read more button.
