@@ -49,9 +49,9 @@ class GlassEffect {
 				'step' => 1,
                 'default' => 20,
                 'selectors' => [
-					'{{WRAPPER}}.exad-glass-effect-yes.elementor-section' => 'backdrop-filter: blur({{SIZE}}px);',
-					'{{WRAPPER}}.exad-glass-effect-yes > .elementor-column-wrap' => 'backdrop-filter: blur({{SIZE}}px);',
-					'{{WRAPPER}}.exad-glass-effect-yes > .elementor-widget-container' => 'backdrop-filter: blur({{SIZE}}px);',
+					'{{WRAPPER}}.exad-glass-effect-yes.elementor-section' => 'backdrop-filter: blur({{SIZE}}px); -webkit-backdrop-filter: blur({{SIZE}}px);',
+					'{{WRAPPER}}.exad-glass-effect-yes > .elementor-column-wrap' => 'backdrop-filter: blur({{SIZE}}px); -webkit-backdrop-filter: blur({{SIZE}}px);',
+					'{{WRAPPER}}.exad-glass-effect-yes > .elementor-widget-container' => 'backdrop-filter: blur({{SIZE}}px); -webkit-backdrop-filter: blur({{SIZE}}px);',
 				],
                 'condition' => [
                     'exad_enable_glass_effect' => 'yes'
