@@ -605,6 +605,20 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
+            'site-logo'  => [
+                'title'  => __( 'Site Logo', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Site_Logo',
+                'demo_link' => 'https://exclusiveaddons.com/site-logo/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'site-title'  => [
+                'title'  => __( 'Site Title', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Site_Title',
+                'demo_link' => 'https://exclusiveaddons.com/site-title/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'site-title'  => [
                 'title'  => __( 'Site Title', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Site_Title',
