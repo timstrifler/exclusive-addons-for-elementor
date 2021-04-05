@@ -26,6 +26,15 @@ class GlassEffect {
 		);
 
         $section->add_control(
+            'exad_glassmorphism_panel_notice_text',
+            [
+                'type'            => Controls_Manager::RAW_HTML,
+                'raw'             => __('Glassmorphism will not work in Mozila Firefox until they provide support for the CSS property that enables it', 'exclusive-addons-elementor'),
+                'content_classes' => 'exad-panel-notice',
+            ]
+        );
+
+        $section->add_control(
             'exad_enable_glass_effect',
             [
 				'label'        => __( 'Enable Glassmorphism', 'exclusive-addons-elementor' ),
