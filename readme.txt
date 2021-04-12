@@ -71,8 +71,6 @@ And have the most beautiful design, not to mention.
 31. **[Covid-19 Stats](https://exclusiveaddons.com/covid-19-stats-demo/)** - Simple and clean Covid 19 stats for your visitors.
 32. **[Facebook Feed](https://exclusiveaddons.com/facebook-feed/)** - Display your Facebook page's posts with Likes, Comments and Shares in real time.
 
-https://exclusiveaddons.com/glassmorphism/
-
 FREE EXTENSIONS:
 1. **[Post Duplicator](#)** - Duplicate and Post/Page in just a single click.
 2. **[Sticky Extension](https://exclusiveaddons.com/sticky/)** Make any secttion, Column or widget as sticky. This does not work in Editor mode by now. It works on the Frontend flawlessly.
@@ -94,7 +92,7 @@ We have enabled Inline Editing with Live Preview for most of our elements. That 
 This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
 
 
-### 44+ USEFUL WIDGETS and 4 EXTENSIONS ON OUR [PREMIUM VERSION](https://exclusiveaddons.com/pricing)
+### 48+ PREMIUM WIDGETS and EXTENSIONS ON OUR [PRO VERSION](https://exclusiveaddons.com/pricing)
 
 1. **[Demo Previewer](https://exclusiveaddons.com/demo-previewer/)** - A unique widget from the best elementor addons. Demo Previewer Widget offers the opportunity to showcase a demo or short preview of any product and provide an idea about the pricing on your WordPress site.
 2. **[Breadcrumb](https://exclusiveaddons.com/exclusive-addons/breadcrumb/)** - Breadcrumb Widget is a fully responsive navigator, that can trace the visitor’s footsteps on a certain path on a website. Every step of that path is clickable, from the homepage to the current location.
