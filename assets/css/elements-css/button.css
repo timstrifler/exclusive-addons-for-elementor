@@ -11,6 +11,7 @@
 }
 .exad-button-wrapper {
   margin: 0 auto;
+  display: flex;
 }
 .exad-button-wrapper.exad-button-fixed-height-yes .exad-button-action{
   position: relative;
@@ -369,7 +370,7 @@
 
 .exad-button-wrapper.effect-12 .exad-button-action:hover {
   background: #fff;
-  box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1);
+  /* box-shadow: 0px 18px 43px 0px rgba(24, 37, 65, 0.1); */
 }
 
 .exad-button-wrapper.effect-12 .exad-button-action:hover::before, .exad-button-wrapper.effect-12 .exad-button-action:hover::after {

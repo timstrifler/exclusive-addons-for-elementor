@@ -9,6 +9,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Control_Media;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Css_Filter;
+use \Elementor\Icons_Manager;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \ExclusiveAddons\Elementor\Helper;
@@ -102,6 +103,21 @@ class Testimonial extends Widget_Base {
 				'label'   => esc_html__( 'Display Rating?', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'no'
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_rating_icon',
+			[
+				'label' => __( 'Icon', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::ICONS,
+				'default' => [
+					'value' => 'fas fa-star',
+					'library' => 'solid',
+				],
+				'condition' => [
+					'exad_testimonial_enable_rating' => 'yes'
+				]
 			]
 		);
 
@@ -815,11 +831,14 @@ class Testimonial extends Widget_Base {
 	}
 
 	private function render_testimonial_rating( $ratings ) {
+		$settings = $this->get_settings_for_display();
+		// $rating_icon = $settings['exad_testimonial_rating_icon']['value'];
+		
 		for( $i = 1; $i <= 5; $i++ ) {
 			if( $ratings >= $i ) {
-				$rating_active_class = '<li class="exad-testimonial-ratings-active"><i class="eicon-star-o"></i></li>';
+				$rating_active_class = '<li class="exad-testimonial-ratings-active">'.Icons_Manager::render_icon( $settings['exad_testimonial_rating_icon'] ).'</li>';
 			} else {
-				$rating_active_class = '<li><i class="eicon-star-o"></i></li>';
+				$rating_active_class = '<li>'.Icons_Manager::render_icon( $settings['exad_testimonial_rating_icon'] ).'</li>';
 			}
 			echo $rating_active_class;
 		}
@@ -949,9 +968,9 @@ class Testimonial extends Widget_Base {
 							      	var $rating_active_class = '';
 							      	for( var $i = 1; $i <= 5; $i++ ) {
 								        if( $ratings >= $i ) { #>
-								          <li class="exad-testimonial-ratings-active"><i class="eicon-star-o"></i></li>
+								          <li class="exad-testimonial-ratings-active"><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
 								        <# } else { #>
-								          <li><i class="eicon-star-o"></i></li>
+								          <li><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
 								        <# }
 							      	}
 						    	#>

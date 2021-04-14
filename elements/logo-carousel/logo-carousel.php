@@ -191,7 +191,7 @@ class Logo_Carousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_logo_carousel_max_height',
 			[
 				'label' => __( 'Height', 'exclusive-addons-elementor' ),
@@ -241,7 +241,7 @@ class Logo_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_logo_carousel_item_radius',
 			[
 				'label'      => esc_html__( 'Item Radius', 'exclusive-addons-elementor' ),
@@ -259,7 +259,7 @@ class Logo_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_logo_carousel_item_margin',
 			[
 				'label'      => esc_html__( 'Item margin', 'exclusive-addons-elementor' ),
@@ -277,7 +277,7 @@ class Logo_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_logo_carousel_item_padding',
 			[
 				'label'      => esc_html__( 'Item Padding', 'exclusive-addons-elementor' ),
@@ -404,7 +404,7 @@ class Logo_Carousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_logo_carousel_arrows_size',
             [
                 'label'         => __( 'Size', 'exclusive-addons-elementor' ),
@@ -425,7 +425,7 @@ class Logo_Carousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_logo_carousel_arrow_width',
             [
                 'label'         => __( 'Width', 'exclusive-addons-elementor' ),
@@ -446,7 +446,7 @@ class Logo_Carousel extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_logo_carousel_arrow_height',
             [
                 'label'         => __( 'Height', 'exclusive-addons-elementor' ),
@@ -481,7 +481,7 @@ class Logo_Carousel extends Widget_Base {
         
         $this->start_popover();
 
-            $this->add_control(
+            $this->add_responsive_control(
                 'exad_logo_carousel_prev_arrow_position_x_offset',
                 [
                     'label' => __( 'X Offset', 'exclusive-addons-elementor' ),
@@ -507,7 +507,7 @@ class Logo_Carousel extends Widget_Base {
                 ]
             );
 
-            $this->add_control(
+            $this->add_responsive_control(
                 'exad_logo_carousel_prev_arrow_position_y_offset',
                 [
                     'label' => __( 'Y Offset', 'exclusive-addons-elementor' ),
@@ -549,7 +549,7 @@ class Logo_Carousel extends Widget_Base {
         
         $this->start_popover();
 
-            $this->add_control(
+            $this->add_responsive_control(
                 'exad_logo_carousel_next_arrow_position_x_offset',
                 [
                     'label' => __( 'X Offset', 'exclusive-addons-elementor' ),
@@ -575,7 +575,7 @@ class Logo_Carousel extends Widget_Base {
                 ]
             );
 
-            $this->add_control(
+            $this->add_responsive_control(
                 'exad_logo_carousel_next_arrow_position_y_offset',
                 [
                     'label' => __( 'Y Offset', 'exclusive-addons-elementor' ),
@@ -814,7 +814,7 @@ class Logo_Carousel extends Widget_Base {
                 ]
             );
 
-            $this->add_control(
+            $this->add_responsive_control(
                 'exad_logo_carousel_dot_bullet_border_radius',
                 [
                     'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -892,7 +892,7 @@ class Logo_Carousel extends Widget_Base {
                 ]
             );
 
-            $this->add_control(
+            $this->add_responsive_control(
                 'exad_logo_carousel_dot_bullet_active_border_radius',
                 [
                     'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),

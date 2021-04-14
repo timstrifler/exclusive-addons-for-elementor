@@ -306,9 +306,16 @@ class Button extends Widget_Base {
 						'icon'  => 'eicon-text-align-right'
 					]
 				],
-				'default'       => 'center',
+				'desktop_default' => 'center',
+				'tablet_default' => 'center',
+				'mobile_default' => 'center',
+				'selectors_dictionary' => [
+					'left' => 'justify-content: flex-start;',
+					'center' => 'justify-content: center;',
+					'right' => 'justify-content: flex-end;',
+				],
 				'selectors'     => [
-					'{{WRAPPER}} .exad-button-wrapper' => 'text-align: {{VALUE}};'
+					'{{WRAPPER}} .exad-button-wrapper' => '{{VALUE}};'
 				]
 			]
 		);
