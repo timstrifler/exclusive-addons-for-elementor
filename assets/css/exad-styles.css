@@ -2257,7 +2257,7 @@ ul.exad-call-to-action-buttons {
     padding-bottom: 80%;
 }
 .exad-gallery-menu {
-  display: inline-block;
+  display: block;
 }
 
 .exad-gallery-menu .filter-item {

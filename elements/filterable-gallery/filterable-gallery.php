@@ -8,6 +8,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Background;
 use \Elementor\Control_Media;
 use \Elementor\REPEATER;
 use \Elementor\Icons_Manager;
@@ -376,12 +377,49 @@ class Filterable_Gallery extends Widget_Base
                     'top'      => '0',
                     'right'    => '0',
                     'bottom'   => '50',
-                    'left'     => '30',
+                    'left'     => '0',
                     'unit'     => 'px',
                     'isLinked' => false
                 ],
                 'selectors'    => [
                     '{{WRAPPER}} .exad-gallery-menu' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'exad_fg_control_container_background',
+				'label' => __( 'Background', 'exclusive-addons-elementor' ),
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .exad-gallery-menu',
+			]
+		);
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'     => 'exad_fg_control_container_border',
+                'selector' => '{{WRAPPER}} .exad-gallery-menu',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exad_fg_control_container_border_radius',
+            [
+                'label'      => esc_html__('Border Radius', 'exclusive-addons-elementor'),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'default'    => [
+                    'top'    => 0,
+                    'right'  => 0,
+                    'bottom' => 0,
+                    'left'   => 0,
+                    'unit'   => 'px'
+                ],
+                'selectors'  => [
+                    '{{WRAPPER}} .exad-gallery-menu' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -418,6 +456,34 @@ class Filterable_Gallery extends Widget_Base
         );
 
         $this->add_responsive_control(
+            'exad_fg_item_control_item_alignment',
+            [
+                'label'         => esc_html__('Item Alignment', 'exclusive-addons-elementor'),
+                'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
+                'label_block'   => true,
+                'default'       => 'center',
+                'options'       => [
+                    'left'      => [
+                        'title' => esc_html__('Left', 'exclusive-addons-elementor'),
+                        'icon'  => 'eicon-text-align-left'
+                    ],
+                    'center'    => [
+                        'title' => esc_html__('Center', 'exclusive-addons-elementor'),
+                        'icon'  => 'eicon-text-align-center'
+                    ],
+                    'right'     => [
+                        'title' => esc_html__('Right', 'exclusive-addons-elementor'),
+                        'icon'  => 'eicon-text-align-right'
+                    ]
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-gallery-menu' => 'text-align: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_responsive_control(
             'exad_fg_control_item_padding',
             [
                 'label'      => esc_html__('Padding', 'exclusive-addons-elementor'),
@@ -435,6 +501,28 @@ class Filterable_Gallery extends Widget_Base
                 ]
             ]
         );
+
+        $this->add_control(
+			'exad_fg_control_item_spacing',
+			[
+				'label'       => __( 'Between Items Spacing', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 100
+					],
+				],
+                'default'    => [
+                    'unit'   => 'px',
+                    'size'   => 10
+                ],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-gallery-menu .filter-item:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};'
+                ],
+			]
+		);
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),

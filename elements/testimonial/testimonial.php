@@ -836,9 +836,9 @@ class Testimonial extends Widget_Base {
 		
 		for( $i = 1; $i <= 5; $i++ ) {
 			if( $ratings >= $i ) {
-				$rating_active_class = '<li class="exad-testimonial-ratings-active">'.Icons_Manager::render_icon( $settings['exad_testimonial_rating_icon'] ).'</li>';
+				$rating_active_class = '<li class="exad-testimonial-ratings-active"><i class="'.$settings['exad_testimonial_rating_icon']['value'].'"></i></li>';
 			} else {
-				$rating_active_class = '<li>'.Icons_Manager::render_icon( $settings['exad_testimonial_rating_icon'] ).'</li>';
+				$rating_active_class = '<li><i class="'.$settings['exad_testimonial_rating_icon']['value'].'"></i></li>';
 			}
 			echo $rating_active_class;
 		}
