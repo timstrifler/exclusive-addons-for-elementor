@@ -109,12 +109,15 @@ class Testimonial extends Widget_Base {
 		$this->add_control(
 			'exad_testimonial_rating_icon',
 			[
-				'label' => __( 'Icon', 'exclusive-addons-elementor' ),
+				'label' => __( 'Rating Icon', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::ICONS,
+				'label_block' => false,
 				'default' => [
 					'value' => 'fas fa-star',
 					'library' => 'solid',
 				],
+				'skin' => 'inline',
+				'exclude_inline_options' => ['svg'],
 				'condition' => [
 					'exad_testimonial_enable_rating' => 'yes'
 				]
@@ -148,6 +151,19 @@ class Testimonial extends Widget_Base {
 			[
 				'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_control(
+			'exad_testimonial_layout',
+			[
+				'label' => __( 'Layout', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'layout-1',
+				'options' => [
+					'layout-1'  => __( 'Layout 1', 'exclusive-addons-elementor' ),
+					'layout-2' => __( 'Layout 2', 'exclusive-addons-elementor' ),
+				],
 			]
 		);
 
@@ -378,7 +394,7 @@ class Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_testimonial_image_box_margin_bottom',
 			[
-				'label'       => __( 'Bottom Spaing', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Bottom Spacing', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
@@ -489,6 +505,34 @@ class Testimonial extends Widget_Base {
 				],
 				'selectors'   => [
 					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_testimonial_layout' => 'layout-1'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_testimonial_description_spacing_top',
+			[
+				'label'       => __( 'Top Spacing', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'default'     => [
+					'unit'    => 'px',
+					'size'    => 20
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-testimonial-content-wrapper' => 'margin-top: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_testimonial_layout' => 'layout-2'
 				]
 			]
 		);
@@ -882,17 +926,20 @@ class Testimonial extends Widget_Base {
 		}
 
 		echo '<div class="exad-testimonial-wrapper '.esc_attr( $settings['exad_testimonial_container_alignment'] ).'">';
-			echo '<div class="exad-testimonial-wrapper-inner">';
-				echo '<div '.$this->get_render_attribute_string( 'exad_testimonial_content_wrapper' ).'>';
-					if ( !empty( $settings['exad_testimonial_description'] ) ) :
-						echo '<p '.$this->get_render_attribute_string( 'exad_testimonial_description' ).'>'.wp_kses_post( $settings['exad_testimonial_description'] ).'</p>';
-						if ( 'yes' === $settings['exad_testimonial_enable_rating'] ) :
-							echo '<ul class="exad-testimonial-ratings">';
-								$this->render_testimonial_rating( $settings['exad_testimonial_rating_number'] );
-							echo '</ul>';
+			echo '<div class="exad-testimonial-wrapper-inner '. $settings['exad_testimonial_layout'] .'">';
+				if( 'layout-1' === $settings['exad_testimonial_layout'] ){
+
+					echo '<div '.$this->get_render_attribute_string( 'exad_testimonial_content_wrapper' ).'>';
+						if ( !empty( $settings['exad_testimonial_description'] ) ) :
+							echo '<p '.$this->get_render_attribute_string( 'exad_testimonial_description' ).'>'.wp_kses_post( $settings['exad_testimonial_description'] ).'</p>';
+							if ( 'yes' === $settings['exad_testimonial_enable_rating'] ) :
+								echo '<ul class="exad-testimonial-ratings">';
+									$this->render_testimonial_rating( $settings['exad_testimonial_rating_number'] );
+								echo '</ul>';
+							endif;
 						endif;
-					endif;
-				echo '</div>';
+					echo '</div>';
+				}
 				echo '<div class="exad-testimonial-reviewer-wrapper">';
 					if( 'exad-testimonial-align-bottom' !== $settings['exad_testimonial_container_alignment'] ) :
 						echo $this->render_testimonial_image( $testimonial_image_url, $settings['exad_testimonial_image'] );
@@ -911,10 +958,23 @@ class Testimonial extends Widget_Base {
 						echo $this->render_testimonial_image( $testimonial_image_url, $settings['exad_testimonial_image'] );
 					endif;
 				echo '</div>';
+				if( 'layout-2' === $settings['exad_testimonial_layout'] ){
+
+					echo '<div '.$this->get_render_attribute_string( 'exad_testimonial_content_wrapper' ).'>';
+						if ( !empty( $settings['exad_testimonial_description'] ) ) :
+							echo '<p '.$this->get_render_attribute_string( 'exad_testimonial_description' ).'>'.wp_kses_post( $settings['exad_testimonial_description'] ).'</p>';
+							if ( 'yes' === $settings['exad_testimonial_enable_rating'] ) :
+								echo '<ul class="exad-testimonial-ratings">';
+									$this->render_testimonial_rating( $settings['exad_testimonial_rating_number'] );
+								echo '</ul>';
+							endif;
+						endif;
+					echo '</div>';
+				}
 			echo '</div>';
 		echo '</div>';
 	}
-
+	
 	/**
      * Render testimonial widget output in the editor.
      *
@@ -954,31 +1014,33 @@ class Testimonial extends Widget_Base {
 		#>
 
 		<div class="exad-testimonial-wrapper {{ settings.exad_testimonial_container_alignment }}">
-	        <div class="exad-testimonial-wrapper-inner">
-	            <div {{{ view.getRenderAttributeString( 'exad_testimonial_content_wrapper' ) }}}>
-	          		<# if ( settings.exad_testimonial_description ) { #>
-                      	<p {{{ view.getRenderAttributeString( 'exad_testimonial_description' ) }}}>
-                          	{{{ settings.exad_testimonial_description }}}
-                      	</p>
-                      	<# if ( 'yes' === settings.exad_testimonial_enable_rating ) { #>
-							
-							<ul class="exad-testimonial-ratings">
-							 	<#
-							       	var $ratings = settings.exad_testimonial_rating_number;
-							      	var $rating_active_class = '';
-							      	for( var $i = 1; $i <= 5; $i++ ) {
-								        if( $ratings >= $i ) { #>
-								          <li class="exad-testimonial-ratings-active"><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
-								        <# } else { #>
-								          <li><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
-								        <# }
-							      	}
-						    	#>
-					        </ul>
+	        <div class="exad-testimonial-wrapper-inner {{ settings.exad_testimonial_layout }}">
+				<# if( 'layout-1' === settings.exad_testimonial_layout ){ #>
+					<div {{{ view.getRenderAttributeString( 'exad_testimonial_content_wrapper' ) }}}>
+						<# if ( settings.exad_testimonial_description ) { #>
+							<p {{{ view.getRenderAttributeString( 'exad_testimonial_description' ) }}}>
+								{{{ settings.exad_testimonial_description }}}
+							</p>
+							<# if ( 'yes' === settings.exad_testimonial_enable_rating ) { #>
+								
+								<ul class="exad-testimonial-ratings">
+									<#
+										var $ratings = settings.exad_testimonial_rating_number;
+										var $rating_active_class = '';
+										for( var $i = 1; $i <= 5; $i++ ) {
+											if( $ratings >= $i ) { #>
+											<li class="exad-testimonial-ratings-active"><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
+											<# } else { #>
+											<li><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
+											<# }
+										} 
+									#>
+								</ul>
 
+							<# } #>
 						<# } #>
-                  	<# } #>
-	            </div>
+					</div>
+				<# } #>
 
 	            <div class="exad-testimonial-reviewer-wrapper">
 					<# if( 'exad-testimonial-align-bottom' !== settings.exad_testimonial_container_alignment ) { #>	
@@ -1010,6 +1072,32 @@ class Testimonial extends Widget_Base {
 						<# } #>
 					<# } #>					
 	        	</div>
+				<# if( 'layout-2' === settings.exad_testimonial_layout ){ #>
+					<div {{{ view.getRenderAttributeString( 'exad_testimonial_content_wrapper' ) }}}>
+						<# if ( settings.exad_testimonial_description ) { #>
+							<p {{{ view.getRenderAttributeString( 'exad_testimonial_description' ) }}}>
+								{{{ settings.exad_testimonial_description }}}
+							</p>
+							<# if ( 'yes' === settings.exad_testimonial_enable_rating ) { #>
+								
+								<ul class="exad-testimonial-ratings">
+									<#
+										var $ratings = settings.exad_testimonial_rating_number;
+										var $rating_active_class = '';
+										for( var $i = 1; $i <= 5; $i++ ) {
+											if( $ratings >= $i ) { #>
+											<li class="exad-testimonial-ratings-active"><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
+											<# } else { #>
+											<li><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
+											<# }
+										}
+									#>
+								</ul>
+
+							<# } #>
+						<# } #>
+					</div>
+				<# } #>
 	        </div>
 	    </div>
 		<?php

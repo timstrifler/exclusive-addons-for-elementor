@@ -89,29 +89,54 @@
   line-height: 1;
 }
 
+.exad-testimonial-wrapper-inner.layout-2 .exad-testimonial-content-wrapper-arrow::before{
+  /* top: -15px; */
+  transform: translateX(-50%) rotate(180deg);
+}
+
 .exad-testimonial-content-wrapper-arrow{
   position: relative;
   z-index: 1;
 }
 
-.exad-testimonial-wrapper.exad-testimonial-align-center .exad-testimonial-content-wrapper-arrow::before{
+.exad-testimonial-wrapper.exad-testimonial-align-center .exad-testimonial-wrapper-inner.layout-1 .exad-testimonial-content-wrapper-arrow::before{
   left: 50%;
   bottom: -15px;
 }
 
-.exad-testimonial-wrapper.exad-testimonial-align-bottom .exad-testimonial-content-wrapper-arrow::before{
+.exad-testimonial-wrapper.exad-testimonial-align-bottom .exad-testimonial-wrapper-inner.layout-1 .exad-testimonial-content-wrapper-arrow::before{
   left: 50%;
   bottom: -15px;
 }
 
-.exad-testimonial-wrapper.exad-testimonial-align-left .exad-testimonial-content-wrapper-arrow::before{
+.exad-testimonial-wrapper.exad-testimonial-align-left .exad-testimonial-wrapper-inner.layout-1 .exad-testimonial-content-wrapper-arrow::before{
   left: 40px;
   bottom: -15px;
 }
 
-.exad-testimonial-wrapper.exad-testimonial-align-right .exad-testimonial-content-wrapper-arrow::before{
+.exad-testimonial-wrapper.exad-testimonial-align-right .exad-testimonial-wrapper-inner.layout-1 .exad-testimonial-content-wrapper-arrow::before{
   right: 25px;
   bottom: -15px;
+}
+
+.exad-testimonial-wrapper.exad-testimonial-align-center .exad-testimonial-wrapper-inner.layout-2 .exad-testimonial-content-wrapper-arrow::before{
+  left: 50%;
+  top: -15px;
+}
+
+.exad-testimonial-wrapper.exad-testimonial-align-bottom .exad-testimonial-wrapper-inner.layout-2 .exad-testimonial-content-wrapper-arrow::before{
+  left: 50%;
+  top: -15px;
+}
+
+.exad-testimonial-wrapper.exad-testimonial-align-left .exad-testimonial-wrapper-inner.layout-2 .exad-testimonial-content-wrapper-arrow::before{
+  left: 40px;
+  top: -15px;
+}
+
+.exad-testimonial-wrapper.exad-testimonial-align-right .exad-testimonial-wrapper-inner.layout-2 .exad-testimonial-content-wrapper-arrow::before{
+  right: 25px;
+  top: -15px;
 }
 
 .exad-testimonial-wrapper.exad-testimonial-image-aside{
