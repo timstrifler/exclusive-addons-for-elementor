@@ -163,5 +163,17 @@
   border-width: 0.5em 0.5em 0.5em 0;
   border-color: transparent #fff transparent transparent;
 }
+@media ( max-width: 767px ){
+  .exad-tooltip .exad-tooltip-item.tooltip-right .exad-tooltip-content:hover ~ .exad-tooltip-text {
+    -webkit-transform: translate3d(-405%, -50%, 0);
+      transform: translate3d(-45%, -50%, 0);
+  }
+  .exad-tooltip .exad-tooltip-item.tooltip-left .exad-tooltip-content:hover ~ .exad-tooltip-text {
+    -webkit-transform: translate3d(50%, -50%, 0);
+            transform: translate3d(50%, -50%, 0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
 
 /* Tooltip End */

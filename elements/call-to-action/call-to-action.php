@@ -164,77 +164,6 @@ class Call_To_Action extends Widget_Base {
                 'tab'   => Controls_Manager::TAB_STYLE
 			]
         );
-
-        // $this->add_control(
-		// 	'exad_section_cta_container_position',
-		// 	[
-		// 		'label'   => esc_html__( 'Full Container Position', 'exclusive-addons-elementor' ),
-        //         'type'    => Controls_Manager::SELECT,
-        //         'default' => 'exad-section-cta-default',
-		// 		'options' => [
-		// 			'exad-section-cta-default' 	=> esc_html__( 'Default', 	'exclusive-addons-elementor' ),
-		// 			'exad-section-cta-absolute' 	=> esc_html__( 'Absolute', 	'exclusive-addons-elementor' ),
-		// 		]
-		// 	]
-        // );
-        
-        // $this->add_responsive_control(
-        //     'exad_section_cta_container_position_left',
-        //     [
-        //         'label'        => esc_html__( 'X Offset', 'exclusive-addons-elementor' ),
-        //         'type'         => Controls_Manager::SLIDER,
-        //         'size_units' => [ 'px', '%' ],
-        //         'range'        => [
-        //             'px'       => [
-        //                 'min'  => -1000,
-        //                 'max'  => 1000,
-        //             ],
-        //             '%'        => [
-        //                 'min'  => -100,
-        //                 'max'  => 100,
-        //             ],
-        //         ],
-        //         'default'      => [
-        //             'unit'     => 'px',
-        //             'size'     => 0
-        //         ],
-        //         'selectors'    => [
-        //             '{{WRAPPER}} .exad-section-cta-absolute' => 'margin-left: {{SIZE}}px; margin-right: calc(-0% - {{SIZE}}px );'
-        //         ],
-        //         'condition' => [
-        //             'exad_section_cta_container_position' => 'exad-section-cta-absolute'
-        //         ]
-        //     ]
-        // );
-
-        // $this->add_responsive_control(
-        //     'exad_section_cta_container_position_top',
-        //     [
-        //         'label'        => esc_html__( 'Y Offset', 'exclusive-addons-elementor' ),
-        //         'type'         => Controls_Manager::SLIDER,
-        //         'size_units' => [ 'px', '%' ],
-        //         'range'        => [
-        //             'px'       => [
-        //                 'min'  => -1000,
-        //                 'max'  => 1000,
-        //             ],
-        //             '%'       => [
-        //                 'min'  => -100,
-        //                 'max'  => 100,
-        //             ],
-        //         ],
-        //         'default'      => [
-        //             'unit'     => 'px',
-        //             'size'     => 0
-        //         ],
-        //         'selectors'    => [
-        //             '{{WRAPPER}} .exad-section-cta-absolute' => 'margin-top: {{SIZE}}px;'
-        //         ],
-        //         'condition' => [
-        //             'exad_section_cta_container_position' => 'exad-section-cta-absolute'
-        //         ]
-        //     ]
-        // );
         
         $this->add_control(
 			'exad_section_cta_btn_effect',
@@ -277,12 +206,20 @@ class Call_To_Action extends Widget_Base {
                         'icon'   => 'eicon-h-align-right'
                     ]
                 ],
+                'selectors_dictionary' => [
+					'left' => 'text-align: left; justify-content: flex-start;',
+					'center' => 'text-align: center; justify-content: center;',
+					'right' => 'text-align: right; justify-content: flex-end;',
+				],
                 'selectors'      => [
-                    '{{WRAPPER}} .exad-call-to-action.skin-vertical' => 'text-align: {{VALUE}};'
+                    '{{WRAPPER}} .exad-call-to-action.skin-vertical' => '{{VALUE}};',
+                    '{{WRAPPER}} .exad-call-to-action-buttons li' => '{{VALUE}};'
                 ],
-                'default'        => 'center',
+                'desktop_default' => 'center',
+				'tablet_default' => 'center',
+				'mobile_default' => 'center',
                 'condition'      => [
-                    '.exad_cta_skin_type' => 'vertical'
+                    'exad_cta_skin_type' => 'vertical'
                 ]
             ]
         ); 
@@ -579,6 +516,14 @@ class Call_To_Action extends Widget_Base {
                 'label'      => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,            
                 'size_units' => [ 'px', 'em', '%' ],
+                'default'      => [
+                    'top'      => '0',
+                    'right'    => '20',
+                    'bottom'   => '0',
+                    'left'     => '0',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
                 'selectors'  => [
                     '{{WRAPPER}} a.exad-call-to-action-primary-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
