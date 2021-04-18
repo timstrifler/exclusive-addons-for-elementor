@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.7
-Stable tag: 2.3.85
+Tested up to: 5.7.1
+Stable tag: 2.3.90
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -220,6 +220,18 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
+= 2.3.90 - 18/04/2021 =
+- Fixed issues on Call to Action widget.
+- Fixed responsiveness issues on Logo Carousel Widget.
+- Fixed responsiveness issues on Logo Tabs Widget.
+- Fixed responsiveness issues on Tooltip Widget.
+- Improvements on Filterable Gallery Widget.
+- Improvements on Testimonial Widget.
+- Button margin width issue fixed.
+- Added Responsive Control on Heading Widget.
+- Added Orderby Option on Post Grid Widget.
+- Added Feather Icons in Icon Library.
+
 = 2.3.85 - 5/04/2021 =
 - Fixed Safari browser compatibility of Glassmorphism Effect extension.
 
@@ -414,3 +426,5 @@ No Upgrade instruction yet
 == Credits ==
 * We have used [NovelCOVID API](https://github.com/NovelCOVID/API) for our Covid-19 Stats Widget.
 They deserve a huge shoutout for their amazing contribution to the community.
+
+* We have integrated the beautiful [Feather Icons](https://github.com/feathericons/feather) developed by [@colebemis](https://twitter.com/colebemis) in our Icon Library.
