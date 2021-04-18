@@ -3035,7 +3035,7 @@ ul.exad-call-to-action-buttons {
   margin: 0;
 }
 
-.exad-exclusive-heading .exad-heading-left {
+/* .exad-exclusive-heading .exad-heading-left {
   text-align: left;
 }
 .exad-heading-left .exad-heading-separator{
@@ -3046,11 +3046,11 @@ ul.exad-call-to-action-buttons {
 }
 .exad-heading-left .exad-heading-icon-box-yes .exad-heading-icon{
   margin-right: auto;
-}
-.exad-heading-right .exad-heading-icon-box-yes .exad-heading-icon{
+} */
+/* .exad-heading-right .exad-heading-icon-box-yes .exad-heading-icon{
   margin-left: auto;
-}
-.exad-heading-center .exad-heading-icon-box-yes .exad-heading-icon{
+} */
+/* .exad-heading-center .exad-heading-icon-box-yes .exad-heading-icon{
   margin-left: auto;
   margin-right: auto;
 }
@@ -3064,8 +3064,8 @@ ul.exad-call-to-action-buttons {
 .exad-heading-center .exad-heading-icon{
   margin-left: auto;
   margin-right: auto;
-}
-.exad-exclusive-heading .exad-heading-right {
+} */
+/* .exad-exclusive-heading .exad-heading-right {
   text-align: right;
 }
 .exad-heading-right .exad-heading-separator{
@@ -3073,7 +3073,7 @@ ul.exad-call-to-action-buttons {
 }
 .exad-heading-right .exad-heading-icon{
   margin-left: auto;
-}
+} */
 
 .exad-heading-icon-box-yes .exad-heading-icon{
   position: relative;

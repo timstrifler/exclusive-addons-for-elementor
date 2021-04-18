@@ -128,13 +128,13 @@ class Heading extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_heading_title_alignment',
 			[
 				'label'       => esc_html__( 'Alignment', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'toggle'      => false,
-				'label_block' => true,
+				'label_block' => false,
 				'options'     => [
 					'exad-heading-left'   => [
 						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
@@ -148,6 +148,17 @@ class Heading extends Widget_Base {
 						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-text-align-right'
 					]
+				],
+				'selectors_dictionary' => [
+					'exad-heading-left' => 'text-align: left; margin-right: auto; margin-left: unset;',
+					'exad-heading-center' => 'text-align: center; margin-left: auto; margin-right: auto;',
+					'exad-heading-right' => 'text-align: right; margin-left: auto; margin-right: unset',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-exclusive-heading' => '{{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-heading .exad-heading-separator' => '{{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-heading .exad-heading-icon' => '{{VALUE}};',
+					'{{WRAPPER}} .exad-exclusive-heading .exad-heading-icon-box-yes .exad-heading-icon' => '{{VALUE}};',
 				],
 				'default'     => 'exad-heading-center'
 			]

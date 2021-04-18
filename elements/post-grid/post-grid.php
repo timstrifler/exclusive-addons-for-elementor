@@ -178,6 +178,23 @@ class Post_Grid extends Widget_Base {
         );
 
         $this->add_control(
+            'exad_post_grid_order_by',
+            [
+				'label'    => __( 'Ordered By', 'exclusive-addons-elementor' ),
+				'type'     => Controls_Manager::SELECT,
+                'default'  => 'desc',
+				'options'  => [
+					'ID'  => __( 'ID', 'exclusive-addons-elementor' ),
+					'date'  => __( 'Date', 'exclusive-addons-elementor' ),
+					'modified' => __( 'Modified', 'exclusive-addons-elementor' ),
+					'author' => __( 'Author Name', 'exclusive-addons-elementor' ),
+					'title' => __( 'Post Title', 'exclusive-addons-elementor' ),
+					'name' => __( 'Post Name', 'exclusive-addons-elementor' ),
+                ]
+            ]
+        );
+
+        $this->add_control(
 			'exad_post_grid_ignore_sticky',
 			[
 				'label'        => esc_html__( 'Ignore Sticky?', 'exclusive-addons-elementor' ),
@@ -1807,6 +1824,7 @@ class Post_Grid extends Widget_Base {
 				'data-posts_per_page' => $settings['exad_post_grid_per_page'],
 				'data-post-offset'    => $settings['exad_post_grid_offset'],
 				'data-post-order'     => $settings['exad_post_grid_order'],
+				'data-post-order_by'     => $settings['exad_post_grid_order_by'],
 				'data-post-tag__in'   => $settings['exad_post_grid_tags'],
 				'data-post-thumbnail' => $settings['exad_post_grid_show_image'],
 				'data-equal_height' => $settings['exad_post_grid_equal_height'],

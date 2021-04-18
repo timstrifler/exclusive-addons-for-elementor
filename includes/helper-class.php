@@ -225,7 +225,7 @@ class Helper {
             'cat'              => $category_ids,
             'category_name'    => '',
             'ignore_sticky_posts' => $exad_ignore_sticky,
-            'orderby'          => 'date',
+            'orderby'          => $settings[ 'exad_post_grid_order_by' ],
             'order'            => $settings[ $prefix . '_order'],
             'include'          => '',
             'exclude'          => '',
