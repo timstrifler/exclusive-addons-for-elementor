@@ -298,6 +298,9 @@ final class Base {
         if( is_admin() ) {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
+
+        include_once EXAD_PATH . 'extensions/exclusive-icon-manager.php';
+
         if ( is_user_logged_in() ) {
             include_once EXAD_PATH . 'library/library-manager.class.php' ;
             include_once EXAD_PATH . 'library/library-source.class.php' ;   
