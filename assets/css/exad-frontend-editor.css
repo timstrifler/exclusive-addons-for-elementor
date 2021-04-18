@@ -12,11 +12,11 @@
 
 @font-face {
   font-family: 'Exclusive Addons';
-  src:  url('fonts/Exclusive-Addons.eot?taoi5p');
-  src:  url('fonts/Exclusive-Addons.eot?taoi5p#iefix') format('embedded-opentype'),
-    url('fonts/Exclusive-Addons.ttf?taoi5p') format('truetype'),
-    url('fonts/Exclusive-Addons.woff?taoi5p') format('woff'),
-    url('fonts/Exclusive-Addons.svg?taoi5p#Exclusive-Addons') format('svg');
+  src:  url('../fonts/Exclusive-Addons.eot?taoi5p');
+  src:  url('../fonts/Exclusive-Addons.eot?taoi5p#iefix') format('embedded-opentype'),
+    url('../fonts/Exclusive-Addons.ttf?taoi5p') format('truetype'),
+    url('../fonts/Exclusive-Addons.woff?taoi5p') format('woff'),
+    url('../fonts/Exclusive-Addons.svg?taoi5p#Exclusive-Addons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;

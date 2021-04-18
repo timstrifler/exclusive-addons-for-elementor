@@ -2,11 +2,11 @@
 /* Exclusive Addons Font CSS starts */
 @font-face {
   font-family: 'Exclusive Icons';
-  src:  url('fonts/exad-logo.eot?1gib8x');
-  src:  url('fonts/exad-logo.eot?1gib8x#iefix') format('embedded-opentype'),
-    url('fonts/exad-logo.ttf?1gib8x') format('truetype'),
-    url('fonts/exad-logo.woff?1gib8x') format('woff'),
-    url('fonts/exad-logo.svg?1gib8x#exad-logo') format('svg');
+  src:  url('../fonts/exad-logo.eot?1gib8x');
+  src:  url('../fonts/exad-logo.eot?1gib8x#iefix') format('embedded-opentype'),
+    url('../fonts/exad-logo.ttf?1gib8x') format('truetype'),
+    url('../fonts/exad-logo.woff?1gib8x') format('woff'),
+    url('../fonts/exad-logo.svg?1gib8x#exad-logo') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
