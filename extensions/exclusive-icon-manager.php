@@ -17,7 +17,7 @@ class Icons_Manager {
             'enqueue' => [ EXAD_ASSETS_URL . 'fonts/style.css' ],
             'prefix' => 'icon-',
             'displayPrefix' => 'feather',
-            'labelIcon' => 'exad exad-logo feather icon-feather',
+            'labelIcon' => 'exad exad-logo feather icon-feather exad-font-manager',
             'ver' => EXAD_PLUGIN_VERSION,
             'fetchJson' => EXAD_ASSETS_URL . 'fonts/exclusive-icons.js?v=' . EXAD_PLUGIN_VERSION,
             'native' => false,

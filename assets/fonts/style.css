@@ -23,6 +23,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.exad.exad-logo.exad-font-manager::after{
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+}
+
 .icon-alert-octagon:before { content: "\e81b"; }
 
 .icon-alert-circle:before { content: "\e81c"; }
