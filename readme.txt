@@ -201,26 +201,25 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Screenshots ==
 
-1. This is Front End of Card Element
-2. Front End design of Countdown Timer
-3. Front End design of Flipbox
-4. Front End design of Dual Button
-5. Front End design of Filterable Gallery
-6. Front End design of Heading
-7. Front End design of Image Magnifier
-8. Front End design of Contact Form 7
-9. Front End design of Infobox
-10. Front End design of Pricing Table
-11. Front End design of Team Member
-12. Front End design of Testimonial
-13. Front End design of Button
-14. Pluign Main Dashboard tab 
-15. Dashboard section for enabling/disabling elements
+1. This is the Front End of Image Carousel Widget.
+2. Front End design of Pricing Table and Content Switcher.
+3. Dashboard of enabling and disabling widgets & extensions.
+4. Front End design of Image Hotspot.
+5. Front End design of Accordion Widget.
+6. Front End design of Infobox Widget.
+7. Front End design of Card Widget.
+8. Front End design of Countdown Timer.
+9. Another design of Card Widget.
+10. Front End design of Team Member.
+11. Front End design of Testimonial.
+12. Another design of Testimonial.
+13. Front End design of Demo Previewer.
+14. Front End design of Counter Widget.
 
 
 == Changelog ==
 
-= 2.3.90 - 18/04/2021 =
+= 2.3.90 - 19/04/2021 =
 - Fixed issues on Call to Action widget.
 - Fixed responsiveness issues on Logo Carousel Widget.
 - Fixed responsiveness issues on Logo Tabs Widget.
