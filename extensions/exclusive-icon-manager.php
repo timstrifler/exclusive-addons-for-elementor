@@ -30,7 +30,7 @@ class Icons_Manager {
             'enqueue' => [ EXAD_ASSETS_URL . 'fonts/remixicon.css' ],
             'prefix' => 'ri-',
             'displayPrefix' => 'remixicon',
-            'labelIcon' => 'exad exad-logo remixicon bank-line exad-font-manager',
+            'labelIcon' => 'exad exad-logo remixicon ri-remixicon-fill exad-font-manager',
             'ver' => EXAD_PLUGIN_VERSION,
             'fetchJson' => EXAD_ASSETS_URL . 'fonts/remix-icon.js?v=' . EXAD_PLUGIN_VERSION,
             'native' => false,
