@@ -600,6 +600,6 @@
         "youtube",
         "zip",
         "zoom-in",
-        "zoom-ou"
+        "zoom-out"
     ]
 }

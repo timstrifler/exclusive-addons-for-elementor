@@ -43,7 +43,7 @@ class Icons_Manager {
             'enqueue' => [ EXAD_ASSETS_URL . 'fonts/teeny-icon-style.css' ],
             'prefix' => 'ti-',
             'displayPrefix' => 'teenyicon',
-            'labelIcon' => 'exad exad-logo teenyicon exad-font-manager',
+            'labelIcon' => 'exad exad-logo teenyicon ti-mood-laugh exad-font-manager',
             'ver' => EXAD_PLUGIN_VERSION,
             'fetchJson' => EXAD_ASSETS_URL . 'fonts/teeny-icon.js?v=' . EXAD_PLUGIN_VERSION,
             'native' => false,
