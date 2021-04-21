@@ -10,6 +10,11 @@
     padding: 10px;
 }
 
+.elementor-icons-manager__tab-link{
+  display: flex;
+  align-items: center;
+}
+
 @font-face {
   font-family: 'Exclusive Addons';
   src:  url('../fonts/Exclusive-Addons.eot?taoi5p');
