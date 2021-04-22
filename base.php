@@ -299,7 +299,7 @@ final class Base {
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
 
-        include_once EXAD_PATH . 'extensions/exclusive-icon-manager.php';
+        include_once EXAD_PATH . 'extensions/icons-manager.php';
 
         if ( is_user_logged_in() ) {
             include_once EXAD_PATH . 'library/library-manager.class.php' ;
