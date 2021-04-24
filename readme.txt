@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.7.1
-Stable tag: 2.3.90
+Stable tag: 2.4.0
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -218,6 +218,13 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.4.0 - 24/04/2021 =
+- Improved some customization options with Testimonial Widget.
+- Added Remix Icons in Icon Library.
+- Added Remix Icons in Icon Library.
+- Fixed bugs with Elementor 3.1.1 compatibility..
+- Overall Bug fixes and improvements on different areas.
 
 = 2.3.90 - 19/04/2021 =
 - Fixed issues on Call to Action widget.

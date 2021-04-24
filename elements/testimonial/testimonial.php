@@ -300,7 +300,7 @@ class Testimonial extends Widget_Base {
 					Group_Control_Background::get_type(),
 					[
 						'name'      => 'exad_testimonial_container_background_hover',
-						'types'     => [ 'classic', 'gradient' ],
+						'types'     => [ 'classic' ],
 						'selector'  => '{{WRAPPER}} .exad-testimonial-wrapper:hover'
 					]
 				);
