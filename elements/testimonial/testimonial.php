@@ -89,6 +89,21 @@ class Testimonial extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_testimonial_url',
+			[
+				'label' => __( 'URL', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::URL,
+				'placeholder' => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
+				'show_external' => true,
+				'default' => [
+					'url' => '',
+					'is_external' => true,
+					'nofollow' => true,
+				],
+			]
+		);
+
+		$this->add_control(
 			'exad_testimonial_designation',
 			[
 				'label'   => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
@@ -195,64 +210,13 @@ class Testimonial extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name'      => 'exad_testimonial_container_background',
-				'types'     => [ 'classic', 'gradient' ],
-				'selector'  => '{{WRAPPER}} .exad-testimonial-wrapper'
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'            => 'exad_testimonial_container_border',
-				'fields_options'  => [
-                    'border'      => [
-                        'default' => 'solid'
-                    ],
-                    'width'          => [
-                        'default'    => [
-                            'top'    => '1',
-                            'right'  => '1',
-                            'bottom' => '1',
-                            'left'   => '1'
-                        ]
-                    ],
-                    'color'       => [
-                        'default' => '#e3e3e3'
-                    ]
-				],
-				'selector'        => '{{WRAPPER}} .exad-testimonial-wrapper'
-			]
-		);
-
-		$this->add_responsive_control(
-			'exad_testimonial_container_radius',
-			[
-				'label'      => __( 'Border radius', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'separator'  => 'before',
-				'default'    => [
-					'top'    => '10',
-					'right'  => '10',
-					'bottom' => '10',
-					'left'   => '10'
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .exad-testimonial-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				]
-			]
-		);
-
 		$this->add_responsive_control(
 			'exad_testimonial_container_padding',
 			[
 				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
+				'separator'  => 'before',
 				'default'    => [
 					'top'    => '20',
 					'right'  => '20',
@@ -265,13 +229,130 @@ class Testimonial extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
+		$this->add_responsive_control(
+			'exad_testimonial_container_radius',
 			[
-				'name'     => 'exad_testimonial_container_box_shadow',
-				'selector' => '{{WRAPPER}} .exad-testimonial-wrapper'
+				'label'      => __( 'Border radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default'    => [
+					'top'    => '10',
+					'right'  => '10',
+					'bottom' => '10',
+					'left'   => '10'
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-testimonial-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
 			]
 		);
+
+		$this->start_controls_tabs( 'exad_testimonial_container_tabs' );
+
+			$this->start_controls_tab( 'exad_testimonial_container_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_group_control(
+					Group_Control_Background::get_type(),
+					[
+						'name'      => 'exad_testimonial_container_background',
+						'types'     => [ 'classic', 'gradient' ],
+						'selector'  => '{{WRAPPER}} .exad-testimonial-wrapper'
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name'            => 'exad_testimonial_container_border',
+						'fields_options'  => [
+							'border'      => [
+								'default' => 'solid'
+							],
+							'width'          => [
+								'default'    => [
+									'top'    => '1',
+									'right'  => '1',
+									'bottom' => '1',
+									'left'   => '1'
+								]
+							],
+							'color'       => [
+								'default' => '#e3e3e3'
+							]
+						],
+						'selector'        => '{{WRAPPER}} .exad-testimonial-wrapper'
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name'     => 'exad_testimonial_container_box_shadow',
+						'selector' => '{{WRAPPER}} .exad-testimonial-wrapper'
+					]
+				);
+
+			$this->end_controls_tab();
+	
+			$this->start_controls_tab( 'exad_testimonial_container_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_group_control(
+					Group_Control_Background::get_type(),
+					[
+						'name'      => 'exad_testimonial_container_background_hover',
+						'types'     => [ 'classic', 'gradient' ],
+						'selector'  => '{{WRAPPER}} .exad-testimonial-wrapper:hover'
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name'            => 'exad_testimonial_container_border_hover',
+						'fields_options'  => [
+							'border'      => [
+								'default' => 'solid'
+							],
+							'width'          => [
+								'default'    => [
+									'top'    => '1',
+									'right'  => '1',
+									'bottom' => '1',
+									'left'   => '1'
+								]
+							],
+							'color'       => [
+								'default' => '#e3e3e3'
+							]
+						],
+						'selector'        => '{{WRAPPER}} .exad-testimonial-wrapper:hover'
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name'     => 'exad_testimonial_container_box_shadow_hover',
+						'selector' => '{{WRAPPER}} .exad-testimonial-wrapper:hover'
+					]
+				);
+
+			$this->end_controls_tab();
+
+		$this->end_controls_tabs();	
+
+		$this->add_control(
+			'exad_testimonial_container_transition_top',
+            [
+				'label'        => __( 'Transition Top', 'exclusive-addons-elementor' ),
+				'type'         =>  Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+				'separator'   => 'before',
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+        );
 
 		$this-> end_controls_section();
 
@@ -782,6 +863,43 @@ class Testimonial extends Widget_Base {
 			]
 		);
 
+		$this->start_controls_tabs( 'exad_testimonial_title_tabs' );
+
+			// normal state rating
+			$this->start_controls_tab( 'exad_testimonial_title_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_testimonial_title_color',
+					[
+						'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#000000',
+						'selectors' => [
+							'{{WRAPPER}} .exad-testimonial-name' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+
+			// hover state rating
+			$this->start_controls_tab( 'exad_testimonial_title_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_testimonial_title_color_hover',
+					[
+						'label'     => __( 'Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .exad-testimonial-name:hover' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
 		$this->add_control(
 			'exad_testimonial_title_color',
 			[
@@ -903,6 +1021,10 @@ class Testimonial extends Widget_Base {
 
 		$testimonial_image = $this->get_settings_for_display( 'exad_testimonial_image' );
 		$testimonial_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $testimonial_image['id'], 'testimonial_thumbnail', $settings );
+		$transition_top = '';
+
+		$target = $settings['exad_testimonial_url']['is_external'] ? ' target="_blank"' : '';
+		$nofollow = $settings['exad_testimonial_url']['nofollow'] ? ' rel="nofollow"' : '';
 
 		if( empty( $testimonial_image_url_src ) ) {
 			$testimonial_image_url = $testimonial_image['url']; 
@@ -924,9 +1046,12 @@ class Testimonial extends Widget_Base {
 		if ( 'yes' === $settings['exad_testimonial_description_arrow_enable'] ){
 			$this->add_render_attribute( 'exad_testimonial_content_wrapper', 'class', 'exad-testimonial-content-wrapper-arrow' );
 		}
+		if ( 'yes' === $settings['exad_testimonial_container_transition_top'] ){
+			$transition_top = 'exad-testimonial-transition-top-'.$settings['exad_testimonial_container_transition_top'];
+		}
 
-		echo '<div class="exad-testimonial-wrapper '.esc_attr( $settings['exad_testimonial_container_alignment'] ).'">';
-			echo '<div class="exad-testimonial-wrapper-inner '. $settings['exad_testimonial_layout'] .'">';
+		echo '<div class="exad-testimonial-wrapper '.esc_attr( $settings['exad_testimonial_container_alignment'] ).' '.$transition_top.'">';
+			echo '<div class="exad-testimonial-wrapper-inner '. $settings['exad_testimonial_layout'].'">';
 				if( 'layout-1' === $settings['exad_testimonial_layout'] ){
 
 					echo '<div '.$this->get_render_attribute_string( 'exad_testimonial_content_wrapper' ).'>';
@@ -947,7 +1072,9 @@ class Testimonial extends Widget_Base {
 
 					echo '<div class="exad-testimonial-reviewer">';
 						if ( !empty( $settings['exad_testimonial_name'] ) ) :
-							echo '<h4 '.$this->get_render_attribute_string( 'exad_testimonial_name' ).'>'.Helper::exad_wp_kses( $settings['exad_testimonial_name'] ).'</h4>';
+							echo '<a href="' . $settings['exad_testimonial_url']['url'] . '"' . $target . $nofollow . '> ';
+								echo '<h4 '.$this->get_render_attribute_string( 'exad_testimonial_name' ).'>'.Helper::exad_wp_kses( $settings['exad_testimonial_name'] ).'</h4>';
+							echo '</a>';
 						endif;
 						if ( !empty( $settings['exad_testimonial_designation'] ) ) :
 							echo '<span '.$this->get_render_attribute_string( 'exad_testimonial_designation' ).'>'.Helper::exad_wp_kses( $settings['exad_testimonial_designation'] ).'</span>';
@@ -1000,6 +1127,9 @@ class Testimonial extends Widget_Base {
 	      	view.addInlineEditingAttributes( 'exad_testimonial_description' );
 	      	view.addRenderAttribute( 'exad_testimonial_description', 'class', 'exad-testimonial-description' );
 
+			var target = settings.exad_testimonial_url.is_external ? ' target="_blank"' : '';
+			var nofollow = settings.exad_testimonial_url.nofollow ? ' rel="nofollow"' : '';
+
 	      	if ( settings.exad_testimonial_image.url || settings.exad_testimonial_image.id ) {
 				var image = {
 					id: settings.exad_testimonial_image.id,
@@ -1011,9 +1141,13 @@ class Testimonial extends Widget_Base {
 
 				var imageURL = elementor.imagesManager.getImageUrl( image );
 			}
+
+			if ( 'yes' === settings.exad_testimonial_container_transition_top ){
+				var transition_top = 'exad-testimonial-transition-top-' + settings.exad_testimonial_container_transition_top ;
+			}
 		#>
 
-		<div class="exad-testimonial-wrapper {{ settings.exad_testimonial_container_alignment }}">
+		<div class="exad-testimonial-wrapper {{ settings.exad_testimonial_container_alignment }} {{ transition_top }}">
 	        <div class="exad-testimonial-wrapper-inner {{ settings.exad_testimonial_layout }}">
 				<# if( 'layout-1' === settings.exad_testimonial_layout ){ #>
 					<div {{{ view.getRenderAttributeString( 'exad_testimonial_content_wrapper' ) }}}>
@@ -1053,9 +1187,11 @@ class Testimonial extends Widget_Base {
 
 					<div class="exad-testimonial-reviewer">
 						<# if ( settings.exad_testimonial_name ) { #>
-							<h4 {{{ view.getRenderAttributeString( 'exad_testimonial_name' ) }}}>
-								{{{ settings.exad_testimonial_name }}}
-							</h4>
+							<a href="{{ settings.exad_testimonial_url.url }}"{{ target }}{{ nofollow }}>
+								<h4 {{{ view.getRenderAttributeString( 'exad_testimonial_name' ) }}}>
+									{{{ settings.exad_testimonial_name }}}
+								</h4>
+							</a>
 						<# } #>
 						<# if ( settings.exad_testimonial_designation ) { #>
 							<span  {{{ view.getRenderAttributeString( 'exad_testimonial_designation' ) }}}>

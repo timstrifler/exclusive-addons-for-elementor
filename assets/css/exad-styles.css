@@ -5167,6 +5167,7 @@ text-align: right;
   margin: 0;
   font-size: 22px;
   font-weight: 600;
+  transition: all .3s ease;
 }
 
 .exad-testimonial-designation{
@@ -5188,6 +5189,9 @@ text-align: right;
 .exad-testimonial-wrapper-inner.layout-2 .exad-testimonial-content-wrapper-arrow::before{
   /* top: -15px; */
   transform: translateX(-50%) rotate(180deg);
+}
+.exad-testimonial-wrapper {
+  transition: all .3s ease;
 }
 
 .exad-testimonial-content-wrapper-arrow{
@@ -5238,6 +5242,15 @@ text-align: right;
 .exad-testimonial-wrapper.exad-testimonial-image-aside{
   display: flex;
   align-items: center;
+}
+
+.exad-testimonial-wrapper.exad-testimonial-transition-top-yes:hover{
+  transform: translateY(-10px);
+}
+.exad-testimonial-wrapper.exad-testimonial-transition-top-yes{
+  transform: translateY(0px);
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 /* Testimonial style end */
