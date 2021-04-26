@@ -78,7 +78,7 @@ class Assets_Manager {
         }
 
         if ( Addons_Manager::$is_activated_feature['logo-carousel'] ) {
-            // jQuery Countdown Js
+            // jQuery Logo Carousel Js
             wp_register_script( 'exad-slick', EXAD_ASSETS_URL . 'vendor/js/slick.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
