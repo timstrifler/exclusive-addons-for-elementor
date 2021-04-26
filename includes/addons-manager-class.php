@@ -113,6 +113,10 @@ class Addons_Manager {
         if( self::$is_activated_feature['sticky'] ){
             include_once EXAD_PATH . 'extensions/sticky.php';
         }
+
+        if( self::$is_activated_feature['container-link'] ){
+            include_once EXAD_PATH . 'extensions/container-link.php';
+        }
     }
 
     /**
@@ -736,7 +740,14 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
                 'is_pro' => false
-            ]
+            ],
+            'container-link' => [
+				'title' => __( 'Container Link', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Container_Link',
+				'tags'   => 'free',
+                'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
+                'is_pro' => false
+			],
         ];
 
     }
