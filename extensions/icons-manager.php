@@ -51,24 +51,6 @@ class Icons_Manager {
         return $tabs;
     }
 
-    /**
-     * Get a list of happy icons
-     *
-     * @return array
-     */
-    public static function get_exclusive_icons() {
-        return [
-            'exad exad-alarm-clock' => 'alarm-clock',
-            'exad exad-atomic' => 'atomic',
-            'exad exad-bar-chart' => 'bar-chart',
-            'exad exad-battery' => 'battery',
-            'exad exad-battery-1' => 'battery-1',
-            'exad exad-bell' => 'bell',
-            'exad exad-bluetooth' => 'bluetooth',
-            'exad exad-book' => 'book',
-        ];
-    }
-
 }
 
 Icons_Manager::init();
