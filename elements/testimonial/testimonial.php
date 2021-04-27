@@ -900,18 +900,6 @@ class Testimonial extends Widget_Base {
 
 		$this->end_controls_tabs();
 
-		$this->add_control(
-			'exad_testimonial_title_color',
-			[
-				'label'     => __( 'Color', 'exclusive-addons-elementor' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000000',
-				'selectors' => [
-					'{{WRAPPER}} .exad-testimonial-name' => 'color: {{VALUE}};'
-				]
-			]
-		);
-
 		$this->add_responsive_control(
 			'exad_testimonial_title_margin',
 			[
