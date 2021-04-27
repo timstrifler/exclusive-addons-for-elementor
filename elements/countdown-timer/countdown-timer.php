@@ -72,8 +72,6 @@ class Countdown_Timer extends Widget_Base {
 
 		$this->end_controls_section();
 
-		$this->end_controls_section();
-
 		$this->start_controls_section(
 			'exad_section_countdown_container_style',
 			[
