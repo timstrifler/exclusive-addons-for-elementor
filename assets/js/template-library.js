@@ -285,7 +285,7 @@
     (i.LibraryManager = function () {
         function a() {
             var n = e(this).closest(".elementor-top-section"),
-                i = n.data("model-cid"),
+                i = n.data("id"),
                 p = t.documents.getCurrent().container.children,
                 r = n.prev(".elementor-add-section");
            p &&
@@ -297,7 +297,7 @@
 
         function n(e) {
             var t = e.find(FIND_SELECTOR);
-            t.length && t.before($exadLibraryButton), e.on("click.onAddElement", ".elementor-editor-section-settings .elementor-editor-element-add", a);
+            t.length && !e.find(".elementor-add-exad-button").length && t.before($exadLibraryButton), e.on("click.onAddElement", ".elementor-editor-section-settings .elementor-editor-element-add", a);
         }
         function r(t, i) {
             i.addClass("elementor-active").siblings().removeClass("elementor-active");
@@ -447,7 +447,8 @@
                         i.showErrorDialog(e);
                     },
                     complete: function (e) {
-                        i.getModal().hideLoadingView();
+                        i.getModal().hideLoadingView(),
+                        window.elementor.$previewContents.find(".elementor-add-section .elementor-add-section-close").click();
                     },
                 });
         }),
