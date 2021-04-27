@@ -103,20 +103,16 @@ class Addons_Manager {
     public static function initiate_extensions() {
         include_once EXAD_PATH . 'extensions/image-mask-svg-control.php';
 
-        // Post Duplicator extention
-        if( self::$is_activated_feature['glass-effect'] ){
-            include_once EXAD_PATH . 'extensions/glass-effect.php';
-        }
-        if( self::$is_activated_feature['post-duplicator'] ){
-            include_once EXAD_PATH . 'extensions/post-duplicator.php';
-        }
-        if( self::$is_activated_feature['sticky'] ){
-            include_once EXAD_PATH . 'extensions/sticky.php';
+        foreach( self::extensions_map_free() as $key => $extension ) {
+            if ( isset( self::$is_activated_feature[$key] ) && self::$is_activated_feature[$key] == true ) {
+
+                $extension_file = EXAD_EXTENSIONS . $key .'.php';
+                if ( file_exists( $extension_file ) ) {
+                    include_once $extension_file;
+                }
+            }
         }
 
-        if( self::$is_activated_feature['container-link'] ){
-            include_once EXAD_PATH . 'extensions/container-link.php';
-        }
     }
 
     /**
