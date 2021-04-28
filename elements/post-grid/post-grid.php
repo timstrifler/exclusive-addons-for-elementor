@@ -182,7 +182,7 @@ class Post_Grid extends Widget_Base {
             [
 				'label'    => __( 'Ordered By', 'exclusive-addons-elementor' ),
 				'type'     => Controls_Manager::SELECT,
-                'default'  => 'desc',
+                'default'  => 'date',
 				'options'  => [
 					'ID'  => __( 'ID', 'exclusive-addons-elementor' ),
 					'date'  => __( 'Date', 'exclusive-addons-elementor' ),

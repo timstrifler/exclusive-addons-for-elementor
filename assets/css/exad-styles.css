@@ -1390,6 +1390,11 @@ ul.exad-call-to-action-buttons {
 .exad-corona-heading.inline .exad-corona-last-update{
     order: 2;
 }
+@media (max-width: 769px) {
+    .exad-corona-table{
+        overflow-x: scroll;
+    }
+}
 .exad-corona-table.yes{
     overflow-y: scroll!important;
 }

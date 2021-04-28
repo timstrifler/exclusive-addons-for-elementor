@@ -987,7 +987,7 @@ class Covid_19_Stats extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_width',
 			[
 				'label' => __( 'Input Box Width', 'exclusive-addons-elementor' ),
@@ -1009,7 +1009,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_height',
 			[
 				'label' => __( 'Input Box Height', 'exclusive-addons-elementor' ),
@@ -1082,7 +1082,7 @@ class Covid_19_Stats extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_radius',
 			[
 				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1102,7 +1102,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_padding',
 			[
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -1122,7 +1122,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_margin',
 			[
 				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
@@ -1142,7 +1142,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_search_icon_position',
 			[
 				'label' => __( 'Search Icon Position', 'exclusive-addons-elementor' ),
@@ -1164,7 +1164,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_search_icon_size',
 			[
 				'label' => __( 'Search Icon Size', 'exclusive-addons-elementor' ),
@@ -1216,7 +1216,7 @@ class Covid_19_Stats extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_continent_menu_margin',
 			[
 				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
@@ -1236,7 +1236,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_continent_menu_padding',
 			[
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -1256,7 +1256,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_continent_menu_radius',
 			[
 				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1415,7 +1415,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_corona_enable_data_table_box_width',
             [
                 'label'        => esc_html__( 'Box Width', 'exclusive-addons-elementor' ),
@@ -1529,7 +1529,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_data_table_heading_padding',
 			[
 				'label' => __( 'Table Heading Padding', 'exclusive-addons-elementor' ),
@@ -1558,7 +1558,7 @@ class Covid_19_Stats extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_data_table_row_padding',
 			[
 				'label' => __( 'Row Padding', 'exclusive-addons-elementor' ),
