@@ -3938,9 +3938,9 @@ ul.exad-call-to-action-buttons {
   display: flex;
 }
 
-.elementor .exad-post-grid-container img {
+/* .elementor .exad-post-grid-container img {
   height: 100%;
-}
+} */
 
 nav.exad-post-pagination {
     display: flex;
