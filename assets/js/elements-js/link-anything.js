@@ -9,7 +9,7 @@ $('body').on('click.onWrapperLink', '[data-exad-element-link]', function() {
         anchorReal,
         timeout;
 
-    anchor.id            = 'exad-container-link-' + id;
+    anchor.id            = 'exad-link-anything-' + id;
     anchor.href          = data.url;
     anchor.target        = data.is_external ? '_blank' : '_self';
     anchor.rel           = data.nofollow ? 'nofollow noreferer' : '';

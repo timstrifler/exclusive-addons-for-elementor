@@ -5,12 +5,12 @@ use Elementor\Controls_Manager;
 use Elementor\Element_Base;
 use Elementor\Utils;
 
-class Wrapper_Link {
+class Link_Anything {
 
 	public static function init() {
-		add_action( 'elementor/element/column/section_advanced/after_section_end', [ __CLASS__, 'add_controls_section' ], 1 );
-		add_action( 'elementor/element/section/section_advanced/after_section_end', [ __CLASS__, 'add_controls_section' ], 1 );
-		add_action( 'elementor/element/common/_section_style/after_section_end', [ __CLASS__, 'add_controls_section' ], 1 );
+		add_action( 'elementor/element/column/section_advanced/after_section_end', [ __CLASS__, 'add_controls_section' ], 10 );
+		add_action( 'elementor/element/section/section_advanced/after_section_end', [ __CLASS__, 'add_controls_section' ], 10 );
+		add_action( 'elementor/element/common/_section_style/after_section_end', [ __CLASS__, 'add_controls_section' ], 10 );
 
 		add_action( 'elementor/frontend/before_render', [ __CLASS__, 'before_section_render' ], 1 );
 	}
@@ -25,7 +25,7 @@ class Wrapper_Link {
 		$element->start_controls_section(
 			'exad_container_link_wrapper',
 			[
-				'label' => __( 'Container Link <i class="exad-extention-logo exad exad-logo"></i>', 'exclusive-addons-elementor' ),
+				'label' => __( 'Link Anything <i class="exad-extention-logo exad exad-logo"></i>', 'exclusive-addons-elementor' ),
 				'tab'   => $tabs,
 			]
 		);
@@ -59,7 +59,7 @@ class Wrapper_Link {
 							],
 						],
 						'selectors' => [
-							'{{WRAPPER}}.exad-container-link-wrapper' => 'opacity: {{SIZE}}; transition: all .3s ease;',
+							'{{WRAPPER}}.exad-link-anything-wrapper' => 'opacity: {{SIZE}}; transition: all .3s ease;',
 						],
 					]
 				);
@@ -81,7 +81,7 @@ class Wrapper_Link {
 							],
 						],
 						'selectors' => [
-							'{{WRAPPER}}.exad-container-link-wrapper:hover' => 'opacity: {{SIZE}};',
+							'{{WRAPPER}}.exad-link-anything-wrapper:hover' => 'opacity: {{SIZE}};',
 						],
 					]
 				);
@@ -101,7 +101,7 @@ class Wrapper_Link {
 			$element->add_render_attribute(
 				'_wrapper',
 				[
-					'class' => "exad-container-link-wrapper",
+					'class' => "exad-link-anything-wrapper",
 					'data-exad-element-link' => json_encode( $link_settings ),
 					'style' => 'cursor: pointer'
 				]
@@ -110,4 +110,4 @@ class Wrapper_Link {
 	}
 }
 
-Wrapper_Link::init();
+Link_Anything::init();

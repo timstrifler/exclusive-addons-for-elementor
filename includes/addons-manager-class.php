@@ -737,11 +737,11 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
                 'is_pro' => false
             ],
-            'container-link' => [
-				'title' => __( 'Container Link', 'exclusive-addons-elementor' ),
-                'class'  => '\Exclusive_Addons\Elementor\Extensions\Container_Link',
+            'link-anything' => [
+				'title' => __( 'Link Anything', 'exclusive-addons-elementor' ),
+                'class'  => '\Exclusive_Addons\Elementor\Extensions\Link_Anything',
 				'tags'   => 'free',
-                'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
+                'demo_link' => 'https://exclusiveaddons.com/',
                 'is_pro' => false
 			],
         ];
