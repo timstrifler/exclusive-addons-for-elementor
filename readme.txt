@@ -33,7 +33,7 @@ https://www.youtube.com/watch?v=w-PGZkH6t6c&t
 https://www.youtube.com/watch?v=Gn4BkI63dF0
 
 
-### 32 USEFUL (FREE) WIDGETS and counting...
+### 36+ USEFUL WIDGETS & EXTENSIONS and counting...
 
 We have packed our Elementor Addons with the most Useful Free Elementor widgets for you in the bundle. Check out our Demos where we demonstrated some interesting use cases for all of our Elements:
 
@@ -75,9 +75,14 @@ FREE EXTENSIONS:
 1. **[Post Duplicator](#)** - Duplicate and Post/Page in just a single click.
 2. **[Sticky Extension](https://exclusiveaddons.com/sticky/)** Make any secttion, Column or widget as sticky. This does not work in Editor mode by now. It works on the Frontend flawlessly.
 3. **[Glassmorphism Effect](https://exclusiveaddons.com/glassmorphism/)** - Make your site standout with the modern and trendy Glassmorphism effect for any section, column or widget background.
+4. **[Link Anything](https://exclusiveaddons.com/)** - Add any link to any section, column, widget you want. And add some hover effect too. 
 
-### 35+ Elementor widgets & extensions
-We have packed 35+ Elementor widgets & extensions for now. We'll continue to add them as time goes on.
+### 3000+ FREE ICONS
+3000+ Free Icons to choose from 3 Open Source Icon Libraries we integrated. (Feather Icons, Remix Icons, Teeny Icons)
+**[Sneak a Peek](https://exclusiveaddons.com/free-icons/)**
+
+### 36+ Elementor widgets & extensions
+We have packed 36+ Elementor widgets & extensions for now. We'll continue to add them as time goes on.
 
 ### Light Weight & Fast Loading
 Our Elementor Addons itself is very lightweight. We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -219,12 +224,16 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.4.0 - 24/04/2021 =
-- Improved some customization options with Testimonial Widget.
-- Added Remix Icons in Icon Library.
-- Added Remix Icons in Icon Library.
-- Fixed bugs with Elementor 3.1.1 compatibility..
-- Overall Bug fixes and improvements on different areas.
+= 2.4.0 - 29/04/2021 =
+- New: Added 2 more Icon Libraries (Remix Icons, Teeny Icons) to our 3000+ Icon Library to Elementor.
+- New: Added Link Anything Extension to Link Any Section, Column, Widget to any URL.
+- Tweak: Improved some customization options with Testimonial Widget.
+- Tweak: Added Responsive Control in Covid-19 Stats widget.
+- Fix: Bugs with Elementor 3.2.2 compatibility.
+- Fix: Logo Carousel Image Stacking issue resolved.
+- Fix: Bugs in Testimonial widget.
+- Fix: Bugs in Countdown Timer widget.
+- Fix: Overall Bug fixes and improvements on different areas.
 
 = 2.3.90 - 19/04/2021 =
 - Fixed issues on Call to Action widget.
@@ -433,4 +442,6 @@ No Upgrade instruction yet
 * We have used [NovelCOVID API](https://github.com/NovelCOVID/API) for our Covid-19 Stats Widget.
 They deserve a huge shoutout for their amazing contribution to the community.
 
-* We have integrated the beautiful [Feather Icons](https://github.com/feathericons/feather) developed by [@colebemis](https://twitter.com/colebemis) in our Icon Library.
+* We have integrated the beautiful [Feather Icons](https://github.com/feathericons/feather) designed by [@colebemis](https://twitter.com/colebemis) in our Icon Library.
+* Thanks to [Remix Icons](https://remixicon.com/) for allowing us to use their beautiful and huge collection of Icons, designed by [Jimmy Cheung](https://github.com/xiaochunjimmy) & [Wendy Gao](https://github.com/wendygaoyuan)
+* Another Icon Library we integrated is [Teeny Icons](https://teenyicons.com/) designed by [@rebellenoire](https://twitter.com/rebellenoire)
