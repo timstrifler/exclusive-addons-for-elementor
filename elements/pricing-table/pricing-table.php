@@ -437,6 +437,24 @@ class Pricing_Table extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'exad_section_pricing_tables_min_height',
+			[
+				'label'       => esc_html__( 'Min Height', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'     => [
+						'min'  => 0,
+						'max'  => 2000,
+					],
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-pricing-table-badge-wrapper' => 'min-height: {{SIZE}}{{UNIT}};'
+				],
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[
@@ -797,6 +815,47 @@ class Pricing_Table extends Widget_Base {
 				],
 				'selectors'  => [
 					'{{WRAPPER}} .exad-pricing-table-header' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_pricing_table_header_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'default'    => [
+					'top'      => '0',
+					'right'    => '0',
+					'bottom'   => '0',
+					'left'     => '0',
+					'isLinked' => false
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-pricing-table-header' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'      => 'exad_pricing_table_header_border',
+				'selector'  => '{{WRAPPER}} .exad-pricing-table-header',
+				'condition' => [
+					'exad_pricing_table_header_type' => 'simple'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'exad_pricing_table_header_shadow',
+				'selector' => '{{WRAPPER}} .exad-pricing-table-header',
+				'condition' => [
+					'exad_pricing_table_header_type' => 'simple'
 				]
 			]
 		);
