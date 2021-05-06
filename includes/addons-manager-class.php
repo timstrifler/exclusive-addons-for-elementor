@@ -668,6 +668,13 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
+            'template'  => [
+                'title'  => __( 'Template', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Template',
+                'demo_link' => 'https://exclusiveaddons.com/template/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'testimonial-carousel'  => [
                 'title'  => __( 'Testimonial Carousel', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Testimonial_Carousel',
