@@ -1,9 +1,9 @@
 === Exclusive Addons for Elementor ===
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
-Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
+Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.7.1
-Stable tag: 2.4.0
+Stable tag: 2.4.1
 Requires PHP: 5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -223,6 +223,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.4.1 - 06/05/2021 =
+- Tweak: Added some options in Pricing Table widget controls.
+- Fix: Bug in Widget & Extension enable/disabe feature on Dashboard.
 
 = 2.4.0 - 29/04/2021 =
 - New: Added 2 more Icon Libraries (Remix Icons, Teeny Icons) to our 3000+ Icon Library to Elementor.
