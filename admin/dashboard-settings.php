@@ -200,6 +200,20 @@ class Admin_Settings {
 	}
 
 	/**
+	 * All the Pro Features array
+	 * @param
+	 * @return  array
+	 * @since 2.4.01
+	 */
+	public function all_pro_feature_keys() {
+		$widget_pro_keys = array_keys( Addons_Manager::widget_map_pro() );
+		$extension_pro_keys = array_keys( Addons_Manager::extensions_map_pro() );
+
+		return array_merge( $widget_pro_keys, $extension_pro_keys );
+
+	}
+
+	/**
 	 * Saving widgets status with ajax request
 	 * @param
 	 * @return  array
@@ -217,12 +231,14 @@ class Admin_Settings {
 
 		$this->save_dashboard_settings = [];
 
-		$pro_widgets_value = array_keys( Addons_Manager::widget_map_pro() );
+		if ( !Base::$is_pro_active ) {
+			foreach( $this->all_pro_feature_keys() as $value ) {
+				$settings[$value] = 'on';
+			}
+		}
 
 		foreach( Addons_Manager::$all_feature_array as $value ) {
-			if ( isset( $settings[ $value ] ) ) {
-				$this->save_dashboard_settings[ $value ] = 1;
-			} else if ( !Base::$is_pro_active ) {
+			if ( array_key_exists( $value, $settings ) ) {
 				$this->save_dashboard_settings[ $value ] = 1;
 			} else {
 				$this->save_dashboard_settings[ $value ] = 0;
@@ -235,8 +251,7 @@ class Admin_Settings {
         update_option( 'exad_primary_color_option', $settings['exad_primary_color'] );
         update_option( 'exad_secondary_color_option', $settings['exad_secondary_color'] );
         
-		return true;
-		die();
+		wp_die();
 			
 	}
 
