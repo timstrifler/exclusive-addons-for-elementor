@@ -2896,6 +2896,11 @@ ul.exad-call-to-action-buttons {
 }
 
 /* InfoBox End */
+.exad-list-group-wrapper{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 /* Logo Box style start */
 
 .exad-logo-box .exad-logo-item {

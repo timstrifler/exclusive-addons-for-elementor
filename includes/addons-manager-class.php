@@ -297,6 +297,13 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'is_pro' => false
             ],
+            'list-group'  => [
+                'title'  => __( 'List Group', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\List_group',
+                'demo_link' => 'https://exclusiveaddons.com/image-comparison-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
+            ],
             'logo-box'  => [
                 'title'  => __( 'Logo Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Logo_Box',
