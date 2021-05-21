@@ -371,6 +371,58 @@ class Heading extends Widget_Base {
             ]
 		);
 
+		$this->add_control(
+			'exad_heading_outline_enable',
+			[
+				'label' => __( 'Enable Text Outline', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_heading_outline_width',
+			[
+				'label'      => __( 'Outline Width', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'     => [
+						'min' => 0,
+						'max' => 5
+					]
+				],
+				'default'    => [
+					'unit'   => 'px',
+					'size'   => 1
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-exclusive-heading-title' => '-webkit-text-stroke-width: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_heading_outline_enable' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_heading_outline_color',
+			[
+				'label'     => __('Outline Color', 'exclusive-addons-elementor'),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#222222',
+				'selectors' => [
+					'{{WRAPPER}} .exad-exclusive-heading-title' => '-webkit-text-stroke-color: {{VALUE}};'
+				],
+				'condition' => [
+					'exad_heading_outline_enable' => 'yes',
+				]
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Background::get_type(),
 			[

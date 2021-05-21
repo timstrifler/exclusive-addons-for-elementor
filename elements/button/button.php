@@ -320,7 +320,7 @@ class Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_exclusive_button_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
@@ -340,7 +340,7 @@ class Button extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_exclusive_button_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
