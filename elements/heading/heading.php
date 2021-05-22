@@ -446,7 +446,7 @@ class Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_color',
 			[
-				'label'     => __('Color', 'exclusive-addons-elementor'),
+				'label'     => __('Text Color', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#222222',
 				'selectors' => [
@@ -498,11 +498,63 @@ class Heading extends Widget_Base {
 		$this->add_control(
 			'exad_heading_text_background_color',
 			[
-				'label'     => __('Color', 'exclusive-addons-elementor'),
+				'label'     => __('Text Color', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#eaeff3',
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-text-background .exad-exclusive-heading-title::after' => 'color: {{VALUE}};'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_heading_text_background_outline_enable',
+			[
+				'label' => __( 'Enable Text Outline', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_heading_text_background_outline_width',
+			[
+				'label'      => __( 'Outline Width', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'     => [
+						'min' => 0,
+						'max' => 5
+					]
+				],
+				'default'    => [
+					'unit'   => 'px',
+					'size'   => 1
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-heading-text-background .exad-exclusive-heading-title::after' => '-webkit-text-stroke-width: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_heading_text_background_outline_enable' => 'yes',
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_heading_text_background_outline_color',
+			[
+				'label'     => __('Outline Color', 'exclusive-addons-elementor'),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => '#222222',
+				'selectors' => [
+					'{{WRAPPER}} .exad-heading-text-background .exad-exclusive-heading-title::after' => '-webkit-text-stroke-color: {{VALUE}};'
+				],
+				'condition' => [
+					'exad_heading_text_background_outline_enable' => 'yes',
 				]
 			]
 		);
