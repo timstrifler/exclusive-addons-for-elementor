@@ -2901,6 +2901,42 @@ ul.exad-call-to-action-buttons {
     padding: 0;
     list-style: none;
 }
+.exad-list-group .exad-list-group-wrapper.layout_1{
+    display: flex;
+    flex-direction: column;
+}
+.exad-list-group .exad-list-group-wrapper.layout_2{
+    display: flex;
+    flex-direction: row;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item, .exad-list-group .exad-list-group-wrapper .exad-list-group-item a{
+    position: relative;
+    line-height: 1;
+    display: flex;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-center, .exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-center a{
+    flex-direction: column;
+}
+/* .exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-left .exad-list-group-icon{
+    order: 1;
+} */
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-right .exad-list-group-icon{
+    order: 2;
+}
+.exad-list-group .exad-list-group-wrapper.layout_1 .exad-list-group-item:after{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    content: '';
+    left: 0;
+}
+.exad-list-group .exad-list-group-wrapper.layout_2 .exad-list-group-item:after{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    content: '';
+    top: 0;
+}
 /* Logo Box style start */
 
 .exad-logo-box .exad-logo-item {
