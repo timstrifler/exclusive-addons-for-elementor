@@ -395,7 +395,7 @@ final class Base {
             'posts_per_page'   => $_POST['posts_per_page'],
             'post_status'      => 'publish',
             'paged'            => $paged,
-            'category__in'     => $cat_array,
+            'cat'              => $cat_array,
             'tags__in'         => $tags_array,
             'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] )
         );
