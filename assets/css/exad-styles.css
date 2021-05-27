@@ -2896,6 +2896,8 @@ ul.exad-call-to-action-buttons {
 }
 
 /* InfoBox End */
+/* List Group CSS Start */
+
 .exad-list-group-wrapper{
     margin: 0;
     padding: 0;
@@ -2923,6 +2925,14 @@ ul.exad-call-to-action-buttons {
 .exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-right .exad-list-group-icon{
     order: 2;
 }
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon .exad-list-group-icon-image img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon .exad-list-group-icon-image{
+    display: flex;
+}
 .exad-list-group .exad-list-group-wrapper.layout_1 .exad-list-group-item:after{
     position: absolute;
     bottom: 0;
@@ -2937,6 +2947,23 @@ ul.exad-call-to-action-buttons {
     content: '';
     top: 0;
 }
+
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes{
+    position: relative;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes i,
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-image,
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-number{
+    line-height: 0;
+}
+
+/* List Group CSS End */
 /* Logo Box style start */
 
 .exad-logo-box .exad-logo-item {
