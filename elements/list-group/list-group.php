@@ -957,44 +957,41 @@ class List_group extends Widget_Base {
 		<div class="exad-list-group">
 			<ul class="exad-list-group-wrapper {{ settings.exad_section_list_layout }}">
 				<#
-					var iconsHTML = {};
-					_.each( settings.exad_list_group, function( item, index ) {
-					var link = item.link ? item.link.url : '';
+					_.each( settings.exad_list_group, function( list, index ) { 
+						var target = list.exad_list_link.is_external ? ' target="_blank"' : '';
+						var nofollow = list.exad_list_link.nofollow ? ' rel="nofollow"' : '';
+
+						var iconHTML     = elementor.helpers.renderIcon( view, list.exad_list_icon, { 'aria-hidden': true }, 'i' , 'object' );
 				#>
-				<# <?php foreach( $settings['exad_list_group'] as $list ) : ?>
-				<?php
-					$target = $list['exad_list_link']['is_external'] ? ' target="_blank"' : '';
-					$nofollow = $list['exad_list_link']['nofollow'] ? ' rel="nofollow"' : '';
-				?>
-					<li class="exad-list-group-item <?php echo $settings['exad_list_icon_position']?>">
-						<?php if ( !empty( $list['exad_list_link']['url'] )){ ?>
-						<a href="<?php $list['exad_list_link']['url']; ?>" <?php echo $target; ?> <?php echo $nofollow; ?> >
-						<?php } ?>
-							<span class="exad-list-group-icon <?php echo $settings['exad_list_item_icon_box_enable']; ?>">
-								<?php if ( $list['exad_list_icon_type'] === 'icon' && !empty($list['exad_list_icon']) ){ ?>
-									<?php Icons_Manager::render_icon( $list['exad_list_icon'], [ 'aria-hidden' => 'true' ] ); ?>
-								<?php } ?>
-								<?php if ( $list['exad_list_icon_type'] === 'number' && !empty($list['exad_list_icon_type']) ){ ?>
+					<li class="exad-list-group-item {{ settings.exad_list_icon_position }}">
+						<# if ( list.exad_list_link.url ){ #>
+						<a href="{{ list.exad_list_link.url }}" {{{ target }}} {{{ nofollow }}} >
+						<# } #>
+							<span class="exad-list-group-icon {{ settings.exad_list_item_icon_box_enable }}">
+								<# if ( list.exad_list_icon_type === 'icon' && list.exad_list_icon ){ #>
+									{{{ iconHTML.value }}}
+								<# } #>
+								<# if ( list.exad_list_icon_type === 'number' && list.exad_list_icon_type ){ #>
 									<div class="exad-list-group-icon-number">
-										<?php echo $list['exad_list_icon_number']; ?>
+										{{{ list.exad_list_icon_number }}}
 									</div>
-								<?php } ?>
-								<?php if ( $list['exad_list_icon_type'] === 'image' && !empty($list['exad_list_icon_type']) ){ ?>
+								<# } #>
+								<# if ( list.exad_list_icon_type === 'image' && list.exad_list_icon_type ){ #>
 									<div class="exad-list-group-icon-image">
-										<img src="<?php echo $list['exad_list_icon_number_image']['url'] ?>" alt="<?php echo $list['exad_list_text']; ?>">
+										<img src="{{ list.exad_list_icon_number_image.url }}" alt="{{ list.exad_list_text }}">
 									</div>
-								<?php } ?>
+								<# } #>
 							</span>
-							<?php if ( !empty( $list['exad_list_text'] ) ) { ?>
+							<# if ( list.exad_list_text ) { #>
 								<span class="exad-list-group-text">
-									<?php echo $list['exad_list_text']; ?>
+									{{{ list.exad_list_text }}}
 								</span>
-							<?} ?>
-						<?php if ( !empty( $list['exad_list_link']['url'] )){ ?>
+							<# } #>
+						<# if ( list.exad_list_link.url ){ #>
 						</a>
-						<?php } ?>
+						<# } #>
 					</li>
-				<?php endforeach; ?>
+				<# } ); #>
 			</ul>
 		</div>
 		<?php
