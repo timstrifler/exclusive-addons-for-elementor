@@ -523,22 +523,22 @@ class List_group extends Widget_Base {
 		$this->add_responsive_control(
 			'exad_list_icon_alignment',
 			[
-				'label'       => esc_html__( 'Icon Alignment', 'exclusive-addons-elementor' ),
+				'label'       => esc_html__( 'Icon Vertical Alignment', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::CHOOSE,
 				'toggle'      => false,
 				'label_block' => false,
 				'options'     => [
 					'exad-icon-align-left'   => [
 						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-left'
+						'icon'  => 'eicon-v-align-top'
 					],
 					'exad-icon-align-center' => [
 						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-left'
+						'icon'  => 'eicon-v-align-middle'
 					],
 					'exad-icon-align-right'  => [
 						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-left'
+						'icon'  => 'eicon-v-align-bottom'
 					]
 				],
 				'default'     => 'exad-icon-align-left',
@@ -566,15 +566,15 @@ class List_group extends Widget_Base {
 				'options'     => [
 					'exad-icon-top-align-left'   => [
 						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-left'
+						'icon'  => 'eicon-v-align-top'
 					],
 					'exad-icon-top-align-center' => [
 						'title' => esc_html__( 'Center', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-left'
+						'icon'  => 'eicon-v-align-middle'
 					],
 					'exad-icon-top-align-right'  => [
 						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
-						'icon'  => 'eicon-text-align-left'
+						'icon'  => 'eicon-v-align-bottom'
 					]
 				],
 				'default'     => 'exad-icon-left',
@@ -702,6 +702,25 @@ class List_group extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon i' => 'color: {{VALUE}}',
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_section_list_item_image_radius',
+			[
+				'label'        => __( 'Image Radius', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::DIMENSIONS,
+				'size_units'   => [ 'px', '%', 'em' ],
+				'default'      => [
+					'top'      => '0',
+					'right'    => '0',
+					'bottom'   => '0',
+					'left'     => '0',
+					'unit'     => 'px'
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon .exad-list-group-icon-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				],
 			]
 		);
