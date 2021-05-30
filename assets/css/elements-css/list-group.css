@@ -1,0 +1,68 @@
+/* List Group CSS Start */
+
+.exad-list-group-wrapper{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.exad-list-group .exad-list-group-wrapper.layout_1{
+    display: flex;
+    flex-direction: column;
+}
+.exad-list-group .exad-list-group-wrapper.layout_2{
+    display: flex;
+    flex-direction: row;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item, .exad-list-group .exad-list-group-wrapper .exad-list-group-item a{
+    position: relative;
+    line-height: 1;
+    display: flex;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-center, .exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-center a{
+    flex-direction: column;
+}
+/* .exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-left .exad-list-group-icon{
+    order: 1;
+} */
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item.exad-icon-right .exad-list-group-icon{
+    order: 2;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon .exad-list-group-icon-image img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon .exad-list-group-icon-image{
+    display: flex;
+}
+.exad-list-group .exad-list-group-wrapper.layout_1 .exad-list-group-item:after{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    content: '';
+    left: 0;
+}
+.exad-list-group .exad-list-group-wrapper.layout_2 .exad-list-group-item:after{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    content: '';
+    top: 0;
+}
+
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes{
+    position: relative;
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes i,
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-image,
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-number{
+    line-height: 0;
+}
+
+/* List Group CSS End */
