@@ -892,6 +892,9 @@ class List_group extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-text' => '{{VALUE}};',
 				],
+				'condition' => [
+					'exad_list_icon_position' => 'exad-icon-center'
+				]
 			]
 		);
 
