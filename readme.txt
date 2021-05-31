@@ -13,7 +13,7 @@ Packed with a bunch of Exclusively designed widgets for Elementor with all the c
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
 The elementor addons gives you the ability to build a sophisticated website experience with 80+ highly customizable and creative widgets and extensions.
-A collection of 700+ premade blocks and 10+ useable templates will help you build your websites in less time with no coding.
+A collection of 700+ premade blocks and 15+ useable templates will help you build your websites in less time with no coding.
 
 An easy to use interface and several customizations and unique widgets make your next WordPress page and post design easier and prettier than ever before. Exclusive Addons Elementor page builders take your WordPress website to the next level by making your page more eye-catching.
 We have stuffed all the factors with every choice that you may think. Still need one, please feel free to reach out. We might love to feature that to you.
@@ -69,7 +69,7 @@ And have the most beautiful design, not to mention.
 30. **[Button](https://exclusiveaddons.com/button-demo/)** - Pick from a list of our unique hover effects to suit your needs. Style them every possible way you can think of.
 31. **[Covid-19 Stats](https://exclusiveaddons.com/covid-19-stats-demo/)** - Simple and clean Covid 19 stats for your visitors.
 32. **[Facebook Feed](https://exclusiveaddons.com/facebook-feed/)** - Display your Facebook page's posts with Likes, Comments and Shares in real time.
-33. **[List Group](https://exclusiveaddons.com/list-group/)** - Another listing widget with the highest number of customization options you have ever seen.
+33. **[List Group](https://exclusiveaddons.com/list-group/)** - Another List widget with the highest number of customization options you have ever seen.
 
 FREE EXTENSIONS:
 1. **[Post Duplicator](#)** - Duplicate and Post/Page in just a single click.
@@ -80,9 +80,6 @@ FREE EXTENSIONS:
 ### 3000+ FREE ICONS
 3000+ Free Icons to choose from 3 Open Source Icon Libraries we integrated. (Feather Icons, Remix Icons, Teeny Icons)
 **[Sneak a Peek](https://exclusiveaddons.com/free-icons/)**
-
-### 36+ Elementor widgets & extensions
-We have packed 36+ Elementor widgets & extensions for now. We'll continue to add them as time goes on.
 
 ### Light Weight & Fast Loading
 Our Elementor Addons itself is very lightweight. We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -226,6 +223,7 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 = 2.4.2 - 31/05/2021 =
 - New: Added List Group Widget.
+- New: Added 5 new Templates to the Template Library.
 - Tweak: Added some options in Heading widget controls.
 - Fix: Bug in Post Grid load more option.
 - Fix: Overall Bug fixes and improvements on different areas.
