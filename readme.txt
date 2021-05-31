@@ -2,9 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.7.1
-Stable tag: 2.4.1
-Requires PHP: 5.4
+Tested up to: 5.7.2
+Stable tag: 2.4.2
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -33,7 +32,7 @@ https://www.youtube.com/watch?v=w-PGZkH6t6c&t
 https://www.youtube.com/watch?v=Gn4BkI63dF0
 
 
-### 36+ USEFUL WIDGETS & EXTENSIONS and counting...
+### 37+ USEFUL WIDGETS & EXTENSIONS and counting...
 
 We have packed our Elementor Addons with the most Useful Free Elementor widgets for you in the bundle. Check out our Demos where we demonstrated some interesting use cases for all of our Elements:
 
@@ -70,6 +69,7 @@ And have the most beautiful design, not to mention.
 30. **[Button](https://exclusiveaddons.com/button-demo/)** - Pick from a list of our unique hover effects to suit your needs. Style them every possible way you can think of.
 31. **[Covid-19 Stats](https://exclusiveaddons.com/covid-19-stats-demo/)** - Simple and clean Covid 19 stats for your visitors.
 32. **[Facebook Feed](https://exclusiveaddons.com/facebook-feed/)** - Display your Facebook page's posts with Likes, Comments and Shares in real time.
+33. **[List Group](https://exclusiveaddons.com/list-group/)** - Another listing widget with the highest number of customization options you have ever seen.
 
 FREE EXTENSIONS:
 1. **[Post Duplicator](#)** - Duplicate and Post/Page in just a single click.
@@ -223,6 +223,12 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.4.2 - 31/05/2021 =
+- New: Added List Group Widget.
+- Tweak: Added some options in Heading widget controls.
+- Fix: Bug in Post Grid load more option.
+- Fix: Overall Bug fixes and improvements on different areas.
 
 = 2.4.1 - 06/05/2021 =
 - Tweak: Added some options in Pricing Table widget controls.
