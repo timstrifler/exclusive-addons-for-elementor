@@ -933,7 +933,7 @@ class List_group extends Widget_Base {
 					$nofollow = $list['exad_list_link']['nofollow'] ? ' rel="nofollow"' : '';
 				?>
 					<li class="exad-list-group-item <?php echo $settings['exad_list_icon_position']?>">
-						<?php if ( !empty( $list['exad_list_link']['url'] )){ ?>
+						<?php if ( !empty( $list['exad_list_link']['url'] ) ) { ?>
 						<a href="<?php $list['exad_list_link']['url']; ?>" <?php echo $target; ?> <?php echo $nofollow; ?> >
 						<?php } ?>
 							<span class="exad-list-group-icon <?php echo $settings['exad_list_item_icon_box_enable']; ?>">
@@ -955,8 +955,8 @@ class List_group extends Widget_Base {
 								<span class="exad-list-group-text">
 									<?php echo $list['exad_list_text']; ?>
 								</span>
-							<?} ?>
-						<?php if ( !empty( $list['exad_list_link']['url'] )){ ?>
+							<?php } ?>
+						<?php if ( !empty( $list['exad_list_link']['url'] ) ) { ?>
 						</a>
 						<?php } ?>
 					</li>
