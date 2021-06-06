@@ -56,7 +56,10 @@ class Dual_Button extends Widget_Base {
                         'label'       => esc_html__( 'Text', 'exclusive-addons-elementor' ),
                         'type'        => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'default'     => esc_html__( 'Primary', 'exclusive-addons-elementor' )
+                        'default'     => esc_html__( 'Primary', 'exclusive-addons-elementor' ),
+                        'dynamic' => [
+                            'active' => true,
+                        ]
                     ]
                 );
 
@@ -151,6 +154,9 @@ class Dual_Button extends Widget_Base {
                         'condition' => [
                             'exad_dual_button_connector_switch' => 'yes',
                             'exad_dual_button_connector_type'   => 'text'
+                        ],
+                        'dynamic' => [
+                            'active' => true,
                         ]
                     ]
                 );
@@ -181,7 +187,10 @@ class Dual_Button extends Widget_Base {
                         'label'       => esc_html__( 'Text', 'exclusive-addons-elementor' ),
                         'type'        => Controls_Manager::TEXT,
                         'label_block' => true,
-                        'default'     => esc_html__( 'Secondary', 'exclusive-addons-elementor' )
+                        'default'     => esc_html__( 'Secondary', 'exclusive-addons-elementor' ),
+                        'dynamic' => [
+                            'active' => true,
+                        ]
                     ]
                 );
 

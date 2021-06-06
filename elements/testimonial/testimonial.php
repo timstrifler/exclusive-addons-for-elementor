@@ -75,7 +75,10 @@ class Testimonial extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Testimonial', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -84,7 +87,10 @@ class Testimonial extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Name', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'John Doe', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'John Doe', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -108,7 +114,10 @@ class Testimonial extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXT,
-				'default' => esc_html__( 'Co-Founder', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Co-Founder', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 

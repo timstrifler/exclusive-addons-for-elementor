@@ -94,7 +94,10 @@ class Alert extends Widget_Base {
                 'default'   => 'Well Done!',
                 'condition' => [
                     'exad_alert_content_title_show' => 'yes'
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -103,7 +106,10 @@ class Alert extends Widget_Base {
             [
                 'label'   => __( 'Description', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::TEXTAREA,
-                'default' => 'A simple alert—check it out!'
+                'default' => 'A simple alert—check it out!',
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -129,7 +135,10 @@ class Alert extends Widget_Base {
                 'default'   => __( 'Done', 'exclusive-addons-elementor' ),
                 'condition' => [
                     'exad_alert_close_button' => ['button']
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -141,7 +150,10 @@ class Alert extends Widget_Base {
                 'default'                 => __( 'Cancel', 'exclusive-addons-elementor' ),
                 'condition'               => [
                     'exad_alert_close_button' => ['button']
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
         

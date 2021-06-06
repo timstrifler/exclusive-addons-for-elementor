@@ -52,7 +52,11 @@ class News_Ticker extends Widget_Base {
             [   
                 'label'         => esc_html__( 'Label', 'exclusive-addons-elementor' ),
                 'type'          => Controls_Manager::TEXT,
-                'default'       => __('Today\'s Hot News', 'exclusive-addons-elementor' )
+                'default'       => __('Today\'s Hot News', 'exclusive-addons-elementor' ),
+                'label_block'     => true,
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         ); 
 
@@ -63,7 +67,10 @@ class News_Ticker extends Widget_Base {
             [
                 'label'   => esc_html__( 'Content', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'News item description', 'exclusive-addons-elementor' )
+                'default' => esc_html__( 'News item description', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 

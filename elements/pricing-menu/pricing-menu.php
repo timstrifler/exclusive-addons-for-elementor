@@ -69,7 +69,10 @@ class Pricing_Menu extends Widget_Base {
             [
                 'label'   => esc_html__('Title', 'exclusive-addons-elementor'),
                 'type'    => Controls_manager::TEXT,
-                'default' => esc_html__( 'Name The Product', 'exclusive-addons-elementor' )
+                'default' => esc_html__( 'Name The Product', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -78,7 +81,10 @@ class Pricing_Menu extends Widget_Base {
             [
                 'label'   => esc_html__('Description', 'exclusive-addons-elementor'),
                 'type'    => Controls_manager::TEXTAREA,
-                'default' => esc_html__( 'List Items. Add as many as you would like.', 'exclusive-addons-elementor' )
+                'default' => esc_html__( 'List Items. Add as many as you would like.', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -111,7 +117,10 @@ class Pricing_Menu extends Widget_Base {
                 'default'   => 'Order Now',
                 'condition' => [
                     'exad_pricing_menu_enable_link' => 'yes'
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 

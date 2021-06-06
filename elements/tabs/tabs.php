@@ -202,6 +202,9 @@ class Tabs extends Widget_Base {
 				'condition' => [
 					'exad_exclusive_tab_detail_btn_switcher' => 'yes',
 					'exad_exclusive_tab_content_type' => 'content'
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);

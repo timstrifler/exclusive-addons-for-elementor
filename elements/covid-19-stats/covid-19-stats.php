@@ -63,7 +63,7 @@ class Covid_19_Stats extends Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'exclusive', 'statistics', 'corona', 'coronavirus' ];
+        return [ 'exclusive', 'covid19', 'statistics', 'corona', 'coronavirus' ];
     }
 
     /**

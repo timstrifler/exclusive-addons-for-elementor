@@ -51,7 +51,10 @@ class Animated_Text extends Widget_Base {
 	        [
 				'label'   => esc_html__( 'Before Text', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'This is', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'This is', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 	        ]
 		);
 
@@ -72,7 +75,10 @@ class Animated_Text extends Widget_Base {
 	        [
 				'label'   => esc_html__( 'After Text', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'For You.', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'For You.', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 	        ]
 		);
 

@@ -61,7 +61,10 @@ class Progress_Bar extends Widget_Base {
 				'label'     => __('Title', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => __('Progress Bar', 'exclusive-addons-elementor'),
-				'separator' => 'before'
+				'separator' => 'before',
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 

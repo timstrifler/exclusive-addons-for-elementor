@@ -270,6 +270,9 @@ class Card extends Widget_Base {
 				'default'     => esc_html__( 'Card Badge', 'exclusive-addons-elementor' ),
 				'condition'   => [
 					'exad_card_badge_switcher' => 'yes'
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -281,7 +284,10 @@ class Card extends Widget_Base {
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'separator'   => 'before',
-				'default'     => esc_html__( 'Card Title', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Card Title', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -305,7 +311,10 @@ class Card extends Widget_Base {
 				'label'       => esc_html__( 'Tag', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Card Tag', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Card Tag', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 		
@@ -314,7 +323,10 @@ class Card extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Basic description about the Card', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Basic description about the Card', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -333,7 +345,10 @@ class Card extends Widget_Base {
 				'label'       => esc_html__( 'Text', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Details', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Details', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 

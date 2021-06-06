@@ -57,7 +57,10 @@ class Pricing_Table extends Widget_Base {
 				'label'       => esc_html__( 'List Item', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Pricing table list item', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Pricing table list item', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 		
@@ -139,6 +142,9 @@ class Pricing_Table extends Widget_Base {
 				'default'     => esc_html__( 'Recommended', 'exclusive-addons-elementor' ),
 				'condition'   => [
 					'exad_pricing_table_promo_enable' => 'yes'
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -177,7 +183,10 @@ class Pricing_Table extends Widget_Base {
 				'label'       => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => false,
-				'default'     => esc_html__( 'STANDARD', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'STANDARD', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -186,7 +195,10 @@ class Pricing_Table extends Widget_Base {
 			[
 				'label'       => esc_html__( 'Subtitle', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXTAREA,
-				'label_block' => true
+				'label_block' => true,
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 

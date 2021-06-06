@@ -145,7 +145,10 @@ class Modal_Popup extends Widget_Base {
 			'exad_modal_image_gallery_text',
 			[
 				'label' => __( 'Description', 'exclusive-addons-elementor' ),
-				'type'  => Controls_Manager::TEXTAREA
+				'type'  => Controls_Manager::TEXTAREA,
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -196,7 +199,10 @@ class Modal_Popup extends Widget_Base {
 				'title'       => __( 'Place Youtube Video URL', 'exclusive-addons-elementor' ),
 				'condition'   => [
                     'exad_modal_content' => 'youtube'
-                ]
+                ],
+				'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -212,7 +218,10 @@ class Modal_Popup extends Widget_Base {
 				'title'       => __( 'Place Vimeo Video URL', 'exclusive-addons-elementor' ),
 				'condition'   => [
                     'exad_modal_content' => 'vimeo'
-                ]
+                ],
+				'dynamic' => [
+					'active' => true,
+				]
             ]
 		);
 
@@ -241,7 +250,10 @@ class Modal_Popup extends Widget_Base {
 				'placeholder' => __( 'Place External Page URL', 'exclusive-addons-elementor' ),
 				'condition'   => [
                     'exad_modal_content' => 'external_page'
-                ]
+                ],
+				'dynamic' => [
+					'active' => true,
+				]
             ]
         );
         

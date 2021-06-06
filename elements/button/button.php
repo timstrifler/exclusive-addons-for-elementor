@@ -51,7 +51,10 @@ class Button extends Widget_Base {
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => __( 'Download!', 'exclusive-addons-elementor' ),
-				'placeholder' => __( 'Enter button text', 'exclusive-addons-elementor' )
+				'placeholder' => __( 'Enter button text', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 

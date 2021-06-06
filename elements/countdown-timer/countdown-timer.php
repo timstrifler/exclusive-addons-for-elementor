@@ -66,7 +66,10 @@ class Countdown_Timer extends Widget_Base {
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => __( 'Hurray! This is the event day.', 'exclusive-addons-elementor' ),
-				'description' => __( 'This text will show when the CountDown will over.', 'exclusive-addons-elementor' )
+				'description' => __( 'This text will show when the CountDown will over.', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 

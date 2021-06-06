@@ -125,7 +125,10 @@ class Contact_Form_7 extends Widget_Base {
 			[
                 'label'       => esc_html__( 'Title', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'label_block' => true
+                'label_block' => true,
+                'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
         

@@ -299,7 +299,10 @@ class Post_Grid extends Widget_Base {
                 'default'       => esc_html__('Read More', 'exclusive-addons-elementor' ),
                 'condition'     => [
                     '.exad_post_grid_show_read_more_btn' => 'yes'
-                ]
+				],
+				'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -409,7 +412,10 @@ class Post_Grid extends Widget_Base {
                 'condition'     => [
 					'.exad_post_grid_show_user_name_tag' => 'yes',
 					'.exad_post_grid_show_user_name'     => 'yes'
-                ]
+				],
+				'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -449,7 +455,10 @@ class Post_Grid extends Widget_Base {
                 'condition'     => [
 					'exad_post_grid_show_date_tag' => 'yes',
 					'exad_post_grid_show_date'     => 'yes'
-                ]
+				],
+				'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 

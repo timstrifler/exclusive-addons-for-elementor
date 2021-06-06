@@ -52,7 +52,10 @@ class Dual_Heading extends Widget_Base {
                 'label'       => esc_html__( 'First Heading', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default'     => esc_html__( 'First', 'exclusive-addons-elementor' )
+                'default'     => esc_html__( 'First', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
         $this->add_control(
@@ -61,7 +64,10 @@ class Dual_Heading extends Widget_Base {
                 'label'       => esc_html__( 'Second Heading', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default'     => esc_html__( 'Second', 'exclusive-addons-elementor' )
+                'default'     => esc_html__( 'Second', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 

@@ -65,7 +65,10 @@ class Filterable_Gallery extends Widget_Base
                 'label'       => esc_html__('Title', 'exclusive-addons-elementor'),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default'     => esc_html__('Gallery item title', 'exclusive-addons-elementor')
+                'default'     => esc_html__('Gallery item title', 'exclusive-addons-elementor'),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -75,7 +78,10 @@ class Filterable_Gallery extends Widget_Base
                 'label'       => esc_html__('Details', 'exclusive-addons-elementor'),
                 'type'        => Controls_Manager::TEXTAREA,
                 'label_block' => true,
-                'default'     => esc_html__('Lorem ipsum dolor sit amet.', 'exclusive-addons-elementor')
+                'default'     => esc_html__('Lorem ipsum dolor sit amet.', 'exclusive-addons-elementor'),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 

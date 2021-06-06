@@ -254,7 +254,10 @@ class Team_Member extends Widget_Base {
 				'label'       => esc_html__( 'Name', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'John Doe', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'John Doe', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 		
@@ -264,7 +267,10 @@ class Team_Member extends Widget_Base {
 				'label'       => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Designation', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 		
@@ -273,7 +279,10 @@ class Team_Member extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Put team member details here. Click here to edit it from the inline editor.', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Put team member details here. Click here to edit it from the inline editor.', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -298,6 +307,9 @@ class Team_Member extends Widget_Base {
 				'default'     => esc_html__( 'Read More', 'exclusive-addons-elementor' ),
 				'condition'   => [
 					'exad_section_team_members_cta_btn' => 'yes'
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);

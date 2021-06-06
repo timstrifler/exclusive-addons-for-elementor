@@ -132,7 +132,10 @@ class Accordion extends Widget_Base {
 				'default'     => esc_html__('See Details', 'exclusive-addons-elementor' ),
 				'condition'   => [
                     '.exad_accordion_show_read_more_btn' => 'yes'
-                ]
+                ],
+				'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 

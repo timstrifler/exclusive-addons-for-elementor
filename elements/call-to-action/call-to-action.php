@@ -64,7 +64,10 @@ class Call_To_Action extends Widget_Base {
 				'type'        => Controls_Manager::TEXT,
 				'default'     => __( 'Designers & Developer with Great UX', 'exclusive-addons-elementor' ),
                 'label_block' => true,
-				'placeholder' => __( 'Your Heading', 'exclusive-addons-elementor' )
+				'placeholder' => __( 'Your Heading', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -101,7 +104,10 @@ class Call_To_Action extends Widget_Base {
                 'label'       => esc_html__( 'Button Text', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default'     => esc_html__( 'Get Now', 'exclusive-addons-elementor' )
+                'default'     => esc_html__( 'Get Now', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -137,7 +143,10 @@ class Call_To_Action extends Widget_Base {
                 'label'       => esc_html__( 'Button Text', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default'     => esc_html__( 'Try It Now', 'exclusive-addons-elementor' )
+                'default'     => esc_html__( 'Try It Now', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
