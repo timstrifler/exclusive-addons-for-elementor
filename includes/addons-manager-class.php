@@ -300,7 +300,7 @@ class Addons_Manager {
             'list-group'  => [
                 'title'  => __( 'List Group', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\List_group',
-                'demo_link' => 'https://exclusiveaddons.com/image-comparison-demo/',
+                'demo_link' => 'https://exclusiveaddons.com/list-group/',
                 'tags'   => 'free',
                 'is_pro' => false
             ],

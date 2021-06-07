@@ -375,7 +375,8 @@ class List_group extends Widget_Base {
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper.layout_2 .exad-list-group-item:not(:last-child):after' => 'width: {{SIZE}}{{UNIT}};',
 				],
 				'condition' => [
-					'exad_section_list_item_separator' => 'yes'
+					'exad_section_list_item_separator' => 'yes',
+					'exad_section_list_layout!' => 'layout_3'
 				]
 			]
 		);
@@ -391,7 +392,8 @@ class List_group extends Widget_Base {
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper.layout_2 .exad-list-group-item:not(:last-child):after' => 'background: {{VALUE}}',
 				],
 				'condition' => [
-					'exad_section_list_item_separator' => 'yes'
+					'exad_section_list_item_separator' => 'yes',
+					'exad_section_list_layout!' => 'layout_3'
 				]
 			]
 		);
@@ -416,6 +418,18 @@ class List_group extends Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper.layout_3 .exad-list-group-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
+				'condition' => [
+					'exad_section_list_layout' => 'layout_3'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'            => 'exad_list_item_background',
+				'types'           => [ 'classic', 'gradient' ],
+				'selector'        => '{{WRAPPER}} .exad-list-group .exad-list-group-wrapper.layout_3 .exad-list-group-item',
 				'condition' => [
 					'exad_section_list_layout' => 'layout_3'
 				]
@@ -529,7 +543,7 @@ class List_group extends Widget_Base {
 				'label_block' => false,
 				'options'     => [
 					'exad-icon-align-left'   => [
-						'title' => esc_html__( 'Left', 'exclusive-addons-elementor' ),
+						'title' => esc_html__( 'Top', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-v-align-top'
 					],
 					'exad-icon-align-center' => [
@@ -537,7 +551,7 @@ class List_group extends Widget_Base {
 						'icon'  => 'eicon-v-align-middle'
 					],
 					'exad-icon-align-right'  => [
-						'title' => esc_html__( 'Right', 'exclusive-addons-elementor' ),
+						'title' => esc_html__( 'Bottom', 'exclusive-addons-elementor' ),
 						'icon'  => 'eicon-v-align-bottom'
 					]
 				],
