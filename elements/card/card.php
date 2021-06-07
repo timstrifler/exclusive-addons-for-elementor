@@ -1351,12 +1351,14 @@ class Card extends Widget_Base {
 	            $this->add_render_attribute( 'exad_card_action_link', 'rel', 'nofollow' );
 	        }
         }
+		?>
 
-		echo '<div '.$this->get_render_attribute_string( 'exad_card' ).'>';
-			if( !empty( $card_image_url ) ) :
-	        	echo '<div class="exad-card-thumb">';
-	            	echo '<img src="'.esc_url($card_image_url).'" alt="'.Control_Media::get_image_alt( $settings['exad_card_image'] ).'">';
-	          	echo '</div>';
+		<div <?php echo $this->get_render_attribute_string( 'exad_card' ); ?>>
+			<?php if ( $settings['exad_card_image']['url'] || $settings['exad_card_image']['id'] ) : ?>
+	        	<div class="exad-card-thumb">
+					<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_card_image' ); ?>
+				</div>
+			<?php	
 			endif;
 
 			if( $settings['exad_card_badge_switcher'] === 'yes' ) :
