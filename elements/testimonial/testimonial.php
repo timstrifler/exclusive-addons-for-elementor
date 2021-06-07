@@ -1007,7 +1007,7 @@ class Testimonial extends Widget_Base {
 		$output = '';
 		if ( !empty( $image_url ) ) :
 			$output .= '<div class="exad-testimonial-thumb">';
-				$output .= '<img src="'.esc_url( $image_url ).'" alt="'.Control_Media::get_image_alt( $reviewer_name ).'">';
+				$output .= $image_url;
 			$output .= '</div>';
 		endif;
 		return $output;
@@ -1018,6 +1018,7 @@ class Testimonial extends Widget_Base {
 
 		$testimonial_image = $this->get_settings_for_display( 'exad_testimonial_image' );
 		$testimonial_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $testimonial_image['id'], 'testimonial_thumbnail', $settings );
+		$testimonial_image_url_html = Group_Control_Image_Size::get_attachment_image_html( $settings, 'testimonial_thumbnail', 'exad_testimonial_image' );
 		$transition_top = '';
 
 		$target = $settings['exad_testimonial_url']['is_external'] ? ' target="_blank"' : '';
@@ -1064,7 +1065,7 @@ class Testimonial extends Widget_Base {
 				}
 				echo '<div class="exad-testimonial-reviewer-wrapper">';
 					if( 'exad-testimonial-align-bottom' !== $settings['exad_testimonial_container_alignment'] ) :
-						echo $this->render_testimonial_image( $testimonial_image_url, $settings['exad_testimonial_image'] );
+						echo $this->render_testimonial_image( $testimonial_image_url_html, $settings['exad_testimonial_image'] );
 					endif;
 
 					echo '<div class="exad-testimonial-reviewer">';
@@ -1079,7 +1080,7 @@ class Testimonial extends Widget_Base {
 					echo '</div>';					
 
 					if( 'exad-testimonial-align-bottom' === $settings['exad_testimonial_container_alignment'] ) :
-						echo $this->render_testimonial_image( $testimonial_image_url, $settings['exad_testimonial_image'] );
+						echo $this->render_testimonial_image( $testimonial_image_url_html, $settings['exad_testimonial_image'] );
 					endif;
 				echo '</div>';
 				if( 'layout-2' === $settings['exad_testimonial_layout'] ){

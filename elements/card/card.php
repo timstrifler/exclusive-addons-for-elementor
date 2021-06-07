@@ -1361,44 +1361,51 @@ class Card extends Widget_Base {
 			<?php	
 			endif;
 
-			if( $settings['exad_card_badge_switcher'] === 'yes' ) :
-				echo '<div class="exad-card-badge">';
-					echo $settings['exad_card_badge'];
-				echo '</div>';
+			if( $settings['exad_card_badge_switcher'] === 'yes' ) : ?>
+				<div class="exad-card-badge">
+					<?php echo $settings['exad_card_badge']; ?>
+				</div>
+				<?php
 			endif;
+			?>
 
-          	echo '<div class="exad-card-body">';
-          		if( $settings['exad_card_title'] ) {
-	          		echo '<a '.$this->get_render_attribute_string( 'exad_card_title_link' ).'>';
-	            		echo '<span '.$this->get_render_attribute_string( 'exad_card_title' ).'>'.Helper::exad_wp_kses( $settings['exad_card_title'] ).'</span>';
-	        		echo '</a>';          			
+          	<div class="exad-card-body">
+			  <?php if( $settings['exad_card_title'] ) { ?>
+	          		<a <?php echo $this->get_render_attribute_string( 'exad_card_title_link' ); ?>>
+	            		<span <?php echo $this->get_render_attribute_string( 'exad_card_title' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_card_title'] ); ?></span>
+	        		</a>
+					<?php	          			
           		}
 
         		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', Helper::exad_wp_kses( $settings['exad_card_tag'] ) ) : '';
 
         		$settings['exad_card_description'] ? printf( '<div '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</div>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
 
-        		if ( !empty( $settings['exad_card_action_text'] ) ) :
-					echo '<a '.$this->get_render_attribute_string( 'exad_card_action_link' ).'>';
-						if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
-							echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
-								Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] );
-							echo '</span>';
+        		if ( !empty( $settings['exad_card_action_text'] ) ) : ?>
+					<a <?php echo $this->get_render_attribute_string( 'exad_card_action_link' ); ?>>
+						<?php if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
+							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
+								<?php echo Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
+							</span>
+						<?php	
 						}
+						?>
 
-						echo '<span '.$this->get_render_attribute_string( 'exad_card_action_text' ).'>';
-							echo esc_html( $settings['exad_card_action_text'] );
-						echo '</span>';
+						<span <?php echo $this->get_render_attribute_string( 'exad_card_action_text' ); ?>>
+							<?php echo esc_html( $settings['exad_card_action_text'] ); ?>
+						</span>
 
-						if( 'icon_pos_right' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
-							echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
-								Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] );
-							echo '</span>';
-						}
-	            	echo '</a>';
-	            endif;
-          	echo '</div>';
-        echo '</div>';
+						<?php
+						if( 'icon_pos_right' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
+							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
+								<?php echo Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
+							</span>
+						<?php } ?>
+	            	</a>
+				<?php endif; ?>
+          	</div>
+        </div>
+	<?php	
 	}
 
 	/**
