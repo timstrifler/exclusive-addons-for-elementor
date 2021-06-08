@@ -1300,13 +1300,6 @@ class Card extends Widget_Base {
 
 	protected function render() {
 		$settings           = $this->get_settings_for_display();
-		$card_image         = $settings['exad_card_image'];
-		$card_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $card_image['id'], 'thumbnail', $settings );
-		if( empty( $card_image_url_src ) ) {
-			$card_image_url = $card_image['url'];
-		} else {
-			$card_image_url = $card_image_url_src;
-		}
 
 		$this->add_render_attribute( 
 			'exad_card', 
@@ -1320,13 +1313,13 @@ class Card extends Widget_Base {
 			]
 		);
 
-		$this->add_inline_editing_attributes( 'exad_card_title', 'none' );
+		$this->add_inline_editing_attributes( 'exad_card_title', 'basic' );
 
 		$this->add_render_attribute( 'exad_card_tag', 'class', 'exad-card-tag' );
-		$this->add_inline_editing_attributes( 'exad_card_tag', 'none' );
+		$this->add_inline_editing_attributes( 'exad_card_tag', 'basic' );
 
 		$this->add_render_attribute( 'exad_card_description', 'class', 'exad-card-description' );
-		$this->add_inline_editing_attributes( 'exad_card_description' );
+		$this->add_inline_editing_attributes( 'exad_card_description', 'intermediate' );
 
 		$this->add_render_attribute( 'exad_card_title_link', 'class', 'exad-card-title' );
 		$this->add_inline_editing_attributes( 'exad_card_action_text', 'none' );
@@ -1442,13 +1435,13 @@ class Card extends Widget_Base {
 			}
 
 			view.addRenderAttribute( 'exad_card_title_link', 'class', 'exad-card-title' );
-			view.addInlineEditingAttributes( 'exad_card_title', 'none' );
+			view.addInlineEditingAttributes( 'exad_card_title', 'basic' );
 
 			view.addRenderAttribute( 'exad_card_tag', 'class', 'exad-card-tag' );
-			view.addInlineEditingAttributes( 'exad_card_tag', 'none' );
+			view.addInlineEditingAttributes( 'exad_card_tag', 'basic' );
 
 			view.addRenderAttribute( 'exad_card_description', 'class', 'exad-card-description' );
-			view.addInlineEditingAttributes( 'exad_card_description' );
+			view.addInlineEditingAttributes( 'exad_card_description', 'intermediate' );
 
 			view.addRenderAttribute( 'exad_card_action_link', 'class', 'exad-card-action' );
 			view.addInlineEditingAttributes( 'exad_card_action_text', 'none' );
