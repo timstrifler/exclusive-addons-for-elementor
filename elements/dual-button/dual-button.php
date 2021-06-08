@@ -1001,55 +1001,65 @@ class Dual_Button extends Widget_Base {
         $this->add_inline_editing_attributes( 'exad_dual_button_primary_button_text', 'none' );
         $this->add_inline_editing_attributes( 'exad_dual_button_connector_text', 'none' );
         $this->add_inline_editing_attributes( 'exad_dual_button_secondary_button_text', 'none' );
+        ?>
 
-        echo '<div '.$this->get_render_attribute_string( 'exad_dual_button' ).'>';
-            echo '<div class="exad-dual-button-wrapper">';
-                echo '<a '.$this->get_render_attribute_string( 'exad_dual_button_primary_button_url' ).'>';
-                    echo '<span class="'.esc_attr( $primary_btn_icon_pos ).'">';
+        <div <?php echo $this->get_render_attribute_string( 'exad_dual_button' ); ?>>
+            <div class="exad-dual-button-wrapper">
+                <a <?php echo $this->get_render_attribute_string( 'exad_dual_button_primary_button_url' ); ?>>
+                    <span class="<?php echo esc_attr( $primary_btn_icon_pos ); ?>">
+                    <?php 
                         if ( 'exad-icon-pos-left' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] );
                         }
-
-                        echo '<span '.$this->get_render_attribute_string( 'exad_dual_button_primary_button_text' ).'>';
-                            echo esc_html( $settings['exad_dual_button_primary_button_text'] );
-                        echo '</span>';
-
+                    ?>
+                        <span <?php echo $this->get_render_attribute_string( 'exad_dual_button_primary_button_text' ); ?>>
+                            <?php echo esc_html( $settings['exad_dual_button_primary_button_text'] ); ?>
+                        </span>
+                        <?php 
                         if ( 'exad-icon-pos-right' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] );
                         }
-                    echo '</span>';
+                        ?>
+                    </span>
 
-                    if ( 'yes' === $settings['exad_dual_button_connector_switch'] ) {
-                        echo '<div class="exad-dual-button-connector">';
-                            if ( 'text' === $settings['exad_dual_button_connector_type'] ) {
-                                echo '<span '.$this->get_render_attribute_string( 'exad_dual_button_connector_text' ).'>';
-                                    echo esc_html( $settings['exad_dual_button_connector_text'] );
-                                echo '</span>';
+                    <?php    
+                    if ( 'yes' === $settings['exad_dual_button_connector_switch'] ) { ?>
+                        <div class="exad-dual-button-connector">
+                        <?php if ( 'text' === $settings['exad_dual_button_connector_type'] ) { ?>
+                            <span <?php echo $this->get_render_attribute_string( 'exad_dual_button_connector_text' ); ?>>
+                                <?php echo esc_html( $settings['exad_dual_button_connector_text'] ); ?>
+                            </span>
+                            <?php 
                             }
-                            if ( 'icon' === $settings['exad_dual_button_connector_type'] && !empty( $settings['exad_dual_button_connector_icon']['value'] ) ) {
-                                echo '<span>';
-                                    Icons_Manager::render_icon( $settings['exad_dual_button_connector_icon'] );
-                                echo '</span>';
-                            }
-                        echo '</div>';
-                    }
-                echo '</a>';
+                            if ( 'icon' === $settings['exad_dual_button_connector_type'] && !empty( $settings['exad_dual_button_connector_icon']['value'] ) ) { ?>
+                                <span>
+                                    <?php Icons_Manager::render_icon( $settings['exad_dual_button_connector_icon'] ); ?>
+                                </span>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
+                </a>
                 
-                echo '<a '.$this->get_render_attribute_string( 'exad_dual_button_secondary_button_url' ).'>';
-                    echo '<span class="'.esc_attr( $secondary_btn_icon_pos ).'">';
+                <a <?php echo $this->get_render_attribute_string( 'exad_dual_button_secondary_button_url' ); ?>>
+                    <span class="<?php echo esc_attr( $secondary_btn_icon_pos ); ?>">
+                    <?php 
                         if ( 'exad-icon-pos-left' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );
                         }
-                        echo '<span '.$this->get_render_attribute_string( 'exad_dual_button_secondary_button_text' ).'>';
-                            echo esc_html( $settings['exad_dual_button_secondary_button_text'] );
-                        echo '</span>';
+                        ?>
+                        <span <?php echo $this->get_render_attribute_string( 'exad_dual_button_secondary_button_text' ); ?>>
+                            <?php echo esc_html( $settings['exad_dual_button_secondary_button_text'] ); ?>
+                        </span>
+                        <?php 
                         if ( 'exad-icon-pos-right' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );
                         }
-                    echo '</span>';
-                echo '</a>';
-          echo '</div>';
-        echo '</div>';
+                        ?>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <?php 
     }
 
     /**
