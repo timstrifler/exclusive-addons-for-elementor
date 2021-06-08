@@ -565,15 +565,15 @@ class Tooltip extends Widget_Base {
     protected function render() {
 
         $settings        = $this->get_settings_for_display();
-        if ( $settings['exad_tooltip_type'] == 'image' ) {
-            $tooltip_img     = $settings['exad_tooltip_img_content'];
-            $tooltip_img_url = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
-            if ( empty( $tooltip_img_url ) ) {
-                $tooltip_img_url = $tooltip_img['url'];
-            }  else {
-                $tooltip_img_url = $tooltip_img_url;
-            }
-        }
+        // if ( $settings['exad_tooltip_type'] == 'image' ) {
+        //     $tooltip_img     = $settings['exad_tooltip_img_content'];
+        //     $tooltip_img_url = Group_Control_Image_Size::get_attachment_image_src( $tooltip_img['id'], 'exad_tooltip_image_size', $settings );
+        //     if ( empty( $tooltip_img_url ) ) {
+        //         $tooltip_img_url = $tooltip_img['url'];
+        //     }  else {
+        //         $tooltip_img_url = $tooltip_img_url;
+        //     }
+        // }
 
         $this->add_render_attribute( 'exad_tooltip_wrapper', 'class', 'exad-tooltip' );
 
@@ -588,34 +588,39 @@ class Tooltip extends Widget_Base {
         }
 
         $this->add_inline_editing_attributes( 'exad_tooltip_content', 'basic' );
+
+        ?>
        
-        echo '<div '.$this->get_render_attribute_string( 'exad_tooltip_wrapper' ).'>';
-            echo '<div class="exad-tooltip-item '.esc_attr( $settings['exad_tooltip_direction'] ).'">';
-                echo '<div class="exad-tooltip-content">';
+        <div <?php echo $this->get_render_attribute_string( 'exad_tooltip_wrapper' ); ?>>
+            <div class="exad-tooltip-item <?php echo esc_attr( $settings['exad_tooltip_direction'] ); ?>">
+                <div class="exad-tooltip-content">
 
-                    if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $settings['exad_tooltip_link']['url'] ) ) :
-                        echo '<a '.$this->get_render_attribute_string( 'exad_tooltip_link' ).'>';
-                    endif;
+                    <?php if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $settings['exad_tooltip_link']['url'] ) ) : ?>
+                        <a <?php echo $this->get_render_attribute_string( 'exad_tooltip_link' ); ?>>
+                    <?php endif; ?>
 
-                    if( 'text' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_content'] ) ) :
-                        echo '<span '.$this->get_render_attribute_string( 'exad_tooltip_content' ).'>'.wp_kses_post( $settings['exad_tooltip_content'] ).'</span>';
+                    <?php if( 'text' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_content'] ) ) : ?>
+                        <span <?php echo $this->get_render_attribute_string( 'exad_tooltip_content' ); ?>><?php echo wp_kses_post( $settings['exad_tooltip_content'] ); ?></span>';
 
-                    elseif( 'icon' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_icon_content']['value'] ) ) :
-                        Icons_Manager::render_icon( $settings['exad_tooltip_icon_content'] );
+                    <?php elseif( 'icon' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_icon_content']['value'] ) ) : ?>
+                        <?php Icons_Manager::render_icon( $settings['exad_tooltip_icon_content'] ); ?>
 
-                    elseif( 'image' === $settings['exad_tooltip_type'] && !empty( $tooltip_img_url ) ) :
-                        echo '<img src="'.esc_url( $tooltip_img_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_tooltip_img_content'] ).'">';
-                    endif;
+                    <?php elseif( 'image' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_img_content']['url'] ) ) : ?>
+                        <?php if ( $settings['exad_tooltip_img_content']['url'] || $settings['exad_tooltip_img_content']['id'] ) { ?>
+                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_tooltip_image_size', 'exad_tooltip_img_content' ); ?>
+                        <?php } ?>
+                    <?php endif; ?>
 
-                    if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $settings['exad_tooltip_link']['url'] ) ) :
-                        echo '</a>';
-                    endif;
+                    <?php if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $settings['exad_tooltip_link']['url'] ) ) : ?>
+                        </a>
+                    <?php endif; ?>
 
-                echo '</div>';
+                </div>
 
-                $settings['exad_tooltip_text'] ? printf( '<div class="exad-tooltip-text">%s</div>', wp_kses_post( $settings['exad_tooltip_text'] ) ) : '';
-            echo '</div>';
-        echo '</div>';
+                <?php $settings['exad_tooltip_text'] ? printf( '<div class="exad-tooltip-text">%s</div>', wp_kses_post( $settings['exad_tooltip_text'] ) ) : ''; ?>
+            </div>
+        </div>
+        <?php
     }
 
     /**
