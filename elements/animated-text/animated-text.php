@@ -570,18 +570,19 @@ class Animated_Text extends Widget_Base {
 		);
 
 		$this->add_render_attribute( 'exad_animated_text_before_text', 'class', 'exad-animated-text-pre-heading' );
-        $this->add_inline_editing_attributes( 'exad_animated_text_before_text' );
+        $this->add_inline_editing_attributes( 'exad_animated_text_before_text', 'intermediate' );
 
 		$this->add_render_attribute( 'exad_animated_text_after_text', 'class', 'exad-animated-text-post-heading' );
-        $this->add_inline_editing_attributes( 'exad_animated_text_after_text' );
+        $this->add_inline_editing_attributes( 'exad_animated_text_after_text', 'intermediate' );
+		?>
 
-		echo '<div class="exad-animated-text '.esc_attr($heading_align).'">';
+		<div class="exad-animated-text <?php echo esc_attr($heading_align); ?>">
 
-			do_action( 'exad_animated_text_wrapper_before' );
+			<?php do_action( 'exad_animated_text_wrapper_before' ); ?>
 
-			echo '<'.esc_attr($heading_tag).' '.$this->get_render_attribute_string( 'exad_typed_animated_string' ).'>';
+			<<?php echo esc_attr($heading_tag).' '.$this->get_render_attribute_string( 'exad_typed_animated_string' );?>>
 
-				do_action( 'exad_animated_text_content_before' );
+				<?php do_action( 'exad_animated_text_content_before' );
 
 				$before_text ? printf( '<span '.$this->get_render_attribute_string( 'exad_animated_text_before_text' ).'>%s</span>', wp_kses_post($before_text) ) : '';
 
@@ -596,11 +597,13 @@ class Animated_Text extends Widget_Base {
 				$after_text ? printf( '<span '.$this->get_render_attribute_string( 'exad_animated_text_after_text' ).'>%s</span>', wp_kses_post($after_text) ) : '';
 
 				do_action( 'exad_animated_text_content_after' );
+			?>
 
-			echo '</'.esc_attr($heading_tag).'>';
+			</ <?php echo esc_attr($heading_tag);?>>
 
-			do_action( 'exad_animated_text_wrapper_after' );
+			<?php do_action( 'exad_animated_text_wrapper_after' ); ?>
 
-		echo '</div>';
+		</div>
+	<?php 	
 	}
 }
