@@ -856,6 +856,30 @@ class Call_To_Action extends Widget_Base {
         $this->end_controls_section();  
 	}
 
+    private function primary_btn() {
+        $settings = $this->get_settings_for_display();
+
+        $this->add_render_attribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
+        $this->add_inline_editing_attributes( 'exad_cta_primary_btn', 'none' );
+        ?>
+        <span <?php echo $this->get_render_attribute_string( 'exad_cta_primary_btn' ); ?>>
+            <?php echo esc_html( $settings['exad_cta_primary_btn'] ); ?>
+        </span>
+    <?php    
+    }
+
+    private function seconday_btn() {
+        $settings = $this->get_settings_for_display();
+
+        $this->add_render_attribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );
+        $this->add_inline_editing_attributes( 'exad_cta_secondary_btn', 'none' );
+        ?>
+        <span <?php echo $this->get_render_attribute_string( 'exad_cta_secondary_btn' ); ?>>
+            <?php echo esc_html( $settings['exad_cta_secondary_btn'] ); ?>
+        </span>
+    <?php     
+    }
+
 	protected function render() {
 
         $settings = $this->get_settings_for_display();
@@ -864,10 +888,10 @@ class Call_To_Action extends Widget_Base {
         $details  = $settings['exad_cta_description'];
 
         $this->add_render_attribute( 'exad_cta_heading', 'class', 'exad-call-to-action-title' );
-        $this->add_inline_editing_attributes( 'exad_cta_heading', 'none' );
+        $this->add_inline_editing_attributes( 'exad_cta_heading', 'basic' );
 
         $this->add_render_attribute( 'exad_cta_description', 'class', 'exad-call-to-action-subtitle' );
-        $this->add_inline_editing_attributes( 'exad_cta_description' );
+        $this->add_inline_editing_attributes( 'exad_cta_description', 'intermediate' );
 
         $this->add_render_attribute( 'exad_call_to_action_wrapper', 'class', 'exad-call-to-action skin-'.$settings['exad_cta_skin_type'] );
 
@@ -893,53 +917,54 @@ class Call_To_Action extends Widget_Base {
                 $this->add_render_attribute( 'exad_cta_secondary_btn_link', 'rel', 'nofollow' );
             }
         }
+        ?>
 
-        echo '<div '.$this->get_render_attribute_string( 'exad_call_to_action_wrapper' ).'>';
-            do_action('exad_cta_wrapper_before');
-		    echo '<div class="exad-call-to-action-content">';
-
-			    echo '<div class="exad-call-to-action-header">';
-                    if( !empty( $settings['exad_cta_icon']['value'] ) ){
-                        echo '<div class="exad-call-to-action-icon">';
-                            Icons_Manager::render_icon( $settings['exad_cta_icon'], [ 'aria-hidden' => 'true' ] );
-                        echo '</div>';
+        <div <?php echo $this->get_render_attribute_string( 'exad_call_to_action_wrapper' ); ?>>
+            <?php do_action('exad_cta_wrapper_before'); ?>
+		    <div class="exad-call-to-action-content">
+                <div class="exad-call-to-action-header">
+                <?php
+                    if( !empty( $settings['exad_cta_icon']['value'] ) ) { ?>
+                        <div class="exad-call-to-action-icon">
+                            <?php echo Icons_Manager::render_icon( $settings['exad_cta_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                        </div>
+                    <?php    
                     }
 
                     $heading ? printf( '<h1 '.$this->get_render_attribute_string( 'exad_cta_heading' ).'>%s</h1>', wp_kses_post( $heading ) ) : '';
 
-                    if( $details ):
-                        echo '<div '.$this->get_render_attribute_string( 'exad_cta_description' ).'>';
-                            echo wp_kses_post( $settings['exad_cta_description'] );
-                        echo '</div>';
-                    endif;
+                    if ( $details ) : ?>
+                        <div <?php echo $this->get_render_attribute_string( 'exad_cta_description' ); ?>>
+                            <?php echo wp_kses_post( $settings['exad_cta_description'] ); ?>
+                        </div>
+                    <?php endif; ?>
+			    </div>
 
-			    echo '</div>';
-
-			    echo '<div class="exad-call-to-action-footer">';
-                    echo '<ul class="exad-call-to-action-buttons '. $settings['exad_section_cta_btn_effect'] .'">';
-
-                        if ( ! empty( $settings['exad_cta_primary_btn'] ) ) :
-                            echo '<li>';
-                                echo '<a '.$this->get_render_attribute_string( 'exad_cta_primary_btn_link' ).'>';
-                                    $this->primary_btn();
-                                echo '</a>';
-                            echo '</li>';
+			    <div class="exad-call-to-action-footer">
+                    <ul class="exad-call-to-action-buttons <?php echo $settings['exad_section_cta_btn_effect']; ?>">
+                    <?php    
+                        if ( ! empty( $settings['exad_cta_primary_btn'] ) ) : ?>
+                            <li>
+                                <a <?php echo $this->get_render_attribute_string( 'exad_cta_primary_btn_link' ); ?>>
+                                    <?php $this->primary_btn(); ?>
+                                </a>
+                            </li>
+                        <?php    
                         endif;
 
-                        if( 'vertical' === $settings['exad_cta_skin_type'] && !empty( $settings['exad_cta_secondary_btn'] ) ) :
-                            echo '<li>';
-                                echo '<a '.$this->get_render_attribute_string( 'exad_cta_secondary_btn_link' ).'>';
-                                    $this->seconday_btn();
-                                echo '</a>';
-                            echo '</li>';
-                        endif;
-
-                    echo '</ul>';
-			    echo '</div>';
-		    echo '</div>';
-            do_action('exad_cta_wrapper_after');
-
-		echo '</div>';
+                        if( 'vertical' === $settings['exad_cta_skin_type'] && !empty( $settings['exad_cta_secondary_btn'] ) ) : ?>
+                            <li>
+                                <a <?php echo $this->get_render_attribute_string( 'exad_cta_secondary_btn_link' ); ?>>
+                                    <?php $this->seconday_btn(); ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+			    </div>
+		    </div>
+            <?php do_action('exad_cta_wrapper_after'); ?>
+		</div>
+    <?php     
 	}
 
     /**
@@ -963,10 +988,10 @@ class Call_To_Action extends Widget_Base {
             var iconHTML = elementor.helpers.renderIcon( view, settings.exad_cta_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
             view.addRenderAttribute( 'exad_cta_heading', 'class', 'exad-call-to-action-title' );
-            view.addInlineEditingAttributes( 'exad_cta_heading', 'none' );
+            view.addInlineEditingAttributes( 'exad_cta_heading', 'basic' );
 
             view.addRenderAttribute( 'exad_cta_description', 'class', 'exad-call-to-action-subtitle' );
-            view.addInlineEditingAttributes( 'exad_cta_description' );
+            view.addInlineEditingAttributes( 'exad_cta_description', 'intermediate' );
 
             view.addRenderAttribute( 'exad_cta_primary_btn_link', 'class', 'exad-call-to-action-primary-btn' );
             view.addRenderAttribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
@@ -1031,25 +1056,4 @@ class Call_To_Action extends Widget_Base {
         <?php
     }
 
-    private function primary_btn() {
-        $settings = $this->get_settings_for_display();
-
-        $this->add_render_attribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
-        $this->add_inline_editing_attributes( 'exad_cta_primary_btn', 'none' );
-
-        echo '<span '.$this->get_render_attribute_string( 'exad_cta_primary_btn' ).'>';
-            echo esc_html( $settings['exad_cta_primary_btn'] );
-        echo '</span>';
-    }
-
-    private function seconday_btn() {
-        $settings = $this->get_settings_for_display();
-
-        $this->add_render_attribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );
-        $this->add_inline_editing_attributes( 'exad_cta_secondary_btn', 'none' );
-
-        echo '<span '.$this->get_render_attribute_string( 'exad_cta_secondary_btn' ).'>';
-            echo esc_html( $settings['exad_cta_secondary_btn'] );
-        echo '</span>';
-    }
 }
