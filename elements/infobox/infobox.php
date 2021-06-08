@@ -910,12 +910,15 @@ class Infobox extends Widget_Base {
 		$details                   = $settings['exad_infobox_description'];
 
 		if ( $settings['exad_infobox_img_or_icon'] == 'img' ) {
+
 			$infobox_image             = $settings['exad_infobox_image'];
-			$infobox_image_url         = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
-			if ( empty( $infobox_image_url ) ) {
-				$infobox_image_url = $infobox_image['url'];
-			}  else {
-				$infobox_image_url = $infobox_image_url;
+			$infobox_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
+			$infobox_image_url_html = Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_infobox_image' );
+
+			if( empty( $infobox_image_url_src ) ) {
+				$infobox_image_url = $infobox_image['url']; 
+			} else { 
+				$infobox_image_url = $infobox_image_url_src;
 			}
 		}
 
@@ -952,44 +955,47 @@ class Infobox extends Widget_Base {
         $this->add_render_attribute( 'exad_infobox_description', 'class', 'exad-infobox-content-description' );
 		$this->add_inline_editing_attributes( 'exad_infobox_description' );
 
-		echo '<div class="exad-infobox">';
-			echo '<div '.$this->get_render_attribute_string( 'exad_infobox_transition' ).'>';
-			  	if( 'none' !== $settings['exad_infobox_img_or_icon'] ) {
-					if( 'yes' === $settings['exad_infobox_animating_mask_switcher'] ) {
-						echo '<div class="exad-infobox-icon '. $settings['exad_infobox_animating_mask_style'] .'">';
-							if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
-								Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
-							endif;
+		?>
 
-							if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
-								echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
-							endif;			
-						echo '</div>';
-					} else {
-						echo '<div class="exad-infobox-icon">';
-							if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
-								Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
-							endif;
+		<div class="exad-infobox">
+			<div <?php echo $this->get_render_attribute_string( 'exad_infobox_transition' ); ?>>
+			  	<?php if( 'none' !== $settings['exad_infobox_img_or_icon'] ) { ?>
+					<?php if( 'yes' === $settings['exad_infobox_animating_mask_switcher'] ) { ?>
+						<div class="exad-infobox-icon <?php echo $settings['exad_infobox_animating_mask_style']; ?>">
+							<?php if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) : ?>
+								<?php Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+							<?php endif; ?>
 
-							if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
-								echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
-							endif;			
-						echo '</div>';
-					}
-			  	}
-	            echo '<div class="exad-infobox-content">';
-	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
-                        echo '<a '.$this->get_render_attribute_string( 'exad_infobox_title_link' ).'>';
-                    }
-	            	$title ? printf( '<h3 '.$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</h3>', Helper::exad_wp_kses( $title ) ) : '';
-	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
-                        echo '</a>';
-                    }
+							<?php if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
+								echo $infobox_image_url_html;
+							endif; ?>	
+						</div>
+					<?php } else { ?>
+						<div class="exad-infobox-icon">
+							<?php if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) : ?>
+								<?php Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+							<?php endif; ?>
 
-	            	$details ? printf( '<div '.$this->get_render_attribute_string( 'exad_infobox_description' ).'>%s</div>', wp_kses_post( $details ) ) : '';
-	            echo '</div>';
-          	echo '</div>';
-        echo '</div>';
+							<?php if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
+								echo $infobox_image_url_html;
+							endif; ?>
+						</div>
+					<?php } ?>
+			  	<?php } ?>
+	            <div class="exad-infobox-content">
+	            	<?php if( !empty( $settings['exad_infobox_title_link']['url'] ) ) { ?>
+                        <a <?php echo $this->get_render_attribute_string( 'exad_infobox_title_link' ); ?>>
+                    <?php } ?>
+	            	<?php $title ? printf( '<h3 '.$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</h3>', Helper::exad_wp_kses( $title ) ) : ''; ?>
+	            	<?php if( !empty( $settings['exad_infobox_title_link']['url'] ) ) { ?>
+                        </a>
+                    <?php } ?>
+
+	            	<?php $details ? printf( '<div '.$this->get_render_attribute_string( 'exad_infobox_description' ).'>%s</div>', wp_kses_post( $details ) ) : ''; ?>
+	            </div>
+          	</div>
+        </div>
+		<?php
 	}
 
 	/**
