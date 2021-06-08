@@ -1481,7 +1481,7 @@ class Team_Member extends Widget_Base {
 		$this->end_controls_section();
 	}
 	
-	
+
 	private function team_member_cta() {
 		$settings = $this->get_settings_for_display();
 
@@ -1498,13 +1498,13 @@ class Team_Member extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 'exad_team_member_name', 'class', 'exad-team-member-name' );
-		$this->add_inline_editing_attributes( 'exad_team_member_name', 'none' );
+		$this->add_inline_editing_attributes( 'exad_team_member_name', 'basic' );
 
 		$this->add_render_attribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
-		$this->add_inline_editing_attributes( 'exad_team_member_designation', 'none' );
+		$this->add_inline_editing_attributes( 'exad_team_member_designation', 'basic' );
 
 		$this->add_render_attribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
-		$this->add_inline_editing_attributes( 'exad_team_member_description' );
+		$this->add_inline_editing_attributes( 'exad_team_member_description', 'intermediate' );
 
 		$this->add_render_attribute( 'exad_team_member_item', [
             'class' => [ 
@@ -1628,13 +1628,13 @@ class Team_Member extends Widget_Base {
 		?>
 		<#
 			view.addRenderAttribute( 'exad_team_member_name', 'class', 'exad-team-member-name' );
-			view.addInlineEditingAttributes( 'exad_team_member_name', 'none' );
+			view.addInlineEditingAttributes( 'exad_team_member_name', 'basic' );
 
 			view.addRenderAttribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
-			view.addInlineEditingAttributes( 'exad_team_member_designation', 'none' );
+			view.addInlineEditingAttributes( 'exad_team_member_designation', 'basic' );
 
 			view.addRenderAttribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
-			view.addInlineEditingAttributes( 'exad_team_member_description' );
+			view.addInlineEditingAttributes( 'exad_team_member_description', 'intermediate' );
 
 			view.addRenderAttribute( 'exad_team_members_cta_btn_link', 'class', 'exad-team-member-cta' );
 			view.addRenderAttribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );
@@ -1642,7 +1642,7 @@ class Team_Member extends Widget_Base {
 
 			view.addRenderAttribute( 'exad_team_member_item', {
 				'class': [ 
-					'exad-team-member exad-team-item', 
+					'exad-team-member', 
 					settings.exad_team_member_content_alignment,
 					settings.exad_team_membe_image_position
 				]

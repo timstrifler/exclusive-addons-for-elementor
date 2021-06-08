@@ -63,7 +63,7 @@ class Testimonial extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'      => 'testimonial_thumbnail',
-				'default'   => 'thumbnail',
+				'default'   => 'medium_large',
 				'condition' => [
 					'exad_testimonial_image[url]!' => ''
 				],
@@ -991,7 +991,6 @@ class Testimonial extends Widget_Base {
 
 	private function render_testimonial_rating( $ratings ) {
 		$settings = $this->get_settings_for_display();
-		// $rating_icon = $settings['exad_testimonial_rating_icon']['value'];
 		
 		for( $i = 1; $i <= 5; $i++ ) {
 			if( $ratings >= $i ) {
@@ -1022,14 +1021,14 @@ class Testimonial extends Widget_Base {
 		$target = $settings['exad_testimonial_url']['is_external'] ? ' target="_blank"' : '';
 		$nofollow = $settings['exad_testimonial_url']['nofollow'] ? ' rel="nofollow"' : '';
 
-		$this->add_inline_editing_attributes( 'exad_testimonial_description' );
-		$this->add_render_attribute( 'exad_testimonial_description', 'class', 'exad-testimonial-description' );
-
-		$this->add_inline_editing_attributes( 'exad_testimonial_name', 'none' );
+		$this->add_inline_editing_attributes( 'exad_testimonial_name', 'basic' );
 		$this->add_render_attribute( 'exad_testimonial_name', 'class', 'exad-testimonial-name' );
 
-		$this->add_inline_editing_attributes( 'exad_testimonial_designation', 'none' );
+		$this->add_inline_editing_attributes( 'exad_testimonial_designation', 'basic' );
 		$this->add_render_attribute( 'exad_testimonial_designation', 'class', 'exad-testimonial-designation' );
+
+		$this->add_inline_editing_attributes( 'exad_testimonial_description', 'intermediate' );
+		$this->add_render_attribute( 'exad_testimonial_description', 'class', 'exad-testimonial-description' );
 
 		$this->add_render_attribute( 'exad_testimonial_content_wrapper', 'class', 'exad-testimonial-content-wrapper' );
 
@@ -1132,13 +1131,13 @@ class Testimonial extends Widget_Base {
 	        	view.addRenderAttribute( 'exad_testimonial_content_wrapper', 'class', 'exad-testimonial-content-wrapper-arrow' );
 	      	}
 
-	      	view.addInlineEditingAttributes( 'exad_testimonial_name', 'none' );
+	      	view.addInlineEditingAttributes( 'exad_testimonial_name', 'basic' );
 	      	view.addRenderAttribute( 'exad_testimonial_name', 'class', 'exad-testimonial-name' );
 
-	      	view.addInlineEditingAttributes( 'exad_testimonial_designation', 'none' );
+	      	view.addInlineEditingAttributes( 'exad_testimonial_designation', 'basic' );
 			view.addRenderAttribute( 'exad_testimonial_designation', 'class', 'exad-testimonial-designation' );
 
-	      	view.addInlineEditingAttributes( 'exad_testimonial_description' );
+	      	view.addInlineEditingAttributes( 'exad_testimonial_description', 'intermediate' );
 	      	view.addRenderAttribute( 'exad_testimonial_description', 'class', 'exad-testimonial-description' );
 
 			var target = settings.exad_testimonial_url.is_external ? ' target="_blank"' : '';
