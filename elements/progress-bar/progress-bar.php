@@ -373,7 +373,7 @@ class Progress_Bar extends Widget_Base {
 		);
 
 		$this->add_render_attribute( 'exad_progress_bar_title', 'class', 'exad-progress-bar-title' );
-        $this->add_inline_editing_attributes( 'exad_progress_bar_title', 'none' );
+        $this->add_inline_editing_attributes( 'exad_progress_bar_title', 'basic' );
 
 		if ( 'line' === $settings['exad_progress_bar_preset'] || 'line-bubble' === $settings['exad_progress_bar_preset'] ) {
 			$this->add_render_attribute(
@@ -404,9 +404,12 @@ class Progress_Bar extends Widget_Base {
 				]
 			);
 		}
+
+		?>
 		
-		echo '<div '.$this->get_render_attribute_string('exad-progress-bar').' data-progress-bar>';
-			echo $title ? '<h6 '.$this->get_render_attribute_string( 'exad_progress_bar_title' ).'>'.Helper::exad_wp_kses( $title ).'</h6>' : '';
-		echo '</div>';
+		<div <?php echo $this->get_render_attribute_string('exad-progress-bar'); ?> data-progress-bar>
+			<?php echo $title ? '<h6 '.$this->get_render_attribute_string( 'exad_progress_bar_title' ).'>'.Helper::exad_wp_kses( $title ).'</h6>' : ''; ?>
+		</div>
+		<?php
 	}
 }
