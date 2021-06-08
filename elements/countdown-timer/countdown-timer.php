@@ -548,11 +548,13 @@ class Countdown_Timer extends Widget_Base {
 				]
 			);
 		}
+		?>
 
-
-		echo '<div class="exad-countdown-content-container '.$settings['exad_section_countdown_show_box'].'">';
-			echo '<div '.$this->get_render_attribute_string('exad-countdown-timer-attribute').'></div>';
-		echo '</div>';
+		<div class="exad-countdown-content-container <?php echo $settings['exad_section_countdown_show_box']; ?>">
+			<div <?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute'); ?>></div>
+		</div>
+		
+		<?php
 	}
 
 	/**
