@@ -1584,8 +1584,6 @@ class Facebook_Feed extends Widget_Base {
 			$items = $facebook_feed_data['data'];
 		}
 
-		// var_dump($items[1]);
-
 		?>
 
 		<div <?php echo $this->get_render_attribute_string( 'exad_facebook_feed_wrapper' ); ?>>
