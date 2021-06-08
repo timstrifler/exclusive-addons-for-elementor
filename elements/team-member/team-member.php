@@ -1479,9 +1479,21 @@ class Team_Member extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-
-		
 	}
+	
+	
+	private function team_member_cta() {
+		$settings = $this->get_settings_for_display();
+
+		$this->add_render_attribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );
+		$this->add_inline_editing_attributes( 'exad_team_members_cta_btn_text', 'none' );
+		?>
+		<span <?php echo $this->get_render_attribute_string( 'exad_team_members_cta_btn_text' ); ?>>
+			<?php echo esc_html( $settings['exad_team_members_cta_btn_text'] );	?>
+		</span>
+		<?php
+	}
+
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
@@ -1520,7 +1532,7 @@ class Team_Member extends Widget_Base {
 				<?php do_action('exad_team_member_wrapper_before'); ?>
 				<?php 
 					if ( $settings['exad_team_member_image']['url'] || $settings['exad_team_member_image']['id'] ) { ?>
-						<div class="exad-team-member-thumb<?php echo ( 'yes' === $settings['exad_team_member_animating_mask_switcher'] ) ?  $settings['exad_team_member_animating_mask_style'] : ''; ?>">
+						<div class="exad-team-member-thumb<?php echo ( 'yes' === $settings['exad_team_member_animating_mask_switcher'] ) ? ' '.$settings['exad_team_member_animating_mask_style'] : ''; ?>">
 							<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'team_member_image_size', 'exad_team_member_image' ); ?>
 						</div>
 					<?php
@@ -1651,19 +1663,13 @@ class Team_Member extends Widget_Base {
 			var target = settings.exad_team_members_cta_btn_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_team_members_cta_btn_link.nofollow ? ' rel="nofollow"' : '';
 		#>
-
+		
 		<div class="exad-team-item">
 		    <div {{{ view.getRenderAttributeString( 'exad_team_member_item' ) }}}>
 		    	<# if ( imageURL ) { #>
-					<# if( 'yes' === settings.exad_team_member_animating_mask_switcher ) { #>
-						<div class="exad-team-member-thumb {{ settings.exad_team_member_animating_mask_style }}">
+						<div class="exad-team-member-thumb{{ ( 'yes' === settings.exad_team_member_animating_mask_switcher ) ? ' '+settings.exad_team_member_animating_mask_style : '' }}">
 							<img src="{{{ imageURL }}}">
 						</div>
-					<# } else { #>
-						<div class="exad-team-member-thumb">
-							<img src="{{{ imageURL }}}">
-						</div>
-					<# } #>
 				<# } #>
 		        <div class="exad-team-member-content">
 		        	<# if ( settings.exad_team_member_name ) { #>
@@ -1715,15 +1721,4 @@ class Team_Member extends Widget_Base {
 		<?php
 	}
 
-	private function team_member_cta() {
-		$settings = $this->get_settings_for_display();
-
-		$this->add_render_attribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );
-		$this->add_inline_editing_attributes( 'exad_team_members_cta_btn_text', 'none' );
-		?>
-		<span <?php echo $this->get_render_attribute_string( 'exad_team_members_cta_btn_text' ); ?>>
-			<?php echo esc_html( $settings['exad_team_members_cta_btn_text'] );	?>
-		</span>
-		<?php
-	}
 }
