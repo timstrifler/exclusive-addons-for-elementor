@@ -1598,7 +1598,7 @@ class Team_Member extends Widget_Base {
 								?>	
 								<li>
 									<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
-										<?php echo Icons_Manager::render_icon( $item['social_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+										<?php Icons_Manager::render_icon( $item['social_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 									</a>
 								</li>	
 							<?php endforeach; ?>
