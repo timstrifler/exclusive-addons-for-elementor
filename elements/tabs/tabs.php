@@ -117,6 +117,14 @@ class Tabs extends Widget_Base {
 			]
 		);
 
+		$tabs_repeater->add_group_control(
+            Group_Control_Image_Size::get_type(),
+            [
+				'name'    => 'exad_tab_navigation_image_size',
+				'default' => 'medium_large'
+            ]
+		);
+
 		$tabs_repeater->add_control(
 			'exad_exclusive_tab_content_type',
 			[
@@ -235,6 +243,15 @@ class Tabs extends Widget_Base {
 					'exad_exclusive_tab_content_type' => 'content'
 				]
 			]
+		);
+
+		$tabs_repeater->add_group_control(
+            Group_Control_Image_Size::get_type(),
+            [
+				'name'    => 'exad_tab_image_size',
+				'label'   => esc_html__( 'Image Type', 'exclusive-addons-elementor' ),
+				'default' => 'medium'
+            ]
 		);
 
   		$this->add_control(
@@ -601,14 +618,6 @@ class Tabs extends Widget_Base {
 				'type'      => Controls_Manager::HEADING
 			]
 		);
-
-		$this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
-				'name'    => 'exad_tab_navigation_image_size',
-				'default' => 'medium_large'
-            ]
-		);
 		
 		$this->add_control(
 			'exad_exclusive_tabs_navigation_icon_style',
@@ -909,15 +918,6 @@ class Tabs extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE
 			]
 		);
-
-		$this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
-				'name'    => 'exad_tab_image_size',
-				'label'   => esc_html__( 'Image Type', 'exclusive-addons-elementor' ),
-				'default' => 'medium'
-            ]
-		);
 		
 		$this->add_control(
             'exad_tab_image_align',
@@ -1190,19 +1190,6 @@ class Tabs extends Widget_Base {
 		return $templates;
 	}
 
-	private function exad_tab_content_render_image( $tab, $settings ) {
-        $image_id   = $tab['exad_exclusive_tab_image']['id'];
-		$image_size = $settings['exad_tab_image_size_size'];
-        if ( 'custom' === $image_size ) {
-            $image_src = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'exad_tab_image_size', $settings );
-        } else {
-            $image_src = wp_get_attachment_image_src( $image_id, $image_size );
-            $image_src = $image_src[0];
-        }
-
-        return sprintf( '<img src="%s" alt="'.Control_Media::get_image_alt( $tab['exad_exclusive_tab_image'] ).'" />', esc_url( $image_src ) );
-    }
-
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		
@@ -1216,7 +1203,7 @@ class Tabs extends Widget_Base {
 				]
 			]
 		);
-	?>
+		?>
 		<div <?php echo $this->get_render_attribute_string('exad_tab_wrapper'); ?> data-tabs>
 			
 			<ul class="exad-advance-tab-nav">
@@ -1225,16 +1212,10 @@ class Tabs extends Widget_Base {
 						<?php 
 							if( 'icon' === $tab['exad_exclusive_tabs_icon_type'] &&  !empty( $tab['exad_exclusive_tab_title_icon']['value'] ) ) :
 								Icons_Manager::render_icon( $tab['exad_exclusive_tab_title_icon'] );
-							elseif( $tab['exad_exclusive_tabs_icon_type'] === 'image' ) :
-								$tab_title_img         = $tab['exad_exclusive_tab_title_image'];
-								$tab_title_img_src_url = Group_Control_Image_Size::get_attachment_image_src( $tab_title_img['id'], 'exad_tab_navigation_image_size', $settings );
-
-								if( empty( $tab_title_img_src_url ) ) {
-								    $tab_title_img_url = $tab_title_img['url']; 
-								} else { 
-								    $tab_title_img_url = $tab_title_img_src_url;
-								}
-								echo '<img src="'.esc_url( $tab_title_img_url ).'" alt="'.Control_Media::get_image_alt( $tab['exad_exclusive_tab_title_image'] ).'">';
+							elseif( $tab['exad_exclusive_tabs_icon_type'] === 'image' ) : 
+								if ( $tab['exad_exclusive_tab_title_image']['url'] || $tab['exad_exclusive_tab_title_image']['id'] ) { ?>
+									<?php echo Group_Control_Image_Size::get_attachment_image_html( $tab, 'exad_tab_navigation_image_size', 'exad_exclusive_tab_title_image' ); ?>
+								<?php }
 							endif; 
 						?>
 						<span class="exad-tab-title"><?php echo Helper::exad_wp_kses( $tab['exad_exclusive_tab_title'] ); ?></span>
@@ -1277,7 +1258,7 @@ class Tabs extends Widget_Base {
 						</div>
 						<?php if ( ! empty( $tab['exad_exclusive_tab_image']['url'] ) ) { ?>
 							<div class="exad-advance-tab-content-thumb">
-								<?php echo $this->exad_tab_content_render_image( $tab, $settings ); ?>
+								<?php echo Group_Control_Image_Size::get_attachment_image_html( $tab, 'exad_tab_image_size', 'exad_exclusive_tab_image' ); ?>
 							</div>
 						<?php } ?>
 					<?php } ?>
