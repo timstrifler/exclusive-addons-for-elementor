@@ -2067,16 +2067,16 @@ class Pricing_Table extends Widget_Base {
 		);
 	
 		$this->add_render_attribute( 'exad_pricing_table_featured_tag_text', 'class', 'exad-pricing-featured-tag-text' );
-		$this->add_inline_editing_attributes( 'exad_pricing_table_featured_tag_text', 'none' );
+		$this->add_inline_editing_attributes( 'exad_pricing_table_featured_tag_text', 'basic' );
 
 		$this->add_render_attribute( 'exad_pricing_table_promo_title', 'class', 'exad-pricing-table-promo-label' );
-		$this->add_inline_editing_attributes( 'exad_pricing_table_promo_title', 'none' );
+		$this->add_inline_editing_attributes( 'exad_pricing_table_promo_title', 'basic' );
 
 		$this->add_render_attribute( 'exad_pricing_table_title', 'class', 'exad-pricing-table-title' );
 		$this->add_inline_editing_attributes( 'exad_pricing_table_title', 'basic' );
 
 		$this->add_render_attribute( 'exad_pricing_table_subtitle', 'class', 'exad-pricing-table-subtitle' );
-		$this->add_inline_editing_attributes( 'exad_pricing_table_subtitle', 'basic' );
+		$this->add_inline_editing_attributes( 'exad_pricing_table_subtitle', 'intermediate' );
 
 		$this->add_render_attribute( 'exad_pricing_table_box_value', 'class', [ 'exad-pricing-table-price', 'exad-discount-price-'.$settings['exad_pricing_table_discount_price'] ] );
 
@@ -2085,16 +2085,16 @@ class Pricing_Table extends Widget_Base {
 		}
 
 		$this->add_render_attribute( 'exad_pricing_table_price_cur', 'class', 'exad-pricing-table-currency' );
-		$this->add_inline_editing_attributes( 'exad_pricing_table_price_cur', 'none' );
+		$this->add_inline_editing_attributes( 'exad_pricing_table_price_cur', 'basic' );
 
 		$this->add_render_attribute( 'exad_pricing_table_period_separator', 'class', 'exad-pricing-table-currency-separator' );
 		$this->add_inline_editing_attributes( 'exad_pricing_table_period_separator', 'none' );
 
 		$this->add_render_attribute( 'exad_pricing_table_price_by', 'class', 'exad-pricing-table-price-by' );
-		$this->add_inline_editing_attributes( 'exad_pricing_table_price_by', 'none' );
+		$this->add_inline_editing_attributes( 'exad_pricing_table_price_by', 'basic' );
 
 		$this->add_render_attribute( 'exad_pricing_table_price', 'class', 'exad-pricing-table-price' );
-		$this->add_inline_editing_attributes( 'exad_pricing_table_price', 'none' );
+		$this->add_inline_editing_attributes( 'exad_pricing_table_price', 'basic' );
 
 		$this->add_render_attribute( 'exad_pricing_table_features', 'class', 'exad-pricing-table-features' );
 		if( 'yes' === $settings['exad_pricing_table_list_border_bottom'] ){
@@ -2114,91 +2114,92 @@ class Pricing_Table extends Widget_Base {
 
         $this->add_inline_editing_attributes( 'exad_pricing_table_btn', 'none' );
 
-		echo '<div '.$this->get_render_attribute_string( 'exad_pricing_table_wrapper' ).'>';
-			if( 'promo_top' === $settings['exad_pricing_table_promo_position'] ) {
-				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) {
-					echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_promo_title' ).'>'.$settings['exad_pricing_table_promo_title'].'</span>';
-				}
-			}
-			echo '<div class="exad-pricing-table-badge-wrapper">';
+		?>
 
-				if ( 'yes' === $settings['exad_pricing_table_featured'] ) {
-					echo '<span class="exad-pricing-table-badge '.esc_attr( $settings['exad_pricing_table_featured_type'] ).'">';
-						if( 'text-badge' === $settings['exad_pricing_table_featured_type'] && !empty( $featured_text ) ) {
-							echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_featured_tag_text' ).'>';
-								echo esc_html( $featured_text );
-							echo '</span>';
-						}
-						if( 'icon-badge' === $settings['exad_pricing_table_featured_type'] ) {
-							echo '<i class="demo-icon eicon-star"></i>';
-						}
-					echo '</span>';
-				}
+		<div <?php echo $this->get_render_attribute_string( 'exad_pricing_table_wrapper' ); ?>>
+			<?php if( 'promo_top' === $settings['exad_pricing_table_promo_position'] ) { 
+				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) { ?>
+					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo $settings['exad_pricing_table_promo_title']; ?></span>';
+				<?php } ?>
+			<?php } ?>
+			<div class="exad-pricing-table-badge-wrapper">
 
-				echo '<div class="exad-pricing-table-header">';
-					do_action( 'exad_pricing_table_header_wrapper_before' );
+				<?php if ( 'yes' === $settings['exad_pricing_table_featured'] ) { ?>
+					<span class="exad-pricing-table-badge <?php echo esc_attr( $settings['exad_pricing_table_featured_type'] ); ?>">
+						<?php if( 'text-badge' === $settings['exad_pricing_table_featured_type'] && !empty( $featured_text ) ) { ?>
+							<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_featured_tag_text' ); ?>>
+								<?php echo esc_html( $featured_text ); ?>
+							</span>
+						<?php } ?>
+						<?php if( 'icon-badge' === $settings['exad_pricing_table_featured_type'] ) { ?>
+							<i class="demo-icon eicon-star"></i>
+						<?php } ?>
+					</span>
+				<?php } ?>
 
-					$title ? printf( '<h4 '.$this->get_render_attribute_string( 'exad_pricing_table_title' ).'>%s</h4>', wp_kses_post( $title ) ) : '';
-					$sub_title ? printf( '<div '.$this->get_render_attribute_string( 'exad_pricing_table_subtitle' ).'>%s</div>', wp_kses_post( $sub_title ) ) : '';
+				<div class="exad-pricing-table-header">
+					<?php do_action( 'exad_pricing_table_header_wrapper_before' ); ?>
 
-					echo '<div '.$this->get_render_attribute_string( 'exad_pricing_table_box_value' ).'>';
-						if( 'yes' === $settings['exad_pricing_table_discount_price'] ){
-							echo '<p class="exad-pricing-table-regular-price">';							
-								echo '<span class="exad-pricing-table-regular-price-cur">'.$settings['exad_pricing_table_regular_price_cur'].'</span>';
-								echo '<span class="exad-pricing-table-regular-price-text">'.$settings['exad_pricing_table_regular_price'].'</span>';
-							echo '</p>';
-						}
-						echo '<p class="exad-pricing-table-new-price">';							
-							if( 'exad-pricing-cur-left' === $settings['exad_pricing_table_price_cur_position'] ) :
-								echo $this->pricing_table_currency( $settings['exad_pricing_table_price_cur'] );
-							endif;
+					<?php $title ? printf( '<h4 '.$this->get_render_attribute_string( 'exad_pricing_table_title' ).'>%s</h4>', wp_kses_post( $title ) ) : '';
+					$sub_title ? printf( '<div '.$this->get_render_attribute_string( 'exad_pricing_table_subtitle' ).'>%s</div>', wp_kses_post( $sub_title ) ) : ''; ?>
 
-							$price ? printf( '<span '.$this->get_render_attribute_string( 'exad_pricing_table_price' ).'>%s</span>', esc_html( $price ) ) : '';
+					<div <?php echo $this->get_render_attribute_string( 'exad_pricing_table_box_value' ); ?>>
+						<?php if( 'yes' === $settings['exad_pricing_table_discount_price'] ) { ?>
+							<p class="exad-pricing-table-regular-price">				
+								<span class="exad-pricing-table-regular-price-cur"><?php echo $settings['exad_pricing_table_regular_price_cur']; ?></span>
+								<span class="exad-pricing-table-regular-price-text"><?php echo $settings['exad_pricing_table_regular_price']; ?></span>
+							</p>
+						<?php } ?>
+						<p class="exad-pricing-table-new-price">							
+							<?php if( 'exad-pricing-cur-left' === $settings['exad_pricing_table_price_cur_position'] ) : ?>
+								<?php echo $this->pricing_table_currency( $settings['exad_pricing_table_price_cur'] ); ?>
+							<?php endif; ?>
 
-							if( 'exad-pricing-cur-right' === $settings['exad_pricing_table_price_cur_position'] ) :
-								echo $this->pricing_table_currency( $settings['exad_pricing_table_price_cur'] );
-							endif;
+							<?php $price ? printf( '<span '.$this->get_render_attribute_string( 'exad_pricing_table_price' ).'>%s</span>', esc_html( $price ) ) : ''; ?>
 
-							if( $separator || $price_by ) :
-								echo '<span class="exad-price-period">';
-									$separator ? printf( '<span '.$this->get_render_attribute_string( 'exad_pricing_table_period_separator' ).'>%s</span>', esc_html( $separator ) ) : '';
-									$price_by ? printf( '<span '.$this->get_render_attribute_string( 'exad_pricing_table_price_by' ).'>%s</span>', esc_html( $price_by ) ) : '';
-								echo '</span>';
-							endif;
-						echo '</p>';
-					echo '</div>';
+							<?php if( 'exad-pricing-cur-right' === $settings['exad_pricing_table_price_cur_position'] ) : ?>
+								<?php echo $this->pricing_table_currency( $settings['exad_pricing_table_price_cur'] ); ?>
+							<?php endif; ?>
 
-					if( !empty( $settings['exad_pricing_table_price_subtitle'] ) ){
-						echo '<span class="exad-pricing-table-price-subtitle">'. $settings['exad_pricing_table_price_subtitle'] .'</span>';
-					}
+							<?php if( $separator || $price_by ) : ?>
+								<span class="exad-price-period">
+									<?php $separator ? printf( '<span '.$this->get_render_attribute_string( 'exad_pricing_table_period_separator' ).'>%s</span>', esc_html( $separator ) ) : ''; ?>
+									<?php $price_by ? printf( '<span '.$this->get_render_attribute_string( 'exad_pricing_table_price_by' ).'>%s</span>', esc_html( $price_by ) ) : ''; ?>
+								</span>
+							<?php endif; ?>
+						</p>
+					</div>
 
-					if ( 'yes' === $settings['exad_pricing_table_price_box_separator'] ) :
-						echo '<div class="exad-price-bottom-separator"></div>';
-					endif;
+					<?php if( !empty( $settings['exad_pricing_table_price_subtitle'] ) ){ ?>
+						<span class="exad-pricing-table-price-subtitle"><?php echo $settings['exad_pricing_table_price_subtitle']; ?></span>
+					<?php } ?>
 
-					if( 'curved-header' === $settings['exad_pricing_table_header_type'] ) {
-						echo '<div class="exad-pricing-table-header-curved">';
-							echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 20">';
-								echo '<path class="st0" d="M0 20h185C70 20 0 0 0 0v20zM185 20h185V0s-70 20-185 20z" />';
-							echo '</svg>';
-						echo '</div>';
-					}
+					<?php if ( 'yes' === $settings['exad_pricing_table_price_box_separator'] ) : ?>
+						<div class="exad-price-bottom-separator"></div>
+					<?php endif; ?>
 
-					do_action( 'exad_pricing_table_header_wrapper_after' );
-				echo '</div>';
+					<?php if( 'curved-header' === $settings['exad_pricing_table_header_type'] ) { ?>
+						<div class="exad-pricing-table-header-curved">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 20">
+								<path class="st0" d="M0 20h185C70 20 0 0 0 0v20zM185 20h185V0s-70 20-185 20z" />
+							</svg>
+						</div>
+					<?php } ?>
 
+					<?php do_action( 'exad_pricing_table_header_wrapper_after' ); ?>
+				</div>
 				
-				if( 'middle' === $settings['exad_pricing_table_btn_position'] && !empty( $settings['exad_pricing_table_btn'] ) ) {
+				 <?php if( 'middle' === $settings['exad_pricing_table_btn_position'] && !empty( $settings['exad_pricing_table_btn'] ) ) {
 					$this->pricing_table_btn();
-				} 
+				}
 
-				do_action( 'exad_pricing_table_content_wrapper_before' );
+				do_action( 'exad_pricing_table_content_wrapper_before' ); ?>
 
-				if ( is_array( $settings['exad_pricing_table_items'] ) ) :
-					echo '<ul '.$this->get_render_attribute_string( 'exad_pricing_table_features' ).'>';
-						foreach( $settings['exad_pricing_table_items'] as $index => $item ) : 
+				<?php if ( is_array( $settings['exad_pricing_table_items'] ) ) : ?>
+					<ul <?php echo $this->get_render_attribute_string( 'exad_pricing_table_features' ); ?>>
+						<?php foreach( $settings['exad_pricing_table_items'] as $index => $item ) : ?> 
 
-							$each_pricing_item = 'link_' . $index;
+							<?php $each_pricing_item = 'link_' . $index;
 							$icon_mod = 'yes' !== $item['exad_pricing_table_icon_mood'] ? 'exad-pricing-table-features-disable' : 'exad-pricing-table-features-enable';
 							$this->add_render_attribute( $each_pricing_item, 'class', [
 								esc_attr( $icon_mod ),
@@ -2207,37 +2208,38 @@ class Pricing_Table extends Widget_Base {
 
 							$pricing_item = $this->get_repeater_setting_key( 'exad_pricing_table_item', 'exad_pricing_table_items', $index );
 							$this->add_render_attribute( $pricing_item, 'class', 'exad-pricing-item' );
-							$this->add_inline_editing_attributes( $pricing_item, 'none' );
-							$price = $item['exad_pricing_table_item'];
+							$this->add_inline_editing_attributes( $pricing_item, 'intermediate' );
+							$price = $item['exad_pricing_table_item']; ?>
 
-							echo '<li '.$this->get_render_attribute_string( $each_pricing_item ).'>';
-								if ( !empty( $item['exad_pricing_table_list_icon']['value'] ) ) {
-									echo '<span class="exad-pricing-li-icon">';
-										Icons_Manager::render_icon( $item['exad_pricing_table_list_icon'] );
-									echo '</span>									';
-								}
-								$price ? printf( '<span '.$this->get_render_attribute_string( $pricing_item ).'>%s</span>', esc_html( $price ) ) : '';
-							echo '</li>';
+							<li <?php $this->get_render_attribute_string( $each_pricing_item ); ?>>
+								<?php if ( !empty( $item['exad_pricing_table_list_icon']['value'] ) ) { ?>
+									<span class="exad-pricing-li-icon">
+										<?php Icons_Manager::render_icon( $item['exad_pricing_table_list_icon'] ); ?>
+									</span>
+								<?php } ?>
+								<?php $price ? printf( '<span '.$this->get_render_attribute_string( $pricing_item ).'>%s</span>', esc_html( $price ) ) : ''; ?>
+							</li>
 
-						endforeach;
-					echo '</ul>';
-				endif;
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
 
-				do_action( 'exad_pricing_table_content_wrapper_after' );
+				<?php do_action( 'exad_pricing_table_content_wrapper_after' ); ?>
 
-				if( 'bottom' === $settings['exad_pricing_table_btn_position'] && !empty( $settings['exad_pricing_table_btn'] ) ) {
-					$this->pricing_table_btn();
-				} 
-				if( !empty( $settings['exad_pricing_table_note_text'] ) ){
-					echo '<div class="exad-pricing-table-note">'.$settings['exad_pricing_table_note_text'].'</div>';
-				}
-			echo '</div>';
-			if( 'promo_bottom' === $settings['exad_pricing_table_promo_position'] ) {
-				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) {
-					echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_promo_title' ).'>'.$settings['exad_pricing_table_promo_title'].'</span>';
-				}
-			}
-		echo '</div>';
+				<?php if( 'bottom' === $settings['exad_pricing_table_btn_position'] && !empty( $settings['exad_pricing_table_btn'] ) ) { ?>
+					<?php $this->pricing_table_btn(); ?>
+				<?php } ?> 
+				<?php if( !empty( $settings['exad_pricing_table_note_text'] ) ){ ?>
+					<div class="exad-pricing-table-note"><?php echo $settings['exad_pricing_table_note_text']; ?></div>
+				<?php } ?>
+			</div>
+			<?php if( 'promo_bottom' === $settings['exad_pricing_table_promo_position'] ) {
+				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) { ?>
+					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo $settings['exad_pricing_table_promo_title']; ?></span>
+				<?php } ?>
+			<?php } ?>
+		</div>
+		<?php
 	}
 
 	/**
@@ -2261,13 +2263,13 @@ class Pricing_Table extends Widget_Base {
 			} );
 		
 			view.addRenderAttribute( 'exad_pricing_table_featured_tag_text', 'class', 'exad-pricing-featured-tag-text' );
-			view.addInlineEditingAttributes( 'exad_pricing_table_featured_tag_text', 'none' );
+			view.addInlineEditingAttributes( 'exad_pricing_table_featured_tag_text', 'basic' );
 
 			view.addRenderAttribute( 'exad_pricing_table_title', 'class', 'exad-pricing-table-title' );
 			view.addInlineEditingAttributes( 'exad_pricing_table_title', 'basic' );
 
 			view.addRenderAttribute( 'exad_pricing_table_subtitle', 'class', 'exad-pricing-table-subtitle' );
-			view.addInlineEditingAttributes( 'exad_pricing_table_subtitle', 'basic' );
+			view.addInlineEditingAttributes( 'exad_pricing_table_subtitle', 'intermediate' );
 
 			view.addRenderAttribute( 'exad_pricing_table_box_value', {
 				'class': [ 
@@ -2281,16 +2283,16 @@ class Pricing_Table extends Widget_Base {
 			}
 
 			view.addRenderAttribute( 'exad_pricing_table_price_cur', 'class', 'exad-pricing-table-currency' );
-			view.addInlineEditingAttributes( 'exad_pricing_table_price_cur', 'none' );
+			view.addInlineEditingAttributes( 'exad_pricing_table_price_cur', 'basic' );
 
 			view.addRenderAttribute( 'exad_pricing_table_period_separator', 'class', 'exad-pricing-table-currency-separator' );
 			view.addInlineEditingAttributes( 'exad_pricing_table_period_separator', 'none' );
 
 			view.addRenderAttribute( 'exad_pricing_table_price_by', 'class', 'exad-pricing-table-price-by' );
-			view.addInlineEditingAttributes( 'exad_pricing_table_price_by', 'none' );
+			view.addInlineEditingAttributes( 'exad_pricing_table_price_by', 'basic' );
 
 			view.addRenderAttribute( 'exad_pricing_table_price', 'class', 'exad-pricing-table-price' );
-			view.addInlineEditingAttributes( 'exad_pricing_table_price', 'none' );
+			view.addInlineEditingAttributes( 'exad_pricing_table_price', 'basic' );
 
 			view.addRenderAttribute( 'exad_pricing_table_features', 'class', 'exad-pricing-table-features' );
 			if( 'yes' === settings.exad_pricing_table_list_border_bottom ){
@@ -2408,7 +2410,7 @@ class Pricing_Table extends Widget_Base {
 						<# _.each( settings.exad_pricing_table_items, function( item, index ) {
 						    var pricingItem = view.getRepeaterSettingKey( 'exad_pricing_table_item', 'exad_pricing_table_items', index );
 						    view.addRenderAttribute( pricingItem, 'class', 'exad-pricing-item' );
-						    view.addInlineEditingAttributes( pricingItem, 'none' );
+						    view.addInlineEditingAttributes( pricingItem, 'intermediate' );
 
 						    var eachPricingItem = 'link_' + index;
 						    var iconMod = 'yes' !== item.exad_pricing_table_icon_mood ? 'exad-pricing-table-features-disable' : 'exad-pricing-table-features-enable';
@@ -2457,10 +2459,12 @@ class Pricing_Table extends Widget_Base {
     }
 
     private function pricing_table_btn() {
-		echo '<a '.$this->get_render_attribute_string( 'exad_pricing_table_btn_link' ).'>';
-			echo '<span '.$this->get_render_attribute_string( 'exad_pricing_table_btn' ).'>';
-				echo esc_html( $this->get_settings_for_display( 'exad_pricing_table_btn' ) );
-			echo '</span>';
-		echo '</a>';
+		?>
+		<a <?php echo $this->get_render_attribute_string( 'exad_pricing_table_btn_link' ); ?>>
+			<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_btn' ); ?>>
+				<?php echo esc_html( $this->get_settings_for_display( 'exad_pricing_table_btn' ) ); ?>
+			</span>
+		</a>
+		<?php
 	}
 }
