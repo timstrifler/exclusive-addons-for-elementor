@@ -31,10 +31,10 @@ class Flipbox extends Widget_Base {
 	}
 
 	public function get_keywords() {
-        return [ 'exclusive', 'info' ];
+        return [ 'exclusive', 'info', 'flipbox' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
   		$this->start_controls_section(
@@ -1094,33 +1094,37 @@ class Flipbox extends Widget_Base {
         if( $settings['exad_flipbox_button_link']['nofollow'] ) {
             $this->add_render_attribute( 'exad_flipbox_button_link', 'rel', 'nofollow' );
         }
+		?>
 
-		echo '<div class="exad-flip-box">';
-	      	echo '<div '.$this->get_render_attribute_string( 'exad_flipbox_attribute' ).'>';
-	        	echo '<div class="exad-flip-box-front '.esc_attr( $settings['exad_flipbox_front_content_alignment'] ).'">';
-	        		echo '<div class="exad-flip-box-front-content">';
-	        			do_action('exad_flipbox_frontend_content_wrapper_before');
+		<div class="exad-flip-box">
+	      	<div <?php echo $this->get_render_attribute_string( 'exad_flipbox_attribute' ); ?>>
+	        	<div class="exad-flip-box-front <?php echo esc_attr( $settings['exad_flipbox_front_content_alignment'] ); ?>">
+	        		<div class="exad-flip-box-front-content">
+					<?php do_action('exad_flipbox_frontend_content_wrapper_before');
 
-		        		if ( !empty( $settings['exad_flipbox_front_icon']['value'] ) ) {
-			          		echo '<div class="exad-flip-box-front-image">';
-		          				Icons_Manager::render_icon( $settings['exad_flipbox_front_icon'] );
-			        		echo '</div>';
-			        	}
+		        		if ( !empty( $settings['exad_flipbox_front_icon']['value'] ) ) { ?>
+			          		<div class="exad-flip-box-front-image">
+							  <?php Icons_Manager::render_icon( $settings['exad_flipbox_front_icon'] ); ?>
+			        		</div>
+						<?php 
+						}
 				        $front_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_front_title' ).'>%s</h2>', Helper::exad_wp_kses( $front_title ) ) : '';
 				        $front_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_front_description' ).'>%s</div>', wp_kses_post( $front_desc ) ) : '';
 
-				        do_action('exad_flipbox_frontend_content_wrapper_after');
-	        		echo '</div>';
-	        	echo '</div>';
+				        do_action('exad_flipbox_frontend_content_wrapper_after'); ?>
+	        		</div>
+	        	</div>
 
-		        echo '<div class="exad-flip-box-back '.esc_attr( $settings['exad_flipbox_back_content_alignment'] ).'">';
-		        	echo '<div class="exad-flip-box-back-content">';
-			        	do_action('exad_flipbox_backend_content_wrapper_before');
+		        <div class="exad-flip-box-back <?php echo esc_attr( $settings['exad_flipbox_back_content_alignment'] ); ?>">
+		        	<div class="exad-flip-box-back-content">
+			        <?php 
+						do_action('exad_flipbox_backend_content_wrapper_before');
 
-			        	if ( !empty( $settings['exad_flipbox_back_icon']['value'] ) ) {
-			        		echo '<div class="exad-flip-box-back-image">';
-		          				Icons_Manager::render_icon( $settings['exad_flipbox_back_icon'] );
-		          			echo '</div>';
+			        	if ( !empty( $settings['exad_flipbox_back_icon']['value'] ) ) { ?>
+			        		<div class="exad-flip-box-back-image">
+								<?php Icons_Manager::render_icon( $settings['exad_flipbox_back_icon'] ); ?>
+		          			</div>
+						<?php 	  
 			        	}
 
 				        $back_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_back_title' ).'>%s</h2>', Helper::exad_wp_kses( $back_title) ) : '';
@@ -1128,15 +1132,16 @@ class Flipbox extends Widget_Base {
 
 				        do_action('exad_flipbox_backend_content_wrapper_after');
 
-						if ( $settings['exad_flipbox_back_button_enable'] === 'yes' ) {
-							echo '<a '.$this->get_render_attribute_string( 'exad_flipbox_button_link' ).'>';
-								echo '<span '.$this->get_render_attribute_string( 'exad_flipbox_button_text' ).'>'.esc_html( $settings['exad_flipbox_button_text'] ).'</span>';
-							echo '</a>';
-						}
-			        echo '</div>';
-		        echo '</div>';
-	      	echo '</div>';
-	    echo '</div>';
+						if ( $settings['exad_flipbox_back_button_enable'] === 'yes' ) { ?>
+							<a <?php echo $this->get_render_attribute_string( 'exad_flipbox_button_link' ); ?>'>
+								<span <?php echo $this->get_render_attribute_string( 'exad_flipbox_button_text' ); ?>><?php echo esc_html( $settings['exad_flipbox_button_text'] ); ?></span>
+							</a>
+						<?php } ?>
+			        </div>
+		        </div>
+	      	</div>
+	    </div>
+	<?php 	
 	}
 
 	/**
