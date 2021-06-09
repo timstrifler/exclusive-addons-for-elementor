@@ -34,7 +34,7 @@ class Image_Magnifier extends Widget_Base {
 		return [ 'exclusive', 'magnify', 'zoom' ];
 	}
     
-	protected function _register_controls() {
+	protected function register_controls() {
     /*
     * image Comparison
     */
@@ -240,22 +240,17 @@ class Image_Magnifier extends Widget_Base {
     }
     
 	protected function render() {
-        $settings              = $this->get_settings_for_display();
-        $magnify_image         = $settings['exad_magnify_image'];
-        $magnify_image_src_url = Group_Control_Image_Size::get_attachment_image_src( $magnify_image['id'], 'magnify_image_size', $settings );
+        $settings = $this->get_settings_for_display();
+        ?>
 
-        if( empty( $magnify_image_src_url ) ) {
-            $magnify_image_url = $magnify_image['url']; 
-        } else { 
-            $magnify_image_url = $magnify_image_src_url;
-        }
-
-        if( !empty( $magnify_image_url ) ) {
-            echo '<div class="exad-image-magnify">';
-                echo '<div class="exad-magnify-large"></div>';
-                echo '<img class="exad-magnify-small" src="'.esc_url( $magnify_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_magnify_image'] ).'">';
-            echo '</div>';
-        }
+        <div class="exad-image-magnify">
+            <div class="exad-magnify-large"></div>
+            <div class="exad-magnify-small">
+                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'magnify_image_size', 'exad_magnify_image' ); ?>
+            </div>
+        </div>
+        
+    <?php
 	}
 
     /**
@@ -266,7 +261,7 @@ class Image_Magnifier extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
         <#
             if ( settings.exad_magnify_image.url || settings.exad_magnify_image.id ) {
@@ -285,7 +280,9 @@ class Image_Magnifier extends Widget_Base {
         <# if ( imageURL ) { #>
             <div class="exad-image-magnify">
                 <div class="exad-magnify-large"></div>
-                <img class="exad-magnify-small" src="{{{ imageURL }}}">
+                <div class="exad-magnify-small">
+                    <img class="exad-magnify-small" src="{{{ imageURL }}}">
+                </div>
             </div>
         <# } #>
 

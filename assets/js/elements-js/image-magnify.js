@@ -4,7 +4,7 @@ var exclusiveImageMagnifier = function($scope, $) {
 
     var $magnify = $scope.find( '.exad-image-magnify' ).eq(0),
     $large       = $magnify.find( '.exad-magnify-large' ),
-    $small       = $magnify.find( '.exad-magnify-small' );
+    $small       = $magnify.find( '.exad-magnify-small > img' );
     
 
     var native_width  = 0;

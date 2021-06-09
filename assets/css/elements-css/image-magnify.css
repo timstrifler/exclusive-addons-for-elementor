@@ -15,7 +15,7 @@
 }
 
 /*To solve overlap bug at the edges during magnification*/
-.exad-magnify-small { 
+.exad-magnify-small > img { 
     display: block;
     z-index: -1;
 }
