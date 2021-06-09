@@ -988,7 +988,7 @@ class List_group extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<div class="exad-list-group">
 			<ul class="exad-list-group-wrapper {{ settings.exad_section_list_layout }}">
