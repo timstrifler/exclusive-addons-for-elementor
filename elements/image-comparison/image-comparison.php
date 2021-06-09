@@ -38,7 +38,7 @@ class Image_Comparison extends Widget_Base {
 		return [ 'exad-image-comparison' ];
 	}
     
-	protected function _register_controls() {
+	protected function register_controls() {
         /*
         * image Comparison
         */
@@ -540,23 +540,7 @@ class Image_Comparison extends Widget_Base {
     }
 
 	protected function render() {
-        $settings                     = $this->get_settings_for_display();
-        $comparison_image_one         = $settings['exad_comparison_image_one'];
-        $comparison_image_two         = $settings['exad_comparison_image_two'];
-        $comparison_image_url_one_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_one['id'], 'thumbnail', $settings );
-        $comparison_image_url_two_src = Group_Control_Image_Size::get_attachment_image_src( $comparison_image_two['id'], 'thumbnail_two', $settings );
-
-		if( empty( $comparison_image_url_one_src ) ) {
-			$comparison_image_url_one = $comparison_image_one['url']; 
-		} else { 
-			$comparison_image_url_one = $comparison_image_url_one_src;
-		}
-
-		if( empty( $comparison_image_url_two_src ) ) {
-			$comparison_image_url_two = $comparison_image_two['url']; 
-		} else { 
-			$comparison_image_url_two = $comparison_image_url_two_src;
-        }
+        $settings = $this->get_settings_for_display();
 		
 		$this->add_render_attribute( 'exad_image_comparison_wrapper', [
             'class' => [ 
@@ -580,13 +564,16 @@ class Image_Comparison extends Widget_Base {
         if( 'click_to_move' == $settings['exad_move_slider'] ) {
             $this->add_render_attribute( 'exad_image_comparison_wrapper', 'data-exad-click_to_move', true );
         }
+        ?>
 
-        echo '<div class="exad-image-comparision">';
-            echo '<div '.$this->get_render_attribute_string('exad_image_comparison_wrapper').'>';
-                echo $comparison_image_url_one ? '<img src="'.esc_url( $comparison_image_url_one ).'" alt="'.Control_Media::get_image_alt( $settings['exad_comparison_image_one'] ).'">' : '';
-                echo $comparison_image_url_two ? '<img src="'.esc_url( $comparison_image_url_two ).'" alt="'.Control_Media::get_image_alt( $settings['exad_comparison_image_two'] ).'">' : '';
-            echo '</div>';
-        echo '</div>';
+        <div class="exad-image-comparision">
+            <div <?php echo $this->get_render_attribute_string('exad_image_comparison_wrapper'); ?>>
+                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_comparison_image_one' ); ?>
+                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail_two', 'exad_comparison_image_two' ); ?>
+            </div>
+        </div>
+
+    <?php    
 	}
 
     /**
@@ -597,7 +584,7 @@ class Image_Comparison extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
         <#
             if ( settings.exad_comparison_image_one.url || settings.exad_comparison_image_one.id ) {
