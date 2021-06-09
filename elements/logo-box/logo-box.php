@@ -34,7 +34,7 @@ class Logo_Box extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
         /*
         * Logo Image
@@ -343,9 +343,7 @@ class Logo_Box extends Widget_Base {
         $this->end_controls_section();
 	}
 	protected function render() {
-        $settings       = $this->get_settings_for_display();        
-        $logo_image     = $settings['exad_logo_image'];
-        $logo_image_url = Group_Control_Image_Size::get_attachment_image_src( $logo_image['id'], 'thumbnail', $settings );
+        $settings       = $this->get_settings_for_display();
         $exad_logo_link = $settings['exad_logo_box_link']['url'];
 
         if( $exad_logo_link ) {
@@ -357,29 +355,25 @@ class Logo_Box extends Widget_Base {
                 $this->add_render_attribute( 'exad_logo_box_link', 'rel', 'nofollow' );
             }
         }
+        ?>
 
-		if ( empty( $logo_image_url ) ) {
-			$logo_image_url = $logo_image['url'];
-		}  else {
-			$logo_image_url = $logo_image_url;
-        }
-        
-        echo '<div class="exad-logo-box one '.$settings['exad_section_logo_alignment'].'">';
-            echo '<div class="exad-logo-item exad-logo-item-max-height-'.$settings['exad_logo_box_max_height_enable'].'">';
+        <div class="exad-logo-box one <?php echo $settings['exad_section_logo_alignment']; ?>">
+            <div class="exad-logo-item exad-logo-item-max-height-<?php echo $settings['exad_logo_box_max_height_enable']; ?>">
+            <?php
                 if( ! empty( $settings['exad_logo_image'] ) ) :
 
                     if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) :
                         echo '<a '.$this->get_render_attribute_string( 'exad_logo_box_link' ).'>';
                     endif;
-
-                    echo '<img src="'.esc_url( $logo_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_logo_image'] ).'">';
-
+                    echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_logo_image' );
                     if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) :
                         echo '</a>';
                     endif;
                 endif;
-            echo '</div>';
-        echo '</div>';
+            ?>    
+            </div>
+        </div>
+    <?php    
 	}
 
     /**
@@ -390,7 +384,7 @@ class Logo_Box extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
         <#
             if ( settings.exad_logo_image.url || settings.exad_logo_image.id ) {
