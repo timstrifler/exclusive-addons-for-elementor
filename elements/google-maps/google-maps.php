@@ -32,7 +32,7 @@ class Google_Maps extends Widget_Base {
 		return [ 'exad-google-map-api', 'exad-gmap3' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
   		 * Google Map General Settings
   		 */
@@ -238,9 +238,10 @@ class Google_Maps extends Widget_Base {
 			'data-exad-zoom-control'       => $settings['exad_map_zoom_control'] ? 'true': 'false',
 			'data-exad-fullscreen-control' => $settings['exad_map_fullscreen_control'] ? 'true': 'false',
 			'data-exad-scroll-zoom'        => $settings['exad_map_scroll_zoom'] ? 'true': 'false'
-		]);
+		]); ?>
 
-		echo '<div '.$this->get_render_attribute_string('exad_google_map_wrapper').'></div>';
+		<div <?php echo $this->get_render_attribute_string('exad_google_map_wrapper'); ?>></div>
+	<?php 	
 	}
 
 	/**
