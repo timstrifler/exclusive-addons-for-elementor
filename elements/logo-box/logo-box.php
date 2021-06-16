@@ -88,7 +88,7 @@ class Logo_Box extends Widget_Base {
                 'placeholder'   => __( 'https://your-link.com', 'exclusive-addons-elementor' ),
                 'show_external' => true,
                 'default'       => [
-                    'url'         => '',
+                    'url'         => '#',
                     'is_external' => true
                 ],
                 'condition'     => [
@@ -344,10 +344,10 @@ class Logo_Box extends Widget_Base {
 	}
 	protected function render() {
         $settings       = $this->get_settings_for_display();
-        $exad_logo_link = $settings['exad_logo_box_link']['url'];
+        $exad_logo_link = $settings['exad_logo_box_link'];
 
-        if( $exad_logo_link ) {
-            $this->add_render_attribute( 'exad_logo_box_link', 'href', esc_url( $exad_logo_link ) );
+        if( 'yes' === $settings['exad_logo_box_enable_link'] && $exad_logo_link ) {
+            $this->add_render_attribute( 'exad_logo_box_link', 'href', esc_url( $settings['exad_logo_box_link']['url'] ) );
             if( $settings['exad_logo_box_link']['is_external'] ) {
                 $this->add_render_attribute( 'exad_logo_box_link', 'target', '_blank' );
             }
