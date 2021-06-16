@@ -1159,16 +1159,13 @@ class Modal_Popup extends Widget_Base {
 			
 					<div id="exad-modal-<?php echo esc_attr( $this->get_id() );?>" <?php echo $this->get_render_attribute_string('exad_modal_item') ;?> >
              			<div class="exad-modal-content">
-                			<div class="exad-modal-element '<?php echo esc_attr( $settings['exad_modal_image_gallery_column'] );?>">
+                			<div class="exad-modal-element <?php echo esc_attr( $settings['exad_modal_image_gallery_column'] );?>">
 							<?php if ( 'image' === $settings['exad_modal_content'] ) {
 								echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_modal_image' );
 							}
 
 							if ( 'image-gallery' === $settings['exad_modal_content'] ) {
-								foreach ( $settings['exad_modal_image_gallery_repeater'] as $gallery ) :
-								
-								$exad_modal_image_gallery_text = $this->get_repeater_setting_key( 'exad_modal_image_gallery_text', 'exad_modal_image_gallery_repeater', $gallery );
-                   				$this->add_inline_editing_attributes( $exad_modal_image_gallery_text, 'intermediate' );?>
+								foreach ( $settings['exad_modal_image_gallery_repeater'] as $gallery ) : ?>
 									<div class="exad-modal-element-card">
 										<div class="exad-modal-element-card-thumb">
 											<?php echo Group_Control_Image_Size::get_attachment_image_html( $gallery, 'thumbnail', 'exad_modal_image_gallery' );?>
@@ -1190,20 +1187,20 @@ class Modal_Popup extends Widget_Base {
 					  <?php }
 
 							if ( 'youtube' === $settings['exad_modal_content'] ) { ?>
-									<iframe src="https://www.youtube.com/embed/'.esc_attr( $youtube_id ).'" frameborder="0" allowfullscreen></iframe>
+									<iframe src="https://www.youtube.com/embed/<?php echo esc_attr( $youtube_id );?>" frameborder="0" allowfullscreen></iframe>
 					  <?php }
 
 							if ( 'vimeo' === $settings['exad_modal_content'] ) { ?>
-									<iframe id="vimeo-video" src="https://player.vimeo.com/video/'.esc_attr( $vimeo_id ).'" frameborder="0" allowfullscreen ></iframe>
+									<iframe id="vimeo-video" src="https://player.vimeo.com/video/<?php echo esc_attr( $vimeo_id );?>" frameborder="0" allowfullscreen ></iframe>
 					  <?php }
 
 							if ( 'external-video' === $settings['exad_modal_content'] ) { ?>
-									<video class="exad-video-hosted" src="'.esc_url( $settings['exad_modal_external_video']['url'] ).'" controls="" controlslist="nodownload">
+									<video class="exad-video-hosted" src="<?php echo esc_url( $settings['exad_modal_external_video']['url'] );?>" controls="" controlslist="nodownload">
 									</video>
 					  <?php }
 
 							if ( 'external_page' === $settings['exad_modal_content'] ) { ?>
-								<iframe src="'.esc_url( $settings['exad_modal_external_page_url'] ).'" frameborder="0" allowfullscreen ></iframe>
+								<iframe src="<?php echo esc_url( $settings['exad_modal_external_page_url'] );?>" frameborder="0" allowfullscreen ></iframe>
 					<?php 	}
 
 							if ( 'shortcode' === $settings['exad_modal_content'] ) {
