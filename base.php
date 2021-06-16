@@ -367,6 +367,7 @@ final class Base {
         $settings['exad_post_grid_image_align'] = $_POST['image_align'];
         $settings['exad_post_grid_equal_height'] = $_POST['equal_height'];
         $settings['exad_post_grid_show_image'] = $_POST['post_thumbnail'];
+        $settings['post_grid_image_size_size'] = $_POST['post_thumb_size'];
         $settings['exad_post_grid_show_category'] = $_POST['show_category'];
         $settings['exad_post_grid_show_user_avatar'] = $_POST['show_user_avatar'];
         $settings['exad_post_grid_show_user_name'] = $_POST['show_user_name'];

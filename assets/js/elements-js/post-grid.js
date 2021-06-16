@@ -27,6 +27,7 @@ var exclusivePostGrid = function( $scope, $ ) {
                 posts_per_page: $(this).data('posts_per_page'),
             	post_offset: $(this).data('post-offset'),
                 post_thumbnail: $(this).data('post-thumbnail'),
+                post_thumb_size: $(this).data('post-thumb-size'),
                 equal_height: $(this).data('equal_height'),
                 enable_details_btn: $(this).data('enable_details_btn'),
                 details_btn_text: $(this).data('details_btn_text'),

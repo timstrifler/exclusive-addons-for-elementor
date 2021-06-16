@@ -38,7 +38,7 @@ class Post_Grid extends Widget_Base {
         return [ 'exclusive', 'blog' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
 		$exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
@@ -105,6 +105,14 @@ class Post_Grid extends Widget_Base {
 				'type'    => Controls_Manager::NUMBER,
 				'default' => '0'
             ]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'      => 'post_grid_image_size',
+				'default'   => 'medium_large'
+			]
 		);
 		
 		$this->add_control(
@@ -1786,18 +1794,6 @@ class Post_Grid extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-    public function render_image( $image_id, $settings ) {
-        $image_size = $settings['image_size_size'];
-        if ( 'custom' === $image_size ) {
-            $image_src = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image_size', $settings );
-        } else {
-            $image_src = wp_get_attachment_image_src( $image_id, $image_size );
-            $image_src = $image_src[0];
-        }
-
-        return sprintf( '<img src="%s" alt="%s" />', esc_url($image_src), esc_html( get_post_meta( $image_id, '_wp_attachment_image_alt', true) ) );
-    }
-
 	protected function render() {
 		$settings                  = $this->get_settings_for_display();		
 		$settings['template_type'] = $this->get_name();
@@ -1836,6 +1832,7 @@ class Post_Grid extends Widget_Base {
 				'data-post-order_by'     => $settings['exad_post_grid_order_by'],
 				'data-post-tag__in'   => $settings['exad_post_grid_tags'],
 				'data-post-thumbnail' => $settings['exad_post_grid_show_image'],
+				'data-post-thumb-size' => $settings['post_grid_image_size_size'],
 				'data-equal_height' => $settings['exad_post_grid_equal_height'],
 				'data-enable_details_btn' => $settings['exad_post_grid_show_read_more_btn'],
 				'data-details_btn_text' => $settings['exad_post_grid_read_more_btn_text'],
@@ -1863,19 +1860,24 @@ class Post_Grid extends Widget_Base {
 				'data-offset' => $settings['exad_post_grid_offset'],
 			]
 		);
-		
+		?>		
 
-		echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_featured_post' ).'>';
-			echo '<div '.$this->get_render_attribute_string( 'exad_post_grid_wrapper' ).'>';
-				Helper::exad_get_posts( $settings );       
-			echo '</div>';
-			echo '<div class="exad-post-grid-load-btn">';
-				if( 'yes' === $settings['exad_post_grid_enable_load_more_btn'] ){
-					echo '<a class="exad-post-grid-paginate-btn"' .$this->get_render_attribute_string( 'exad_post_grid_load_more_button' ). 'href="#">'.esc_html( $settings['exad_post_grid_enable_load_more_btn_text'] ).'</a>';
+		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_featured_post' ); ?>>
+			<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
+				<?php Helper::exad_get_posts( $settings ); ?>    
+			</div>
+			<div class="exad-post-grid-load-btn">
+				<?php if( 'yes' === $settings['exad_post_grid_enable_load_more_btn'] ) { ?>
+					<a class="exad-post-grid-paginate-btn" <?php echo $this->get_render_attribute_string( 'exad_post_grid_load_more_button' ); ?> href="#">
+						<?php echo esc_html( $settings['exad_post_grid_enable_load_more_btn_text'] ); ?>
+					</a>
+				<?php 
 				}
-			echo '</div>';
-		echo '</div>';
+				?>
+			</div>
+		</div>
+
+	<?php
 	}
 
-	
 }
