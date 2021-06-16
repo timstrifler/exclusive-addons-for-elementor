@@ -895,65 +895,67 @@ class News_Ticker extends Widget_Base {
 
         $this->add_inline_editing_attributes( 'exad_news_ticker_label', 'basic' );
         ?>
-                <div <?php echo $this->get_render_attribute_string( 'exad-news-ticker-wrapper' );?> >
-                <?php do_action( 'exad_news_ticker_wrapper_before' );
+        <div <?php echo $this->get_render_attribute_string( 'exad-news-ticker-wrapper' );?>>
+            <?php do_action( 'exad_news_ticker_wrapper_before' );
             if( 'yes' === $show_label ): ?>
-                        <div class="exad-bn-label <?php  echo esc_attr( $arrow ) ?>" >
-                            <div class="exad-nt-label">
-                        <?php if( 'yes' === $settings['exad_news_ticker_show_label_icon'] && !empty( $settings['exad_news_ticker_label_icon'] ) ){ ?>
-                                    <span class="exad-news-ticker-icon">
-                                        <?php Icons_Manager::render_icon( $settings['exad_news_ticker_label_icon'], [ 'aria-hidden' => 'true' ] );?>
-                                    </span>                               
-                        <?php }
-                        
-                        if( !empty( $label ) ) { ?>
-                                <span <?php echo $this->get_render_attribute_string( 'exad_news_ticker_label' );?> ><?php echo wp_kses_post( $label ) ;?></span>
-                        <?php } ?>
-                            </div>
-                        </div>
+                <div class="exad-bn-label <?php  echo esc_attr( $arrow ) ?>" >
+                    <div class="exad-nt-label">
+                    <?php if( 'yes' === $settings['exad_news_ticker_show_label_icon'] && !empty( $settings['exad_news_ticker_label_icon'] ) ){ ?>
+                        <span class="exad-news-ticker-icon">
+                            <?php Icons_Manager::render_icon( $settings['exad_news_ticker_label_icon'], [ 'aria-hidden' => 'true' ] );?>
+                        </span>                               
+                    <?php 
+                    }
+                    if( !empty( $label ) ) { ?>
+                        <span <?php echo $this->get_render_attribute_string( 'exad_news_ticker_label' );?> ><?php echo wp_kses_post( $label ) ;?></span>
+                    <?php } ?>
+                    </div>
+                </div>
             <?php endif;?>
 
-                    <div class="exad-nt-news">
+            <div class="exad-nt-news">
                 <?php if( is_array( $settings['exad_news_ticker_items'] ) ) : ?>
-                        <ul>
-                        <?php foreach ( $settings['exad_news_ticker_items'] as $key => $list ) :
-                            $link_key  = 'link_' . $key;
+                    <ul>
+                    <?php foreach ( $settings['exad_news_ticker_items'] as $key => $list ) :
+                        $link_key  = 'link_' . $key;
 
-                            $title = $this->get_repeater_setting_key( 'exad_news_ticker_title', 'exad_news_ticker_items', $key );
-                            $this->add_inline_editing_attributes( $title, 'intermediate' );
+                        $title = $this->get_repeater_setting_key( 'exad_news_ticker_title', 'exad_news_ticker_items', $key );
+                        $this->add_inline_editing_attributes( $title, 'intermediate' );
 
-                            if( $list['exad_news_ticker_link']['url'] ) :
-                                $this->add_render_attribute( $link_key, 'href', esc_url( $list['exad_news_ticker_link']['url'] ) );
-                                if( $list['exad_news_ticker_link']['is_external'] ) {
-                                    $this->add_render_attribute( $link_key, 'target', '_blank' );
-                                }
-                                if( $list['exad_news_ticker_link']['nofollow'] ) {
-                                    $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-                                } ?>
-                                    <li><a <?php echo $this->get_render_attribute_string( $link_key );?> >
-                                            <span <?php echo $this->get_render_attribute_string( $title );?> ><?php echo wp_kses_post( $list['exad_news_ticker_title'] );?></span>
-                                        </a>
-                                    </li>
-                            <?php else : ?>
-                                    <li><span <?php echo $this->get_render_attribute_string( $title );?> ><?php echo wp_kses_post( $list['exad_news_ticker_title'] );?></span></li>
-                           <?php endif;
-                        endforeach ;?>
-                        </ul>
+                        if( $list['exad_news_ticker_link']['url'] ) :
+                            $this->add_render_attribute( $link_key, 'href', esc_url( $list['exad_news_ticker_link']['url'] ) );
+                            if( $list['exad_news_ticker_link']['is_external'] ) {
+                                $this->add_render_attribute( $link_key, 'target', '_blank' );
+                            }
+                            if( $list['exad_news_ticker_link']['nofollow'] ) {
+                                $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+                            } ?>
+                            <li>
+                                <a <?php echo $this->get_render_attribute_string( $link_key );?> >
+                                    <span <?php echo $this->get_render_attribute_string( $title );?> ><?php echo wp_kses_post( $list['exad_news_ticker_title'] );?></span>
+                                </a>
+                            </li>
+                        <?php else : ?>
+                            <li>
+                                <span <?php echo $this->get_render_attribute_string( $title );?>><?php echo wp_kses_post( $list['exad_news_ticker_title'] );?></span>
+                            </li>
+                        <?php endif;
+                    endforeach ;?>
+                    </ul>
                 <?php endif;?>
-                    </div>
+            </div>
 
             <?php if ( 'yes' === $settings['exad_news_ticker_show_controls'] ) :?>
-                        <div class="exad-nt-controls">
-                            <button><span class="bn-arrow bn-prev"></span></button>
+                <div class="exad-nt-controls">
+                    <button><span class="bn-arrow bn-prev"></span></button>
                     <?php if( 'yes' === $settings['exad_news_ticker_show_pause_control'] ) :?>
-                            <button><span class="bn-action"></span></button>
+                        <button><span class="bn-action"></span></button>
                     <?php endif;?>
-                            <button><span class="bn-arrow bn-next"></span></button>
-                        </div>
-            <?php endif;
-            do_action( 'exad_news_ticker_wrapper_after' );
-            ?>
+                    <button><span class="bn-arrow bn-next"></span></button>
                 </div>
+            <?php endif;
+            do_action( 'exad_news_ticker_wrapper_after' ); ?>
+        </div>
     <?php 
     }
 
