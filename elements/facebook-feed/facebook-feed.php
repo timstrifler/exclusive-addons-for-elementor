@@ -5,7 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Box_Shadow;
-use \Elementor\Scheme_Typography;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Border;
 use \Elementor\Widget_Base;
@@ -858,7 +857,6 @@ class Facebook_Feed extends Widget_Base {
 				'name' => 'date_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-facebook-date',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'condition' => [
 					'show_date' => 'yes'
 				],
@@ -1009,7 +1007,6 @@ class Facebook_Feed extends Widget_Base {
 				'name' => 'read_more_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
 				'selector' => '{{WRAPPER}} .exad-facebook-content p a',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
 				'condition' => [
 					'read_more' => 'yes'
 				],

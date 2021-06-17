@@ -938,13 +938,11 @@ class Logo_Carousel extends Widget_Base {
 		if ( is_array( $settings['exad_logo_carousel_repeater'] ) ) : ?>
 			<div class="exad-logo-carousel">
 				<div <?php echo $this->get_render_attribute_string('exad_logo_carousel') ;?> >
-				<?php 
-				foreach ( $settings['exad_logo_carousel_repeater'] as $logo ) :?>
-					<div class="exad-logo-carousel-item '.esc_attr( $settings['exad_logo_carousel_alignment'] ).'">
-						<?php echo Group_Control_Image_Size::get_attachment_image_html( $logo, 'logo_image_size', 'exad_logo_carousel_image' ); ?>
-					</div>					
-				<?php endforeach; ?>
-
+					<?php foreach ( $settings['exad_logo_carousel_repeater'] as $logo ) :?>
+						<div class="exad-logo-carousel-item '.esc_attr( $settings['exad_logo_carousel_alignment'] ).'">
+							<?php echo Group_Control_Image_Size::get_attachment_image_html( $logo, 'logo_image_size', 'exad_logo_carousel_image' ); ?>
+						</div>					
+					<?php endforeach; ?>
 				</div>
 			</div>
 		<?php
