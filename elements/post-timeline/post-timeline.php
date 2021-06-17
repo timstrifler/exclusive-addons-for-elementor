@@ -626,7 +626,7 @@ class Post_Timeline extends Widget_Base {
 		?>
 
 		<div class="exad-post-timeline">
-          <?php echo Helper::exad_get_posts( $settings );?>
+        	<?php echo Helper::exad_get_posts( $settings );?>
         </div>
 
 	<?php
