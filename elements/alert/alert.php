@@ -33,7 +33,7 @@ class Alert extends Widget_Base {
         return [ 'exclusive', 'notice', 'message' ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
         $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
         
@@ -797,7 +797,7 @@ class Alert extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
         <#
             var iconHTML = elementor.helpers.renderIcon( view, settings.exad_alert_content_icon, { 'aria-hidden': true }, 'i' , 'object' );

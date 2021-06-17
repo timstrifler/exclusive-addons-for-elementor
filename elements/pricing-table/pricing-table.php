@@ -35,7 +35,7 @@ class Pricing_Table extends Widget_Base {
         return [ 'exclusive', 'price', 'package', 'product', 'plan' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
 		/**
@@ -2250,7 +2250,7 @@ class Pricing_Table extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
     	?>
     	<#
 			view.addRenderAttribute( 'exad_pricing_table_wrapper', {

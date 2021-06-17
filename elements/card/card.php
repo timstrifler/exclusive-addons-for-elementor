@@ -39,7 +39,7 @@ class Card extends Widget_Base {
         return [ 'exclusive', 'info', 'content', 'block', 'box' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 		/**
 		* Card Content Section
@@ -1409,7 +1409,7 @@ class Card extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			view.addRenderAttribute( 'exad_card', {

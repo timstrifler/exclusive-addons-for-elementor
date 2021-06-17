@@ -33,7 +33,7 @@ class Call_To_Action extends Widget_Base {
         return [ 'exclusive', 'cta', 'button' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
         $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
         $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
@@ -975,7 +975,7 @@ class Call_To_Action extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
         <# 
             view.addRenderAttribute( 'exad_call_to_action_wrapper', {

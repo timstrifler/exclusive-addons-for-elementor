@@ -73,7 +73,7 @@ class Contact_Form_7 extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-    protected function _register_controls() {
+    protected function register_controls() {
         $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
         if( ! class_exists( 'WPCF7_ContactForm' ) ) {

@@ -32,7 +32,7 @@ class Dual_Button extends Widget_Base {
         return [ 'exclusive', 'multiple', 'dual', 'anchor', 'link', 'btn', 'double' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
         $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
         $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
@@ -1070,7 +1070,7 @@ class Dual_Button extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
         <#
             view.addRenderAttribute( 'exad_dual_button', {

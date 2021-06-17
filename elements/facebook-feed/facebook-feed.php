@@ -36,7 +36,7 @@ class Facebook_Feed extends Widget_Base {
 	/**
 	 * Register controls
 	 */
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
 		$this->start_controls_section(
 			'exad_facebook_feed_wrapper',

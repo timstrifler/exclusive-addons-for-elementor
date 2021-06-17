@@ -40,7 +40,7 @@ class Team_Member extends Widget_Base {
         return [ 'exclusive', 'employee', 'staff' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 		/**
 		* Team Member Content Section
@@ -1623,7 +1623,7 @@ class Team_Member extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 
 		?>
 		<#

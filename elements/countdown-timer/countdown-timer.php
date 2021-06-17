@@ -36,7 +36,7 @@ class Countdown_Timer extends Widget_Base {
 		return [ 'exad-countdown' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
 		/**
@@ -565,7 +565,7 @@ class Countdown_Timer extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown' );

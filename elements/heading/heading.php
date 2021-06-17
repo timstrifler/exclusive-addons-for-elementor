@@ -801,7 +801,7 @@ class Heading extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			var iconHTML = elementor.helpers.renderIcon( view, settings.exad_heading_icon, { 'aria-hidden': true }, 'i' , 'object' );
