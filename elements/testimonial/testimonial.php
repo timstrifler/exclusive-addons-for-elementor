@@ -1071,7 +1071,7 @@ class Testimonial extends Widget_Base {
 					<div class="exad-testimonial-reviewer">
 					<?php
 						if ( !empty( $settings['exad_testimonial_name'] ) ) : ?>
-							<a href="<?php echo $settings['exad_testimonial_url']['url'] . '"' . $target . $nofollow; ?>>
+							<a href="<?php echo $settings['exad_testimonial_url']['url']; ?>" <?php echo $target; ?> <?php echo $nofollow; ?>>
 								<h4 <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_testimonial_name'] ); ?></h4>
 							</a>
 						<?php	

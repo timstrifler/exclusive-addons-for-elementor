@@ -2119,7 +2119,7 @@ class Pricing_Table extends Widget_Base {
 		<div <?php echo $this->get_render_attribute_string( 'exad_pricing_table_wrapper' ); ?>>
 			<?php if( 'promo_top' === $settings['exad_pricing_table_promo_position'] ) { 
 				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) { ?>
-					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo $settings['exad_pricing_table_promo_title']; ?></span>';
+					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo $settings['exad_pricing_table_promo_title']; ?></span>
 				<?php } ?>
 			<?php } ?>
 			<div class="exad-pricing-table-badge-wrapper">
