@@ -916,93 +916,92 @@ class Pricing_Menu extends Widget_Base {
     }
 
     protected function render() {
-        
-        $settings = $this->get_settings_for_display();
-        ?>
-            <div class="exad-pricing-list">
-                <div class="exad-pricing-list-wrapper <?php echo esc_attr( $settings['exad_pricing_menu_list_item_border_bottom'] ) ?>" >
-                <?php 
-                foreach ( $settings['pricing_menu_repeater'] as $index => $list ) : 
-                    $img_url = $list['exad_pricing_menu_image']['url'] ? ' yes' : '';
+    $settings = $this->get_settings_for_display();
+    ?>
+        <div class="exad-pricing-list">
+            <div class="exad-pricing-list-wrapper <?php echo esc_attr( $settings['exad_pricing_menu_list_item_border_bottom'] ) ?>" >
+            <?php 
+            foreach ( $settings['pricing_menu_repeater'] as $index => $list ) : 
+                $img_url = $list['exad_pricing_menu_image']['url'] ? ' yes' : '';
 
-                    $each_pricing_menu = 'each_item_' . $index;
-                    $this->add_render_attribute( $each_pricing_menu, 'class', [
-                        'elementor-repeater-item-'.esc_attr( $list['_id'] ),
-                        'exad-pricing-list-item'.$img_url
-                    ] );
+                $each_pricing_menu = 'each_item_' . $index;
+                $this->add_render_attribute( $each_pricing_menu, 'class', [
+                    'elementor-repeater-item-'.esc_attr( $list['_id'] ),
+                    'exad-pricing-list-item'.$img_url
+                ] );
 
-                    $pricing_title_key = $this->get_repeater_setting_key( 'exad_pricing_menu_title', 'pricing_menu_repeater', $index );
-                    $this->add_render_attribute( $pricing_title_key, 'class', 'exad-pricing-list-item-content-title' );
-                    $this->add_inline_editing_attributes( $pricing_title_key, 'basic' );
+                $pricing_title_key = $this->get_repeater_setting_key( 'exad_pricing_menu_title', 'pricing_menu_repeater', $index );
+                $this->add_render_attribute( $pricing_title_key, 'class', 'exad-pricing-list-item-content-title' );
+                $this->add_inline_editing_attributes( $pricing_title_key, 'basic' );
 
-                    $pricing_description_key = $this->get_repeater_setting_key( 'exad_pricing_menu_description', 'pricing_menu_repeater', $index );
-                    $this->add_render_attribute( $pricing_description_key, 'class', 'exad-pricing-list-item-content-description' );
-                    $this->add_inline_editing_attributes( $pricing_description_key, 'intermediate' );
-                    
-                    $exad_pricing_menu_price = $this->get_repeater_setting_key( 'exad_pricing_menu_price', 'pricing_menu_repeater', $index );
-                    $this->add_inline_editing_attributes( $exad_pricing_menu_price, 'basic' );
-                    ?>
-                    <div <?php echo $this->get_render_attribute_string( $each_pricing_menu );?> >
-                        <?php 	if ( $list['exad_pricing_menu_image']['url'] || $list['exad_pricing_menu_image']['id'] ) : ?>
-                                    <div class="exad-pricing-list-item-thumbnail">
-                                        <?php echo Group_Control_Image_Size::get_attachment_image_html( $list, 'exad_pricing_menu_image_size', 'exad_pricing_menu_image' ); ?>
-                                    </div>
-                        <?php endif;?>
+                $pricing_description_key = $this->get_repeater_setting_key( 'exad_pricing_menu_description', 'pricing_menu_repeater', $index );
+                $this->add_render_attribute( $pricing_description_key, 'class', 'exad-pricing-list-item-content-description' );
+                $this->add_inline_editing_attributes( $pricing_description_key, 'intermediate' );
+                
+                $exad_pricing_menu_price = $this->get_repeater_setting_key( 'exad_pricing_menu_price', 'pricing_menu_repeater', $index );
+                $this->add_inline_editing_attributes( $exad_pricing_menu_price, 'basic' );
+                ?>
+                <div <?php echo $this->get_render_attribute_string( $each_pricing_menu );?> >
+                    <?php if ( $list['exad_pricing_menu_image']['url'] || $list['exad_pricing_menu_image']['id'] ) : ?>
+                        <div class="exad-pricing-list-item-thumbnail">
+                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $list, 'exad_pricing_menu_image_size', 'exad_pricing_menu_image' ); ?>
+                        </div>
+                    <?php endif;?>
 
-                        <div class="exad-pricing-list-item-content <?php echo esc_attr( $settings['exad_pricing_menu_price_position'] );?>" >
-                                <div class="exad-pricing-list-item-content-inner">
-                                    <div class="exad-pricing-title">
-                                    <?php if ( !empty( $list['exad_pricing_menu_title'] ) ) : ?>
-                                            <h5 <?php echo $this->get_render_attribute_string( $pricing_title_key );?> ><?php echo Helper::exad_wp_kses( $list['exad_pricing_menu_title'] );?></h5>
-                                    <?php endif;?>
+                    <div class="exad-pricing-list-item-content <?php echo esc_attr( $settings['exad_pricing_menu_price_position'] );?>" >
+                        <div class="exad-pricing-list-item-content-inner">
+                            <div class="exad-pricing-title">
+                                <?php if ( !empty( $list['exad_pricing_menu_title'] ) ) : ?>
+                                        <h5 <?php echo $this->get_render_attribute_string( $pricing_title_key );?> ><?php echo Helper::exad_wp_kses( $list['exad_pricing_menu_title'] );?></h5>
+                                <?php endif;?>
 
-                                    <?php if( 'yes' === $settings['exad_pricing_menu_title_connector'] ) : ?>
-                                          <span class="exad-pricing-list-item-content-conntector"></span>
-                                    <?php endif;
-
-                                    if( 'price_pos_right' === $settings['exad_pricing_menu_price_position'] ) :
-                                        echo $this->pricing( wp_kses_post( $list['exad_pricing_menu_price'] ), $index );
-                                    endif; ?>
-                                        </div>
-
-                               <?php if ( !empty( $list['exad_pricing_menu_description'] ) ) : ?>
-                                        <p <?php echo $this->get_render_attribute_string( $pricing_description_key );?> >
-                                            <?php echo wp_kses_post( $list['exad_pricing_menu_description'] );?>
-                                        </p>
+                                <?php if( 'yes' === $settings['exad_pricing_menu_title_connector'] ) : ?>
+                                        <span class="exad-pricing-list-item-content-conntector"></span>
                                 <?php endif;
-                                
-                                if( 'yes' === $list['exad_pricing_menu_enable_link'] && !empty( $list['exad_pricing_menu_action_text'] ) ) {
-                                    $link_key = 'link_' . $index;
-                                    $this->add_render_attribute( $link_key, 'class', 'exad-pricing-list-item-content-action' );
-                                    $exad_heading_link = $list['exad_pricing_menu_btn_link']['url'];
-                                    if( $exad_heading_link ) {
-                                        $this->add_render_attribute( $link_key, 'href', esc_url( $exad_heading_link ) );
-                                        if( $list['exad_pricing_menu_btn_link']['is_external'] ) {
-                                            $this->add_render_attribute( $link_key, 'target', '_blank' );
-                                        }
-                                        if( $list['exad_pricing_menu_btn_link']['nofollow'] ) {
-                                            $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-                                        }
-                                    }
-                                    $pricing_btn_key = $this->get_repeater_setting_key( 'exad_pricing_menu_action_text', 'pricing_menu_repeater', $index );
-                                    $this->add_inline_editing_attributes( $pricing_btn_key, 'none' );?>
 
-                                        <a <?php echo $this->get_render_attribute_string( $link_key ) ;?>>
-                                                <span <?php $this->get_render_attribute_string( $pricing_btn_key );?> >
-                                            <?php echo esc_html( $list['exad_pricing_menu_action_text'] );?>
-                                                </span>
-                                        </a>
-                               <?php } ?>
-                                  </div>
-                            
-                            <?php if( 'price_pos_down' === $settings['exad_pricing_menu_price_position'] ) {
-                                echo $this->pricing( wp_kses_post( $list['exad_pricing_menu_price'] ), $index );
-                            } ?>
-                                </div>
+                                if( 'price_pos_right' === $settings['exad_pricing_menu_price_position'] ) :
+                                    echo $this->pricing( wp_kses_post( $list['exad_pricing_menu_price'] ), $index );
+                                endif; ?>
                             </div>
-              <?php  endforeach; ?>
+
+                            <?php if ( !empty( $list['exad_pricing_menu_description'] ) ) : ?>
+                                <p <?php echo $this->get_render_attribute_string( $pricing_description_key );?> >
+                                    <?php echo wp_kses_post( $list['exad_pricing_menu_description'] );?>
+                                </p>
+                            <?php endif;
+                            
+                            if( 'yes' === $list['exad_pricing_menu_enable_link'] && !empty( $list['exad_pricing_menu_action_text'] ) ) {
+                                $link_key = 'link_' . $index;
+                                $this->add_render_attribute( $link_key, 'class', 'exad-pricing-list-item-content-action' );
+                                $exad_heading_link = $list['exad_pricing_menu_btn_link']['url'];
+                                if( $exad_heading_link ) {
+                                    $this->add_render_attribute( $link_key, 'href', esc_url( $exad_heading_link ) );
+                                    if( $list['exad_pricing_menu_btn_link']['is_external'] ) {
+                                        $this->add_render_attribute( $link_key, 'target', '_blank' );
+                                    }
+                                    if( $list['exad_pricing_menu_btn_link']['nofollow'] ) {
+                                        $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+                                    }
+                                }
+                                $pricing_btn_key = $this->get_repeater_setting_key( 'exad_pricing_menu_action_text', 'pricing_menu_repeater', $index );
+                                $this->add_inline_editing_attributes( $pricing_btn_key, 'none' );?>
+
+                                    <a <?php echo $this->get_render_attribute_string( $link_key ) ;?>>
+                                        <span <?php $this->get_render_attribute_string( $pricing_btn_key );?> >
+                                            <?php echo esc_html( $list['exad_pricing_menu_action_text'] );?>
+                                        </span>
+                                    </a>
+
+                            <?php } ?>
+                            </div>
+                        <?php if( 'price_pos_down' === $settings['exad_pricing_menu_price_position'] ) {
+                            echo $this->pricing( wp_kses_post( $list['exad_pricing_menu_price'] ), $index );
+                        } ?>
                     </div>
                 </div>
+            <?php endforeach; ?>
+            </div>
+        </div>
     <?php
     }
 
