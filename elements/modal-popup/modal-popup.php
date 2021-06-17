@@ -1143,9 +1143,9 @@ class Modal_Popup extends Widget_Base {
 		<div class="exad-modal">
 			<div class="exad-modal-wrapper">
 
-				<div class="exad-modal-button exad-modal-btn-fixed-width-'.$settings['exad_modal_btn_enable_fixed_width_height'].'">
+				<div class="exad-modal-button exad-modal-btn-fixed-width-<?php echo esc_attr($settings['exad_modal_btn_enable_fixed_width_height']);?>">
 					<a href="#" <?php echo $this->get_render_attribute_string('exad_modal_action');?> >
-						<span class="exad-modal-action-icon-'.$settings['exad_modal_btn_icon_align'].'">
+						<span class="exad-modal-action-icon-<?php echo esc_attr($settings['exad_modal_btn_icon_align']);?>">
 							<?php if( 'left' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
 								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true' ] );
 							}
