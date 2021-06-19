@@ -221,6 +221,14 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
+= 2.4.30 - 19/06/2021 =
+- Fix: Changed _register_controls to register_controls and _content_template to content_template on all the widgets due to Elementor deprecation.
+- Fix: Added Inline Editing Attributes to all the Widgets.
+- Fix: Improved PHP coding architecture.
+- Fix: Changed Images to have height and width attribute from WordPress core for better optimization on Core Web Vitals.
+- Fix: Overall bug fixes on several areas of the Plugin.
+
+
 = 2.4.21 - 31/05/2021 =
 - Fix: Bug in List Group widget.
 
