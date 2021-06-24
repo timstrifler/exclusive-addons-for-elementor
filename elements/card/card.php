@@ -1378,7 +1378,7 @@ class Card extends Widget_Base {
 					<a <?php echo $this->get_render_attribute_string( 'exad_card_action_link' ); ?>>
 						<?php if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
 							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
-								<?php echo Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
+								<?php Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
 							</span>
 						<?php	
 						}
@@ -1391,7 +1391,7 @@ class Card extends Widget_Base {
 						<?php
 						if( 'icon_pos_right' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
 							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
-								<?php echo Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
+								<?php Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
 							</span>
 						<?php } ?>
 	            	</a>
