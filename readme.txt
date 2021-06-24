@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.7.2
-Stable tag: 2.4.30
+Stable tag: 2.4.31
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -220,6 +220,10 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.4.31 - 24/06/2021 =
+- Fix: Bugs on Card widget.
+- Fix: Bugs on Accordion widget.
 
 = 2.4.30 - 19/06/2021 =
 - Fix: Changed _register_controls to register_controls and _content_template to content_template on all the widgets due to Elementor deprecation.
