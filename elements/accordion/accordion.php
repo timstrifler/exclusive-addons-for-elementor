@@ -1334,12 +1334,12 @@ class Accordion extends Widget_Base {
                                 <div> <?php echo wp_kses_post( $accordion['exad_exclusive_accordion_content'] ); ?></div>
                                 <?php if( 'yes' === $accordion['exad_accordion_show_read_more_btn'] ) : ?>
 									<?php if( $accordion['exad_accordion_read_more_btn_url']['url'] ) { ?>
-									    <?php echo $this->add_render_attribute( $link_key, 'href', esc_url( $accordion['exad_accordion_read_more_btn_url']['url'] ) ); ?>
+									    <?php $this->add_render_attribute( $link_key, 'href', esc_url( $accordion['exad_accordion_read_more_btn_url']['url'] ) ); ?>
 									    <?php if( $accordion['exad_accordion_read_more_btn_url']['is_external'] ) { ?>
-									        <?php echo $this->add_render_attribute( $link_key, 'target', '_blank' ); ?>
+									        <?php $this->add_render_attribute( $link_key, 'target', '_blank' ); ?>
 									    <?php } ?>
 									    <?php if( $accordion['exad_accordion_read_more_btn_url']['nofollow'] ) { ?>
-									        <?php echo $this->add_render_attribute( $link_key, 'rel', 'nofollow' ); ?>
+									        <?php $this->add_render_attribute( $link_key, 'rel', 'nofollow' ); ?>
 									    <?php } ?>
 									<?php } ?>
                                     <?php if ( ! empty( $accordion['exad_accordion_read_more_btn_text'] ) ) : ?>
