@@ -94,7 +94,7 @@ We have enabled Inline Editing with Live Preview for most of our elements. That 
 This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
 
 
-### 48+ PREMIUM WIDGETS and EXTENSIONS ON OUR [PRO VERSION](https://exclusiveaddons.com/pricing)
+### 49+ PREMIUM WIDGETS and EXTENSIONS ON OUR [PRO VERSION](https://exclusiveaddons.com/pricing)
 
 1. **[Demo Previewer](https://exclusiveaddons.com/demo-previewer/)** - A unique widget from the best elementor addons. Demo Previewer Widget offers the opportunity to showcase a demo or short preview of any product and provide an idea about the pricing on your WordPress site.
 2. **[Breadcrumb](https://exclusiveaddons.com/exclusive-addons/breadcrumb/)** - Breadcrumb Widget is a fully responsive navigator, that can trace the visitor’s footsteps on a certain path on a website. Every step of that path is clickable, from the homepage to the current location.
@@ -140,7 +140,7 @@ This option allows you change the default Color scheme for all the widgets at on
 42. **[Woo Cart](https://exclusiveaddons.com/shop/)** - Style Woocommerce Cart page from Exclusive Addons as you like with tons of customization options.
 43. **[Woo Checkout](https://exclusiveaddons.com/shop/)** - Style Your Woocommerce Checkout page without a Theme. With the help of all the customization options you might need.
 44. **[Site Logo](https://exclusiveaddons.com/site-logo/)** - Display your Site Logo with some versatile customization options.
-
+45. **[Template](https://exclusiveaddons.com/template-demo)** - Create reusable content as Elementor template and put anywhere using the Template widget.
 
 LIST OF OUR PRO EXTENSIONS:
 1. **[Gradient animation](https://exclusiveaddons.com/gradient-animation/)** 
