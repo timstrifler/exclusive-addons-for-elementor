@@ -31,6 +31,7 @@ class Assets_Manager {
         wp_enqueue_style( 'exad-frontend-editor', EXAD_ASSETS_URL . 'css/exad-frontend-editor.min.css' );
         wp_enqueue_style( 'exad-template-library-style', EXAD_ASSETS_URL . 'css/template-library.min.css', [ 'elementor-editor' ], EXAD_PLUGIN_VERSION );
         wp_enqueue_script( 'exad-template-library-script', EXAD_ASSETS_URL . 'js/template-library.min.js', [ 'elementor-editor', 'jquery-hover-intent' ], EXAD_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'exad-unlimited-nested-section', EXAD_ASSETS_URL .'js/unlimited-nested-section.min.js', [ 'elementor-editor'  ] , EXAD_PLUGIN_VERSION, true );
 
 		$localized_data = [
             'exadProWidgets' => [],
