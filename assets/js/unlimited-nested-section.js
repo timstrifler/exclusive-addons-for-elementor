@@ -36,7 +36,7 @@
         groups[clipboard_index].actions.push( {
             name: 'exad-add-nested-section',
             title: 'Add Nested Section',
-            icon: 'eicon-inner-section',
+            icon: 'context-menu-icon exad exad-logo',
             callback: function() {
                 insertNestedSection( element );
             },
