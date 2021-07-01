@@ -304,6 +304,8 @@ i.exad-extention-logo::after {
   top: 0;
   color: #7A56FF;
   opacity: 1;
+  font-size: 14px;
+  left: -2px;
 }
 
 /* Exclusive Addons Font CSS ends */
