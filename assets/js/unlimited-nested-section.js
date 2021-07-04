@@ -34,8 +34,8 @@
 
         // Push new context item inside clipboard
         groups[clipboard_index].actions.push( {
-            name: 'exad-add-nested-section',
-            title: 'Add Nested Section',
+            name: 'exad-add-child-section',
+            title: 'Add Child Section',
             icon: 'context-menu-icon exad exad-logo',
             callback: function() {
                 insertNestedSection( element );

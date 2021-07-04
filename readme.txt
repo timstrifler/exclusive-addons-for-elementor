@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.7.2
-Stable tag: 2.4.31
+Stable tag: 2.4.40
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -80,6 +80,9 @@ FREE EXTENSIONS:
 ### 3000+ FREE ICONS
 3000+ Free Icons to choose from 3 Open Source Icon Libraries we integrated. (Feather Icons, Remix Icons, Teeny Icons)
 **[Sneak a Peek](https://exclusiveaddons.com/free-icons/)**
+
+### Unlimited Section Nesting
+Add as many child sections as you need with the help of Unlimited Section Nesting feature of Exclusive Addons.
 
 ### Light Weight & Fast Loading
 Our Elementor Addons itself is very lightweight. We have added only a handful of third party scripts with the plugin. We optimized all the images and codes for a fast loading experience.
@@ -221,6 +224,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
+= 2.4.40 - 04/07/2021 =
+- New: Added Unlimited Section Nesting feature.
+
 = 2.4.31 - 24/06/2021 =
 - Fix: Bugs on Card widget.
 - Fix: Bugs on Accordion widget.
@@ -231,10 +237,6 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 - Fix: Improved PHP coding architecture.
 - Fix: Changed Images to have height and width attribute from WordPress core for better optimization on Core Web Vitals.
 - Fix: Overall bug fixes on several areas of the Plugin.
-
-
-= 2.4.21 - 31/05/2021 =
-- Fix: Bug in List Group widget.
 
 = 2.4.2 - 31/05/2021 =
 - New: Added List Group Widget.

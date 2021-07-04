@@ -515,19 +515,19 @@ msgstr ""
 msgid "Cross Site Copy Paste"
 msgstr ""
 
-#: includes/assets-manager-class.php:39
+#: includes/assets-manager-class.php:40
 msgid "No Templates Found"
 msgstr ""
 
-#: includes/assets-manager-class.php:40
+#: includes/assets-manager-class.php:41
 msgid "Try different category or sync for new templates."
 msgstr ""
 
-#: includes/assets-manager-class.php:41
+#: includes/assets-manager-class.php:42
 msgid "No Results Found"
 msgstr ""
 
-#: includes/assets-manager-class.php:42
+#: includes/assets-manager-class.php:43
 msgid "Please make sure your search is spelled correctly or try a different word."
 msgstr ""
 

@@ -301,11 +301,11 @@ i.exad-extention-logo::after {
 }
 .context-menu-icon.exad-logo:after {
   position: relative;
-  top: 0;
-  color: #7A56FF;
+  top: 1px;
+  color: #FFF;
   opacity: 1;
-  font-size: 14px;
-  left: -2px;
+  font-size: 13px;
+  left: 0;
 }
 
 /* Exclusive Addons Font CSS ends */
