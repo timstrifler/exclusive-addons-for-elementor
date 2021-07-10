@@ -473,13 +473,13 @@ class Dual_Heading extends Widget_Base {
         $settings          = $this->get_settings_for_display();
 
         $this->add_render_attribute( 'exad_dual_first_heading', 'class', 'first-heading' );
-        $this->add_inline_editing_attributes( 'exad_dual_first_heading', 'intermediate' );
+        $this->add_inline_editing_attributes( 'exad_dual_first_heading', 'basic' );
 
         $this->add_render_attribute( 'exad_dual_second_heading', 'class', 'second-heading' );
-        $this->add_inline_editing_attributes( 'exad_dual_second_heading', 'intermediate' );
+        $this->add_inline_editing_attributes( 'exad_dual_second_heading', 'basic' );
 
         $this->add_render_attribute( 'exad_dual_heading_description', 'class', 'exad-dual-heading-description' );
-        $this->add_inline_editing_attributes( 'exad_dual_heading_description', 'intermediate' );
+        $this->add_inline_editing_attributes( 'exad_dual_heading_description', 'basic' );
 
         if( $settings['exad_dual_heading_title_link']['url'] ) {
             $this->add_render_attribute( 'exad_dual_heading_title_link', 'href', esc_url( $settings['exad_dual_heading_title_link']['url'] ) );
@@ -538,13 +538,13 @@ class Dual_Heading extends Widget_Base {
             var iconHTML = elementor.helpers.renderIcon( view, settings.exad_dual_heading_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
             view.addRenderAttribute( 'exad_dual_first_heading', 'class', 'first-heading' );
-            view.addInlineEditingAttributes( 'exad_dual_first_heading', 'intermediate' );
+            view.addInlineEditingAttributes( 'exad_dual_first_heading', 'basic' );
 
             view.addRenderAttribute( 'exad_dual_second_heading', 'class', 'second-heading' );
-            view.addInlineEditingAttributes( 'exad_dual_second_heading', 'intermediate' );
+            view.addInlineEditingAttributes( 'exad_dual_second_heading', 'basic' );
 
             view.addRenderAttribute( 'exad_dual_heading_description', 'class', 'exad-dual-heading-description' );
-            view.addInlineEditingAttributes( 'exad_dual_heading_description', 'intermediate' );
+            view.addInlineEditingAttributes( 'exad_dual_heading_description', 'basic' );
 
             var target = settings.exad_dual_heading_title_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_dual_heading_title_link.nofollow ? ' rel="nofollow"' : '';

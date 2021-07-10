@@ -1027,7 +1027,7 @@ class Testimonial extends Widget_Base {
 		$this->add_inline_editing_attributes( 'exad_testimonial_designation', 'basic' );
 		$this->add_render_attribute( 'exad_testimonial_designation', 'class', 'exad-testimonial-designation' );
 
-		$this->add_inline_editing_attributes( 'exad_testimonial_description', 'intermediate' );
+		$this->add_inline_editing_attributes( 'exad_testimonial_description', 'basic' );
 		$this->add_render_attribute( 'exad_testimonial_description', 'class', 'exad-testimonial-description' );
 
 		$this->add_render_attribute( 'exad_testimonial_content_wrapper', 'class', 'exad-testimonial-content-wrapper' );
@@ -1137,7 +1137,7 @@ class Testimonial extends Widget_Base {
 	      	view.addInlineEditingAttributes( 'exad_testimonial_designation', 'basic' );
 			view.addRenderAttribute( 'exad_testimonial_designation', 'class', 'exad-testimonial-designation' );
 
-	      	view.addInlineEditingAttributes( 'exad_testimonial_description', 'intermediate' );
+	      	view.addInlineEditingAttributes( 'exad_testimonial_description', 'basic' );
 	      	view.addRenderAttribute( 'exad_testimonial_description', 'class', 'exad-testimonial-description' );
 
 			var target = settings.exad_testimonial_url.is_external ? ' target="_blank"' : '';

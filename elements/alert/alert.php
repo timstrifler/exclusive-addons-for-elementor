@@ -724,7 +724,7 @@ class Alert extends Widget_Base {
         $this->add_inline_editing_attributes( 'exad_alert_content_title', 'basic' );
 
         $this->add_render_attribute( 'exad_alert_content_description', 'class', 'exad-alert-desc' );
-        $this->add_inline_editing_attributes( 'exad_alert_content_description', 'intermediate' );
+        $this->add_inline_editing_attributes( 'exad_alert_content_description', 'basic' );
 
         $this->add_render_attribute( 'exad_alert_close_primary_button', 'class', 'exad-alert-element-dismiss-done' );
         $this->add_inline_editing_attributes( 'exad_alert_close_primary_button', 'none' );
@@ -806,7 +806,7 @@ class Alert extends Widget_Base {
             view.addInlineEditingAttributes( 'exad_alert_content_title', 'basic' );
 
             view.addRenderAttribute( 'exad_alert_content_description', 'class', 'exad-alert-desc' );
-            view.addInlineEditingAttributes( 'exad_alert_content_description', 'intermediate' );
+            view.addInlineEditingAttributes( 'exad_alert_content_description', 'basic' );
 
             view.addRenderAttribute( 'exad_alert_close_primary_button', 'class', 'exad-alert-element-dismiss-done' );
             view.addInlineEditingAttributes( 'exad_alert_close_primary_button', 'none' );

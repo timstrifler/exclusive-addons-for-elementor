@@ -1319,7 +1319,7 @@ class Card extends Widget_Base {
 		$this->add_inline_editing_attributes( 'exad_card_tag', 'basic' );
 
 		$this->add_render_attribute( 'exad_card_description', 'class', 'exad-card-description' );
-		$this->add_inline_editing_attributes( 'exad_card_description', 'intermediate' );
+		$this->add_inline_editing_attributes( 'exad_card_description', 'basic' );
 
 		$this->add_render_attribute( 'exad_card_title_link', 'class', 'exad-card-title' );
 		$this->add_inline_editing_attributes( 'exad_card_action_text', 'none' );
@@ -1441,7 +1441,7 @@ class Card extends Widget_Base {
 			view.addInlineEditingAttributes( 'exad_card_tag', 'basic' );
 
 			view.addRenderAttribute( 'exad_card_description', 'class', 'exad-card-description' );
-			view.addInlineEditingAttributes( 'exad_card_description', 'intermediate' );
+			view.addInlineEditingAttributes( 'exad_card_description', 'basic' );
 
 			view.addRenderAttribute( 'exad_card_action_link', 'class', 'exad-card-action' );
 			view.addInlineEditingAttributes( 'exad_card_action_text', 'none' );

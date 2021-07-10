@@ -2076,7 +2076,7 @@ class Pricing_Table extends Widget_Base {
 		$this->add_inline_editing_attributes( 'exad_pricing_table_title', 'basic' );
 
 		$this->add_render_attribute( 'exad_pricing_table_subtitle', 'class', 'exad-pricing-table-subtitle' );
-		$this->add_inline_editing_attributes( 'exad_pricing_table_subtitle', 'intermediate' );
+		$this->add_inline_editing_attributes( 'exad_pricing_table_subtitle', 'basic' );
 
 		$this->add_render_attribute( 'exad_pricing_table_box_value', 'class', [ 'exad-pricing-table-price', 'exad-discount-price-'.$settings['exad_pricing_table_discount_price'] ] );
 
@@ -2208,7 +2208,7 @@ class Pricing_Table extends Widget_Base {
 
 							$pricing_item = $this->get_repeater_setting_key( 'exad_pricing_table_item', 'exad_pricing_table_items', $index );
 							$this->add_render_attribute( $pricing_item, 'class', 'exad-pricing-item' );
-							$this->add_inline_editing_attributes( $pricing_item, 'intermediate' );
+							$this->add_inline_editing_attributes( $pricing_item, 'basic' );
 							$price = $item['exad_pricing_table_item']; ?>
 
 							<li <?php $this->get_render_attribute_string( $each_pricing_item ); ?>>
@@ -2269,7 +2269,7 @@ class Pricing_Table extends Widget_Base {
 			view.addInlineEditingAttributes( 'exad_pricing_table_title', 'basic' );
 
 			view.addRenderAttribute( 'exad_pricing_table_subtitle', 'class', 'exad-pricing-table-subtitle' );
-			view.addInlineEditingAttributes( 'exad_pricing_table_subtitle', 'intermediate' );
+			view.addInlineEditingAttributes( 'exad_pricing_table_subtitle', 'basic' );
 
 			view.addRenderAttribute( 'exad_pricing_table_box_value', {
 				'class': [ 
@@ -2410,7 +2410,7 @@ class Pricing_Table extends Widget_Base {
 						<# _.each( settings.exad_pricing_table_items, function( item, index ) {
 						    var pricingItem = view.getRepeaterSettingKey( 'exad_pricing_table_item', 'exad_pricing_table_items', index );
 						    view.addRenderAttribute( pricingItem, 'class', 'exad-pricing-item' );
-						    view.addInlineEditingAttributes( pricingItem, 'intermediate' );
+						    view.addInlineEditingAttributes( pricingItem, 'basic' );
 
 						    var eachPricingItem = 'link_' + index;
 						    var iconMod = 'yes' !== item.exad_pricing_table_icon_mood ? 'exad-pricing-table-features-disable' : 'exad-pricing-table-features-enable';

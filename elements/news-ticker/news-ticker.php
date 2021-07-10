@@ -920,7 +920,7 @@ class News_Ticker extends Widget_Base {
                         $link_key  = 'link_' . $key;
 
                         $title = $this->get_repeater_setting_key( 'exad_news_ticker_title', 'exad_news_ticker_items', $key );
-                        $this->add_inline_editing_attributes( $title, 'intermediate' );
+                        $this->add_inline_editing_attributes( $title, 'basic' );
 
                         if( $list['exad_news_ticker_link']['url'] ) :
                             $this->add_render_attribute( $link_key, 'href', esc_url( $list['exad_news_ticker_link']['url'] ) );
@@ -1001,7 +1001,7 @@ class News_Ticker extends Widget_Base {
             );
 
             view.addInlineEditingAttributes( 'exad_news_ticker_label', 'basic' );
-            view.addInlineEditingAttributes( 'exad_news_ticker_title', 'intermediate' );
+            view.addInlineEditingAttributes( 'exad_news_ticker_title', 'basic' );
 
         #>
         <div {{{ view.getRenderAttributeString( 'exad-news-ticker-wrapper' ) }}}>

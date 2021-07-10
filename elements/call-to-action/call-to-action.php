@@ -891,7 +891,7 @@ class Call_To_Action extends Widget_Base {
         $this->add_inline_editing_attributes( 'exad_cta_heading', 'basic' );
 
         $this->add_render_attribute( 'exad_cta_description', 'class', 'exad-call-to-action-subtitle' );
-        $this->add_inline_editing_attributes( 'exad_cta_description', 'intermediate' );
+        $this->add_inline_editing_attributes( 'exad_cta_description', 'basic' );
 
         $this->add_render_attribute( 'exad_call_to_action_wrapper', 'class', 'exad-call-to-action skin-'.$settings['exad_cta_skin_type'] );
 
@@ -991,7 +991,7 @@ class Call_To_Action extends Widget_Base {
             view.addInlineEditingAttributes( 'exad_cta_heading', 'basic' );
 
             view.addRenderAttribute( 'exad_cta_description', 'class', 'exad-call-to-action-subtitle' );
-            view.addInlineEditingAttributes( 'exad_cta_description', 'intermediate' );
+            view.addInlineEditingAttributes( 'exad_cta_description', 'basic' );
 
             view.addRenderAttribute( 'exad_cta_primary_btn_link', 'class', 'exad-call-to-action-primary-btn' );
             view.addRenderAttribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );

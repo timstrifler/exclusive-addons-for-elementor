@@ -570,10 +570,10 @@ class Animated_Text extends Widget_Base {
 		);
 
 		$this->add_render_attribute( 'exad_animated_text_before_text', 'class', 'exad-animated-text-pre-heading' );
-        $this->add_inline_editing_attributes( 'exad_animated_text_before_text', 'intermediate' );
+        $this->add_inline_editing_attributes( 'exad_animated_text_before_text', 'basic' );
 
 		$this->add_render_attribute( 'exad_animated_text_after_text', 'class', 'exad-animated-text-post-heading' );
-        $this->add_inline_editing_attributes( 'exad_animated_text_after_text', 'intermediate' );
+        $this->add_inline_editing_attributes( 'exad_animated_text_after_text', 'basic' );
 		?>
 
 		<div class="exad-animated-text <?php echo esc_attr($heading_align); ?>">

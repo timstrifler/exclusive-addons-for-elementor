@@ -1504,7 +1504,7 @@ class Team_Member extends Widget_Base {
 		$this->add_inline_editing_attributes( 'exad_team_member_designation', 'basic' );
 
 		$this->add_render_attribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
-		$this->add_inline_editing_attributes( 'exad_team_member_description', 'intermediate' );
+		$this->add_inline_editing_attributes( 'exad_team_member_description', 'basic' );
 
 		$this->add_render_attribute( 'exad_team_member_item', [
             'class' => [ 
@@ -1634,7 +1634,7 @@ class Team_Member extends Widget_Base {
 			view.addInlineEditingAttributes( 'exad_team_member_designation', 'basic' );
 
 			view.addRenderAttribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
-			view.addInlineEditingAttributes( 'exad_team_member_description', 'intermediate' );
+			view.addInlineEditingAttributes( 'exad_team_member_description', 'basic' );
 
 			view.addRenderAttribute( 'exad_team_members_cta_btn_link', 'class', 'exad-team-member-cta' );
 			view.addRenderAttribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );

@@ -936,7 +936,7 @@ class Pricing_Menu extends Widget_Base {
 
                 $pricing_description_key = $this->get_repeater_setting_key( 'exad_pricing_menu_description', 'pricing_menu_repeater', $index );
                 $this->add_render_attribute( $pricing_description_key, 'class', 'exad-pricing-list-item-content-description' );
-                $this->add_inline_editing_attributes( $pricing_description_key, 'intermediate' );
+                $this->add_inline_editing_attributes( $pricing_description_key, 'basic' );
                 
                 $exad_pricing_menu_price = $this->get_repeater_setting_key( 'exad_pricing_menu_price', 'pricing_menu_repeater', $index );
                 $this->add_inline_editing_attributes( $exad_pricing_menu_price, 'basic' );
@@ -1048,7 +1048,7 @@ class Pricing_Menu extends Widget_Base {
 
                         var pricingDescriptionKey = view.getRepeaterSettingKey( 'exad_pricing_menu_description', 'pricing_menu_repeater', index );
                         view.addRenderAttribute( pricingDescriptionKey, 'class', 'exad-pricing-list-item-content-description' );
-                        view.addInlineEditingAttributes( pricingDescriptionKey, 'intermediate' );
+                        view.addInlineEditingAttributes( pricingDescriptionKey, 'basic' );
 
                         var priceKey = view.getRepeaterSettingKey( 'exad_pricing_menu_price', 'pricing_menu_repeater', index );
                         view.addInlineEditingAttributes( priceKey, 'basic' );

@@ -751,7 +751,7 @@ class Heading extends Widget_Base {
 		$this->add_inline_editing_attributes( 'exad_heading_title', 'basic' );
 
 		$this->add_render_attribute( 'exad_heading_subheading', 'class', 'exad-exclusive-heading-description' );
-		$this->add_inline_editing_attributes( 'exad_heading_subheading', 'intermediate' );
+		$this->add_inline_editing_attributes( 'exad_heading_subheading', 'basic' );
 		?>
 
         <div class="exad-exclusive-heading">
@@ -826,7 +826,7 @@ class Heading extends Widget_Base {
 			view.addInlineEditingAttributes( 'exad_heading_title', 'basic' );
 
 			view.addRenderAttribute( 'exad_heading_subheading', 'class', 'exad-exclusive-heading-description' );
-            view.addInlineEditingAttributes( 'exad_heading_subheading', 'intermediate' );
+            view.addInlineEditingAttributes( 'exad_heading_subheading', 'basic' );
 
             var target = settings.exad_heading_title_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_heading_title_link.nofollow ? ' rel="nofollow"' : '';
