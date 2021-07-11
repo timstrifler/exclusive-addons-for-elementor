@@ -238,7 +238,7 @@ class Helper {
             'post_status'      => 'publish',
             'suppress_filters' => true,
             'tag__in'          => $settings[ $prefix . '_tags'],
-            // 'post__not_in'     => $settings['exad_post_grid_exclude_post'],
+            'post__not_in'     => $settings['exad_post_grid_exclude_post'],
         );
 
         return $post_args;

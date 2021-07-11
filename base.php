@@ -390,6 +390,7 @@ final class Base {
 
         $cat_array = explode(" ", $_POST['category'] );
         $tags_array = explode(" ", $_POST['tags'] );
+        $exclude_array = explode(" ", $_POST['exclude_post'] );
 
         $post_args = array(
             'post_type'        => $_POST['post_type'],
@@ -398,6 +399,7 @@ final class Base {
             'paged'            => $paged,
             'cat'              => $cat_array,
             'tags__in'         => $tags_array,
+            'post__not_in'     => $exclude_array,
             'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] )
         );
 

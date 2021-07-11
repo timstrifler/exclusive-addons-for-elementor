@@ -53,6 +53,7 @@ var exclusivePostGrid = function( $scope, $ ) {
                 category: $(this).data('category'),
                 tags: $(this).data('tags'),
                 offset: $(this).data('offset'),
+                exclude_post: $(this).data('exclude_post')
             },
             beforeSend : function ( xhr ) {
 				btn.text('Loading...');
