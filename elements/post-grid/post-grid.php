@@ -1798,8 +1798,6 @@ class Post_Grid extends Widget_Base {
 		$settings                  = $this->get_settings_for_display();		
 		$settings['template_type'] = $this->get_name();
 		$settings['post_args']     = Helper::exad_get_post_arguments( $settings, 'exad_post_grid' );
-
-		var_dump($settings['exad_post_grid_exclude_post']);
 		
 		$this->add_render_attribute(
 			'exad_post_grid_wrapper',
