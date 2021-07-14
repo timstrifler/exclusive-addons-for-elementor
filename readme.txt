@@ -224,6 +224,9 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
+= 2.4.42 - 14/07/2021 =
+- Fix: Issue with Post Grid exclude post not working.
+
 = 2.4.41 - 10/07/2021 =
 - Fix: Issue with Text Editor not working properly on Editor panel.
 
