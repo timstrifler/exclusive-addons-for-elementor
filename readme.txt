@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.7.2
-Stable tag: 2.4.41
+Stable tag: 2.4.42
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -12,7 +12,7 @@ Packed with a bunch of Exclusively designed widgets for Elementor with all the c
 == Description ==
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
-The elementor addons gives you the ability to build a sophisticated website experience with 80+ highly customizable and creative widgets and extensions.
+The elementor addons gives you the ability to build a sophisticated website experience with 85+ highly customizable and creative widgets and extensions.
 A collection of 700+ premade blocks and 15+ useable templates will help you build your websites in less time with no coding.
 
 An easy to use interface and several customizations and unique widgets make your next WordPress page and post design easier and prettier than ever before. Exclusive Addons Elementor page builders take your WordPress website to the next level by making your page more eye-catching.
@@ -224,7 +224,7 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.4.42 - 14/07/2021 =
+= 2.4.42 - 16/07/2021 =
 - Fix: Issue with Post Grid exclude post not working.
 
 = 2.4.41 - 10/07/2021 =
