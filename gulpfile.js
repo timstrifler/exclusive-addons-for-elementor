@@ -160,6 +160,7 @@ gulp.task('copy', function () {
         '!.gitignore',
         '!package.json',
         '!package-lock.json',
+        '!npm-shrinkwrap.json',
         '!gulpfile.js',
         '!dist/**/*',
         '!node_modules',
