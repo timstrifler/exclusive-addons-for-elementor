@@ -9,6 +9,8 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Background;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Image_Size;
+use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \ExclusiveAddons\Elementor\Helper;
 
@@ -45,6 +47,31 @@ class Flipbox extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_flipbox_front_icon_image',
+			[
+				'label'         => esc_html__( 'Image or Icon', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::CHOOSE,
+				'toggle'        => false,
+				'label_block'   => true,
+				'default'       => 'icon',
+				'options'       => [
+					'none'      => [
+						'title' => esc_html__( 'None', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-ban'
+					],
+					'icon'      => [
+						'title' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-info-circle'
+					],
+					'img'       => [
+						'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-image-bold'
+					]
+				]
+			]
+		);
+
+		$this->add_control(
 			'exad_flipbox_front_icon',
 			[
 				'label'   => __( 'Icon', 'exclusive-addons-elementor' ),
@@ -52,6 +79,34 @@ class Flipbox extends Widget_Base {
                 'default' => [
 					'value'   => 'fas fa-heart',
 					'library' => 'fa-solid'
+				],
+				'condition' => [
+					'exad_flipbox_front_icon_image' => 'icon'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_flipbox_front_image',
+			[
+				'label'     => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::MEDIA,
+				'default'   => [
+					'url'   => Utils::get_placeholder_image_src()
+				],
+				'condition' => [
+					'exad_flipbox_front_icon_image' => 'img'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'      => 'exad_flipbox_front_image_thumbnail',
+				'default'   => 'medium_large',
+				'condition' => [
+					'exad_flipbox_front_icon_image' => 'img'
 				]
 			]
 		);
@@ -89,10 +144,63 @@ class Flipbox extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_flipbox_back_icon_image',
+			[
+				'label'         => esc_html__( 'Image or Icon', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::CHOOSE,
+				'toggle'        => false,
+				'label_block'   => true,
+				'default'       => 'icon',
+				'options'       => [
+					'none'      => [
+						'title' => esc_html__( 'None', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-ban'
+					],
+					'icon'      => [
+						'title' => esc_html__( 'Icon', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-info-circle'
+					],
+					'img'       => [
+						'title' => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-image-bold'
+					]
+				]
+			]
+		);
+
+		$this->add_control(
 			'exad_flipbox_back_icon',
 			[
 				'label'     => __( 'Icon', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::ICONS,
+				'condition' => [
+					'exad_flipbox_back_icon_image' => 'icon'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_flipbox_back_image',
+			[
+				'label'     => esc_html__( 'Image', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::MEDIA,
+				'default'   => [
+					'url'   => Utils::get_placeholder_image_src()
+				],
+				'condition' => [
+					'exad_flipbox_back_icon_image' => 'img'
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'      => 'exad_flipbox_back_image_thumbnail',
+				'default'   => 'medium_large',
+				'condition' => [
+					'exad_flipbox_back_icon_image' => 'img'
+				]
 			]
 		);
 
@@ -186,7 +294,8 @@ class Flipbox extends Widget_Base {
 					'top-to-bottom-angle' => __( 'Diagonal (Top to Bottom)', 'exclusive-addons-elementor' ),
 					'bottom-to-top-angle' => __( 'Diagonal (Bottom to Top)', 'exclusive-addons-elementor' ),
 					'fade-in-out'         => __( 'Fade In Out', 'exclusive-addons-elementor' ),
-					'three-d-flip'        => __( '3D Rotation', 'exclusive-addons-elementor' )
+					'three-d-flip'        => __( '3D Rotation', 'exclusive-addons-elementor' ),
+					'fade'        		  => __( 'Fade', 'exclusive-addons-elementor' ),
 				]
 				
 			]
@@ -254,6 +363,18 @@ class Flipbox extends Widget_Base {
 				'name'     => 'front_background',
 				'types'    => [ 'classic', 'gradient' ],
 				'selector' => '{{WRAPPER}} .exad-flip-box .exad-flip-box-inner .exad-flip-box-front'
+			]
+		);
+
+		$this->add_control(
+			'exad_flipbox_front_background_oberlay',
+			[
+				'label'     => esc_html__( 'Background Overlay', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'separator' => 'before',
+				'selectors'  => [
+					'{{WRAPPER}} .exad-flip-box-front-overlay' => 'background: {{VALUE}};'
+				]		
 			]
 		);
 
@@ -356,16 +477,16 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_front_icon_box_height_width',
 			[
-				'label'       => __( 'Box Size', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Box Size/Image Size', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
 					'px'      => [
 						'min' => 0,
-						'max' => 200
+						'max' => 500
 					]
 				],
 				'default'     => [
@@ -384,7 +505,7 @@ class Flipbox extends Widget_Base {
 		$this->add_responsive_control(
             'exad_flipbox_front_icon_size',
             [
-                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Icon Size', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SLIDER,
                 'range'        => [
                     'px'       => [
@@ -402,7 +523,8 @@ class Flipbox extends Widget_Base {
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-front .exad-flip-box-front-image svg' => 'height: {{SIZE}}px; width: {{SIZE}}px;'
                 ],
                 'condition' => [
-                    'exad_flipbox_front_icon[value]!' => ''
+                    'exad_flipbox_front_icon[value]!' => '',
+					'exad_flipbox_front_icon_image' => 'icon'
                 ]
             ]
         );
@@ -594,6 +716,18 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_flipbox_back_background_oberlay',
+			[
+				'label'     => esc_html__( 'Background Overlay', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::COLOR,
+				'separator' => 'before',
+				'selectors'  => [
+					'{{WRAPPER}} .exad-flip-box-back-overlay' => 'background: {{VALUE}};'
+				]		
+			]
+		);
+
 		$this->add_responsive_control(
 			'exad_flipbox_back_padding',
 			[
@@ -679,10 +813,10 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_back_icon_box_height_width',
 			[
-				'label'       => __( 'Box Size', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Box Size/Image Size', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
@@ -707,7 +841,7 @@ class Flipbox extends Widget_Base {
 		$this->add_responsive_control(
             'exad_flipbox_back_icon_size',
             [
-                'label'        => esc_html__( 'Size', 'exclusive-addons-elementor' ),
+                'label'        => esc_html__( 'Icon Size', 'exclusive-addons-elementor' ),
                 'type'         => Controls_Manager::SLIDER,
                 'range'        => [
                     'px'       => [
@@ -721,7 +855,8 @@ class Flipbox extends Widget_Base {
 					'{{WRAPPER}} .exad-flip-box .exad-flip-box-back svg' => 'height: {{SIZE}}px; width: {{SIZE}}px;'
                 ],
                 'condition'    => [
-                    'exad_flipbox_back_icon[value]!' => ''
+                    'exad_flipbox_back_icon[value]!' => '',
+                    'exad_flipbox_back_icon_image' => 'icon'
                 ]
             ]
         );
@@ -1099,15 +1234,20 @@ class Flipbox extends Widget_Base {
 		<div class="exad-flip-box">
 	      	<div <?php echo $this->get_render_attribute_string( 'exad_flipbox_attribute' ); ?>>
 	        	<div class="exad-flip-box-front <?php echo esc_attr( $settings['exad_flipbox_front_content_alignment'] ); ?>">
+					<div class="exad-flip-box-front-overlay"></div>
 	        		<div class="exad-flip-box-front-content">
 					<?php do_action('exad_flipbox_frontend_content_wrapper_before');
 
-		        		if ( !empty( $settings['exad_flipbox_front_icon']['value'] ) ) { ?>
+		        		if ( 'icon' === $settings['exad_flipbox_front_icon_image'] && !empty( $settings['exad_flipbox_front_icon']['value'] ) ) { ?>
 			          		<div class="exad-flip-box-front-image">
 							  <?php Icons_Manager::render_icon( $settings['exad_flipbox_front_icon'] ); ?>
 			        		</div>
-						<?php 
-						}
+						<?php }
+		        		if ( 'img' === $settings['exad_flipbox_front_icon_image'] ) { ?>
+			          		<div class="exad-flip-box-front-image">
+							  	<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_flipbox_front_image_thumbnail', 'exad_flipbox_front_image' ); ?>
+			        		</div>
+						<?php }
 				        $front_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_front_title' ).'>%s</h2>', Helper::exad_wp_kses( $front_title ) ) : '';
 				        $front_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_front_description' ).'>%s</div>', wp_kses_post( $front_desc ) ) : '';
 
@@ -1116,16 +1256,23 @@ class Flipbox extends Widget_Base {
 	        	</div>
 
 		        <div class="exad-flip-box-back <?php echo esc_attr( $settings['exad_flipbox_back_content_alignment'] ); ?>">
+					<div class="exad-flip-box-back-overlay"></div>
 		        	<div class="exad-flip-box-back-content">
 			        <?php 
 						do_action('exad_flipbox_backend_content_wrapper_before');
 
-			        	if ( !empty( $settings['exad_flipbox_back_icon']['value'] ) ) { ?>
+			        	if ( 'icon' === $settings['exad_flipbox_back_icon_image'] && !empty( $settings['exad_flipbox_back_icon']['value'] ) ) { ?>
 			        		<div class="exad-flip-box-back-image">
 								<?php Icons_Manager::render_icon( $settings['exad_flipbox_back_icon'] ); ?>
 		          			</div>
 						<?php 	  
 			        	}
+
+						if ( 'img' === $settings['exad_flipbox_back_icon_image'] ) { ?>
+							<div class="exad-flip-box-back-image">
+								<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_flipbox_back_image_thumbnail', 'exad_flipbox_back_image' ); ?>
+							</div>
+						<?php }
 
 				        $back_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_back_title' ).'>%s</h2>', Helper::exad_wp_kses( $back_title) ) : '';
 				        $back_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_back_description' ).'>%s</div>', wp_kses_post( $back_desc ) ) : '';
@@ -1133,7 +1280,7 @@ class Flipbox extends Widget_Base {
 				        do_action('exad_flipbox_backend_content_wrapper_after');
 
 						if ( $settings['exad_flipbox_back_button_enable'] === 'yes' ) { ?>
-							<a <?php echo $this->get_render_attribute_string( 'exad_flipbox_button_link' ); ?>'>
+							<a <?php echo $this->get_render_attribute_string( 'exad_flipbox_button_link' ); ?>>
 								<span <?php echo $this->get_render_attribute_string( 'exad_flipbox_button_text' ); ?>><?php echo esc_html( $settings['exad_flipbox_button_text'] ); ?></span>
 							</a>
 						<?php } ?>
@@ -1183,15 +1330,40 @@ class Flipbox extends Widget_Base {
 			var target = settings.exad_flipbox_button_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_flipbox_button_link.nofollow ? ' rel="nofollow"' : '';
 
+			var front_image = {
+				id: settings.exad_flipbox_front_image.id,
+				url: settings.exad_flipbox_front_image.url,
+				size: settings.exad_flipbox_front_image_thumbnail_size,
+				dimension: settings.exad_flipbox_front_image_thumbnail_custom_dimension,
+				model: view.getEditModel()
+			};
+			var front_image_url = elementor.imagesManager.getImageUrl( front_image );
+
+			var back_image = {
+				id: settings.exad_flipbox_back_image.id,
+				url: settings.exad_flipbox_back_image.url,
+				size: settings.exad_flipbox_back_image_thumbnail_size,
+				dimension: settings.exad_flipbox_back_image_thumbnail_custom_dimension,
+				model: view.getEditModel()
+			};
+			var back_image_url = elementor.imagesManager.getImageUrl( back_image );
+
 		#>
 		<div class="exad-flip-box">
 			<div {{{ view.getRenderAttributeString( 'exad_flipbox_attribute' ) }}}>
 				<div class="exad-flip-box-front {{{ settings.exad_flipbox_front_content_alignment }}}">
+					<div class="exad-flip-box-front-overlay"></div>
 					<div class="exad-flip-box-front-content">
-						<# if ( iconHTML.value ) { #>
+						<# if ( 'icon' === settings.exad_flipbox_front_icon_image && iconHTML.value ) { #>
 							<div class="exad-flip-box-front-image">
 								{{{ iconHTML.value }}}
 							</div>
+						<# } #>
+
+						<# if ( 'img' === settings.exad_flipbox_front_icon_image ) { #>
+			          		<div class="exad-flip-box-front-image">
+							  	<img src="{{{ front_image_url }}}" />
+			        		</div>
 						<# } #>
 
 						<# if ( settings.exad_flipbox_front_title ) { #>
@@ -1209,11 +1381,18 @@ class Flipbox extends Widget_Base {
 				</div>
 
 				<div class="exad-flip-box-back {{{ settings.exad_flipbox_back_content_alignment }}}">
+					<div class="exad-flip-box-back-overlay"></div>
 					<div class="exad-flip-box-back-content">
-						<# if ( backIconHTML.value ) { #>
+						<# if ( 'icon' === settings.exad_flipbox_back_icon_image && backIconHTML.value ) { #>
 							<div class="exad-flip-box-back-image">
 								{{{ backIconHTML.value }}}
 							</div>
+						<# } #>
+
+						<# if ( 'img' === settings.exad_flipbox_back_icon_image ) { #>
+			          		<div class="exad-flip-box-back-image">
+							  	<img src="{{{ back_image_url }}}" />
+			        		</div>
 						<# } #>
 
 						<# if ( settings.exad_flipbox_back_title ) { #>

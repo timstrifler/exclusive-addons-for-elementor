@@ -1904,6 +1904,15 @@ ul.exad-call-to-action-buttons {
   background-color: transparent;
 }
 
+.exad-flip-box-front-overlay, .exad-flip-box-back-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 .exad-flip-box-front-content, .exad-flip-box-back-content{
   position: absolute;
   top: 50%;
@@ -2168,6 +2177,18 @@ ul.exad-call-to-action-buttons {
           transform-style: preserve-3d;
 }
 
+.exad-flip-box .exad-flip-box-inner.fade .exad-flip-box-back{
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.exad-flip-box .exad-flip-box-inner.fade:hover .exad-flip-box-front {
+  opacity: 0;
+}
+.exad-flip-box .exad-flip-box-inner.fade:hover .exad-flip-box-back {
+  opacity: 1;
+}
+
 .exad-flip-box-front.left .exad-flip-box-front-image, .exad-flip-box-back.left .exad-flip-box-back-image {
   margin-right: auto;
 }
@@ -2189,6 +2210,12 @@ ul.exad-call-to-action-buttons {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.exad-flip-box .exad-flip-box-inner .exad-flip-box-front .exad-flip-box-front-image img,.exad-flip-box .exad-flip-box-inner .exad-flip-box-back .exad-flip-box-back-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
 }
 
 /* Flip Box End */
