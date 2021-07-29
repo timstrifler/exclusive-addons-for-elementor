@@ -333,4 +333,24 @@ class Helper {
         }
         return $list;
     }
+
+    /**
+     * filterable Post use category name as class name
+     * @param $element
+     * @return array class name to filterable Post control items
+     */
+    public static function exad_get_categories_name_for_class( ) {
+        $separator = ' ';
+        $cat_name_as_class = '';
+        $post_type = get_post_type(get_the_ID());   
+        $taxonomies = get_object_taxonomies($post_type);   
+        $taxonomy_slugs = wp_get_object_terms(get_the_ID(), $taxonomies,  array("fields" => "slugs"));
+        
+            foreach($taxonomy_slugs as $tax_slug) :            
+                $cat_name_as_class .= $tax_slug . $separator ; 
+            endforeach;
+            return trim( $cat_name_as_class, $separator );
+         
+    }
+
 }

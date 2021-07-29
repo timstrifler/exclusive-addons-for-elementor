@@ -7,7 +7,7 @@ if ( 'yes' !== $settings['exad_post_grid_category_default_position'] ) :
 endif;
 ?>
 
-<article class="exad-post-grid-three exad-col">
+<article class="exad-post-grid-three exad-col <?php echo ('exad-filterable-post' === $settings['template_type'] ) ? ' exad-filterable-item ' . esc_attr( Helper::exad_get_categories_name_for_class()) : ' ' ;?>">
     <div class="exad-post-grid-container image-position-<?php echo esc_attr( $settings['exad_post_grid_image_align'] ); ?> exad-post-grid-equal-height-<?php echo esc_attr($settings['exad_post_grid_equal_height']); ?>">
         <?php do_action('exad_post_grid_each_item_wrapper_before');
         if( 'yes' === $settings['exad_post_grid_show_image'] && has_post_thumbnail() ) : ?>
