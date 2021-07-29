@@ -65,7 +65,7 @@ class Assets_Manager {
             wp_register_script( 'exad-waypoints', EXAD_ASSETS_URL . 'vendor/js/jquery.waypoints.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         // Google Map js
-        if ( Addons_Manager::$is_activated_feature['google-maps'] ) {
+        if ( Addons_Manager::$is_activated_feature['google-maps'] || Addons_Manager::$is_activated_feature['google-reviews'] ) {
             if ( '' != get_option('exad_google_map_api_option') ) {
                 wp_register_script( 'exad-google-map-api', 'https://maps.googleapis.com/maps/api/js?key='.get_option('exad_google_map_api_option'), array(), EXAD_PLUGIN_VERSION, false );
             }

@@ -269,6 +269,13 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'is_pro' => false
             ],
+            'google-reviews'  => [
+                'title'  => __( 'Google Reviews', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Google_Reviews',
+                'demo_link' => 'https://exclusiveaddons.com/google-reviews-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
+            ],
             'heading'  => [
                 'title'  => __( 'Heading', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Heading',
