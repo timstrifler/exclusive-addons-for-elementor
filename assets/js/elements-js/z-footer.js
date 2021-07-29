@@ -21,6 +21,7 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-covid-19.default', exclusiveCorona );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-facebook-feed.default', exadFacebookFeed );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-google-reviews.default', exclusiveGoogleReviews );
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-filterable-post.default', exclusiveFilterablePost);
     elementorFrontend.hooks.addAction( 'frontend/element_ready/section', exclusiveSticky);
 });	
 

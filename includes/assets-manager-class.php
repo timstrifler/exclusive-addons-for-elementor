@@ -88,8 +88,8 @@ class Assets_Manager {
             wp_register_script( 'exad-image-comparison', EXAD_ASSETS_URL . 'vendor/js/exad-comparison-vendor.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
-        if ( Addons_Manager::$is_activated_feature['filterable-gallery'] ) {
-            // Filterable Gallery
+        if ( Addons_Manager::$is_activated_feature['filterable-gallery'] || Addons_Manager::$is_activated_feature['filterable-post'] ) {
+            // Filterable Gallery, Filterable Post
             wp_register_script( 'exad-gallery-isotope', EXAD_ASSETS_URL . 'vendor/js/isotop.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
 
@@ -102,8 +102,8 @@ class Assets_Manager {
             // Animated Text
             wp_register_script( 'exad-animated-text', EXAD_ASSETS_URL . 'vendor/js/typed.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
-        if ( Addons_Manager::$is_activated_feature['post-grid'] ) {
-            // Post grid
+        if ( Addons_Manager::$is_activated_feature['post-grid'] || Addons_Manager::$is_activated_feature['filterable-post'] ) {
+            // Post grid, Filterable Post
             wp_register_script( 'exad-post-grid', EXAD_ASSETS_URL . 'vendor/js/jquery.matchHeight.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }	
 

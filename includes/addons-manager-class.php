@@ -401,6 +401,13 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/tooltip-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
+            ],
+            'filterable-post'  => [
+                'title'  => __( 'Filterable Post', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Filterable_Post',
+                'demo_link' => 'https://exclusiveaddons.com/tooltip-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
             ]
                 
         ];
