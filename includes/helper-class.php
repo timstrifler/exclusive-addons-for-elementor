@@ -299,7 +299,7 @@ class Helper {
 
             if ( 'exad-post-timeline' === $settings['template_type'] ) { 
                 include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
-            } elseif ( 'exad-post-grid' === $settings['template_type'] ) { 
+            } elseif ( 'exad-post-grid' === $settings['template_type'] || 'exad-filterable-post' === $settings['template_type']) { 
                 include EXAD_TEMPLATES . 'tmpl-post-grid.php';
             } else {
                 _e( 'No Contents Found', 'exclusive-addons-elementor' );
