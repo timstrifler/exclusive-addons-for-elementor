@@ -1791,6 +1791,78 @@ class Google_Reviews extends Widget_Base {
         }
     }
 
+    /**
+	 * Rating content.
+	 */
+	private function render_google_reviews_rating( $ratings, $client_rating ) {
+		$settings = $this->get_settings_for_display();
+		$rating_output = '';
+
+		$rating_output .= '<div class="exad-google-reviews-carousel-ratings">';
+			$rating_output .= '<ul class="exad-google-reviews-ratings">';
+				for( $rating = 1; $rating <= 5; $rating++ ) {
+					if( $client_rating >= $rating ) {
+						$rating_output .= '<li class="exad-google-reviews-ratings-active"><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
+					}else {
+						$rating_output .= '<li><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
+					}
+				}
+			$rating_output .= '</ul>';
+		$rating_output .= '</div>';
+
+		return $rating_output;
+	}
+
+	/**
+	 * Reviewer Thumbnails.
+	 * 
+	 */
+	private function render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ) {
+		$settings = $this->get_settings_for_display();
+		$thumb_output = '';
+
+		$thumb_output .= '<div class="exad-google-reviews-thumb">';
+			$thumb_output .= '<a href="' . esc_url( $client_url ) . '" target="_blank">';
+				$thumb_output .= '<img src="' . esc_url($client_photoUrl) . '" alt="' . esc_html($client_name) . '">';
+			$thumb_output .= '</a>';
+		$thumb_output .= '</div>';
+
+		return $thumb_output;
+	}
+
+	 /**
+	 * Reviewer content.
+	 * ( name, description, rating, review date ) etc.
+	 */
+	private function render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ) {
+		$settings = $this->get_settings_for_display();
+		$content_output = '';
+
+		$content_output .= '<div class="exad-google-reviews-reviewer">';
+			if ( $settings['exad_google_reviews_show_name'] == 'yes' ) :
+				$content_output .= '<h4 class="exad-author-name">';
+					$content_output .= '<a href="'. esc_url( $client_url ) . '">' . esc_html( $client_name ) . '</a>';
+				$content_output .= '</h4>';
+			endif;
+			if ( $settings['exad_google_reviews_show_date'] == 'yes' ) :
+				$content_output .= '<div class="exad-google-reviews-date">' . esc_html( date("M d Y", strtotime( $human_time ) ) ) . '</div>';
+			endif;
+		if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'below-author-name' == $settings['exad_google_reviews_rating_layout']) :
+			$content_output .=  $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating );
+		endif;
+		$content_output .= '</div>';
+
+		if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' == $settings['exad_google_reviews_carousel_container_alignment'] ) :
+		$content_output .= '<div class="exad-google-reviews-thumb">';
+			$content_output .= '<a href="<?php echo esc_url( $client_url ); ?>" target="_blank">';
+				$content_output .= '<img src="' . esc_url($client_photoUrl) .'" alt="' . esc_html($client_name) . '">';
+			$content_output .= '</a>';
+		$content_output .= '</div>';
+		endif;
+		
+		return $content_output;
+	}
+
     protected function render() {
         $settings = $this->get_settings_for_display();
         $direction = is_rtl() ? 'true' : 'false';
@@ -1897,63 +1969,17 @@ class Google_Reviews extends Widget_Base {
 										<?php if( 'layout-2' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
 											<div class="exad-google-reviews-reviewer-wrapper">
 												<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
-													<div class="exad-google-reviews-thumb">
-														<a href="<?php echo esc_url( $client_url ); ?>" target="_blank">
-															<img src="<?php echo esc_url($client_photoUrl); ?>" alt="<?php echo esc_html($client_name); ?>">
-														</a>
-													</div>
+
+													<?php echo $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ); ?>
+
 												<?php endif ?>
-												<div class="exad-google-reviews-reviewer">
-													<?php if ( $settings['exad_google_reviews_show_name'] == 'yes' ) : ?>
-														<h4 class="exad-author-name">
-															<a href="<?php echo esc_url( $client_url ); ?>"><?php echo esc_html( $client_name ); ?></a>
-														</h4>
-													<?php endif; ?>
-													<?php if ( $settings['exad_google_reviews_show_date'] == 'yes' ) : ?>
-														<span class="exad-google-reviews-date">
-															<?php echo esc_html( date("M d Y", strtotime( $human_time ) ) ); ?>
-														</span>
-													<?php endif; ?>
-													<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'below-author-name' == $settings['exad_google_reviews_rating_layout']) : ?>
-														<div class="exad-google-reviews-carousel-ratings">
-															<ul class="exad-google-reviews-ratings">
-																<?php 
-																for( $rating = 1; $rating <= 5; $rating++ ) {
-																	if( $client_rating >= $rating ) {
-																		$rating_active_class = '<li class="exad-google-reviews-ratings-active"><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
-																	}else {
-																		$rating_active_class = '<li><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
-																	}
-																	echo $rating_active_class;
-																}?>
-															</ul>
-														</div>
-													<?php endif;?>
-												</div>
-												<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' == $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
-													<div class="exad-google-reviews-thumb">
-														<a href="<?php echo esc_url( $client_url ); ?>" target="_blank">
-															<img src="<?php echo esc_url($client_photoUrl); ?>" alt="<?php echo esc_html($client_name); ?>">
-														</a>
-													</div>
-												<?php endif ?>
+
+												<?php echo $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ); ?>
 
 											</div>
 										<?php }; ?>
 										<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'above-description' == $settings['exad_google_reviews_rating_layout']) : ?>
-											<div class="exad-google-reviews-carousel-ratings">
-												<ul class="exad-google-reviews-ratings">
-													<?php 
-													for( $rating = 1; $rating <= 5; $rating++ ) {
-														if( $client_rating >= $rating ) {
-															$rating_active_class = '<li class="exad-google-reviews-ratings-active"><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
-														}else {
-															$rating_active_class = '<li><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
-														}
-														echo $rating_active_class;
-													}?>
-												</ul>
-											</div>
+											<?php echo $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ); ?>
 										<?php endif;?>
 										<div class="exad-google-reviews-wrapper-inner">
 											<div class="exad-google-reviews-content-wrapper">
@@ -1965,64 +1991,19 @@ class Google_Reviews extends Widget_Base {
 											</div>
 											
 											<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'below-description' == $settings['exad_google_reviews_rating_layout']) : ?>
-												<div class="exad-google-reviews-carousel-ratings">
-													<ul class="exad-google-reviews-ratings">
-														<?php 
-														for( $rating = 1; $rating <= 5; $rating++ ) {
-															if( $client_rating >= $rating ) {
-																$rating_active_class = '<li class="exad-google-reviews-ratings-active"><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
-															}else {
-																$rating_active_class = '<li><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
-															}
-															echo $rating_active_class;
-														}?>
-													</ul>
-												</div>
+												<?php echo $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ); ?>
 											<?php endif;?>
 											
 											<?php if( 'layout-1' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
 												<div class="exad-google-reviews-reviewer-wrapper">
 													<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
-														<div class="exad-google-reviews-thumb">
-															<a href="<?php echo esc_url( $client_url ); ?>" target="_blank">
-																<img src="<?php echo esc_url($client_photoUrl); ?>" alt="<?php echo esc_html($client_name); ?>">
-															</a>
-														</div>
+
+														<?php echo $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ); ?>
+
 													<?php endif ?>
-													<div class="exad-google-reviews-reviewer">
-														<?php if ( $settings['exad_google_reviews_show_name'] == 'yes' ) : ?>
-															<h4 class="exad-author-name">
-																<a href="<?php echo esc_url( $client_url ); ?>"><?php echo esc_html( $client_name ); ?></a>
-															</h4>
-														<?php endif; ?>
-														<?php if ( $settings['exad_google_reviews_show_date'] == 'yes' ) : ?>
-															<div class="exad-google-reviews-date">
-																<?php echo esc_html( date("M d Y", strtotime( $human_time ) ) ); ?>
-															</div>
-														<?php endif; ?>
-														<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'below-author-name' == $settings['exad_google_reviews_rating_layout']) : ?>
-															<div class="exad-google-reviews-carousel-ratings">
-																<ul class="exad-google-reviews-ratings">
-																	<?php 
-																	for( $rating = 1; $rating <= 5; $rating++ ) {
-																		if( $client_rating >= $rating ) {
-																			$rating_active_class = '<li class="exad-google-reviews-ratings-active"><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
-																		}else {
-																			$rating_active_class = '<li><i class="'.$settings['exad_google_reviews_rating_icon']['value'].'"></i></li>';
-																		}
-																		echo $rating_active_class;
-																	}?>
-																</ul>
-															</div>
-														<?php endif;?>
-													</div>
-													<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' == $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
-														<div class="exad-google-reviews-thumb">
-															<a href="<?php echo esc_url( $client_url ); ?>" target="_blank">
-																<img src="<?php echo esc_url($client_photoUrl); ?>" alt="<?php echo esc_html($client_name); ?>">
-															</a>
-														</div>
-													<?php endif ?>
+
+													<?php echo $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ); ?>
+
 												</div>
 											<?php }; ?>
 										</div>
