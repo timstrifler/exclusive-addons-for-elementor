@@ -1898,9 +1898,9 @@ ul.exad-call-to-action-buttons {
 
 /* Filterable Gallery Start */
 
-.exad-filterable-items {
+/* .exad-filterable-items {
     text-align: center;
-  }
+  } */
   
   .exad-filterable-items .exad-filterable-content-wrapper {
     position: relative;
@@ -1925,9 +1925,6 @@ ul.exad-call-to-action-buttons {
       position: relative;
       background-color: #eeeeee;
       padding-bottom: 80%;
-  }
-  .exad-filterable-menu {
-    
   }
   
   .exad-filterable-menu .filter-item {
