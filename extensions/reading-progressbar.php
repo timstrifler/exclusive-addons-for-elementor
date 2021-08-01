@@ -4,6 +4,7 @@ namespace ExclusiveAddons\Elementor;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
 use Elementor\Group_Control_Background;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Reading_Progress {
 
@@ -97,6 +98,35 @@ class Reading_Progress {
             );
         }
 
+        $element->add_control(
+            'exad_post_grid_type',
+            [
+				'label'   => __( 'Page Title', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT2,
+				'options' => Helper::demo_exad_get_post_types(),
+                'multiple'    => true,
+                'default'     => [],
+                'condition' => [
+                    'eael_ext_reading_progress' => 'yes',
+                    'eael_ext_reading_progress_global' => 'yes',
+                    'eael_ext_reading_progress_global_display_condition' => 'pages',
+                ],
+
+            ]
+		);
+
+        $element->add_control(
+        	'exad_post_grid_exclude_post_name',
+        	[
+				'label'       => __( 'Exclude Post', 'exclusive-addons-elementor' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::SELECT2,
+				'multiple'    => true,
+				'default'     => [],
+				'options'     => Helper::exad_get_page_title(),
+            ]
+        );
+		
         $element->add_control(
             'eael_ext_reading_progress_position',
             [

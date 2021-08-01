@@ -333,4 +333,60 @@ class Helper {
         }
         return $list;
     }
+
+    public static function exad_get_page_title() {
+        //global $post;
+        $args = array(
+            'post_type' => 'page',
+            'post_parent' => 0,
+            'fields' => 'ids',
+        );
+        $value = array();
+        $qry = new \WP_Query($args);
+        //var_dump($qry->posts);
+        while( $qry->have_posts() ) : $qry->the_post(); 
+            $value =  the_title();
+        endwhile;
+        
+        //$page_ids= get_all_page_ids();
+        //$page_ids = wp_list_pages( apply_filters( array('title_li' => '') ) );
+        //print_r($page_ids->get_the_title);
+        
+        // foreach($page_ids as $id)
+        // {                                               
+        //     $value =  $id->get_the_title();
+        // }
+        return $value;
+    }
+    public static function demo_exad_get_post_types() {
+        $post_type_args = array(
+            'public'            => true,
+            'show_in_nav_menus' => true
+        );
+    
+        $post_types = get_post_types($post_type_args, 'objects');
+        $post_lists = array();
+        foreach ($post_types as $post_type) {
+            $post_lists[$post_type->name] = $post_type->labels->singular_name;
+        }
+        return $post_lists;
+    }
+
+    /**
+     * All post title
+     * @return array
+     */
+    public static function demo_exad_get_all_posts() {
+        $post_array = array(
+            'post_type' => 'page',
+        );
+        $posts = get_posts( $post_array );
+        foreach ( $posts as $post ) {
+            $post_array[$post->ID] = $post->post_title;
+        }
+
+        return $post_array;
+    } 
+
 }
+
