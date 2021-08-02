@@ -386,7 +386,6 @@ class Helper {
         }
 
         return $post_array;
-    } 
-
+    }
 }
 
