@@ -342,21 +342,25 @@ class Helper {
             'fields' => 'ids',
         );
         $value = array();
-        $qry = new \WP_Query($args);
-        //var_dump($qry->posts);
-        while( $qry->have_posts() ) : $qry->the_post(); 
-            $value =  the_title();
-        endwhile;
+        // $qry = new \WP_Query($args);
+        // while( $qry->have_posts() ) : $qry->the_post(); 
+        //     $value =  get_the_title();
+        // endwhile;
+
+        // return $value;
+ 
+        $the_query = new \WP_Query( $args );
         
-        //$page_ids= get_all_page_ids();
-        //$page_ids = wp_list_pages( apply_filters( array('title_li' => '') ) );
-        //print_r($page_ids->get_the_title);
-        
-        // foreach($page_ids as $id)
-        // {                                               
-        //     $value =  $id->get_the_title();
-        // }
+        // echo '<ul>';
+        while ( $the_query->have_posts() ) {
+            $the_query->the_post();
+            // echo '<li>' . get_the_title() . '</li>';
+            $value[] =  get_the_title();
+        }
         return $value;
+        // echo '</ul>';
+        /* Restore original Post Data */
+        // wp_reset_postdata();
     }
     public static function demo_exad_get_post_types() {
         $post_type_args = array(
