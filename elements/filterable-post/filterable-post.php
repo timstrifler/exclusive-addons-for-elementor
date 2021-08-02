@@ -75,7 +75,7 @@ class Filterable_Post extends Widget_Base {
 		$this->add_control(
 			'exad_control_taxonomy',
 			[
-				'label' => __( 'Categories', 'exclusive-addons-elementor' ),
+				'label' => __( 'Taxonomies', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT2,
 				'label_block' => true,
 				'default' => [],
@@ -502,6 +502,28 @@ class Filterable_Post extends Widget_Base {
 				'label' => __( 'Container', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
             ]
+		);
+
+		$this->add_responsive_control(
+			'exad_post_grid_item_bottom_spacing',
+			[
+				'label'       => __( 'Items Bottom Spacing', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 100
+					],
+				],
+                'default'    => [
+                    'unit'   => 'px',
+                    'size'   => 20
+                ],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-filterable-item' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+                ],
+			]
 		);
 
 		$this->add_control(
