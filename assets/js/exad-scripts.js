@@ -278,6 +278,10 @@ var exclusiveFilterablePost = function( $scope, $ ) {
                  } );
                  return false;
             } ); 
+
+            $container.imagesLoaded().progress( function() {
+                $container.isotope('layout');
+            });
         }
     } ); 
 }
