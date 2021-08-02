@@ -926,7 +926,7 @@ class Call_To_Action extends Widget_Base {
                 <?php
                     if( !empty( $settings['exad_cta_icon']['value'] ) ) { ?>
                         <div class="exad-call-to-action-icon">
-                            <?php echo Icons_Manager::render_icon( $settings['exad_cta_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                            <?php Icons_Manager::render_icon( $settings['exad_cta_icon'], [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     <?php    
                     }

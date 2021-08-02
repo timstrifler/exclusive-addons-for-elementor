@@ -7,6 +7,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Background;
+use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
 
@@ -461,6 +462,15 @@ class Heading extends Widget_Base {
 				'condition' => [
 					'exad_heading_type' => ['exad-heading-simple', 'exad-heading-text-background']
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'exad_heading_text_shadow',
+				'label' => __( 'Text Shadow', 'exclusive-addons-elementor' ),
+				'selector' => '{{WRAPPER}} h1.exad-exclusive-heading-title',
 			]
 		);
 
