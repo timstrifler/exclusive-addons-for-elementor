@@ -26,7 +26,7 @@ var exclusiveFilterablePost = function( $scope, $ ) {
                 var selector = $( this ).attr( 'data-filter' );
                 $container.isotope( {
                     filter: selector,
-                    layoutMode: 'fitRows',
+                    layoutMode: 'masonry',
                     getSortData: {
                         name: '.name',
                         symbol: '.symbol',
@@ -39,6 +39,9 @@ var exclusiveFilterablePost = function( $scope, $ ) {
                     },
                     animationOptions: {
                         queue: true
+                    },
+                    masonry: {
+                        columnWidth: 1
                     }
                  } );
                  return false;

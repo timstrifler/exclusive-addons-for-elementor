@@ -2086,28 +2086,24 @@ class Filterable_Post extends Widget_Base {
                         var carouselNav = $container.attr( 'id' );
 
                         var filterableItem = '#' + $(this).attr( 'id' );
-                        // $container.imagesLoaded( function(){
-							$container.isotope( {
-								filter: '*',
-								animationOptions: {
-									queue: true
-								}
-							} );
-                        // } );
+						$container.isotope( {
+							filter: '*',
+							animationOptions: {
+								queue: true
+							}
+						} );
 
                         $( filterableItem + ' .exad-filterable-menu li' ).click(function(){
                             $( filterableItem + ' .exad-filterable-menu li.current' ).removeClass( 'current' );
                             $(this).addClass('current');
                      
                             var selector = $(this).attr( 'data-filter' );
-							// $container.imagesLoaded( function(){
-								$container.isotope( {
-									filter: selector,
-									animationOptions: {
-										queue: true
-									}
-								} );
-                            // } );
+							$container.isotope( {
+								filter: selector,
+								animationOptions: {
+									queue: true
+								}
+							} );
                             return false;
                         } );
 						$container.imagesLoaded().progress( function() {
