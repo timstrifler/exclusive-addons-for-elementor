@@ -240,6 +240,50 @@ class Progress_Bar extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
+			'exad_progress_bar_value_width',
+			[
+				'label'      => __( 'Width', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'       => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1
+					]
+				],
+				'selectors'  => [
+					'{{WRAPPER}} [class*="exad-progress-bar-"] .ldBar-label' => 'width: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_progress_bar_preset' => [ 'line-bubble' ]
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_progress_bar_value_height',
+			[
+				'label'      => __( 'height', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'       => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1
+					]
+				],
+				'selectors'  => [
+					'{{WRAPPER}} [class*="exad-progress-bar-"] .ldBar-label' => 'height: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_progress_bar_preset' => [ 'line-bubble' ]
+				]
+			]
+		);
+
+		$this->add_responsive_control(
 			'exad_progress_bar_value_position',
 			[
 				'label'      => __( 'Position', 'exclusive-addons-elementor' ),
@@ -261,6 +305,28 @@ class Progress_Bar extends Widget_Base {
 				],
 				'condition'  => [
 					'exad_progress_bar_preset' => 'fan'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_progress_bar_value_position_top',
+			[
+				'label'      => __( 'Top Position', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'       => [
+						'min'  => -200,
+						'max'  => 200,
+						'step' => 1
+					]
+				],
+				'selectors'  => [
+					'{{WRAPPER}} [class*="exad-progress-bar-"] .ldBar-label' => 'top: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_progress_bar_preset' => [ 'line', 'line-bubble' ]
 				]
 			]
 		);
@@ -368,7 +434,8 @@ class Progress_Bar extends Widget_Base {
 				'data-stroke-color'                    => esc_attr( $settings['exad_progress_bar_stroke_color'] ),
 				'data-progress-bar-stroke-width'       => esc_attr( $settings['exad_progress_bar_stroke_width'] ),
 				'data-stroke-trail-color'              => esc_attr( $settings['exad_progress_bar_trail_color'] ),
-				'data-progress-bar-stroke-trail-width' => esc_attr( $settings['exad_progress_bar_trail_width'] )
+				'data-progress-bar-stroke-trail-width' => esc_attr( $settings['exad_progress_bar_trail_width'] ),
+				'data-unit'							   => '%'
 			]
 		);
 

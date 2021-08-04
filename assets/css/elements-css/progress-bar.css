@@ -14,16 +14,13 @@
 }
 
 .exad-progress-bar .ldBar-label:after {
-  content:"%";display:inline; 
+  content:"%";
+  display:inline; 
   position: absolute;
 }
 
 .ldBar.no-percent .ldBar-label:after {
   content:""
-}
-
-[class*="exad-progress-bar-"] .ldBar-label {
-  
 }
 
 [class*="exad-progress-bar-"].line {
