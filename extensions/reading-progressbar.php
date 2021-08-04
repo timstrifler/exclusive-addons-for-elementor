@@ -32,7 +32,7 @@ class Reading_Progress {
         $element->start_controls_section(
             'exad_reading_progress_section',
             [
-                'label' => __('<i class="eaicon-logo"></i> Reading Progress Bar', 'essential-addons-for-elementor-lite'),
+                'label' => __('<i class="eaicon-logo"></i> Reading Progress Bar', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_SETTINGS,
             ]
         );
@@ -40,11 +40,11 @@ class Reading_Progress {
         $element->add_control(
             'exad_reading_progress',
             [
-                'label' => __('Enable Reading Progress Bar', 'essential-addons-for-elementor-lite'),
+                'label' => __('Enable Reading Progress Bar', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::SWITCHER,
                 'default' => 'no',
-                'label_on' => __('Yes', 'essential-addons-for-elementor-lite'),
-                'label_off' => __('No', 'essential-addons-for-elementor-lite'),
+                'label_on' => __('Yes', 'exclusive-addons-elementor'),
+                'label_off' => __('No', 'exclusive-addons-elementor'),
                 'return_value' => 'yes',
             ]
         );
@@ -52,7 +52,7 @@ class Reading_Progress {
         $element->add_control(
             'exad_reading_progress_has_global',
             [
-                'label' => __('Enabled Globally?', 'essential-addons-for-elementor-lite'),
+                'label' => __('Enabled Globally?', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::HIDDEN,
                 'default' => (isset($global_settings['reading_progress']['enabled']) ? $global_settings['reading_progress']['enabled'] : false),
             ]
@@ -63,7 +63,7 @@ class Reading_Progress {
                 'exad_global_warning_text',
                 [
                     'type' => Controls_Manager::RAW_HTML,
-                    'raw' => __('You can modify the Global Reading Progress Bar by <strong><a href="' . get_bloginfo('url') . '/wp-admin/post.php?post=' . $global_settings['reading_progress']['post_id'] . '&action=elementor">Clicking Here</a></strong>', 'essential-addons-for-elementor-lite'),
+                    'raw' => __('You can modify the Global Reading Progress Bar by <strong><a href="' . get_bloginfo('url') . '/wp-admin/post.php?post=' . $global_settings['reading_progress']['post_id'] . '&action=elementor">Clicking Here</a></strong>', 'exclusive-addons-elementor'),
                     'content_classes' => 'exad-warning',
                     'separator' => 'before',
                     'condition' => [
@@ -75,12 +75,12 @@ class Reading_Progress {
             $element->add_control(
                 'exad_reading_progress_global',
                 [
-                    'label' => __('Enable Reading Progress Bar Globally', 'essential-addons-for-elementor-lite'),
-                    'description' => __('Enabling this option will effect on entire site.', 'essential-addons-for-elementor-lite'),
+                    'label' => __('Enable Reading Progress Bar Globally', 'exclusive-addons-elementor'),
+                    'description' => __('Enabling this option will effect on entire site.', 'exclusive-addons-elementor'),
                     'type' => Controls_Manager::SWITCHER,
                     'default' => 'no',
-                    'label_on' => __('Yes', 'essential-addons-for-elementor-lite'),
-                    'label_off' => __('No', 'essential-addons-for-elementor-lite'),
+                    'label_on' => __('Yes', 'exclusive-addons-elementor'),
+                    'label_off' => __('No', 'exclusive-addons-elementor'),
                     'return_value' => 'yes',
                     'separator' => 'before',
                     'condition' => [
@@ -92,13 +92,13 @@ class Reading_Progress {
             $element->add_control(
                 'exad_reading_progress_global_display_condition',
                 [
-                    'label' => __('Display On', 'essential-addons-for-elementor-lite'),
+                    'label' => __('Display On', 'exclusive-addons-elementor'),
                     'type' => Controls_Manager::SELECT,
                     'default' => 'all',
                     'options' => [
-                        'posts' => __('All Posts', 'essential-addons-for-elementor-lite'),
-                        'pages' => __('All Pages', 'essential-addons-for-elementor-lite'),
-                        'all' => __('All Posts & Pages', 'essential-addons-for-elementor-lite'),
+                        'posts' => __('All Posts', 'exclusive-addons-elementor'),
+                        'pages' => __('All Pages', 'exclusive-addons-elementor'),
+                        'all' => __('All Posts & Pages', 'exclusive-addons-elementor'),
                     ],
                     'condition' => [
                         'exad_reading_progress' => 'yes',
@@ -129,13 +129,13 @@ class Reading_Progress {
         $element->add_control(
             'exad_reading_progress_position',
             [
-                'label' => esc_html__('Position', 'essential-addons-for-elementor-lite'),
+                'label' => esc_html__('Position', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'top',
                 'label_block' => false,
                 'options' => [
-                    'top' => esc_html__('Top', 'essential-addons-for-elementor-lite'),
-                    'bottom' => esc_html__('Bottom', 'essential-addons-for-elementor-lite'),
+                    'top' => esc_html__('Top', 'exclusive-addons-elementor'),
+                    'bottom' => esc_html__('Bottom', 'exclusive-addons-elementor'),
                 ],
                 'separator' => 'before',
                 'condition' => [
@@ -147,7 +147,7 @@ class Reading_Progress {
         $element->add_control(
             'exad_reading_progress_height',
             [
-                'label' => __('Height', 'essential-addons-for-elementor-lite'),
+                'label' => __('Height', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -175,9 +175,9 @@ class Reading_Progress {
         $element->add_control(
             'exad_reading_progress_bg_color',
             [
-                'label' => __('Background Color', 'essential-addons-for-elementor-lite'),
+                'label' => __('Background Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '',
+                'default' => '#00D8D8',
                 'selectors' => [
                     '.exad-reading-progress' => 'background-color: {{VALUE}}',
                 ],
@@ -191,11 +191,11 @@ class Reading_Progress {
         $element->add_control(
             'exad_reading_progress_fill_color',
             [
-                'label' => __('Fill Color', 'essential-addons-for-elementor-lite'),
+                'label' => __('Fill Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#1fd18e',
+                'default' => '#7A56FF',
                 'selectors' => [
-                    '.exad-reading-progress-wrap .exad-reading-progress .exad-reading-progress-fill' => 'background-color: {{VALUE}} !important',
+                    '.exad-reading-progress-fill' => 'background-color: {{VALUE}}',
                 ],
                 'separator' => 'before',
                 'condition' => [
@@ -204,10 +204,25 @@ class Reading_Progress {
             ]
         );
 
+        // $element->add_group_control(
+		// 	Group_Control_Background::get_type(),
+		// 	[
+		// 		'name' => 'exad_reading_progress_fill_color',
+		// 		'label' => __( 'Fill Color', 'exclusive-addons-elementor' ),
+		// 		'types' => [ 'classic', 'gradient' ],
+        //         'default' => '#7A56FF',
+		// 		'selector' => '.exad-reading-progress .exad-reading-progress-fill',
+        //         'separator' => 'before',
+        //         'condition' => [
+        //             'exad_reading_progress' => 'yes',
+        //         ],
+		// 	]
+		// );
+
         $element->add_control(
             'exad_reading_progress_animation_speed',
             [
-                'label' => __('Animation Speed', 'essential-addons-for-elementor-lite'),
+                'label' => __('Animation Speed', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -279,12 +294,12 @@ class Reading_Progress {
                 $reading_progress_html .= '<div class="masum exad-reading-progress-wrap exad-reading-progress-wrap-' . ($this->get_extensions_value('exad_reading_progress') == 'yes' ? 'local' : 'global') . '">';
 
                 if ($global_reading_progress) {
-                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-global exad-reading-progress-' . $this->get_extensions_value('exad_reading_progress_position') . '" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_bg_color') . '">
+                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-global exad-reading-progress-' . $this->get_extensions_value('exad_reading_progress_position') . '" style=" z-index: 999999; height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_bg_color') . '">
                         <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_fill_color') . ';transition: width ' . $animation_speed . 'ms ease;"></div>
                     </div>';
                 } else {
-                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-local exad-reading-progress-' .$this->get_extensions_value('exad_reading_progress_position') . '">
-                        <div class="exad-reading-progress-fill"></div>
+                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-local exad-reading-progress-' .$this->get_extensions_value('exad_reading_progress_position') . '" style="z-index: 999999;">
+                        <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_fill_color') . ';transition: width ' . $animation_speed . 'ms ease;"></div>
                     </div>';
                 }
 
