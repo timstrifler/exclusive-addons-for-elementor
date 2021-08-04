@@ -709,13 +709,13 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
                 'is_pro' => false
             ],
-            'reading-progressbar'  => [
-                'title'  => __( 'Reading Progressbar', 'exclusive-addons-elementor' ),
-                'class'  => '\Exclusive_Addons\Elementor\Extensions\Reading_Progress',
-                'tags'   => 'free',
-                'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
-                'is_pro' => false
-            ]
+            // 'reading-progressbar'  => [
+            //     'title'  => __( 'Reading Progressbar', 'exclusive-addons-elementor' ),
+            //     'class'  => '\Exclusive_Addons\Elementor\Extensions\Reading_Progress',
+            //     'tags'   => 'free',
+            //     'demo_link' => 'https://exclusiveaddons.com/section-parallax/',
+            //     'is_pro' => false
+            // ]
         ];
 
     }

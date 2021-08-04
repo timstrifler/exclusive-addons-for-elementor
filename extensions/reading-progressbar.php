@@ -8,26 +8,37 @@ use \ExclusiveAddons\Elementor\Helper;
 
 class Reading_Progress {
 
-    public static function init() {
-        add_action( 'elementor/documents/register_controls', array( __CLASS__, 'register_controls' ), 10);
-        add_action( 'wp_footer', array( __CLASS__, 'render_global_html') );
-        //add_action( 'elementor/editor/after_save', array( __CLASS__, 'save_global_values'), 10, 2 );
+    private static $_instance = null;
+    public $extensions_data = [];
+
+    public function __construct() {
+        add_action( 'elementor/documents/register_controls', array( $this, 'exad_reading_progress_register_controls' ), 10);
+        add_action( 'elementor/editor/after_save', array( $this, 'save_global_values'), 10, 2 );
+        add_action( 'wp_footer', array( $this, 'exad_reading_progress_render_html') );
+       
     }
 
-    public static function register_controls($element) {
+    public static function instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
 
-        $global_settings = get_option('eael_global_settings');
+    public function exad_reading_progress_register_controls($element) {
+
+        $global_settings = get_option('exad_global_settings');
 
         $element->start_controls_section(
-            'eael_ext_reading_progress_section',
+            'exad_reading_progress_section',
             [
-                'label' => __('Reading Progress Bar <i class="exad-extention-logo exad exad-logo"></i>', 'essential-addons-for-elementor-lite'),
+                'label' => __('<i class="eaicon-logo"></i> Reading Progress Bar', 'essential-addons-for-elementor-lite'),
                 'tab' => Controls_Manager::TAB_SETTINGS,
             ]
         );
 
         $element->add_control(
-            'eael_ext_reading_progress',
+            'exad_reading_progress',
             [
                 'label' => __('Enable Reading Progress Bar', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::SWITCHER,
@@ -39,7 +50,7 @@ class Reading_Progress {
         );
 
         $element->add_control(
-            'eael_ext_reading_progress_has_global',
+            'exad_reading_progress_has_global',
             [
                 'label' => __('Enabled Globally?', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::HIDDEN,
@@ -49,20 +60,20 @@ class Reading_Progress {
 
         if (isset($global_settings['reading_progress']['enabled']) && ($global_settings['reading_progress']['enabled'] == true) && get_the_ID() != $global_settings['reading_progress']['post_id'] && get_post_status($global_settings['reading_progress']['post_id']) == 'publish') {
             $element->add_control(
-                'eael_global_warning_text',
+                'exad_global_warning_text',
                 [
                     'type' => Controls_Manager::RAW_HTML,
                     'raw' => __('You can modify the Global Reading Progress Bar by <strong><a href="' . get_bloginfo('url') . '/wp-admin/post.php?post=' . $global_settings['reading_progress']['post_id'] . '&action=elementor">Clicking Here</a></strong>', 'essential-addons-for-elementor-lite'),
-                    'content_classes' => 'eael-warning',
+                    'content_classes' => 'exad-warning',
                     'separator' => 'before',
                     'condition' => [
-                        'eael_ext_reading_progress' => 'yes',
+                        'exad_reading_progress' => 'yes',
                     ],
                 ]
             );
         } else {
             $element->add_control(
-                'eael_ext_reading_progress_global',
+                'exad_reading_progress_global',
                 [
                     'label' => __('Enable Reading Progress Bar Globally', 'essential-addons-for-elementor-lite'),
                     'description' => __('Enabling this option will effect on entire site.', 'essential-addons-for-elementor-lite'),
@@ -73,13 +84,13 @@ class Reading_Progress {
                     'return_value' => 'yes',
                     'separator' => 'before',
                     'condition' => [
-                        'eael_ext_reading_progress' => 'yes',
+                        'exad_reading_progress' => 'yes',
                     ],
                 ]
             );
 
             $element->add_control(
-                'eael_ext_reading_progress_global_display_condition',
+                'exad_reading_progress_global_display_condition',
                 [
                     'label' => __('Display On', 'essential-addons-for-elementor-lite'),
                     'type' => Controls_Manager::SELECT,
@@ -90,8 +101,8 @@ class Reading_Progress {
                         'all' => __('All Posts & Pages', 'essential-addons-for-elementor-lite'),
                     ],
                     'condition' => [
-                        'eael_ext_reading_progress' => 'yes',
-                        'eael_ext_reading_progress_global' => 'yes',
+                        'exad_reading_progress' => 'yes',
+                        'exad_reading_progress_global' => 'yes',
                     ],
                     'separator' => 'before',
                 ]
@@ -99,36 +110,24 @@ class Reading_Progress {
         }
 
         $element->add_control(
-            'exad_post_grid_type',
-            [
-				'label'   => __( 'Page Title', 'exclusive-addons-elementor' ),
-				'type'    => Controls_Manager::SELECT2,
-				'options' => Helper::demo_exad_get_post_types(),
-                'multiple'    => true,
-                'default'     => [],
-                'condition' => [
-                    'eael_ext_reading_progress' => 'yes',
-                    'eael_ext_reading_progress_global' => 'yes',
-                    'eael_ext_reading_progress_global_display_condition' => 'pages',
-                ],
-
-            ]
-		);
-
-        $element->add_control(
-        	'exad_post_grid_exclude_post_name',
+        	'exad_reading_progress_page_select',
         	[
-				'label'       => __( 'Exclude Post', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Selected Pages', 'exclusive-addons-elementor' ),
 				'label_block' => true,
 				'type'        => Controls_Manager::SELECT2,
 				'multiple'    => true,
 				'default'     => [],
-				'options'     => Helper::exad_get_page_title(),
+				'options'     => Helper::exad_get_page_title_for_readingProgress(),
+                'condition' => [
+                    'exad_reading_progress' => 'yes',
+                    'exad_reading_progress_global' => 'yes',
+                    'exad_reading_progress_global_display_condition' => 'pages',
+                ],
             ]
         );
-		
+
         $element->add_control(
-            'eael_ext_reading_progress_position',
+            'exad_reading_progress_position',
             [
                 'label' => esc_html__('Position', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::SELECT,
@@ -140,13 +139,13 @@ class Reading_Progress {
                 ],
                 'separator' => 'before',
                 'condition' => [
-                    'eael_ext_reading_progress' => 'yes',
+                    'exad_reading_progress' => 'yes',
                 ],
             ]
         );
 
         $element->add_control(
-            'eael_ext_reading_progress_height',
+            'exad_reading_progress_height',
             [
                 'label' => __('Height', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::SLIDER,
@@ -163,20 +162,20 @@ class Reading_Progress {
                     'size' => 5,
                 ],
                 'selectors' => [
-                    '.exad-reading-progress' => 'height: {{SIZE}}{{UNIT}} !important',
-                    // '.eael-reading-progress-wrap .eael-reading-progress .eael-reading-progress-fill' => 'height: {{SIZE}}{{UNIT}} !important',
+                    '.exad-reading-progress-wrap .exad-reading-progress' => 'height: {{SIZE}}{{UNIT}} !important',
+                    '.exad-reading-progress-wrap .exad-reading-progress .exad-reading-progress-fill' => 'height: {{SIZE}}{{UNIT}} !important',
                 ],
                 'separator' => 'before',
                 'condition' => [
-                    'eael_ext_reading_progress' => 'yes',
+                    'exad_reading_progress' => 'yes',
                 ],
             ]
         );
 
         $element->add_control(
-            'eael_ext_reading_progress_bg_color',
+            'exad_reading_progress_bg_color',
             [
-                'label' => __('Bar Background Color', 'essential-addons-for-elementor-lite'),
+                'label' => __('Background Color', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::COLOR,
                 'default' => '',
                 'selectors' => [
@@ -184,39 +183,29 @@ class Reading_Progress {
                 ],
                 'separator' => 'before',
                 'condition' => [
-                    'eael_ext_reading_progress' => 'yes',
+                    'exad_reading_progress' => 'yes',
                 ],
             ]
         );
 
-        $element->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'eael_ext_reading_progress_fill_color',
-				'label' => __( 'Background', 'exclusive-addons-elementor' ),
-				'types' => [ 'classic', 'gradient' ],
-				'selector' => '.exad-reading-progress .exad-reading-progress-fill',
-			]
-		);
-
-        // $element->add_control(
-        //     'eael_ext_reading_progress_fill_color',
-        //     [
-        //         'label' => __('Fill Color', 'essential-addons-for-elementor-lite'),
-        //         'type' => Controls_Manager::COLOR,
-        //         'default' => '#1fd18e',
-        //         'selectors' => [
-        //             '.eael-reading-progress-wrap .eael-reading-progress .eael-reading-progress-fill' => 'background-color: {{VALUE}} !important',
-        //         ],
-        //         'separator' => 'before',
-        //         'condition' => [
-        //             'eael_ext_reading_progress' => 'yes',
-        //         ],
-        //     ]
-        // );
+        $element->add_control(
+            'exad_reading_progress_fill_color',
+            [
+                'label' => __('Fill Color', 'essential-addons-for-elementor-lite'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#1fd18e',
+                'selectors' => [
+                    '.exad-reading-progress-wrap .exad-reading-progress .exad-reading-progress-fill' => 'background-color: {{VALUE}} !important',
+                ],
+                'separator' => 'before',
+                'condition' => [
+                    'exad_reading_progress' => 'yes',
+                ],
+            ]
+        );
 
         $element->add_control(
-            'eael_ext_reading_progress_animation_speed',
+            'exad_reading_progress_animation_speed',
             [
                 'label' => __('Animation Speed', 'essential-addons-for-elementor-lite'),
                 'type' => Controls_Manager::SLIDER,
@@ -233,11 +222,11 @@ class Reading_Progress {
                     'size' => 50,
                 ],
                 'selectors' => [
-                    '.eael-reading-progress-wrap .eael-reading-progress .eael-reading-progress-fill' => 'transition: width {{SIZE}}ms ease;',
+                    '.exad-reading-progress-wrap .exad-reading-progress .exad-reading-progress-fill' => 'transition: width {{SIZE}}ms ease;',
                 ],
                 'separator' => 'before',
                 'condition' => [
-                    'eael_ext_reading_progress' => 'yes',
+                    'exad_reading_progress' => 'yes',
                 ],
             ]
         );
@@ -251,136 +240,123 @@ class Reading_Progress {
      *
      * @since v3.1.4
      */
-    public static function render_global_html( $section ) {
-        // if (!apply_filters('eael/is_plugin_active', 'elementor/elementor.php')) {
-        //     return;
-        // }
-
-        // if (!is_singular()) {
-        //     return;
-        // }
-        
+    public function exad_reading_progress_render_html( $section ) {
+        $post_id = get_the_ID();
+        $html = '';
         $global_settings = $setting_data = $document = [];
-
-        // if ( $this->get_settings('reading-progressbar') ) {
-            $post_id = get_the_ID();
-            $html = '';
-            $global_settings = get_option('eael_global_settings');
-            $document = Plugin::$instance->documents->get($post_id, false);
-
-            if (is_object($document)) {
-                $settings_data = $document->get_settings();
-            }
-        // }
-
-        if (isset($settings_data['eael_ext_reading_progress']) && $settings_data['eael_ext_reading_progress'] == 'yes') {
-            $html = '<div class="exad-reading-progress">
-                        <div class="exad-reading-progress-fill" id="myBar"></div>
-                    </div>';
-
-            // if (!empty($reading_progress_html)) {
-                // wp_enqueue_script('exad-reading-progress');
-                // wp_enqueue_style('eael-reading-progress');
-
-                // $html .= $reading_progress_html;
-                ?>
-                <script>
-                    (function ($) {
-
-                        $( window ).scroll(function () { 
-                            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                            var scrolled = (winScroll / height) * 100;
-                            document.getElementById("myBar").style.width = scrolled + "%";
-                        });
-                    
-                    }(jQuery));
-                </script>
-                <?php
-            // }
-        } 
+        
+        
+        $html = '';
+        
+        $global_settings = get_option('exad_global_settings');
+        $document = Plugin::$instance->documents->get($post_id, false);
+        
+        $html .= '<pre>' . print_r($global_settings) .'</pre>';
+       
+        if (is_object($document)) {
+            $settings_data = $document->get_settings();
+        }
+        
 
         // Reading Progress Bar
-        // if ($this->get_settings('reading-progressbar') == true) {
-            // $reading_progress_status = $global_reading_progress = false;
+      
+            $reading_progress_status = $global_reading_progress = false;
+           
+            if (isset($settings_data['exad_reading_progress']) && $settings_data['exad_reading_progress'] == 'yes') {
+                $reading_progress_status = true;
+            } elseif (isset($global_settings['reading_progress']['enabled']) && $global_settings['reading_progress']['enabled']) {
+                $reading_progress_status = true;
+                $global_reading_progress = true;
+                $settings_data = $global_settings['reading_progress'];
+                $exad_reading_progress_page_select = $this->get_extensions_value('exad_reading_progress_page_select');
+            }
 
-            // if (isset($settings_data['eael_ext_reading_progress']) && $settings_data['eael_ext_reading_progress'] == 'yes') {
-            //     $reading_progress_status = true;
-            // } elseif (isset($global_settings['reading_progress']['enabled']) && $global_settings['reading_progress']['enabled']) {
-            //     $reading_progress_status = true;
-            //     $global_reading_progress = true;
-            //     $settings_data = $global_settings['reading_progress'];
-            // }
+            if ($reading_progress_status ) {
+                $this->extensions_data = $settings_data;
+                $progress_height = !empty($settings_data['exad_reading_progress_height']['size']) ? $settings_data['exad_reading_progress_height']['size'] : '';
+                $animation_speed = !empty($settings_data['exad_reading_progress_animation_speed']['size']) ? $settings_data['exad_reading_progress_animation_speed']['size'] : '';
+                $reading_progress_html = '';
+                $reading_progress_html .= '<div class="masum exad-reading-progress-wrap exad-reading-progress-wrap-' . ($this->get_extensions_value('exad_reading_progress') == 'yes' ? 'local' : 'global') . '">';
 
-            // if ($reading_progress_status) {
-            //     $this->extensions_data = $settings_data;
-            //     $progress_height = !empty($settings_data['eael_ext_reading_progress_height']['size']) ? $settings_data['eael_ext_reading_progress_height']['size'] : '';
-            //     $animation_speed = !empty($settings_data['eael_ext_reading_progress_animation_speed']['size']) ? $settings_data['eael_ext_reading_progress_animation_speed']['size'] : '';
+                if ($global_reading_progress) {
+                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-global exad-reading-progress-' . $this->get_extensions_value('exad_reading_progress_position') . '" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_bg_color') . '">
+                        <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_fill_color') . ';transition: width ' . $animation_speed . 'ms ease;"></div>
+                    </div>';
+                } else {
+                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-local exad-reading-progress-' .$this->get_extensions_value('exad_reading_progress_position') . '">
+                        <div class="exad-reading-progress-fill"></div>
+                    </div>';
+                }
 
-            //     $reading_progress_html = '<div class="eael-reading-progress-wrap eael-reading-progress-wrap-' . ($this->get_extensions_value('eael_ext_reading_progress') == 'yes' ? 'local' : 'global') . '">';
+                $reading_progress_html .= '</div>';
 
-            //     if ($global_reading_progress) {
-            //         $reading_progress_html .= '<div class="eael-reading-progress eael-reading-progress-global eael-reading-progress-' . $this->get_extensions_value('eael_ext_reading_progress_position') . '" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('eael_ext_reading_progress_bg_color') . ';">
-            //             <div class="eael-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('eael_ext_reading_progress_fill_color') . ';transition: width ' . $animation_speed . 'ms ease;"></div>
-            //         </div>';
-            //     } else {
-            //         $reading_progress_html .= '<div class="eael-reading-progress eael-reading-progress-local eael-reading-progress-' . $this->get_extensions_value('eael_ext_reading_progress_position') . '">
-            //             <div class="eael-reading-progress-fill"></div>
-            //         </div>';
-            //     }
-                
-            //     $reading_progress_html .= '</div>';
+                if ($this->get_extensions_value('exad_reading_progress') != 'yes') {
+                    $display_condition = $this->get_extensions_value('exad_reading_progress_global_display_condition');
+                    if (get_post_status($this->get_extensions_value('post_id')) != 'publish') {
+                        $reading_progress_html = '';
+                    } else if ($display_condition == 'pages' && !is_page()) {
+                        $reading_progress_html = '';
+                    } else if ($display_condition == 'posts' && !is_single()) {
+                        $reading_progress_html = '';
+                    }
+                }
 
-            //     if ($this->get_extensions_value('eael_ext_reading_progress') != 'yes') {
-            //         $display_condition = $this->get_extensions_value('eael_ext_reading_progress_global_display_condition');
-            //         if (get_post_status($this->get_extensions_value('post_id')) != 'publish') {
-            //             $reading_progress_html = '';
-            //         } else if ($display_condition == 'pages' && !is_page()) {
-            //             $reading_progress_html = '';
-            //         } else if ($display_condition == 'posts' && !is_single()) {
-            //             $reading_progress_html = '';
-            //         }
-            //     }
-
-            //     if (!empty($reading_progress_html)) {
-            //         wp_enqueue_script('exad-reading-progress');
-            //         wp_enqueue_style('eael-reading-progress');
-
-            //         $html .= $reading_progress_html;
-            //     }
-            // }
-        // }
-
+                if (!empty($reading_progress_html)) {
+                    //$html .= var_dump($this->get_extensions_value('exad_reading_progress_animation_speed'));
+                    wp_enqueue_script('exad-reading-progress');
+                    wp_enqueue_style('exad-reading-progress');
+                    
+                    $html .= $reading_progress_html;
+                }
+            }
+        
+           
         echo $html;
     }
 
-    // public static function save_global_values( $post_id, $editor_data ){
+    public function get_extensions_value($key = '') {
+        return isset($this->extensions_data[$key]) ? $this->extensions_data[$key] : '';
+    }
 
-    //     $document = Plugin::$instance->documents->get($post_id, false);
-    //     $global_settings = get_option('eael_global_settings');
+   /**
+     * Save default values to db
+     *
+     * @since v3.0.0
+     */
+    public function save_global_values($post_id, $editor_data) {
+        if (wp_doing_cron()) {
+            return;
+        }
 
-    //     if ($document->get_settings('eael_ext_reading_progress_global') == 'yes' && $document->get_settings('eael_ext_reading_progress') == 'yes') {
-    //         $global_settings['reading_progress'] = [
-    //             'post_id' => $post_id,
-    //             'enabled' => true,
-    //             'eael_ext_reading_progress_global_display_condition' => $document->get_settings('eael_ext_reading_progress_global_display_condition'),
-    //             'eael_ext_reading_progress_position' => $document->get_settings('eael_ext_reading_progress_position'),
-    //             'eael_ext_reading_progress_height' => $document->get_settings('eael_ext_reading_progress_height'),
-    //             'eael_ext_reading_progress_bg_color' => $document->get_settings('eael_ext_reading_progress_bg_color'),
-    //             'eael_ext_reading_progress_fill_color' => $document->get_settings('eael_ext_reading_progress_fill_color'),
-    //             'eael_ext_reading_progress_animation_speed' => $document->get_settings('eael_ext_reading_progress_animation_speed'),
-    //         ];
-    //     } else {
-    //         if (isset($global_settings['reading_progress']['post_id']) && $global_settings['reading_progress']['post_id'] == $post_id) {
-    //             $global_settings['reading_progress'] = [
-    //                 'post_id' => null,
-    //                 'enabled' => false,
-    //             ];
-    //         }
-    //     }
+        $document = Plugin::$instance->documents->get($post_id, false);
+        $global_settings = get_option('exad_global_settings');
 
-    //     update_option('eael_global_settings', $global_settings);
-    // }
+        if ($document->get_settings('exad_reading_progress_global') == 'yes' && $document->get_settings('exad_reading_progress') == 'yes') {
+            $global_settings['reading_progress'] = [
+                'post_id' => $post_id,
+                'enabled' => true,
+                'exad_reading_progress_global_display_condition' => $document->get_settings('exad_reading_progress_global_display_condition'),
+                'exad_reading_progress_page_select' => $document->get_settings('exad_reading_progress_page_select'),
+                'exad_reading_progress_position' => $document->get_settings('exad_reading_progress_position'),
+                'exad_reading_progress_height' => $document->get_settings('exad_reading_progress_height'),
+                'exad_reading_progress_bg_color' => $document->get_settings('exad_reading_progress_bg_color'),
+                'exad_reading_progress_fill_color' => $document->get_settings('exad_reading_progress_fill_color'),
+                'exad_reading_progress_animation_speed' => $document->get_settings('exad_reading_progress_animation_speed'),
+            ];
+        } else {
+            if (isset($global_settings['reading_progress']['post_id']) && $global_settings['reading_progress']['post_id'] == $post_id) {
+                $global_settings['reading_progress'] = [
+                    'post_id' => null,
+                    'enabled' => false,
+                ];
+            }
+        }
+        // set editor time
+        update_option('exad_editor_updated_at', strtotime('now'));
+
+        // update options
+        update_option('exad_global_settings', $global_settings);
+    }
 
 }
-Reading_Progress::init();
+Reading_Progress::instance();

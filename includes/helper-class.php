@@ -334,62 +334,35 @@ class Helper {
         return $list;
     }
 
-    public static function exad_get_page_title() {
-        //global $post;
+    public static function exad_get_page_title_for_readingProgress() {
         $args = array(
             'post_type' => 'page',
             'post_parent' => 0,
             'fields' => 'ids',
         );
         $value = array();
-        // $qry = new \WP_Query($args);
-        // while( $qry->have_posts() ) : $qry->the_post(); 
-        //     $value =  get_the_title();
-        // endwhile;
-
-        // return $value;
- 
         $the_query = new \WP_Query( $args );
         
-        // echo '<ul>';
         while ( $the_query->have_posts() ) {
             $the_query->the_post();
-            // echo '<li>' . get_the_title() . '</li>';
             $value[] =  get_the_title();
         }
         return $value;
-        // echo '</ul>';
-        /* Restore original Post Data */
-        // wp_reset_postdata();
+
     }
-    public static function demo_exad_get_post_types() {
-        $post_type_args = array(
-            'public'            => true,
-            'show_in_nav_menus' => true
-        );
+
+    // public static function demo_exad_get_post_types() {
+    //     $post_type_args = array(
+    //         'public'            => true,
+    //         'show_in_nav_menus' => true
+    //     );
     
-        $post_types = get_post_types($post_type_args, 'objects');
-        $post_lists = array();
-        foreach ($post_types as $post_type) {
-            $post_lists[$post_type->name] = $post_type->labels->singular_name;
-        }
-        return $post_lists;
-    }
-
-    /**
-     * All post title
-     * @return array
-     */
-    public static function demo_exad_get_all_posts() {
-        $post_array = array(
-            'post_type' => 'page',
-        );
-        $posts = get_posts( $post_array );
-        foreach ( $posts as $post ) {
-            $post_array[$post->ID] = $post->post_title;
-        }
-
-        return $post_array;
-    } 
+    //     $post_types = get_post_types($post_type_args, 'objects');
+    //     $post_lists = array();
+    //     foreach ($post_types as $post_type) {
+    //         $post_lists[$post_type->name] = $post_type->labels->singular_name;
+    //     }
+    //     return $post_lists;
+    // }
 
 }
