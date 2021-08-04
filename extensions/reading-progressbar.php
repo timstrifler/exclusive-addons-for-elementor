@@ -265,8 +265,6 @@ class Reading_Progress {
         
         $global_settings = get_option('exad_global_settings');
         $document = Plugin::$instance->documents->get($post_id, false);
-        
-        $html .= '<pre>' . print_r($global_settings) .'</pre>';
        
         if (is_object($document)) {
             $settings_data = $document->get_settings();
@@ -317,7 +315,7 @@ class Reading_Progress {
                 }
 
                 if (!empty($reading_progress_html)) {
-                    //$html .= var_dump($this->get_extensions_value('exad_reading_progress_animation_speed'));
+                   
                     wp_enqueue_script('exad-reading-progress');
                     wp_enqueue_style('exad-reading-progress');
                     
