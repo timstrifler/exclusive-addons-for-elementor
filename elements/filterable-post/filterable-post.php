@@ -516,10 +516,6 @@ class Filterable_Post extends Widget_Base {
 						'max' => 100
 					],
 				],
-                'default'    => [
-                    'unit'   => 'px',
-                    'size'   => 20
-                ],
 				'selectors'   => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-filterable-item' => 'margin-bottom: {{SIZE}}{{UNIT}};'
                 ],
@@ -582,8 +578,8 @@ class Filterable_Post extends Widget_Base {
                     'box_shadow'         => [
                         'default'        => [
                             'horizontal' => 0,
-                            'vertical'   => 10,
-                            'blur'       => 30,
+                            'vertical'   => 0,
+                            'blur'       => 10,
                             'spread'     => 0,
                             'color'      => 'rgba(0,0,0,.1)'
                         ]
@@ -672,7 +668,7 @@ class Filterable_Post extends Widget_Base {
                 'default'      => [
                     'top'      => '0',
                     'right'    => '0',
-                    'bottom'   => '50',
+                    'bottom'   => '20',
                     'left'     => '0',
                     'unit'     => 'px',
                     'isLinked' => false
