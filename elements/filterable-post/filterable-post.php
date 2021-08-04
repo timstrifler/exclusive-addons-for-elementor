@@ -83,19 +83,6 @@ class Filterable_Post extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-            'exad_post_grid_enable_featured_post',
-            [
-                'label'        => esc_html__( 'Enable Featured Post', 'exclusive-addons-elementor' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
-				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
-                'default'      => 'no',
-                'return_value' => 'yes',
-				'separator' => 'before'
-            ]
-        );  
-
         $this->add_control(
             'exad_post_grid_per_page',
             [
