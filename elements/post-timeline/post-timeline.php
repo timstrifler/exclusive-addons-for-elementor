@@ -73,6 +73,21 @@ class Post_Timeline extends Widget_Base {
             ]
         );
 
+		$this->add_control(
+        	'exad_post_grid_exclude_post',
+        	[
+				'label'       => __( 'Exclude Post', 'exclusive-addons-elementor' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::SELECT2,
+				'multiple'    => true,
+				'default'     => [],
+				'options'     => Helper::exad_get_all_posts(),
+				'condition'   => [
+					'exad_post_timeline_type' => 'post'
+				]
+            ]
+        );
+
         $this->add_control(
         	'exad_post_timeline_authors',
         	[
