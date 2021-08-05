@@ -491,36 +491,6 @@ class Filterable_Post extends Widget_Base {
             ]
 		);
 
-		$this->add_responsive_control(
-			'exad_post_grid_item_bottom_spacing',
-			[
-				'label'       => __( 'Items Bottom Spacing', 'exclusive-addons-elementor' ),
-				'type'        => Controls_Manager::SLIDER,
-				'size_units'  => [ 'px' ],
-				'range'       => [
-					'px'      => [
-						'min' => 0,
-						'max' => 100
-					],
-				],
-				'selectors'   => [
-					'{{WRAPPER}} .exad-row-wrapper .exad-filterable-item' => 'margin-bottom: {{SIZE}}{{UNIT}};'
-                ],
-			]
-		);
-
-		$this->add_control(
-			'exad_post_grid_equal_height',
-			[
-				'label'        => esc_html__( 'Equal Height', 'exclusive-addons-elementor' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'	   => __( 'Yes', 'exclusive-addons-elementor' ),
-				'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
-				'return_value' => 'yes',
-				'default'      => 'no'
-			]
-		);
-
 		$this->add_control(
 			'exad_grid_post_bg_color',
 			[
@@ -1182,7 +1152,6 @@ class Filterable_Post extends Widget_Base {
 			[
 				'label'     => __( 'Background Color', 'exclusive-addons-elementor' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-post-grid-three .exad-post-grid-body' => 'background-color: {{VALUE}};'
 				]

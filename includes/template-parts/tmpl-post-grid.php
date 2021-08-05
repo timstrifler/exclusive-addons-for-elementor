@@ -5,10 +5,16 @@ $cat_position_over_image = 'default';
 if ( 'yes' !== $settings['exad_post_grid_category_default_position'] ) :
     $cat_position_over_image = $settings['exad_post_grid_category_position_over_image'];
 endif;
+
+if( isset( $settings['exad_post_grid_equal_height'] ) ){
+    $equalHeight = $settings['exad_post_grid_equal_height'];
+} else {
+    $equalHeight = ' ';
+}
 ?>
 
 <article class="exad-post-grid-three exad-col <?php echo ('exad-filterable-post' === $settings['template_type'] ) ? ' exad-filterable-item ' . esc_attr( Helper::exad_get_categories_name_for_class()) : ' ' ;?>">
-    <div class="exad-post-grid-container image-position-<?php echo esc_attr( $settings['exad_post_grid_image_align'] ); ?> exad-post-grid-equal-height-<?php echo esc_attr($settings['exad_post_grid_equal_height']); ?>">
+    <div class="exad-post-grid-container image-position-<?php echo esc_attr( $settings['exad_post_grid_image_align'] ); ?> exad-post-grid-equal-height-<?php echo esc_attr($equalHeight); ?>">
         <?php do_action('exad_post_grid_each_item_wrapper_before');
         if( 'yes' === $settings['exad_post_grid_show_image'] && has_post_thumbnail() ) : ?>
             <figure class="exad-post-grid-thumbnail">
