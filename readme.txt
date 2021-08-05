@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
-Tested up to: 5.7.2
-Stable tag: 2.4.42
+Tested up to: 5.8
+Stable tag: 2.4.5
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -13,7 +13,7 @@ Packed with a bunch of Exclusively designed widgets for Elementor with all the c
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
 The elementor addons gives you the ability to build a sophisticated website experience with 85+ highly customizable and creative widgets and extensions.
-A collection of 700+ premade blocks and 15+ useable templates will help you build your websites in less time with no coding.
+A collection of 700+ premade blocks and 20+ useable templates will help you build your websites in less time with no coding.
 
 An easy to use interface and several customizations and unique widgets make your next WordPress page and post design easier and prettier than ever before. Exclusive Addons Elementor page builders take your WordPress website to the next level by making your page more eye-catching.
 We have stuffed all the factors with every choice that you may think. Still need one, please feel free to reach out. We might love to feature that to you.
@@ -70,6 +70,9 @@ And have the most beautiful design, not to mention.
 31. **[Covid-19 Stats](https://exclusiveaddons.com/covid-19-stats-demo/)** - Simple and clean Covid 19 stats for your visitors.
 32. **[Facebook Feed](https://exclusiveaddons.com/facebook-feed/)** - Display your Facebook page's posts with Likes, Comments and Shares in real time.
 33. **[List Group](https://exclusiveaddons.com/list-group/)** - Another List widget with the highest number of customization options you have ever seen.
+34. **[Filterable Post](https://exclusiveaddons.com/filterable-post-demo/)** - A Filterable Grid system which can display your regular post, page or any kind of Custom Post Types with their respective taxonomies.
+35. **[Google Reviews](https://exclusiveaddons.com/google-reviews-demo/)** - Display your Business's reviews gived by Users around the globe just with a few clicks.  
+
 
 FREE EXTENSIONS:
 1. **[Post Duplicator](#)** - Duplicate and Post/Page in just a single click.
@@ -223,6 +226,16 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.4.5 - 05/08/2021 =
+- New: Added Filterable Post Widget.
+- New: Added Google Reviewes Widget.
+- Tweak: Added new options in Flipbox Widget.
+- Tweak: Added Exclude Post option in Post Timeline Widget.
+- Fix: Issues with Progress Bar Widget.
+- Fix: Issues with Call to Action Widget.
+- Fix: Issues with Heading Widget.
+- Fix: Issues with List Group Widget.
 
 = 2.4.42 - 16/07/2021 =
 - Fix: Issue with Post Grid exclude post not working.
