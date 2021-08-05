@@ -255,6 +255,13 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'is_pro' => false
             ],
+            'filterable-post'  => [
+                'title'  => __( 'Filterable Post', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Filterable_Post',
+                'demo_link' => 'https://exclusiveaddons.com/filterable-post-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
+            ],
             'flipbox'  => [
                 'title'  => __( 'Flip Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Flipbox',
@@ -398,13 +405,6 @@ class Addons_Manager {
             'tooltip'  => [
                 'title'  => __( 'Tooltip', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Tooltip',
-                'demo_link' => 'https://exclusiveaddons.com/tooltip-demo/',
-                'tags'   => 'free',
-                'is_pro' => false
-            ],
-            'filterable-post'  => [
-                'title'  => __( 'Filterable Post', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Filterable_Post',
                 'demo_link' => 'https://exclusiveaddons.com/tooltip-demo/',
                 'tags'   => 'free',
                 'is_pro' => false
