@@ -74,7 +74,7 @@ class Post_Timeline extends Widget_Base {
         );
 
 		$this->add_control(
-        	'exad_post_grid_exclude_post',
+        	'exad_post_timeline_exclude_post',
         	[
 				'label'       => __( 'Exclude Post', 'exclusive-addons-elementor' ),
 				'label_block' => true,
