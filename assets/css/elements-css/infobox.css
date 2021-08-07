@@ -11,12 +11,15 @@
 }
 .exad-infobox-align-left .exad-infobox-icon {
   margin-right: auto;
+  text-align: left;
 }
 .exad-infobox-align-center .exad-infobox-icon {
   margin: 0 auto;
+  text-align: center;
 }
 .exad-infobox-align-right .exad-infobox-icon {
   margin-left: auto;
+  text-align: right;
 }
 
 .exad-infobox-item{
@@ -65,8 +68,7 @@
   transition: all 0.3s ease;
 }
 
-.exad-infobox .exad-infobox-item .exad-infobox-icon {
-  background: #fff;
+.exad-infobox .exad-infobox-item.exad-infobox-enable-box-yes .exad-infobox-icon {
   border-radius: 50%;
   position: relative;
   z-index: 1;
@@ -85,7 +87,7 @@
     animation: clip-3 10s linear infinite alternate forwards;
 }
 
-.exad-infobox .exad-infobox-item .exad-infobox-icon::before {
+.exad-infobox .exad-infobox-item.exad-infobox-enable-box-yes .exad-infobox-icon::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -101,7 +103,7 @@
   transition: .3s ease;
 }
 
-.exad-infobox .exad-infobox-item .exad-infobox-icon i {
+.exad-infobox .exad-infobox-item.exad-infobox-enable-box-yes .exad-infobox-icon i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -110,7 +112,7 @@
   transition: all .3s ease;
 }
 
-.exad-infobox .exad-infobox-item .exad-infobox-icon svg {
+.exad-infobox .exad-infobox-item.exad-infobox-enable-box-yes .exad-infobox-icon svg {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -119,7 +121,7 @@
   transition: all .3s ease;
 }
 
-.exad-infobox .exad-infobox-item .exad-infobox-icon img {
+.exad-infobox .exad-infobox-item.exad-infobox-enable-box-yes .exad-infobox-icon img {
     height: 40px;
     width: 40px;
     position: absolute;
@@ -128,11 +130,14 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
+.exad-infobox-content a{
+  display: block;
+}
 .exad-infobox-content-title {
   font-size: 30px;
   line-height: 1.5;
   font-weight: 600;
+  transition: all .3s ease;
 }
 .exad-infobox-content-description {
   font-size: 16px;

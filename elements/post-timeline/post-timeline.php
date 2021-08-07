@@ -23,7 +23,7 @@ class Post_Timeline extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-time-line';
+		return 'exad exad-logo exad-post-timeline';
 	}
 
 	public function get_keywords() {
@@ -34,7 +34,7 @@ class Post_Timeline extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
         $this->start_controls_section(
@@ -70,6 +70,21 @@ class Post_Timeline extends Widget_Base {
 				'label'   => __( 'Offset', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => '0'
+            ]
+        );
+
+		$this->add_control(
+        	'exad_post_timeline_exclude_post',
+        	[
+				'label'       => __( 'Exclude Post', 'exclusive-addons-elementor' ),
+				'label_block' => true,
+				'type'        => Controls_Manager::SELECT2,
+				'multiple'    => true,
+				'default'     => [],
+				'options'     => Helper::exad_get_all_posts(),
+				'condition'   => [
+					'exad_post_timeline_type' => 'post'
+				]
             ]
         );
 
@@ -120,6 +135,23 @@ class Post_Timeline extends Widget_Base {
                 ],
                 'default'  => 'desc'
 
+            ]
+        );
+
+		$this->add_control(
+            'exad_post_timeline_order_by',
+            [
+				'label'    => __( 'Ordered By', 'exclusive-addons-elementor' ),
+				'type'     => Controls_Manager::SELECT,
+                'default'  => 'date',
+				'options'  => [
+					'ID'  => __( 'ID', 'exclusive-addons-elementor' ),
+					'date'  => __( 'Date', 'exclusive-addons-elementor' ),
+					'modified' => __( 'Modified', 'exclusive-addons-elementor' ),
+					'author' => __( 'Author Name', 'exclusive-addons-elementor' ),
+					'title' => __( 'Post Title', 'exclusive-addons-elementor' ),
+					'name' => __( 'Post Name', 'exclusive-addons-elementor' ),
+                ]
             ]
         );
 
@@ -606,9 +638,12 @@ class Post_Timeline extends Widget_Base {
 				'class'	=> 'exad-post-timeline'
 			]
 		);
+		?>
 
-		echo '<div class="exad-post-timeline">';
-          	Helper::exad_get_posts( $settings );
-        echo '</div>';
+		<div class="exad-post-timeline">
+        	<?php echo Helper::exad_get_posts( $settings );?>
+        </div>
+
+	<?php
 	}
 }

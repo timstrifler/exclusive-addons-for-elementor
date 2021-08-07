@@ -12,7 +12,7 @@
   margin: 0;
 }
 
-.exad-exclusive-heading .exad-heading-left {
+/* .exad-exclusive-heading .exad-heading-left {
   text-align: left;
 }
 .exad-heading-left .exad-heading-separator{
@@ -23,11 +23,11 @@
 }
 .exad-heading-left .exad-heading-icon-box-yes .exad-heading-icon{
   margin-right: auto;
-}
-.exad-heading-right .exad-heading-icon-box-yes .exad-heading-icon{
+} */
+/* .exad-heading-right .exad-heading-icon-box-yes .exad-heading-icon{
   margin-left: auto;
-}
-.exad-heading-center .exad-heading-icon-box-yes .exad-heading-icon{
+} */
+/* .exad-heading-center .exad-heading-icon-box-yes .exad-heading-icon{
   margin-left: auto;
   margin-right: auto;
 }
@@ -41,8 +41,8 @@
 .exad-heading-center .exad-heading-icon{
   margin-left: auto;
   margin-right: auto;
-}
-.exad-exclusive-heading .exad-heading-right {
+} */
+/* .exad-exclusive-heading .exad-heading-right {
   text-align: right;
 }
 .exad-heading-right .exad-heading-separator{
@@ -50,13 +50,14 @@
 }
 .exad-heading-right .exad-heading-icon{
   margin-left: auto;
-}
+} */
 
 .exad-heading-icon-box-yes .exad-heading-icon{
   position: relative;
 }
 
-.exad-heading-icon-box-yes .exad-heading-icon i{
+.exad-heading-icon-box-yes .exad-heading-icon i,
+.exad-heading-icon-box-yes .exad-heading-icon svg{
   position: absolute;
   top: 50%;
   left: 50%;

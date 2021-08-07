@@ -1,7 +1,7 @@
 // Corona script starts
 var exclusiveCorona = function ($scope, $) {
 	var exadCoronaWrapper = $scope.find('.exad-corona').eq(0);
-	var searchData = exadCoronaWrapper.find('#search_data');
+	var searchData = exadCoronaWrapper.find('#exad_search_data');
 	var dataTtableRow = exadCoronaWrapper.find('#data_table .data_table_row');
 	var continentBtn = exadCoronaWrapper.find('#exad-covid-filters .exad-covid-continent-btn');
 	var parentClass = exadCoronaWrapper.find('.exad-corona-table-heading.yes th');

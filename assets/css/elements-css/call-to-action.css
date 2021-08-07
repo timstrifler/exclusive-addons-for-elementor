@@ -9,9 +9,6 @@ ul.exad-call-to-action-buttons {
     padding: 0;
     list-style: none;
 }
-.exad-call-to-action-buttons li:not(:last-child) {
-    margin-right: 20px;
-}
 .exad-call-to-action-buttons li,
 .exad-call-to-action-buttons li a {
     display: inline-block;
@@ -42,7 +39,6 @@ ul.exad-call-to-action-buttons {
 @media only screen and (max-width: 493px) {
     .exad-call-to-action-buttons li {
         display: flex;
-        justify-content: center;
     }
     a.exad-call-to-action-secondary-btn {
         margin-top: 20px;
@@ -51,6 +47,7 @@ ul.exad-call-to-action-buttons {
 @media only screen and (max-width: 767px) {
     .exad-call-to-action.skin-horizontal .exad-call-to-action-content {
         flex-direction: column;
+        align-items: flex-start;
     }
     .exad-call-to-action.skin-horizontal .exad-call-to-action-content .exad-call-to-action-header {
         width: 100%;

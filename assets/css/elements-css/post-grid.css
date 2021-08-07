@@ -178,6 +178,7 @@
 .exad-post-grid-container.image-position-right > figure img {
   height: 100%;
   object-fit: cover;
+  width: 100%;
 }
 .exad-post-grid-container.image-position-right > figure {
   order: 2;
@@ -188,6 +189,10 @@
 .exad-post-grid-container.image-position-top .exad-post-grid-thumbnail a {
   display: flex;
 }
+
+/* .elementor .exad-post-grid-container img {
+  height: 100%;
+} */
 
 nav.exad-post-pagination {
     display: flex;
@@ -327,5 +332,48 @@ nav.exad-post-pagination ul li {
 
 .exad-post-grid-description{
   line-height: 1.8;
+}
+
+.exad-post-grid-container.image-position-top .exad-post-grid-thumbnail a img{
+  object-fit: cover;
+  -o-object-fit: cover;
+  width: 100%;
+}
+.exad-post-grid-load-btn{
+  text-align: center;
+}
+.exad-post-grid-paginate-btn{
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+.exad-post-grid-container ul.exad-post-grid-category li a{
+  display: block;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes article.exad-post-grid-three:first-child{
+  flex: 100%;
+  max-width: 100%;
+}
+
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container{
+  display: flex;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-thumbnail{
+  width: 50%;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-thumbnail a{
+  height: 100%;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-thumbnail a img{
+  height: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
+.exad-post-grid.exad-post-grid-featured-post-yes.layout_one article.exad-post-grid-three:first-child .exad-post-grid-container .exad-post-grid-body{
+  width: 50%;
+}
+.exad-post-grid .exad-row-wrapper .exad-post-grid-container .exad-post-grid-thumbnail::before{
+  display: none;
 }
 /* Post Grid End */

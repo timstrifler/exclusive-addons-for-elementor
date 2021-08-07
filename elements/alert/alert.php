@@ -22,7 +22,7 @@ class Alert extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'exad-element-icon eicon-alert';
+        return 'exad exad-logo exad-alert';
     }
 
     public function get_categories() {
@@ -33,7 +33,7 @@ class Alert extends Widget_Base {
         return [ 'exclusive', 'notice', 'message' ];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
         $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
         $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
         
@@ -94,7 +94,10 @@ class Alert extends Widget_Base {
                 'default'   => 'Well Done!',
                 'condition' => [
                     'exad_alert_content_title_show' => 'yes'
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -103,7 +106,10 @@ class Alert extends Widget_Base {
             [
                 'label'   => __( 'Description', 'exclusive-addons-elementor' ),
                 'type'    => Controls_Manager::TEXTAREA,
-                'default' => 'A simple alert—check it out!'
+                'default' => 'A simple alert—check it out!',
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -129,7 +135,10 @@ class Alert extends Widget_Base {
                 'default'   => __( 'Done', 'exclusive-addons-elementor' ),
                 'condition' => [
                     'exad_alert_close_button' => ['button']
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -141,7 +150,10 @@ class Alert extends Widget_Base {
                 'default'                 => __( 'Cancel', 'exclusive-addons-elementor' ),
                 'condition'               => [
                     'exad_alert_close_button' => ['button']
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
         
@@ -709,10 +721,10 @@ class Alert extends Widget_Base {
         $seconday_btn = $settings['exad_alert_close_secondary_button'];
 
         $this->add_render_attribute( 'exad_alert_content_title', 'class', 'exad-alert-title' );
-        $this->add_inline_editing_attributes( 'exad_alert_content_title' );
+        $this->add_inline_editing_attributes( 'exad_alert_content_title', 'basic' );
 
         $this->add_render_attribute( 'exad_alert_content_description', 'class', 'exad-alert-desc' );
-        $this->add_inline_editing_attributes( 'exad_alert_content_description' );
+        $this->add_inline_editing_attributes( 'exad_alert_content_description', 'basic' );
 
         $this->add_render_attribute( 'exad_alert_close_primary_button', 'class', 'exad-alert-element-dismiss-done' );
         $this->add_inline_editing_attributes( 'exad_alert_close_primary_button', 'none' );
@@ -721,47 +733,60 @@ class Alert extends Widget_Base {
         $this->add_inline_editing_attributes( 'exad_alert_close_secondary_button', 'none' );
 
         do_action( 'exad_alert_wrapper_before' );
-        echo '<div class="exad-alert">';
-            echo '<div class="exad-alert-wrapper" data-alert>';
-                echo '<div class="exad-alert-element">';
+        ?>
+
+        <div class="exad-alert">
+            <div class="exad-alert-wrapper" data-alert>
+                <div class="exad-alert-element">
+                <?php
                     do_action( 'exad_alert_content_wrapper_before' );
 
                     if ( 'yes' === $settings['exad_alert_content_icon_show'] && !empty($settings['exad_alert_content_icon']['value']) ) {
-                        echo '<div class="exad-alert-element-icon">';
-                            echo '<span>';
-                                Icons_Manager::render_icon( $settings['exad_alert_content_icon'], [ 'aria-hidden' => 'true' ] );
-                            echo '</span>';
-                        echo '</div>';
+                    ?>    
+                        <div class="exad-alert-element-icon">
+                            <span>
+                                <?php Icons_Manager::render_icon( $settings['exad_alert_content_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                            </span>
+                        </div>
+                    <?php    
                     }
+                    ?>
 
-                    echo '<div class="exad-alert-element-content">';
+                    <div class="exad-alert-element-content">
+                        <?php                    
                             if ( !empty( $title ) && 'yes' === $settings['exad_alert_content_title_show'] ) {
                                 printf( '<h5 '.$this->get_render_attribute_string( 'exad_alert_content_title' ).'>%s</h5>', wp_kses_post( $title ) );
                             } 
                             $description ? printf( '<div '.$this->get_render_attribute_string( 'exad_alert_content_description' ).'>%s</div>', wp_kses_post( $description ) ) : '';
-                    echo '</div>';
+                        ?>    
+                    </div>
 
-                    if( 'icon' === $settings['exad_alert_close_button'] ) {
-                        echo '<div class="exad-alert-element-dismiss-icon">';
-                            echo '<svg viewBox="0 0 16 16">';
-                                echo '<path fill-rule="evenodd" d="M2.343 15.071L.929 13.656 6.586 8 .929 2.343 2.343.929 8 6.585 13.657.929l1.414 1.414L9.414 8l5.657 5.656-1.414 1.415L8 9.414l-5.657 5.657z" />';
-                            echo '</svg>';
-                        echo '</div>';
+                    <?php        
+                    if( 'icon' === $settings['exad_alert_close_button'] ) { ?>    
+                        <div class="exad-alert-element-dismiss-icon">
+                            <svg viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.343 15.071L.929 13.656 6.586 8 .929 2.343 2.343.929 8 6.585 13.657.929l1.414 1.414L9.414 8l5.657 5.656-1.414 1.415L8 9.414l-5.657 5.657z" />
+                            </svg>
+                        </div>
+                    <?php    
                     }
 
-                    do_action( 'exad_alert_content_wrapper_after' );
-                echo '</div>';
+                    do_action( 'exad_alert_content_wrapper_after' ); ?>
+                </div>
 
-                if( 'button' === $settings['exad_alert_close_button'] ) {
-                    echo '<div class="exad-alert-element-dismiss-button">';
+                <?php    
+                if( 'button' === $settings['exad_alert_close_button'] ) { ?>
+                    <div class="exad-alert-element-dismiss-button">
+                    <?php
                         $primary_btn ? printf( '<button '.$this->get_render_attribute_string( 'exad_alert_close_primary_button' ).'>%s</button>', esc_html( $primary_btn ) ) : '';
                         $seconday_btn ? printf( '<button '.$this->get_render_attribute_string( 'exad_alert_close_secondary_button' ).'>%s</button>', esc_html( $seconday_btn ) ) : '';
-                    echo '</div>';
-                }
+                    ?>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
 
-            echo '</div>';
-        echo '</div>';
-        do_action( 'exad_alert_wrapper_after' );
+        <?php do_action( 'exad_alert_wrapper_after' );
     }
 
     /**
@@ -772,16 +797,16 @@ class Alert extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
         <#
             var iconHTML = elementor.helpers.renderIcon( view, settings.exad_alert_content_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
             view.addRenderAttribute( 'exad_alert_content_title', 'class', 'exad-alert-title' );
-            view.addInlineEditingAttributes( 'exad_alert_content_title' );
+            view.addInlineEditingAttributes( 'exad_alert_content_title', 'basic' );
 
             view.addRenderAttribute( 'exad_alert_content_description', 'class', 'exad-alert-desc' );
-            view.addInlineEditingAttributes( 'exad_alert_content_description' );
+            view.addInlineEditingAttributes( 'exad_alert_content_description', 'basic' );
 
             view.addRenderAttribute( 'exad_alert_close_primary_button', 'class', 'exad-alert-element-dismiss-done' );
             view.addInlineEditingAttributes( 'exad_alert_close_primary_button', 'none' );

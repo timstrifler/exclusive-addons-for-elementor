@@ -21,7 +21,7 @@ class Countdown_Timer extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-countdown';
+		return 'exad exad-logo exad-countdown-timer';
 	}
 
 	public function get_keywords() {
@@ -36,7 +36,7 @@ class Countdown_Timer extends Widget_Base {
 		return [ 'exad-countdown' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
 		/**
@@ -66,11 +66,12 @@ class Countdown_Timer extends Widget_Base {
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => __( 'Hurray! This is the event day.', 'exclusive-addons-elementor' ),
-				'description' => __( 'This text will show when the CountDown will over.', 'exclusive-addons-elementor' )
+				'description' => __( 'This text will show when the CountDown will over.', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
-
-		$this->end_controls_section();
 
 		$this->end_controls_section();
 
@@ -547,11 +548,13 @@ class Countdown_Timer extends Widget_Base {
 				]
 			);
 		}
+		?>
 
-
-		echo '<div class="exad-countdown-content-container '.$settings['exad_section_countdown_show_box'].'">';
-			echo '<div '.$this->get_render_attribute_string('exad-countdown-timer-attribute').'></div>';
-		echo '</div>';
+		<div class="exad-countdown-content-container <?php echo $settings['exad_section_countdown_show_box']; ?>">
+			<div <?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute'); ?>></div>
+		</div>
+		
+		<?php
 	}
 
 	/**
@@ -562,7 +565,7 @@ class Countdown_Timer extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown' );

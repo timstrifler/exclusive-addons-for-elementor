@@ -12,8 +12,11 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Image_Mask_SVG_Control;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Team_Member extends Widget_Base {
 	
@@ -26,7 +29,7 @@ class Team_Member extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-lock-user';
+		return 'exad exad-logo exad-team-member';
 	}
 
 	public function get_categories() {
@@ -37,7 +40,7 @@ class Team_Member extends Widget_Base {
         return [ 'exclusive', 'employee', 'staff' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 		/**
 		* Team Member Content Section
@@ -71,12 +74,190 @@ class Team_Member extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_team_member_enable_image_mask',
+			[
+				'label' => __( 'Enable Image Mask', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'exad_team_member_mask_shape_mask_shape',
+			[
+				'label'                => __( 'Mask Shape', 'exclusive-addons-elementor' ),
+				'type'                 => Image_Mask_SVG_Control::SVGSELECTOR,
+				'options'              => Helper::exad_masking_shape_list( 'list' ),
+				'default'              => 'shape-1',
+				'toggle'               => false,
+				'label_block'          => true,
+                'selectors_dictionary' => Helper::exad_masking_shape_list( 'url' ),
+				'selectors'            => [
+                    '{{WRAPPER}} .exad-team-member-thumb img' => '-webkit-mask-image: url({{VALUE}}); mask-image: url({{VALUE}});'
+				],
+				'condition' 		   => [
+					'exad_team_member_enable_image_mask' => 'yes'
+				]
+			]
+		);
+		
+		$this->add_control(
+			'exad_team_member_mask_shape_position',
+			[
+				'label'       => __( 'Position', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'center',
+				'label_block' => true,
+				'options'     => [
+					'top'     => __( 'Top', 'exclusive-addons-elementor' ),
+					'center'  => __( 'Center', 'exclusive-addons-elementor' ),
+					'left'    => __( 'Left', 'exclusive-addons-elementor' ),
+					'right'   => __( 'Right', 'exclusive-addons-elementor' ),
+					'bottom'  => __( 'Bottom', 'exclusive-addons-elementor' ),
+					'custom'  => __( 'Custom', 'exclusive-addons-elementor' )
+                ],
+                'selectors'   => [
+					'{{WRAPPER}} .exad-team-member-thumb img' => '-webkit-mask-position: {{VALUE}};'
+				],
+				'condition' 		   => [
+					'exad_team_member_enable_image_mask' => 'yes'
+				]
+			]
+		);
+		
+		$this->add_control(
+			'exad_team_member_mask_shape_position_x_offset',
+			[
+				'label'       => __( 'X Offset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-team-member-thumb img' => '-webkit-mask-position-y: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_team_member_enable_image_mask' => 'yes',
+                    'exad_team_member_mask_shape_position' => 'custom'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_team_member_mask_shape_position_y_offset',
+			[
+				'label'       => __( 'Y Offset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-team-member-thumb img' => '-webkit-mask-position-x: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_team_member_enable_image_mask' => 'yes',
+                    'exad_team_member_mask_shape_position' => 'custom'
+				]
+			]
+		);
+        
+        $this->add_control(
+			'exad_team_member_mask_shape_size',
+			[
+				'label'       => __( 'Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'auto',
+				'label_block' => true,
+				'options'     => [
+					'auto'    => __( 'Auto', 'exclusive-addons-elementor' ),
+					'contain' => __( 'Contain', 'exclusive-addons-elementor' ),
+					'cover'   => __( 'Cover', 'exclusive-addons-elementor' ),
+					'custom'  => __( 'Custom', 'exclusive-addons-elementor' )
+                ],
+                'selectors'   => [
+					'{{WRAPPER}} .exad-team-member-thumb img' => '-webkit-mask-size: {{VALUE}};'
+				],
+				'condition' 		   => [
+					'exad_team_member_enable_image_mask' => 'yes'
+				]
+			]
+        );
+
+        $this->add_control(
+			'exad_team_member_mask_shape_custome_size',
+			[
+				'label'       => __( 'Mask Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 600
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-team-member-thumb img' => '-webkit-mask-size: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_team_member_enable_image_mask' => 'yes',
+                    'exad_team_member_mask_shape_size' => 'custom'
+				]
+			]
+		);
+
+        $this->add_control(
+			'exad_team_member_mask_shape_repeat',
+			[
+				'label'         => __( 'Repeat', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::SELECT,
+				'default'       => 'no-repeat',
+				'label_block'   => true,
+				'options'       => [
+					'no-repeat' => __( 'No repeat', 'exclusive-addons-elementor' ),
+					'repeat'    => __( 'Repeat', 'exclusive-addons-elementor' )
+                ],
+                'selectors'     => [
+					'{{WRAPPER}} .exad-team-member-thumb img' => '-webkit-mask-repeat: {{VALUE}};'
+				],
+				'condition' 	=> [
+					'exad_team_member_enable_image_mask' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
 			'exad_team_member_name',
 			[
 				'label'       => esc_html__( 'Name', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'John Doe', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'John Doe', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 		
@@ -86,7 +267,10 @@ class Team_Member extends Widget_Base {
 				'label'       => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Designation', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Designation', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 		
@@ -95,7 +279,10 @@ class Team_Member extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Put team member details here. Click here to edit it from the inline editor.', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Put team member details here. Click here to edit it from the inline editor.', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -120,6 +307,9 @@ class Team_Member extends Widget_Base {
 				'default'     => esc_html__( 'Read More', 'exclusive-addons-elementor' ),
 				'condition'   => [
 					'exad_section_team_members_cta_btn' => 'yes'
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -323,6 +513,25 @@ class Team_Member extends Widget_Base {
 				'selector' => '{{WRAPPER}} .exad-team-member'
 			]
 		);
+
+		// $this->add_control(
+		// 	'exad_team_members_glass_effect',
+		// 	[
+		// 		'label' => __( 'Blur Size', 'exclusive-addons-elementor' ),
+		// 		'type' => Controls_Manager::SLIDER,
+		// 		'size_units' => [ 'px' ],
+		// 		'range' => [
+		// 			'px' => [
+		// 				'min' => 0,
+		// 				'max' => 100,
+		// 				'step' => 1,
+		// 			],
+		// 		],
+		// 		'selectors' => [
+		// 			'{{WRAPPER}} .exad-team-member' => 'backdrop-filter: blur({{SIZE}}{{UNIT}});',
+		// 		],
+		// 	]
+		// );
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
@@ -621,6 +830,14 @@ class Team_Member extends Widget_Base {
 				'condition' => [
 					'exad_section_team_members_thumbnail_box' => 'yes'
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_section_team_members_thumbnail_css_filter',
+				'selector' => '{{WRAPPER}} .exad-team-member-thumb img',
 			]
 		);
 
@@ -1164,7 +1381,7 @@ class Team_Member extends Widget_Base {
 					[
 						'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
 						'type'      => Controls_Manager::COLOR,
-						'default'   => '#FFF',
+						'default'   => '',
 						'selectors' => [
 							'{{WRAPPER}} .exad-team-member-social li a' => 'background-color: {{VALUE}};'
 						]
@@ -1262,20 +1479,32 @@ class Team_Member extends Widget_Base {
 		);
 
 		$this->end_controls_section();
-
-		
 	}
+	
+
+	private function team_member_cta() {
+		$settings = $this->get_settings_for_display();
+
+		$this->add_render_attribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );
+		$this->add_inline_editing_attributes( 'exad_team_members_cta_btn_text', 'none' );
+		?>
+		<span <?php echo $this->get_render_attribute_string( 'exad_team_members_cta_btn_text' ); ?>>
+			<?php echo esc_html( $settings['exad_team_members_cta_btn_text'] );	?>
+		</span>
+		<?php
+	}
+
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
 		$this->add_render_attribute( 'exad_team_member_name', 'class', 'exad-team-member-name' );
-		$this->add_inline_editing_attributes( 'exad_team_member_name', 'none' );
+		$this->add_inline_editing_attributes( 'exad_team_member_name', 'basic' );
 
 		$this->add_render_attribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
-		$this->add_inline_editing_attributes( 'exad_team_member_designation', 'none' );
+		$this->add_inline_editing_attributes( 'exad_team_member_designation', 'basic' );
 
 		$this->add_render_attribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
-		$this->add_inline_editing_attributes( 'exad_team_member_description' );
+		$this->add_inline_editing_attributes( 'exad_team_member_description', 'basic' );
 
 		$this->add_render_attribute( 'exad_team_member_item', [
             'class' => [ 
@@ -1285,16 +1514,8 @@ class Team_Member extends Widget_Base {
             ]
         ]);
 
-		$team_member_image         = $settings['exad_team_member_image'];
-		$team_member_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $team_member_image['id'], 'team_member_image_size', $settings );
-		if( empty( $team_member_image_url_src ) ) {
-			$team_member_image_url = $team_member_image['url']; 
-		} else { 
-			$team_member_image_url = $team_member_image_url_src;
-		}
-
 		$this->add_render_attribute( 'exad_team_members_cta_btn_link', 'class', 'exad-team-member-cta' );
-		if( $settings['exad_team_members_cta_btn_link']['url'] ) {
+		if( isset( $settings['exad_team_members_cta_btn_link']['url'] ) ) {
             $this->add_render_attribute( 'exad_team_members_cta_btn_link', 'href', esc_url( $settings['exad_team_members_cta_btn_link']['url'] ) );
 	        if( $settings['exad_team_members_cta_btn_link']['is_external'] ) {
 	            $this->add_render_attribute( 'exad_team_members_cta_btn_link', 'target', '_blank' );
@@ -1304,46 +1525,46 @@ class Team_Member extends Widget_Base {
 	        }
         }
 
-		echo '<div class="exad-team-item">';
-			do_action('exad_team_member_wrapper_before');
-			echo '<div '.$this->get_render_attribute_string( 'exad_team_member_item' ).'>';
+		?>
 
-				if( !empty( $team_member_image_url ) ) {
-					if( 'yes' === $settings['exad_team_member_animating_mask_switcher'] ) {
-						echo '<div class="exad-team-member-thumb '. $settings['exad_team_member_animating_mask_style'] .'">';
-							echo '<img src="'.esc_url($team_member_image_url).'" class="circled" alt="'.Control_Media::get_image_alt( $settings['exad_team_member_image'] ).'">';
-						echo '</div>';
-					} else {
-						echo '<div class="exad-team-member-thumb">';
-							echo '<img src="'.esc_url($team_member_image_url).'" class="circled" alt="'.Control_Media::get_image_alt( $settings['exad_team_member_image'] ).'">';
-						echo '</div>';
+		<div class="exad-team-item">
+			<div <?php echo $this->get_render_attribute_string( 'exad_team_member_item' ); ?>>
+				<?php do_action('exad_team_member_wrapper_before'); ?>
+				<?php 
+					if ( $settings['exad_team_member_image']['url'] || $settings['exad_team_member_image']['id'] ) { ?>
+						<div class="exad-team-member-thumb<?php echo ( 'yes' === $settings['exad_team_member_animating_mask_switcher'] ) ? ' '.$settings['exad_team_member_animating_mask_style'] : ''; ?>">
+							<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'team_member_image_size', 'exad_team_member_image' ); ?>
+						</div>
+					<?php
 					}
-				}
+				?>
 
-				echo '<div class="exad-team-member-content">';
-					do_action('exad_team_member_content_area_before');
-					if ( !empty( $settings['exad_team_member_name'] ) ) :
-                        echo '<h2 '.$this->get_render_attribute_string( 'exad_team_member_name' ).'>'.esc_html( $settings['exad_team_member_name'] ).'</h2>';
+				<div class="exad-team-member-content">
+					<?php do_action('exad_team_member_content_area_before'); ?>
+					<?php if ( !empty( $settings['exad_team_member_name'] ) ) : ?>
+						<h2 <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_team_member_name'] ); ?></h2>
+					<?php endif; ?>
+
+					<?php if ( !empty( $settings['exad_team_member_designation'] ) ) : ?>
+						<span <?php echo $this->get_render_attribute_string( 'exad_team_member_designation' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_team_member_designation'] ); ?></span>
+					<?php endif; ?>
+
+					<?php do_action('exad_team_member_description_before'); ?>
+					<?php if ( !empty( $settings['exad_team_member_description'] ) ) : ?>
+						<div <?php echo $this->get_render_attribute_string( 'exad_team_member_description' ); ?>><?php echo wp_kses_post( $settings['exad_team_member_description'] ); ?></div>
+					<?php endif; ?>
+					<?php do_action('exad_team_member_description_after'); ?>
+
+					<?php if ( 'yes' === $settings['exad_section_team_members_cta_btn'] && !empty( $settings['exad_team_members_cta_btn_text'] ) ) : ?>
+						<a <?php echo $this->get_render_attribute_string( 'exad_team_members_cta_btn_link' ); ?>>
+							<?php echo $this->team_member_cta(); ?>
+						</a>
+					<?php	
 					endif;
 
-					if ( !empty( $settings['exad_team_member_designation'] ) ) :
-                        echo '<span '.$this->get_render_attribute_string( 'exad_team_member_designation' ).'>'.esc_html( $settings['exad_team_member_designation'] ).'</span>';
-					endif;
-
-					do_action('exad_team_member_description_before');
-					if ( !empty( $settings['exad_team_member_description'] ) ) :
-                        echo '<div '.$this->get_render_attribute_string( 'exad_team_member_description' ).'>'.wp_kses_post( $settings['exad_team_member_description'] ).'</div>';
-                    endif;
-                    do_action('exad_team_member_description_after');
-
-					if ( 'yes' === $settings['exad_section_team_members_cta_btn'] && !empty( $settings['exad_team_members_cta_btn_text'] ) ) :
-						echo '<a '.$this->get_render_attribute_string( 'exad_team_members_cta_btn_link' ).'>';
-							$this->team_member_cta();
-						echo '</a>';
-                    endif;
-
-					if ( 'yes' === $settings['exad_team_member_enable_social_profiles'] ):
-						echo '<ul class="list-inline exad-team-member-social">';
+					if ( 'yes' === $settings['exad_team_member_enable_social_profiles'] ) : ?>
+						<ul class="list-inline exad-team-member-social">
+							<?php
 							foreach ( $settings['exad_team_member_social_profile_links'] as $index => $item ) :
 								$social   = '';
 								$link_key = 'link_' . $index;
@@ -1361,34 +1582,37 @@ class Team_Member extends Widget_Base {
 								}
 
 								if( $item['link']['url'] ) {
-						            $this->add_render_attribute( $link_key, 'href', esc_url( $item['link']['url'] ) );
-							        if( $item['link']['is_external'] ) {
-							            $this->add_render_attribute( $link_key, 'target', '_blank' );
-							        }
-							        if( $item['link']['nofollow'] ) {
-							            $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-							        }
-						        }
+									$this->add_render_attribute( $link_key, 'href', esc_url( $item['link']['url'] ) );
+									if( $item['link']['is_external'] ) {
+										$this->add_render_attribute( $link_key, 'target', '_blank' );
+									}
+									if( $item['link']['nofollow'] ) {
+										$this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+									}
+								}
 
-						        $this->add_render_attribute( $link_key, 'class', [
+								$this->add_render_attribute( $link_key, 'class', [
 									'exad-social-icon',
 									'elementor-repeater-item-' . $item['_id'],
 								] );
-
-								echo '<li>';
-			                        echo '<a '.$this->get_render_attribute_string( $link_key ).'>';
-										Icons_Manager::render_icon( $item['social_icon'], [ 'aria-hidden' => 'true' ] );
-			                        echo '</a>';
-								echo '</li>';
-							endforeach;
-						echo '</ul>';
+								?>	
+								<li>
+									<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
+										<?php Icons_Manager::render_icon( $item['social_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+									</a>
+								</li>	
+							<?php endforeach; ?>
+						</ul>
+					<?php
 					endif;
 
-					do_action('exad_team_member_content_area_after');
-				echo '</div>';
-			echo '</div>';
-			do_action('exad_team_member_wrapper_after');
-		echo '</div>';
+					do_action('exad_team_member_content_area_after'); ?>
+
+				</div>
+				<?php do_action('exad_team_member_wrapper_after'); ?>	
+			</div>
+		</div>	
+		<?php
 	}
 
 	/**
@@ -1399,18 +1623,18 @@ class Team_Member extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 
 		?>
 		<#
 			view.addRenderAttribute( 'exad_team_member_name', 'class', 'exad-team-member-name' );
-			view.addInlineEditingAttributes( 'exad_team_member_name', 'none' );
+			view.addInlineEditingAttributes( 'exad_team_member_name', 'basic' );
 
 			view.addRenderAttribute( 'exad_team_member_designation', 'class', 'exad-team-member-designation' );
-			view.addInlineEditingAttributes( 'exad_team_member_designation', 'none' );
+			view.addInlineEditingAttributes( 'exad_team_member_designation', 'basic' );
 
 			view.addRenderAttribute( 'exad_team_member_description', 'class', 'exad-team-member-about' );
-			view.addInlineEditingAttributes( 'exad_team_member_description' );
+			view.addInlineEditingAttributes( 'exad_team_member_description', 'basic' );
 
 			view.addRenderAttribute( 'exad_team_members_cta_btn_link', 'class', 'exad-team-member-cta' );
 			view.addRenderAttribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );
@@ -1439,19 +1663,13 @@ class Team_Member extends Widget_Base {
 			var target = settings.exad_team_members_cta_btn_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_team_members_cta_btn_link.nofollow ? ' rel="nofollow"' : '';
 		#>
-
+		
 		<div class="exad-team-item">
 		    <div {{{ view.getRenderAttributeString( 'exad_team_member_item' ) }}}>
 		    	<# if ( imageURL ) { #>
-					<# if( 'yes' === settings.exad_team_member_animating_mask_switcher ) { #>
-						<div class="exad-team-member-thumb {{ settings.exad_team_member_animating_mask_style }}">
-							<img class="circled" src="{{{ imageURL }}}">
+						<div class="exad-team-member-thumb{{ ( 'yes' === settings.exad_team_member_animating_mask_switcher ) ? ' '+settings.exad_team_member_animating_mask_style : '' }}">
+							<img src="{{{ imageURL }}}">
 						</div>
-					<# } else { #>
-						<div class="exad-team-member-thumb">
-							<img class="circled" src="{{{ imageURL }}}">
-						</div>
-					<# } #>
 				<# } #>
 		        <div class="exad-team-member-content">
 		        	<# if ( settings.exad_team_member_name ) { #>
@@ -1503,13 +1721,4 @@ class Team_Member extends Widget_Base {
 		<?php
 	}
 
-	private function team_member_cta() {
-		$settings = $this->get_settings_for_display();
-
-		$this->add_render_attribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );
-		$this->add_inline_editing_attributes( 'exad_team_members_cta_btn_text', 'none' );
-		echo '<span '.$this->get_render_attribute_string( 'exad_team_members_cta_btn_text' ).'>';
-			echo esc_html( $settings['exad_team_members_cta_btn_text'] );	
-		echo '</span>';
-	}
 }

@@ -22,7 +22,7 @@ class Call_To_Action extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-flip-box';
+		return 'exad exad-logo exad-call-to-action';
 	}
 
    	public function get_categories() {
@@ -33,7 +33,7 @@ class Call_To_Action extends Widget_Base {
         return [ 'exclusive', 'cta', 'button' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
         $exad_primary_color   = get_option( 'exad_primary_color_option', '#7a56ff' );
         $exad_secondary_color = get_option( 'exad_secondary_color_option', '#00d8d8' );
 
@@ -64,7 +64,10 @@ class Call_To_Action extends Widget_Base {
 				'type'        => Controls_Manager::TEXT,
 				'default'     => __( 'Designers & Developer with Great UX', 'exclusive-addons-elementor' ),
                 'label_block' => true,
-				'placeholder' => __( 'Your Heading', 'exclusive-addons-elementor' )
+				'placeholder' => __( 'Your Heading', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -101,7 +104,10 @@ class Call_To_Action extends Widget_Base {
                 'label'       => esc_html__( 'Button Text', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default'     => esc_html__( 'Get Now', 'exclusive-addons-elementor' )
+                'default'     => esc_html__( 'Get Now', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -137,7 +143,10 @@ class Call_To_Action extends Widget_Base {
                 'label'       => esc_html__( 'Button Text', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-                'default'     => esc_html__( 'Try It Now', 'exclusive-addons-elementor' )
+                'default'     => esc_html__( 'Try It Now', 'exclusive-addons-elementor' ),
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -164,77 +173,6 @@ class Call_To_Action extends Widget_Base {
                 'tab'   => Controls_Manager::TAB_STYLE
 			]
         );
-
-        // $this->add_control(
-		// 	'exad_section_cta_container_position',
-		// 	[
-		// 		'label'   => esc_html__( 'Full Container Position', 'exclusive-addons-elementor' ),
-        //         'type'    => Controls_Manager::SELECT,
-        //         'default' => 'exad-section-cta-default',
-		// 		'options' => [
-		// 			'exad-section-cta-default' 	=> esc_html__( 'Default', 	'exclusive-addons-elementor' ),
-		// 			'exad-section-cta-absolute' 	=> esc_html__( 'Absolute', 	'exclusive-addons-elementor' ),
-		// 		]
-		// 	]
-        // );
-        
-        // $this->add_responsive_control(
-        //     'exad_section_cta_container_position_left',
-        //     [
-        //         'label'        => esc_html__( 'X Offset', 'exclusive-addons-elementor' ),
-        //         'type'         => Controls_Manager::SLIDER,
-        //         'size_units' => [ 'px', '%' ],
-        //         'range'        => [
-        //             'px'       => [
-        //                 'min'  => -1000,
-        //                 'max'  => 1000,
-        //             ],
-        //             '%'        => [
-        //                 'min'  => -100,
-        //                 'max'  => 100,
-        //             ],
-        //         ],
-        //         'default'      => [
-        //             'unit'     => 'px',
-        //             'size'     => 0
-        //         ],
-        //         'selectors'    => [
-        //             '{{WRAPPER}} .exad-section-cta-absolute' => 'margin-left: {{SIZE}}px; margin-right: calc(-0% - {{SIZE}}px );'
-        //         ],
-        //         'condition' => [
-        //             'exad_section_cta_container_position' => 'exad-section-cta-absolute'
-        //         ]
-        //     ]
-        // );
-
-        // $this->add_responsive_control(
-        //     'exad_section_cta_container_position_top',
-        //     [
-        //         'label'        => esc_html__( 'Y Offset', 'exclusive-addons-elementor' ),
-        //         'type'         => Controls_Manager::SLIDER,
-        //         'size_units' => [ 'px', '%' ],
-        //         'range'        => [
-        //             'px'       => [
-        //                 'min'  => -1000,
-        //                 'max'  => 1000,
-        //             ],
-        //             '%'       => [
-        //                 'min'  => -100,
-        //                 'max'  => 100,
-        //             ],
-        //         ],
-        //         'default'      => [
-        //             'unit'     => 'px',
-        //             'size'     => 0
-        //         ],
-        //         'selectors'    => [
-        //             '{{WRAPPER}} .exad-section-cta-absolute' => 'margin-top: {{SIZE}}px;'
-        //         ],
-        //         'condition' => [
-        //             'exad_section_cta_container_position' => 'exad-section-cta-absolute'
-        //         ]
-        //     ]
-        // );
         
         $this->add_control(
 			'exad_section_cta_btn_effect',
@@ -277,12 +215,20 @@ class Call_To_Action extends Widget_Base {
                         'icon'   => 'eicon-h-align-right'
                     ]
                 ],
+                'selectors_dictionary' => [
+					'left' => 'text-align: left; justify-content: flex-start;',
+					'center' => 'text-align: center; justify-content: center;',
+					'right' => 'text-align: right; justify-content: flex-end;',
+				],
                 'selectors'      => [
-                    '{{WRAPPER}} .exad-call-to-action.skin-vertical' => 'text-align: {{VALUE}};'
+                    '{{WRAPPER}} .exad-call-to-action.skin-vertical' => '{{VALUE}};',
+                    '{{WRAPPER}} .exad-call-to-action-buttons li' => '{{VALUE}};'
                 ],
-                'default'        => 'center',
+                'desktop_default' => 'center',
+				'tablet_default' => 'center',
+				'mobile_default' => 'center',
                 'condition'      => [
-                    '.exad_cta_skin_type' => 'vertical'
+                    'exad_cta_skin_type' => 'vertical'
                 ]
             ]
         ); 
@@ -579,6 +525,14 @@ class Call_To_Action extends Widget_Base {
                 'label'      => esc_html__( 'Margin', 'exclusive-addons-elementor' ),
                 'type'       => Controls_Manager::DIMENSIONS,            
                 'size_units' => [ 'px', 'em', '%' ],
+                'default'      => [
+                    'top'      => '0',
+                    'right'    => '20',
+                    'bottom'   => '0',
+                    'left'     => '0',
+                    'unit'     => 'px',
+                    'isLinked' => false
+                ],
                 'selectors'  => [
                     '{{WRAPPER}} a.exad-call-to-action-primary-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
@@ -902,6 +856,30 @@ class Call_To_Action extends Widget_Base {
         $this->end_controls_section();  
 	}
 
+    private function primary_btn() {
+        $settings = $this->get_settings_for_display();
+
+        $this->add_render_attribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
+        $this->add_inline_editing_attributes( 'exad_cta_primary_btn', 'none' );
+        ?>
+        <span <?php echo $this->get_render_attribute_string( 'exad_cta_primary_btn' ); ?>>
+            <?php echo esc_html( $settings['exad_cta_primary_btn'] ); ?>
+        </span>
+    <?php    
+    }
+
+    private function seconday_btn() {
+        $settings = $this->get_settings_for_display();
+
+        $this->add_render_attribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );
+        $this->add_inline_editing_attributes( 'exad_cta_secondary_btn', 'none' );
+        ?>
+        <span <?php echo $this->get_render_attribute_string( 'exad_cta_secondary_btn' ); ?>>
+            <?php echo esc_html( $settings['exad_cta_secondary_btn'] ); ?>
+        </span>
+    <?php     
+    }
+
 	protected function render() {
 
         $settings = $this->get_settings_for_display();
@@ -910,10 +888,10 @@ class Call_To_Action extends Widget_Base {
         $details  = $settings['exad_cta_description'];
 
         $this->add_render_attribute( 'exad_cta_heading', 'class', 'exad-call-to-action-title' );
-        $this->add_inline_editing_attributes( 'exad_cta_heading', 'none' );
+        $this->add_inline_editing_attributes( 'exad_cta_heading', 'basic' );
 
         $this->add_render_attribute( 'exad_cta_description', 'class', 'exad-call-to-action-subtitle' );
-        $this->add_inline_editing_attributes( 'exad_cta_description' );
+        $this->add_inline_editing_attributes( 'exad_cta_description', 'basic' );
 
         $this->add_render_attribute( 'exad_call_to_action_wrapper', 'class', 'exad-call-to-action skin-'.$settings['exad_cta_skin_type'] );
 
@@ -939,53 +917,54 @@ class Call_To_Action extends Widget_Base {
                 $this->add_render_attribute( 'exad_cta_secondary_btn_link', 'rel', 'nofollow' );
             }
         }
+        ?>
 
-        echo '<div '.$this->get_render_attribute_string( 'exad_call_to_action_wrapper' ).'>';
-            do_action('exad_cta_wrapper_before');
-		    echo '<div class="exad-call-to-action-content">';
-
-			    echo '<div class="exad-call-to-action-header">';
-                    if( !empty( $settings['exad_cta_icon']['value'] ) ){
-                        echo '<div class="exad-call-to-action-icon">';
-                            Icons_Manager::render_icon( $settings['exad_cta_icon'], [ 'aria-hidden' => 'true' ] );
-                        echo '</div>';
+        <div <?php echo $this->get_render_attribute_string( 'exad_call_to_action_wrapper' ); ?>>
+            <?php do_action('exad_cta_wrapper_before'); ?>
+		    <div class="exad-call-to-action-content">
+                <div class="exad-call-to-action-header">
+                <?php
+                    if( !empty( $settings['exad_cta_icon']['value'] ) ) { ?>
+                        <div class="exad-call-to-action-icon">
+                            <?php Icons_Manager::render_icon( $settings['exad_cta_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                        </div>
+                    <?php    
                     }
 
                     $heading ? printf( '<h1 '.$this->get_render_attribute_string( 'exad_cta_heading' ).'>%s</h1>', wp_kses_post( $heading ) ) : '';
 
-                    if( $details ):
-                        echo '<div '.$this->get_render_attribute_string( 'exad_cta_description' ).'>';
-                            echo wp_kses_post( $settings['exad_cta_description'] );
-                        echo '</div>';
-                    endif;
+                    if ( $details ) : ?>
+                        <div <?php echo $this->get_render_attribute_string( 'exad_cta_description' ); ?>>
+                            <?php echo wp_kses_post( $settings['exad_cta_description'] ); ?>
+                        </div>
+                    <?php endif; ?>
+			    </div>
 
-			    echo '</div>';
-
-			    echo '<div class="exad-call-to-action-footer">';
-                    echo '<ul class="exad-call-to-action-buttons '. $settings['exad_section_cta_btn_effect'] .'">';
-
-                        if ( ! empty( $settings['exad_cta_primary_btn'] ) ) :
-                            echo '<li>';
-                                echo '<a '.$this->get_render_attribute_string( 'exad_cta_primary_btn_link' ).'>';
-                                    $this->primary_btn();
-                                echo '</a>';
-                            echo '</li>';
+			    <div class="exad-call-to-action-footer">
+                    <ul class="exad-call-to-action-buttons <?php echo $settings['exad_section_cta_btn_effect']; ?>">
+                    <?php    
+                        if ( ! empty( $settings['exad_cta_primary_btn'] ) ) : ?>
+                            <li>
+                                <a <?php echo $this->get_render_attribute_string( 'exad_cta_primary_btn_link' ); ?>>
+                                    <?php $this->primary_btn(); ?>
+                                </a>
+                            </li>
+                        <?php    
                         endif;
 
-                        if( 'vertical' === $settings['exad_cta_skin_type'] && !empty( $settings['exad_cta_secondary_btn'] ) ) :
-                            echo '<li>';
-                                echo '<a '.$this->get_render_attribute_string( 'exad_cta_secondary_btn_link' ).'>';
-                                    $this->seconday_btn();
-                                echo '</a>';
-                            echo '</li>';
-                        endif;
-
-                    echo '</ul>';
-			    echo '</div>';
-		    echo '</div>';
-            do_action('exad_cta_wrapper_after');
-
-		echo '</div>';
+                        if( 'vertical' === $settings['exad_cta_skin_type'] && !empty( $settings['exad_cta_secondary_btn'] ) ) : ?>
+                            <li>
+                                <a <?php echo $this->get_render_attribute_string( 'exad_cta_secondary_btn_link' ); ?>>
+                                    <?php $this->seconday_btn(); ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+			    </div>
+		    </div>
+            <?php do_action('exad_cta_wrapper_after'); ?>
+		</div>
+    <?php     
 	}
 
     /**
@@ -996,7 +975,7 @@ class Call_To_Action extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _content_template() {
+    protected function content_template() {
         ?>
         <# 
             view.addRenderAttribute( 'exad_call_to_action_wrapper', {
@@ -1009,10 +988,10 @@ class Call_To_Action extends Widget_Base {
             var iconHTML = elementor.helpers.renderIcon( view, settings.exad_cta_icon, { 'aria-hidden': true }, 'i' , 'object' );
 
             view.addRenderAttribute( 'exad_cta_heading', 'class', 'exad-call-to-action-title' );
-            view.addInlineEditingAttributes( 'exad_cta_heading', 'none' );
+            view.addInlineEditingAttributes( 'exad_cta_heading', 'basic' );
 
             view.addRenderAttribute( 'exad_cta_description', 'class', 'exad-call-to-action-subtitle' );
-            view.addInlineEditingAttributes( 'exad_cta_description' );
+            view.addInlineEditingAttributes( 'exad_cta_description', 'basic' );
 
             view.addRenderAttribute( 'exad_cta_primary_btn_link', 'class', 'exad-call-to-action-primary-btn' );
             view.addRenderAttribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
@@ -1077,25 +1056,4 @@ class Call_To_Action extends Widget_Base {
         <?php
     }
 
-    private function primary_btn() {
-        $settings = $this->get_settings_for_display();
-
-        $this->add_render_attribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
-        $this->add_inline_editing_attributes( 'exad_cta_primary_btn', 'none' );
-
-        echo '<span '.$this->get_render_attribute_string( 'exad_cta_primary_btn' ).'>';
-            echo esc_html( $settings['exad_cta_primary_btn'] );
-        echo '</span>';
-    }
-
-    private function seconday_btn() {
-        $settings = $this->get_settings_for_display();
-
-        $this->add_render_attribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );
-        $this->add_inline_editing_attributes( 'exad_cta_secondary_btn', 'none' );
-
-        echo '<span '.$this->get_render_attribute_string( 'exad_cta_secondary_btn' ).'>';
-            echo esc_html( $settings['exad_cta_secondary_btn'] );
-        echo '</span>';
-    }
 }

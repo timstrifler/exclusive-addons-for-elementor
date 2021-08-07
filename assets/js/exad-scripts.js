@@ -136,7 +136,7 @@ var exclusiveButton = function ( $scope, $ ) {
 // Corona script starts
 var exclusiveCorona = function ($scope, $) {
 	var exadCoronaWrapper = $scope.find('.exad-corona').eq(0);
-	var searchData = exadCoronaWrapper.find('#search_data');
+	var searchData = exadCoronaWrapper.find('#exad_search_data');
 	var dataTtableRow = exadCoronaWrapper.find('#data_table .data_table_row');
 	var continentBtn = exadCoronaWrapper.find('#exad-covid-filters .exad-covid-continent-btn');
 	var parentClass = exadCoronaWrapper.find('.exad-corona-table-heading.yes th');
@@ -198,6 +198,99 @@ var exclusiveCountdownTimer = function ( $scope, $ ) {
 
 // countdown timer script ends
 
+/* Facebook Feed */
+
+var exadFacebookFeed = function($scope) {
+    var button = $scope.find('.exad-facebook-load-more');
+    var facebook_wrap = $scope.find('.exad-facebook-feed-wrapper');
+    
+    button.on("click", function(e) {
+        e.preventDefault();
+        var $self = $(this),
+            query_settings = $self.data("settings"),
+            total = $self.data("total"),
+            items = $scope.find('.exad-facebook-feed-item').length;
+        $.ajax({
+            url: exad_ajax_object.ajax_url,
+            type: 'POST',
+            data: {
+                action: "exad_facebook_feed_action",
+                security: exad_ajax_object.nonce,
+                query_settings: query_settings,
+                loaded_item: items,
+            },
+            success: function(response) {
+                if(total > items){
+                    $(response).appendTo(facebook_wrap);
+                } else {
+                    $self.text('All Loaded').addClass('loaded');
+                    setTimeout( function(){
+                        $self.css({"display": "none"});
+                    },3000);
+                }
+            },
+            error: function(error) {}
+        });
+    });
+};
+
+// filterable post script starts
+
+var exclusiveFilterablePost = function( $scope, $ ) {
+    $( window ).load( function() {
+
+        if ( $.isFunction( $.fn.isotope ) ) {
+            var exadGetGallery       = $scope.find( '.filterable-post-container' ).eq( 0 ),
+            currentFilteredId         = '#' + exadGetGallery.attr( 'id' ),
+            $container             = $scope.find( currentFilteredId ).eq( 0 );
+            
+            var filterableMainWrapper = $scope.find( '.exad-filterable-items' ).eq( 0 ),
+            filterableItem            = '#' + filterableMainWrapper.attr( 'id' );
+
+            $container.isotope({
+                filter: '*',
+                animationOptions: {
+                    queue: true
+                }
+            });
+
+            $( filterableItem + ' .exad-filterable-menu li' ).click( function() {
+                $( filterableItem + ' .exad-filterable-menu li.current' ).removeClass( 'current' );
+                $( this ).addClass( 'current' );
+         
+                var selector = $( this ).attr( 'data-filter' );
+                $container.isotope( {
+                    filter: selector,
+                    layoutMode: 'masonry',
+                    getSortData: {
+                        name: '.name',
+                        symbol: '.symbol',
+                        number: '.number parseInt',
+                        category: '[data-category]',
+                        weight: function( itemElem ) {
+                            var weight = $( itemElem ).find( '.weight' ).text();
+                            return parseFloat( weight.replace( /[\(\)]/g, '' ) );
+                        }
+                    },
+                    animationOptions: {
+                        queue: true
+                    },
+                    masonry: {
+                        columnWidth: 1
+                    }
+                 } );
+                 return false;
+            } ); 
+
+            $container.imagesLoaded().progress( function() {
+                $container.isotope('layout');
+            });
+        }
+    } ); 
+}
+
+// filterable post script ends
+
 
 // filterable gallery script starts
 
@@ -205,9 +298,9 @@ var exclusiveFilterableGallery = function( $scope, $ ) {
     $( window ).load( function() {
 
         if ( $.isFunction( $.fn.isotope ) ) {
-            var exadGetTable       = $scope.find( '.exad-gallery-element' ).eq( 0 ),
-            currentTableId         = '#' + exadGetTable.attr( 'id' ),
-            $container             = $scope.find( currentTableId ).eq( 0 );
+            var exadGetGallery       = $scope.find( '.exad-gallery-element' ).eq( 0 ),
+            currentGalleryId         = '#' + exadGetGallery.attr( 'id' ),
+            $container             = $scope.find( currentGalleryId ).eq( 0 );
             
             var galleryMainWrapper = $scope.find( '.exad-gallery-items' ).eq( 0 ),
             galleryItem            = '#' + galleryMainWrapper.attr( 'id' );
@@ -308,6 +401,30 @@ var exclusiveGoogleMaps = function($scope, $) {
 
 // google maps script ends
 
+
+// Google Reviews Carousel
+var exclusiveGoogleReviews = function( $scope, $ ) {
+
+  var $slider = $scope.find( '.exad-google-reviews-carousel-wrapper' );
+      
+      if ( ! $slider.length ) {
+          return;
+      }
+
+  var $sliderContainer = $slider.find('.swiper-container'),
+    $settings 		 = $slider.data('settings');
+
+  var swiper = new Swiper($sliderContainer, $settings);
+
+  if ($settings.pauseOnHover) {
+     $($sliderContainer).hover(function() {
+      (this).swiper.autoplay.stop();
+    }, function() {
+      (this).swiper.autoplay.start();
+    });
+  }
+
+};
 // image comparison script starts
 
 var exclusiveImageComparison = function($scope, $) {
@@ -343,7 +460,7 @@ var exclusiveImageMagnifier = function($scope, $) {
 
     var $magnify = $scope.find( '.exad-image-magnify' ).eq(0),
     $large       = $magnify.find( '.exad-magnify-large' ),
-    $small       = $magnify.find( '.exad-magnify-small' );
+    $small       = $magnify.find( '.exad-magnify-small > img' );
     
 
     var native_width  = 0;
@@ -388,6 +505,36 @@ var exclusiveImageMagnifier = function($scope, $) {
 }
 
 // image magnifier script ends
+
+
+// Container Link JS started
+
+$('body').on('click.onWrapperLink', '[data-exad-element-link]', function() {
+    var $wrapper = $(this),
+        data     = $wrapper.data('exad-element-link'),
+        id       = $wrapper.data('id'),
+        anchor   = document.createElement('a'),
+        anchorReal,
+        timeout;
+
+    anchor.id            = 'exad-link-anything-' + id;
+    anchor.href          = data.url;
+    anchor.target        = data.is_external ? '_blank' : '_self';
+    anchor.rel           = data.nofollow ? 'nofollow noreferer' : '';
+    anchor.style.display = 'none';
+
+    document.body.appendChild(anchor);
+
+    anchorReal = document.getElementById(anchor.id);
+    anchorReal.click();
+
+    timeout = setTimeout(function() {
+        document.body.removeChild(anchorReal);
+        clearTimeout(timeout);
+    });
+});
+
+// Container Link JS end
 
 // logo carousel script starts
 
@@ -562,6 +709,90 @@ var exclusiveNewsTicker = function( $scope, $ ) {
 
 // news ticker script ends
 
+// Post grid script starts
+
+var exclusivePostGrid = function( $scope, $ ) {
+    var exadPostgridWrapped = $scope.find( '.exad-post-grid' );
+
+    var exadPostArticle = exadPostgridWrapped.find('.exad-post-grid-three .exad-post-grid-container.exad-post-grid-equal-height-yes');
+    var exadPostWrapper = exadPostgridWrapped.find('.exad-row-wrapper');
+    // Match Height
+    exadPostArticle.matchHeight({
+        byRow: 0
+    });
+
+    var btn = exadPostgridWrapped.find('.exad-post-grid-paginate-btn');
+    var btnText = btn.text();
+
+    var page = 2;
+
+    $(btn).on("click", function(e){
+        e.preventDefault();
+        $.ajax({
+			url: exad_ajax_object.ajax_url,
+			type: 'POST',
+			data: {
+				action: 'ajax_pagination',
+                paged : page,
+                post_type: $(this).data('post-type'),
+                posts_per_page: $(this).data('posts_per_page'),
+            	post_offset: $(this).data('post-offset'),
+                post_thumbnail: $(this).data('post-thumbnail'),
+                post_thumb_size: $(this).data('post-thumb-size'),
+                equal_height: $(this).data('equal_height'),
+                enable_details_btn: $(this).data('enable_details_btn'),
+                details_btn_text: $(this).data('details_btn_text'),
+                show_user_avatar: $(this).data('show-user-avatar'),
+                show_user_name: $(this).data('show_user_name'),
+                post_data_position: $(this).data('post_data_position'),
+                show_title: $(this).data('show_title'),
+                title_full: $(this).data('title_full'),
+                show_read_time: $(this).data('show_read_time'),
+                show_comment: $(this).data('show_comment'),
+                show_excerpt: $(this).data('show_excerpt'),
+                excerpt_length: $(this).data('excerpt_length'),
+                show_user_name_tag: $(this).data('show_user_name_tag'),
+                user_name_tag: $(this).data('user_name_tag'),
+                show_date: $(this).data('show_date'),
+                show_date_tag: $(this).data('show_date_tag'),
+                date_tag: $(this).data('date_tag'),
+                title_length: $(this).data('title_length'),
+                image_align: $(this).data('image_align'),
+                category_default_position: $(this).data('category_default_position'),
+                category_position_over_image: $(this).data('category_position_over_image'),
+                show_category: $(this).data('show_category'),
+                category: $(this).data('category'),
+                tags: $(this).data('tags'),
+                offset: $(this).data('offset'),
+                exclude_post: $(this).data('exclude_post')
+            },
+            beforeSend : function ( xhr ) {
+				btn.text('Loading...');
+			},
+            success: function( html ) {
+                if( html.length > 0 ){
+                    btn.text(btnText);
+                    exadPostWrapper.append( html );
+                    page++;
+                    setTimeout(function(){
+                        var newExadPostArticle = exadPostgridWrapped.find('.exad-post-grid-three .exad-post-grid-container.exad-post-grid-equal-height-yes');
+                        newExadPostArticle.matchHeight({
+                            byRow: 0
+                        });
+                    }, 10);
+                } else {
+					btn.remove();
+				}
+            },
+		});
+    });
+
+    
+          
+}
+
+// post grid script ends
+
 // progress bar script starts
 
 function animatedProgressbar( id, type, value, strokeColor, trailColor, strokeWidth, strokeTrailWidth ){
@@ -638,6 +869,59 @@ var exclusiveProgressBar = function ( $scope, $ ){
 
 // progress bar script ends
 
+
+// Sticky script starts
+var exclusiveSticky = function ($scope, $) {
+	var exadStickySection = $scope.find('.exad-sticky-section-yes').eq(0);
+
+	exadStickySection.each(function(i) {
+		var dataSettings = $(this).data('settings');
+		$.each( dataSettings, function(index, value) { 
+			if( index === 'exad_sticky_top_spacing' ){
+				$scope.find('.exad-sticky-section-yes').css( "top", value + "px" );
+			}
+		}); 
+    });
+	$scope.each(function(i) {
+		var sectionSettings = $scope.data("settings");
+		$.each( sectionSettings, function(index, value) { 
+			if( index === 'exad_sticky_top_spacing' ){
+				$scope.css( "top", value + "px" );
+			}
+		}); 
+    });
+    
+	if ( exadStickySection.length > 0 ) {
+		var parent = document.querySelector('.exad-sticky-section-yes').parentElement;
+		while (parent) {
+			var hasOverflow = getComputedStyle(parent).overflow;
+			if (hasOverflow !== 'visible') {
+				parent.style.overflow = "visible"
+			}
+			parent = parent.parentElement;
+		}
+	}
+
+	var columnClass = $scope.find( '.exad-column-sticky' );
+	var dataId = columnClass.data('id');
+	var dataType = columnClass.data('type');
+	var topSpacing = columnClass.data('top_spacing');
+
+	if( dataType === 'column' ){
+		var $target  = $scope;
+		var wrapClass = columnClass.find( '.elementor-widget-wrap' );
+	
+		wrapClass.stickySidebar({
+			topSpacing: topSpacing,
+			bottomSpacing: 60,
+			containerSelector: '.elementor-row',
+        	innerWrapperSelector: '.elementor-column-wrap',
+		});
+	}
+
+}
+// Sticky script ends
+
 // tabs script starts
 
 var exclusiveTabs   = function( $scope, $ ) {
@@ -679,6 +963,7 @@ $(window).on('elementor/frontend/init', function () {
     }
     
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-accordion.default', exclusiveAccordion );
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-post-grid.default', exclusivePostGrid );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-alert.default', exclusiveAlert );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-animated-text.default', exclusiveAnimatedText );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-button.default', exclusiveButton );
@@ -693,6 +978,10 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-progress-bar.default', exclusiveProgressBar );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-exclusive-tabs.default', exclusiveTabs );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-covid-19.default', exclusiveCorona );
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-facebook-feed.default', exadFacebookFeed );
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-google-reviews.default', exclusiveGoogleReviews );
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-filterable-post.default', exclusiveFilterablePost);
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/section', exclusiveSticky);
 });	
 
 }(jQuery));

@@ -59,11 +59,11 @@ class Covid_19_Stats extends Widget_Base {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'exad-element-icon eicon-cogs';
+        return 'exad exad-logo exad-covid-19';
     }
 
     public function get_keywords() {
-        return [ 'exclusive', 'statistics', 'corona', 'coronavirus' ];
+        return [ 'exclusive', 'covid19', 'statistics', 'corona', 'coronavirus' ];
     }
 
     /**
@@ -73,7 +73,7 @@ class Covid_19_Stats extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-    protected function _register_controls() {
+    protected function register_controls() {
         $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
  
         $this->start_controls_section(
@@ -987,7 +987,7 @@ class Covid_19_Stats extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_width',
 			[
 				'label' => __( 'Input Box Width', 'exclusive-addons-elementor' ),
@@ -1004,12 +1004,12 @@ class Covid_19_Stats extends Widget_Base {
 					'size' => 350,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .search-form' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_height',
 			[
 				'label' => __( 'Input Box Height', 'exclusive-addons-elementor' ),
@@ -1026,7 +1026,7 @@ class Covid_19_Stats extends Widget_Base {
 					'size' => 50,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .search-form' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -1037,7 +1037,7 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Background', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .search-form .exad-corona-search-input' => 'background-color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input' => 'background-color: {{VALUE}};'
                 ]
             ]
         );
@@ -1046,7 +1046,7 @@ class Covid_19_Stats extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_corona_search_filter_typography',
-                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input'
+                'selector' => '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input'
             ]
         );
 
@@ -1056,7 +1056,7 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .search-form .exad-corona-search-input' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input' => 'color: {{VALUE}};'
                 ]
             ]
         );
@@ -1067,8 +1067,8 @@ class Covid_19_Stats extends Widget_Base {
                 'label'     => __( 'Placeholder Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .search-form .exad-corona-search-input::placeholder' => 'color: {{VALUE}};',
-                    '{{WRAPPER}} .search-form .exad-corona-search-icon' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input::placeholder' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-icon' => 'color: {{VALUE}};'
                 ]
             ]
         );
@@ -1078,11 +1078,11 @@ class Covid_19_Stats extends Widget_Base {
             [
                 'name' => 'exad_corona_search_filter_border',
                 'label' => __( 'Border', 'pexclusive-addons-elementor' ),
-                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input',
+                'selector' => '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input',
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_radius',
 			[
 				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1097,12 +1097,12 @@ class Covid_19_Stats extends Widget_Base {
                     'isLinked' => false,
                 ],
 				'selectors' => [
-					'{{WRAPPER}} .search-form .exad-corona-search-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_padding',
 			[
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -1117,12 +1117,12 @@ class Covid_19_Stats extends Widget_Base {
                     'isLinked' => false,
                 ],
 				'selectors' => [
-					'{{WRAPPER}} .search-form .exad-corona-search-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_margin',
 			[
 				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
@@ -1137,12 +1137,12 @@ class Covid_19_Stats extends Widget_Base {
                     'isLinked' => false,
                 ],
 				'selectors' => [
-					'{{WRAPPER}} .search-form' => 'Margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form' => 'Margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_search_icon_position',
 			[
 				'label' => __( 'Search Icon Position', 'exclusive-addons-elementor' ),
@@ -1159,12 +1159,12 @@ class Covid_19_Stats extends Widget_Base {
 					'size' => 12,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .search-form .exad-corona-search-icon' => 'left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form .exad-corona-search-icon' => 'left: {{SIZE}}{{UNIT}};',
 				],
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_search_filter_search_icon_size',
 			[
 				'label' => __( 'Search Icon Size', 'exclusive-addons-elementor' ),
@@ -1181,7 +1181,7 @@ class Covid_19_Stats extends Widget_Base {
 					'size' => 20,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .search-form .exad-corona-search-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-corona-search-form .exad-corona-search-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
         );
@@ -1190,7 +1190,7 @@ class Covid_19_Stats extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             [
                 'name'     => 'exad_corona_search_filter_box_shadow',
-                'selector' => '{{WRAPPER}} .search-form .exad-corona-search-input'
+                'selector' => '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input'
             ]
         );
 
@@ -1216,7 +1216,7 @@ class Covid_19_Stats extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_continent_menu_margin',
 			[
 				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
@@ -1236,7 +1236,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_continent_menu_padding',
 			[
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -1256,7 +1256,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_continent_menu_radius',
 			[
 				'label' => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1415,7 +1415,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_corona_enable_data_table_box_width',
             [
                 'label'        => esc_html__( 'Box Width', 'exclusive-addons-elementor' ),
@@ -1529,7 +1529,7 @@ class Covid_19_Stats extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_data_table_heading_padding',
 			[
 				'label' => __( 'Table Heading Padding', 'exclusive-addons-elementor' ),
@@ -1558,7 +1558,7 @@ class Covid_19_Stats extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_corona_data_table_row_padding',
 			[
 				'label' => __( 'Row Padding', 'exclusive-addons-elementor' ),
@@ -1682,26 +1682,32 @@ class Covid_19_Stats extends Widget_Base {
 	 * @access protected
 	 */
     protected function render() {
-        $settings = $this->get_settings();
+        $settings = $this->get_settings_for_display();
         $country = $settings['exad_section_corona_country_base'];
         $last_update = $settings['exad_corona_enable_last_update'];
-        if( 'All' === $country ){
-            $response = wp_remote_get( sprintf( 'https://disease.sh/v2/%s', $country ) );
-        }else{
-            $response = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/%s', $country ) );
-        }
-        $details_object = json_decode(json_encode($response['body']), true);
-        $details_params = json_decode( $details_object, true );
 
-        $allData = wp_remote_get( sprintf( 'https://disease.sh/v2/countries/' ) );
-        $allDataObject = json_decode(json_encode($allData['body']), true);
-        $allDataList = json_decode( $allDataObject, true );
+        $args = array(
+            'user-agent'  =>  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2',
+            'sslverify' => false,
+        ); 
+
+        if( 'All' === $country ) {
+            $response = wp_remote_get( sprintf( 'https://disease.sh/v3/covid-19/%s', $country ), $args );
+        } else {
+            $response = wp_remote_get( sprintf( 'https://disease.sh/v3/covid-19/countries/%s', $country ), $args );
+        }
+        $info_block_data = json_decode( wp_remote_retrieve_body( $response ), true );
+
+        // API response for Info Table
+        $all_response = wp_remote_get( 'https://disease.sh/v3/covid-19/countries', $args );
+        $info_table_data = json_decode( wp_remote_retrieve_body( $all_response ), true );
 
             $last_updated_time = $settings['exad_corona_date_format'];
             $last_updated_text = $settings['exad_corona_update_text'];
-            $dateformat1 = intval( $details_params['updated']/1000 );
+            $dateformat1 = intval( $info_block_data['updated']/1000 );
             $dateformat2 = date( $last_updated_time, $dateformat1 );
         ?>
+        
         <div class="exad-corona">
             <div class="exad-corona-heading <?php echo esc_attr( $settings['exad_corona_heading_position'] ); ?>">
                 <?php if( 'yes' === $last_update ) { ?>
@@ -1720,7 +1726,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Cases: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['cases'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $info_block_data['cases'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1729,7 +1735,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Deaths: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['deaths'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $info_block_data['deaths'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1738,7 +1744,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Recovered: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['recovered'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $info_block_data['recovered'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1747,7 +1753,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Active: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['active'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $info_block_data['active'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1756,7 +1762,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Cases Today: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['todayCases'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $info_block_data['todayCases'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1765,7 +1771,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Deaths Today: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['todayDeaths'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $info_block_data['todayDeaths'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1774,7 +1780,7 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Critical: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['critical'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $info_block_data['critical'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
@@ -1783,15 +1789,15 @@ class Covid_19_Stats extends Widget_Base {
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
                         <span class="exad-corona-label"><?php _e( 'Tests: ', 'exclusive-addons-elementor' ); ?></span>
-                        <span class="exad-corona-data"><?php echo esc_html( $details_params['tests'] ); ?></span>
+                        <span class="exad-corona-data"><?php echo esc_html( $info_block_data['tests'] ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
             </div>
             <?php if( 'yes' === $settings['exad_corona_enable_search_filter'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
-                <div class="search-form">
+                <div class="exad-corona-search-form">
                     <span class="exad-corona-search-icon"><i class="fa fa-search"></i></span>
-                    <input class="exad-corona-search-input" type="text" name="search" id="search_data" placeholder="<?php echo esc_attr($settings['exad_corona_enable_search_filter_text']); ?>">
+                    <input class="exad-corona-search-input" type="text" name="search" id="exad_search_data" placeholder="<?php echo esc_attr($settings['exad_corona_enable_search_filter_text']); ?>">
                 </div>
             <?php } ?>
             <?php if( 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
@@ -1853,18 +1859,18 @@ class Covid_19_Stats extends Widget_Base {
                             <?php } ?>
                         </tr>
                         <?php
-                        foreach( $allDataList as $dataList ) { ?>
+                        foreach( $info_table_data as $info_table ) { ?>
                         <tr class="data_table_row exad-data-table-row <?php
                         if( 'yes' === $settings['exad_corona_enable_continent_menu'] && 'yes' === $settings['exad_corona_enable_data_table'] ) {
-                            $continent = $dataList['continent'];
+                            $continent = $info_table['continent'];
                             $low_continent = strtolower($continent);
                             $rep_continent = str_replace( array(' ', '/'), "-",$low_continent);
                             echo $rep_continent; 
                         }
                         ?>">
-                            <td class="flag"><img src="<?php echo $dataList['countryInfo']["flag"]; ?>" alt="<?php echo $dataList['country']; ?>"></td>
+                            <td class="flag"><img src="<?php echo $info_table['countryInfo']["flag"]; ?>" alt="<?php echo $info_table['country']; ?>"></td>
                             <?php foreach ( $settings['exad_corona_data_table_column'] as $value ) { ?>
-                                <td><?php echo $dataList[$value]; ?></td>
+                                <td><?php echo $info_table[$value]; ?></td>
                             <?php } ?>
                         </tr>
                         <?php } ?>

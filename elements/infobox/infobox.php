@@ -11,8 +11,10 @@ use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Infobox extends Widget_Base {
 	
@@ -25,7 +27,7 @@ class Infobox extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-info-box';
+		return 'exad exad-logo exad-infobox';
 	}
 
 	public function get_categories() {
@@ -33,10 +35,10 @@ class Infobox extends Widget_Base {
 	}
 
 	public function get_keywords() {
-		return [ 'exclusive', 'information', 'service' ];
+		return [ 'exclusive', 'information', 'infobox', 'service' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 		
 		/*
@@ -91,7 +93,7 @@ class Infobox extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'      => 'thumbnail',
-				'default'   => 'thumbnail',
+				'default'   => 'medium_large',
 				'condition' => [
 					'exad_infobox_img_or_icon' => 'img'
 				]
@@ -120,7 +122,10 @@ class Infobox extends Widget_Base {
 				'label'       => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Infobox Title', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Infobox Title', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -139,7 +144,10 @@ class Infobox extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Put your information in the box. Anything you\'d like. Please don\'t keep it empty.', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Put your information in the box. Anything you\'d like. Please don\'t keep it empty.', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -154,6 +162,22 @@ class Infobox extends Widget_Base {
 			[
 				'label' => esc_html__( 'Container', 'exclusive-addons-elementor' ),
 				'tab'   => Controls_Manager::TAB_STYLE
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_infobox_container_min_height',
+			[
+				'label'       => esc_html__( 'Min Height', 'exclusive-addons-elementor' ),
+				'type'    	  => Controls_Manager::SLIDER,
+			  	'range'       => [
+				  	'px'      => [
+					  	'max' => 1000
+				  	]
+			 	],
+			  	'selectors'   => [
+				  	'{{WRAPPER}} .exad-infobox .exad-infobox-item' => 'min-height: {{SIZE}}px;',
+				],
 			]
 		);
 
@@ -181,22 +205,32 @@ class Infobox extends Widget_Base {
 			]
 		);
 
-        $this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name'      => 'exad_infobox_background',
-				'types'     => [ 'classic', 'gradient' ],
-				'separator' => 'before',
-				'selector'  => '{{WRAPPER}} .exad-infobox .exad-infobox-item',
-				'default'   => '#ffffff'
-			]
-		);
+        // $this->add_group_control(
+		// 	Group_Control_Background::get_type(),
+		// 	[
+		// 		'name'      => 'exad_infobox_background',
+		// 		'types'     => [ 'classic', 'gradient' ],
+		// 		'separator' => 'before',
+		// 		'selector'  => '{{WRAPPER}} .exad-infobox .exad-infobox-item',
+		// 		'default'   => '#ffffff'
+		// 	]
+		// );
 
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
+		$this->add_responsive_control(
+			'exad_infobox_padding',
 			[
-				'name'     => 'exad_infobox_border',
-				'selector' => '{{WRAPPER}} .exad-infobox-item'
+				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'default'    => [
+					'top'    => '30',
+					'right'  => '30',
+					'bottom' => '30',
+					'left'   => '30'
+				],
+			  	'selectors'  => [
+			  		'{{WRAPPER}} .exad-infobox-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+			  	]
 			]
 		);
 
@@ -218,31 +252,90 @@ class Infobox extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'exad_infobox_padding',
-			[
-				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'default'    => [
-					'top'    => '30',
-					'right'  => '30',
-					'bottom' => '30',
-					'left'   => '30'
-				],
-			  	'selectors'  => [
-			  		'{{WRAPPER}} .exad-infobox-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-			  	]
-			]
-		);
+		$this->start_controls_tabs( 'exad_infobox_container_tabs' );
 
-		$this->add_group_control(
-			Group_Control_Box_Shadow::get_type(),
-			[
-				'name'     => 'exad_infobox_box_shadow',
-				'selector' => '{{WRAPPER}} .exad-infobox-item'
-			]
-		);
+			$this->start_controls_tab( 'exad_infobox_container_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_group_control(
+					Group_Control_Background::get_type(),
+					[
+						'name'      => 'exad_infobox_background_normal',
+						'types'     => [ 'classic', 'gradient' ],
+						'selector'  => '{{WRAPPER}} .exad-infobox .exad-infobox-item',
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name'     => 'exad_infobox_border_normal',
+						'selector' => '{{WRAPPER}} .exad-infobox-item'
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name'     => 'exad_infobox_box_shadow_normal',
+						'selector' => '{{WRAPPER}} .exad-infobox-item'
+					]
+				);
+
+			$this->end_controls_tab();
+		
+			$this->start_controls_tab( 'exad_infobox_container_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_group_control(
+					Group_Control_Background::get_type(),
+					[
+						'name'      => 'exad_infobox_background_hover',
+						'types'     => [ 'classic', 'gradient' ],
+						'separator' => 'before',
+						'selector'  => '{{WRAPPER}} .exad-infobox .exad-infobox-item:hover',
+					]
+				);
+
+				$this->add_control(
+					'exad_infobox_background_hover_title_color',
+					[
+						'label'     => esc_html__( 'Title Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'selectors' => [
+							  '{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-content-title' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+				$this->add_control(
+					'exad_infobox_background_hover_description_color',
+					[
+						'label'     => esc_html__( 'Description Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-content-description' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Border::get_type(),
+					[
+						'name'     => 'exad_infobox_border_hover',
+						'selector' => '{{WRAPPER}} .exad-infobox-item:hover'
+					]
+				);
+
+				$this->add_group_control(
+					Group_Control_Box_Shadow::get_type(),
+					[
+						'name'     => 'exad_infobox_box_shadow_hover',
+						'selector' => '{{WRAPPER}} .exad-infobox-item:hover'
+					]
+				);
+
+			$this->end_controls_tab();
+		
+		$this->end_controls_tabs();	
 
 		
 		$this->end_controls_section();
@@ -357,6 +450,18 @@ class Infobox extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_infobox_enable_box',
+            [
+				'label'        => __( 'Enable Box', 'exclusive-addons-elementor' ),
+				'type'         =>  Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
+
 		$this->add_responsive_control(
 			'exad_infobox_icon_height',
 			[
@@ -372,7 +477,10 @@ class Infobox extends Widget_Base {
 			 	],
 			  	'selectors'   => [
 				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'height: {{SIZE}}px;'
-			  	]
+				],
+				'condition' => [
+					'exad_infobox_enable_box' => 'yes' 
+				]
 			]
 		);
 
@@ -390,8 +498,13 @@ class Infobox extends Widget_Base {
 				  	]
 			 	],
 			  	'selectors'   => [
-				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'width: {{SIZE}}px;'
-			  	]
+				  	'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'width: {{SIZE}}px;',
+				  	'{{WRAPPER}} .exad-infobox-icon-position-left .exad-infobox-content' => 'flex-basis: calc( 100% - {{SIZE}}px );',
+				  	'{{WRAPPER}} .exad-infobox-icon-position-right .exad-infobox-content' => 'flex-basis: calc( 100% - {{SIZE}}px );'
+				],
+				'condition' => [
+					'exad_infobox_enable_box' => 'yes' 
+				]
 			]
 		);
 
@@ -405,7 +518,7 @@ class Infobox extends Widget_Base {
 			  	],
 			  	'range'       => [
 				  	'px'      => [
-					  	'max' => 100
+					  	'max' => 250
 				  	]
 			 	],
 			  	'selectors'   => [
@@ -455,7 +568,8 @@ class Infobox extends Widget_Base {
 					'left'   => '0'
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -465,6 +579,18 @@ class Infobox extends Widget_Base {
 			[
 				'name'     => 'exad_infobox_icon_box_shadow',
 				'selector' => '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon'
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_infobox_image_css_filter',
+				'selector' => '{{WRAPPER}} .exad-infobox-item .exad-infobox-icon img',
+				'condition'   => [
+					'exad_infobox_img_or_icon'  => 'img',
+					'exad_infobox_icon[value]!' => ''
+				]
 			]
 		);
 
@@ -608,18 +734,6 @@ class Infobox extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'exad_title_color',
-            [
-				'label'     => __('Color', 'exclusive-addons-elementor'),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000000',
-				'selectors' => [
-                    '{{WRAPPER}} .exad-infobox-content-title' => 'color: {{VALUE}};'
-                ]
-            ]
-        );
-
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
@@ -658,6 +772,41 @@ class Infobox extends Widget_Base {
 				]
 			]
 		);
+
+		$this->start_controls_tabs( 'exad_infobox_title_tabs' );
+
+			$this->start_controls_tab( 'exad_infobox_title_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_title_color_normal',
+					[
+						'label'     => __('Color', 'exclusive-addons-elementor'),
+						'type'      => Controls_Manager::COLOR,
+						'default'   => '#000000',
+						'selectors' => [
+							'{{WRAPPER}} .exad-infobox-content-title' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+		
+			$this->start_controls_tab( 'exad_infobox_title_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+				$this->add_control(
+					'exad_title_color_hover',
+					[
+						'label'     => esc_html__( 'Title Color', 'exclusive-addons-elementor' ),
+						'type'      => Controls_Manager::COLOR,
+						'selectors' => [
+							  '{{WRAPPER}} .exad-infobox-item .exad-infobox-content-title:hover' => 'color: {{VALUE}};'
+						]
+					]
+				);
+
+			$this->end_controls_tab();
+		
+		$this->end_controls_tabs();	
 
         $this->end_controls_section();
 
@@ -755,18 +904,23 @@ class Infobox extends Widget_Base {
 		$this->end_controls_section();
 		
 	}
+
 	protected function render() {
 		$settings                  = $this->get_settings_for_display();		
-		$infobox_image             = $settings['exad_infobox_image'];
-		$infobox_image_url         = Group_Control_Image_Size::get_attachment_image_src( $infobox_image['id'], 'thumbnail', $settings );
 		$title                     = $settings['exad_infobox_title'];
 		$details                   = $settings['exad_infobox_description'];
+
+		if ( $settings['exad_infobox_img_or_icon'] == 'img' ) {
+
+			$infobox_image_url_html = Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_infobox_image' );
+		}
 
 		$this->add_render_attribute( 'exad_infobox_transition',[
 			'class' => [
 				'exad-infobox-item', 
 				esc_attr( $settings['exad_infobox_alignment'] ), 
-				esc_attr( $settings['exad_infobox_icon_position'] ) 
+				esc_attr( $settings['exad_infobox_icon_position'] ),
+				'exad-infobox-enable-box-'.esc_attr( $settings['exad_infobox_enable_box'] )
 			]
 		]);
 
@@ -778,13 +932,7 @@ class Infobox extends Widget_Base {
 			$this->add_render_attribute( 'exad_infobox_transition', 'class', 'zoom-transition' );
 		}
 
-		if ( empty( $infobox_image_url ) ) {
-			$infobox_image_url = $infobox_image['url'];
-		}  else {
-			$infobox_image_url = $infobox_image_url;
-		} 
-
-		if( $settings['exad_infobox_title_link']['url'] ) {
+		if( isset( $settings['exad_infobox_title_link']['url'] ) ) {
             $this->add_render_attribute( 'exad_infobox_title_link', 'href', esc_url( $settings['exad_infobox_title_link']['url'] ) );
 		    if( $settings['exad_infobox_title_link']['is_external'] ) {
 		        $this->add_render_attribute( 'exad_infobox_title_link', 'target', '_blank' );
@@ -800,44 +948,35 @@ class Infobox extends Widget_Base {
         $this->add_render_attribute( 'exad_infobox_description', 'class', 'exad-infobox-content-description' );
 		$this->add_inline_editing_attributes( 'exad_infobox_description' );
 
-		echo '<div class="exad-infobox">';
-			echo '<div '.$this->get_render_attribute_string( 'exad_infobox_transition' ).'>';
-			  	if( 'none' !== $settings['exad_infobox_img_or_icon'] ) {
-					if( 'yes' === $settings['exad_infobox_animating_mask_switcher'] ) {
-						echo '<div class="exad-infobox-icon '. $settings['exad_infobox_animating_mask_style'] .'">';
-							if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
-								Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
-							endif;
+		?>
 
-							if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
-								echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
-							endif;			
-						echo '</div>';
-					} else {
-						echo '<div class="exad-infobox-icon">';
-							if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) :
-								Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] );
-							endif;
+		<div class="exad-infobox">
+			<div <?php echo $this->get_render_attribute_string( 'exad_infobox_transition' ); ?>>
+			  	<?php if( 'none' !== $settings['exad_infobox_img_or_icon'] ) { ?>
+					<div class="exad-infobox-icon<?php echo ( 'yes' === $settings['exad_infobox_animating_mask_switcher'] ) ? ' '.$settings['exad_infobox_animating_mask_style'] : ''; ?>">
+						<?php if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) : ?>
+							<?php Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+						<?php endif; ?>
 
-							if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
-								echo '<img src="'.esc_url( $infobox_image_url ).'" alt="'.Control_Media::get_image_alt( $settings['exad_infobox_image'] ).'">';
-							endif;			
-						echo '</div>';
-					}
-			  	}
-	            echo '<div class="exad-infobox-content">';
-	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
-                        echo '<a '.$this->get_render_attribute_string( 'exad_infobox_title_link' ).'>';
-                    }
-	            	$title ? printf( '<h3 '.$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</h3>', esc_html( $title ) ) : '';
-	            	if( !empty( $settings['exad_infobox_title_link']['url'] ) ) {
-                        echo '</a>';
-                    }
+						<?php if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
+							echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_infobox_image' );
+						endif; ?>	
+					</div>
+			  	<?php } ?>
+	            <div class="exad-infobox-content">
+	            	<?php if( !empty( $settings['exad_infobox_title_link']['url'] ) ) { ?>
+                        <a <?php echo $this->get_render_attribute_string( 'exad_infobox_title_link' ); ?>>
+                    <?php } ?>
+	            	<?php $title ? printf( '<h3 '.$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</h3>', Helper::exad_wp_kses( $title ) ) : ''; ?>
+	            	<?php if( !empty( $settings['exad_infobox_title_link']['url'] ) ) { ?>
+                        </a>
+                    <?php } ?>
 
-	            	$details ? printf( '<div '.$this->get_render_attribute_string( 'exad_infobox_description' ).'>%s</div>', wp_kses_post( $details ) ) : '';
-	            echo '</div>';
-          	echo '</div>';
-        echo '</div>';
+	            	<?php $details ? printf( '<div '.$this->get_render_attribute_string( 'exad_infobox_description' ).'>%s</div>', wp_kses_post( $details ) ) : ''; ?>
+	            </div>
+          	</div>
+        </div>
+		<?php
 	}
 
 	/**
@@ -848,14 +987,15 @@ class Infobox extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			view.addRenderAttribute( 'exad_infobox_transition', {
 				'class': [ 
 					'exad-infobox-item', 
 					settings.exad_infobox_alignment,
-					settings.exad_infobox_icon_position
+					settings.exad_infobox_icon_position,
+					'exad-infobox-enable-box-'+settings.exad_infobox_enable_box
 				]
 			} );
 

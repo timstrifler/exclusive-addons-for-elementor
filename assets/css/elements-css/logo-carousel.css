@@ -1,5 +1,32 @@
 /* Logo Carousel Style Start */
 
+.exad-logo-carousel-element {
+  visibility:hidden;
+  opacity:0;	 
+  transition: opacity .3s;
+}
+
+.exad-logo-carousel-element.slick-initialized {
+ visibility:visible;
+ opacity:1;
+}
+
+.exad-logo-carousel-element .exad-logo-carousel-item{
+ display:none ;
+}
+
+.exad-logo-carousel-element .exad-logo-carousel-item:first-child{
+ display:block; 
+ visibility:hidden;
+} 
+
+.exad-logo-carousel-element.slick-initialized .exad-logo-carousel-item{
+ display:block;
+ visibility:visible;
+}
+
+
+
 .exad-logo-carousel .slick-dots {
   width: auto;
   display: table;
@@ -34,15 +61,15 @@
   margin-left: auto;
 }
 
-.exad-logo-carousel-element .exad-logo-carousel-prev, 
-.exad-logo-carousel-element .exad-logo-carousel-next {
+ .exad-logo-carousel-prev, 
+ .exad-logo-carousel-next {
   position: absolute;
   text-align: center;
   cursor: pointer;
   transition: all .3s ease;
 }
 
-.exad-logo-carousel-element .exad-logo-carousel-prev i, .exad-logo-carousel-element .exad-logo-carousel-next i {
+ .exad-logo-carousel-prev i, .exad-logo-carousel-element .exad-logo-carousel-next i {
   top: 50%;
   position: absolute;
   left: 50%;
@@ -84,5 +111,9 @@
   padding: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+.exad-logo-carousel-element.exad-logo-carousel-max-height-yes .exad-logo-carousel-item{
+  display: flex;
+  align-items: center;
 }
 /* Logo Carousel Style End */

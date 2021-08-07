@@ -1,0 +1,55 @@
+
+/* Facebook Feed Css Starts */
+
+.exad-facebook-feed-wrapper .exad-facebook-meta {
+    display: flex;
+    align-items: center;
+}
+
+.exad-facebook-feed-wrapper .exad-facebook-author {
+    display: flex;
+    align-items: center;
+}
+
+.exad-facebook-feed-wrapper .exad-facebook-author .exad-facebook-avatar {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.exad-facebook-feed-wrapper .exad-facebook-likes {
+    margin-right: 15px;
+}
+
+.exad-facebook-feed-wrapper .exad-facebook-feed-item{
+    position: relative;
+    display: flex;
+}
+.exad-facebook-feed-wrapper.exad-layout-2 .exad-facebook-feed-item .exad-facebook-feed-feature-image,
+.exad-facebook-feed-wrapper.exad-layout-3 .exad-facebook-feed-item .exad-facebook-feed-feature-image{
+    flex-direction: row;
+}
+.exad-facebook-feed-wrapper.exad-layout-3 .exad-facebook-feed-item .exad-facebook-feed-feature-image{
+    order: 2;
+}
+.exad-facebook-feed-wrapper .exad-facebook-feed-item .exad-facebook-feed-feature-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -o-object-fit: cover;
+}
+.exad-facebook-feed-wrapper{
+    display: grid;
+}
+
+.exad-facebook-footer-wrapper{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+.exad-facebook-author-name{
+    display: block;
+}
+
+/* Facebook Feed Css Ends */

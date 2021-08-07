@@ -17,7 +17,7 @@ class Google_Maps extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-google-maps';
+		return 'exad exad-logo exad-google-map';
 	}
 
 	public function get_keywords() {
@@ -32,7 +32,7 @@ class Google_Maps extends Widget_Base {
 		return [ 'exad-google-map-api', 'exad-gmap3' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		/**
   		 * Google Map General Settings
   		 */
@@ -238,9 +238,10 @@ class Google_Maps extends Widget_Base {
 			'data-exad-zoom-control'       => $settings['exad_map_zoom_control'] ? 'true': 'false',
 			'data-exad-fullscreen-control' => $settings['exad_map_fullscreen_control'] ? 'true': 'false',
 			'data-exad-scroll-zoom'        => $settings['exad_map_scroll_zoom'] ? 'true': 'false'
-		]);
+		]); ?>
 
-		echo '<div '.$this->get_render_attribute_string('exad_google_map_wrapper').'></div>';
+		<div <?php echo $this->get_render_attribute_string('exad_google_map_wrapper'); ?>></div>
+	<?php 	
 	}
 
 	/**
@@ -251,7 +252,7 @@ class Google_Maps extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			view.addRenderAttribute( 'exad_google_map_wrapper', {

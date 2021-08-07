@@ -5,9 +5,9 @@ var exclusiveFilterableGallery = function( $scope, $ ) {
     $( window ).load( function() {
 
         if ( $.isFunction( $.fn.isotope ) ) {
-            var exadGetTable       = $scope.find( '.exad-gallery-element' ).eq( 0 ),
-            currentTableId         = '#' + exadGetTable.attr( 'id' ),
-            $container             = $scope.find( currentTableId ).eq( 0 );
+            var exadGetGallery       = $scope.find( '.exad-gallery-element' ).eq( 0 ),
+            currentGalleryId         = '#' + exadGetGallery.attr( 'id' ),
+            $container             = $scope.find( currentGalleryId ).eq( 0 );
             
             var galleryMainWrapper = $scope.find( '.exad-gallery-items' ).eq( 0 ),
             galleryItem            = '#' + galleryMainWrapper.attr( 'id' );

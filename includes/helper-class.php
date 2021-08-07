@@ -22,13 +22,58 @@ class Helper {
         return $post_lists;
     }
 
+    /**
+     * Custom wp_ksese function
+     * 
+     * @param string
+     * @return array
+     */
+    public static function exad_wp_kses( $string ) {
+        $allowed_html = [
+            'b' => [],
+            's' => [],
+            'strong' => [],
+            'i' => [],
+            'u' => [],
+            'br' => [],
+            'em' => [],
+            'del' => [],
+            'ins' => [],
+            'sup' => [],
+            'sub' => [],
+            'code' => [],
+            'small' => [],
+            'strike' => [],
+            'abbr' => [
+                'title' => [],
+            ],
+            'span' => [
+                'class' => [],
+            ],
+            'a' => [
+				'href' => [],
+				'title' => [],
+				'class' => [],
+				'id' => [],
+			],
+			'img' => [
+				'src' => [],
+				'alt' => [],
+				'height' => [],
+				'width' => [],
+			],
+			'hr' => [],
+        ];
+        return wp_kses( $string, $allowed_html );
+    }
+
 
     /**
      * Retrive the list of Contact Form 7 Forms [ if plugin activated ]
      */
     
     public static function exad_retrive_contact_form() {
-        if ( function_exists( 'wpcf7' ) ) {
+        // if ( function_exists( 'wpcf7' ) ) {
             $wpcf7_form_list = get_posts(array(
                 'post_type' => 'wpcf7_contact_form',
                 'showposts' => 999,
@@ -43,7 +88,7 @@ class Helper {
                 $options[0] = esc_html__( 'Create a Form First', 'exclusive-addons-elementor' );
             }
             return $options;
-        }
+        // }
     }
 
     /** 
@@ -105,6 +150,22 @@ class Helper {
     }
 
     /**
+     * All post title
+     * @return array
+     */
+    public static function exad_get_all_posts() {
+        $post_array = array(
+            'posts_per_page' => -1
+        );
+        $posts = get_posts( $post_array );
+        foreach ( $posts as $post ) {
+            $post_array[$post->ID] = $post->post_title;
+        }
+
+        return $post_array;
+    } 
+
+    /**
      *
      * Post Excerpt based on ID and Excerpt Length
      * @param  int $post_id
@@ -164,7 +225,7 @@ class Helper {
             'cat'              => $category_ids,
             'category_name'    => '',
             'ignore_sticky_posts' => $exad_ignore_sticky,
-            'orderby'          => 'date',
+            'orderby'          => $settings[ $prefix . '_order_by' ],
             'order'            => $settings[ $prefix . '_order'],
             'include'          => '',
             'exclude'          => '',
@@ -177,7 +238,7 @@ class Helper {
             'post_status'      => 'publish',
             'suppress_filters' => true,
             'tag__in'          => $settings[ $prefix . '_tags'],
-            'post__not_in'     => '',
+            'post__not_in'     => $settings[ $prefix . '_exclude_post' ],
         );
 
         return $post_args;
@@ -215,7 +276,7 @@ class Helper {
         $word_count = str_word_count( strip_tags( $content ) );
         $readingtime = ceil($word_count / 200);
     
-        $timer = " min read";
+        $timer = __( ' min read', 'exclusive-addons-elementor' );
         
         $totalreadingtime = $readingtime . $timer;
     
@@ -238,7 +299,7 @@ class Helper {
 
             if ( 'exad-post-timeline' === $settings['template_type'] ) { 
                 include EXAD_TEMPLATES . 'tmpl-post-timeline.php';
-            } elseif ( 'exad-post-grid' === $settings['template_type'] ) { 
+            } elseif ( 'exad-post-grid' === $settings['template_type'] || 'exad-filterable-post' === $settings['template_type']) { 
                 include EXAD_TEMPLATES . 'tmpl-post-grid.php';
             } else {
                 _e( 'No Contents Found', 'exclusive-addons-elementor' );
@@ -247,5 +308,49 @@ class Helper {
         endwhile;
         wp_reset_postdata();
     }
-    
+
+    /**
+     * Contain masking shape list
+     * @param $element
+     * @return array
+     */
+    public static function exad_masking_shape_list( $element ) {
+        $dir = EXAD_ASSETS_URL . 'img/masking/';
+        $shape_name = 'shape-';
+        $extension = '.svg';
+        $list = [];
+        if ( 'list' == $element ) {
+            for ($i = 1; $i <= 64; $i++) {
+                $list[$shape_name.$i] = [
+                    'title' => ucwords($shape_name.''.$i),
+                    'url' => $dir . $shape_name . $i . $extension,
+                ];
+            }
+        } elseif ( 'url' == $element ) {
+            for ($i = 1; $i <= 64; $i++) {
+                $list[$shape_name.$i] = $dir . $shape_name . $i . $extension;
+            }
+        }
+        return $list;
+    }
+
+    /**
+     * filterable Post use category name as class name
+     * @param $element
+     * @return array class name to filterable Post control items
+     */
+    public static function exad_get_categories_name_for_class( ) {
+        $separator = ' ';
+        $cat_name_as_class = '';
+        $post_type = get_post_type(get_the_ID());   
+        $taxonomies = get_object_taxonomies($post_type);   
+        $taxonomy_slugs = wp_get_object_terms(get_the_ID(), $taxonomies,  array("fields" => "slugs"));
+        
+            foreach($taxonomy_slugs as $tax_slug) :            
+                $cat_name_as_class .= $tax_slug . $separator ; 
+            endforeach;
+            return trim( $cat_name_as_class, $separator );
+         
+    }
+
 }

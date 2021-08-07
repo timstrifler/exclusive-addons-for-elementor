@@ -7,6 +7,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Progress_Bar extends Widget_Base {
 	
@@ -19,7 +20,7 @@ class Progress_Bar extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-skill-bar';
+		return 'exad exad-logo exad-progress-bar';
 	}
 
 	public function get_categories() {
@@ -44,7 +45,7 @@ class Progress_Bar extends Widget_Base {
 		return $hashColor;
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
 		$this->start_controls_section(
@@ -60,7 +61,10 @@ class Progress_Bar extends Widget_Base {
 				'label'     => __('Title', 'exclusive-addons-elementor'),
 				'type'      => Controls_Manager::TEXT,
 				'default'   => __('Progress Bar', 'exclusive-addons-elementor'),
-				'separator' => 'before'
+				'separator' => 'before',
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -236,6 +240,50 @@ class Progress_Bar extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
+			'exad_progress_bar_value_width',
+			[
+				'label'      => __( 'Width', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'       => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1
+					]
+				],
+				'selectors'  => [
+					'{{WRAPPER}} [class*="exad-progress-bar-"] .ldBar-label' => 'width: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_progress_bar_preset' => [ 'line-bubble' ]
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_progress_bar_value_height',
+			[
+				'label'      => __( 'height', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'       => [
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1
+					]
+				],
+				'selectors'  => [
+					'{{WRAPPER}} [class*="exad-progress-bar-"] .ldBar-label' => 'height: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_progress_bar_preset' => [ 'line-bubble' ]
+				]
+			]
+		);
+
+		$this->add_responsive_control(
 			'exad_progress_bar_value_position',
 			[
 				'label'      => __( 'Position', 'exclusive-addons-elementor' ),
@@ -257,6 +305,28 @@ class Progress_Bar extends Widget_Base {
 				],
 				'condition'  => [
 					'exad_progress_bar_preset' => 'fan'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_progress_bar_value_position_top',
+			[
+				'label'      => __( 'Top Position', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range'      => [
+					'px'       => [
+						'min'  => -200,
+						'max'  => 200,
+						'step' => 1
+					]
+				],
+				'selectors'  => [
+					'{{WRAPPER}} [class*="exad-progress-bar-"] .ldBar-label' => 'top: {{SIZE}}{{UNIT}};'
+				],
+				'condition'  => [
+					'exad_progress_bar_preset' => [ 'line', 'line-bubble' ]
 				]
 			]
 		);
@@ -364,12 +434,13 @@ class Progress_Bar extends Widget_Base {
 				'data-stroke-color'                    => esc_attr( $settings['exad_progress_bar_stroke_color'] ),
 				'data-progress-bar-stroke-width'       => esc_attr( $settings['exad_progress_bar_stroke_width'] ),
 				'data-stroke-trail-color'              => esc_attr( $settings['exad_progress_bar_trail_color'] ),
-				'data-progress-bar-stroke-trail-width' => esc_attr( $settings['exad_progress_bar_trail_width'] )
+				'data-progress-bar-stroke-trail-width' => esc_attr( $settings['exad_progress_bar_trail_width'] ),
+				'data-unit'							   => '%'
 			]
 		);
 
 		$this->add_render_attribute( 'exad_progress_bar_title', 'class', 'exad-progress-bar-title' );
-        $this->add_inline_editing_attributes( 'exad_progress_bar_title', 'none' );
+        $this->add_inline_editing_attributes( 'exad_progress_bar_title', 'basic' );
 
 		if ( 'line' === $settings['exad_progress_bar_preset'] || 'line-bubble' === $settings['exad_progress_bar_preset'] ) {
 			$this->add_render_attribute(
@@ -400,9 +471,12 @@ class Progress_Bar extends Widget_Base {
 				]
 			);
 		}
+
+		?>
 		
-		echo '<div '.$this->get_render_attribute_string('exad-progress-bar').' data-progress-bar>';
-			echo $title ? '<h6 '.$this->get_render_attribute_string( 'exad_progress_bar_title' ).'>'.esc_html( $title ).'</h6>' : '';
-		echo '</div>';
+		<div <?php echo $this->get_render_attribute_string('exad-progress-bar'); ?> data-progress-bar>
+			<?php echo $title ? '<h6 '.$this->get_render_attribute_string( 'exad_progress_bar_title' ).'>'.Helper::exad_wp_kses( $title ).'</h6>' : ''; ?>
+		</div>
+		<?php
 	}
 }

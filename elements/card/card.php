@@ -11,8 +11,11 @@ use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Image_Mask_SVG_Control;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Card extends Widget_Base {
 	
@@ -25,7 +28,7 @@ class Card extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-image-box';
+		return 'exad exad-logo exad-card';
 	}
 
 	public function get_categories() {
@@ -36,7 +39,7 @@ class Card extends Widget_Base {
         return [ 'exclusive', 'info', 'content', 'block', 'box' ];
     }
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
 		/**
 		* Card Content Section
@@ -71,6 +74,181 @@ class Card extends Widget_Base {
 		);
 
 		$this->add_control(
+			'exad_card_enable_image_mask',
+			[
+				'label' => __( 'Enable Image Mask', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control(
+			'exad_card_mask_shape_mask_shape',
+			[
+				'label'                => __( 'Mask Shape', 'exclusive-addons-elementor' ),
+				'type'                 => Image_Mask_SVG_Control::SVGSELECTOR,
+				'options'              => Helper::exad_masking_shape_list( 'list' ),
+				'default'              => 'shape-1',
+				'toggle'               => false,
+				'label_block'          => true,
+                'selectors_dictionary' => Helper::exad_masking_shape_list( 'url' ),
+				'selectors'            => [
+                    '{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-image: url({{VALUE}}); mask-image: url({{VALUE}});'
+				],
+				'condition' 		   => [
+					'exad_card_enable_image_mask' => 'yes'
+				]
+			]
+		);
+		
+		$this->add_control(
+			'exad_card_mask_shape_position',
+			[
+				'label'       => __( 'Position', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'center',
+				'label_block' => true,
+				'options'     => [
+					'top'     => __( 'Top', 'exclusive-addons-elementor' ),
+					'center'  => __( 'Center', 'exclusive-addons-elementor' ),
+					'left'    => __( 'Left', 'exclusive-addons-elementor' ),
+					'right'   => __( 'Right', 'exclusive-addons-elementor' ),
+					'bottom'  => __( 'Bottom', 'exclusive-addons-elementor' ),
+					'custom'  => __( 'Custom', 'exclusive-addons-elementor' )
+                ],
+                'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-position: {{VALUE}};'
+				],
+				'condition' 		   => [
+					'exad_card_enable_image_mask' => 'yes'
+				]
+			]
+		);
+		
+		$this->add_control(
+			'exad_card_mask_shape_position_x_offset',
+			[
+				'label'       => __( 'X Offset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-position-y: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_card_enable_image_mask' => 'yes',
+                    'exad_card_mask_shape_position' => 'custom'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_card_mask_shape_position_y_offset',
+			[
+				'label'       => __( 'Y Offset', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-position-x: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_card_enable_image_mask' => 'yes',
+                    'exad_card_mask_shape_position' => 'custom'
+				]
+			]
+		);
+        
+        $this->add_control(
+			'exad_card_mask_shape_size',
+			[
+				'label'       => __( 'Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SELECT,
+				'default'     => 'auto',
+				'label_block' => true,
+				'options'     => [
+					'auto'    => __( 'Auto', 'exclusive-addons-elementor' ),
+					'contain' => __( 'Contain', 'exclusive-addons-elementor' ),
+					'cover'   => __( 'Cover', 'exclusive-addons-elementor' ),
+					'custom'  => __( 'Custom', 'exclusive-addons-elementor' )
+                ],
+                'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-size: {{VALUE}};'
+				],
+				'condition' 		   => [
+					'exad_card_enable_image_mask' => 'yes'
+				]
+			]
+        );
+
+        $this->add_control(
+			'exad_card_mask_shape_custome_size',
+			[
+				'label'       => __( 'Mask Size', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 600
+					],
+					'%'       => [
+						'min' => 0,
+						'max' => 100
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-size: {{SIZE}}{{UNIT}};'
+                ],
+                'condition'   => [
+					'exad_card_enable_image_mask' => 'yes',
+                    'exad_card_mask_shape_size' => 'custom'
+				]
+			]
+		);
+
+        $this->add_control(
+			'exad_card_mask_shape_repeat',
+			[
+				'label'         => __( 'Repeat', 'exclusive-addons-elementor' ),
+				'type'          => Controls_Manager::SELECT,
+				'default'       => 'no-repeat',
+				'label_block'   => true,
+				'options'       => [
+					'no-repeat' => __( 'No repeat', 'exclusive-addons-elementor' ),
+					'repeat'    => __( 'Repeat', 'exclusive-addons-elementor' )
+                ],
+                'selectors'     => [
+					'{{WRAPPER}} .exad-card-thumb img' => '-webkit-mask-repeat: {{VALUE}};'
+				],
+				'condition' 	=> [
+					'exad_card_enable_image_mask' => 'yes'
+				]
+			]
+		);
+
+		$this->add_control(
 			'exad_card_badge_switcher',
 			[
 				'label' => __( 'Enable Badge', 'exclusive-addons-elementor' ),
@@ -92,6 +270,9 @@ class Card extends Widget_Base {
 				'default'     => esc_html__( 'Card Badge', 'exclusive-addons-elementor' ),
 				'condition'   => [
 					'exad_card_badge_switcher' => 'yes'
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -103,7 +284,10 @@ class Card extends Widget_Base {
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
 				'separator'   => 'before',
-				'default'     => esc_html__( 'Card Title', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Card Title', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -127,7 +311,10 @@ class Card extends Widget_Base {
 				'label'       => esc_html__( 'Tag', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Card Tag', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Card Tag', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 		
@@ -136,7 +323,10 @@ class Card extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXTAREA,
-				'default' => esc_html__( 'Basic description about the Card', 'exclusive-addons-elementor' )
+				'default' => esc_html__( 'Basic description about the Card', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -155,7 +345,10 @@ class Card extends Widget_Base {
 				'label'       => esc_html__( 'Text', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default'     => esc_html__( 'Details', 'exclusive-addons-elementor' )
+				'default'     => esc_html__( 'Details', 'exclusive-addons-elementor' ),
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -449,6 +642,14 @@ class Card extends Widget_Base {
 				'condition' => [
 					'exad_card_layout_type' => 'default'
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_card_image_filter',
+				'selector' => '{{WRAPPER}} .exad-card-thumb img',
 			]
 		);
 
@@ -1099,13 +1300,6 @@ class Card extends Widget_Base {
 
 	protected function render() {
 		$settings           = $this->get_settings_for_display();
-		$card_image         = $settings['exad_card_image'];
-		$card_image_url_src = Group_Control_Image_Size::get_attachment_image_src( $card_image['id'], 'thumbnail', $settings );
-		if( empty( $card_image_url_src ) ) {
-			$card_image_url = $card_image['url'];
-		} else {
-			$card_image_url = $card_image_url_src;
-		}
 
 		$this->add_render_attribute( 
 			'exad_card', 
@@ -1119,13 +1313,13 @@ class Card extends Widget_Base {
 			]
 		);
 
-		$this->add_inline_editing_attributes( 'exad_card_title', 'none' );
+		$this->add_inline_editing_attributes( 'exad_card_title', 'basic' );
 
 		$this->add_render_attribute( 'exad_card_tag', 'class', 'exad-card-tag' );
-		$this->add_inline_editing_attributes( 'exad_card_tag', 'none' );
+		$this->add_inline_editing_attributes( 'exad_card_tag', 'basic' );
 
 		$this->add_render_attribute( 'exad_card_description', 'class', 'exad-card-description' );
-		$this->add_inline_editing_attributes( 'exad_card_description' );
+		$this->add_inline_editing_attributes( 'exad_card_description', 'basic' );
 
 		$this->add_render_attribute( 'exad_card_title_link', 'class', 'exad-card-title' );
 		$this->add_inline_editing_attributes( 'exad_card_action_text', 'none' );
@@ -1150,52 +1344,61 @@ class Card extends Widget_Base {
 	            $this->add_render_attribute( 'exad_card_action_link', 'rel', 'nofollow' );
 	        }
         }
+		?>
 
-		echo '<div '.$this->get_render_attribute_string( 'exad_card' ).'>';
-			if( !empty( $card_image_url ) ) :
-	        	echo '<div class="exad-card-thumb">';
-	            	echo '<img src="'.esc_url($card_image_url).'" alt="'.Control_Media::get_image_alt( $settings['exad_card_image'] ).'">';
-	          	echo '</div>';
+		<div <?php echo $this->get_render_attribute_string( 'exad_card' ); ?>>
+			<?php if ( $settings['exad_card_image']['url'] || $settings['exad_card_image']['id'] ) : ?>
+	        	<div class="exad-card-thumb">
+					<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_card_image' ); ?>
+				</div>
+			<?php	
 			endif;
 
-			if( $settings['exad_card_badge_switcher'] === 'yes' ) :
-				echo '<div class="exad-card-badge">';
-					echo $settings['exad_card_badge'];
-				echo '</div>';
+			if( $settings['exad_card_badge_switcher'] === 'yes' ) : ?>
+				<div class="exad-card-badge">
+					<?php echo $settings['exad_card_badge']; ?>
+				</div>
+				<?php
 			endif;
+			?>
 
-          	echo '<div class="exad-card-body">';
-          		if( $settings['exad_card_title'] ) {
-	          		echo '<a '.$this->get_render_attribute_string( 'exad_card_title_link' ).'>';
-	            		echo '<span '.$this->get_render_attribute_string( 'exad_card_title' ).'>'.esc_html( $settings['exad_card_title'] ).'</span>';
-	        		echo '</a>';          			
+          	<div class="exad-card-body">
+			  <?php if( $settings['exad_card_title'] ) { ?>
+	          		<a <?php echo $this->get_render_attribute_string( 'exad_card_title_link' ); ?>>
+	            		<span <?php echo $this->get_render_attribute_string( 'exad_card_title' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_card_title'] ); ?></span>
+	        		</a>
+					<?php	          			
           		}
 
-        		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', esc_html( $settings['exad_card_tag'] ) ) : '';
+        		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', Helper::exad_wp_kses( $settings['exad_card_tag'] ) ) : '';
 
         		$settings['exad_card_description'] ? printf( '<div '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</div>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
 
-        		if ( !empty( $settings['exad_card_action_text'] ) ) :
-					echo '<a '.$this->get_render_attribute_string( 'exad_card_action_link' ).'>';
-						if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
-							echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
-								Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] );
-							echo '</span>';
+        		if ( !empty( $settings['exad_card_action_text'] ) ) : ?>
+					<a <?php echo $this->get_render_attribute_string( 'exad_card_action_link' ); ?>>
+						<?php if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
+							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
+								<?php Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
+							</span>
+						<?php	
 						}
+						?>
 
-						echo '<span '.$this->get_render_attribute_string( 'exad_card_action_text' ).'>';
-							echo esc_html( $settings['exad_card_action_text'] );
-						echo '</span>';
+						<span <?php echo $this->get_render_attribute_string( 'exad_card_action_text' ); ?>>
+							<?php echo esc_html( $settings['exad_card_action_text'] ); ?>
+						</span>
 
-						if( 'icon_pos_right' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) {
-							echo '<span class="'.esc_attr( $settings['exad_card_action_link_icon_position'] ).'">';
-								Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] );
-							echo '</span>';
-						}
-	            	echo '</a>';
-	            endif;
-          	echo '</div>';
-        echo '</div>';
+						<?php
+						if( 'icon_pos_right' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
+							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
+								<?php Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
+							</span>
+						<?php } ?>
+	            	</a>
+				<?php endif; ?>
+          	</div>
+        </div>
+	<?php	
 	}
 
 	/**
@@ -1206,7 +1409,7 @@ class Card extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 			view.addRenderAttribute( 'exad_card', {
@@ -1232,13 +1435,13 @@ class Card extends Widget_Base {
 			}
 
 			view.addRenderAttribute( 'exad_card_title_link', 'class', 'exad-card-title' );
-			view.addInlineEditingAttributes( 'exad_card_title', 'none' );
+			view.addInlineEditingAttributes( 'exad_card_title', 'basic' );
 
 			view.addRenderAttribute( 'exad_card_tag', 'class', 'exad-card-tag' );
-			view.addInlineEditingAttributes( 'exad_card_tag', 'none' );
+			view.addInlineEditingAttributes( 'exad_card_tag', 'basic' );
 
 			view.addRenderAttribute( 'exad_card_description', 'class', 'exad-card-description' );
-			view.addInlineEditingAttributes( 'exad_card_description' );
+			view.addInlineEditingAttributes( 'exad_card_description', 'basic' );
 
 			view.addRenderAttribute( 'exad_card_action_link', 'class', 'exad-card-action' );
 			view.addInlineEditingAttributes( 'exad_card_action_text', 'none' );

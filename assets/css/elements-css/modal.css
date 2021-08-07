@@ -228,6 +228,17 @@
 	visibility: hidden;
   }
 
+  @media (max-width: 991px){
+    .exad-modal-item.modal-vimeo {
+      height: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    .exad-modal-item.modal-vimeo::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   .exad-modal-item.modal-vimeo .exad-modal-content .exad-modal-element img{
     display: block;
     width: 100%;
@@ -258,6 +269,17 @@
 	-webkit-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
 	visibility: visible;
+  }
+
+  .exad-modal-button.exad-modal-btn-fixed-width-yes .exad-modal-image-action{
+    position: relative;
+  }
+  .exad-modal-button.exad-modal-btn-fixed-width-yes .exad-modal-image-action span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
   
   /* Modal Style End */

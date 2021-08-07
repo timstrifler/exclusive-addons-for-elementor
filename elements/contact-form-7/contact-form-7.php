@@ -63,7 +63,7 @@ class Contact_Form_7 extends Widget_Base {
 	 * @return string Widget icon.
 	 */
     public function get_icon() {
-        return 'exad-element-icon eicon-mail';
+        return 'exad exad-logo exad-contact-form-7';
     }
 
     /**
@@ -73,8 +73,30 @@ class Contact_Form_7 extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-    protected function _register_controls() {
+    protected function register_controls() {
         $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
+
+        if( ! class_exists( 'WPCF7_ContactForm' ) ) {
+            $this->start_controls_section(
+                'exad_contact_from_panel_notice',
+                [
+                    'label' => __('Notice!', 'exclusive-addons-elementor'),
+                ]
+            );
+
+            $this->add_control(
+                'exad_contact_from_panel_notice_text',
+                [
+                    'type'            => Controls_Manager::RAW_HTML,
+                    'raw'             => __('<strong>contact Form 7</strong> is not installed/activated on your site. Please install and activate <a href="plugin-install.php?s=contact+form+7&tab=search&type=term" target="_blank">Contact Form 7</a> first.',
+                        'exclusive-addons-elementor'),
+                    'content_classes' => 'exad-panel-notice',
+                ]
+            );
+
+            $this->end_controls_section();
+            return;
+        }
         
         /**
          * Content Tab: Contact Form
@@ -103,7 +125,10 @@ class Contact_Form_7 extends Widget_Base {
 			[
                 'label'       => esc_html__( 'Title', 'exclusive-addons-elementor' ),
                 'type'        => Controls_Manager::TEXT,
-                'label_block' => true
+                'label_block' => true,
+                'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
         
@@ -183,7 +208,7 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
-  		$this->add_control(
+  		$this->add_responsive_control(
   			'exad_contact_form_width',
   			[
                 'label'      => esc_html__( 'Form Width', 'exclusive-addons-elementor' ),
@@ -209,7 +234,7 @@ class Contact_Form_7 extends Widget_Base {
   			]
   		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_contact_form_padding',
 			[
                 'label'      => esc_html__( 'Form Padding', 'exclusive-addons-elementor' ),
@@ -228,7 +253,7 @@ class Contact_Form_7 extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_cf7_container_margin',
 			[
                 'label'      => esc_html__( 'Form Margin', 'exclusive-addons-elementor' ),
@@ -256,7 +281,7 @@ class Contact_Form_7 extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_cf7_container_border_radius',
 			[
                 'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -340,6 +365,18 @@ class Contact_Form_7 extends Widget_Base {
                 'selector' => '{{WRAPPER}} .exad-contact-form-7 .exad-contact-form-7-title'
             ]
         ); 
+
+        $this->add_responsive_control(
+			'exad_contact_title_margin',
+			[
+                'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-contact-form-7 .exad-contact-form-7-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
         
         $this->end_controls_section();
         
@@ -378,6 +415,54 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'exad_contact_field_placeholder_color',
+            [
+                'label'     => __( 'Placeholher Text Color', 'exclusive-addons-elementor' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .exad-contact-form-7 input[type="text"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="email"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="url"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="password"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="search"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="number"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="tel"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="range"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="date"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="month"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="week"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="time"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="datetime"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="datetime-local"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 input[type="color"]::placeholder,
+                        {{WRAPPER}} .exad-contact-form-7 textarea::placeholder' => 'color: {{VALUE}};'
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name'     => 'exad_contact_field_typography',
+                'selector' => '{{WRAPPER}} .exad-contact-form-7 input[type="text"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="email"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="url"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="password"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="search"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="number"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="tel"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="range"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="date"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="month"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="week"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="time"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="datetime"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="datetime-local"],
+                        {{WRAPPER}} .exad-contact-form-7 input[type="color"],
+                        {{WRAPPER}} .exad-contact-form-7 textarea'
+            ]
+        );
         
         $this->add_responsive_control(
             'exad_contact_input_field_height',
@@ -415,7 +500,29 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
-		$this->add_control(
+        $this->add_responsive_control(
+            'exad_contact_textarea_field_height',
+            [
+                'label'        => esc_html__( 'Textarea Height', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 0,
+                        'max'  => 500,
+                        'step' => 1
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 150
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-contact-form-7 textarea' => 'height: {{SIZE}}px;'
+                ]
+            ]
+        );
+
+		$this->add_responsive_control(
 			'exad_contact_field_padding',
 			[
                 'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -431,7 +538,7 @@ class Contact_Form_7 extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_contact_field_margin',
             [
                 'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
@@ -450,7 +557,7 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_contact_field_width',
             [
                 'label'         => __( 'Field Width', 'exclusive-addons-elementor' ),
@@ -473,6 +580,43 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
+        $this->add_responsive_control(
+            'exad_contact_input_field_bottom_spacing',
+            [
+                'label'        => esc_html__( 'Field Bottom Spacing', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SLIDER,
+                'range'        => [
+                    'px'       => [
+                        'min'  => 0,
+                        'max'  => 100,
+                        'step' => 1
+                    ]
+                ],
+                'default'      => [
+                    'unit'     => 'px',
+                    'size'     => 20
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .exad-contact-form-7 input[type="text"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="email"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="url"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="password"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="search"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="number"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="tel"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="range"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="date"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="month"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="week"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="time"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="datetime"],
+                    {{WRAPPER}} .exad-contact-form-7 input[type="datetime-local"],
+                    {{WRAPPER}} .exad-contact-form-7 textarea,
+                    {{WRAPPER}} .exad-contact-form-7 input[type="color"]' => 'margin-bottom: {{SIZE}}px;'
+                ]
+            ]
+        );
+
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
 			[
@@ -481,7 +625,7 @@ class Contact_Form_7 extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_contact_field_radius',
 			[
                 'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -537,6 +681,32 @@ class Contact_Form_7 extends Widget_Base {
                 'tab'   => Controls_Manager::TAB_STYLE
             ]
         );
+
+        $this->add_responsive_control(
+            'exad_contact_section_submit_button_alignment',
+            [
+                'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::SELECT,
+                'options' => [
+					'left'  => __( 'Button Left', 'exclusive-addons-elementor' ),
+					'center'  => __( 'Button Center', 'exclusive-addons-elementor' ),
+					'right'  => __( 'Button Right', 'exclusive-addons-elementor' ),
+					'justify'  => __( 'Button Justify', 'exclusive-addons-elementor' ),
+				],
+				'desktop_default' => 'center',
+				'tablet_default' => 'center',
+				'mobile_default' => 'center',
+				'selectors_dictionary' => [
+					'left' => 'margin-right: auto;',
+					'center' => 'margin-left: auto; margin-right: auto;',
+					'right' => 'margin-left: auto;',
+					'justify' => 'width: 100%; justify-content: center;',
+				],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => '{{VALUE}};'
+                ]
+            ]
+        );
     
         $this->add_group_control(
             Group_Control_Typography::get_type(),
@@ -547,7 +717,7 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_contact_button_border_radius',
             [
                 'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -566,7 +736,7 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'button_padding',
             [
                 'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -586,14 +756,25 @@ class Contact_Form_7 extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'button_margin',
+        $this->add_responsive_control(
+            'exad_contact_button_spacing',
             [
-                'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
-                'type'       => Controls_Manager::DIMENSIONS,
-                'size_units' => [ 'px', 'em', '%' ],
-                'selectors'  => [
-                    '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                'label'         => __( 'Top Spacing', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::SLIDER,
+                'range'         => [
+                    'px'        => [
+                        'min'   => 0,
+                        'max'   => 100,
+                        'step'  => 1
+                    ]
+                ],
+                'size_units'    => [ 'px' ],
+                'default'       => [
+                    'unit'      => 'px',
+					'size'      => 10
+                ],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-contact-form-7 .wpcf7-form input[type="submit"]' => 'margin-top: {{SIZE}}{{UNIT}};'
                 ]
             ]
         );
@@ -880,7 +1061,11 @@ class Contact_Form_7 extends Widget_Base {
 	 * @access protected
 	 */
     protected function render() {
-        $settings = $this->get_settings();
+        if( ! class_exists( 'WPCF7_ContactForm' ) ) {
+            return;
+        }        
+
+        $settings = $this->get_settings_for_display();
         
         $this->add_render_attribute( 'exad-contact-form', 'class', [
 				'exad-contact-form',
@@ -889,21 +1074,20 @@ class Contact_Form_7 extends Widget_Base {
 			]
 		);
         
-        if ( function_exists( 'wpcf7' ) ) {
-            if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>
-                <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
+        if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>
+            <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
+                    
+                <?php if ( '' != $settings['exad_contact_form_title_text'] ) { ?>
+                    <h3 class="exad-contact-form-title exad-contact-form-7-title">
+                        <?php echo esc_html( $settings['exad_contact_form_title_text'] ); ?>
+                    </h3>
+                <?php } ?>
                         
-                    <?php if ( '' != $settings['exad_contact_form_title_text'] ) { ?>
-                        <h3 class="exad-contact-form-title exad-contact-form-7-title">
-                            <?php echo esc_html( $settings['exad_contact_form_title_text'] ); ?>
-                        </h3>
-                    <?php } ?>
-                            
-                    <?php echo do_shortcode( '[contact-form-7 id="' . esc_attr($settings['exad_contact_form_list']) . '" ]' ); ?>
-                </div>
-                
-                <?php
-            }
+                <?php echo do_shortcode( '[contact-form-7 id="' . $settings['exad_contact_form_list'] . '" ]' ); ?>
+            </div>
+            
+            <?php
         }
+        
     }
 }

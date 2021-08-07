@@ -1,0 +1,286 @@
+.exad-templateLibrary-preview {
+	overflow: hidden;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: width .2s, height .2s;
+	        transition: width .2s, height .2s;
+}
+
+.exad-templateLibrary-preview > iframe {
+	width: 150%;
+	height: 150%;
+	-webkit-transform: scale(.666) translateX(-25%) translateY(-25%);
+	    -ms-transform: scale(.666) translateX(-25%) translateY(-25%);
+	        transform: scale(.666) translateX(-25%) translateY(-25%);
+}
+
+
+#exad-templateLibrary-toolbar {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center; 
+	-ms-flex-align: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+
+#exad-templateLibrary-toolbar-search,
+#exad-templateLibrary-toolbar-filter {
+	position: relative; 
+	width: 200px;
+}
+
+#exad-templateLibrary-toolbar-search i,
+.exad-templateLibrary-filter-btn i {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	-webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+.exad-templateLibrary-filter-btn {
+	display: block; 
+	text-align: left;
+	cursor: pointer;
+}
+
+#exad-templateLibrary-search {
+	border: none;
+}
+
+#exad-templateLibrary-search,
+.exad-templateLibrary-filter-btn {
+	padding: 8px 15px 8px 0; 
+	border-bottom: 1px solid #d5dadf;
+	border-radius: 0;
+	text-transform: uppercase;
+	font-size: 11px;
+}
+
+.exad-templateLibrary-header-logo{
+	height: 40px;
+}
+.exad-templateLibrary-header-logo img{
+	height: 100%;
+}
+.elementor-templates-modal__header{
+	height: 60px;
+}
+.exad-templateLibrary-template-title{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 5px 0;
+	background: #fff;
+	width: 100%;
+	text-align: center;
+}
+.exad-templateLibrary-template-title span{
+	display: block;
+	font-size: 14px;
+	color: #000;
+}
+
+#elementor-template-exad-templateLibrary-header-menu .exad-TemplateLibrary-menu-item {
+    display: inline-block;
+    padding: 12px 0;
+    width: 115px;
+    cursor: pointer;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	top: -1px;
+	right: 5px;
+}
+
+.exad-TemplateLibrary_header-menu .elementor-template-library-menu-item.elementor-active {
+	border-color: #6556ff;
+}
+
+#exad-templateLibrary-templates {
+	height: calc(100% + 30px);
+}
+
+.exad-templateLibrary-templates-window {
+	position: relative; 
+	overflow-y: auto;
+	margin: 10px -15px 0;
+	height: calc(100% - 45px);
+}
+
+#exad-templateLibrary-templates-list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	        align-items: flex-start; 
+	-ms-flex-align: start;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+
+.exad-templateLibrary-template {
+	position: relative;
+	overflow: hidden;
+	margin: 15px;
+	width: calc(33.333% - 30px);
+	border-radius: 2px; 
+	background-color: #fff;
+	box-shadow: 0 1px 20px 0 rgba(0, 0, 0, .07);
+}
+.exad-templateLibrary-template-body {
+	position: relative;
+	height: 220px;
+}
+.exad-templateLibrary-template-preview {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .5);
+	opacity: 0;
+	cursor: pointer; 
+	-webkit-transition: opacity .5s;
+	        transition: opacity .5s;
+}
+.exad-templateLibrary-template-preview i {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #d5dadf;
+	font-size: 20px;
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+}
+.exad-templateLibrary-template-badge {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: inline-block;
+	padding: 2px 4px;
+	border-radius: 2px; 
+	background-color: #e8357c;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	font-size: 10px;
+}
+.exad-templateLibrary-template:hover .exad-templateLibrary-template-preview {
+	opacity: 1;
+}
+.exad-templateLibrary-template-thumbnail {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	-o-object-fit: cover;
+}
+.exad-templateLibrary-template-footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-ms-flex-align: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	padding: 10px;
+	width: 100%;
+	background-color: #fff;
+	font-size: 11px;
+	line-height: 1;
+	-webkit-transition: -webkit-transform .5s;
+	        transition: -webkit-transform .5s;
+	        transition:         transform .5s;
+	        transition:         transform .5s, -webkit-transform .5s; 
+	-webkit-transform: translateY(100%);
+	    -ms-transform: translateY(100%);
+	        transform: translateY(100%);
+}
+.exad-templateLibrary-template:hover .exad-templateLibrary-template-footer {
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
+}
+.exad-templateLibrary-template .exad-templateLibrary-pro-button {
+	color: #FF578E;
+}
+.exad-templateLibrary-template .exad-templateLibrary-pro-button:hover,
+.exad-templateLibrary-template .exad-templateLibrary-pro-button:focus {
+	color: #ed639a;
+}
+.exad-templateLibrary-template .exad-templateLibrary-insert-button {
+	color: #786af9;
+}
+.exad-templateLibrary-template .exad-templateLibrary-insert-button:hover,
+.exad-templateLibrary-template .exad-templateLibrary-insert-button:focus {
+	color: #7857dd;
+}
+.exad-templateLibrary-template .exad-templateLibrary-preview-button {
+	color: #495157;
+}
+.exad-templateLibrary-template .exad-templateLibrary-preview-button:hover,
+.exad-templateLibrary-template .exad-templateLibrary-preview-button:focus {
+	color: #606b73;
+}
+
+#elementor-template-library-header-preview .exad-templateLibrary-pro-button {
+	background-color: #FF578E;
+	color: #fff;
+}
+#elementor-template-library-header-preview .exad-templateLibrary-pro-button:hover,
+#elementor-template-library-header-preview .exad-templateLibrary-pro-button:focus {
+	background-color: #ed639a; 
+	color: #fff;
+}
+
+#elementor-template-library-header-preview .exad-templateLibrary-insert-button {
+	background-color: #786af9;
+	color: #fff;
+}
+#elementor-template-library-header-preview .exad-templateLibrary-insert-button:hover,
+#elementor-template-library-header-preview .exad-templateLibrary-insert-button:focus {
+	background-color: #7857dd; 
+	color: #fff;
+}
+
+#exad-templateLibrary-toolbar-filter .select2-container--default .select2-selection--single{
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #d5dadf;
+	border-radius: 0;
+	font-family: Roboto,Arial,Helvetica,Verdana,sans-serif;
+	text-transform: uppercase;
+	color: #e0e1e3;
+	text-align: left;
+}
+#exad-templateLibrary-toolbar-filter .select2-container--default .select2-selection--single .select2-selection__rendered{
+	padding: 0;
+}
+
+#exad-templateLibrary-toolbar-filter .select2-container--default .select2-selection--single .select2-selection__placeholder{
+	color: #e0e1e3 !important;
+	font-size: 11px;
+}
+
+

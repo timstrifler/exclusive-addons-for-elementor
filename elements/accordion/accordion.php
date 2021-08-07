@@ -8,10 +8,12 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Image_Size;
+use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Repeater;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Accordion extends Widget_Base {
 
@@ -24,7 +26,7 @@ class Accordion extends Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'exad-element-icon eicon-accordion';
+		return 'exad exad-logo exad-accordion';
 	}
 
 
@@ -36,7 +38,7 @@ class Accordion extends Widget_Base {
 		return [ 'exclusive-addons-elementor' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		
   		/**
   		 * Exclusive Accordion Content Settings
@@ -94,6 +96,7 @@ class Accordion extends Widget_Base {
 			'exad_exclusive_accordion_title', [
 				'label'   => esc_html__( 'Title', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => esc_html__( 'Accordion Title', 'exclusive-addons-elementor' ),
 				'dynamic' => [ 'active' => true ]
 			]
@@ -129,7 +132,10 @@ class Accordion extends Widget_Base {
 				'default'     => esc_html__('See Details', 'exclusive-addons-elementor' ),
 				'condition'   => [
                     '.exad_accordion_show_read_more_btn' => 'yes'
-                ]
+                ],
+				'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -574,7 +580,7 @@ class Accordion extends Widget_Base {
 						'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active h3' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active h3' => 'color: {{VALUE}} !important;'
 						]
 					]
 				);
@@ -886,7 +892,7 @@ class Accordion extends Widget_Base {
 				'type'		=> Controls_Manager::COLOR,
 				'default'	=> '',
 				'selectors'	=> [
-					'{{WRAPPER}} .exad-accordion-single-item .exad-accordion-text' => 'background-color: {{VALUE}};'
+					'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-content .exad-accordion-content-wrapper' => 'background-color: {{VALUE}};'
 				]
 			]
 		);
@@ -1050,7 +1056,15 @@ class Accordion extends Widget_Base {
                     '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
-        );
+		);
+		
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_accordion_image_css_filter',
+				'selector' => '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-image img',
+			]
+		);
 
   		$this->end_controls_section();
 
@@ -1264,10 +1278,12 @@ class Accordion extends Widget_Base {
         $this->add_render_attribute( 'exad_accordion_heading', 'class', 'exad-accordion-heading' );
         $this->add_render_attribute( 'exad_accordion_details', 'class', 'exad-accordion-text' );
         $this->add_render_attribute( 'exad_accordion_button', 'class', 'exad-accordion-button' );
+
+		?>
     
-        echo '<div class="exad-accordion-items">';
-        	do_action('exad_accordion_wrapper_before');
-            foreach( $settings['exad_exclusive_accordion_tab'] as $key => $accordion ) : 
+        <div class="exad-accordion-items">
+        	<?php do_action('exad_accordion_wrapper_before');
+            foreach( $settings['exad_exclusive_accordion_tab'] as $key => $accordion ) :
             	do_action('exad_accordion_each_item_wrapper_before');
                 
                 $accordion_item_setting_key = $this->get_repeater_setting_key('exad_exclusive_accordion_title', 'exad_exclusive_accordion_tab', $key);
@@ -1276,76 +1292,79 @@ class Accordion extends Widget_Base {
 
                 if ( $accordion['exad_exclusive_accordion_default_active'] === 'yes' ) {
                     $accordion_class[] = 'active-default';
-                }
+                } 
 
                 $this->add_render_attribute( $accordion_item_setting_key, 'class', $accordion_class );
 
 				$has_image = !empty( $accordion['exad_accordion_image']['url'] ) ? 'yes' : 'no';
 				$link_key  = 'link_' . $key;
 
-                echo '<div class="exad-accordion-single-item elementor-repeater-item-'. esc_attr($accordion['_id']).'">';
-                    echo '<div '.$this->get_render_attribute_string($accordion_item_setting_key).'>';
+				?>
 
-						if ( ! empty( $accordion['exad_exclusive_accordion_title_icon']['value'] ) && 'yes' === $accordion['exad_exclusive_accordion_icon_show'] ) :
-							echo '<span class="exad-tab-title-icon">';
-								Icons_Manager::render_icon( $accordion['exad_exclusive_accordion_title_icon'], [ 'aria-hidden' => 'true' ] );
-							echo '</span>';
-						endif; 
+                <div class="exad-accordion-single-item elementor-repeater-item-<?php echo esc_attr($accordion['_id']); ?>">
+                    <div <?php echo $this->get_render_attribute_string($accordion_item_setting_key); ?>>
 
-                        echo '<h3 '.$this->get_render_attribute_string( 'exad_accordion_heading' ).'>'.esc_html($accordion['exad_exclusive_accordion_title']).'</h3>';
+						<?php if ( ! empty( $accordion['exad_exclusive_accordion_title_icon']['value'] ) && 'yes' === $accordion['exad_exclusive_accordion_icon_show'] ) : ?>
+							<span class="exad-tab-title-icon">
+								<?php Icons_Manager::render_icon( $accordion['exad_exclusive_accordion_title_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+							</span>
+						<?php endif; ?>
 
-                        if( 'yes' === $settings['exad_exclusive_accordion_tab_title_show_active_inactive_icon']):
-                            echo '<div class="exad-active-inactive-icon">';
-                                if(!empty($settings['exad_exclusive_accordion_tab_title_active_icon']['value'])){
-                                    echo '<span class="exad-active-icon">';
-                                        Icons_Manager::render_icon( $settings['exad_exclusive_accordion_tab_title_active_icon'], [ 'aria-hidden' => 'true' ] );
-                                    echo '</span>';                                 
-                                }
-                                if(!empty($settings['exad_exclusive_accordion_tab_title_inactive_icon']['value'])){
-                                    echo '<span class="exad-inactive-icon">';
-                                        Icons_Manager::render_icon( $settings['exad_exclusive_accordion_tab_title_inactive_icon'], [ 'aria-hidden' => 'true' ] );
-                                    echo '</span>';                                 
-                                }
-                            echo '</div>';
-                        endif;
-                    echo '</div>';
+                        <h3 <?php echo $this->get_render_attribute_string( 'exad_accordion_heading' ); ?>><?php echo Helper::exad_wp_kses($accordion['exad_exclusive_accordion_title']); ?></h3>
 
-                    echo '<div class="exad-accordion-content">';
-                        echo '<div class="exad-accordion-content-wrapper has-image-'.esc_attr($has_image).' image-position-'.esc_attr($settings['exad_accordion_image_align']).'">';
-                            echo '<div '.$this->get_render_attribute_string( 'exad_accordion_details' ).'>';
-                                echo '<div>'.wp_kses_post( $accordion['exad_exclusive_accordion_content'] ).'</div>';
-                                if( 'yes' === $accordion['exad_accordion_show_read_more_btn']):
-									if( $accordion['exad_accordion_read_more_btn_url']['url'] ) {
-									    $this->add_render_attribute( $link_key, 'href', esc_url( $accordion['exad_accordion_read_more_btn_url']['url'] ) );
-									    if( $accordion['exad_accordion_read_more_btn_url']['is_external'] ) {
-									        $this->add_render_attribute( $link_key, 'target', '_blank' );
-									    }
-									    if( $accordion['exad_accordion_read_more_btn_url']['nofollow'] ) {
-									        $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-									    }
-									}
-                                    if ( ! empty( $accordion['exad_accordion_read_more_btn_text'] ) ) :
-                                        echo '<div '.$this->get_render_attribute_string( 'exad_accordion_button' ).'>';
-                                            echo '<a '.$this->get_render_attribute_string( $link_key ).'>';
-                                            	echo esc_html( $accordion['exad_accordion_read_more_btn_text'] );
-                                            echo '</a>';
-                                        echo '</div>'; 
-                                    endif;
-                                endif;
-                            echo '</div>';
+                        <?php if( 'yes' === $settings['exad_exclusive_accordion_tab_title_show_active_inactive_icon']) : ?>
+                            <div class="exad-active-inactive-icon">
+                                <?php if( !empty( $settings['exad_exclusive_accordion_tab_title_active_icon']['value'])) { ?>
+                                    <span class="exad-active-icon">
+                                        <?php Icons_Manager::render_icon( $settings['exad_exclusive_accordion_tab_title_active_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                                    </span>                            
+                                <?php } ?>
+                                <?php if( !empty( $settings['exad_exclusive_accordion_tab_title_inactive_icon']['value'] ) ) { ?>
+                                    <span class="exad-inactive-icon">
+                                        <?php Icons_Manager::render_icon( $settings['exad_exclusive_accordion_tab_title_inactive_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                                    </span>
+                                <?php } ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
-                            if ( ! empty( $accordion['exad_accordion_image']['url'] ) ) {
-                                echo '<div class="exad-accordion-image">';
-                                    echo $this->render_image( $accordion, $settings );
-                                echo '</div>';                                   
-                            }
+                    <div class="exad-accordion-content">
+                        <div class="exad-accordion-content-wrapper has-image-<?php echo esc_attr($has_image); ?> image-position-<?php echo esc_attr( $settings['exad_accordion_image_align'] ); ?>">
+                            <div <?php echo $this->get_render_attribute_string( 'exad_accordion_details' ); ?>>
+                                <div> <?php echo wp_kses_post( $accordion['exad_exclusive_accordion_content'] ); ?></div>
+                                <?php if( 'yes' === $accordion['exad_accordion_show_read_more_btn'] ) : ?>
+									<?php if( $accordion['exad_accordion_read_more_btn_url']['url'] ) { ?>
+									    <?php $this->add_render_attribute( $link_key, 'href', esc_url( $accordion['exad_accordion_read_more_btn_url']['url'] ) ); ?>
+									    <?php if( $accordion['exad_accordion_read_more_btn_url']['is_external'] ) { ?>
+									        <?php $this->add_render_attribute( $link_key, 'target', '_blank' ); ?>
+									    <?php } ?>
+									    <?php if( $accordion['exad_accordion_read_more_btn_url']['nofollow'] ) { ?>
+									        <?php $this->add_render_attribute( $link_key, 'rel', 'nofollow' ); ?>
+									    <?php } ?>
+									<?php } ?>
+                                    <?php if ( ! empty( $accordion['exad_accordion_read_more_btn_text'] ) ) : ?>
+                                        <div <?php echo $this->get_render_attribute_string( 'exad_accordion_button' ); ?>>
+                                            <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
+                                            	<?php echo esc_html( $accordion['exad_accordion_read_more_btn_text'] ); ?>
+                                            </a>
+                                        </div> 
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
 
-                        echo '</div>';
-                    echo '</div>';
-                echo '</div>';
-                do_action('exad_accordion_each_item_wrapper_after');
-            endforeach;
-            do_action('exad_accordion_wrapper_after');
-        echo '</div>';
+                            <?php if ( ! empty( $accordion['exad_accordion_image']['url'] ) ) { ?>
+                                <div class="exad-accordion-image">
+                                    <?php echo $this->render_image( $accordion, $settings ); ?>
+                                </div>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+                </div>
+                <?php do_action('exad_accordion_each_item_wrapper_after'); ?>
+            <?php endforeach; ?>
+            <?php do_action('exad_accordion_wrapper_after'); ?>
+        </div>
+	<?php
     }
 }
