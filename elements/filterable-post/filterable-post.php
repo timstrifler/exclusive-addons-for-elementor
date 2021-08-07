@@ -1992,36 +1992,11 @@ class Filterable_Post extends Widget_Base {
     public function render_filter_menu() {
 		$settings = $this->get_settings_for_display();
 
-		// $filter_controler_args = array(
-		// 	'post_type'      => $settings['exad_post_grid_type'],
-		// );
-
-		// $taxonomies = get_object_taxonomies($filter_controler_args);
-
-		// if ( !empty($settings['exad_post_grid_categories'] ) ) {
-		// 	$args['tax_query'][] = [
-		// 		'taxonomy' => $taxonomies,
-		// 		'field'    => 'slug',
-		// 		'terms'    => $taxonomies,
-		// 	];
-		// }
-
-		?>
-
-<?php $tex_cat = $settings['exad_control_taxonomy']; ?>
-        <?php
-        // $post_types = get_post_types( );
+		$tex_cat = $settings['exad_control_taxonomy'];
         $args = array(
             'taxonomy' => $tex_cat,
-            'orderby' => 'name',
-            'order'   => 'ASC',
-            'hide_empty' => false
         );
         $cats = get_categories($args);
-        // foreach( $cats as $cat ) {
-        //     $controlName = $cat->name;
-		// 	echo $controlName;
-        // }
         ?>
 	
 		<ul class="exad-filterable-menu"  >
@@ -2029,16 +2004,13 @@ class Filterable_Post extends Widget_Base {
 				<?php esc_html_e('All', 'exclusive-addons-elementor'); ?>
 			</li>
 			<?php
-				// foreach ( $taxonomies as $taxonomy ) {
-					// $terms = get_terms( $taxonomy );
-					foreach ( $cats as $cat ) {
-					?>
-						<li class="filter-item" data-filter=".<?php echo esc_attr( $cat->slug ); ?>">
-							<?php echo $cat->name; ?>
-						</li>
-					<?php
-					}
-			//    }
+				foreach ( $cats as $cat ) {
+				?>
+					<li class="filter-item" data-filter=".<?php echo esc_attr( $cat->slug ); ?>">
+						<?php echo $cat->name; ?>
+					</li>
+				<?php
+				}
 			   ?>
 		
 		</ul>
