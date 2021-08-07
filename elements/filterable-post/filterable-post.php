@@ -1992,11 +1992,11 @@ class Filterable_Post extends Widget_Base {
     public function render_filter_menu() {
 		$settings = $this->get_settings_for_display();
 
-		$filter_controler_args = array(
-			'post_type'      => $settings['exad_post_grid_type'],
-		);
+		// $filter_controler_args = array(
+		// 	'post_type'      => $settings['exad_post_grid_type'],
+		// );
 
-		$taxonomies = get_object_taxonomies($filter_controler_args);
+		// $taxonomies = get_object_taxonomies($filter_controler_args);
 
 		// if ( !empty($settings['exad_post_grid_categories'] ) ) {
 		// 	$args['tax_query'][] = [
@@ -2007,22 +2007,39 @@ class Filterable_Post extends Widget_Base {
 		// }
 
 		?>
+
+<?php $tex_cat = $settings['exad_control_taxonomy']; ?>
+        <?php
+        // $post_types = get_post_types( );
+        $args = array(
+            'taxonomy' => $tex_cat,
+            'orderby' => 'name',
+            'order'   => 'ASC',
+            'hide_empty' => false
+        );
+        $cats = get_categories($args);
+        // foreach( $cats as $cat ) {
+        //     $controlName = $cat->name;
+		// 	echo $controlName;
+        // }
+        ?>
 	
 		<ul class="exad-filterable-menu"  >
 			<li class="filter-item current"  data-filter="*">
 				<?php esc_html_e('All', 'exclusive-addons-elementor'); ?>
 			</li>
 			<?php
-				foreach ( $taxonomies as $taxonomy ) {
-					$terms = get_terms( $taxonomy );
-					foreach ( $terms as $term ) {
+				// foreach ( $taxonomies as $taxonomy ) {
+					// $terms = get_terms( $taxonomy );
+					foreach ( $cats as $cat ) {
 					?>
-						<li class="filter-item" data-filter=".<?php echo esc_attr( $term->slug ); ?>">
-							<?php echo $term->name; ?>
+						<li class="filter-item" data-filter=".<?php echo esc_attr( $cat->slug ); ?>">
+							<?php echo $cat->name; ?>
 						</li>
 					<?php
 					}
-			   }?>
+			//    }
+			   ?>
 		
 		</ul>
 	
@@ -2072,8 +2089,9 @@ class Filterable_Post extends Widget_Base {
     protected function render() {
 		$settings                  = $this->get_settings_for_display();
         $settings['template_type'] = $this->get_name();
-		$settings['post_args']     = Helper::exad_get_post_arguments( $settings, 'exad_post_grid' );	
+		$settings['post_args']     = Helper::exad_get_post_arguments( $settings, 'exad_post_grid' );	?>
 
+<?php
         $this->add_render_attribute(
 			'exad_post_grid_wrapper',
 			[
