@@ -109,15 +109,30 @@ class Reading_Progress {
             );
         }
 
+        // $element->add_control(
+        // 	'exad_reading_progress_page_select',
+        // 	[
+		// 		'label'       => __( 'Selected Pages', 'exclusive-addons-elementor' ),
+		// 		'label_block' => true,
+		// 		'type'        => Controls_Manager::SELECT2,
+		// 		'multiple'    => true,
+		// 		'default'     => [],
+		// 		'options'     => Helper::exad_get_page_title_for_readingProgress(),
+        //         'condition' => [
+        //             'exad_reading_progress' => 'yes',
+        //             'exad_reading_progress_global' => 'yes',
+        //             'exad_reading_progress_global_display_condition' => 'pages',
+        //         ],
+        //     ]
+        // );        
+
         $element->add_control(
         	'exad_reading_progress_page_select',
         	[
-				'label'       => __( 'Selected Pages', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Selected Pages ID', 'exclusive-addons-elementor' ),
 				'label_block' => true,
-				'type'        => Controls_Manager::SELECT2,
-				'multiple'    => true,
-				'default'     => [],
-				'options'     => Helper::exad_get_page_title_for_readingProgress(),
+                'description' => __( '<b>Comma separated gallery controls. Example: Design, Branding</b>', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::TEXT,
                 'condition' => [
                     'exad_reading_progress' => 'yes',
                     'exad_reading_progress_global' => 'yes',
@@ -125,6 +140,8 @@ class Reading_Progress {
                 ],
             ]
         );
+
+        //print_r(Helper::exad_get_page_title_for_readingProgress());
 
         $element->add_control(
             'exad_reading_progress_position',
@@ -289,12 +306,37 @@ class Reading_Progress {
                 $progress_height = !empty($settings_data['exad_reading_progress_height']['size']) ? $settings_data['exad_reading_progress_height']['size'] : '';
                 $animation_speed = !empty($settings_data['exad_reading_progress_animation_speed']['size']) ? $settings_data['exad_reading_progress_animation_speed']['size'] : '';
                 $reading_progress_html = '';
-                $reading_progress_html .= '<div class="masum exad-reading-progress-wrap exad-reading-progress-wrap-' . ($this->get_extensions_value('exad_reading_progress') == 'yes' ? 'local' : 'global') . '">';
+                $reading_progress_html .= '<div class="exad-reading-progress-wrap exad-reading-progress-wrap-' . ($this->get_extensions_value('exad_reading_progress') == 'yes' ? 'local' : 'global') . '">';
 
+                //$reading_progress_html .= print_r($global_reading_progress);
                 if ($global_reading_progress) {
-                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-global exad-reading-progress-' . $this->get_extensions_value('exad_reading_progress_position') . '" style=" z-index: 999999; height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_bg_color') . '">
+                    $display_conditional_pages = $this->get_extensions_value('exad_reading_progress_page_select');
+                    //$custom_pages = implode(',', $settings_data['exad_reading_progress_page_select']);
+                    $page_in_array = '';
+                    foreach ( $display_conditional_pages as $page ) {
+                         $page_in_array .= $page . ",";
+                         //$reading_progress_html .=  var_dump( $page_in_array);
+                    }
+                    $reading_progress_html .=  (int)$page_in_array;
+                   $display_conditional_pages = explode("," , $page_in_array);
+                   // $reading_progress_html .= var_dump( array(3182,3184,7756) );
+                   $reading_progress_html .=  var_dump( $display_conditional_pages);
+                    //$reading_progress_html .= var_dump( explode("," , $page_in_array) );
+                    //echo $page_in_array;
+                   
+
+                    if( !empty( $display_conditional_pages ) && $display_conditional_pages && is_page( array(3182,3184,7756) ) ) {
+                        echo "<h1>done </h1>";
+                        // $display_conditional_pages;
+                    } elseif ( empty( $display_conditional_pages ) ) {
+
+                        $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-global exad-reading-progress-' . $this->get_extensions_value('exad_reading_progress_position') . '" style=" z-index: 999999; height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_bg_color') . '">
                         <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_fill_color') . ';transition: width ' . $animation_speed . 'ms ease;"></div>
-                    </div>';
+                        </div>';
+
+                    }
+                  
+
                 } else {
                     $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-local exad-reading-progress-' .$this->get_extensions_value('exad_reading_progress_position') . '" style="z-index: 999999;">
                         <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_fill_color') . ';transition: width ' . $animation_speed . 'ms ease;"></div>
@@ -305,6 +347,7 @@ class Reading_Progress {
 
                 if ($this->get_extensions_value('exad_reading_progress') != 'yes') {
                     $display_condition = $this->get_extensions_value('exad_reading_progress_global_display_condition');
+                    $display_conditional_pages = $this->get_extensions_value('exad_reading_progress_page_select');
                     if (get_post_status($this->get_extensions_value('post_id')) != 'publish') {
                         $reading_progress_html = '';
                     } else if ($display_condition == 'pages' && !is_page()) {
@@ -312,10 +355,11 @@ class Reading_Progress {
                     } else if ($display_condition == 'posts' && !is_single()) {
                         $reading_progress_html = '';
                     }
+                    //$reading_progress_html .= print_r($display_conditional_pages);
                 }
 
                 if (!empty($reading_progress_html)) {
-                   
+                    //$reading_progress_html .= print_r($global_settings);
                     wp_enqueue_script('exad-reading-progress');
                     wp_enqueue_style('exad-reading-progress');
                     
