@@ -317,7 +317,6 @@ class Reading_Progress {
                 }
 
                 if (!empty($reading_progress_html)) {
-                    $reading_progress_html .= print_r($global_settings);
                     wp_enqueue_script('exad-reading-progress');
                     wp_enqueue_style('exad-reading-progress');
                     
