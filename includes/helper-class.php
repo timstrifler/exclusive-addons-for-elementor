@@ -334,6 +334,11 @@ class Helper {
         return $list;
     }
 
+    /**
+     * Contain reading proggress page name & id list
+     * @param $element
+     * @return array
+     */
     public static function exad_get_page_title_for_readingProgress() {
         $args = array(
             'post_type' => 'page',
@@ -341,10 +346,6 @@ class Helper {
         $value = array();
         $the_query = new \WP_Query( $args );
         $posts = $the_query->posts;
-        // while ( $the_query->have_posts() ) {
-        //     $the_query->the_post();
-        //     $value[] =  $the_query->get_the_title();
-        // }
         foreach($posts as $post) {
             
             $value[$post->ID] = $post->post_name;

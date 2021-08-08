@@ -4,12 +4,13 @@ namespace ExclusiveAddons\Elementor;
 use Elementor\Controls_Manager;
 use Elementor\Plugin;
 use Elementor\Group_Control_Background;
+use Elementor\Utils;
 use \ExclusiveAddons\Elementor\Helper;
 
 class Reading_Progress {
 
     private static $_instance = null;
-    public $extensions_data = [];
+    public $global_data = [];
 
     public function __construct() {
         add_action( 'elementor/documents/register_controls', array( $this, 'exad_reading_progress_register_controls' ), 10);
@@ -32,7 +33,7 @@ class Reading_Progress {
         $element->start_controls_section(
             'exad_reading_progress_section',
             [
-                'label' => __('<i class="eaicon-logo"></i> Reading Progress Bar', 'exclusive-addons-elementor'),
+                'label' => __('<i class="exad-extention-logo exad exad-logo"></i> Reading Progress Bar', 'exclusive-addons-elementor'),
                 'tab' => Controls_Manager::TAB_SETTINGS,
             ]
         );
@@ -64,7 +65,7 @@ class Reading_Progress {
                 [
                     'type' => Controls_Manager::RAW_HTML,
                     'raw' => __('You can modify the Global Reading Progress Bar by <strong><a href="' . get_bloginfo('url') . '/wp-admin/post.php?post=' . $global_settings['reading_progress']['post_id'] . '&action=elementor">Clicking Here</a></strong>', 'exclusive-addons-elementor'),
-                    'content_classes' => 'exad-warning',
+                    'content_classes' => 'exad-panel-notice',
                     'separator' => 'before',
                     'condition' => [
                         'exad_reading_progress' => 'yes',
@@ -112,36 +113,17 @@ class Reading_Progress {
         // $element->add_control(
         // 	'exad_reading_progress_page_select',
         // 	[
-		// 		'label'       => __( 'Selected Pages', 'exclusive-addons-elementor' ),
+		// 		'label'       => __( 'Selected Pages ID', 'exclusive-addons-elementor' ),
 		// 		'label_block' => true,
-		// 		'type'        => Controls_Manager::SELECT2,
-		// 		'multiple'    => true,
-		// 		'default'     => [],
-		// 		'options'     => Helper::exad_get_page_title_for_readingProgress(),
+        //         'description' => __( '<b>Comma separated gallery controls. Example: Design, Branding</b>', 'exclusive-addons-elementor' ),
+		// 		'type'        => Controls_Manager::TEXT,
         //         'condition' => [
         //             'exad_reading_progress' => 'yes',
         //             'exad_reading_progress_global' => 'yes',
         //             'exad_reading_progress_global_display_condition' => 'pages',
         //         ],
         //     ]
-        // );        
-
-        $element->add_control(
-        	'exad_reading_progress_page_select',
-        	[
-				'label'       => __( 'Selected Pages ID', 'exclusive-addons-elementor' ),
-				'label_block' => true,
-                'description' => __( '<b>Comma separated gallery controls. Example: Design, Branding</b>', 'exclusive-addons-elementor' ),
-				'type'        => Controls_Manager::TEXT,
-                'condition' => [
-                    'exad_reading_progress' => 'yes',
-                    'exad_reading_progress_global' => 'yes',
-                    'exad_reading_progress_global_display_condition' => 'pages',
-                ],
-            ]
-        );
-
-        //print_r(Helper::exad_get_page_title_for_readingProgress());
+        // );
 
         $element->add_control(
             'exad_reading_progress_position',
@@ -194,7 +176,7 @@ class Reading_Progress {
             [
                 'label' => __('Background Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#00D8D8',
+                'default' => '#00d8d8 ',
                 'selectors' => [
                     '.exad-reading-progress' => 'background-color: {{VALUE}}',
                 ],
@@ -210,9 +192,9 @@ class Reading_Progress {
             [
                 'label' => __('Fill Color', 'exclusive-addons-elementor'),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#7A56FF',
+                'default' => '#7a56ff ',
                 'selectors' => [
-                    '.exad-reading-progress-fill' => 'background-color: {{VALUE}}',
+                    '.exad-reading-progress-wrap .exad-reading-progress .exad-reading-progress-fill' => 'background-color: {{VALUE}}',
                 ],
                 'separator' => 'before',
                 'condition' => [
@@ -298,68 +280,44 @@ class Reading_Progress {
                 $reading_progress_status = true;
                 $global_reading_progress = true;
                 $settings_data = $global_settings['reading_progress'];
-                $exad_reading_progress_page_select = $this->get_extensions_value('exad_reading_progress_page_select');
             }
 
             if ($reading_progress_status ) {
-                $this->extensions_data = $settings_data;
+                $this->global_data = $settings_data;
                 $progress_height = !empty($settings_data['exad_reading_progress_height']['size']) ? $settings_data['exad_reading_progress_height']['size'] : '';
+                $fill_color = !empty($settings_data['exad_reading_progress_fill_color']) ? $settings_data['exad_reading_progress_fill_color'] : '';
                 $animation_speed = !empty($settings_data['exad_reading_progress_animation_speed']['size']) ? $settings_data['exad_reading_progress_animation_speed']['size'] : '';
                 $reading_progress_html = '';
-                $reading_progress_html .= '<div class="exad-reading-progress-wrap exad-reading-progress-wrap-' . ($this->get_extensions_value('exad_reading_progress') == 'yes' ? 'local' : 'global') . '">';
+                $reading_progress_html .= '<div class="exad-reading-progress-wrap exad-reading-progress-wrap-' . ($this->get_readingprogress_global_value('exad_reading_progress') == 'yes' ? 'local' : 'global') . '">';
 
-                //$reading_progress_html .= print_r($global_reading_progress);
                 if ($global_reading_progress) {
-                    $display_conditional_pages = $this->get_extensions_value('exad_reading_progress_page_select');
-                    //$custom_pages = implode(',', $settings_data['exad_reading_progress_page_select']);
-                    $page_in_array = '';
-                    foreach ( $display_conditional_pages as $page ) {
-                         $page_in_array .= $page . ",";
-                         //$reading_progress_html .=  var_dump( $page_in_array);
-                    }
-                    $reading_progress_html .=  (int)$page_in_array;
-                   $display_conditional_pages = explode("," , $page_in_array);
-                   // $reading_progress_html .= var_dump( array(3182,3184,7756) );
-                   $reading_progress_html .=  var_dump( $display_conditional_pages);
-                    //$reading_progress_html .= var_dump( explode("," , $page_in_array) );
-                    //echo $page_in_array;
-                   
 
-                    if( !empty( $display_conditional_pages ) && $display_conditional_pages && is_page( array(3182,3184,7756) ) ) {
-                        echo "<h1>done </h1>";
-                        // $display_conditional_pages;
-                    } elseif ( empty( $display_conditional_pages ) ) {
-
-                        $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-global exad-reading-progress-' . $this->get_extensions_value('exad_reading_progress_position') . '" style=" z-index: 999999; height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_bg_color') . '">
-                        <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_fill_color') . ';transition: width ' . $animation_speed . 'ms ease;"></div>
-                        </div>';
-
-                    }
-                  
+                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-global exad-reading-progress-' . $this->get_readingprogress_global_value('exad_reading_progress_position') . '" style=" z-index: 999999; height: ' . $progress_height . 'px;background-color: ' . $this->get_readingprogress_global_value('exad_reading_progress_bg_color') . '">
+                    <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $fill_color . ';transition: width ' . $animation_speed . 'ms ease;"></div>
+                    </div>';
 
                 } else {
-                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-local exad-reading-progress-' .$this->get_extensions_value('exad_reading_progress_position') . '" style="z-index: 999999;">
-                        <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px;background-color: ' . $this->get_extensions_value('exad_reading_progress_fill_color') . ';transition: width ' . $animation_speed . 'ms ease;"></div>
+                    $reading_progress_html .= '<div class="exad-reading-progress exad-reading-progress-local exad-reading-progress-' .$this->get_readingprogress_global_value('exad_reading_progress_position') . '" style="z-index: 999999;">
+                        <div class="exad-reading-progress-fill" style="height: ' . $progress_height . 'px; background-color: ' . $fill_color . '; transition: width ' . $animation_speed . 'ms ease;"></div>
                     </div>';
                 }
 
                 $reading_progress_html .= '</div>';
 
-                if ($this->get_extensions_value('exad_reading_progress') != 'yes') {
-                    $display_condition = $this->get_extensions_value('exad_reading_progress_global_display_condition');
-                    $display_conditional_pages = $this->get_extensions_value('exad_reading_progress_page_select');
-                    if (get_post_status($this->get_extensions_value('post_id')) != 'publish') {
+                if ($this->get_readingprogress_global_value('exad_reading_progress') != 'yes') {
+                    $display_condition = $this->get_readingprogress_global_value('exad_reading_progress_global_display_condition');
+                    if (get_post_status($this->get_readingprogress_global_value('post_id')) != 'publish') {
                         $reading_progress_html = '';
                     } else if ($display_condition == 'pages' && !is_page()) {
                         $reading_progress_html = '';
                     } else if ($display_condition == 'posts' && !is_single()) {
                         $reading_progress_html = '';
                     }
-                    //$reading_progress_html .= print_r($display_conditional_pages);
+
                 }
 
                 if (!empty($reading_progress_html)) {
-                    //$reading_progress_html .= print_r($global_settings);
+                    $reading_progress_html .= print_r($global_settings);
                     wp_enqueue_script('exad-reading-progress');
                     wp_enqueue_style('exad-reading-progress');
                     
@@ -371,8 +329,8 @@ class Reading_Progress {
         echo $html;
     }
 
-    public function get_extensions_value($key = '') {
-        return isset($this->extensions_data[$key]) ? $this->extensions_data[$key] : '';
+    public function get_readingprogress_global_value($key = '') {
+        return isset($this->global_data[$key]) ? $this->global_data[$key] : '';
     }
 
    /**
@@ -393,7 +351,6 @@ class Reading_Progress {
                 'post_id' => $post_id,
                 'enabled' => true,
                 'exad_reading_progress_global_display_condition' => $document->get_settings('exad_reading_progress_global_display_condition'),
-                'exad_reading_progress_page_select' => $document->get_settings('exad_reading_progress_page_select'),
                 'exad_reading_progress_position' => $document->get_settings('exad_reading_progress_position'),
                 'exad_reading_progress_height' => $document->get_settings('exad_reading_progress_height'),
                 'exad_reading_progress_bg_color' => $document->get_settings('exad_reading_progress_bg_color'),
