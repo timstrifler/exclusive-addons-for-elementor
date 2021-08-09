@@ -2933,9 +2933,6 @@ ul.exad-call-to-action-buttons {
   }
 
   .exad-google-reviews-wrapper {
-    border-style: solid;
-    border-width: 1px 1px 1px 1px;
-    border-color: #e3e3e3;
     border-radius: 10px 10px 10px 10px;
     padding: 20px 20px 20px 20px;
   }
@@ -3007,7 +3004,6 @@ ul.exad-call-to-action-buttons {
   .exad-google-reviews-name{
     margin: 0;
     font-size: 22px;
-    font-weight: 600;
     transition: all .3s ease;
   }
   
@@ -3015,7 +3011,6 @@ ul.exad-call-to-action-buttons {
     margin: 0;
     display: block;
     font-size: 14px;
-    font-weight: 600;
   }
   
   .exad-google-reviews-content-wrapper-arrow::before{
@@ -3113,7 +3108,6 @@ ul.exad-call-to-action-buttons {
   .exad-google-reviews-wrapper .exad-google-reviews-reviewer-wrapper .exad-google-reviews-reviewer .exad-author-name a{
     margin: 0;
     font-size: 20px;
-    font-weight: 600;
     transition: all .3s ease;
   }
 
@@ -3121,7 +3115,19 @@ ul.exad-call-to-action-buttons {
     margin: 0;
     display: block;
     font-size: 14px;
-    font-weight: 600;
+  }
+
+  .exad-google-review-transition-top-yes {
+    transform: translateY(0);
+    transition: all .3s ease;
+  }
+
+  .exad-google-reviews-carousel-wrapper .exad-google-review-transition-top-yes:hover {
+    transform: translateY(-10px);
+  }
+
+  .exad-google-reviews-carousel-wrapper .exad-dots-container .exad-swiper-pagination .swiper-pagination-bullet {
+    transition: all 0.3s;
   }
 
 /*Exad Google Reviews End here*/
