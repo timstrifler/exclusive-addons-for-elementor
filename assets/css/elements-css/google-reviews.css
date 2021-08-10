@@ -420,9 +420,14 @@
     text-align: left;
   }
 
+  .exad-google-reviews-wrapper .exad-google-reviews-reviewer-wrapper .exad-google-reviews-reviewer .exad-author-name {
+    line-height: 24px;
+  }
+
   .exad-google-reviews-wrapper .exad-google-reviews-reviewer-wrapper .exad-google-reviews-reviewer .exad-author-name a{
     margin: 0;
     font-size: 20px;
+    line-height: 20px;
     transition: all .3s ease;
   }
 
