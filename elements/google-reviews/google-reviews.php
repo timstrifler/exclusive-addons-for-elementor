@@ -942,6 +942,14 @@ class Google_Reviews extends Widget_Base {
 		);
 
 		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'      => 'exad_google_review_carousel_image_box_border',
+				'selector'  => '{{WRAPPER}} .exad-google-reviews-thumb',
+			]
+		);
+
+		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
 				'name'     => 'exad_google_review_carousel_image_shadow',
@@ -2070,18 +2078,18 @@ class Google_Reviews extends Widget_Base {
 								<?php } ;
 							?>
 						</div>
-						<?php if ( !empty( $api_key ) ):
-							if( $settings['exad_google_reviews_carousel_nav'] == "arrows" || $settings['exad_google_reviews_carousel_nav'] == "both" ) : ?>
-								<div class="exad-carousel-nav-next"><i class="fa fa-angle-right"></i></div>
-								<div class="exad-carousel-nav-prev"><i class="fa fa-angle-left"></i></div>
-							<?php endif; ?>
-							<?php if( $settings['exad_google_reviews_carousel_nav'] == "nav-dots" || $settings['exad_google_reviews_carousel_nav'] == "both" || $settings["exad_google_reviews_carousel_nav"] == "dynamic-dots") : ?>
-								<div class="exad-dots-container">
-									<div class="exad-swiper-pagination"></div>
-								</div>
-							<?php endif; ?>
-						<?php endif; ?>
 					</div>
+					<?php if ( !empty( $api_key ) ):
+						if( $settings['exad_google_reviews_carousel_nav'] == "arrows" || $settings['exad_google_reviews_carousel_nav'] == "both" ) : ?>
+							<div class="exad-carousel-nav-next"><i class="fa fa-angle-right"></i></div>
+							<div class="exad-carousel-nav-prev"><i class="fa fa-angle-left"></i></div>
+						<?php endif; ?>
+						<?php if( $settings['exad_google_reviews_carousel_nav'] == "nav-dots" || $settings['exad_google_reviews_carousel_nav'] == "both" || $settings["exad_google_reviews_carousel_nav"] == "dynamic-dots") : ?>
+							<div class="exad-dots-container">
+								<div class="exad-swiper-pagination"></div>
+							</div>
+						<?php endif; ?>
+					<?php endif; ?>
 				</div>
             </div>
         </div>
