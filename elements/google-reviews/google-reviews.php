@@ -452,55 +452,26 @@ class Google_Reviews extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name'     => 'exad_google_review_carousel_container_background',
-				'types'    => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .exad-google-reviews-wrapper'
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'            => 'exad_google_review_carousel_container_border',
-				'fields_options'  => [
-                    'border'      => [
-                        'default' => 'solid'
-                    ],
-                    'width'          => [
-                        'default'    => [
-							'top'    => '1',
-							'right'  => '1',
-							'bottom' => '1',
-							'left'   => '1'
-                        ]
-                    ],
-                    'color'       => [
-                        'default' => '#e3e3e3'
-                    ]
-				],
-				'selector'        => '{{WRAPPER}} .exad-google-reviews-wrapper'
-			]
-		);
-
 		$this->add_responsive_control(
-			'exad_google_review_carousel_container_radius',
+			'exad_google_reviews_carousel_container_margin_top',
 			[
-				'label'      => __( 'Border radius', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
+				'label' => __( 'Top Spacing', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
 				'separator'  => 'before',
-				'default'    => [
-					'top'    => '10',
-					'right'  => '10',
-					'bottom' => '10',
-					'left'   => '10'
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+					],
 				],
-				'selectors'  => [
-					'{{WRAPPER}} .exad-google-reviews-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				]
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-google-reviews-wrapper' => 'margin-top: {{SIZE}}{{UNIT}};',
+				],
 			]
 		);
 
@@ -522,6 +493,64 @@ class Google_Reviews extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'exad_google_review_carousel_container_radius',
+			[
+				'label'      => __( 'Border radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'separator'  => 'after',
+				'size_units' => [ 'px', '%', 'em' ],
+				'default'    => [
+					'top'    => '10',
+					'right'  => '10',
+					'bottom' => '10',
+					'left'   => '10',
+					'isLinked' => true
+				],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-google-reviews-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->start_controls_tabs( 'exad_google_review_carousel_container_tabs' );
+
+			$this->start_controls_tab( 'exad_google_review_carousel_container_normal', [ 'label' => esc_html__( 'Normal', 'exclusive-addons-elementor' ) ] );
+
+			$this->add_group_control(
+				Group_Control_Background::get_type(),
+				[
+					'name'     => 'exad_google_review_carousel_container_background',
+					'types'    => [ 'classic', 'gradient' ],
+					'selector' => '{{WRAPPER}} .exad-google-reviews-wrapper'
+				]
+			);
+	
+			$this->add_group_control(
+				Group_Control_Border::get_type(),
+				[
+					'name'            => 'exad_google_review_carousel_container_border',
+					'fields_options'  => [
+						'border'      => [
+							'default' => 'solid'
+						],
+						'width'          => [
+							'default'    => [
+								'top'    => '1',
+								'right'  => '1',
+								'bottom' => '1',
+								'left'   => '1',
+								'isLinked' => true
+							]
+						],
+						'color'       => [
+							'default' => '#e3e3e3'
+						]
+					],
+					'selector'        => '{{WRAPPER}} .exad-google-reviews-wrapper'
+				]
+			);
+
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
@@ -529,6 +558,68 @@ class Google_Reviews extends Widget_Base {
 				'selector' => '{{WRAPPER}} .exad-google-reviews-wrapper'
 			]
 		);
+
+		$this->end_controls_tab();
+	
+		$this->start_controls_tab( 'exad_google_review_carousel_container_hover', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+
+		$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name'      => 'exad_google_review_carousel_container_background_hover',
+				'types'     => [ 'classic' ],
+				'selector'  => '{{WRAPPER}} .exad-google-reviews-wrapper:hover'
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'            => 'exad_google_review_carousel_container_border_hover',
+				'fields_options'  => [
+					'border'      => [
+						'default' => 'solid'
+					],
+					'width'          => [
+						'default'    => [
+							'top'    => '1',
+							'right'  => '1',
+							'bottom' => '1',
+							'left'   => '1'
+						]
+					],
+					'color'       => [
+						'default' => '#e3e3e3'
+					]
+				],
+				'selector'        => '{{WRAPPER}} .exad-google-reviews-wrapper:hover'
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'exad_google_review_carousel_container_box_shadow_hover',
+				'selector' => '{{WRAPPER}} .exad-google-reviews-wrapper:hover'
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();	
+
+		$this->add_control(
+			'exad_google_review_carousel_container_transition_top',
+            [
+				'label'        => __( 'Transition Top', 'exclusive-addons-elementor' ),
+				'type'         =>  Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Hide', 'exclusive-addons-elementor' ),
+				'separator'   => 'before',
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+        );
 
 		$this->end_controls_section();
 
@@ -548,7 +639,7 @@ class Google_Reviews extends Widget_Base {
 			[
 				'label' => __( 'Background Color', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::COLOR,
-				'default' => '#ffffff',
+				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .exad-google-reviews-content-wrapper' => 'background: {{VALUE}};',
 					'{{WRAPPER}} .exad-google-reviews-content-wrapper-arrow::before' => 'color: {{VALUE}};',
@@ -591,7 +682,7 @@ class Google_Reviews extends Widget_Base {
 				],
 				'default' => [
 					'unit' => 'px',
-					'size' => 20,
+					'size' => 0,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-google-reviews-content-wrapper' => 'margin-top: {{SIZE}}{{UNIT}};',
@@ -801,20 +892,8 @@ class Google_Reviews extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'exad_google_review_carousel_image_box',
-			[
-				'label'        => __( 'Image Box', 'exclusive-addons-elementor' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => __( 'ON', 'exclusive-addons-elementor' ),
-				'label_off'    => __( 'OFF', 'exclusive-addons-elementor' ),
-				'return_value' => 'yes',
-				'default'      => 'no'
-			]
-		);
-
 		$this->add_responsive_control(
-			'exad_google_review_carousel_image_box_height',
+			'exad_google_review_carousel_image_height',
 			[
 				'label'       => __( 'Height', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
@@ -836,7 +915,7 @@ class Google_Reviews extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
-			'exad_google_review_carousel_image_box_width',
+			'exad_google_review_carousel_image_width',
 			[
 				'label'       => __( 'Width', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
@@ -863,37 +942,9 @@ class Google_Reviews extends Widget_Base {
 		);
 
 		$this->add_group_control(
-			Group_Control_Border::get_type(),
-			[
-				'name'      => 'exad_google_review_carousel_image_box_border',
-				'selector'  => '{{WRAPPER}} .exad-google-reviews-thumb',
-			]
-		);
-
-		$this->add_responsive_control(
-			'exad_google_review_carousel_image_box_radius',
-			[
-				'label'      => __( 'Border radius', 'exclusive-addons-elementor' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
-				'default'    => [
-					'top'    => '50',
-					'right'  => '50',
-					'bottom' => '50',
-					'left'   => '50',
-					'unit'   => '%'
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .exad-google-reviews-thumb'   => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					'{{WRAPPER}} .eexad-google-reviews-thumb img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
-				]
-			]
-		);
-
-		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
 			[
-				'name'     => 'exad_google_review_carousel_image_box_shadow',
+				'name'     => 'exad_google_review_carousel_image_shadow',
 				'selector' => '{{WRAPPER}} .exad-google-reviews-thumb'
 			]
 		);
@@ -1865,16 +1916,18 @@ class Google_Reviews extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-        $direction = is_rtl() ? 'true' : 'false';
-        $place_id = $settings['exad_google_place_id'];
-        $api_key  = get_option('exad_google_map_api_option');
-        $reviewData  = $this->getReviews();
-        $GReviews = isset($reviewData['reviews']) ? $reviewData['reviews']: [];
+		$transition_top = '';
+		$carousel_id    = 'exad-google-reviews-carousel-' . $this->get_id();
+        $direction 		= is_rtl() ? 'true' : 'false';
+        $place_id  		= $settings['exad_google_place_id'];
+        $api_key   		= get_option('exad_google_map_api_option');
+        $reviewData  	= $this->getReviews();
+        $GReviews 		= isset($reviewData['reviews']) ? $reviewData['reviews']: [];
 
 		$elementor_viewport_lg = get_option( 'elementor_viewport_lg' );
 		$elementor_viewport_md = get_option( 'elementor_viewport_md' );
-		$exad_viewport_lg     = !empty($elementor_viewport_lg) ? $elementor_viewport_lg - 1 : 1023;
-		$exad_viewport_md     = !empty($elementor_viewport_md) ? $elementor_viewport_md - 1 : 767;
+		$exad_viewport_lg      = !empty($elementor_viewport_lg) ? $elementor_viewport_lg - 1 : 1023;
+		$exad_viewport_md      = !empty($elementor_viewport_md) ? $elementor_viewport_md - 1 : 767;
 
         $this->add_render_attribute(
 			'exad-google-reviews-wrapper',
@@ -1889,6 +1942,7 @@ class Google_Reviews extends Widget_Base {
 			$this->add_render_attribute( 
 				'exad-google-reviews-carousel', 
 				[ 
+					'id' 				  => $carousel_id,
 					'class'               => [ 'exad-google-reviews-carousel-wrapper exad-google-reviews-carousel exad-carousel-item' ],
 				]
 			);
@@ -1921,14 +1975,14 @@ class Google_Reviews extends Widget_Base {
 						]
 					],
 					"pagination" 			 	=>  [ 
-						"el" 				=> ".exad-swiper-pagination",
+						"el" 				=> "#". $carousel_id . " .exad-swiper-pagination ",
 						"type"       		=> "bullets",
 			      		"clickable"  		=> true,
 						'dynamicBullets' 	=> ( $settings["exad_google_reviews_carousel_nav"] == "dynamic-dots") ? true : false,
 					],
 					"navigation" => [
-						"nextEl" => ".exad-carousel-nav-next",
-						"prevEl" => ".exad-carousel-nav-prev",
+						"nextEl" => "#". $carousel_id . " .exad-carousel-nav-next",
+						"prevEl" => "#". $carousel_id . " .exad-carousel-nav-prev",
 					],
 
 				])
@@ -1938,6 +1992,10 @@ class Google_Reviews extends Widget_Base {
 		endif;
 
 		$this->add_render_attribute( 'exad_google_reviews_content_wrapper', 'class', 'exad-google_reviews-content-wrapper' );
+
+		if ( 'yes' === $settings['exad_google_review_carousel_container_transition_top'] ){
+			$transition_top = 'exad-google-review-transition-top-'.$settings['exad_google_review_carousel_container_transition_top'];
+		}
 
         ?>
 
@@ -1965,7 +2023,7 @@ class Google_Reviews extends Widget_Base {
 									}
 									?>
 
-									<div class="swiper-slide exad-google-reviews-item exad-google-reviews-wrapper <?php echo esc_attr( $settings['exad_google_reviews_carousel_container_alignment'] ) ;?>">
+									<div class="swiper-slide exad-google-reviews-item exad-google-reviews-wrapper <?php echo esc_attr( $settings['exad_google_reviews_carousel_container_alignment'] ) .' '. $transition_top ;?>">
 										<?php if( 'layout-2' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
 											<div class="exad-google-reviews-reviewer-wrapper">
 												<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
