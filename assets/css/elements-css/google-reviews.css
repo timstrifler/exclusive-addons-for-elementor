@@ -408,16 +408,22 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    position: absolute;
+    width: 100%;
   }
 
   .exad-google-reviews-carousel-wrapper.exad-google-reviews-carousel-dots-right .exad-swiper-pagination{
     margin-left: auto;
     text-align: right;
+    position: absolute;
+    width: 100%;
    }
 
   .exad-google-reviews-carousel-wrapper.exad-google-reviews-carousel-dots-left .exad-swiper-pagination {
     margin-right: auto;
     text-align: left;
+    position: absolute;
+    width: 100%;
   }
 
   .exad-google-reviews-wrapper .exad-google-reviews-reviewer-wrapper .exad-google-reviews-reviewer .exad-author-name {

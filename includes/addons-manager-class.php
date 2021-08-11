@@ -703,6 +703,13 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
+            'woo-my-account'  => [
+                'title'  => __( 'Woo My Account', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\WC_My_Account',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'woo-add-to-cart'  => [
                 'title'  => __( 'Woo Mini Cart', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Woo_Mini_Cart',
