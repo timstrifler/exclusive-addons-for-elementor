@@ -99,6 +99,8 @@ class Admin_Settings {
 			$exad_updated_settings = array_merge( $this->get_dashboard_settings, $exad_new_settings );
 			update_option( 'exad_save_settings', $exad_updated_settings );
 		}
+
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Addons_Manager::$all_feature_settings );
         
         ?>
         <div class="exad-elements-dashboard-wrapper">
