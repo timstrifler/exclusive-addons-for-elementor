@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.8
-Stable tag: 2.4.50
+Stable tag: 2.4.60
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -23,16 +23,12 @@ We'd love to add that for you.
 
 [Check out our Demos](https://exclusiveaddons.com/)
 
-**Our friend Tom made a 20 minutes long in depth review of Exclusive Addons**
+**Get to know Exclusive Addons better by the Review from a Top Reviewer Bjorn Allpas from WPLearningLab**
 
-https://www.youtube.com/watch?v=w-PGZkH6t6c&t
-
-**An Overview from a Full Stack Web Developer and a Reviewer**
-
-https://www.youtube.com/watch?v=Gn4BkI63dF0
+https://www.youtube.com/watch?v=Rs_hrs9WKVE&t
 
 
-### 37+ USEFUL WIDGETS & EXTENSIONS and counting...
+### 39+ USEFUL WIDGETS & EXTENSIONS and counting...
 
 We have packed our Elementor Addons with the most Useful Free Elementor widgets for you in the bundle. Check out our Demos where we demonstrated some interesting use cases for all of our Elements:
 
@@ -100,7 +96,7 @@ We have enabled Inline Editing with Live Preview for most of our elements. That 
 This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
 
 
-### 49+ PREMIUM WIDGETS and EXTENSIONS ON OUR [PRO VERSION](https://exclusiveaddons.com/pricing)
+### 50+ PREMIUM WIDGETS and EXTENSIONS ON OUR [PRO VERSION](https://exclusiveaddons.com/pricing)
 
 1. **[Demo Previewer](https://exclusiveaddons.com/demo-previewer/)** - A unique widget from the best elementor addons. Demo Previewer Widget offers the opportunity to showcase a demo or short preview of any product and provide an idea about the pricing on your WordPress site.
 2. **[Breadcrumb](https://exclusiveaddons.com/exclusive-addons/breadcrumb/)** - Breadcrumb Widget is a fully responsive navigator, that can trace the visitor’s footsteps on a certain path on a website. Every step of that path is clickable, from the homepage to the current location.
@@ -136,7 +132,7 @@ This option allows you change the default Color scheme for all the widgets at on
 32. **[Woo Product](https://exclusiveaddons.com/woo-product/)** - What’s the most conventional way shoppers grab the customers’ attention? They display their products in an attractive way in front of the customers. With Exclusive Addons woocommerce product addons, showcase all your products on your e-commerce site in a stunning way and urge the users to buy from you.
 33. **[Woo Category](https://exclusiveaddons.com/woo-category/)** - Exclusive Addons Woo-category is the ultimate woocommerce product categories widget to display your products in an organized categorical way. It’s everything you will need for your e-commerce site.
 34. **[Search](https://exclusiveaddons.com/search/)** - Take your site search into new level
-35. **[Page Title](https://exclusiveaddons.com/page-title/)** - Visualize your page title with custom styles
+35. **[Page Title](https://exclusiveaddons.com/page-title/)** - Visualize your page title with custom styles.
 36. **[Site Tagline](https://exclusiveaddons.com/site-tagline/)** - Site Tagline for the header or anywhere else you feel suitable.
 37. **[Site Title](https://exclusiveaddons.com/site-title/)** - Display your Site Title anywhere you want. 
 38. **[Author Box](https://exclusiveaddons.com/author-box/)** - Display information about the user who's logged in.
@@ -147,6 +143,8 @@ This option allows you change the default Color scheme for all the widgets at on
 43. **[Woo Checkout](https://exclusiveaddons.com/shop/)** - Style Your Woocommerce Checkout page without a Theme. With the help of all the customization options you might need.
 44. **[Site Logo](https://exclusiveaddons.com/site-logo/)** - Display your Site Logo with some versatile customization options.
 45. **[Template](https://exclusiveaddons.com/template-demo)** - Create reusable content as Elementor template and put anywhere using the Template widget.
+46. **[Woo Product Carousel](https://exclusiveaddons.com/woo-product-carousel-demo)** - Your stylish, versatile and most customizable WooCommerce Product Carousel is here.
+47. **[Woo My Account](https://exclusiveaddons.com/woo-my-account-demo)** - Create your Woocommerce My Account page from Elementor and style as many ways as you want with limitless possibilities.
 
 LIST OF OUR PRO EXTENSIONS:
 1. **[Gradient animation](https://exclusiveaddons.com/gradient-animation/)** 
@@ -154,10 +152,13 @@ LIST OF OUR PRO EXTENSIONS:
 3. **[Section Parallax](https://exclusiveaddons.com/section-parallax/)**
 4. **[Cross Site Copy Paste](https://exclusiveaddons.com/cross-site-copy-paste)**
 
-
 ### Exclusive Header-Footer Builder on PRO
 The best elementor addons comes with the excluisve feature of header/footer builder. 
 Create your desired header or footer template and place any where you like.
+
+**Our friend and reviewer Tom made a 20 minutes long in depth review of Exclusive Addons as well**
+
+https://www.youtube.com/watch?v=w-PGZkH6t6c&t
 
 
 ### [Elementor](https://wordpress.org/plugins/elementor/) page builder is required for this plugin.
@@ -227,7 +228,13 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 == Changelog ==
 
-= 2.4.5 - 05/08/2021 =
+= 2.4.60 - 16/08/2021 =
+- Tweak: Overall improvements in Filterable Post Widget.
+- Tweak: Improvements in Google Reviews Widget.
+- Tweak: Improvements in Filterable Gallery Widget.
+- Fix: Error Notice issue in Exclusive Addons Dashboard.
+
+= 2.4.50 - 05/08/2021 =
 - New: Added Filterable Post Widget.
 - New: Added Google Reviewes Widget.
 - Tweak: Added new options in Flipbox Widget.

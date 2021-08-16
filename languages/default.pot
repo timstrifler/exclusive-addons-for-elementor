@@ -25,7 +25,7 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: base.php:269, elements/facebook-feed/facebook-feed.php:91, elements/facebook-feed/facebook-feed.php:1683, elements/filterable-post/filterable-post.php:1797, elements/post-grid/post-grid.php:1418
+#: base.php:269, elements/facebook-feed/facebook-feed.php:91, elements/facebook-feed/facebook-feed.php:1683, elements/filterable-post/filterable-post.php:1932, elements/post-grid/post-grid.php:1418
 msgid "Comment"
 msgstr ""
 
@@ -67,43 +67,43 @@ msgstr ""
 msgid "PHP"
 msgstr ""
 
-#: admin/dashboard-settings.php:115
+#: admin/dashboard-settings.php:117
 msgid "Exclusive Addons Settings"
 msgstr ""
 
-#: admin/dashboard-settings.php:120
+#: admin/dashboard-settings.php:122
 msgid "Save Settings"
 msgstr ""
 
-#: admin/dashboard-settings.php:131, elements/heading/heading.php:133
+#: admin/dashboard-settings.php:133, elements/heading/heading.php:133
 msgid "General"
 msgstr ""
 
-#: admin/dashboard-settings.php:138
+#: admin/dashboard-settings.php:140
 msgid "Elements"
 msgstr ""
 
-#: admin/dashboard-settings.php:145
+#: admin/dashboard-settings.php:147
 msgid "Extensions"
 msgstr ""
 
-#: admin/dashboard-settings.php:152, elements/accordion/accordion.php:172, elements/logo-box/logo-box.php:146, elements/modal-popup/modal-popup.php:934
+#: admin/dashboard-settings.php:154, elements/accordion/accordion.php:172, elements/logo-box/logo-box.php:146, elements/modal-popup/modal-popup.php:934
 msgid "Style"
 msgstr ""
 
-#: admin/dashboard-settings.php:159
+#: admin/dashboard-settings.php:161
 msgid "API Keys"
 msgstr ""
 
-#: admin/dashboard-settings.php:166
+#: admin/dashboard-settings.php:168
 msgid "Get Pro"
 msgstr ""
 
-#: admin/dashboard-settings.php:183
+#: admin/dashboard-settings.php:185
 msgid "Your contribution to our enormous effort means a lot"
 msgstr ""
 
-#: admin/dashboard-settings.php:186
+#: admin/dashboard-settings.php:188
 msgid "We're working real hard to deliver the smoothest Elementor page building experience for you. <br> Consider this as a contribution to the team to keep up the pace."
 msgstr ""
 
@@ -151,15 +151,15 @@ msgstr ""
 msgid "URL"
 msgstr ""
 
-#: extensions/link-anything.php:47, elements/accordion/accordion.php:522, elements/accordion/accordion.php:687, elements/accordion/accordion.php:807, elements/accordion/accordion.php:1126, elements/button/button.php:368, elements/call-to-action/call-to-action.php:557, elements/call-to-action/call-to-action.php:725, elements/card/card.php:1192, elements/contact-form-7/contact-form-7.php:809, elements/covid-19-stats/covid-19-stats.php:1282, elements/dual-button/dual-button.php:462, elements/dual-button/dual-button.php:843, elements/facebook-feed/facebook-feed.php:799, elements/facebook-feed/facebook-feed.php:1344, elements/filterable-gallery/filterable-gallery.php:550, elements/filterable-gallery/filterable-gallery.php:812, elements/filterable-post/filterable-post.php:793, elements/filterable-post/filterable-post.php:1281, elements/filterable-post/filterable-post.php:1897, elements/flipbox/flipbox.php:1094, elements/google-reviews/google-reviews.php:756, elements/google-reviews/google-reviews.php:1309, elements/google-reviews/google-reviews.php:1515, elements/infobox/infobox.php:257, elements/infobox/infobox.php:643, elements/infobox/infobox.php:778, elements/logo-box/logo-box.php:178, elements/logo-carousel/logo-carousel.php:294, elements/logo-carousel/logo-carousel.php:627, elements/logo-carousel/logo-carousel.php:753, elements/modal-popup/modal-popup.php:640, elements/news-ticker/news-ticker.php:761, elements/post-grid/post-grid.php:902, elements/post-grid/post-grid.php:1518, elements/post-grid/post-grid.php:1699, elements/pricing-menu/pricing-menu.php:579, elements/pricing-menu/pricing-menu.php:816, elements/pricing-table/pricing-table.php:1779, elements/tabs/tabs.php:446, elements/tabs/tabs.php:763, elements/tabs/tabs.php:1025, elements/team-member/team-member.php:1199, elements/team-member/team-member.php:1365, elements/testimonial/testimonial.php:261, elements/testimonial/testimonial.php:752, elements/testimonial/testimonial.php:878, elements/tooltip/tooltip.php:353
+#: extensions/link-anything.php:47, elements/accordion/accordion.php:522, elements/accordion/accordion.php:687, elements/accordion/accordion.php:807, elements/accordion/accordion.php:1126, elements/button/button.php:368, elements/call-to-action/call-to-action.php:557, elements/call-to-action/call-to-action.php:725, elements/card/card.php:1192, elements/contact-form-7/contact-form-7.php:809, elements/covid-19-stats/covid-19-stats.php:1282, elements/dual-button/dual-button.php:462, elements/dual-button/dual-button.php:843, elements/facebook-feed/facebook-feed.php:799, elements/facebook-feed/facebook-feed.php:1344, elements/filterable-gallery/filterable-gallery.php:550, elements/filterable-gallery/filterable-gallery.php:812, elements/filterable-post/filterable-post.php:928, elements/filterable-post/filterable-post.php:1416, elements/filterable-post/filterable-post.php:2032, elements/flipbox/flipbox.php:1094, elements/google-reviews/google-reviews.php:518, elements/google-reviews/google-reviews.php:847, elements/google-reviews/google-reviews.php:1368, elements/google-reviews/google-reviews.php:1574, elements/infobox/infobox.php:257, elements/infobox/infobox.php:643, elements/infobox/infobox.php:778, elements/logo-box/logo-box.php:178, elements/logo-carousel/logo-carousel.php:294, elements/logo-carousel/logo-carousel.php:627, elements/logo-carousel/logo-carousel.php:753, elements/modal-popup/modal-popup.php:640, elements/news-ticker/news-ticker.php:761, elements/post-grid/post-grid.php:902, elements/post-grid/post-grid.php:1518, elements/post-grid/post-grid.php:1699, elements/pricing-menu/pricing-menu.php:579, elements/pricing-menu/pricing-menu.php:816, elements/pricing-table/pricing-table.php:1779, elements/tabs/tabs.php:446, elements/tabs/tabs.php:763, elements/tabs/tabs.php:1025, elements/team-member/team-member.php:1199, elements/team-member/team-member.php:1365, elements/testimonial/testimonial.php:261, elements/testimonial/testimonial.php:752, elements/testimonial/testimonial.php:878, elements/tooltip/tooltip.php:353
 msgid "Normal"
 msgstr ""
 
-#: extensions/link-anything.php:52, extensions/link-anything.php:74, elements/google-reviews/google-reviews.php:1576, elements/google-reviews/google-reviews.php:1667, elements/logo-box/logo-box.php:201, elements/logo-box/logo-box.php:209, elements/logo-box/logo-box.php:263, elements/logo-box/logo-box.php:271, elements/logo-carousel/logo-carousel.php:309, elements/logo-carousel/logo-carousel.php:354
+#: extensions/link-anything.php:52, extensions/link-anything.php:74, elements/google-reviews/google-reviews.php:1635, elements/google-reviews/google-reviews.php:1726, elements/logo-box/logo-box.php:201, elements/logo-box/logo-box.php:209, elements/logo-box/logo-box.php:263, elements/logo-box/logo-box.php:271, elements/logo-carousel/logo-carousel.php:309, elements/logo-carousel/logo-carousel.php:354
 msgid "Opacity"
 msgstr ""
 
-#: extensions/link-anything.php:69, elements/accordion/accordion.php:549, elements/accordion/accordion.php:1199, elements/button/button.php:427, elements/call-to-action/call-to-action.php:602, elements/call-to-action/call-to-action.php:786, elements/card/card.php:1252, elements/contact-form-7/contact-form-7.php:889, elements/dual-button/dual-button.php:511, elements/dual-button/dual-button.php:892, elements/facebook-feed/facebook-feed.php:821, elements/facebook-feed/facebook-feed.php:1410, elements/filterable-gallery/filterable-gallery.php:620, elements/filterable-gallery/filterable-gallery.php:841, elements/filterable-post/filterable-post.php:863, elements/filterable-post/filterable-post.php:1297, elements/filterable-post/filterable-post.php:1550, elements/filterable-post/filterable-post.php:1943, elements/flipbox/flipbox.php:1147, elements/google-reviews/google-reviews.php:1358, elements/infobox/infobox.php:286, elements/infobox/infobox.php:684, elements/infobox/infobox.php:794, elements/logo-box/logo-box.php:240, elements/logo-carousel/logo-carousel.php:338, elements/logo-carousel/logo-carousel.php:673, elements/modal-popup/modal-popup.php:692, elements/news-ticker/news-ticker.php:811, elements/post-grid/post-grid.php:918, elements/post-grid/post-grid.php:1171, elements/post-grid/post-grid.php:1564, elements/post-grid/post-grid.php:1746, elements/pricing-menu/pricing-menu.php:595, elements/pricing-menu/pricing-menu.php:860, elements/pricing-table/pricing-table.php:1840, elements/tabs/tabs.php:1085, elements/team-member/team-member.php:1235, elements/team-member/team-member.php:1401, elements/testimonial/testimonial.php:306, elements/testimonial/testimonial.php:895, elements/tooltip/tooltip.php:393
+#: extensions/link-anything.php:69, elements/accordion/accordion.php:549, elements/accordion/accordion.php:1199, elements/button/button.php:427, elements/call-to-action/call-to-action.php:602, elements/call-to-action/call-to-action.php:786, elements/card/card.php:1252, elements/contact-form-7/contact-form-7.php:889, elements/dual-button/dual-button.php:511, elements/dual-button/dual-button.php:892, elements/facebook-feed/facebook-feed.php:821, elements/facebook-feed/facebook-feed.php:1410, elements/filterable-gallery/filterable-gallery.php:620, elements/filterable-gallery/filterable-gallery.php:841, elements/filterable-post/filterable-post.php:998, elements/filterable-post/filterable-post.php:1432, elements/filterable-post/filterable-post.php:1685, elements/filterable-post/filterable-post.php:2078, elements/flipbox/flipbox.php:1147, elements/google-reviews/google-reviews.php:564, elements/google-reviews/google-reviews.php:1417, elements/infobox/infobox.php:286, elements/infobox/infobox.php:684, elements/infobox/infobox.php:794, elements/logo-box/logo-box.php:240, elements/logo-carousel/logo-carousel.php:338, elements/logo-carousel/logo-carousel.php:673, elements/modal-popup/modal-popup.php:692, elements/news-ticker/news-ticker.php:811, elements/post-grid/post-grid.php:918, elements/post-grid/post-grid.php:1171, elements/post-grid/post-grid.php:1564, elements/post-grid/post-grid.php:1746, elements/pricing-menu/pricing-menu.php:595, elements/pricing-menu/pricing-menu.php:860, elements/pricing-table/pricing-table.php:1840, elements/tabs/tabs.php:1085, elements/team-member/team-member.php:1235, elements/team-member/team-member.php:1401, elements/testimonial/testimonial.php:306, elements/testimonial/testimonial.php:895, elements/tooltip/tooltip.php:393
 msgid "Hover"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "<strong>Sticky Extention</strong> Does not work in Editor page."
 msgstr ""
 
-#: extensions/sticky.php:55, elements/contact-form-7/contact-form-7.php:762, elements/google-reviews/google-reviews.php:583, elements/google-reviews/google-reviews.php:1451, elements/heading/heading.php:635, elements/infobox/infobox.php:600, elements/team-member/team-member.php:766, elements/testimonial/testimonial.php:608
+#: extensions/sticky.php:55, elements/contact-form-7/contact-form-7.php:762, elements/google-reviews/google-reviews.php:458, elements/google-reviews/google-reviews.php:674, elements/google-reviews/google-reviews.php:1510, elements/heading/heading.php:635, elements/infobox/infobox.php:600, elements/team-member/team-member.php:766, elements/testimonial/testimonial.php:608
 msgid "Top Spacing"
 msgstr ""
 
@@ -472,54 +472,62 @@ msgid "Testimonial Carousel"
 msgstr ""
 
 #: includes/addons-manager-class.php:707
-msgid "Woo Mini Cart"
+msgid "Woo My Account"
 msgstr ""
 
 #: includes/addons-manager-class.php:714
-msgid "Woo Category"
+msgid "Woo Mini Cart"
 msgstr ""
 
 #: includes/addons-manager-class.php:721
-msgid "Woo Products"
+msgid "Woo Cart"
 msgstr ""
 
 #: includes/addons-manager-class.php:728
-msgid "Woo Cart"
+msgid "Woo Category"
 msgstr ""
 
 #: includes/addons-manager-class.php:735
 msgid "Woo Checkout"
 msgstr ""
 
-#: includes/addons-manager-class.php:748
-msgid "Glassmorphism Effect"
+#: includes/addons-manager-class.php:742
+msgid "Woo Products"
 msgstr ""
 
-#: includes/addons-manager-class.php:755
-msgid "Post Duplicator"
+#: includes/addons-manager-class.php:749
+msgid "Woo Product Carousel"
 msgstr ""
 
 #: includes/addons-manager-class.php:762
-msgid "Exclusive Sticky"
+msgid "Glassmorphism Effect"
 msgstr ""
 
 #: includes/addons-manager-class.php:769
+msgid "Post Duplicator"
+msgstr ""
+
+#: includes/addons-manager-class.php:776
+msgid "Exclusive Sticky"
+msgstr ""
+
+#: includes/addons-manager-class.php:783
 msgid "Link Anything"
 msgstr ""
 
-#: includes/addons-manager-class.php:782
+#: includes/addons-manager-class.php:796
 msgid "Section Particles"
 msgstr ""
 
-#: includes/addons-manager-class.php:789
+#: includes/addons-manager-class.php:803
 msgid "Section Parallax"
 msgstr ""
 
-#: includes/addons-manager-class.php:796
+#: includes/addons-manager-class.php:810
 msgid "Gradient Animation"
 msgstr ""
 
-#: includes/addons-manager-class.php:803
+#: includes/addons-manager-class.php:817
 msgid "Cross Site Copy Paste"
 msgstr ""
 
@@ -697,7 +705,7 @@ msgstr ""
 msgid "Contents"
 msgstr ""
 
-#: elements/accordion/accordion.php:57, elements/accordion/accordion.php:107, elements/accordion/accordion.php:249, elements/accordion/accordion.php:875, elements/alert/alert.php:46, elements/animated-text/animated-text.php:45, elements/call-to-action/call-to-action.php:43, elements/call-to-action/call-to-action.php:306, elements/card/card.php:50, elements/card/card.php:838, elements/dual-button/dual-button.php:45, elements/dual-heading/dual-heading.php:45, elements/filterable-gallery/filterable-gallery.php:881, elements/filterable-post/filterable-post.php:1145, elements/heading/heading.php:44, elements/infobox/infobox.php:50, elements/list-group/list-group.php:48, elements/logo-box/logo-box.php:45, elements/logo-carousel/logo-carousel.php:50, elements/news-ticker/news-ticker.php:68, elements/post-grid/post-grid.php:765, elements/pricing-menu/pricing-menu.php:50, elements/progress-bar/progress-bar.php:54, elements/tabs/tabs.php:52, elements/tabs/tabs.php:135, elements/tabs/tabs.php:182, elements/team-member/team-member.php:51, elements/team-member/team-member.php:852, elements/tooltip/tooltip.php:76
+#: elements/accordion/accordion.php:57, elements/accordion/accordion.php:107, elements/accordion/accordion.php:249, elements/accordion/accordion.php:875, elements/alert/alert.php:46, elements/animated-text/animated-text.php:45, elements/call-to-action/call-to-action.php:43, elements/call-to-action/call-to-action.php:306, elements/card/card.php:50, elements/card/card.php:838, elements/dual-button/dual-button.php:45, elements/dual-heading/dual-heading.php:45, elements/filterable-gallery/filterable-gallery.php:881, elements/filterable-post/filterable-post.php:1280, elements/heading/heading.php:44, elements/infobox/infobox.php:50, elements/list-group/list-group.php:48, elements/logo-box/logo-box.php:45, elements/logo-carousel/logo-carousel.php:50, elements/news-ticker/news-ticker.php:68, elements/post-grid/post-grid.php:765, elements/pricing-menu/pricing-menu.php:50, elements/progress-bar/progress-bar.php:54, elements/tabs/tabs.php:52, elements/tabs/tabs.php:135, elements/tabs/tabs.php:182, elements/team-member/team-member.php:51, elements/team-member/team-member.php:852, elements/tooltip/tooltip.php:76
 msgid "Content"
 msgstr ""
 
@@ -721,7 +729,7 @@ msgstr ""
 msgid "Icon"
 msgstr ""
 
-#: elements/accordion/accordion.php:97, elements/accordion/accordion.php:196, elements/accordion/accordion.php:421, elements/alert/alert.php:92, elements/alert/alert.php:344, elements/card/card.php:283, elements/card/card.php:924, elements/contact-form-7/contact-form-7.php:126, elements/contact-form-7/contact-form-7.php:319, elements/countdown-timer/countdown-timer.php:453, elements/filterable-gallery/filterable-gallery.php:65, elements/filterable-gallery/filterable-gallery.php:968, elements/filterable-post/filterable-post.php:1225, elements/flipbox/flipbox.php:117, elements/flipbox/flipbox.php:210, elements/flipbox/flipbox.php:581, elements/flipbox/flipbox.php:914, elements/infobox/infobox.php:122, elements/infobox/infobox.php:732, elements/post-grid/post-grid.php:846, elements/post-timeline/post-timeline.php:351, elements/pricing-menu/pricing-menu.php:81, elements/pricing-menu/pricing-menu.php:517, elements/pricing-table/pricing-table.php:139, elements/pricing-table/pricing-table.php:183, elements/pricing-table/pricing-table.php:893, elements/progress-bar/progress-bar.php:61, elements/progress-bar/progress-bar.php:113, elements/tabs/tabs.php:171
+#: elements/accordion/accordion.php:97, elements/accordion/accordion.php:196, elements/accordion/accordion.php:421, elements/alert/alert.php:92, elements/alert/alert.php:344, elements/card/card.php:283, elements/card/card.php:924, elements/contact-form-7/contact-form-7.php:126, elements/contact-form-7/contact-form-7.php:319, elements/countdown-timer/countdown-timer.php:453, elements/filterable-gallery/filterable-gallery.php:65, elements/filterable-gallery/filterable-gallery.php:968, elements/filterable-post/filterable-post.php:1360, elements/flipbox/flipbox.php:117, elements/flipbox/flipbox.php:210, elements/flipbox/flipbox.php:581, elements/flipbox/flipbox.php:914, elements/infobox/infobox.php:122, elements/infobox/infobox.php:732, elements/post-grid/post-grid.php:846, elements/post-timeline/post-timeline.php:351, elements/pricing-menu/pricing-menu.php:81, elements/pricing-menu/pricing-menu.php:517, elements/pricing-table/pricing-table.php:139, elements/pricing-table/pricing-table.php:183, elements/pricing-table/pricing-table.php:893, elements/progress-bar/progress-bar.php:61, elements/progress-bar/progress-bar.php:113, elements/tabs/tabs.php:171
 msgid "Title"
 msgstr ""
 
@@ -753,7 +761,7 @@ msgstr ""
 msgid "http://your-link.com"
 msgstr ""
 
-#: elements/accordion/accordion.php:161, elements/accordion/accordion.php:996, elements/card/card.php:57, elements/card/card.php:532, elements/filterable-gallery/filterable-gallery.php:101, elements/filterable-post/filterable-post.php:1030, elements/flipbox/flipbox.php:67, elements/flipbox/flipbox.php:92, elements/flipbox/flipbox.php:164, elements/flipbox/flipbox.php:185, elements/image-magnifier/image-magnifier.php:51, elements/infobox/infobox.php:72, elements/infobox/infobox.php:82, elements/list-group/list-group.php:70, elements/modal-popup/modal-popup.php:56, elements/modal-popup/modal-popup.php:74, elements/modal-popup/modal-popup.php:128, elements/post-grid/post-grid.php:650, elements/pricing-menu/pricing-menu.php:59, elements/pricing-menu/pricing-menu.php:375, elements/tabs/tabs.php:83, elements/tabs/tabs.php:109, elements/tabs/tabs.php:617, elements/team-member/team-member.php:58, elements/team-member/team-member.php:629, elements/testimonial/testimonial.php:55, elements/tooltip/tooltip.php:65, elements/tooltip/tooltip.php:104
+#: elements/accordion/accordion.php:161, elements/accordion/accordion.php:996, elements/card/card.php:57, elements/card/card.php:532, elements/filterable-gallery/filterable-gallery.php:101, elements/filterable-post/filterable-post.php:1165, elements/flipbox/flipbox.php:67, elements/flipbox/flipbox.php:92, elements/flipbox/flipbox.php:164, elements/flipbox/flipbox.php:185, elements/image-magnifier/image-magnifier.php:51, elements/infobox/infobox.php:72, elements/infobox/infobox.php:82, elements/list-group/list-group.php:70, elements/modal-popup/modal-popup.php:56, elements/modal-popup/modal-popup.php:74, elements/modal-popup/modal-popup.php:128, elements/post-grid/post-grid.php:650, elements/pricing-menu/pricing-menu.php:59, elements/pricing-menu/pricing-menu.php:375, elements/tabs/tabs.php:83, elements/tabs/tabs.php:109, elements/tabs/tabs.php:617, elements/team-member/team-member.php:58, elements/team-member/team-member.php:629, elements/testimonial/testimonial.php:55, elements/tooltip/tooltip.php:65, elements/tooltip/tooltip.php:104
 msgid "Image"
 msgstr ""
 
@@ -765,11 +773,11 @@ msgstr ""
 msgid "Container"
 msgstr ""
 
-#: elements/accordion/accordion.php:185, elements/accordion/accordion.php:216, elements/accordion/accordion.php:343, elements/accordion/accordion.php:538, elements/accordion/accordion.php:565, elements/accordion/accordion.php:591, elements/accordion/accordion.php:703, elements/accordion/accordion.php:730, elements/accordion/accordion.php:824, elements/accordion/accordion.php:852, elements/accordion/accordion.php:891, elements/accordion/accordion.php:1143, elements/accordion/accordion.php:1216, elements/alert/alert.php:305, elements/alert/alert.php:552, elements/alert/alert.php:633, elements/call-to-action/call-to-action.php:574, elements/call-to-action/call-to-action.php:618, elements/call-to-action/call-to-action.php:742, elements/call-to-action/call-to-action.php:803, elements/card/card.php:747, elements/card/card.php:1209, elements/card/card.php:1269, elements/contact-form-7/contact-form-7.php:398, elements/contact-form-7/contact-form-7.php:828, elements/contact-form-7/contact-form-7.php:908, elements/contact-form-7/contact-form-7.php:980, elements/contact-form-7/contact-form-7.php:1033, elements/dual-button/dual-button.php:479, elements/dual-button/dual-button.php:528, elements/dual-button/dual-button.php:662, elements/dual-button/dual-button.php:860, elements/dual-button/dual-button.php:909, elements/facebook-feed/facebook-feed.php:1351, elements/facebook-feed/facebook-feed.php:1417, elements/filterable-gallery/filterable-gallery.php:567, elements/filterable-gallery/filterable-gallery.php:637, elements/filterable-gallery/filterable-gallery.php:689, elements/filterable-gallery/filterable-gallery.php:829, elements/filterable-gallery/filterable-gallery.php:858, elements/filterable-gallery/filterable-gallery.php:910, elements/filterable-post/filterable-post.php:497, elements/filterable-post/filterable-post.php:810, elements/filterable-post/filterable-post.php:880, elements/filterable-post/filterable-post.php:932, elements/filterable-post/filterable-post.php:1153, elements/filterable-post/filterable-post.php:1509, elements/filterable-post/filterable-post.php:1555, elements/filterable-post/filterable-post.php:1914, elements/filterable-post/filterable-post.php:1959, elements/flipbox/flipbox.php:551, elements/flipbox/flipbox.php:883, elements/flipbox/flipbox.php:1111, elements/flipbox/flipbox.php:1164, elements/google-reviews/google-reviews.php:549, elements/google-reviews/google-reviews.php:1314, elements/google-reviews/google-reviews.php:1363, elements/google-reviews/google-reviews.php:1564, elements/google-reviews/google-reviews.php:1654, elements/image-comparison/image-comparison.php:433, elements/logo-carousel/logo-carousel.php:644, elements/logo-carousel/logo-carousel.php:690, elements/modal-popup/modal-popup.php:657, elements/modal-popup/modal-popup.php:709, elements/modal-popup/modal-popup.php:871, elements/modal-popup/modal-popup.php:1095, elements/news-ticker/news-ticker.php:593, elements/news-ticker/news-ticker.php:683, elements/news-ticker/news-ticker.php:778, elements/news-ticker/news-ticker.php:828, elements/post-grid/post-grid.php:522, elements/post-grid/post-grid.php:773, elements/post-grid/post-grid.php:1130, elements/post-grid/post-grid.php:1176, elements/post-grid/post-grid.php:1535, elements/post-grid/post-grid.php:1580, elements/post-grid/post-grid.php:1704, elements/post-grid/post-grid.php:1751, elements/pricing-menu/pricing-menu.php:833, elements/pricing-menu/pricing-menu.php:877, elements/pricing-table/pricing-table.php:494, elements/pricing-table/pricing-table.php:1796, elements/pricing-table/pricing-table.php:1857, elements/tabs/tabs.php:1042, elements/tabs/tabs.php:1102, elements/team-member/team-member.php:1216, elements/team-member/team-member.php:1252, elements/team-member/team-member.php:1382, elements/team-member/team-member.php:1418, elements/testimonial/testimonial.php:553, elements/tooltip/tooltip.php:373, elements/tooltip/tooltip.php:414
+#: elements/accordion/accordion.php:185, elements/accordion/accordion.php:216, elements/accordion/accordion.php:343, elements/accordion/accordion.php:538, elements/accordion/accordion.php:565, elements/accordion/accordion.php:591, elements/accordion/accordion.php:703, elements/accordion/accordion.php:730, elements/accordion/accordion.php:824, elements/accordion/accordion.php:852, elements/accordion/accordion.php:891, elements/accordion/accordion.php:1143, elements/accordion/accordion.php:1216, elements/alert/alert.php:305, elements/alert/alert.php:552, elements/alert/alert.php:633, elements/call-to-action/call-to-action.php:574, elements/call-to-action/call-to-action.php:618, elements/call-to-action/call-to-action.php:742, elements/call-to-action/call-to-action.php:803, elements/card/card.php:747, elements/card/card.php:1209, elements/card/card.php:1269, elements/contact-form-7/contact-form-7.php:398, elements/contact-form-7/contact-form-7.php:828, elements/contact-form-7/contact-form-7.php:908, elements/contact-form-7/contact-form-7.php:980, elements/contact-form-7/contact-form-7.php:1033, elements/dual-button/dual-button.php:479, elements/dual-button/dual-button.php:528, elements/dual-button/dual-button.php:662, elements/dual-button/dual-button.php:860, elements/dual-button/dual-button.php:909, elements/facebook-feed/facebook-feed.php:1351, elements/facebook-feed/facebook-feed.php:1417, elements/filterable-gallery/filterable-gallery.php:567, elements/filterable-gallery/filterable-gallery.php:637, elements/filterable-gallery/filterable-gallery.php:689, elements/filterable-gallery/filterable-gallery.php:829, elements/filterable-gallery/filterable-gallery.php:858, elements/filterable-gallery/filterable-gallery.php:910, elements/filterable-post/filterable-post.php:497, elements/filterable-post/filterable-post.php:945, elements/filterable-post/filterable-post.php:1015, elements/filterable-post/filterable-post.php:1067, elements/filterable-post/filterable-post.php:1288, elements/filterable-post/filterable-post.php:1644, elements/filterable-post/filterable-post.php:1690, elements/filterable-post/filterable-post.php:2049, elements/filterable-post/filterable-post.php:2094, elements/flipbox/flipbox.php:551, elements/flipbox/flipbox.php:883, elements/flipbox/flipbox.php:1111, elements/flipbox/flipbox.php:1164, elements/google-reviews/google-reviews.php:640, elements/google-reviews/google-reviews.php:1373, elements/google-reviews/google-reviews.php:1422, elements/google-reviews/google-reviews.php:1623, elements/google-reviews/google-reviews.php:1713, elements/image-comparison/image-comparison.php:433, elements/logo-carousel/logo-carousel.php:644, elements/logo-carousel/logo-carousel.php:690, elements/modal-popup/modal-popup.php:657, elements/modal-popup/modal-popup.php:709, elements/modal-popup/modal-popup.php:871, elements/modal-popup/modal-popup.php:1095, elements/news-ticker/news-ticker.php:593, elements/news-ticker/news-ticker.php:683, elements/news-ticker/news-ticker.php:778, elements/news-ticker/news-ticker.php:828, elements/post-grid/post-grid.php:522, elements/post-grid/post-grid.php:773, elements/post-grid/post-grid.php:1130, elements/post-grid/post-grid.php:1176, elements/post-grid/post-grid.php:1535, elements/post-grid/post-grid.php:1580, elements/post-grid/post-grid.php:1704, elements/post-grid/post-grid.php:1751, elements/pricing-menu/pricing-menu.php:833, elements/pricing-menu/pricing-menu.php:877, elements/pricing-table/pricing-table.php:494, elements/pricing-table/pricing-table.php:1796, elements/pricing-table/pricing-table.php:1857, elements/tabs/tabs.php:1042, elements/tabs/tabs.php:1102, elements/team-member/team-member.php:1216, elements/team-member/team-member.php:1252, elements/team-member/team-member.php:1382, elements/team-member/team-member.php:1418, elements/testimonial/testimonial.php:553, elements/tooltip/tooltip.php:373, elements/tooltip/tooltip.php:414
 msgid "Background Color"
 msgstr ""
 
-#: elements/accordion/accordion.php:205, elements/accordion/accordion.php:526, elements/accordion/accordion.php:553, elements/accordion/accordion.php:580, elements/accordion/accordion.php:903, elements/accordion/accordion.php:1131, elements/accordion/accordion.php:1204, elements/alert/alert.php:564, elements/alert/alert.php:648, elements/button/button.php:373, elements/button/button.php:432, elements/call-to-action/call-to-action.php:562, elements/call-to-action/call-to-action.php:607, elements/call-to-action/call-to-action.php:730, elements/call-to-action/call-to-action.php:791, elements/card/card.php:759, elements/card/card.php:1197, elements/card/card.php:1257, elements/contact-form-7/contact-form-7.php:410, elements/contact-form-7/contact-form-7.php:816, elements/contact-form-7/contact-form-7.php:896, elements/covid-19-stats/covid-19-stats.php:660, elements/covid-19-stats/covid-19-stats.php:720, elements/covid-19-stats/covid-19-stats.php:915, elements/covid-19-stats/covid-19-stats.php:967, elements/covid-19-stats/covid-19-stats.php:1056, elements/covid-19-stats/covid-19-stats.php:1299, elements/covid-19-stats/covid-19-stats.php:1354, elements/covid-19-stats/covid-19-stats.php:1515, elements/covid-19-stats/covid-19-stats.php:1610, elements/covid-19-stats/covid-19-stats.php:1656, elements/dual-button/dual-button.php:467, elements/dual-button/dual-button.php:516, elements/dual-button/dual-button.php:848, elements/dual-button/dual-button.php:897, elements/filterable-gallery/filterable-gallery.php:555, elements/filterable-gallery/filterable-gallery.php:625, elements/filterable-gallery/filterable-gallery.php:677, elements/filterable-post/filterable-post.php:798, elements/filterable-post/filterable-post.php:868, elements/filterable-post/filterable-post.php:920, elements/filterable-post/filterable-post.php:1521, elements/filterable-post/filterable-post.php:1567, elements/filterable-post/filterable-post.php:1902, elements/filterable-post/filterable-post.php:1948, elements/flipbox/flipbox.php:1099, elements/flipbox/flipbox.php:1152, elements/google-reviews/google-reviews.php:562, elements/heading/heading.php:456, elements/heading/heading.php:517, elements/image-comparison/image-comparison.php:445, elements/modal-popup/modal-popup.php:645, elements/modal-popup/modal-popup.php:697, elements/news-ticker/news-ticker.php:406, elements/news-ticker/news-ticker.php:569, elements/post-grid/post-grid.php:1142, elements/post-grid/post-grid.php:1188, elements/post-grid/post-grid.php:1523, elements/post-grid/post-grid.php:1569, elements/post-grid/post-grid.php:1716, elements/post-grid/post-grid.php:1763, elements/pricing-menu/pricing-menu.php:821, elements/pricing-menu/pricing-menu.php:865, elements/pricing-table/pricing-table.php:718, elements/pricing-table/pricing-table.php:902, elements/pricing-table/pricing-table.php:1419, elements/pricing-table/pricing-table.php:1784, elements/pricing-table/pricing-table.php:1845, elements/pricing-table/pricing-table.php:1995, elements/progress-bar/progress-bar.php:337, elements/tabs/tabs.php:451, elements/tabs/tabs.php:510, elements/tabs/tabs.php:818, elements/tabs/tabs.php:1030, elements/tabs/tabs.php:1090, elements/team-member/team-member.php:1204, elements/team-member/team-member.php:1240, elements/testimonial/testimonial.php:541, elements/tooltip/tooltip.php:457
+#: elements/accordion/accordion.php:205, elements/accordion/accordion.php:526, elements/accordion/accordion.php:553, elements/accordion/accordion.php:580, elements/accordion/accordion.php:903, elements/accordion/accordion.php:1131, elements/accordion/accordion.php:1204, elements/alert/alert.php:564, elements/alert/alert.php:648, elements/button/button.php:373, elements/button/button.php:432, elements/call-to-action/call-to-action.php:562, elements/call-to-action/call-to-action.php:607, elements/call-to-action/call-to-action.php:730, elements/call-to-action/call-to-action.php:791, elements/card/card.php:759, elements/card/card.php:1197, elements/card/card.php:1257, elements/contact-form-7/contact-form-7.php:410, elements/contact-form-7/contact-form-7.php:816, elements/contact-form-7/contact-form-7.php:896, elements/covid-19-stats/covid-19-stats.php:660, elements/covid-19-stats/covid-19-stats.php:720, elements/covid-19-stats/covid-19-stats.php:915, elements/covid-19-stats/covid-19-stats.php:967, elements/covid-19-stats/covid-19-stats.php:1056, elements/covid-19-stats/covid-19-stats.php:1299, elements/covid-19-stats/covid-19-stats.php:1354, elements/covid-19-stats/covid-19-stats.php:1515, elements/covid-19-stats/covid-19-stats.php:1610, elements/covid-19-stats/covid-19-stats.php:1656, elements/dual-button/dual-button.php:467, elements/dual-button/dual-button.php:516, elements/dual-button/dual-button.php:848, elements/dual-button/dual-button.php:897, elements/filterable-gallery/filterable-gallery.php:555, elements/filterable-gallery/filterable-gallery.php:625, elements/filterable-gallery/filterable-gallery.php:677, elements/filterable-post/filterable-post.php:933, elements/filterable-post/filterable-post.php:1003, elements/filterable-post/filterable-post.php:1055, elements/filterable-post/filterable-post.php:1656, elements/filterable-post/filterable-post.php:1702, elements/filterable-post/filterable-post.php:2037, elements/filterable-post/filterable-post.php:2083, elements/flipbox/flipbox.php:1099, elements/flipbox/flipbox.php:1152, elements/google-reviews/google-reviews.php:653, elements/heading/heading.php:456, elements/heading/heading.php:517, elements/image-comparison/image-comparison.php:445, elements/modal-popup/modal-popup.php:645, elements/modal-popup/modal-popup.php:697, elements/news-ticker/news-ticker.php:406, elements/news-ticker/news-ticker.php:569, elements/post-grid/post-grid.php:1142, elements/post-grid/post-grid.php:1188, elements/post-grid/post-grid.php:1523, elements/post-grid/post-grid.php:1569, elements/post-grid/post-grid.php:1716, elements/post-grid/post-grid.php:1763, elements/pricing-menu/pricing-menu.php:821, elements/pricing-menu/pricing-menu.php:865, elements/pricing-table/pricing-table.php:718, elements/pricing-table/pricing-table.php:902, elements/pricing-table/pricing-table.php:1419, elements/pricing-table/pricing-table.php:1784, elements/pricing-table/pricing-table.php:1845, elements/pricing-table/pricing-table.php:1995, elements/progress-bar/progress-bar.php:337, elements/tabs/tabs.php:451, elements/tabs/tabs.php:510, elements/tabs/tabs.php:818, elements/tabs/tabs.php:1030, elements/tabs/tabs.php:1090, elements/team-member/team-member.php:1204, elements/team-member/team-member.php:1240, elements/testimonial/testimonial.php:541, elements/tooltip/tooltip.php:457
 msgid "Text Color"
 msgstr ""
 
@@ -805,19 +813,19 @@ msgstr ""
 msgid "Inactive Icon"
 msgstr ""
 
-#: elements/accordion/accordion.php:354, elements/accordion/accordion.php:442, elements/accordion/accordion.php:663, elements/accordion/accordion.php:915, elements/accordion/accordion.php:1034, elements/accordion/accordion.php:1090, elements/alert/alert.php:199, elements/alert/alert.php:316, elements/alert/alert.php:592, elements/alert/alert.php:676, elements/button/button.php:329, elements/call-to-action/call-to-action.php:239, elements/call-to-action/call-to-action.php:465, elements/call-to-action/call-to-action.php:506, elements/call-to-action/call-to-action.php:682, elements/card/card.php:454, elements/card/card.php:585, elements/card/card.php:779, elements/card/card.php:872, elements/card/card.php:1130, elements/contact-form-7/contact-form-7.php:528, elements/contact-form-7/contact-form-7.php:742, elements/countdown-timer/countdown-timer.php:98, elements/covid-19-stats/covid-19-stats.php:836, elements/covid-19-stats/covid-19-stats.php:1108, elements/covid-19-stats/covid-19-stats.php:1242, elements/dual-button/dual-button.php:291, elements/dual-button/dual-button.php:348, elements/dual-button/dual-button.php:734, elements/dual-heading/dual-heading.php:292, elements/dual-heading/dual-heading.php:378, elements/dual-heading/dual-heading.php:460, elements/facebook-feed/facebook-feed.php:377, elements/facebook-feed/facebook-feed.php:556, elements/facebook-feed/facebook-feed.php:922, elements/facebook-feed/facebook-feed.php:1091, elements/facebook-feed/facebook-feed.php:1263, elements/filterable-gallery/filterable-gallery.php:293, elements/filterable-gallery/filterable-gallery.php:359, elements/filterable-gallery/filterable-gallery.php:495, elements/filterable-gallery/filterable-gallery.php:921, elements/filterable-post/filterable-post.php:571, elements/filterable-post/filterable-post.php:602, elements/filterable-post/filterable-post.php:738, elements/filterable-post/filterable-post.php:1041, elements/filterable-post/filterable-post.php:1177, elements/filterable-post/filterable-post.php:1449, elements/filterable-post/filterable-post.php:1853, elements/flipbox/flipbox.php:384, elements/flipbox/flipbox.php:734, elements/flipbox/flipbox.php:1036, elements/google-reviews/google-reviews.php:510, elements/google-reviews/google-reviews.php:627, elements/google-reviews/google-reviews.php:942, elements/heading/heading.php:250, elements/image-comparison/image-comparison.php:457, elements/infobox/infobox.php:222, elements/list-group/list-group.php:257, elements/logo-box/logo-box.php:307, elements/modal-popup/modal-popup.php:618, elements/modal-popup/modal-popup.php:886, elements/news-ticker/news-ticker.php:528, elements/post-grid/post-grid.php:596, elements/post-grid/post-grid.php:661, elements/post-grid/post-grid.php:798, elements/post-grid/post-grid.php:1070, elements/post-grid/post-grid.php:1474, elements/post-grid/post-grid.php:1630, elements/post-timeline/post-timeline.php:537, elements/pricing-menu/pricing-menu.php:231, elements/pricing-menu/pricing-menu.php:281, elements/pricing-menu/pricing-menu.php:436, elements/pricing-menu/pricing-menu.php:778, elements/pricing-table/pricing-table.php:511, elements/pricing-table/pricing-table.php:730, elements/pricing-table/pricing-table.php:806, elements/pricing-table/pricing-table.php:1546, elements/pricing-table/pricing-table.php:1741, elements/pricing-table/pricing-table.php:1947, elements/progress-bar/progress-bar.php:393, elements/tabs/tabs.php:363, elements/tabs/tabs.php:847, elements/tabs/tabs.php:976, elements/team-member/team-member.php:565, elements/team-member/team-member.php:893, elements/team-member/team-member.php:1163, elements/team-member/team-member.php:1316, elements/testimonial/testimonial.php:225, elements/testimonial/testimonial.php:633, elements/testimonial/testimonial.php:803, elements/tooltip/tooltip.php:309, elements/tooltip/tooltip.php:513
+#: elements/accordion/accordion.php:354, elements/accordion/accordion.php:442, elements/accordion/accordion.php:663, elements/accordion/accordion.php:915, elements/accordion/accordion.php:1034, elements/accordion/accordion.php:1090, elements/alert/alert.php:199, elements/alert/alert.php:316, elements/alert/alert.php:592, elements/alert/alert.php:676, elements/button/button.php:329, elements/call-to-action/call-to-action.php:239, elements/call-to-action/call-to-action.php:465, elements/call-to-action/call-to-action.php:506, elements/call-to-action/call-to-action.php:682, elements/card/card.php:454, elements/card/card.php:585, elements/card/card.php:779, elements/card/card.php:872, elements/card/card.php:1130, elements/contact-form-7/contact-form-7.php:528, elements/contact-form-7/contact-form-7.php:742, elements/countdown-timer/countdown-timer.php:98, elements/covid-19-stats/covid-19-stats.php:836, elements/covid-19-stats/covid-19-stats.php:1108, elements/covid-19-stats/covid-19-stats.php:1242, elements/dual-button/dual-button.php:291, elements/dual-button/dual-button.php:348, elements/dual-button/dual-button.php:734, elements/dual-heading/dual-heading.php:292, elements/dual-heading/dual-heading.php:378, elements/dual-heading/dual-heading.php:460, elements/facebook-feed/facebook-feed.php:377, elements/facebook-feed/facebook-feed.php:556, elements/facebook-feed/facebook-feed.php:922, elements/facebook-feed/facebook-feed.php:1091, elements/facebook-feed/facebook-feed.php:1263, elements/filterable-gallery/filterable-gallery.php:293, elements/filterable-gallery/filterable-gallery.php:359, elements/filterable-gallery/filterable-gallery.php:495, elements/filterable-gallery/filterable-gallery.php:921, elements/filterable-post/filterable-post.php:571, elements/filterable-post/filterable-post.php:691, elements/filterable-post/filterable-post.php:871, elements/filterable-post/filterable-post.php:1176, elements/filterable-post/filterable-post.php:1312, elements/filterable-post/filterable-post.php:1584, elements/filterable-post/filterable-post.php:1988, elements/flipbox/flipbox.php:384, elements/flipbox/flipbox.php:734, elements/flipbox/flipbox.php:1036, elements/google-reviews/google-reviews.php:481, elements/google-reviews/google-reviews.php:718, elements/google-reviews/google-reviews.php:1001, elements/heading/heading.php:250, elements/image-comparison/image-comparison.php:457, elements/infobox/infobox.php:222, elements/list-group/list-group.php:257, elements/logo-box/logo-box.php:307, elements/modal-popup/modal-popup.php:618, elements/modal-popup/modal-popup.php:886, elements/news-ticker/news-ticker.php:528, elements/post-grid/post-grid.php:596, elements/post-grid/post-grid.php:661, elements/post-grid/post-grid.php:798, elements/post-grid/post-grid.php:1070, elements/post-grid/post-grid.php:1474, elements/post-grid/post-grid.php:1630, elements/post-timeline/post-timeline.php:537, elements/pricing-menu/pricing-menu.php:231, elements/pricing-menu/pricing-menu.php:281, elements/pricing-menu/pricing-menu.php:436, elements/pricing-menu/pricing-menu.php:778, elements/pricing-table/pricing-table.php:511, elements/pricing-table/pricing-table.php:730, elements/pricing-table/pricing-table.php:806, elements/pricing-table/pricing-table.php:1546, elements/pricing-table/pricing-table.php:1741, elements/pricing-table/pricing-table.php:1947, elements/progress-bar/progress-bar.php:393, elements/tabs/tabs.php:363, elements/tabs/tabs.php:847, elements/tabs/tabs.php:976, elements/team-member/team-member.php:565, elements/team-member/team-member.php:893, elements/team-member/team-member.php:1163, elements/team-member/team-member.php:1316, elements/testimonial/testimonial.php:225, elements/testimonial/testimonial.php:633, elements/testimonial/testimonial.php:803, elements/tooltip/tooltip.php:309, elements/tooltip/tooltip.php:513
 msgid "Padding"
 msgstr ""
 
-#: elements/accordion/accordion.php:366, elements/accordion/accordion.php:460, elements/accordion/accordion.php:675, elements/accordion/accordion.php:933, elements/accordion/accordion.php:1052, elements/accordion/accordion.php:1108, elements/alert/alert.php:375, elements/alert/alert.php:419, elements/call-to-action/call-to-action.php:353, elements/call-to-action/call-to-action.php:394, elements/call-to-action/call-to-action.php:525, elements/call-to-action/call-to-action.php:701, elements/card/card.php:954, elements/card/card.php:1010, elements/card/card.php:1062, elements/contact-form-7/contact-form-7.php:372, elements/contact-form-7/contact-form-7.php:544, elements/countdown-timer/countdown-timer.php:438, elements/countdown-timer/countdown-timer.php:481, elements/covid-19-stats/covid-19-stats.php:618, elements/covid-19-stats/covid-19-stats.php:675, elements/covid-19-stats/covid-19-stats.php:735, elements/covid-19-stats/covid-19-stats.php:1128, elements/covid-19-stats/covid-19-stats.php:1222, elements/dual-button/dual-button.php:368, elements/dual-button/dual-button.php:754, elements/dual-heading/dual-heading.php:280, elements/dual-heading/dual-heading.php:366, elements/dual-heading/dual-heading.php:448, elements/facebook-feed/facebook-feed.php:1286, elements/filterable-gallery/filterable-gallery.php:313, elements/filterable-gallery/filterable-gallery.php:379, elements/filterable-gallery/filterable-gallery.php:1014, elements/filterable-gallery/filterable-gallery.php:1075, elements/filterable-post/filterable-post.php:552, elements/filterable-post/filterable-post.php:622, elements/filterable-post/filterable-post.php:1165, elements/filterable-post/filterable-post.php:1236, elements/filterable-post/filterable-post.php:1382, elements/filterable-post/filterable-post.php:1631, elements/filterable-post/filterable-post.php:1740, elements/filterable-post/filterable-post.php:1865, elements/flipbox/flipbox.php:619, elements/flipbox/flipbox.php:669, elements/flipbox/flipbox.php:944, elements/flipbox/flipbox.php:994, elements/flipbox/flipbox.php:1056, elements/google-reviews/google-reviews.php:738, elements/google-reviews/google-reviews.php:1020, elements/google-reviews/google-reviews.php:1072, elements/heading/heading.php:480, elements/heading/heading.php:712, elements/infobox/infobox.php:759, elements/infobox/infobox.php:844, elements/logo-carousel/logo-carousel.php:735, elements/post-grid/post-grid.php:577, elements/post-grid/post-grid.php:786, elements/post-grid/post-grid.php:857, elements/post-grid/post-grid.php:1003, elements/post-grid/post-grid.php:1252, elements/post-grid/post-grid.php:1361, elements/post-grid/post-grid.php:1486, elements/post-grid/post-grid.php:1650, elements/post-timeline/post-timeline.php:405, elements/pricing-menu/pricing-menu.php:301, elements/pricing-menu/pricing-menu.php:448, elements/pricing-menu/pricing-menu.php:560, elements/pricing-menu/pricing-menu.php:647, elements/pricing-menu/pricing-menu.php:734, elements/pricing-table/pricing-table.php:818, elements/pricing-table/pricing-table.php:934, elements/pricing-table/pricing-table.php:989, elements/pricing-table/pricing-table.php:1438, elements/pricing-table/pricing-table.php:1760, elements/pricing-table/pricing-table.php:1966, elements/progress-bar/progress-bar.php:152, elements/tabs/tabs.php:382, elements/tabs/tabs.php:745, elements/tabs/tabs.php:865, elements/tabs/tabs.php:995, elements/team-member/team-member.php:583, elements/team-member/team-member.php:911, elements/team-member/team-member.php:988, elements/team-member/team-member.php:1040, elements/team-member/team-member.php:1101, elements/team-member/team-member.php:1144, elements/team-member/team-member.php:1353, elements/testimonial/testimonial.php:732, elements/testimonial/testimonial.php:915, elements/testimonial/testimonial.php:974
+#: elements/accordion/accordion.php:366, elements/accordion/accordion.php:460, elements/accordion/accordion.php:675, elements/accordion/accordion.php:933, elements/accordion/accordion.php:1052, elements/accordion/accordion.php:1108, elements/alert/alert.php:375, elements/alert/alert.php:419, elements/call-to-action/call-to-action.php:353, elements/call-to-action/call-to-action.php:394, elements/call-to-action/call-to-action.php:525, elements/call-to-action/call-to-action.php:701, elements/card/card.php:954, elements/card/card.php:1010, elements/card/card.php:1062, elements/contact-form-7/contact-form-7.php:372, elements/contact-form-7/contact-form-7.php:544, elements/countdown-timer/countdown-timer.php:438, elements/countdown-timer/countdown-timer.php:481, elements/covid-19-stats/covid-19-stats.php:618, elements/covid-19-stats/covid-19-stats.php:675, elements/covid-19-stats/covid-19-stats.php:735, elements/covid-19-stats/covid-19-stats.php:1128, elements/covid-19-stats/covid-19-stats.php:1222, elements/dual-button/dual-button.php:368, elements/dual-button/dual-button.php:754, elements/dual-heading/dual-heading.php:280, elements/dual-heading/dual-heading.php:366, elements/dual-heading/dual-heading.php:448, elements/facebook-feed/facebook-feed.php:1286, elements/filterable-gallery/filterable-gallery.php:313, elements/filterable-gallery/filterable-gallery.php:379, elements/filterable-gallery/filterable-gallery.php:1014, elements/filterable-gallery/filterable-gallery.php:1075, elements/filterable-post/filterable-post.php:552, elements/filterable-post/filterable-post.php:711, elements/filterable-post/filterable-post.php:1300, elements/filterable-post/filterable-post.php:1371, elements/filterable-post/filterable-post.php:1517, elements/filterable-post/filterable-post.php:1766, elements/filterable-post/filterable-post.php:1875, elements/filterable-post/filterable-post.php:2000, elements/flipbox/flipbox.php:619, elements/flipbox/flipbox.php:669, elements/flipbox/flipbox.php:944, elements/flipbox/flipbox.php:994, elements/flipbox/flipbox.php:1056, elements/google-reviews/google-reviews.php:829, elements/google-reviews/google-reviews.php:1079, elements/google-reviews/google-reviews.php:1131, elements/heading/heading.php:480, elements/heading/heading.php:712, elements/infobox/infobox.php:759, elements/infobox/infobox.php:844, elements/logo-carousel/logo-carousel.php:735, elements/post-grid/post-grid.php:577, elements/post-grid/post-grid.php:786, elements/post-grid/post-grid.php:857, elements/post-grid/post-grid.php:1003, elements/post-grid/post-grid.php:1252, elements/post-grid/post-grid.php:1361, elements/post-grid/post-grid.php:1486, elements/post-grid/post-grid.php:1650, elements/post-timeline/post-timeline.php:405, elements/pricing-menu/pricing-menu.php:301, elements/pricing-menu/pricing-menu.php:448, elements/pricing-menu/pricing-menu.php:560, elements/pricing-menu/pricing-menu.php:647, elements/pricing-menu/pricing-menu.php:734, elements/pricing-table/pricing-table.php:818, elements/pricing-table/pricing-table.php:934, elements/pricing-table/pricing-table.php:989, elements/pricing-table/pricing-table.php:1438, elements/pricing-table/pricing-table.php:1760, elements/pricing-table/pricing-table.php:1966, elements/progress-bar/progress-bar.php:152, elements/tabs/tabs.php:382, elements/tabs/tabs.php:745, elements/tabs/tabs.php:865, elements/tabs/tabs.php:995, elements/team-member/team-member.php:583, elements/team-member/team-member.php:911, elements/team-member/team-member.php:988, elements/team-member/team-member.php:1040, elements/team-member/team-member.php:1101, elements/team-member/team-member.php:1144, elements/team-member/team-member.php:1353, elements/testimonial/testimonial.php:732, elements/testimonial/testimonial.php:915, elements/testimonial/testimonial.php:974
 msgid "Margin"
 msgstr ""
 
-#: elements/accordion/accordion.php:393, elements/accordion/accordion.php:502, elements/accordion/accordion.php:976, elements/accordion/accordion.php:1179, elements/accordion/accordion.php:1236, elements/alert/alert.php:188, elements/alert/alert.php:327, elements/alert/alert.php:611, elements/alert/alert.php:695, elements/button/button.php:349, elements/call-to-action/call-to-action.php:284, elements/call-to-action/call-to-action.php:545, elements/call-to-action/call-to-action.php:713, elements/card/card.php:497, elements/card/card.php:618, elements/card/card.php:806, elements/card/card.php:899, elements/card/card.php:1149, elements/contact-form-7/contact-form-7.php:287, elements/contact-form-7/contact-form-7.php:631, elements/contact-form-7/contact-form-7.php:723, elements/countdown-timer/countdown-timer.php:124, elements/countdown-timer/countdown-timer.php:257, elements/covid-19-stats/covid-19-stats.php:878, elements/covid-19-stats/covid-19-stats.php:1088, elements/covid-19-stats/covid-19-stats.php:1262, elements/facebook-feed/facebook-feed.php:430, elements/facebook-feed/facebook-feed.php:571, elements/facebook-feed/facebook-feed.php:714, elements/facebook-feed/facebook-feed.php:1321, elements/filterable-gallery/filterable-gallery.php:417, elements/filterable-gallery/filterable-gallery.php:604, elements/filterable-gallery/filterable-gallery.php:656, elements/filterable-gallery/filterable-gallery.php:725, elements/filterable-post/filterable-post.php:517, elements/filterable-post/filterable-post.php:660, elements/filterable-post/filterable-post.php:847, elements/filterable-post/filterable-post.php:899, elements/filterable-post/filterable-post.php:968, elements/filterable-post/filterable-post.php:1053, elements/filterable-post/filterable-post.php:1203, elements/filterable-post/filterable-post.php:1492, elements/filterable-post/filterable-post.php:1885, elements/flipbox/flipbox.php:426, elements/flipbox/flipbox.php:566, elements/flipbox/flipbox.php:762, elements/flipbox/flipbox.php:899, elements/flipbox/flipbox.php:1068, elements/google-reviews/google-reviews.php:645, elements/google-reviews/google-reviews.php:1495, elements/heading/heading.php:270, elements/image-comparison/image-comparison.php:235, elements/image-magnifier/image-magnifier.php:214, elements/infobox/infobox.php:240, elements/infobox/infobox.php:561, elements/list-group/list-group.php:285, elements/list-group/list-group.php:469, elements/list-group/list-group.php:836, elements/logo-box/logo-box.php:334, elements/logo-carousel/logo-carousel.php:609, elements/logo-carousel/logo-carousel.php:820, elements/logo-carousel/logo-carousel.php:898, elements/modal-popup/modal-popup.php:599, elements/news-ticker/news-ticker.php:365, elements/news-ticker/news-ticker.php:466, elements/news-ticker/news-ticker.php:628, elements/news-ticker/news-ticker.php:703, elements/news-ticker/news-ticker.php:798, elements/news-ticker/news-ticker.php:848, elements/post-grid/post-grid.php:542, elements/post-grid/post-grid.php:673, elements/post-grid/post-grid.php:824, elements/post-grid/post-grid.php:1113, elements/post-grid/post-grid.php:1506, elements/post-timeline/post-timeline.php:220, elements/post-timeline/post-timeline.php:519, elements/pricing-menu/pricing-menu.php:219, elements/pricing-table/pricing-table.php:538, elements/pricing-table/pricing-table.php:837, elements/pricing-table/pricing-table.php:1723, elements/pricing-table/pricing-table.php:2024, elements/progress-bar/progress-bar.php:374, elements/tabs/tabs.php:429, elements/tabs/tabs.php:892, elements/tabs/tabs.php:1007, elements/team-member/team-member.php:929, elements/team-member/team-member.php:1182, elements/testimonial/testimonial.php:565, elements/tooltip/tooltip.php:336, elements/tooltip/tooltip.php:532
+#: elements/accordion/accordion.php:393, elements/accordion/accordion.php:502, elements/accordion/accordion.php:976, elements/accordion/accordion.php:1179, elements/accordion/accordion.php:1236, elements/alert/alert.php:188, elements/alert/alert.php:327, elements/alert/alert.php:611, elements/alert/alert.php:695, elements/button/button.php:349, elements/call-to-action/call-to-action.php:284, elements/call-to-action/call-to-action.php:545, elements/call-to-action/call-to-action.php:713, elements/card/card.php:497, elements/card/card.php:618, elements/card/card.php:806, elements/card/card.php:899, elements/card/card.php:1149, elements/contact-form-7/contact-form-7.php:287, elements/contact-form-7/contact-form-7.php:631, elements/contact-form-7/contact-form-7.php:723, elements/countdown-timer/countdown-timer.php:124, elements/countdown-timer/countdown-timer.php:257, elements/covid-19-stats/covid-19-stats.php:878, elements/covid-19-stats/covid-19-stats.php:1088, elements/covid-19-stats/covid-19-stats.php:1262, elements/facebook-feed/facebook-feed.php:430, elements/facebook-feed/facebook-feed.php:571, elements/facebook-feed/facebook-feed.php:714, elements/facebook-feed/facebook-feed.php:1321, elements/filterable-gallery/filterable-gallery.php:417, elements/filterable-gallery/filterable-gallery.php:604, elements/filterable-gallery/filterable-gallery.php:656, elements/filterable-gallery/filterable-gallery.php:725, elements/filterable-post/filterable-post.php:517, elements/filterable-post/filterable-post.php:749, elements/filterable-post/filterable-post.php:982, elements/filterable-post/filterable-post.php:1034, elements/filterable-post/filterable-post.php:1103, elements/filterable-post/filterable-post.php:1188, elements/filterable-post/filterable-post.php:1338, elements/filterable-post/filterable-post.php:1627, elements/filterable-post/filterable-post.php:2020, elements/flipbox/flipbox.php:426, elements/flipbox/flipbox.php:566, elements/flipbox/flipbox.php:762, elements/flipbox/flipbox.php:899, elements/flipbox/flipbox.php:1068, elements/google-reviews/google-reviews.php:736, elements/google-reviews/google-reviews.php:1554, elements/heading/heading.php:270, elements/image-comparison/image-comparison.php:235, elements/image-magnifier/image-magnifier.php:214, elements/infobox/infobox.php:240, elements/infobox/infobox.php:561, elements/list-group/list-group.php:285, elements/list-group/list-group.php:469, elements/list-group/list-group.php:836, elements/logo-box/logo-box.php:334, elements/logo-carousel/logo-carousel.php:609, elements/logo-carousel/logo-carousel.php:820, elements/logo-carousel/logo-carousel.php:898, elements/modal-popup/modal-popup.php:599, elements/news-ticker/news-ticker.php:365, elements/news-ticker/news-ticker.php:466, elements/news-ticker/news-ticker.php:628, elements/news-ticker/news-ticker.php:703, elements/news-ticker/news-ticker.php:798, elements/news-ticker/news-ticker.php:848, elements/post-grid/post-grid.php:542, elements/post-grid/post-grid.php:673, elements/post-grid/post-grid.php:824, elements/post-grid/post-grid.php:1113, elements/post-grid/post-grid.php:1506, elements/post-timeline/post-timeline.php:220, elements/post-timeline/post-timeline.php:519, elements/pricing-menu/pricing-menu.php:219, elements/pricing-table/pricing-table.php:538, elements/pricing-table/pricing-table.php:837, elements/pricing-table/pricing-table.php:1723, elements/pricing-table/pricing-table.php:2024, elements/progress-bar/progress-bar.php:374, elements/tabs/tabs.php:429, elements/tabs/tabs.php:892, elements/tabs/tabs.php:1007, elements/team-member/team-member.php:929, elements/team-member/team-member.php:1182, elements/testimonial/testimonial.php:565, elements/tooltip/tooltip.php:336, elements/tooltip/tooltip.php:532
 msgid "Border Radius"
 msgstr ""
 
-#: elements/accordion/accordion.php:576, elements/accordion/accordion.php:714, elements/accordion/accordion.php:835, elements/covid-19-stats/covid-19-stats.php:493, elements/filterable-gallery/filterable-gallery.php:672, elements/filterable-post/filterable-post.php:915, elements/google-reviews/google-reviews.php:773, elements/logo-carousel/logo-carousel.php:839, elements/tabs/tabs.php:781, elements/testimonial/testimonial.php:769
+#: elements/accordion/accordion.php:576, elements/accordion/accordion.php:714, elements/accordion/accordion.php:835, elements/covid-19-stats/covid-19-stats.php:493, elements/filterable-gallery/filterable-gallery.php:672, elements/filterable-post/filterable-post.php:1050, elements/google-reviews/google-reviews.php:864, elements/logo-carousel/logo-carousel.php:839, elements/tabs/tabs.php:781, elements/testimonial/testimonial.php:769
 msgid "Active"
 msgstr ""
 
@@ -829,11 +837,11 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: elements/accordion/accordion.php:636, elements/accordion/accordion.php:780, elements/alert/alert.php:271, elements/button/button.php:174, elements/button/button.php:236, elements/card/card.php:564, elements/countdown-timer/countdown-timer.php:164, elements/dual-button/dual-button.php:603, elements/google-reviews/google-reviews.php:841, elements/google-reviews/google-reviews.php:1542, elements/google-reviews/google-reviews.php:1632, elements/heading/heading.php:218, elements/heading/heading.php:611, elements/image-comparison/image-comparison.php:275, elements/image-magnifier/image-magnifier.php:91, elements/image-magnifier/image-magnifier.php:168, elements/infobox/infobox.php:490, elements/logo-carousel/logo-carousel.php:431, elements/logo-carousel/logo-carousel.php:779, elements/logo-carousel/logo-carousel.php:861, elements/modal-popup/modal-popup.php:498, elements/modal-popup/modal-popup.php:560, elements/pricing-menu/pricing-menu.php:391, elements/progress-bar/progress-bar.php:192, elements/progress-bar/progress-bar.php:223, elements/progress-bar/progress-bar.php:245, elements/team-member/team-member.php:704, elements/testimonial/testimonial.php:419
+#: elements/accordion/accordion.php:636, elements/accordion/accordion.php:780, elements/alert/alert.php:271, elements/button/button.php:174, elements/button/button.php:236, elements/card/card.php:564, elements/countdown-timer/countdown-timer.php:164, elements/dual-button/dual-button.php:603, elements/filterable-post/filterable-post.php:626, elements/google-reviews/google-reviews.php:920, elements/google-reviews/google-reviews.php:1601, elements/google-reviews/google-reviews.php:1691, elements/heading/heading.php:218, elements/heading/heading.php:611, elements/image-comparison/image-comparison.php:275, elements/image-magnifier/image-magnifier.php:91, elements/image-magnifier/image-magnifier.php:168, elements/infobox/infobox.php:490, elements/logo-carousel/logo-carousel.php:431, elements/logo-carousel/logo-carousel.php:779, elements/logo-carousel/logo-carousel.php:861, elements/modal-popup/modal-popup.php:498, elements/modal-popup/modal-popup.php:560, elements/pricing-menu/pricing-menu.php:391, elements/progress-bar/progress-bar.php:192, elements/progress-bar/progress-bar.php:223, elements/progress-bar/progress-bar.php:245, elements/team-member/team-member.php:704, elements/testimonial/testimonial.php:419
 msgid "Width"
 msgstr ""
 
-#: elements/accordion/accordion.php:692, elements/accordion/accordion.php:719, elements/accordion/accordion.php:812, elements/accordion/accordion.php:840, elements/alert/alert.php:293, elements/alert/alert.php:363, elements/alert/alert.php:408, elements/alert/alert.php:465, elements/animated-text/animated-text.php:397, elements/animated-text/animated-text.php:441, elements/animated-text/animated-text.php:510, elements/call-to-action/call-to-action.php:323, elements/call-to-action/call-to-action.php:375, elements/call-to-action/call-to-action.php:425, elements/card/card.php:934, elements/card/card.php:990, elements/card/card.php:1043, elements/contact-form-7/contact-form-7.php:327, elements/contact-form-7/contact-form-7.php:656, elements/contact-form-7/contact-form-7.php:965, elements/contact-form-7/contact-form-7.php:1018, elements/countdown-timer/countdown-timer.php:426, elements/countdown-timer/countdown-timer.php:469, elements/countdown-timer/countdown-timer.php:514, elements/dual-button/dual-button.php:674, elements/dual-heading/dual-heading.php:243, elements/dual-heading/dual-heading.php:337, elements/dual-heading/dual-heading.php:423, elements/facebook-feed/facebook-feed.php:869, elements/facebook-feed/facebook-feed.php:983, elements/facebook-feed/facebook-feed.php:1019, elements/facebook-feed/facebook-feed.php:1189, elements/facebook-feed/facebook-feed.php:1363, elements/facebook-feed/facebook-feed.php:1429, elements/filterable-gallery/filterable-gallery.php:817, elements/filterable-gallery/filterable-gallery.php:846, elements/filterable-gallery/filterable-gallery.php:980, elements/filterable-gallery/filterable-gallery.php:1049, elements/filterable-post/filterable-post.php:1286, elements/filterable-post/filterable-post.php:1302, elements/filterable-post/filterable-post.php:1332, elements/filterable-post/filterable-post.php:1681, elements/filterable-post/filterable-post.php:1710, elements/filterable-post/filterable-post.php:1771, elements/filterable-post/filterable-post.php:1809, elements/flipbox/flipbox.php:535, elements/flipbox/flipbox.php:590, elements/flipbox/flipbox.php:648, elements/flipbox/flipbox.php:867, elements/flipbox/flipbox.php:923, elements/flipbox/flipbox.php:973, elements/google-reviews/google-reviews.php:761, elements/google-reviews/google-reviews.php:778, elements/google-reviews/google-reviews.php:1008, elements/google-reviews/google-reviews.php:1060, elements/heading/heading.php:622, elements/heading/heading.php:692, elements/infobox/infobox.php:783, elements/infobox/infobox.php:824, elements/logo-carousel/logo-carousel.php:632, elements/logo-carousel/logo-carousel.php:678, elements/logo-carousel/logo-carousel.php:800, elements/logo-carousel/logo-carousel.php:878, elements/modal-popup/modal-popup.php:1083, elements/news-ticker/news-ticker.php:513, elements/post-grid/post-grid.php:907, elements/post-grid/post-grid.php:923, elements/post-grid/post-grid.php:953, elements/post-grid/post-grid.php:1302, elements/post-grid/post-grid.php:1331, elements/post-grid/post-grid.php:1392, elements/post-grid/post-grid.php:1430, elements/post-timeline/post-timeline.php:359, elements/post-timeline/post-timeline.php:433, elements/post-timeline/post-timeline.php:572, elements/post-timeline/post-timeline.php:601, elements/pricing-menu/pricing-menu.php:584, elements/pricing-menu/pricing-menu.php:599, elements/pricing-menu/pricing-menu.php:627, elements/pricing-menu/pricing-menu.php:700, elements/pricing-table/pricing-table.php:968, elements/pricing-table/pricing-table.php:1185, elements/pricing-table/pricing-table.php:1245, elements/pricing-table/pricing-table.php:1345, elements/pricing-table/pricing-table.php:1373, elements/pricing-table/pricing-table.php:1663, elements/progress-bar/progress-bar.php:121, elements/progress-bar/progress-bar.php:182, elements/progress-bar/progress-bar.php:214, elements/tabs/tabs.php:768, elements/tabs/tabs.php:786, elements/team-member/team-member.php:968, elements/team-member/team-member.php:1020, elements/team-member/team-member.php:1073, elements/testimonial/testimonial.php:757, elements/testimonial/testimonial.php:774, elements/testimonial/testimonial.php:883, elements/testimonial/testimonial.php:900, elements/testimonial/testimonial.php:962, elements/tooltip/tooltip.php:358, elements/tooltip/tooltip.php:398
+#: elements/accordion/accordion.php:692, elements/accordion/accordion.php:719, elements/accordion/accordion.php:812, elements/accordion/accordion.php:840, elements/alert/alert.php:293, elements/alert/alert.php:363, elements/alert/alert.php:408, elements/alert/alert.php:465, elements/animated-text/animated-text.php:397, elements/animated-text/animated-text.php:441, elements/animated-text/animated-text.php:510, elements/call-to-action/call-to-action.php:323, elements/call-to-action/call-to-action.php:375, elements/call-to-action/call-to-action.php:425, elements/card/card.php:934, elements/card/card.php:990, elements/card/card.php:1043, elements/contact-form-7/contact-form-7.php:327, elements/contact-form-7/contact-form-7.php:656, elements/contact-form-7/contact-form-7.php:965, elements/contact-form-7/contact-form-7.php:1018, elements/countdown-timer/countdown-timer.php:426, elements/countdown-timer/countdown-timer.php:469, elements/countdown-timer/countdown-timer.php:514, elements/dual-button/dual-button.php:674, elements/dual-heading/dual-heading.php:243, elements/dual-heading/dual-heading.php:337, elements/dual-heading/dual-heading.php:423, elements/facebook-feed/facebook-feed.php:869, elements/facebook-feed/facebook-feed.php:983, elements/facebook-feed/facebook-feed.php:1019, elements/facebook-feed/facebook-feed.php:1189, elements/facebook-feed/facebook-feed.php:1363, elements/facebook-feed/facebook-feed.php:1429, elements/filterable-gallery/filterable-gallery.php:817, elements/filterable-gallery/filterable-gallery.php:846, elements/filterable-gallery/filterable-gallery.php:980, elements/filterable-gallery/filterable-gallery.php:1049, elements/filterable-post/filterable-post.php:1421, elements/filterable-post/filterable-post.php:1437, elements/filterable-post/filterable-post.php:1467, elements/filterable-post/filterable-post.php:1816, elements/filterable-post/filterable-post.php:1845, elements/filterable-post/filterable-post.php:1906, elements/filterable-post/filterable-post.php:1944, elements/flipbox/flipbox.php:535, elements/flipbox/flipbox.php:590, elements/flipbox/flipbox.php:648, elements/flipbox/flipbox.php:867, elements/flipbox/flipbox.php:923, elements/flipbox/flipbox.php:973, elements/google-reviews/google-reviews.php:852, elements/google-reviews/google-reviews.php:869, elements/google-reviews/google-reviews.php:1067, elements/google-reviews/google-reviews.php:1119, elements/heading/heading.php:622, elements/heading/heading.php:692, elements/infobox/infobox.php:783, elements/infobox/infobox.php:824, elements/logo-carousel/logo-carousel.php:632, elements/logo-carousel/logo-carousel.php:678, elements/logo-carousel/logo-carousel.php:800, elements/logo-carousel/logo-carousel.php:878, elements/modal-popup/modal-popup.php:1083, elements/news-ticker/news-ticker.php:513, elements/post-grid/post-grid.php:907, elements/post-grid/post-grid.php:923, elements/post-grid/post-grid.php:953, elements/post-grid/post-grid.php:1302, elements/post-grid/post-grid.php:1331, elements/post-grid/post-grid.php:1392, elements/post-grid/post-grid.php:1430, elements/post-timeline/post-timeline.php:359, elements/post-timeline/post-timeline.php:433, elements/post-timeline/post-timeline.php:572, elements/post-timeline/post-timeline.php:601, elements/pricing-menu/pricing-menu.php:584, elements/pricing-menu/pricing-menu.php:599, elements/pricing-menu/pricing-menu.php:627, elements/pricing-menu/pricing-menu.php:700, elements/pricing-table/pricing-table.php:968, elements/pricing-table/pricing-table.php:1185, elements/pricing-table/pricing-table.php:1245, elements/pricing-table/pricing-table.php:1345, elements/pricing-table/pricing-table.php:1373, elements/pricing-table/pricing-table.php:1663, elements/progress-bar/progress-bar.php:121, elements/progress-bar/progress-bar.php:182, elements/progress-bar/progress-bar.php:214, elements/tabs/tabs.php:768, elements/tabs/tabs.php:786, elements/team-member/team-member.php:968, elements/team-member/team-member.php:1020, elements/team-member/team-member.php:1073, elements/testimonial/testimonial.php:757, elements/testimonial/testimonial.php:774, elements/testimonial/testimonial.php:883, elements/testimonial/testimonial.php:900, elements/testimonial/testimonial.php:962, elements/tooltip/tooltip.php:358, elements/tooltip/tooltip.php:398
 msgid "Color"
 msgstr ""
 
@@ -845,15 +853,15 @@ msgstr ""
 msgid "Image Type"
 msgstr ""
 
-#: elements/accordion/accordion.php:1014, elements/filterable-post/filterable-post.php:1065, elements/post-grid/post-grid.php:685, elements/tabs/tabs.php:925, elements/team-member/team-member.php:637
+#: elements/accordion/accordion.php:1014, elements/filterable-post/filterable-post.php:1200, elements/post-grid/post-grid.php:685, elements/tabs/tabs.php:925, elements/team-member/team-member.php:637
 msgid "Image Position"
 msgstr ""
 
-#: elements/accordion/accordion.php:1019, elements/animated-text/animated-text.php:129, elements/button/button.php:300, elements/call-to-action/call-to-action.php:206, elements/card/card.php:117, elements/card/card.php:387, elements/card/card.php:852, elements/contact-form-7/contact-form-7.php:343, elements/covid-19-stats/covid-19-stats.php:594, elements/covid-19-stats/covid-19-stats.php:804, elements/covid-19-stats/covid-19-stats.php:1452, elements/dual-button/dual-button.php:101, elements/dual-button/dual-button.php:232, elements/dual-button/dual-button.php:272, elements/dual-heading/dual-heading.php:143, elements/facebook-feed/facebook-feed.php:898, elements/facebook-feed/facebook-feed.php:1062, elements/facebook-feed/facebook-feed.php:1237, elements/filterable-gallery/filterable-gallery.php:474, elements/filterable-gallery/filterable-gallery.php:947, elements/filterable-post/filterable-post.php:717, elements/filterable-post/filterable-post.php:1071, elements/filterable-post/filterable-post.php:1253, elements/filterable-post/filterable-post.php:1349, elements/flipbox/flipbox.php:452, elements/flipbox/flipbox.php:788, elements/google-reviews/google-reviews.php:436, elements/google-reviews/google-reviews.php:1432, elements/heading/heading.php:147, elements/infobox/infobox.php:192, elements/infobox/infobox.php:437, elements/list-group/list-group.php:219, elements/list-group/list-group.php:521, elements/list-group/list-group.php:582, elements/list-group/list-group.php:888, elements/logo-box/logo-box.php:158, elements/logo-carousel/logo-carousel.php:228, elements/modal-popup/modal-popup.php:448, elements/modal-popup/modal-popup.php:791, elements/post-grid/post-grid.php:691, elements/post-grid/post-grid.php:874, elements/post-grid/post-grid.php:970, elements/post-timeline/post-timeline.php:376, elements/post-timeline/post-timeline.php:450, elements/pricing-table/pricing-table.php:284, elements/pricing-table/pricing-table.php:590, elements/pricing-table/pricing-table.php:670, elements/pricing-table/pricing-table.php:1926, elements/tabs/tabs.php:342, elements/tabs/tabs.php:930, elements/team-member/team-member.php:117, elements/team-member/team-member.php:643, elements/team-member/team-member.php:865, elements/testimonial/testimonial.php:203, elements/tooltip/tooltip.php:147, elements/tooltip/tooltip.php:221
+#: elements/accordion/accordion.php:1019, elements/animated-text/animated-text.php:129, elements/button/button.php:300, elements/call-to-action/call-to-action.php:206, elements/card/card.php:117, elements/card/card.php:387, elements/card/card.php:852, elements/contact-form-7/contact-form-7.php:343, elements/covid-19-stats/covid-19-stats.php:594, elements/covid-19-stats/covid-19-stats.php:804, elements/covid-19-stats/covid-19-stats.php:1452, elements/dual-button/dual-button.php:101, elements/dual-button/dual-button.php:232, elements/dual-button/dual-button.php:272, elements/dual-heading/dual-heading.php:143, elements/facebook-feed/facebook-feed.php:898, elements/facebook-feed/facebook-feed.php:1062, elements/facebook-feed/facebook-feed.php:1237, elements/filterable-gallery/filterable-gallery.php:474, elements/filterable-gallery/filterable-gallery.php:947, elements/filterable-post/filterable-post.php:608, elements/filterable-post/filterable-post.php:806, elements/filterable-post/filterable-post.php:842, elements/filterable-post/filterable-post.php:1206, elements/filterable-post/filterable-post.php:1388, elements/filterable-post/filterable-post.php:1484, elements/flipbox/flipbox.php:452, elements/flipbox/flipbox.php:788, elements/google-reviews/google-reviews.php:436, elements/google-reviews/google-reviews.php:1491, elements/heading/heading.php:147, elements/infobox/infobox.php:192, elements/infobox/infobox.php:437, elements/list-group/list-group.php:219, elements/list-group/list-group.php:521, elements/list-group/list-group.php:582, elements/list-group/list-group.php:888, elements/logo-box/logo-box.php:158, elements/logo-carousel/logo-carousel.php:228, elements/modal-popup/modal-popup.php:448, elements/modal-popup/modal-popup.php:791, elements/post-grid/post-grid.php:691, elements/post-grid/post-grid.php:874, elements/post-grid/post-grid.php:970, elements/post-timeline/post-timeline.php:376, elements/post-timeline/post-timeline.php:450, elements/pricing-table/pricing-table.php:284, elements/pricing-table/pricing-table.php:590, elements/pricing-table/pricing-table.php:670, elements/pricing-table/pricing-table.php:1926, elements/tabs/tabs.php:342, elements/tabs/tabs.php:930, elements/team-member/team-member.php:117, elements/team-member/team-member.php:643, elements/team-member/team-member.php:865, elements/testimonial/testimonial.php:203, elements/tooltip/tooltip.php:147, elements/tooltip/tooltip.php:221
 msgid "Left"
 msgstr ""
 
-#: elements/accordion/accordion.php:1023, elements/animated-text/animated-text.php:137, elements/button/button.php:308, elements/call-to-action/call-to-action.php:214, elements/card/card.php:118, elements/card/card.php:391, elements/card/card.php:860, elements/contact-form-7/contact-form-7.php:351, elements/covid-19-stats/covid-19-stats.php:602, elements/covid-19-stats/covid-19-stats.php:812, elements/covid-19-stats/covid-19-stats.php:1460, elements/dual-button/dual-button.php:105, elements/dual-button/dual-button.php:236, elements/dual-button/dual-button.php:280, elements/dual-heading/dual-heading.php:151, elements/facebook-feed/facebook-feed.php:906, elements/facebook-feed/facebook-feed.php:1070, elements/facebook-feed/facebook-feed.php:1245, elements/filterable-gallery/filterable-gallery.php:482, elements/filterable-gallery/filterable-gallery.php:955, elements/filterable-post/filterable-post.php:725, elements/filterable-post/filterable-post.php:1079, elements/filterable-post/filterable-post.php:1261, elements/filterable-post/filterable-post.php:1357, elements/flipbox/flipbox.php:460, elements/flipbox/flipbox.php:796, elements/google-reviews/google-reviews.php:444, elements/google-reviews/google-reviews.php:1440, elements/heading/heading.php:155, elements/infobox/infobox.php:200, elements/infobox/infobox.php:445, elements/list-group/list-group.php:227, elements/list-group/list-group.php:529, elements/list-group/list-group.php:590, elements/list-group/list-group.php:896, elements/logo-box/logo-box.php:166, elements/logo-carousel/logo-carousel.php:236, elements/modal-popup/modal-popup.php:456, elements/modal-popup/modal-popup.php:799, elements/post-grid/post-grid.php:699, elements/post-grid/post-grid.php:882, elements/post-grid/post-grid.php:978, elements/post-timeline/post-timeline.php:384, elements/post-timeline/post-timeline.php:458, elements/pricing-menu/pricing-menu.php:689, elements/pricing-table/pricing-table.php:288, elements/pricing-table/pricing-table.php:598, elements/pricing-table/pricing-table.php:678, elements/pricing-table/pricing-table.php:1934, elements/tabs/tabs.php:350, elements/tabs/tabs.php:584, elements/tabs/tabs.php:934, elements/team-member/team-member.php:118, elements/team-member/team-member.php:651, elements/team-member/team-member.php:873, elements/testimonial/testimonial.php:211, elements/tooltip/tooltip.php:155, elements/tooltip/tooltip.php:222
+#: elements/accordion/accordion.php:1023, elements/animated-text/animated-text.php:137, elements/button/button.php:308, elements/call-to-action/call-to-action.php:214, elements/card/card.php:118, elements/card/card.php:391, elements/card/card.php:860, elements/contact-form-7/contact-form-7.php:351, elements/covid-19-stats/covid-19-stats.php:602, elements/covid-19-stats/covid-19-stats.php:812, elements/covid-19-stats/covid-19-stats.php:1460, elements/dual-button/dual-button.php:105, elements/dual-button/dual-button.php:236, elements/dual-button/dual-button.php:280, elements/dual-heading/dual-heading.php:151, elements/facebook-feed/facebook-feed.php:906, elements/facebook-feed/facebook-feed.php:1070, elements/facebook-feed/facebook-feed.php:1245, elements/filterable-gallery/filterable-gallery.php:482, elements/filterable-gallery/filterable-gallery.php:955, elements/filterable-post/filterable-post.php:616, elements/filterable-post/filterable-post.php:814, elements/filterable-post/filterable-post.php:850, elements/filterable-post/filterable-post.php:1214, elements/filterable-post/filterable-post.php:1396, elements/filterable-post/filterable-post.php:1492, elements/flipbox/flipbox.php:460, elements/flipbox/flipbox.php:796, elements/google-reviews/google-reviews.php:444, elements/google-reviews/google-reviews.php:1499, elements/heading/heading.php:155, elements/infobox/infobox.php:200, elements/infobox/infobox.php:445, elements/list-group/list-group.php:227, elements/list-group/list-group.php:529, elements/list-group/list-group.php:590, elements/list-group/list-group.php:896, elements/logo-box/logo-box.php:166, elements/logo-carousel/logo-carousel.php:236, elements/modal-popup/modal-popup.php:456, elements/modal-popup/modal-popup.php:799, elements/post-grid/post-grid.php:699, elements/post-grid/post-grid.php:882, elements/post-grid/post-grid.php:978, elements/post-timeline/post-timeline.php:384, elements/post-timeline/post-timeline.php:458, elements/pricing-menu/pricing-menu.php:689, elements/pricing-table/pricing-table.php:288, elements/pricing-table/pricing-table.php:598, elements/pricing-table/pricing-table.php:678, elements/pricing-table/pricing-table.php:1934, elements/tabs/tabs.php:350, elements/tabs/tabs.php:584, elements/tabs/tabs.php:934, elements/team-member/team-member.php:118, elements/team-member/team-member.php:651, elements/team-member/team-member.php:873, elements/testimonial/testimonial.php:211, elements/tooltip/tooltip.php:155, elements/tooltip/tooltip.php:222
 msgid "Right"
 msgstr ""
 
@@ -893,7 +901,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: elements/alert/alert.php:176, elements/covid-19-stats/covid-19-stats.php:827, elements/covid-19-stats/covid-19-stats.php:1037, elements/covid-19-stats/covid-19-stats.php:1287, elements/covid-19-stats/covid-19-stats.php:1341, elements/covid-19-stats/covid-19-stats.php:1494, elements/filterable-gallery/filterable-gallery.php:400, elements/filterable-post/filterable-post.php:643, elements/infobox/infobox.php:648, elements/infobox/infobox.php:689, elements/logo-carousel/logo-carousel.php:299, elements/pricing-table/pricing-table.php:474, elements/pricing-table/pricing-table.php:1986
+#: elements/alert/alert.php:176, elements/covid-19-stats/covid-19-stats.php:827, elements/covid-19-stats/covid-19-stats.php:1037, elements/covid-19-stats/covid-19-stats.php:1287, elements/covid-19-stats/covid-19-stats.php:1341, elements/covid-19-stats/covid-19-stats.php:1494, elements/filterable-gallery/filterable-gallery.php:400, elements/filterable-post/filterable-post.php:732, elements/infobox/infobox.php:648, elements/infobox/infobox.php:689, elements/logo-carousel/logo-carousel.php:299, elements/pricing-table/pricing-table.php:474, elements/pricing-table/pricing-table.php:1986
 msgid "Background"
 msgstr ""
 
@@ -965,11 +973,11 @@ msgstr ""
 msgid "H6"
 msgstr ""
 
-#: elements/animated-text/animated-text.php:124, elements/button/button.php:294, elements/call-to-action/call-to-action.php:201, elements/card/card.php:848, elements/contact-form-7/contact-form-7.php:338, elements/contact-form-7/contact-form-7.php:688, elements/covid-19-stats/covid-19-stats.php:588, elements/covid-19-stats/covid-19-stats.php:798, elements/covid-19-stats/covid-19-stats.php:1446, elements/dual-button/dual-button.php:267, elements/dual-heading/dual-heading.php:137, elements/filterable-post/filterable-post.php:1344, elements/flipbox/flipbox.php:447, elements/flipbox/flipbox.php:783, elements/google-reviews/google-reviews.php:430, elements/google-reviews/google-reviews.php:1428, elements/heading/heading.php:141, elements/infobox/infobox.php:187, elements/list-group/list-group.php:213, elements/logo-box/logo-box.php:154, elements/logo-carousel/logo-carousel.php:222, elements/modal-popup/modal-popup.php:441, elements/modal-popup/modal-popup.php:785, elements/post-grid/post-grid.php:965, elements/post-timeline/post-timeline.php:371, elements/post-timeline/post-timeline.php:445, elements/pricing-menu/pricing-menu.php:186, elements/pricing-table/pricing-table.php:583, elements/pricing-table/pricing-table.php:665, elements/pricing-table/pricing-table.php:1920, elements/tabs/tabs.php:336, elements/team-member/team-member.php:860, elements/testimonial/testimonial.php:197, elements/tooltip/tooltip.php:142
+#: elements/animated-text/animated-text.php:124, elements/button/button.php:294, elements/call-to-action/call-to-action.php:201, elements/card/card.php:848, elements/contact-form-7/contact-form-7.php:338, elements/contact-form-7/contact-form-7.php:688, elements/covid-19-stats/covid-19-stats.php:588, elements/covid-19-stats/covid-19-stats.php:798, elements/covid-19-stats/covid-19-stats.php:1446, elements/dual-button/dual-button.php:267, elements/dual-heading/dual-heading.php:137, elements/filterable-post/filterable-post.php:602, elements/filterable-post/filterable-post.php:1479, elements/flipbox/flipbox.php:447, elements/flipbox/flipbox.php:783, elements/google-reviews/google-reviews.php:430, elements/google-reviews/google-reviews.php:1487, elements/heading/heading.php:141, elements/infobox/infobox.php:187, elements/list-group/list-group.php:213, elements/logo-box/logo-box.php:154, elements/logo-carousel/logo-carousel.php:222, elements/modal-popup/modal-popup.php:441, elements/modal-popup/modal-popup.php:785, elements/post-grid/post-grid.php:965, elements/post-timeline/post-timeline.php:371, elements/post-timeline/post-timeline.php:445, elements/pricing-menu/pricing-menu.php:186, elements/pricing-table/pricing-table.php:583, elements/pricing-table/pricing-table.php:665, elements/pricing-table/pricing-table.php:1920, elements/tabs/tabs.php:336, elements/team-member/team-member.php:860, elements/testimonial/testimonial.php:197, elements/tooltip/tooltip.php:142
 msgid "Alignment"
 msgstr ""
 
-#: elements/animated-text/animated-text.php:133, elements/button/button.php:304, elements/call-to-action/call-to-action.php:210, elements/card/card.php:116, elements/contact-form-7/contact-form-7.php:347, elements/covid-19-stats/covid-19-stats.php:598, elements/covid-19-stats/covid-19-stats.php:808, elements/covid-19-stats/covid-19-stats.php:1456, elements/dual-button/dual-button.php:276, elements/dual-heading/dual-heading.php:147, elements/facebook-feed/facebook-feed.php:902, elements/facebook-feed/facebook-feed.php:1066, elements/facebook-feed/facebook-feed.php:1241, elements/filterable-gallery/filterable-gallery.php:478, elements/filterable-gallery/filterable-gallery.php:951, elements/filterable-post/filterable-post.php:721, elements/filterable-post/filterable-post.php:1257, elements/filterable-post/filterable-post.php:1353, elements/flipbox/flipbox.php:456, elements/flipbox/flipbox.php:792, elements/google-reviews/google-reviews.php:440, elements/google-reviews/google-reviews.php:1436, elements/heading/heading.php:151, elements/infobox/infobox.php:196, elements/list-group/list-group.php:223, elements/list-group/list-group.php:525, elements/list-group/list-group.php:550, elements/list-group/list-group.php:586, elements/list-group/list-group.php:892, elements/logo-box/logo-box.php:162, elements/logo-carousel/logo-carousel.php:232, elements/modal-popup/modal-popup.php:452, elements/modal-popup/modal-popup.php:795, elements/post-grid/post-grid.php:878, elements/post-grid/post-grid.php:974, elements/post-timeline/post-timeline.php:380, elements/post-timeline/post-timeline.php:454, elements/pricing-menu/pricing-menu.php:191, elements/pricing-table/pricing-table.php:594, elements/pricing-table/pricing-table.php:674, elements/pricing-table/pricing-table.php:1930, elements/tabs/tabs.php:346, elements/team-member/team-member.php:116, elements/team-member/team-member.php:869, elements/testimonial/testimonial.php:207, elements/tooltip/tooltip.php:151
+#: elements/animated-text/animated-text.php:133, elements/button/button.php:304, elements/call-to-action/call-to-action.php:210, elements/card/card.php:116, elements/contact-form-7/contact-form-7.php:347, elements/covid-19-stats/covid-19-stats.php:598, elements/covid-19-stats/covid-19-stats.php:808, elements/covid-19-stats/covid-19-stats.php:1456, elements/dual-button/dual-button.php:276, elements/dual-heading/dual-heading.php:147, elements/facebook-feed/facebook-feed.php:902, elements/facebook-feed/facebook-feed.php:1066, elements/facebook-feed/facebook-feed.php:1241, elements/filterable-gallery/filterable-gallery.php:478, elements/filterable-gallery/filterable-gallery.php:951, elements/filterable-post/filterable-post.php:810, elements/filterable-post/filterable-post.php:846, elements/filterable-post/filterable-post.php:1392, elements/filterable-post/filterable-post.php:1488, elements/flipbox/flipbox.php:456, elements/flipbox/flipbox.php:792, elements/google-reviews/google-reviews.php:440, elements/google-reviews/google-reviews.php:1495, elements/heading/heading.php:151, elements/infobox/infobox.php:196, elements/list-group/list-group.php:223, elements/list-group/list-group.php:525, elements/list-group/list-group.php:550, elements/list-group/list-group.php:586, elements/list-group/list-group.php:892, elements/logo-box/logo-box.php:162, elements/logo-carousel/logo-carousel.php:232, elements/modal-popup/modal-popup.php:452, elements/modal-popup/modal-popup.php:795, elements/post-grid/post-grid.php:878, elements/post-grid/post-grid.php:974, elements/post-timeline/post-timeline.php:380, elements/post-timeline/post-timeline.php:454, elements/pricing-menu/pricing-menu.php:191, elements/pricing-table/pricing-table.php:594, elements/pricing-table/pricing-table.php:674, elements/pricing-table/pricing-table.php:1930, elements/tabs/tabs.php:346, elements/team-member/team-member.php:116, elements/team-member/team-member.php:869, elements/testimonial/testimonial.php:207, elements/tooltip/tooltip.php:151
 msgid "Center"
 msgstr ""
 
@@ -1129,11 +1137,11 @@ msgstr ""
 msgid "Loop"
 msgstr ""
 
-#: elements/animated-text/animated-text.php:304, elements/animated-text/animated-text.php:319, elements/animated-text/animated-text.php:334, elements/animated-text/animated-text.php:349, elements/card/card.php:670, elements/google-reviews/google-reviews.php:809, elements/infobox/infobox.php:880, elements/modal-popup/modal-popup.php:415, elements/pricing-table/pricing-table.php:1025, elements/pricing-table/pricing-table.php:1090, elements/team-member/team-member.php:294, elements/team-member/team-member.php:1457, elements/testimonial/testimonial.php:384, elements/testimonial/testimonial.php:661
+#: elements/animated-text/animated-text.php:304, elements/animated-text/animated-text.php:319, elements/animated-text/animated-text.php:334, elements/animated-text/animated-text.php:349, elements/card/card.php:670, elements/infobox/infobox.php:880, elements/modal-popup/modal-popup.php:415, elements/pricing-table/pricing-table.php:1025, elements/pricing-table/pricing-table.php:1090, elements/team-member/team-member.php:294, elements/team-member/team-member.php:1457, elements/testimonial/testimonial.php:384, elements/testimonial/testimonial.php:661
 msgid "ON"
 msgstr ""
 
-#: elements/animated-text/animated-text.php:305, elements/animated-text/animated-text.php:320, elements/animated-text/animated-text.php:335, elements/animated-text/animated-text.php:350, elements/card/card.php:671, elements/google-reviews/google-reviews.php:810, elements/infobox/infobox.php:881, elements/modal-popup/modal-popup.php:416, elements/pricing-table/pricing-table.php:1026, elements/pricing-table/pricing-table.php:1091, elements/team-member/team-member.php:295, elements/team-member/team-member.php:1458, elements/testimonial/testimonial.php:385, elements/testimonial/testimonial.php:662
+#: elements/animated-text/animated-text.php:305, elements/animated-text/animated-text.php:320, elements/animated-text/animated-text.php:335, elements/animated-text/animated-text.php:350, elements/card/card.php:671, elements/infobox/infobox.php:881, elements/modal-popup/modal-popup.php:416, elements/pricing-table/pricing-table.php:1026, elements/pricing-table/pricing-table.php:1091, elements/team-member/team-member.php:295, elements/team-member/team-member.php:1458, elements/testimonial/testimonial.php:385, elements/testimonial/testimonial.php:662
 msgid "OFF"
 msgstr ""
 
@@ -1157,7 +1165,7 @@ msgstr ""
 msgid "Animated text"
 msgstr ""
 
-#: elements/animated-text/animated-text.php:453, elements/facebook-feed/facebook-feed.php:626, elements/google-reviews/google-reviews.php:960, elements/pricing-table/pricing-table.php:1291, elements/testimonial/testimonial.php:821
+#: elements/animated-text/animated-text.php:453, elements/facebook-feed/facebook-feed.php:626, elements/google-reviews/google-reviews.php:1019, elements/pricing-table/pricing-table.php:1291, elements/testimonial/testimonial.php:821
 msgid "Spacing"
 msgstr ""
 
@@ -1241,11 +1249,11 @@ msgstr ""
 msgid "Enable Fixed Height & Width?"
 msgstr ""
 
-#: elements/button/button.php:147, elements/card/card.php:81, elements/card/card.php:256, elements/contact-form-7/contact-form-7.php:155, elements/contact-form-7/contact-form-7.php:175, elements/countdown-timer/countdown-timer.php:154, elements/covid-19-stats/covid-19-stats.php:473, elements/covid-19-stats/covid-19-stats.php:519, elements/covid-19-stats/covid-19-stats.php:548, elements/covid-19-stats/covid-19-stats.php:1411, elements/covid-19-stats/covid-19-stats.php:1484, elements/dual-button/dual-button.php:125, elements/heading/heading.php:386, elements/heading/heading.php:531, elements/infobox/infobox.php:358, elements/infobox/infobox.php:369, elements/infobox/infobox.php:458, elements/list-group/list-group.php:346, elements/list-group/list-group.php:747, elements/logo-box/logo-box.php:76, elements/logo-box/logo-box.php:105, elements/logo-carousel/logo-carousel.php:187, elements/modal-popup/modal-popup.php:403, elements/modal-popup/modal-popup.php:471, elements/pricing-menu/pricing-menu.php:116, elements/pricing-menu/pricing-menu.php:331, elements/pricing-menu/pricing-menu.php:527, elements/pricing-table/pricing-table.php:320, elements/pricing-table/pricing-table.php:1567, elements/team-member/team-member.php:81, elements/team-member/team-member.php:663, elements/testimonial/testimonial.php:358, elements/tooltip/tooltip.php:169
+#: elements/button/button.php:147, elements/card/card.php:81, elements/card/card.php:256, elements/contact-form-7/contact-form-7.php:155, elements/contact-form-7/contact-form-7.php:175, elements/countdown-timer/countdown-timer.php:154, elements/covid-19-stats/covid-19-stats.php:473, elements/covid-19-stats/covid-19-stats.php:519, elements/covid-19-stats/covid-19-stats.php:548, elements/covid-19-stats/covid-19-stats.php:1411, elements/covid-19-stats/covid-19-stats.php:1484, elements/dual-button/dual-button.php:125, elements/google-reviews/google-reviews.php:616, elements/heading/heading.php:386, elements/heading/heading.php:531, elements/infobox/infobox.php:358, elements/infobox/infobox.php:369, elements/infobox/infobox.php:458, elements/list-group/list-group.php:346, elements/list-group/list-group.php:747, elements/logo-box/logo-box.php:76, elements/logo-box/logo-box.php:105, elements/logo-carousel/logo-carousel.php:187, elements/modal-popup/modal-popup.php:403, elements/modal-popup/modal-popup.php:471, elements/pricing-menu/pricing-menu.php:116, elements/pricing-menu/pricing-menu.php:331, elements/pricing-menu/pricing-menu.php:527, elements/pricing-table/pricing-table.php:320, elements/pricing-table/pricing-table.php:1567, elements/team-member/team-member.php:81, elements/team-member/team-member.php:663, elements/testimonial/testimonial.php:358, elements/tooltip/tooltip.php:169
 msgid "Show"
 msgstr ""
 
-#: elements/button/button.php:148, elements/card/card.php:82, elements/card/card.php:257, elements/contact-form-7/contact-form-7.php:156, elements/contact-form-7/contact-form-7.php:176, elements/countdown-timer/countdown-timer.php:155, elements/covid-19-stats/covid-19-stats.php:474, elements/covid-19-stats/covid-19-stats.php:520, elements/covid-19-stats/covid-19-stats.php:549, elements/covid-19-stats/covid-19-stats.php:1412, elements/covid-19-stats/covid-19-stats.php:1485, elements/dual-button/dual-button.php:126, elements/heading/heading.php:387, elements/heading/heading.php:532, elements/infobox/infobox.php:359, elements/infobox/infobox.php:370, elements/infobox/infobox.php:459, elements/list-group/list-group.php:347, elements/list-group/list-group.php:748, elements/logo-box/logo-box.php:77, elements/logo-box/logo-box.php:106, elements/logo-carousel/logo-carousel.php:188, elements/modal-popup/modal-popup.php:404, elements/modal-popup/modal-popup.php:472, elements/pricing-menu/pricing-menu.php:117, elements/pricing-menu/pricing-menu.php:332, elements/pricing-menu/pricing-menu.php:528, elements/pricing-table/pricing-table.php:321, elements/pricing-table/pricing-table.php:1568, elements/team-member/team-member.php:82, elements/team-member/team-member.php:664, elements/testimonial/testimonial.php:359, elements/tooltip/tooltip.php:170
+#: elements/button/button.php:148, elements/card/card.php:82, elements/card/card.php:257, elements/contact-form-7/contact-form-7.php:156, elements/contact-form-7/contact-form-7.php:176, elements/countdown-timer/countdown-timer.php:155, elements/covid-19-stats/covid-19-stats.php:474, elements/covid-19-stats/covid-19-stats.php:520, elements/covid-19-stats/covid-19-stats.php:549, elements/covid-19-stats/covid-19-stats.php:1412, elements/covid-19-stats/covid-19-stats.php:1485, elements/dual-button/dual-button.php:126, elements/google-reviews/google-reviews.php:617, elements/heading/heading.php:387, elements/heading/heading.php:532, elements/infobox/infobox.php:359, elements/infobox/infobox.php:370, elements/infobox/infobox.php:459, elements/list-group/list-group.php:347, elements/list-group/list-group.php:748, elements/logo-box/logo-box.php:77, elements/logo-box/logo-box.php:106, elements/logo-carousel/logo-carousel.php:188, elements/modal-popup/modal-popup.php:404, elements/modal-popup/modal-popup.php:472, elements/pricing-menu/pricing-menu.php:117, elements/pricing-menu/pricing-menu.php:332, elements/pricing-menu/pricing-menu.php:528, elements/pricing-table/pricing-table.php:321, elements/pricing-table/pricing-table.php:1568, elements/team-member/team-member.php:82, elements/team-member/team-member.php:664, elements/testimonial/testimonial.php:359, elements/tooltip/tooltip.php:170
 msgid "Hide"
 msgstr ""
 
@@ -1253,15 +1261,15 @@ msgstr ""
 msgid "Fixed Height & Width"
 msgstr ""
 
-#: elements/button/button.php:159, elements/card/card.php:423, elements/covid-19-stats/covid-19-stats.php:575, elements/google-reviews/google-reviews.php:1154, elements/google-reviews/google-reviews.php:1222, elements/logo-carousel/logo-carousel.php:475, elements/logo-carousel/logo-carousel.php:543, elements/modal-popup/modal-popup.php:483, elements/modal-popup/modal-popup.php:1002, elements/pricing-table/pricing-table.php:1293
+#: elements/button/button.php:159, elements/card/card.php:423, elements/covid-19-stats/covid-19-stats.php:575, elements/google-reviews/google-reviews.php:1213, elements/google-reviews/google-reviews.php:1281, elements/logo-carousel/logo-carousel.php:475, elements/logo-carousel/logo-carousel.php:543, elements/modal-popup/modal-popup.php:483, elements/modal-popup/modal-popup.php:1002, elements/pricing-table/pricing-table.php:1293
 msgid "Default"
 msgstr ""
 
-#: elements/button/button.php:160, elements/card/card.php:120, elements/card/card.php:194, elements/google-reviews/google-reviews.php:1155, elements/google-reviews/google-reviews.php:1223, elements/logo-carousel/logo-carousel.php:476, elements/logo-carousel/logo-carousel.php:544, elements/modal-popup/modal-popup.php:484, elements/modal-popup/modal-popup.php:1003, elements/pricing-table/pricing-table.php:1294, elements/team-member/team-member.php:120, elements/team-member/team-member.php:194
+#: elements/button/button.php:160, elements/card/card.php:120, elements/card/card.php:194, elements/google-reviews/google-reviews.php:1214, elements/google-reviews/google-reviews.php:1282, elements/logo-carousel/logo-carousel.php:476, elements/logo-carousel/logo-carousel.php:544, elements/modal-popup/modal-popup.php:484, elements/modal-popup/modal-popup.php:1003, elements/pricing-table/pricing-table.php:1294, elements/team-member/team-member.php:120, elements/team-member/team-member.php:194
 msgid "Custom"
 msgstr ""
 
-#: elements/button/button.php:204, elements/card/card.php:543, elements/countdown-timer/countdown-timer.php:194, elements/dual-button/dual-button.php:581, elements/flipbox/flipbox.php:317, elements/google-maps/google-maps.php:202, elements/google-reviews/google-reviews.php:819, elements/google-reviews/google-reviews.php:1520, elements/google-reviews/google-reviews.php:1610, elements/heading/heading.php:204, elements/heading/heading.php:598, elements/image-comparison/image-comparison.php:299, elements/image-magnifier/image-magnifier.php:146, elements/infobox/infobox.php:468, elements/logo-box/logo-box.php:115, elements/logo-carousel/logo-carousel.php:197, elements/logo-carousel/logo-carousel.php:452, elements/logo-carousel/logo-carousel.php:758, elements/logo-carousel/logo-carousel.php:844, elements/modal-popup/modal-popup.php:528, elements/news-ticker/news-ticker.php:193, elements/pricing-menu/pricing-menu.php:414, elements/team-member/team-member.php:673, elements/testimonial/testimonial.php:394
+#: elements/button/button.php:204, elements/card/card.php:543, elements/countdown-timer/countdown-timer.php:194, elements/dual-button/dual-button.php:581, elements/flipbox/flipbox.php:317, elements/google-maps/google-maps.php:202, elements/google-reviews/google-reviews.php:898, elements/google-reviews/google-reviews.php:1579, elements/google-reviews/google-reviews.php:1669, elements/heading/heading.php:204, elements/heading/heading.php:598, elements/image-comparison/image-comparison.php:299, elements/image-magnifier/image-magnifier.php:146, elements/infobox/infobox.php:468, elements/logo-box/logo-box.php:115, elements/logo-carousel/logo-carousel.php:197, elements/logo-carousel/logo-carousel.php:452, elements/logo-carousel/logo-carousel.php:758, elements/logo-carousel/logo-carousel.php:844, elements/modal-popup/modal-popup.php:528, elements/news-ticker/news-ticker.php:193, elements/pricing-menu/pricing-menu.php:414, elements/team-member/team-member.php:673, elements/testimonial/testimonial.php:394
 msgid "Height"
 msgstr ""
 
@@ -1317,7 +1325,7 @@ msgstr ""
 msgid "Position"
 msgstr ""
 
-#: elements/card/card.php:115, elements/facebook-feed/facebook-feed.php:476, elements/filterable-post/filterable-post.php:1075, elements/infobox/infobox.php:441, elements/list-group/list-group.php:546, elements/post-grid/post-grid.php:695, elements/pricing-menu/pricing-menu.php:190, elements/pricing-table/pricing-table.php:159, elements/team-member/team-member.php:115, elements/team-member/team-member.php:647, elements/tooltip/tooltip.php:223
+#: elements/card/card.php:115, elements/facebook-feed/facebook-feed.php:476, elements/filterable-post/filterable-post.php:612, elements/filterable-post/filterable-post.php:1210, elements/infobox/infobox.php:441, elements/list-group/list-group.php:546, elements/post-grid/post-grid.php:695, elements/pricing-menu/pricing-menu.php:190, elements/pricing-table/pricing-table.php:159, elements/team-member/team-member.php:115, elements/team-member/team-member.php:647, elements/tooltip/tooltip.php:223
 msgid "Top"
 msgstr ""
 
@@ -1325,11 +1333,11 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: elements/card/card.php:134, elements/google-reviews/google-reviews.php:1166, elements/google-reviews/google-reviews.php:1234, elements/image-comparison/image-comparison.php:470, elements/logo-carousel/logo-carousel.php:487, elements/logo-carousel/logo-carousel.php:555, elements/modal-popup/modal-popup.php:1014, elements/team-member/team-member.php:134
+#: elements/card/card.php:134, elements/google-reviews/google-reviews.php:1225, elements/google-reviews/google-reviews.php:1293, elements/image-comparison/image-comparison.php:470, elements/logo-carousel/logo-carousel.php:487, elements/logo-carousel/logo-carousel.php:555, elements/modal-popup/modal-popup.php:1014, elements/team-member/team-member.php:134
 msgid "X Offset"
 msgstr ""
 
-#: elements/card/card.php:160, elements/google-reviews/google-reviews.php:1192, elements/google-reviews/google-reviews.php:1260, elements/image-comparison/image-comparison.php:495, elements/logo-carousel/logo-carousel.php:513, elements/logo-carousel/logo-carousel.php:581, elements/modal-popup/modal-popup.php:1036, elements/team-member/team-member.php:160
+#: elements/card/card.php:160, elements/google-reviews/google-reviews.php:1251, elements/google-reviews/google-reviews.php:1319, elements/image-comparison/image-comparison.php:495, elements/logo-carousel/logo-carousel.php:513, elements/logo-carousel/logo-carousel.php:581, elements/modal-popup/modal-popup.php:1036, elements/team-member/team-member.php:160
 msgid "Y Offset"
 msgstr ""
 
@@ -1409,7 +1417,7 @@ msgstr ""
 msgid "Icon Position"
 msgstr ""
 
-#: elements/card/card.php:412, elements/card/card.php:419, elements/facebook-feed/facebook-feed.php:112, elements/filterable-post/filterable-post.php:1002, elements/google-reviews/google-reviews.php:417, elements/list-group/list-group.php:199, elements/post-grid/post-grid.php:622, elements/testimonial/testimonial.php:184
+#: elements/card/card.php:412, elements/card/card.php:419, elements/facebook-feed/facebook-feed.php:112, elements/filterable-post/filterable-post.php:1137, elements/google-reviews/google-reviews.php:417, elements/list-group/list-group.php:199, elements/post-grid/post-grid.php:622, elements/testimonial/testimonial.php:184
 msgid "Layout"
 msgstr ""
 
@@ -1541,7 +1549,7 @@ msgstr ""
 msgid "Button Typography"
 msgstr ""
 
-#: elements/contact-form-7/contact-form-7.php:865, elements/contact-form-7/contact-form-7.php:929, elements/flipbox/flipbox.php:439, elements/flipbox/flipbox.php:775, elements/flipbox/flipbox.php:1086, elements/google-reviews/google-reviews.php:664, elements/google-reviews/google-reviews.php:1350, elements/google-reviews/google-reviews.php:1399, elements/logo-box/logo-box.php:224, elements/logo-box/logo-box.php:287, elements/post-grid/post-grid.php:1738, elements/post-grid/post-grid.php:1785
+#: elements/contact-form-7/contact-form-7.php:865, elements/contact-form-7/contact-form-7.php:929, elements/flipbox/flipbox.php:439, elements/flipbox/flipbox.php:775, elements/flipbox/flipbox.php:1086, elements/google-reviews/google-reviews.php:755, elements/google-reviews/google-reviews.php:1409, elements/google-reviews/google-reviews.php:1458, elements/logo-box/logo-box.php:224, elements/logo-box/logo-box.php:287, elements/post-grid/post-grid.php:1738, elements/post-grid/post-grid.php:1785
 msgid "Box Shadow"
 msgstr ""
 
@@ -1625,7 +1633,7 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: elements/covid-19-stats/covid-19-stats.php:93, elements/filterable-gallery/filterable-gallery.php:241, elements/filterable-post/filterable-post.php:2013
+#: elements/covid-19-stats/covid-19-stats.php:93, elements/filterable-gallery/filterable-gallery.php:241, elements/filterable-post/filterable-post.php:2139
 msgid "All"
 msgstr ""
 
@@ -2689,7 +2697,7 @@ msgstr ""
 msgid "Continent Filter Button"
 msgstr ""
 
-#: elements/covid-19-stats/covid-19-stats.php:1336, elements/google-reviews/google-reviews.php:1605
+#: elements/covid-19-stats/covid-19-stats.php:1336, elements/google-reviews/google-reviews.php:1664
 msgid "Hover/active"
 msgstr ""
 
@@ -2709,11 +2717,11 @@ msgstr ""
 msgid "Sticky Heading"
 msgstr ""
 
-#: elements/covid-19-stats/covid-19-stats.php:1507, elements/covid-19-stats/covid-19-stats.php:1602, elements/covid-19-stats/covid-19-stats.php:1648, elements/facebook-feed/facebook-feed.php:858, elements/facebook-feed/facebook-feed.php:975, elements/facebook-feed/facebook-feed.php:1008, elements/facebook-feed/facebook-feed.php:1310, elements/google-reviews/google-reviews.php:575, elements/google-reviews/google-reviews.php:1000, elements/google-reviews/google-reviews.php:1052, elements/image-comparison/image-comparison.php:425, elements/list-group/list-group.php:919, elements/news-ticker/news-ticker.php:161, elements/post-grid/post-grid.php:1691, elements/pricing-table/pricing-table.php:710, elements/pricing-table/pricing-table.php:2008
+#: elements/covid-19-stats/covid-19-stats.php:1507, elements/covid-19-stats/covid-19-stats.php:1602, elements/covid-19-stats/covid-19-stats.php:1648, elements/facebook-feed/facebook-feed.php:858, elements/facebook-feed/facebook-feed.php:975, elements/facebook-feed/facebook-feed.php:1008, elements/facebook-feed/facebook-feed.php:1310, elements/google-reviews/google-reviews.php:666, elements/google-reviews/google-reviews.php:1059, elements/google-reviews/google-reviews.php:1111, elements/image-comparison/image-comparison.php:425, elements/list-group/list-group.php:919, elements/news-ticker/news-ticker.php:161, elements/post-grid/post-grid.php:1691, elements/pricing-table/pricing-table.php:710, elements/pricing-table/pricing-table.php:2008
 msgid "Typography"
 msgstr ""
 
-#: elements/covid-19-stats/covid-19-stats.php:1527, elements/covid-19-stats/covid-19-stats.php:1622, elements/covid-19-stats/covid-19-stats.php:1668, elements/facebook-feed/facebook-feed.php:1376, elements/facebook-feed/facebook-feed.php:1442, elements/google-reviews/google-reviews.php:1341, elements/google-reviews/google-reviews.php:1390, elements/google-reviews/google-reviews.php:1597, elements/google-reviews/google-reviews.php:1689, elements/image-comparison/image-comparison.php:521, elements/post-grid/post-grid.php:1729, elements/post-grid/post-grid.php:1776
+#: elements/covid-19-stats/covid-19-stats.php:1527, elements/covid-19-stats/covid-19-stats.php:1622, elements/covid-19-stats/covid-19-stats.php:1668, elements/facebook-feed/facebook-feed.php:1376, elements/facebook-feed/facebook-feed.php:1442, elements/google-reviews/google-reviews.php:1400, elements/google-reviews/google-reviews.php:1449, elements/google-reviews/google-reviews.php:1656, elements/google-reviews/google-reviews.php:1748, elements/image-comparison/image-comparison.php:521, elements/post-grid/post-grid.php:1729, elements/post-grid/post-grid.php:1776
 msgid "Border"
 msgstr ""
 
@@ -2809,7 +2817,7 @@ msgstr ""
 msgid "Space Between Buttons"
 msgstr ""
 
-#: elements/dual-button/dual-button.php:396, elements/dual-button/dual-button.php:686, elements/dual-button/dual-button.php:782, elements/dual-heading/dual-heading.php:304, elements/dual-heading/dual-heading.php:390, elements/google-reviews/google-reviews.php:491, elements/google-reviews/google-reviews.php:876, elements/google-reviews/google-reviews.php:1288, elements/image-comparison/image-comparison.php:529, elements/pricing-menu/pricing-menu.php:798, elements/pricing-table/pricing-table.php:750, elements/team-member/team-member.php:547, elements/team-member/team-member.php:746, elements/team-member/team-member.php:1335, elements/testimonial/testimonial.php:244, elements/testimonial/testimonial.php:459
+#: elements/dual-button/dual-button.php:396, elements/dual-button/dual-button.php:686, elements/dual-button/dual-button.php:782, elements/dual-heading/dual-heading.php:304, elements/dual-heading/dual-heading.php:390, elements/google-reviews/google-reviews.php:499, elements/google-reviews/google-reviews.php:1347, elements/image-comparison/image-comparison.php:529, elements/pricing-menu/pricing-menu.php:798, elements/pricing-table/pricing-table.php:750, elements/team-member/team-member.php:547, elements/team-member/team-member.php:746, elements/team-member/team-member.php:1335, elements/testimonial/testimonial.php:244, elements/testimonial/testimonial.php:459
 msgid "Border radius"
 msgstr ""
 
@@ -2817,7 +2825,7 @@ msgstr ""
 msgid "Hover Effect"
 msgstr ""
 
-#: elements/dual-button/dual-button.php:636, elements/dual-heading/dual-heading.php:182, elements/facebook-feed/facebook-feed.php:1155, elements/flipbox/flipbox.php:508, elements/flipbox/flipbox.php:844, elements/google-reviews/google-reviews.php:694, elements/google-reviews/google-reviews.php:1129, elements/heading/heading.php:310, elements/infobox/infobox.php:514, elements/list-group/list-group.php:689, elements/modal-popup/modal-popup.php:1060, elements/pricing-table/pricing-table.php:1482, elements/tabs/tabs.php:696, elements/testimonial/testimonial.php:688, elements/tooltip/tooltip.php:255
+#: elements/dual-button/dual-button.php:636, elements/dual-heading/dual-heading.php:182, elements/facebook-feed/facebook-feed.php:1155, elements/flipbox/flipbox.php:508, elements/flipbox/flipbox.php:844, elements/google-reviews/google-reviews.php:785, elements/google-reviews/google-reviews.php:1188, elements/heading/heading.php:310, elements/infobox/infobox.php:514, elements/list-group/list-group.php:689, elements/modal-popup/modal-popup.php:1060, elements/pricing-table/pricing-table.php:1482, elements/tabs/tabs.php:696, elements/testimonial/testimonial.php:688, elements/tooltip/tooltip.php:255
 msgid "Icon Size"
 msgstr ""
 
@@ -2853,11 +2861,11 @@ msgstr ""
 msgid "General Styles"
 msgstr ""
 
-#: elements/dual-heading/dual-heading.php:166, elements/facebook-feed/facebook-feed.php:1203, elements/google-reviews/google-reviews.php:1327, elements/google-reviews/google-reviews.php:1376, elements/heading/heading.php:297, elements/infobox/infobox.php:660, elements/infobox/infobox.php:701, elements/list-group/list-group.php:714, elements/news-ticker/news-ticker.php:765, elements/news-ticker/news-ticker.php:815, elements/pricing-table/pricing-table.php:1522, elements/pricing-table/pricing-table.php:1601, elements/team-member/team-member.php:1370, elements/team-member/team-member.php:1406
+#: elements/dual-heading/dual-heading.php:166, elements/facebook-feed/facebook-feed.php:1203, elements/google-reviews/google-reviews.php:1386, elements/google-reviews/google-reviews.php:1435, elements/heading/heading.php:297, elements/infobox/infobox.php:660, elements/infobox/infobox.php:701, elements/list-group/list-group.php:714, elements/news-ticker/news-ticker.php:765, elements/news-ticker/news-ticker.php:815, elements/pricing-table/pricing-table.php:1522, elements/pricing-table/pricing-table.php:1601, elements/team-member/team-member.php:1370, elements/team-member/team-member.php:1406
 msgid "Icon Color"
 msgstr ""
 
-#: elements/dual-heading/dual-heading.php:208, elements/google-reviews/google-reviews.php:716, elements/testimonial/testimonial.php:710
+#: elements/dual-heading/dual-heading.php:208, elements/google-reviews/google-reviews.php:807, elements/testimonial/testimonial.php:710
 msgid "Icon Margin"
 msgstr ""
 
@@ -2889,7 +2897,7 @@ msgstr ""
 msgid "Number of Posts to show"
 msgstr ""
 
-#: elements/facebook-feed/facebook-feed.php:116, elements/filterable-post/filterable-post.php:1007, elements/google-reviews/google-reviews.php:421, elements/list-group/list-group.php:203, elements/post-grid/post-grid.php:627, elements/testimonial/testimonial.php:188
+#: elements/facebook-feed/facebook-feed.php:116, elements/filterable-post/filterable-post.php:1142, elements/google-reviews/google-reviews.php:421, elements/list-group/list-group.php:203, elements/post-grid/post-grid.php:627, elements/testimonial/testimonial.php:188
 msgid "Layout 1"
 msgstr ""
 
@@ -2993,11 +3001,11 @@ msgstr ""
 msgid "Feature Image Position"
 msgstr ""
 
-#: elements/facebook-feed/facebook-feed.php:503, elements/filterable-post/filterable-post.php:1089, elements/post-grid/post-grid.php:709
+#: elements/facebook-feed/facebook-feed.php:503, elements/filterable-post/filterable-post.php:1224, elements/post-grid/post-grid.php:709
 msgid "Image Height"
 msgstr ""
 
-#: elements/facebook-feed/facebook-feed.php:529, elements/filterable-post/filterable-post.php:1110, elements/post-grid/post-grid.php:730
+#: elements/facebook-feed/facebook-feed.php:529, elements/filterable-post/filterable-post.php:1245, elements/post-grid/post-grid.php:730
 msgid "Image Width"
 msgstr ""
 
@@ -3029,7 +3037,7 @@ msgstr ""
 msgid "Name Typography"
 msgstr ""
 
-#: elements/facebook-feed/facebook-feed.php:770, elements/facebook-feed/facebook-feed.php:951, elements/google-reviews/google-reviews.php:605, elements/google-reviews/google-reviews.php:904, elements/heading/heading.php:334, elements/heading/heading.php:657, elements/infobox/infobox.php:622, elements/pricing-table/pricing-table.php:1305, elements/team-member/team-member.php:797, elements/testimonial/testimonial.php:487, elements/testimonial/testimonial.php:583
+#: elements/facebook-feed/facebook-feed.php:770, elements/facebook-feed/facebook-feed.php:951, elements/google-reviews/google-reviews.php:696, elements/google-reviews/google-reviews.php:963, elements/heading/heading.php:334, elements/heading/heading.php:657, elements/infobox/infobox.php:622, elements/pricing-table/pricing-table.php:1305, elements/team-member/team-member.php:797, elements/testimonial/testimonial.php:487, elements/testimonial/testimonial.php:583
 msgid "Bottom Spacing"
 msgstr ""
 
@@ -3145,19 +3153,19 @@ msgstr ""
 msgid "Control Container"
 msgstr ""
 
-#: elements/filterable-gallery/filterable-gallery.php:458, elements/filterable-post/filterable-post.php:701, elements/news-ticker/news-ticker.php:715
+#: elements/filterable-gallery/filterable-gallery.php:458, elements/filterable-post/filterable-post.php:790, elements/news-ticker/news-ticker.php:715
 msgid "Control Items"
 msgstr ""
 
-#: elements/filterable-gallery/filterable-gallery.php:467, elements/filterable-post/filterable-post.php:710
+#: elements/filterable-gallery/filterable-gallery.php:467, elements/filterable-post/filterable-post.php:799, elements/filterable-post/filterable-post.php:835
 msgid "Item Alignment"
 msgstr ""
 
-#: elements/filterable-gallery/filterable-gallery.php:514, elements/filterable-post/filterable-post.php:757
+#: elements/filterable-gallery/filterable-gallery.php:514, elements/filterable-post/filterable-post.php:890
 msgid "Between Items Spacing"
 msgstr ""
 
-#: elements/filterable-gallery/filterable-gallery.php:763, elements/google-reviews/google-reviews.php:1106
+#: elements/filterable-gallery/filterable-gallery.php:763, elements/google-reviews/google-reviews.php:1165
 msgid "Box Size"
 msgstr ""
 
@@ -3349,91 +3357,95 @@ msgstr ""
 msgid "Enable Comment."
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:991, elements/post-grid/post-grid.php:611
+#: elements/filterable-post/filterable-post.php:656
+msgid "Left & Right Spacing"
+msgstr ""
+
+#: elements/filterable-post/filterable-post.php:1126, elements/post-grid/post-grid.php:611
 msgid "Feature Post"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1006, elements/post-grid/post-grid.php:626
+#: elements/filterable-post/filterable-post.php:1141, elements/post-grid/post-grid.php:626
 msgid "Default Layout"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1015, elements/post-grid/post-grid.php:635, elements/post-timeline/post-timeline.php:250
+#: elements/filterable-post/filterable-post.php:1150, elements/post-grid/post-grid.php:635, elements/post-timeline/post-timeline.php:250
 msgid "Content Padding"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1248, elements/post-grid/post-grid.php:869
+#: elements/filterable-post/filterable-post.php:1383, elements/post-grid/post-grid.php:869
 msgid "Title Alignment"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1321, elements/post-grid/post-grid.php:942, elements/post-timeline/post-timeline.php:425
+#: elements/filterable-post/filterable-post.php:1456, elements/post-grid/post-grid.php:942, elements/post-timeline/post-timeline.php:425
 msgid "Excerpt"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1361, elements/post-grid/post-grid.php:982, elements/post-timeline/post-timeline.php:462
+#: elements/filterable-post/filterable-post.php:1496, elements/post-grid/post-grid.php:982, elements/post-timeline/post-timeline.php:462
 msgid "Justified"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1404, elements/post-grid/post-grid.php:1025
+#: elements/filterable-post/filterable-post.php:1539, elements/post-grid/post-grid.php:1025
 msgid "Category"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1415, elements/post-grid/post-grid.php:1036
+#: elements/filterable-post/filterable-post.php:1550, elements/post-grid/post-grid.php:1036
 msgid "Category Position Default?"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1425, elements/post-grid/post-grid.php:1046
+#: elements/filterable-post/filterable-post.php:1560, elements/post-grid/post-grid.php:1046
 msgid "Category Position Over Image"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1429, elements/post-grid/post-grid.php:1050
+#: elements/filterable-post/filterable-post.php:1564, elements/post-grid/post-grid.php:1050
 msgid "Bottom Left Corner"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1430, elements/post-grid/post-grid.php:1051
+#: elements/filterable-post/filterable-post.php:1565, elements/post-grid/post-grid.php:1051
 msgid "Top Right Corner"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1468, elements/post-grid/post-grid.php:1089
+#: elements/filterable-post/filterable-post.php:1603, elements/post-grid/post-grid.php:1089
 msgid "Margin(Each Item)"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1480, elements/post-grid/post-grid.php:1101
+#: elements/filterable-post/filterable-post.php:1615, elements/post-grid/post-grid.php:1101
 msgid "Margin(All Items)"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1504, elements/post-grid/post-grid.php:1125
+#: elements/filterable-post/filterable-post.php:1639, elements/post-grid/post-grid.php:1125
 msgid "ODD"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1601, elements/post-grid/post-grid.php:1222
+#: elements/filterable-post/filterable-post.php:1736, elements/post-grid/post-grid.php:1222
 msgid "Author & Date"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1609, elements/post-grid/post-grid.php:1230
+#: elements/filterable-post/filterable-post.php:1744, elements/post-grid/post-grid.php:1230
 msgid "Author Image Size"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1650, elements/post-grid/post-grid.php:1271
+#: elements/filterable-post/filterable-post.php:1785, elements/post-grid/post-grid.php:1271
 msgid "Meta"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1659, elements/post-grid/post-grid.php:1280
+#: elements/filterable-post/filterable-post.php:1794, elements/post-grid/post-grid.php:1280
 msgid "Spacing Between Author & Date"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1701, elements/post-grid/post-grid.php:1322
+#: elements/filterable-post/filterable-post.php:1836, elements/post-grid/post-grid.php:1322
 msgid "Meta Link"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1732, elements/post-grid/post-grid.php:1353
+#: elements/filterable-post/filterable-post.php:1867, elements/post-grid/post-grid.php:1353
 msgid "Reading Time & Comment"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1759, elements/post-grid/post-grid.php:1380
+#: elements/filterable-post/filterable-post.php:1894, elements/post-grid/post-grid.php:1380
 msgid "Reading Time"
 msgstr ""
 
-#: elements/filterable-post/filterable-post.php:1842, elements/post-grid/post-grid.php:1463
+#: elements/filterable-post/filterable-post.php:1977, elements/post-grid/post-grid.php:1463
 msgid "Button Style"
 msgstr ""
 
@@ -3713,11 +3725,11 @@ msgstr ""
 msgid "Navigation Style"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:252, elements/google-reviews/google-reviews.php:1095, elements/logo-carousel/logo-carousel.php:128, elements/logo-carousel/logo-carousel.php:402
+#: elements/google-reviews/google-reviews.php:252, elements/google-reviews/google-reviews.php:1154, elements/logo-carousel/logo-carousel.php:128, elements/logo-carousel/logo-carousel.php:402
 msgid "Arrows"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:253, elements/google-reviews/google-reviews.php:1417, elements/logo-carousel/logo-carousel.php:129, elements/logo-carousel/logo-carousel.php:724
+#: elements/google-reviews/google-reviews.php:253, elements/google-reviews/google-reviews.php:1476, elements/logo-carousel/logo-carousel.php:129, elements/logo-carousel/logo-carousel.php:724
 msgid "Dots"
 msgstr ""
 
@@ -3777,43 +3789,43 @@ msgstr ""
 msgid "Observer"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:541
+#: elements/google-reviews/google-reviews.php:614, elements/infobox/infobox.php:356, elements/pricing-table/pricing-table.php:635, elements/testimonial/testimonial.php:356
+msgid "Transition Top"
+msgstr ""
+
+#: elements/google-reviews/google-reviews.php:632
 msgid "Reviewer Content"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:686, elements/testimonial/testimonial.php:677
+#: elements/google-reviews/google-reviews.php:777, elements/testimonial/testimonial.php:677
 msgid "Rating"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:799, elements/testimonial/testimonial.php:374
+#: elements/google-reviews/google-reviews.php:890, elements/testimonial/testimonial.php:374
 msgid "Reviewer Image"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:807, elements/team-member/team-member.php:661, elements/testimonial/testimonial.php:382
-msgid "Image Box"
-msgstr ""
-
-#: elements/google-reviews/google-reviews.php:934
+#: elements/google-reviews/google-reviews.php:993
 msgid "Rivewer"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:990, elements/testimonial/testimonial.php:850
+#: elements/google-reviews/google-reviews.php:1049, elements/testimonial/testimonial.php:850
 msgid "Reviewer Title"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:1042
+#: elements/google-reviews/google-reviews.php:1101
 msgid "Reviewer Date"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:1152, elements/logo-carousel/logo-carousel.php:473
+#: elements/google-reviews/google-reviews.php:1211, elements/logo-carousel/logo-carousel.php:473
 msgid "Previous Arrow Position"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:1220, elements/logo-carousel/logo-carousel.php:541
+#: elements/google-reviews/google-reviews.php:1279, elements/logo-carousel/logo-carousel.php:541
 msgid "Next Arrow Position"
 msgstr ""
 
-#: elements/google-reviews/google-reviews.php:1473
+#: elements/google-reviews/google-reviews.php:1532
 msgid "Dot Space"
 msgstr ""
 
@@ -3971,10 +3983,6 @@ msgstr ""
 
 #: elements/infobox/infobox.php:348
 msgid "Transition"
-msgstr ""
-
-#: elements/infobox/infobox.php:356, elements/pricing-table/pricing-table.php:635, elements/testimonial/testimonial.php:356
-msgid "Transition Top"
 msgstr ""
 
 #: elements/infobox/infobox.php:367, elements/pricing-table/pricing-table.php:637
@@ -4979,6 +4987,10 @@ msgstr ""
 
 #: elements/team-member/team-member.php:453, elements/team-member/team-member.php:1281
 msgid "Social Icons"
+msgstr ""
+
+#: elements/team-member/team-member.php:661, elements/testimonial/testimonial.php:382
+msgid "Image Box"
 msgstr ""
 
 #: elements/testimonial/testimonial.php:78
