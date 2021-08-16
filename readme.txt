@@ -143,7 +143,7 @@ This option allows you change the default Color scheme for all the widgets at on
 43. **[Woo Checkout](https://exclusiveaddons.com/shop/)** - Style Your Woocommerce Checkout page without a Theme. With the help of all the customization options you might need.
 44. **[Site Logo](https://exclusiveaddons.com/site-logo/)** - Display your Site Logo with some versatile customization options.
 45. **[Template](https://exclusiveaddons.com/template-demo)** - Create reusable content as Elementor template and put anywhere using the Template widget.
-46. **[Woo Product Carousel](https://exclusiveaddons.com/woo-product-carousel-demo)** - Your stylish, versatile and most customizable WooCommerce Product Carousel is here.
+46. **[Woo Product Carousel](https://exclusiveaddons.com/woo-products-carousel-demo)** - Your stylish, versatile and most customizable WooCommerce Product Carousel is here.
 47. **[Woo My Account](https://exclusiveaddons.com/woo-my-account-demo)** - Create your Woocommerce My Account page from Elementor and style as many ways as you want with limitless possibilities.
 
 LIST OF OUR PRO EXTENSIONS:
