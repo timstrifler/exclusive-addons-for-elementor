@@ -78,7 +78,7 @@ class Filterable_Post extends Widget_Base {
 				'label' => __( 'Taxonomies', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT2,
 				'label_block' => true,
-				'default' => [],
+				'default' => 'category',
 				'options' => $this->get_taxonomies(),
 			]
 		);
@@ -560,7 +560,7 @@ class Filterable_Post extends Widget_Base {
                 ],                
                 'size_units'    => [ 'px', 'em', '%' ],
                 'selectors'     => [
-                        '{{WRAPPER}} .exad-post-grid-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                        '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
 		);
