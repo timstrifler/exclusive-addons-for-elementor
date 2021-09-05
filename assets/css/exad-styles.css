@@ -4771,7 +4771,14 @@ nav.exad-post-pagination ul li {
     padding: 10px 10px;
   }
 }
-
+.exad-row-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+.exad-row-wrapper .exad-col{
+  padding: 0 10px;
+}
 .exad-row-wrapper.exad-col-5 {
   display: flex;
   flex-wrap: wrap;

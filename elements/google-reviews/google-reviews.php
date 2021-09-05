@@ -654,7 +654,7 @@ class Google_Reviews extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '#222222',
 				'selectors' => [
-					'{{WRAPPER}} .exad-google-reviews-description' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .exad-google-reviews-description p' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -664,7 +664,7 @@ class Google_Reviews extends Widget_Base {
 			[
 				'name' => 'exad_google_reviews_carousel_description_typography',
 				'label' => __( 'Typography', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} .exad-google-reviews-description',
+				'selector' => '{{WRAPPER}} .exad-google-reviews-description p',
 			]
 		);
 

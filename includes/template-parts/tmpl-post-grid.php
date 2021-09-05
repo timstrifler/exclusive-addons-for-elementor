@@ -11,6 +11,13 @@ if( isset( $settings['exad_post_grid_equal_height'] ) ){
 } else {
     $equalHeight = ' ';
 }
+if( 'yes' != $settings['exad_post_grid_show_title_parmalink'] ){
+    $parmalink = get_permalink();
+    $style_par = '';
+} else{
+    $parmalink = '';
+    $style_par = 'style= "pointer-events: none;"';
+}
 ?>
 
 <article class="exad-post-grid-three exad-col <?php echo ('exad-filterable-post' === $settings['template_type'] ) ? ' exad-filterable-item ' . esc_attr( Helper::exad_get_categories_name_for_class()) : ' ' ;?>">
@@ -18,7 +25,7 @@ if( isset( $settings['exad_post_grid_equal_height'] ) ){
         <?php do_action('exad_post_grid_each_item_wrapper_before');
         if( 'yes' === $settings['exad_post_grid_show_image'] && has_post_thumbnail() ) : ?>
             <figure class="exad-post-grid-thumbnail">
-                <a href="<?php echo esc_url( get_permalink() ); ?>">
+                <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?>>
                     <?php the_post_thumbnail( $settings['post_grid_image_size_size'] ); ?>
                 </a>
                 
@@ -85,11 +92,11 @@ if( isset( $settings['exad_post_grid_equal_height'] ) ){
             if('yes' === $settings['exad_post_grid_show_title']) :
                 if('yes' === $settings['exad_post_grid_title_full']) : ?>
                     <h3>
-                        <a href="<?php echo esc_url( get_permalink() ); ?>" class="exad-post-grid-title"><?php echo get_the_title(); ?></a>
+                        <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?> class="exad-post-grid-title"><?php echo get_the_title(); ?></a>
                     </h3>
                 <?php else : ?>
                     <h3>
-                        <a href="<?php echo esc_url( get_permalink() ); ?>" class="exad-post-grid-title"><?php echo wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ); ?></a>
+                        <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?> class="exad-post-grid-title"><?php echo wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ); ?></a>
                     </h3>
                 <?php
                 endif;
