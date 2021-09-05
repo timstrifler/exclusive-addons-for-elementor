@@ -1194,7 +1194,7 @@ class Post_Grid extends Widget_Base {
             $this->end_controls_tab();
 
             // hover state tab
-			$this->start_controls_tab( 'exad_post_grid_even_category', [ 'label' => esc_html__( 'Hover', 'exclusive-addons-elementor' ) ] );
+			$this->start_controls_tab( 'exad_post_grid_even_category', [ 'label' => esc_html__( 'Even', 'exclusive-addons-elementor' ) ] );
 			
 				$this->add_control(
 					'exad_grid_category_bg_even_color',
