@@ -401,7 +401,8 @@ final class Base {
             'cat'              => $cat_array,
             'tags__in'         => $tags_array,
             'post__not_in'     => $exclude_array,
-            'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] )
+            'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] ),
+            'suppress_filters' => 0
         );
 
         $posts = new \WP_Query( $post_args );
