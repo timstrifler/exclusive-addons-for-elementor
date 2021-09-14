@@ -377,6 +377,7 @@ final class Base {
         $settings['exad_post_grid_show_date_tag'] = $_POST['show_date_tag'];
         $settings['exad_post_grid_date_tag'] = $_POST['date_tag'];
         $settings['exad_post_grid_show_title'] = $_POST['show_title'];
+        $settings['exad_post_grid_show_title_parmalink'] = $_POST['show_title_parmalink'];
         $settings['exad_post_grid_title_full'] = $_POST['title_full'];
         $settings['exad_grid_title_length'] = $_POST['title_length'];
         $settings['exad_post_grid_show_read_time'] = $_POST['show_read_time'];
@@ -398,9 +399,10 @@ final class Base {
             'post_status'      => 'publish',
             'paged'            => $paged,
             'cat'              => $cat_array,
+            'suppress_filters' => false,
             'tags__in'         => $tags_array,
             'post__not_in'     => $exclude_array,
-            'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] )
+            'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] ),
         );
 
         $posts = new \WP_Query( $post_args );

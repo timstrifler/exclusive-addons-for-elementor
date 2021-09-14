@@ -1,12 +1,18 @@
 <?php
-
+if( 'yes' != $settings['exad_post_grid_show_title_parmalink'] ){
+    $parmalink = get_permalink();
+    $style_par = '';
+} else{
+    $parmalink = '';
+    $style_par = 'style= "pointer-events: none;"';
+}
 
 echo '<article class="exad-post-grid-three exad-col">';
     echo '<div class="exad-post-grid-container image-position-'.esc_attr( $settings['exad_post_grid_image_align'] ).' exad-post-grid-equal-height-'.esc_attr($settings['exad_post_grid_equal_height']).'">';
         do_action('exad_post_grid_each_item_wrapper_before');
         
             echo '<figure class="exad-post-grid-thumbnail">';
-                echo '<a href="'.esc_url( get_permalink() ).'">';
+                echo '<a href="'.esc_url( $parmalink ).'" '.$style_par.'>';
                     the_post_thumbnail();
                 echo '</a>';
                 
@@ -49,11 +55,11 @@ echo '<article class="exad-post-grid-three exad-col">';
                     echo '</ul>'; 
 
                     echo '<h3>';
-                        echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-title">'.get_the_title().'</a>';
+                        echo '<a href="'.esc_url( $parmalink ).'" '.$style_par.' class="exad-post-grid-title">'.get_the_title().'</a>';
                     echo '</h3>';
                 
                     echo '<h3>';
-                        echo '<a href="'.esc_url( get_permalink() ).'" class="exad-post-grid-title">'.wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ).'</a>';
+                        echo '<a href="'.esc_url( $parmalink ).'" '.$style_par.' class="exad-post-grid-title">'.wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ).'</a>';
                     echo '</h3>';
                 
                 echo '<ul class="exad-post-grid-time-comment">';

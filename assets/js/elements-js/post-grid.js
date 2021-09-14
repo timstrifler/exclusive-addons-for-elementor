@@ -35,6 +35,7 @@ var exclusivePostGrid = function( $scope, $ ) {
                 show_user_name: $(this).data('show_user_name'),
                 post_data_position: $(this).data('post_data_position'),
                 show_title: $(this).data('show_title'),
+                show_title_parmalink: $(this).data('show_title_parmalink'),
                 title_full: $(this).data('title_full'),
                 show_read_time: $(this).data('show_read_time'),
                 show_comment: $(this).data('show_comment'),

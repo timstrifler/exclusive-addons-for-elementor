@@ -2211,7 +2211,7 @@ class Pricing_Table extends Widget_Base {
 							$this->add_inline_editing_attributes( $pricing_item, 'basic' );
 							$price = $item['exad_pricing_table_item']; ?>
 
-							<li <?php $this->get_render_attribute_string( $each_pricing_item ); ?>>
+							<li <?php echo $this->get_render_attribute_string( $each_pricing_item ); ?>>
 								<?php if ( !empty( $item['exad_pricing_table_list_icon']['value'] ) ) { ?>
 									<span class="exad-pricing-li-icon">
 										<?php Icons_Manager::render_icon( $item['exad_pricing_table_list_icon'] ); ?>

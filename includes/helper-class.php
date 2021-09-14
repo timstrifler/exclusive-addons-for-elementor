@@ -236,7 +236,7 @@ class Helper {
             'author'           => $author_ids,
             'author_name'      => '',
             'post_status'      => 'publish',
-            'suppress_filters' => true,
+            'suppress_filters' => false,
             'tag__in'          => $settings[ $prefix . '_tags'],
             'post__not_in'     => $settings[ $prefix . '_exclude_post' ],
         );
