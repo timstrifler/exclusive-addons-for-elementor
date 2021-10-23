@@ -751,6 +751,27 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/woo-products-carousel-demo',
                 'tags'   => 'pro',
                 'is_pro' => true
+            ],
+            'thankyou-customer-address-details'  => [
+                'title'  => __( 'Customer Address Details', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Customer_Address_Details',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],   
+            'thankyou-order'  => [
+                'title'  => __( 'Thank You Order', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Thank_you_order',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'thankyou-order-details'  => [
+                'title'  => __( 'Thank You Order Details', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Thank_you_order_Details',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
             ]
         ];
     }
