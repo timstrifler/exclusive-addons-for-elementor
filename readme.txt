@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.8.1
-Stable tag: 2.4.62
+Stable tag: 2.4.70
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
