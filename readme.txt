@@ -12,8 +12,8 @@ Packed with a bunch of Exclusively designed widgets for Elementor with all the c
 == Description ==
 
 Exclusive Addons for Elementor brings you the most modern and trendy design to your [Elementor](https://wordpress.org/plugins/elementor/) page building experience. 
-The elementor addons gives you the ability to build a sophisticated website experience with 85+ highly customizable and creative widgets and extensions.
-A collection of 700+ premade blocks and 20+ useable templates will help you build your websites in less time with no coding.
+The elementor addons gives you the ability to build a sophisticated website experience with 100+ highly customizable and creative widgets and extensions.
+A collection of 800+ premade blocks and 30+ useable templates will help you build your websites in less time with no coding.
 
 An easy to use interface and several customizations and unique widgets make your next WordPress page and post design easier and prettier than ever before. Exclusive Addons Elementor page builders take your WordPress website to the next level by making your page more eye-catching.
 We have stuffed all the factors with every choice that you may think. Still need one, please feel free to reach out. We might love to feature that to you.
@@ -96,7 +96,7 @@ We have enabled Inline Editing with Live Preview for most of our elements. That 
 This option allows you change the default Color scheme for all the widgets at once on a single click from the Admin Dashboard.
 
 
-### 50+ PREMIUM WIDGETS and EXTENSIONS ON OUR [PRO VERSION](https://exclusiveaddons.com/pricing)
+### 65+ PREMIUM WIDGETS and EXTENSIONS ON OUR [PRO VERSION](https://exclusiveaddons.com/pricing)
 
 1. **[Demo Previewer](https://exclusiveaddons.com/demo-previewer/)** - A unique widget from the best elementor addons. Demo Previewer Widget offers the opportunity to showcase a demo or short preview of any product and provide an idea about the pricing on your WordPress site.
 2. **[Breadcrumb](https://exclusiveaddons.com/exclusive-addons/breadcrumb/)** - Breadcrumb Widget is a fully responsive navigator, that can trace the visitor’s footsteps on a certain path on a website. Every step of that path is clickable, from the homepage to the current location.
@@ -145,12 +145,34 @@ This option allows you change the default Color scheme for all the widgets at on
 45. **[Template](https://exclusiveaddons.com/template-demo)** - Create reusable content as Elementor template and put anywhere using the Template widget.
 46. **[Woo Product Carousel](https://exclusiveaddons.com/woo-products-carousel-demo)** - Your stylish, versatile and most customizable WooCommerce Product Carousel is here.
 47. **[Woo My Account](https://exclusiveaddons.com/woo-my-account-demo)** - Create your Woocommerce My Account page from Elementor and style as many ways as you want with limitless possibilities.
+48. **[Product Title](https://exclusiveaddons.com/shop)** - Product Title widget for building Single Product with Exclusive Woo Builder.
+49. **[Product Image](https://exclusiveaddons.com/shop)** - Product Featured Images and gallery widget for building Single Product with Exclusive Woo Builder.
+50. **[Product Price](https://exclusiveaddons.com/shop)** - Product Price widget for building Single Product with Exclusive Woo Builder.
+51. **[Product Add to Cart](https://exclusiveaddons.com/shop)** - Product Add to Cart widget for building Single Product with Exclusive Woo Builder.
+52. **[Product Rating](https://exclusiveaddons.com/shop)** - Product Rating widget for building Single Product with Exclusive Woo Builder.
+53. **[Product Meta](https://exclusiveaddons.com/shop)** - Product Meta widget for displaying Product categories for building Single Product with Exclusive Woo Builder.
+54. **[Product Stock](https://exclusiveaddons.com/shop)** - Product Stock widget for building Single Product with Exclusive Woo Builder.
+55. **[Product Tabs](https://exclusiveaddons.com/shop)** - Display Description, Additional Information and Reviews with the Tabs widget for Single Product.
+56. **[Product QR Code](https://exclusiveaddons.com/shop)** - Product QR Code widget for Single Product.
+57. **[Related Products](https://exclusiveaddons.com/shop)** - Related Products widget for Single Product.
+58. **[Product Short Description](https://exclusiveaddons.com/shop)** - Product Short Description widget for Single Product.
+59. **[Upsell Product](https://exclusiveaddons.com/shop)** - Product Upsell widget for Single Product.
+60. **[Product Breadcrumb](https://exclusiveaddons.com/shop)** - Product Breadcrumb widget for Single Product.
+61. **[Product Navigation](https://exclusiveaddons.com/shop)** - Product Navigation widget to navgate 
+62. **[Cross Sell Products](https://exclusiveaddons.com/shop)** - Display Cross sell Products in a Grid or Carousel style for Single Product.
+63. **[Thank You Order](https://exclusiveaddons.com/shop)** - Display the Order information in the Thank You page.
+64. **[Thank You Order Details](https://exclusiveaddons.com/shop)** - Display the Order information in details for the Thank You page.
+65. **[Customer Address Details](https://exclusiveaddons.com/shop)** - Display the Customer Address in the Thank You page.
+
 
 LIST OF OUR PRO EXTENSIONS:
 1. **[Gradient animation](https://exclusiveaddons.com/gradient-animation/)** 
 2. **[Section Particles](https://exclusiveaddons.com/section-particles/)**
 3. **[Section Parallax](https://exclusiveaddons.com/section-parallax/)**
 4. **[Cross Site Copy Paste](https://exclusiveaddons.com/cross-site-copy-paste)**
+
+### The much waited Exclusive Woo Builder is here in our Pro version.
+Create and Design Single product, Shop page and Thank You page with a bunch of new widgets.
 
 ### Exclusive Header-Footer Builder on PRO
 The best elementor addons comes with the excluisve feature of header/footer builder. 
