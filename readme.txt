@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor addons, elementor addon, elementor widgets, widgets, widget, essential widget, page builder, builder, visual editor, wordpress page builder, exclusive, modern, trendy
 Requires at least: 4.6
 Tested up to: 5.8.1
-Stable tag: 2.4.70
+Stable tag: 2.4.71
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -249,6 +249,12 @@ No, It won't break your existing elements. We put most of our efforts ensuring t
 
 
 == Changelog ==
+
+= 2.4.71 - 03/11/2021 =
+- Fix: Add WooBuilder widget compatibility for Pro version.
+
+= 2.4.70 - 02/11/2021 =
+- Fix: Overall bug fix and improvements.
 
 = 2.4.62 - 09/09/2021 =
 - Fix: WPML compatibility issues fixed in Post Grid Widget.
