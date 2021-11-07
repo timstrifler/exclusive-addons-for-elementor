@@ -111,6 +111,9 @@ class Tabs extends Widget_Base {
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
 				],
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition' => [
 					'exad_exclusive_tabs_icon_type' => 'image'
 				]
@@ -239,6 +242,9 @@ class Tabs extends Widget_Base {
 			[
 				'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
 				'type'  => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition' => [
 					'exad_exclusive_tab_content_type' => 'content'
 				]

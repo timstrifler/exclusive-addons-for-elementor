@@ -106,6 +106,9 @@ class Tooltip extends Widget_Base {
                 'default'   => [
 					'url'   => Utils::get_placeholder_image_src()
 				],
+                'dynamic' => [
+					'active' => true,
+				],
 				'condition' => [
 					'exad_tooltip_type' => [ 'image' ]
 				]

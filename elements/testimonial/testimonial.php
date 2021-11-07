@@ -56,6 +56,9 @@ class Testimonial extends Widget_Base {
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);

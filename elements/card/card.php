@@ -58,6 +58,9 @@ class Card extends Widget_Base {
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -65,7 +68,7 @@ class Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name'      => 'thumbnail',
+				'name'      => 'thumbnail', 
 				'default'   => 'full',
 				'condition' => [
 					'exad_card_image[url]!' => ''

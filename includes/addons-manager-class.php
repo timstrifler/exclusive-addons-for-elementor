@@ -414,6 +414,10 @@ class Addons_Manager {
 
     }
 
+    /**
+     * Pro version Widget Map
+     * 
+     */
     public static function widget_map_pro() {
         return [
             'animated-shape'  => [
@@ -448,6 +452,13 @@ class Addons_Manager {
                 'title'  => __( 'Business Hours', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Business_Hours',
                 'demo_link' => 'https://exclusiveaddons.com/business-hours/',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'campaign'  => [
+                'title'  => __( 'Campaign', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Campaign',
+                'demo_link' => 'https://exclusiveaddons.com/campaign/',
                 'tags'   => 'pro',
                 'is_pro' => true
             ], 
@@ -611,11 +622,109 @@ class Addons_Manager {
                 'demo_link' => 'https://exclusiveaddons.com/post-slider/',
                 'tags'   => 'pro',
                 'is_pro' => true
+            ],
+            'product-breadcrumb'  => [
+                'title'  => __( 'Product Breadcrumb', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Breadcrumb',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'product-title'  => [
+                'title'  => __( 'Product Title', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Title',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
             ], 
-            'campaign'  => [
-                'title'  => __( 'Campaign', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Campaign',
-                'demo_link' => 'https://exclusiveaddons.com/campaign/',
+            'product-image'  => [
+                'title'  => __( 'Product Image ', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Image',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'product-price'  => [
+                'title'  => __( 'Product Price', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Price',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],  
+            'product-rating'  => [
+                'title'  => __( 'Product Rating', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Rating',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],   
+            'product-add-to-cart'  => [
+                'title'  => __( 'Product Add to Cart', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Add_to_Cart',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],  
+            'product-short-description'  => [
+                'title'  => __( 'Product Short Description', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Short_Description',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'product-meta'  => [
+                'title'  => __( 'Product Meta', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Meta',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'product-stock'  => [
+                'title'  => __( 'Product Stock', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Stock',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'product-upsell'  => [
+                'title'  => __( 'Product Upsell', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Upsell',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'product-cross-sell'  => [
+                'title'  => __( 'Product Cross Sell', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Cross_Sell',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],   
+            'product-tabs'  => [
+                'title'  => __( 'Product Tabs', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_tabs',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
+            'product-qr-code'  => [
+                'title'  => __( 'Product QR Code', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_QR_Code',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'product-related'  => [
+                'title'  => __( 'Product Related', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Related',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],   
+            'product-navigation'  => [
+                'title'  => __( 'Product Navigation', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Product_Navigation',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
@@ -703,6 +812,27 @@ class Addons_Manager {
                 'tags'   => 'pro',
                 'is_pro' => true
             ],
+            'thankyou-customer-address-details'  => [
+                'title'  => __( 'Customer Address Details', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Customer_Address_Details',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],   
+            'thankyou-order'  => [
+                'title'  => __( 'Thank You Order', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Thank_you_order',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ], 
+            'thankyou-order-details'  => [
+                'title'  => __( 'Thank You Order Details', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Woo_Thank_you_order_Details',
+                'demo_link' => 'https://exclusiveaddons.com/shop',
+                'tags'   => 'pro',
+                'is_pro' => true
+            ],
             'woo-my-account'  => [
                 'title'  => __( 'Woo My Account', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\WC_My_Account',
@@ -749,132 +879,6 @@ class Addons_Manager {
                 'title'  => __( 'Woo Product Carousel', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Woo_Product_Carousel',
                 'demo_link' => 'https://exclusiveaddons.com/woo-products-carousel-demo',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],
-            'thankyou-customer-address-details'  => [
-                'title'  => __( 'Customer Address Details', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Woo_Customer_Address_Details',
-                'demo_link' => 'https://exclusiveaddons.com/shop',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],   
-            'thankyou-order'  => [
-                'title'  => __( 'Thank You Order', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Woo_Thank_you_order',
-                'demo_link' => 'https://exclusiveaddons.com/shop',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ], 
-            'thankyou-order-details'  => [
-                'title'  => __( 'Thank You Order Details', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Woo_Thank_you_order_Details',
-                'demo_link' => 'https://exclusiveaddons.com/shop',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],
-            'product-breadcrumb'  => [
-                'title'  => __( 'Product Breadcrumb', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Breadcrumb',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],
-            'product-title'  => [
-                'title'  => __( 'Product Title', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Title',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ], 
-            'product-thumbnail'  => [
-                'title'  => __( 'Product Thumbnail ', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Image',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],
-            'product-price'  => [
-                'title'  => __( 'Product Price', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Price',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],  
-            'product-rating'  => [
-                'title'  => __( 'Product Rating', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Rating',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],   
-            'product-add-to-cart'  => [
-                'title'  => __( 'Product Add to Cart', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Add_to_Cart',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],  
-            'product-short-description'  => [
-                'title'  => __( 'Product Short Description', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Short_Description',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],
-            'product-meta'  => [
-                'title'  => __( 'Product Meta', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Meta',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],
-            'product-stock'  => [
-                'title'  => __( 'Product Stock', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Stock',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ], 
-            'product-upsell'  => [
-                'title'  => __( 'Product Upsell', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Upsell',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],
-            'product-cross-sell'  => [
-                'title'  => __( 'Product Cross Sell', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Cross_Sell',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],   
-            'product-tabs'  => [
-                'title'  => __( 'Product Tabs', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_tabs',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],
-            'product-qr-code'  => [
-                'title'  => __( 'Product QR Code', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_QR_Code',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ], 
-            'product-related'  => [
-                'title'  => __( 'Product Related', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Related',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
-                'tags'   => 'pro',
-                'is_pro' => true
-            ],   
-            'product-navigation'  => [
-                'title'  => __( 'Product Navigation', 'exclusive-addons-elementor' ),
-                'class'  => '\ExclusiveAddons\Elements\Product_Navigation',
-                'demo_link' => 'https://exclusiveaddons.com/post-slider/',
                 'tags'   => 'pro',
                 'is_pro' => true
             ]

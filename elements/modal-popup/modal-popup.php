@@ -129,6 +129,9 @@ class Modal_Popup extends Widget_Base {
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -234,6 +237,9 @@ class Modal_Popup extends Widget_Base {
 				'label'      => __( 'External Video', 'exclusive-addons-elementor' ),
 				'type'       => Controls_Manager::MEDIA,
 				'media_type' => 'video',
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition'  => [
                     'exad_modal_content' => 'external-video'
                 ]

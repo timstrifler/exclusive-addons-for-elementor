@@ -84,6 +84,9 @@ class Infobox extends Widget_Base {
 				'default'   => [
 					'url'   => Utils::get_placeholder_image_src()
 				],
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition' => [
 					'exad_infobox_img_or_icon' => 'img'
 				]

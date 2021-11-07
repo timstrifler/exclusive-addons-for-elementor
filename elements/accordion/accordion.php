@@ -163,7 +163,10 @@ class Accordion extends Widget_Base {
         $repeater->add_control(
 			'exad_accordion_image', [
 				'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
-				'type'  => Controls_Manager::MEDIA
+				'type'  => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 

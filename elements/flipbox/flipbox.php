@@ -96,6 +96,9 @@ class Flipbox extends Widget_Base {
 				],
 				'condition' => [
 					'exad_flipbox_front_icon_image' => 'img'
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);

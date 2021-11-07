@@ -115,6 +115,9 @@ class List_group extends Widget_Base {
 					'url' => Utils::get_placeholder_image_src(),
 				],
 				'separator'   =>'after',
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition' =>[
 					'exad_list_icon_type' => 'image'
 				]
