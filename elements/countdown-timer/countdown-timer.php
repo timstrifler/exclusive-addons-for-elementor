@@ -158,12 +158,12 @@ class Countdown_Timer extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_section_countdown_box_width',
 			[
 				'label' => __( 'Width', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -188,12 +188,12 @@ class Countdown_Timer extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_section_countdown_box_height',
 			[
 				'label' => __( 'Height', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
+				'size_units' => [ 'px' ],
 				'range' => [
 					'px' => [
 						'min' => 0,

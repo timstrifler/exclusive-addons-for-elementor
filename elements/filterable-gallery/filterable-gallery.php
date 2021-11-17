@@ -511,7 +511,7 @@ class Filterable_Gallery extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_fg_control_item_spacing',
 			[
 				'label'       => __( 'Between Items Spacing', 'exclusive-addons-elementor' ),
@@ -601,7 +601,7 @@ class Filterable_Gallery extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_fg_control_normal_border_radius',
             [
                 'label'   => esc_html__('Border Radius', 'exclusive-addons-elementor'),
@@ -1237,7 +1237,7 @@ class Filterable_Gallery extends Widget_Base
                                     }
                                     ?>
 
-                                    <div class="exad-gallery-thumbnail-holder" style="background-image: url('<?php echo esc_url( $fg_image_url ); ?>'); ?>"></div>
+                                    <div class="exad-gallery-thumbnail-holder" style="background-image: url('<?php echo esc_url( $fg_image_url ); ?>');"></div>
                                         <div class="exad-gallery-item-overlay <?php echo esc_attr( $settings['exad_fg_grid_hover_style'] ); ?>">
                                             <div class="exad-gallery-item-overlay-content">
                                             <?php 
