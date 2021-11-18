@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
-Tested up to: 5.8.1
-Stable tag: 2.4.80
+Tested up to: 5.8.2
+Stable tag: 2.4.81
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -269,6 +269,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+
+= 2.4.81 - 18/11/2021 =
+- Tweak: Added Responsive Controls for Countdown Timer and Filterable gallery widget.
+- Fix: Issues with Sourcemap URL for browser console.
 
 = 2.4.80 - 07/11/2021 =
 - Tweak: Added Dynamic Tags support for Media fields.
