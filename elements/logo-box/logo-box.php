@@ -304,7 +304,7 @@ class Logo_Box extends Widget_Base {
 
         $this->end_controls_tabs();
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_logo_padding',
             [
                 'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -331,7 +331,7 @@ class Logo_Box extends Widget_Base {
                 'selector' => '{{WRAPPER}} .exad-logo-box .exad-logo-item'
             ]
         );
-        $this->add_control(
+        $this->add_responsive_control(
     		'exad_logo_border_radius',
             [
                 'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),

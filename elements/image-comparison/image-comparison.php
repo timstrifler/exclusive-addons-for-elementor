@@ -275,7 +275,7 @@ class Image_Comparison extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_handler_width',
 			[
 				'label' => __( 'Width', 'exclusive-addons-elementor' ),
@@ -299,7 +299,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_handler_height',
 			[
 				'label' => __( 'Height', 'exclusive-addons-elementor' ),
@@ -370,7 +370,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_handler_border',
 			[
 				'label' => __( 'Handler Border', 'exclusive-addons-elementor' ),
@@ -396,7 +396,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_handler_radius',
 			[
 				'label' => __( 'Radius', 'exclusive-addons-elementor' ),
@@ -457,7 +457,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_label_padding',
 			[
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -470,7 +470,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_label_x_position',
 			[
 				'label' => __( 'X Offset', 'exclusive-addons-elementor' ),
@@ -495,7 +495,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_label_y_position',
 			[
 				'label' => __( 'Y Offset', 'exclusive-addons-elementor' ),
@@ -529,7 +529,7 @@ class Image_Comparison extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_label_border_radius',
 			[
 				'label' => __( 'Border radius', 'exclusive-addons-elementor' ),

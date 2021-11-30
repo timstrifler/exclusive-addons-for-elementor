@@ -562,7 +562,7 @@ class Post_Grid extends Widget_Base {
             ]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -616,7 +616,7 @@ class Post_Grid extends Widget_Base {
             ]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_container_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
@@ -655,7 +655,7 @@ class Post_Grid extends Widget_Base {
             ]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_feature_post_padding',
 			[
 				'label'      => esc_html__( 'Content Padding', 'exclusive-addons-elementor' ),
@@ -681,7 +681,7 @@ class Post_Grid extends Widget_Base {
             ]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_section_post_grid_image_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
@@ -693,7 +693,7 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_section_post_grid_image_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -729,7 +729,7 @@ class Post_Grid extends Widget_Base {
             ]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_image-height',
 			[
 				'label'       => __( 'Image Height', 'exclusive-addons-elementor' ),
@@ -750,7 +750,7 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_image_width',
 			[
 				'label'       => __( 'Image Width', 'exclusive-addons-elementor' ),
@@ -818,7 +818,7 @@ class Post_Grid extends Widget_Base {
             ]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_content_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
@@ -844,7 +844,7 @@ class Post_Grid extends Widget_Base {
             ]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_content_box_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1090,7 +1090,7 @@ class Post_Grid extends Widget_Base {
             ]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_category_padding',
 			[
 				'label'      => esc_html__( 'Padding', 'exclusive-addons-elementor' ),
@@ -1133,7 +1133,7 @@ class Post_Grid extends Widget_Base {
             ]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_category_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1250,7 +1250,7 @@ class Post_Grid extends Widget_Base {
             ]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_author_image_size',
 			[
 				'label'       => __( 'Author Image Size', 'exclusive-addons-elementor' ),
@@ -1300,7 +1300,7 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_meta_spacing',
 			[
 				'label'       => __( 'Spacing Between Author & Date', 'exclusive-addons-elementor' ),
@@ -1526,7 +1526,7 @@ class Post_Grid extends Widget_Base {
             ]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_details_button_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1650,7 +1650,7 @@ class Post_Grid extends Widget_Base {
             ]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_load_more_btn_padding',
 			[
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -1670,7 +1670,7 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_load_more_btn_margin',
 			[
 				'label' => __( 'Margin', 'exclusive-addons-elementor' ),
@@ -1690,7 +1690,7 @@ class Post_Grid extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_grid_load_more_btn_radius',
 			[
 				'label' => __( 'Radius', 'exclusive-addons-elementor' ),

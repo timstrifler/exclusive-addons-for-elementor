@@ -4198,8 +4198,6 @@ ul.exad-call-to-action-buttons {
   @media (max-width: 991px){
     .exad-modal-item.modal-vimeo {
       height: 100%;
-      overflow-y: scroll;
-      overflow-x: hidden;
     }
     .exad-modal-item.modal-vimeo::-webkit-scrollbar {
       display: none;
@@ -4249,6 +4247,15 @@ ul.exad-call-to-action-buttons {
     z-index: 1;
   }
   
+  .exad-modal-wrapper .exad-modal-item.exad-content-overflow-x- {
+    overflow-x: hidden;
+
+  }
+ .exad-modal-wrapper .exad-modal-item.exad-content-overflow-y-  {
+    overflow-y: scroll;
+
+ }
+
   /* Modal Style End */
 
 

@@ -563,7 +563,7 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_front_icon_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -896,7 +896,7 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_back_icon_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1033,7 +1033,7 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_button_padding',
 			[
                 'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -1053,7 +1053,7 @@ class Flipbox extends Widget_Base {
 			]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_button_margin',
 			[
                 'label'      => __( 'Margin', 'exclusive-addons-elementor' ),

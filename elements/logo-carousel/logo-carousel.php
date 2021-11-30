@@ -606,7 +606,7 @@ class Logo_Carousel extends Widget_Base {
 
 		$this->end_popover();
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_logo_carousel_arrows_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),

@@ -659,7 +659,7 @@ class Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_promo_alignment',
 			[
 				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
