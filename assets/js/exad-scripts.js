@@ -926,9 +926,9 @@ var exclusiveSticky = function ($scope, $) {
 // tabs script starts
 
 var exclusiveTabs   = function( $scope, $ ) {
-    var tabsWrapper = $scope.find( '[data-tabs]' ).eq(0);
+    var tabsWrapper = $scope.find( '.exad-tabs-'+ $scope.data("id") ).eq(0);
     tabsWrapper.each( function() {
-        var tab         = $(this),
+        var tab         = $scope.find( '.exad-tabs-'+ $scope.data("id") ),
         isTabActive     = false,
         isContentActive = false;
         tab.find( '[data-tab]' ).each( function (){
