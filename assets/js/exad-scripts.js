@@ -947,7 +947,7 @@ var exclusiveTabs   = function( $scope, $ ) {
         if( !isTabActive ){
             tab.find( ' > [data-tab]' ).eq(0).addClass( 'active' );
         }
-        tab.children().find( '[data-tab]' ).click(function() {
+        tab.children().find( ' > [data-tab]' ).click(function() {
             tab.find( '[data-tab]' ).removeClass( 'active' );
             tab.find( ' > .exad-advance-tab-content' ).removeClass( 'active' );
             $(this).addClass( 'active' );
