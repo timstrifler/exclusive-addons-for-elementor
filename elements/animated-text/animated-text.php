@@ -447,7 +447,7 @@ class Animated_Text extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_animated_text_spacing',
 			[
 				'label'      => __( 'Spacing', 'exclusive-addons-elementor' ),

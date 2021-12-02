@@ -214,7 +214,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_timeline_post_container_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -232,7 +232,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_timeline_post_container_padding',
 			[
 				'label'      => __( 'Container Padding', 'exclusive-addons-elementor' ),
@@ -244,7 +244,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_timeline_post_content_padding',
 			[
 				'label'      => __( 'Content Padding', 'exclusive-addons-elementor' ),
@@ -513,7 +513,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_timeline_date_container_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -531,7 +531,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_timeline_date_container_padding',
 			[
 				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),

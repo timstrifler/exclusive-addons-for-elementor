@@ -599,7 +599,7 @@ class Modal_Popup extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_modal_btn_radius',
 			[
 				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -618,7 +618,7 @@ class Modal_Popup extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_modal_btn_padding',
 			[
 				'label'        => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -748,7 +748,7 @@ class Modal_Popup extends Widget_Base {
 			]
 		);
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_modal_btn_icon_indent',
 			[
 				'label'       => __( 'Icon Spacing', 'exclusive-addons-elementor' ),
@@ -924,6 +924,28 @@ class Modal_Popup extends Widget_Base {
             ]
         );
 
+		$this->add_control(
+			'exad_modal_overlay_overflow_x',
+			[
+				'label'        => __( 'Overflow X', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'exad_modal_overlay_overflow_y',
+			[
+				'label'        => __( 'Overflow Y', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Yes', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+				'default'      => 'yes',
+			]
+		);
+
 		$this->end_controls_section();
 
 		$this->start_controls_section(
@@ -1060,7 +1082,7 @@ class Modal_Popup extends Widget_Base {
 
         $this->end_popover();
 
-		$this->add_control(
+		$this->add_responsive_control(
             'exad_modal_close_btn_icon_size',
             [
 				'label'      => __( 'Icon Size', 'exclusive-addons-elementor' ),
@@ -1144,6 +1166,8 @@ class Modal_Popup extends Widget_Base {
 		$this->add_render_attribute( 'exad_modal_item', 'class', 'modal-vimeo' );
 		$this->add_render_attribute( 'exad_modal_item', 'class', $settings['exad_modal_transition'] );
 		$this->add_render_attribute( 'exad_modal_item', 'class', $settings['exad_modal_content'] );
+		$this->add_render_attribute( 'exad_modal_item', 'class', esc_attr('exad-content-overflow-x-' . $settings['exad_modal_overlay_overflow_x'] ) );
+		$this->add_render_attribute( 'exad_modal_item', 'class', esc_attr('exad-content-overflow-y-' . $settings['exad_modal_overlay_overflow_y'] ) );
 		?>
 		
 		<div class="exad-modal">

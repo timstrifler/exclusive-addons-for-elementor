@@ -926,32 +926,32 @@ var exclusiveSticky = function ($scope, $) {
 // tabs script starts
 
 var exclusiveTabs   = function( $scope, $ ) {
-    var tabsWrapper = $scope.find( '[data-tabs]' ).eq(0);
+    var tabsWrapper = $scope.find( '.exad-tabs-'+ $scope.data("id") ).eq(0);
     tabsWrapper.each( function() {
-        var tab         = $(this),
+        var tab         = $scope.find( '.exad-tabs-'+ $scope.data("id") ),
         isTabActive     = false,
         isContentActive = false;
-        tab.find( '[data-tab]' ).each( function (){
+        tab.find( ' > [data-tab]' ).each( function (){
             if( $(this).hasClass( 'active' ) ){
                 isTabActive = true;
             }
         } );
-        tab.find( '.exad-advance-tab-content' ).each( function (){
+        tab.find( ' > .exad-advance-tab-content' ).each( function (){
             if( $(this).hasClass( 'active' ) ){
                 isContentActive = true;
             }
         } );
         if( !isContentActive ){
-            tab.find( '.exad-advance-tab-content' ).eq(0).addClass( 'active' );
+            tab.find( ' > .exad-advance-tab-content' ).eq(0).addClass( 'active' );
         }
         if( !isTabActive ){
-            tab.find( '[data-tab]' ).eq(0).addClass( 'active' );
+            tab.find( ' > [data-tab]' ).eq(0).addClass( 'active' );
         }
-        tab.find( '[data-tab]' ).click(function() {
+        tab.children().find( ' > [data-tab]' ).click(function() {
             tab.find( '[data-tab]' ).removeClass( 'active' );
-            tab.find( '.exad-advance-tab-content' ).removeClass( 'active' );
+            tab.find( ' > .exad-advance-tab-content' ).removeClass( 'active' );
             $(this).addClass( 'active' );
-            tab.find( '.exad-advance-tab-content' ).eq($(this).index()).addClass( 'active' );
+            tab.find( ' > .exad-advance-tab-content' ).eq($(this).index()).addClass( 'active' );
         } );
     } );
 }
