@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
 Tested up to: 5.8.2
-Stable tag: 2.4.81
+Stable tag: 2.4.90
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -269,6 +269,22 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+
+= 2.4.90 - 04/12/2021 =
+- Tweak: Responsive Controls for text spacing of Animated Text widget.
+- Tweak: Responsive Controls for width & height of Google Map widget.
+- Tweak: Responsive Controls for border radius, padding, margin of Flip Box widget.
+- Tweak: Responsive Controls for width, height, border radius, padding, margin and offset of Image Comparison widget.
+- Tweak: Responsive Controls for border radius and padding of Logo Box widget.
+- Tweak: Responsive Controls for border radius and padding of Logo Carousel widget.
+- Tweak: Responsive Controls for border radius, padding, overflow, icon spacing and icon size of Modal Popup widget.
+- Tweak: Responsive Controls for height, padding, overflow, icon spacing and icon size of News Ticker widget.
+- Tweak: Responsive Controls for border radius, height, padding, margin, overflow, image spacing and image width of Post Grid widget.
+- Tweak: Responsive Controls for border radius and padding of Post Timeline widget.
+- Tweak: Responsive Controls for alignment of Pricing Table widget.
+- Tweak: Responsive Controls for border radius, padding and margin of Tabs widget.
+- Tweak: Overall Bug fixes and Improvements.
+- Fix: Nested tab issue in Tabs Widget.
 
 = 2.4.81 - 18/11/2021 =
 - Tweak: Added Responsive Controls for Countdown Timer and Filterable gallery widget.
