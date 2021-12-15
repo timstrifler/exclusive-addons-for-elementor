@@ -1249,7 +1249,9 @@ class Tabs extends Widget_Base {
 			?>
 				<div class="exad-advance-tab-content exad-tab-image-has-<?php echo esc_attr($has_image); ?> <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_tab_image_align'] ); ?>">
 					<?php if( 'save_template' === $tab['exad_exclusive_tab_content_type'] ) { ?>
-                        <?php echo Plugin::$instance->frontend->get_builder_content_for_display( wp_kses_post( $tab['exad_tab_content_save_template'] ) ); ?>
+						<div class="exad-advance-tab-content-element">
+                        	<?php echo Plugin::$instance->frontend->get_builder_content_for_display( wp_kses_post( $tab['exad_tab_content_save_template'] ) ); ?>
+						</div>
                     <?php } else if( 'shortcode' === $tab['exad_exclusive_tab_content_type'] ) { ?>
                         <?php echo do_shortcode( $tab['exad_tab_content_shortcode'] ); ?>
                     <?php } else { ?>
