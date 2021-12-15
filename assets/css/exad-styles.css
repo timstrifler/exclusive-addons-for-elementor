@@ -3860,6 +3860,47 @@ ul.exad-call-to-action-buttons {
   display: flex;
   align-items: center;
 }
+
+/* carousel style */
+.exad-carousel-item .exad-carousel-nav-prev,
+.exad-carousel-item .exad-carousel-nav-next {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 60px;
+  width: 60px;
+  background: transparent;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s ease;
+  z-index: 1;
+}
+
+.exad-carousel-item .exad-carousel-nav-prev i,
+.exad-carousel-item .exad-carousel-nav-next i {
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.exad-carousel-item .exad-carousel-nav-prev:hover,
+.exad-carousel-item .exad-carousel-nav-next:hover {
+  color: #0a1724;
+}
+
+.exad-carousel-item .exad-carousel-nav-prev {
+  left: -70px;
+}
+
+.exad-carousel-item .exad-carousel-nav-next {
+  right: -70px;
+}
+
 /* Logo Carousel Style End */
 /* Exclusive Heading Start */
 .exad-exclusive-heading .exad-exclusive-heading-title a {

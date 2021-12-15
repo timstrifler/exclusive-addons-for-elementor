@@ -259,7 +259,7 @@ class Google_Reviews extends Widget_Base {
         );
 
 		$this->add_responsive_control(
-			'exad_google_reviews_slider_per_view',
+			'slider_per_view',
 			[
 				'type'    => Controls_Manager::SELECT,
 				'label'   => esc_html__( 'Columns', 'exclusive-addons-elementor' ),
@@ -1962,7 +1962,7 @@ class Google_Reviews extends Widget_Base {
 					"loop"           		=> $settings["exad_google_reviews_loop"] ? true : false,
 					"speed"       			=> $settings["exad_google_reviews_transition_duration"],
 					"pauseOnHover"       	=> $settings["exad_google_reviews_pause"] ? true : false,
-					"slidesPerView"         => (int) $settings["exad_google_reviews_slider_per_view_mobile"],
+					"slidesPerView"         => isset($settings["slider_per_view_mobile"]) ? (int)$settings["slider_per_view_mobile"] : 1,
 					"slidesPerColumn" 		=> ($settings["exad_google_reviews_slides_per_column"] > 1) ? $settings["exad_google_reviews_slides_per_column"] : false,
 					"centeredSlides"        => $settings["exad_google_reviews_slide_centered"] ? false : true,
 					"spaceBetween"   		=> $settings['exad_google_reviews_column_space']['size'],
@@ -1972,12 +1972,12 @@ class Google_Reviews extends Widget_Base {
 					"breakpoints"     		=> [
 
 						(int) $exad_viewport_md 	=> [
-							"slidesPerView" 	=> (int) $settings["exad_google_reviews_slider_per_view_tablet"],
+							"slidesPerView" 	=> isset($settings["slider_per_view_tablet"]) ? (int)$settings["slider_per_view_tablet"] : 2,
 							"spaceBetween"  	=> $settings["exad_google_reviews_column_space"]["size"],
 							
 						],
 						(int) $exad_viewport_lg 	=> [
-							"slidesPerView" 	=> (int) $settings["exad_google_reviews_slider_per_view"],
+							"slidesPerView" 	=> (int)$settings["slider_per_view"],
 							"spaceBetween"  	=> $settings["exad_google_reviews_column_space"]["size"],
 							
 						]
