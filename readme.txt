@@ -270,7 +270,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 
-= 2.4.93 - 27/12/2021 =
+= 2.4.93 - 28/12/2021 =
 - Tweak: Added Responsive Controls for Filterable Post Widget.
 - Tweak: Added Image Clickable for Filterable Post Widget.
 - Fix: Bugs on Filterable Post Widget.
