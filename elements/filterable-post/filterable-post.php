@@ -92,7 +92,7 @@ class Filterable_Post extends Widget_Base {
             ]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
             'exad_post_grid_column_no',
             [
 				'label'   => __( 'Columns', 'exclusive-addons-elementor' ),
@@ -105,6 +105,20 @@ class Filterable_Post extends Widget_Base {
 					'4' => esc_html__( '4', 'exclusive-addons-elementor' ),
 					'5' => esc_html__( '5', 'exclusive-addons-elementor' ),
 					'6' => esc_html__( '6', 'exclusive-addons-elementor' )
+				],
+				'desktop_default' => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
+				'selectors_dictionary' => [
+					'1' => 'flex: 0 0 100%; max-width: 100%;',
+					'2' => 'flex: 0 0 49%; max-width: 49%;',
+					'3' => 'flex: 0 0 33%; max-width: 33%;',
+					'4' => 'flex: 0 0 24%; max-width: 24%;',
+					'5' => 'flex: 0 0 19%; max-width: 19%;',
+					'6' => 'flex: 0 0 16%; max-width: 16%;',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-col' => '{{VALUE}};'
 				]
             ]
 		);
@@ -261,6 +275,18 @@ class Filterable_Post extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_post_grid_show_title_parmalink',
+			[
+				'label'        => esc_html__( 'Disable Title & Image Parmalink', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no'
+			]
+		);
+
         $this->add_control(
 			'exad_post_grid_show_title',
 			[
@@ -322,6 +348,16 @@ class Filterable_Post extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				]
+            ]
+        );
+
+        $this->add_control(
+            'exad_post_grid_all_item_text',
+            [   
+                'label'         => esc_html__( 'Text for All Item', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::TEXT,
+                'placeholder'   => esc_html__('All', 'exclusive-addons-elementor'),
+                'default'       => esc_html__('All', 'exclusive-addons-elementor' ),
             ]
         );
 
@@ -2136,7 +2172,7 @@ class Filterable_Post extends Widget_Base {
 	
 		<ul class="exad-filterable-menu"  >
 			<li class="filter-item current"  data-filter="*">
-				<?php esc_html_e('All', 'exclusive-addons-elementor'); ?>
+				<?php echo esc_html__( $settings['exad_post_grid_all_item_text'] ); ?>
 			</li>
 			<?php
 				foreach ( $cats as $cat ) {
