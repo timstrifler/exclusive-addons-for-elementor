@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
 Tested up to: 5.8.2
-Stable tag: 2.4.92
+Stable tag: 2.4.93
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -269,6 +269,11 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+
+= 2.4.93 - 27/12/2021 =
+- Tweak: Added Responsive Controls for Filterable Post Widget.
+- Tweak: Added Image Clickable for Filterable Post Widget.
+- Fix: Bugs on Filterable Post Widget.
 
 = 2.4.92 - 16/12/2021 =
 - Fix: Bugs on Carousel and Slider Widget due to the recent update of Elementor. 
