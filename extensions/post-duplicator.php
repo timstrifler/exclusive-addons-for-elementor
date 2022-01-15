@@ -69,9 +69,9 @@ class Post_Duplicator {
                     wp_set_object_terms( $duplicated_id, $post_terms, $taxonomy, false );
                 }
             }
-            $post_meta = $wpdb->get_results( "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = $post_id" );
+            $post_meta = esc_sql( $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = $post_id" ) ) );
             if( ! empty( $post_meta ) && is_array( $post_meta ) ){
-                $duplicate_insert_query = "INSERT INTO $wpdb->postmeta ( post_id, meta_key, meta_value ) VALUES ";
+                $duplicate_insert_query = esc_sql( $wpdb->prepare( "INSERT INTO $wpdb->postmeta ( post_id, meta_key, meta_value ) VALUES " ) );
                 $value_cells = array();
                 foreach( $post_meta as $meta_info ){
                     $meta_key = sanitize_text_field( $meta_info->meta_key );
@@ -79,7 +79,7 @@ class Post_Duplicator {
                     $value_cells[] = "($duplicated_id, '$meta_key', '$meta_value')";
                 }
                 $duplicate_insert_query .= implode(', ', $value_cells) . ';';
-                $wpdb->query( $duplicate_insert_query  );            
+                $wpdb->query( $duplicate_insert_query  );
             } 
         }
         $redirect_url = admin_url( 'edit.php?post_type=' . $post->post_type );
