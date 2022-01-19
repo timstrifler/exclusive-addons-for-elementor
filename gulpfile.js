@@ -201,9 +201,10 @@ gulp.task('pot', function () {
  * dist folder (cleaning it up beforehand),
  * and finally creates a new theme zip
  */
-gulp.task('prod', function(callback) {
-    return runSequence( 'clean', 'pot', 'copy', 'zip', callback);
-});
+
+gulp.task('prod', gulp.series('clean', 'pot', 'copy', 'zip', function (done) {
+    done();
+}));
 
 
 /**
