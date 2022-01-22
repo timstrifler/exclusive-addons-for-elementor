@@ -81,6 +81,7 @@ final class Base {
         $this->includes();
         $this->register_hooks();
         $this->exclusive_addons_appsero_init();
+        $this->exad_wpml_free_compatiblity()->init();
     }
 
     // register hooks
@@ -305,6 +306,8 @@ final class Base {
             include_once EXAD_PATH . 'library/library-manager.class.php' ;
             include_once EXAD_PATH . 'library/library-source.class.php' ;   
         }
+
+        include_once EXAD_PATH . 'includes/multilang-compatibility/class-elements-free-wpml-compatibility.php';
     }
 
     public function i18n() {
@@ -488,6 +491,14 @@ final class Base {
 		$controls_manager = \Elementor\Plugin::$instance->controls_manager;
 		$controls_manager->register_control( 'svg-selector', new Image_Mask_SVG_Control() );
 
+	}
+
+    /**
+     * 
+     * Load WPML compatibility instance
+     */
+	public function exad_wpml_free_compatiblity() {
+		return Exad_WPML_Element_Free_Compatibility::get_instance();
 	}
 
 
