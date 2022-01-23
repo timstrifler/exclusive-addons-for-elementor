@@ -153,26 +153,26 @@ class List_group extends Widget_Base {
 		$this->add_control(
 			'exad_list_group',
 			[
-				'label' => __( 'List Items', 'elementor' ),
+				'label' => __( 'List Items', 'exclusive-addons-elementor' ),
 				'type' 		=> Controls_Manager::REPEATER,
 				'fields' 	=> $repeater->get_controls(),
 				'default' => [
 					[
-						'exad_list_text' => __( 'List Item #1', 'elementor' ),
+						'exad_list_text' => __( 'List Item #1', 'exclusive-addons-elementor' ),
 						'exad_list_icon' => [
 							'value' => 'fas fa-check',
 							'library' => 'fa-solid',
 						],
 					],
 					[
-						'exad_list_text' => __( 'List Item #2', 'elementor' ),
+						'exad_list_text' => __( 'List Item #2', 'exclusive-addons-elementor' ),
 						'exad_list_icon' => [
 							'value' => 'fas fa-check',
 							'library' => 'fa-solid',
 						],
 					],
 					[
-						'exad_list_text' => __( 'List Item #3', 'elementor' ),
+						'exad_list_text' => __( 'List Item #3', 'exclusive-addons-elementor' ),
 						'exad_list_icon' => [
 							'value' => 'fas fa-check',
 							'library' => 'fa-solid',

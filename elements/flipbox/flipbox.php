@@ -234,10 +234,10 @@ class Flipbox extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_button_enable',
 			[
-				'label' => __( 'Show Button', 'plugin-domain' ),
+				'label' => __( 'Show Button', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'your-plugin' ),
-				'label_off' => __( 'Hide', 'your-plugin' ),
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]

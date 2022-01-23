@@ -1077,7 +1077,7 @@ class Covid_19_Stats extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name' => 'exad_corona_search_filter_border',
-                'label' => __( 'Border', 'pexclusive-addons-elementor' ),
+                'label' => __( 'Border', 'exclusive-addons-elementor' ),
                 'selector' => '{{WRAPPER}} .exad-corona-search-form .exad-corona-search-input',
             ]
         );
@@ -1309,7 +1309,7 @@ class Covid_19_Stats extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name' => 'exad_corona_continent_menu_normal_border',
-                        'label' => __( 'Border', 'pexclusive-addons-elementor' ),
+                        'label' => __( 'Border', 'exclusive-addons-elementor' ),
                         'fields_options'  => [
                             'border'      => [
                                 'default' => 'solid'
@@ -1365,7 +1365,7 @@ class Covid_19_Stats extends Widget_Base {
                     Group_Control_Border::get_type(),
                     [
                         'name' => 'exad_corona_continent_menu_active_border',
-                        'label' => __( 'Border', 'pexclusive-addons-elementor' ),
+                        'label' => __( 'Border', 'exclusive-addons-elementor' ),
                         'fields_options'  => [
                             'border'      => [
                                 'default' => 'solid'
