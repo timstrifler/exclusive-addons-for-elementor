@@ -78,6 +78,34 @@ class Logo_Carousel extends Widget_Base {
 			]
 		);
         
+		$logo_repeater->add_control(
+			'exad_logo_carousel_link_to_type',
+			[
+				'label'   => esc_html__( 'Link to', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'separator'  => 'before',
+				'options' => [
+					''       => esc_html__( 'None', 'exclusive-addons-elementor' ),
+					'file'   => esc_html__( 'Media File', 'exclusive-addons-elementor' ),
+					'custom' => esc_html__( 'Custom URL', 'exclusive-addons-elementor' ),
+				],
+			]
+		);
+
+		$logo_repeater->add_control(
+			'exad_logo_carousel_image_link_to',
+			[
+				'type'        => Controls_Manager::URL,
+				'placeholder' => 'http://your-link.com',
+				'dynamic'     => [ 'active' => true ],
+				'separator'  => 'none',
+				'show_label' => false,
+				'condition' => [
+					'exad_logo_carousel_link_to_type' => 'custom',
+				],
+			]
+		);
+
         $this->add_control(
 			'exad_logo_carousel_repeater',
 			[
@@ -941,9 +969,35 @@ class Logo_Carousel extends Widget_Base {
 		if ( is_array( $settings['exad_logo_carousel_repeater'] ) ) : ?>
 			<div class="exad-logo-carousel">
 				<div <?php echo $this->get_render_attribute_string('exad_logo_carousel') ;?> >
-					<?php foreach ( $settings['exad_logo_carousel_repeater'] as $logo ) :?>
+					<?php foreach ( $settings['exad_logo_carousel_repeater'] as $index => $logo ) :?>
+						<?php $logo_link = 'exad-logo-link-' . $index ;?>
 						<div class="exad-logo-carousel-item <?php echo esc_attr( $settings['exad_logo_carousel_alignment'] );?>">
+						<?php 
+							if ( ! empty( $logo['exad_logo_carousel_image_link_to']['url'] ) ) {
+								$this->add_render_attribute( $logo_link, 'href', $logo['exad_logo_carousel_image_link_to']['url'] );
+
+								if ( $logo['exad_logo_carousel_image_link_to']['is_external'] ) {
+									$this->add_render_attribute( $logo_link, 'target', '_blank' );
+								}
+
+								if ( $logo['exad_logo_carousel_image_link_to']['nofollow'] ) {
+									$this->add_render_attribute( $logo_link, 'rel', 'nofollow' );
+								}
+							} else if( "file" === $logo['exad_logo_carousel_link_to_type'] ) {
+								$this->add_render_attribute( $logo_link, 'href', $logo['exad_logo_carousel_image']['url'] );
+								$this->add_render_attribute( $logo_link, 'class', 'exad-logo-carousel-lightbox' );
+								$this->add_render_attribute( $logo_link, 'data-elementor-open-lightbox', 'yes' );
+							}
+							if( ! empty( $logo['exad_logo_carousel_link_to_type'] ) ){
+						?>
+						<a <?php echo $this->get_render_attribute_string( $logo_link ); ?> > <?php } ?>
+
 							<?php echo Group_Control_Image_Size::get_attachment_image_html( $logo, 'logo_image_size', 'exad_logo_carousel_image' ); ?>
+
+						<?php if( ! empty( $logo['exad_logo_carousel_link_to_type'] ) ){ ?>
+							</a>
+						<?php } ?>
+
 						</div>					
 					<?php endforeach; ?>
 				</div>
