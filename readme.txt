@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
 Tested up to: 5.8.3
-Stable tag: 2.5.0
+Stable tag: 2.5.1
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -269,6 +269,9 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+
+= 2.5.1 - 24/01/2022 =
+- Fix: A Bug with WPML compatibility files.
 
 = 2.5.0 - 24/01/2022 =
 - Added: WPML compatibility to widgets.
