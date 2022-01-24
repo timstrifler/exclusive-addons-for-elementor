@@ -270,7 +270,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 
-= 2.5.0 - 23/01/2022 =
+= 2.5.0 - 24/01/2022 =
 - Added: WPML compatibility to widgets.
 - Fix: SQL Injection Security bug on Post Duplicator reported by Wordfence. 
 
