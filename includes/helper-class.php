@@ -131,7 +131,7 @@ class Helper {
     public static function exad_get_authors() {
         $user_query = new \WP_User_Query(
             [
-                'who' => 'authors',
+                // 'who' => 'authors', //who is deprecated Use capability instead
                 'has_published_posts' => true,
                 'fields' => [
                     'ID',

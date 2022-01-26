@@ -111,11 +111,11 @@ class Filterable_Post extends Widget_Base {
 				'mobile_default' => '1',
 				'selectors_dictionary' => [
 					'1' => 'flex: 0 0 100%; max-width: 100%;',
-					'2' => 'flex: 0 0 49%; max-width: 49%;',
-					'3' => 'flex: 0 0 33%; max-width: 33%;',
-					'4' => 'flex: 0 0 24%; max-width: 24%;',
-					'5' => 'flex: 0 0 19%; max-width: 19%;',
-					'6' => 'flex: 0 0 16%; max-width: 16%;',
+					'2' => 'flex: 0 0 50%; max-width: 50%;',
+					'3' => 'flex: 0 0 33.33%; max-width: 33.33%;',
+					'4' => 'flex: 0 0 25%; max-width: 25%;',
+					'5' => 'flex: 0 0 20%; max-width: 20%;',
+					'6' => 'flex: 0 0 16.66%; max-width: 16.66%;',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-row-wrapper .exad-col' => '{{VALUE}};'
