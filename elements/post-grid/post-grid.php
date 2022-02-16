@@ -212,6 +212,7 @@ class Post_Grid extends Widget_Base {
 					'author' => __( 'Author Name', 'exclusive-addons-elementor' ),
 					'title' => __( 'Post Title', 'exclusive-addons-elementor' ),
 					'name' => __( 'Post Name', 'exclusive-addons-elementor' ),
+					'rand' => __( 'Random', 'exclusive-addons-elementor' ),
                 ]
             ]
         );
