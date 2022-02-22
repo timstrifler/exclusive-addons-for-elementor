@@ -213,7 +213,7 @@ class Filterable_Post extends Widget_Base {
         $this->add_control(
             'exad_post_grid_order_by',
             [
-				'label'    => __( 'Ordered By', 'exclusive-addons-elementor' ),
+				'label'    => __( 'Order By', 'exclusive-addons-elementor' ),
 				'type'     => Controls_Manager::SELECT,
                 'default'  => 'date',
 				'options'  => [
