@@ -510,16 +510,21 @@ class Helper {
                 ] );
             }
 
-            $exclude_terms = $settings[ 'exad_query_exclude_terms_'. $tax ] ;
+           
+            if ( ( 'post' !== $settings[ 'exad_post_carousel_type' ] ) && ( 'product' !== $settings[ 'exad_post_carousel_type' ] ) ) {
+        
+                $exclude_terms = $settings[ 'exad_query_exclude_terms_'. $tax ] ;
        
-            if ( ! empty( $exclude_terms ) ) {
-                array_push( $tax_query, [
-                    'taxonomy' => $tax,
-                    'field'    => 'term_id',
-                    'terms'    => $settings[ 'exad_query_exclude_terms_'. $tax ],
-                    'operator' => 'NOT IN',
-                ] );
+                if ( ! empty( $exclude_terms ) ) {
+                    array_push( $tax_query, [
+                        'taxonomy' => $tax,
+                        'field'    => 'term_id',
+                        'terms'    => $settings[ 'exad_query_exclude_terms_'. $tax ],
+                        'operator' => 'NOT IN',
+                    ] );
+                }
             }
+          
             
         }
 
