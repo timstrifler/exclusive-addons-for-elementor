@@ -86,7 +86,7 @@ class Post_Duplicator {
                 foreach( $post_meta as $meta_info ){
                     $meta_key = sanitize_text_field( $meta_info->meta_key );
                     $meta_value = wp_slash( $meta_info->meta_value );
-                    $value_cells[] = "($duplicated_id, '$meta_key', '$meta_value')";
+                    $value_cells[] = $wpdb->prepare( '$duplicated_id, %s, %s', $meta_key, $meta_value );
                 }
 
                 $duplicate_insert_query .= implode(', ', $value_cells) . ';';
