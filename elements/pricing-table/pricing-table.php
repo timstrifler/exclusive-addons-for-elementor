@@ -2119,7 +2119,7 @@ class Pricing_Table extends Widget_Base {
 		<div <?php echo $this->get_render_attribute_string( 'exad_pricing_table_wrapper' ); ?>>
 			<?php if( 'promo_top' === $settings['exad_pricing_table_promo_position'] ) { 
 				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) { ?>
-					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo $settings['exad_pricing_table_promo_title']; ?></span>
+					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo wp_kses_post( $settings['exad_pricing_table_promo_title'] ); ?></span>
 				<?php } ?>
 			<?php } ?>
 			<div class="exad-pricing-table-badge-wrapper">
@@ -2217,7 +2217,7 @@ class Pricing_Table extends Widget_Base {
 										<?php Icons_Manager::render_icon( $item['exad_pricing_table_list_icon'] ); ?>
 									</span>
 								<?php } ?>
-								<?php $price ? printf( '<span '.$this->get_render_attribute_string( $pricing_item ).'>%s</span>', esc_html( $price ) ) : ''; ?>
+								<?php $price ? printf( '<span '.$this->get_render_attribute_string( $pricing_item ).'>%s</span>', wp_kses_post( $price ) ) : ''; ?>
 							</li>
 
 						<?php endforeach; ?>
