@@ -10,6 +10,9 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
+use \Elementor\Utils;
+use \ExclusiveAddons\Elementor\Helper;
+
 
 class Heading extends Widget_Base {
 	
@@ -118,6 +121,19 @@ class Heading extends Widget_Base {
 				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
 				'default'      => 'yes',
 				'return_value' => 'yes'
+            ]
+		);
+
+
+		
+        $this->add_control(
+            'exad_heading_title_html_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+				'separator' => 'after',
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h1',
             ]
 		);
 
@@ -446,7 +462,7 @@ class Heading extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_heading_typography',
-				'selector' => '{{WRAPPER}} h1.exad-exclusive-heading-title'
+				'selector' => '{{WRAPPER}} .exad-exclusive-heading-title'
 			]
 		);
 
@@ -457,7 +473,7 @@ class Heading extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#222222',
 				'selectors' => [
-					'{{WRAPPER}} h1.exad-exclusive-heading-title, {{WRAPPER}} a h1.exad-exclusive-heading-title' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-exclusive-heading-title, {{WRAPPER}} a .exad-exclusive-heading-title' => 'color: {{VALUE}};'
 				],
 				'condition' => [
 					'exad_heading_type' => ['exad-heading-simple', 'exad-heading-text-background']
@@ -470,7 +486,7 @@ class Heading extends Widget_Base {
 			[
 				'name' => 'exad_heading_text_shadow',
 				'label' => __( 'Text Shadow', 'exclusive-addons-elementor' ),
-				'selector' => '{{WRAPPER}} h1.exad-exclusive-heading-title',
+				'selector' => '{{WRAPPER}} .exad-exclusive-heading-title',
 			]
 		);
 
@@ -481,7 +497,7 @@ class Heading extends Widget_Base {
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em' ],
 				'selectors'  => [
-					'{{WRAPPER}} h1.exad-exclusive-heading-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-exclusive-heading-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -768,9 +784,7 @@ class Heading extends Widget_Base {
             <div <?php echo $this->get_render_attribute_string( 'exad_exclusive_heading_wrapper' ); ?>>
 			<?php 
 				if ( 'yes' === $settings['exad_heading_icon_show'] && !empty( $settings['exad_heading_icon']['value'] ) ) : ?>
-          			<span class="exad-heading-icon">
-          				<?php Icons_Manager::render_icon( $settings['exad_heading_icon'] ); ?>
-          			</span>
+          		
 				<?php 	  
 				endif;
 
@@ -778,9 +792,9 @@ class Heading extends Widget_Base {
             		<a <?php echo $this->get_render_attribute_string( 'exad_heading_title_link' ); ?>>
 				<?php endif; ?>
 
-                <h1 <?php echo $this->get_render_attribute_string( 'exad_heading_title' ); ?>>
+                <<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'exad_heading_title' ); ?>>
 					<?php echo wp_kses_post( $settings['exad_heading_title'] ); ?>
-				</h1>
+				</<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
 	
                 <?php if( !empty( $settings['exad_heading_title_link']['url'] ) ) { ?>
                     </a>

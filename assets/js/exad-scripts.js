@@ -945,12 +945,13 @@ var exclusiveTabs   = function( $scope, $ ) {
             tab.find( ' > .exad-advance-tab-content' ).eq(0).addClass( 'active' );
         }
         if( !isTabActive ){
-            tab.find( ' > [data-tab]' ).eq(0).addClass( 'active' );
+            tab.find( '[data-tab]' ).eq(0).addClass( 'active' );
         }
         tab.children().find( ' > [data-tab]' ).click(function() {
             tab.find( '[data-tab]' ).removeClass( 'active' );
             tab.find( ' > .exad-advance-tab-content' ).removeClass( 'active' );
             $(this).addClass( 'active' );
+            tab.find( ' > [data-tab]' ).eq($(this).index()).addClass( 'active' );
             tab.find( ' > .exad-advance-tab-content' ).eq($(this).index()).addClass( 'active' );
         } );
     } );

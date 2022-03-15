@@ -1235,17 +1235,20 @@ class Tabs extends Widget_Base {
 				$has_image = !empty( $tab['exad_exclusive_tab_image']['url'] ) ? 'yes' : 'no';
 				$link_key  = 'link_' . $key;
 
-				$exad_tab_btn_link = $tab['exad_exclusive_tab_detail_btn_link']['url'];
-				$this->add_render_attribute( $link_key, 'class', 'exad-tab-btn' );
-				if( !empty( $exad_tab_btn_link ) ) {
-		            $this->add_render_attribute( $link_key, 'href', esc_url( $exad_tab_btn_link ) );
-					if( $tab['exad_exclusive_tab_detail_btn_link']['is_external'] ) {
-					    $this->add_render_attribute( $link_key, 'target', '_blank' );
+				if( 'content' === $tab['exad_exclusive_tab_content_type'] ) {
+					$exad_tab_btn_link = $tab['exad_exclusive_tab_detail_btn_link']['url'];
+				
+					$this->add_render_attribute( $link_key, 'class', 'exad-tab-btn' );
+					if( !empty( $exad_tab_btn_link ) ) {
+						$this->add_render_attribute( $link_key, 'href', esc_url( $exad_tab_btn_link ) );
+						if( $tab['exad_exclusive_tab_detail_btn_link']['is_external'] ) {
+							$this->add_render_attribute( $link_key, 'target', '_blank' );
+						}
+						if( $tab['exad_exclusive_tab_detail_btn_link']['nofollow'] ) {
+							$this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+						}
 					}
-					if( $tab['exad_exclusive_tab_detail_btn_link']['nofollow'] ) {
-					    $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-					}
-		        }
+				}
 			?>
 				<div class="exad-advance-tab-content exad-tab-image-has-<?php echo esc_attr($has_image); ?> <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_tab_image_align'] ); ?>">
 					<?php if( 'save_template' === $tab['exad_exclusive_tab_content_type'] ) { ?>
