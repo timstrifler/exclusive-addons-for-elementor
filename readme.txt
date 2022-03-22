@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
-Tested up to: 5.9
-Stable tag: 2.5.3
+Tested up to: 5.9.2
+Stable tag: 2.5.4
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -269,6 +269,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+
+= 2.5.4 - 22/03/2022 =
+- Tweak: Added capability of choosing HTML tag for Heading widget.
+- Fix: Active status of Tabs widget not working in initial render.
 
 = 2.5.3 - 22/02/2022 =
 - Tweak: Added Random in Order By option in Post Query.
