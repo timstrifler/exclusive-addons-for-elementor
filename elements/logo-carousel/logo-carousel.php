@@ -130,12 +130,14 @@ class Logo_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_logo_slide_to_show',
 			[
 				'label'   => esc_html__( 'Columns', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
-				'default' => '3'
+				'default' => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
 			]
 		);
 
@@ -953,6 +955,8 @@ class Logo_Carousel extends Widget_Base {
 				'class'               => ['exad-logo-carousel-element', 'exad-logo-carousel-max-height-'.esc_attr($settings['exad_logo_carousel_max_height_enable'])],
 				'data-carousel-nav'   => esc_attr( $settings['exad_logo_carousel_nav'] ),
 				'data-slidestoshow'   => esc_attr( $settings['exad_logo_slide_to_show'] ),
+				'data-slidestoshow-tablet'   => intval( esc_attr( isset( $settings['exad_logo_slide_to_show_tablet'] ) ) ? (int)$settings['exad_logo_slide_to_show_tablet'] : 2  ),
+				'data-slidestoshow-mobile'   => intval( esc_attr( isset( $settings['exad_logo_slide_to_show_mobile'] ) ) ? (int)$settings['exad_logo_slide_to_show_mobile'] : 1),
 				'data-slidestoscroll' => esc_attr( $settings['exad_logo_slide_to_scroll'] ),
 				'data-direction'      => esc_attr( $direction )
 			]

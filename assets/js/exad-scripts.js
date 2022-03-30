@@ -541,6 +541,8 @@ $('body').on('click.onWrapperLink', '[data-exad-element-link]', function() {
 var exclusiveLogoCarousel   = function ( $scope, $ ) {
     var logoCarouselWrapper = $scope.find( '.exad-logo-carousel-element' ).eq(0),
     slidesToShow            = logoCarouselWrapper.data( 'slidestoshow' ),
+    carouselColumnTablet    = logoCarouselWrapper.data( 'slidestoshow-tablet' ),
+    carouselColumnMobile    = logoCarouselWrapper.data( 'slidestoshow-mobile' ),
     slidesToScroll          = logoCarouselWrapper.data( 'slidestoscroll' ),
     carouselNav             = logoCarouselWrapper.data( 'carousel-nav' ),
     direction               = logoCarouselWrapper.data( 'direction' ),
@@ -579,19 +581,19 @@ var exclusiveLogoCarousel   = function ( $scope, $ ) {
                 {
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 3
+                        slidesToShow: carouselColumnTablet
                     }
                 },
                 {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 2
+                        slidesToShow: carouselColumnTablet
                     }
                 },
                 {
                     breakpoint: 450,
                     settings: {
-                        slidesToShow: 1
+                        slidesToShow: carouselColumnMobile
                     }
                 }
             ]
