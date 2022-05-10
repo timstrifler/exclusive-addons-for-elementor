@@ -594,7 +594,7 @@ class Tooltip extends Widget_Base {
                     <?php endif; ?>
 
                     <?php if( 'text' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_content'] ) ) : ?>
-                        <span <?php echo $this->get_render_attribute_string( 'exad_tooltip_content' ); ?>><?php echo wp_kses_post( $settings['exad_tooltip_content'] ); ?></span>';
+                        <span <?php echo $this->get_render_attribute_string( 'exad_tooltip_content' ); ?>><?php echo wp_kses_post( $settings['exad_tooltip_content'] ); ?></span>
 
                     <?php elseif( 'icon' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_icon_content']['value'] ) ) : ?>
                         <?php Icons_Manager::render_icon( $settings['exad_tooltip_icon_content'] ); ?>
