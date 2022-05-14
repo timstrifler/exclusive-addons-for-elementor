@@ -1258,7 +1258,7 @@ class Filterable_Post extends Widget_Base {
 		$this->add_control(
 			'exad_post_grid_image-height',
 			[
-				'label'       => __( 'Image Height', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Image Min Height', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
@@ -1272,6 +1272,39 @@ class Filterable_Post extends Widget_Base {
 				],
 				'condition' => [
 					'exad_post_grid_image_align' => 'top'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_post_grid_image_fixed_height',
+			[
+				'label'        => esc_html__( 'Fixed Height ?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'Yes', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no'
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_post_grid_image_height',
+			[
+				'label'       => __( 'Image Height', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' , '%'],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-post-grid-container.image-position-top .exad-post-grid-thumbnail > a' => 'height: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_post_grid_image_fixed_height' => 'yes',
 				]
 			]
 		);
