@@ -270,6 +270,14 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 
+= 2.5.5 - 17/05/2022 =
+- Tweak: Add fixed height option for image for Post Grid widget.
+- Tweak: Add fixed height option for image for Post Timeline widget.
+- Tweak: Add fixed height option for image for Filterable Post widget.
+- Tweak: Add show hide option for home page in Breadcrumb widget.
+- Tweak: Add Responsive Column option for Logo Carousel widget.
+- Tweak: Add Responsive Column option for Logo Carousel widget.
+
 = 2.5.4 - 22/03/2022 =
 - Tweak: Added capability of choosing HTML tag for Heading widget.
 - Fix: Active status of Tabs widget not working in initial render.
