@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
-Tested up to: 5.9.2
-Stable tag: 2.5.4
+Tested up to: 5.9.3
+Stable tag: 2.5.5
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -270,14 +270,13 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 
-= 2.5.5 - 17/05/2022 =
-
-- Tweak: Add fixed height option for image for Post Grid Widget.
-- Tweak: Add fixed height option for image for Post Timeline Widget.
-- Tweak: Add fixed height option for image for Filterable Post Widget.
-- Tweak: Add show hide option for home page in Breadcrumb Widget.
-- Tweak: Add Responsive Column option for Logo Carousel Widget.
-- Tweak: Add z-index option for Image Hotspot Widget.
+= 2.5.5 - 18/05/2022 =
+- Tweak: Added fixed height option for image for Post Grid Widget.
+- Tweak: Added fixed height option for image for Post Timeline Widget.
+- Tweak: Added fixed height option for image for Filterable Post Widget.
+- Tweak: Added show hide option for home page in Breadcrumb Widget.
+- Tweak: Added Responsive Column option for Logo Carousel Widget.
+- Tweak: Added z-index option for Image Hotspot Widget.
 
 = 2.5.4 - 22/03/2022 =
 - Tweak: Added capability of choosing HTML tag for Heading widget.
