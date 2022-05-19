@@ -276,7 +276,50 @@ class Filterable_Gallery extends Widget_Base
             Group_Control_Image_Size::get_type(),
             [
                 'name'    => 'exad_filter_image_size',
-                'default' => 'full'
+                'default' => 'full',
+            ]
+        );
+
+        $this->add_control(
+            'exad_fg_image_position',
+            [
+                'label'   => __('Image Position', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'default' => '',
+                'separator' => 'before',
+                'options' => [
+                    '' => esc_html__( 'Default', 'exclusive-addons-elementor' ),
+                    'center center' => esc_html__( 'Center Center', 'exclusive-addons-elementor' ),
+                    'center left' => esc_html__( 'Center Left','exclusive-addons-elementor' ),
+                    'center right' => esc_html__( 'Center Right','exclusive-addons-elementor' ),
+                    'top center' => esc_html__( 'Top Center',  'exclusive-addons-elementor' ),
+                    'top left' => esc_html__( 'Top Left', 'exclusive-addons-elementor' ),
+                    'top right' => esc_html__( 'Top Right', 'exclusive-addons-elementor' ),
+                    'bottom center' => esc_html__( 'Bottom Center', 'exclusive-addons-elementor' ),
+                    'bottom left' => esc_html__( 'Bottom Left', 'exclusive-addons-elementor' ),
+                    'bottom right' => esc_html__( 'Bottom Right', 'exclusive-addons-elementor' ),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .exad-gallery-image .exad-gallery-thumbnail-holder' => 'background-position: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'exad_fg_image_bg_size',
+            [
+                'label' => esc_html__( 'Image Size', 'Background Control', 'exclusive-addons-elementor' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => '',
+                'options' => [
+                    '' => esc_html__( 'Default', 'exclusive-addons-elementor' ),
+                    'auto' => esc_html__( 'Auto', 'exclusive-addons-elementor' ),
+                    'cover' => esc_html__( 'Cover', 'exclusive-addons-elementor' ),
+                    'contain' => esc_html__( 'Contain', 'exclusive-addons-elementor' ),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .exad-gallery-image .exad-gallery-thumbnail-holder' => 'background-size: {{VALUE}};',
+                ],
             ]
         );
 
