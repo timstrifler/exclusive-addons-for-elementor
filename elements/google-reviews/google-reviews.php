@@ -94,6 +94,57 @@ class Google_Reviews extends Widget_Base {
 		    return;
         }
 
+		$this->start_controls_section(
+			'exad_google_review_language_section',
+			[
+				'label' => esc_html__( 'Language', 'exclusive-addons-elementor' ),
+			]
+		);
+
+		$languageArr = array(
+            ''=>'Language disable',
+            'ar'=> 'Arabic',
+            'bg'=> 'Bulgarian',
+            'bn'=> 'Bengali',
+            'ca'=> 'Catalan',
+            'cs'=> 'Czech',
+            'da'=> 'Danish',
+            'de'=> 'German',
+            'el'=> 'Greek',
+            'en'=> 'English',
+            'custom'=> 'Custom',
+        );
+
+        $languageArr = apply_filters( 'exad_google_reviews_language', $languageArr );
+
+        $this->add_control(
+            'exad_google_review_language',
+            [
+                'label'   => esc_html__( 'Filter Reviews language', 'exclusive-addons-elementor' ),
+                'type'    => Controls_Manager::SELECT,
+                'default' => '',
+                'options' => $languageArr,
+            ]
+        );
+
+        $this->add_control(
+			'exad_google_review_language_custom',
+			[
+				'label'       => esc_html__( 'Custom Language', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::TEXT,
+				'dynamic'     => [ 'active' => true ],
+				'placeholder' => __( 'Your Language', 'exclusive-addons-elementor' ),
+				'description' => sprintf(__('Please write your Language code here. It supports only language code. For the language code,  please look <a href="%s" target="_blank">here</a>
+					 Please delete your transient if not works. You can simply delete transient from Layout ( Cache Reviews ) by on/off.'), 'http://www.lingoes.net/en/translator/langcode.htm'),
+				'condition'	  => [
+					'exad_google_review_language' => 'custom'
+				]
+			]
+		);
+
+		$this->end_controls_section();
+
+		
         /**
   		* Layout Setting Content Tab
   		*/
@@ -1784,8 +1835,13 @@ class Google_Reviews extends Widget_Base {
         return $transient;
     }
 
-    public function get_api_url( $api_key, $place_id ){
+    public function get_api_url( $api_key, $place_id, $language){
         $url = $this->google_place_url . 'details/json?placeid=' . $place_id . '&key=' . $api_key;
+
+		if (strlen($language) > 0) {
+            $url = $url . '&language=' . $language;
+        }
+
         return $url;
     }
 
@@ -1815,16 +1871,32 @@ class Google_Reviews extends Widget_Base {
         $place_id = $settings['exad_google_place_id'];
         $api_key     = get_option('exad_google_map_api_option');
 
+		$language = '';
+
+    	if(isset($settings['exad_google_review_language'])){
+    		if($settings['exad_google_review_language'] == 'custom'){
+    			if(empty($settings['exad_google_review_language_custom'])){
+    				$language = '';
+    			}else{
+    				$language = esc_html($settings['exad_google_review_language_custom']);
+    			}
+    		}else{
+    			$language = esc_html($settings['exad_google_review_language']);
+    		}
+    	}else{
+    		$language = '';
+    	}
+
         if(!$place_id || !$api_key){
             return false;
         }
- 
+
         $reviewData = $this->get_cache_data( $place_id );
 
         if( $reviewData ){
             return $reviewData;
         }else{
-            $requestUrl = $this->get_api_url( $api_key, $place_id );  
+            $requestUrl = $this->get_api_url( $api_key, $place_id, $language );  
 
             $response = wp_remote_get( $requestUrl );
 
