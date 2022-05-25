@@ -112,6 +112,7 @@ class Google_Reviews extends Widget_Base {
             'de'=> 'German',
             'el'=> 'Greek',
             'en'=> 'English',
+            'es'=> 'Spanish',
             'custom'=> 'Custom',
         );
 
