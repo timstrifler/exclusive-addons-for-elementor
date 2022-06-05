@@ -9,6 +9,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
 use \Elementor\Group_Control_Background;
+use \Elementor\Utils;
 use \ExclusiveAddons\Elementor\Helper;
 
 /**
@@ -305,6 +306,17 @@ class Covid_19_Stats extends Widget_Base {
                 'Zambia'                             => __( 'Zambia', 'exclusive-addons-elementor' ),
                 'Zimbabwe'                           => __( 'Zimbabwe', 'exclusive-addons-elementor' ),
             ],
+        ]
+    );
+
+    $this->add_control(
+        'exad_heading_title_html_tag',
+        [
+            'label'   => __('Country HTML Tag', 'exclusive-addons-elementor'),
+            'type'    => Controls_Manager::SELECT,
+            'separator' => 'after',
+            'options' => Helper::exad_title_tags(),
+            'default' => 'h2',
         ]
     );
 
@@ -1717,7 +1729,7 @@ class Covid_19_Stats extends Widget_Base {
                     </div>
                 <?php } ?>
                 <?php if( 'yes' === $settings['exad_corona_enable_country'] ) { ?>
-                    <h1 class="selected-country"><?php echo esc_html( $settings['exad_section_corona_country_base'] ); ?></h1>
+                    <<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?> class="selected-country"><?php echo esc_html( $settings['exad_section_corona_country_base'] ); ?></<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
                 <?php } ?>
             </div>
         

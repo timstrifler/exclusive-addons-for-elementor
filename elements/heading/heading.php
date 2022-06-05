@@ -854,6 +854,7 @@ class Heading extends Widget_Base {
 
             var target = settings.exad_heading_title_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_heading_title_link.nofollow ? ' rel="nofollow"' : '';
+			var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_heading_title_html_tag );
 		#>
 		<div class="exad-exclusive-heading">
 			<div {{{ view.getRenderAttributeString( 'exad_exclusive_heading_wrapper' ) }}}>
@@ -868,9 +869,9 @@ class Heading extends Widget_Base {
                     <a href="{{{ settings.exad_heading_title_link.url }}}"{{{ target }}}{{{ nofollow }}}>
                 <# } #>
 
-                <h1 {{{ view.getRenderAttributeString( 'exad_heading_title' ) }}}>
+                <{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_heading_title' ) }}}>
                 	{{{ settings.exad_heading_title }}}
-                </h1>
+                </{{{ titleHTMLTag }}}>
 
                 <# if ( settings.exad_heading_title_link ) { #>
                     </a>

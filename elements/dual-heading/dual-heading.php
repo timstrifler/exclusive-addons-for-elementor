@@ -9,6 +9,7 @@ use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Border;
 use \Elementor\Widget_Base;
+use \Elementor\Utils;
 use \ExclusiveAddons\Elementor\Helper;
 
 class Dual_Heading extends Widget_Base {
@@ -68,6 +69,17 @@ class Dual_Heading extends Widget_Base {
                 'dynamic' => [
 					'active' => true,
 				]
+            ]
+        );
+
+        $this->add_control(
+            'exad_heading_title_html_tag',
+            [
+                'label'   => __('Heading HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'separator' => 'after',
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h2',
             ]
         );
 
@@ -501,7 +513,7 @@ class Dual_Heading extends Widget_Base {
                     </span>
                 <?php endif; ?>
 
-                <h1 class="exad-dual-heading-title">
+                <<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?> class="exad-dual-heading-title">
                 <?php 
                     if( !empty( $settings['exad_dual_heading_title_link']['url'] ) ) : ?>
                         <a <?php echo $this->get_render_attribute_string( 'exad_dual_heading_title_link' ); ?>>
@@ -512,7 +524,7 @@ class Dual_Heading extends Widget_Base {
                     if( !empty( $settings['exad_dual_heading_title_link']['url'] ) ) { ?>
                         </a>
                     <?php } ?>
-                </h1>
+                </<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
 
                 <?php         
                 if ( !empty($settings['exad_dual_heading_description'] ) ) : ?>
@@ -548,6 +560,7 @@ class Dual_Heading extends Widget_Base {
 
             var target = settings.exad_dual_heading_title_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_dual_heading_title_link.nofollow ? ' rel="nofollow"' : '';
+            var headerSizeTag = elementor.helpers.validateHTMLTag( settings.exad_heading_title_html_tag );
         #>
         <div class="exad-dual-heading">
             <div class="exad-dual-heading-wrapper">
@@ -556,7 +569,7 @@ class Dual_Heading extends Widget_Base {
                         {{{ iconHTML.value }}}
                     </span>
                 <# } #>
-                <h1 class="exad-dual-heading-title">
+                <{{{headerSizeTag}}} class="exad-dual-heading-title">
                     <# if ( settings.exad_dual_heading_title_link ) { #>
                         <a href="{{{ settings.exad_dual_heading_title_link.url }}}"{{{ target }}}{{{ nofollow }}}>
                     <# } #>
@@ -573,7 +586,7 @@ class Dual_Heading extends Widget_Base {
                     <# if ( settings.exad_dual_heading_title_link ) { #>
                         </a>
                     <# } #>
-                </h1>
+                </{{{headerSizeTag}}}>
                 <# if ( settings.exad_dual_heading_description ) { #>
                     <p {{{ view.getRenderAttributeString( 'exad_dual_heading_description' ) }}}>
                         {{{ settings.exad_dual_heading_description }}}
