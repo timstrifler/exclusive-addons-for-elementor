@@ -202,6 +202,7 @@ class Logo_Carousel extends Widget_Base {
 			'exad_logo_smooth_scroll',
 			[
 				'label'   => esc_html__( 'Smooth Scroll', 'exclusive-addons-elementor' ),
+				'description' => __( '<b>Autoplay Speed option not working. This is not necessary for linear slide</b>', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'no'
 			]
