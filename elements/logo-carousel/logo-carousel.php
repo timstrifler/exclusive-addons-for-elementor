@@ -198,6 +198,27 @@ class Logo_Carousel extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_logo_smooth_scroll',
+			[
+				'label'   => esc_html__( 'Smooth Scroll', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'no'
+			]
+		);
+
+		$this->add_control(
+			'exad_logo_smooth_scroll_speed',
+			[
+				'label'     => esc_html__( 'Speed', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 3000,
+				'condition' => [
+					'exad_logo_smooth_scroll' => 'yes'
+				]
+			]
+		);
+
 		$this->end_controls_section();
 
 		/*
@@ -958,7 +979,7 @@ class Logo_Carousel extends Widget_Base {
 				'data-slidestoshow-tablet'   => intval( esc_attr( isset( $settings['exad_logo_slide_to_show_tablet'] ) ) ? (int)$settings['exad_logo_slide_to_show_tablet'] : 2  ),
 				'data-slidestoshow-mobile'   => intval( esc_attr( isset( $settings['exad_logo_slide_to_show_mobile'] ) ) ? (int)$settings['exad_logo_slide_to_show_mobile'] : 1),
 				'data-slidestoscroll' => esc_attr( $settings['exad_logo_slide_to_scroll'] ),
-				'data-direction'      => esc_attr( $direction )
+				'data-direction'      => esc_attr( $direction ),
 			]
 		);
 
@@ -968,6 +989,10 @@ class Logo_Carousel extends Widget_Base {
 		if ( 'yes' === $settings['exad_logo_autoplay'] ) {
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-autoplay', 'true' );
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-autoplayspeed', esc_attr( $settings['exad_logo_autoplay_speed'] ) );
+		}
+		if ( 'yes' === $settings['exad_logo_smooth_scroll'] ) {
+			$this->add_render_attribute( 'exad_logo_carousel', 'data-smooth', 'true' );
+			$this->add_render_attribute( 'exad_logo_carousel', 'data-smooth-speed', esc_attr( $settings['exad_logo_smooth_scroll_speed'] ) );
 		}
 
 		if ( is_array( $settings['exad_logo_carousel_repeater'] ) ) : ?>

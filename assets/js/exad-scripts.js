@@ -548,9 +548,18 @@ var exclusiveLogoCarousel   = function ( $scope, $ ) {
     direction               = logoCarouselWrapper.data( 'direction' ),
     loop                    = undefined !== logoCarouselWrapper.data( 'loop' ) ? logoCarouselWrapper.data( 'loop' ) : false,
     autoPlay                = undefined !== logoCarouselWrapper.data( 'autoplay' ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
-    autoplaySpeed           = undefined !== logoCarouselWrapper.data( 'autoplayspeed' ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
+    autoplaySpeed           = undefined !== logoCarouselWrapper.data( 'autoplayspeed' ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false,
+    Smooth                  = undefined !== logoCarouselWrapper.data( 'smooth' ) ? logoCarouselWrapper.data( 'smooth' ) : false,
+    SmoothSpeed             = undefined !== logoCarouselWrapper.data( 'smooth-speed' ) ? logoCarouselWrapper.data( 'smooth-speed' ) : 300;
 
-    var arrows, dots;
+    var arrows, dots, cssEase;
+
+    if ( Smooth ){
+        cssEase = 'linear';
+        autoplaySpeed = 0;
+    } else {
+        cssEase = 'ease';
+    }
     if ( 'both' === carouselNav ) {
         arrows = true;
         dots   = true;
@@ -575,6 +584,8 @@ var exclusiveLogoCarousel   = function ( $scope, $ ) {
             dots: dots,
             rtl: direction,
             arrows: arrows,
+            speed: SmoothSpeed,
+            cssEase: cssEase,
             prevArrow: '<div class="exad-logo-carousel-prev"><i class="eicon-chevron-left"></i></div>',
             nextArrow: '<div class="exad-logo-carousel-next"><i class="eicon-chevron-right"></i></div>',
             responsive: [
