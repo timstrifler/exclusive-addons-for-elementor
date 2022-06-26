@@ -275,6 +275,9 @@ class Image_Comparison extends Widget_Base {
             ]
         );
 
+        $handel_bar = is_rtl() ? 'right' : 'left';
+        $handel_revers = is_rtl() ? 'left' : 'right';
+
         $this->add_responsive_control(
 			'exad_image_comparison_handler_width',
 			[
@@ -293,8 +296,8 @@ class Image_Comparison extends Widget_Base {
 				],
 				'selectors' => [
                     '{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'width: {{SIZE}}{{UNIT}}; margin-left: calc( -{{SIZE}}{{UNIT}} / 2 - {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} )',
-                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:before' => 'margin-left: calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
-					'{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:after' => 'margin-right: calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:before' => 'margin-'. $handel_bar .': calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:after' => 'margin-'. $handel_revers .': calc( calc( {{SIZE}}{{UNIT}} * 2 ) / 2  + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
 				],
 			]
         );
