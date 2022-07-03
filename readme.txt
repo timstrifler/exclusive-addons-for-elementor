@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
-Tested up to: 5.9.3
-Stable tag: 2.5.5
+Tested up to: 6.0
+Stable tag: 2.5.6
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -24,6 +24,9 @@ We have filled all the free elements with every option that you can think of. St
 [Check out our Roadmaps]https://exclusiveaddons.com/roadmaps/ 
 
 [Check out our Demos](https://exclusiveaddons.com/)
+
+You can also Check our widgets from a WordPress Admin area too:
+[From here](https://demo.tastewp.com/exclusive-addons-for-elementor)
 
 ### FEATURED BY Top Reviewers
 
@@ -269,6 +272,15 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+
+= 2.5.6 - 3/07/2022 =
+- Tweak: Added image position and size option in Filterable Gallery widget.
+- Tweak: Added language selection option for Google Reviews widget.
+- Tweak: Added Linear Smooth option to Logo Carousel.
+- Tweak: Added Title Html Tag selection option for Call to Action, Heading, Dual Heading and Covid-19 Stats widget.
+- Tweak: RTL issues on Image Comparision bar.
+- Fix: Responsiveness issues fixed in List Group widget.
+- Tweak: Overall Bug fixes and improvements.
 
 = 2.5.5 - 18/05/2022 =
 - Tweak: Added fixed height option for image for Post Grid Widget.
