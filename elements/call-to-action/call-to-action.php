@@ -1015,7 +1015,7 @@ class Call_To_Action extends Widget_Base {
             view.addRenderAttribute( 'exad_cta_secondary_btn_link', 'class', 'exad-call-to-action-secondary-btn' );
             view.addRenderAttribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );
             view.addInlineEditingAttributes( 'exad_cta_secondary_btn', 'none' );
-heading
+
             var primaryBtnTarget = settings.exad_cta_primary_btn_link.is_external ? ' target="_blank"' : '';
             var primaryBtnNofollow = settings.exad_cta_primary_btn_link.nofollow ? ' rel="nofollow"' : '';
 

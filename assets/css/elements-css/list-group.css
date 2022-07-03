@@ -64,5 +64,10 @@
 .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-number{
     line-height: 0;
 }
+@media (max-width: 768px) {
+    .exad-list-group .exad-list-group-wrapper.layout_2{
+        flex-direction: column;
+    }
+}
 
 /* List Group CSS End */
