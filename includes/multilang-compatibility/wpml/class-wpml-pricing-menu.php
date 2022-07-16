@@ -1,9 +1,10 @@
 <?php
+namespace ExclusiveAddons\Elementor;
 
 /**
  * Class WPML_Exad_Pricing_Menu
  */
-class WPML_Exad_Pricing_Menu extends WPML_Elementor_Module_With_Items {
+class WPML_Exad_Pricing_Menu extends \WPML_Elementor_Module_With_Items {
 
 	/**
 	 * @return string

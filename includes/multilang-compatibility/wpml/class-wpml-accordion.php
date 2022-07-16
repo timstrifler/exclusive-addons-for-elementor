@@ -1,9 +1,10 @@
 <?php
+namespace ExclusiveAddons\Elementor;
 
 /**
  * Class WPML_Exad_Accordion
  */
-class WPML_Exad_Accordion extends WPML_Elementor_Module_With_Items {
+class WPML_Exad_Accordion extends \WPML_Elementor_Module_With_Items {
 
 	/**
 	 * @return string

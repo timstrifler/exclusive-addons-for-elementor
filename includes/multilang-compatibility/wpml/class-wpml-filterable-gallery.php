@@ -1,9 +1,10 @@
 <?php
+namespace ExclusiveAddons\Elementor;
 
 /**
  * Class WPML_Exad_Filterable_Gallery
  */
-class WPML_Exad_Filterable_Gallery extends WPML_Elementor_Module_With_Items {
+class WPML_Exad_Filterable_Gallery extends \WPML_Elementor_Module_With_Items {
 
 	/**
 	 * @return string

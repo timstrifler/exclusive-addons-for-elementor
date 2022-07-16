@@ -1,9 +1,10 @@
 <?php
+namespace ExclusiveAddons\Elementor;
 
 /**
  * Class WPML_Exad_Tabs
  */
-class WPML_Exad_Tabs extends WPML_Elementor_Module_With_Items {
+class WPML_Exad_Tabs extends \WPML_Elementor_Module_With_Items {
 
 	/**
 	 * @return string

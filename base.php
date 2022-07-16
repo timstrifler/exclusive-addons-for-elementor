@@ -7,6 +7,7 @@
  */
 
 namespace ExclusiveAddons\Elementor;
+use ExclusiveAddons\Elementor\Exad_WPML_Element_Free_Compatibility;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
