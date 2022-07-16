@@ -173,6 +173,32 @@ class Google_Reviews extends Widget_Base {
             ]
 		);
 
+		$this->add_control(
+			'exad_load_reviews_by_rating_yes',
+			[
+				'label' => __('Review Display By Rating?', 'exclusive-addons-elementor'),
+				'type' => Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		$rating_base_reviews = range( 1, 5 );
+		$rating_base_reviews = array_combine( $rating_base_reviews, $rating_base_reviews );
+
+		$this->add_control(
+			'exad_reload_reviews_by_rating',
+			[
+				'type'    => Controls_Manager::SELECT,
+				'label'   => esc_html__( 'Load Reviews by Ratings', 'exclusive-addons-elementor' ),
+				'options' => $rating_base_reviews,
+				'default' => '3',
+				'condition' => [
+					'exad_load_reviews_by_rating_yes' => 'yes'
+				]
+			]
+		);
+
         $this->add_control(
 			'exad_google_reviews_clear_cache',
 			[
@@ -2102,6 +2128,60 @@ class Google_Reviews extends Widget_Base {
 									} else {
 										$description = $review['text'];
 									}
+								
+									$load_rating       = $settings['exad_reload_reviews_by_rating'];
+
+									if ( 'yes' === $settings['exad_load_reviews_by_rating_yes'] && isset( $settings["exad_reload_reviews_by_rating"] ) ) {
+										if ( $client_rating >= $load_rating ) {
+											?>
+									
+											<div class="swiper-slide exad-google-reviews-item exad-google-reviews-wrapper <?php echo esc_attr( $settings['exad_google_reviews_carousel_container_alignment'] ) .' '. $transition_top ;?>">
+												<?php if( 'layout-2' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
+													<div class="exad-google-reviews-reviewer-wrapper">
+														<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
+
+															<?php echo $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ); ?>
+
+														<?php endif ?>
+
+														<?php echo $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ); ?>
+
+													</div>
+												<?php }; ?>
+												<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'above-description' == $settings['exad_google_reviews_rating_layout']) : ?>
+													<?php echo $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ); ?>
+												<?php endif;?>
+												<div class="exad-google-reviews-wrapper-inner">
+													<div class="exad-google-reviews-content-wrapper">
+														<?php if ( 'yes' == $settings['exad_google_reviews_show_excerpt'] ) : ?>
+															<div class="exad-google-reviews-description">
+																<p><?php echo wp_kses_post($description); ?></p>
+															</div>
+														<?php endif; ?>
+													</div>
+													
+													<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'below-description' == $settings['exad_google_reviews_rating_layout']) : ?>
+														<?php echo $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ); ?>
+													<?php endif;?>
+													
+													<?php if( 'layout-1' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
+														<div class="exad-google-reviews-reviewer-wrapper">
+															<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
+
+																<?php echo $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ); ?>
+
+															<?php endif ?>
+
+															<?php echo $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ); ?>
+
+														</div>
+													<?php }; ?>
+												</div>
+											</div>
+											<?php 
+										}
+									} else {
+									
 									?>
 
 									<div class="swiper-slide exad-google-reviews-item exad-google-reviews-wrapper <?php echo esc_attr( $settings['exad_google_reviews_carousel_container_alignment'] ) .' '. $transition_top ;?>">
@@ -2148,7 +2228,7 @@ class Google_Reviews extends Widget_Base {
 										</div>
 									</div>
 
-								<?php } ;
+								<?php } } ;
 							?>
 						</div>
 					</div>
