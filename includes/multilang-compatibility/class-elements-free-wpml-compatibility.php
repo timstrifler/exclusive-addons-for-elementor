@@ -162,7 +162,7 @@ class Exad_WPML_Element_Free_Compatibility {
 					'editor_type' => 'LINE',
 				],    
                 [
-					'field'       => 'exad_card_tag',
+					'field'       => 'exad_card_description',
 					'type'        => esc_html__( 'Description', 'exclusive-addons-elementor' ),
 					'editor_type' => 'AREA',
 				],    
@@ -359,6 +359,11 @@ class Exad_WPML_Element_Free_Compatibility {
 				[
 					'field'       => 'exad_google_place_id',
 					'type'        => esc_html__( 'Place ID', 'exclusive-addons-elementor' ),
+					'editor_type' => 'LINE',
+				],
+				[
+					'field'       => 'exad_google_review_language_custom',
+					'type'        => esc_html__( 'Custom Language', 'exclusive-addons-elementor' ),
 					'editor_type' => 'LINE',
 				],
 			],
