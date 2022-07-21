@@ -23,7 +23,7 @@ class WPML_Exad_Accordion extends WPML_Elementor_Module_With_Items {
 	 * @return array
 	 */
 	public function get_fields() {
-		return [ 'exad_exclusive_accordion_title', 'exad_accordion_read_more_btn_text' ];
+		return [ 'exad_exclusive_accordion_title', 'exad_exclusive_accordion_content', 'exad_accordion_read_more_btn_text', 'exad_accordion_read_more_btn_url' ];
 	}
 	
 	/**
@@ -35,9 +35,15 @@ class WPML_Exad_Accordion extends WPML_Elementor_Module_With_Items {
 
 			case 'exad_exclusive_accordion_title':
 				return esc_html__( 'Title', 'exclusive-addons-elementor' );
+				
+			case 'exad_exclusive_accordion_content':
+				return esc_html__( 'Content', 'exclusive-addons-elementor' );
 
 			case 'exad_accordion_read_more_btn_text':
 				return esc_html__( 'Button Text', 'exclusive-addons-elementor' );
+
+			case 'exad_accordion_read_more_btn_url':
+				return esc_html__( 'Button URL', 'exclusive-addons-elementor' );
 
 			default:
 				return '';
@@ -53,8 +59,14 @@ class WPML_Exad_Accordion extends WPML_Elementor_Module_With_Items {
 			case 'exad_exclusive_accordion_title':
 				return 'LINE';
 
+			case 'exad_exclusive_accordion_content':
+				return 'VISUAL';
+
 			case 'exad_accordion_read_more_btn_text':
 				return 'LINE';
+
+			case 'exad_accordion_read_more_btn_url':
+				return 'LINK';
 
 			default:
 				return '';

@@ -23,7 +23,7 @@ class WPML_Exad_Filterable_Gallery extends WPML_Elementor_Module_With_Items {
 	 * @return array
 	 */
 	public function get_fields() {
-		return [ 'exad_fg_gallery_item_title', 'exad_fg_gallery_item_content', 'exad_fg_gallery_control_name' ];
+		return [ 'exad_fg_gallery_item_title', 'exad_fg_gallery_item_content', 'exad_fg_gallery_control_name', 'exad_fg_all_items_text', 'exad_fg_gallery_img_link' ];
 	}
 	
 	/**
@@ -41,6 +41,12 @@ class WPML_Exad_Filterable_Gallery extends WPML_Elementor_Module_With_Items {
 
             case 'exad_fg_gallery_control_name':
 				return esc_html__( 'Control Name', 'exclusive-addons-elementor' );
+
+			case 'exad_fg_all_items_text':
+				return esc_html__( 'Text for All Item', 'exclusive-addons-elementor' );
+
+			case 'exad_fg_gallery_img_link':
+				return esc_html__( 'Iamge Link URL', 'exclusive-addons-elementor' );
 
 			default:
 				return '';
@@ -60,7 +66,13 @@ class WPML_Exad_Filterable_Gallery extends WPML_Elementor_Module_With_Items {
 				return 'AREA';
 
             case 'exad_fg_gallery_control_name':
+				return 'LINE'; 
+
+			case 'exad_fg_all_items_text':
 				return 'LINE';
+
+			case 'exad_fg_gallery_img_link':
+				return 'LINK';
 
 			default:
 				return '';
