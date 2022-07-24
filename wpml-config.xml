@@ -1,9 +1,6 @@
 <wpml-config>
     <elementor-widgets>
         <widget name="exad-exclusive-accordion">
-            <conditions>
-                <condition key="widgetType">exad-exclusive-accordion</condition>
-            </conditions>
             <fields-in-item items_of="exad_exclusive_accordion_tab">
                 <field type="Accordion : Title" editor_type="LINE">exad_exclusive_accordion_title</field> 
                 <field type="Accordion : Content" editor_type="VISUAL">exad_exclusive_accordion_content</field>
@@ -138,14 +135,13 @@
             </fields>
         </widget>
         <widget name="exad-filterable-gallery">
-            <conditions>
-                <condition key="widgetType">exad-filterable-gallery</condition>
-            </conditions>
+            <fields>
+                <field type="Filterable Gallery : Text for All Item" editor_type="LINE">exad_fg_all_items_text</field>
+            </fields>
             <fields-in-item items_of="exad_fg_gallery_items">
                 <field type="Filterable Gallery : Title" editor_type="LINE">exad_fg_gallery_item_title</field>
                 <field type="Filterable Gallery : Details" editor_type="AREA">exad_fg_gallery_item_content</field>
                 <field type="Filterable Gallery : Control Name" editor_type="LINE">exad_fg_gallery_control_name</field>
-                <field type="Filterable Gallery : Text for All Item" editor_type="LINE">exad_fg_all_items_text</field>
                 <field type="Dual Button : Image Link URL" editor_type="LINK" key_of="exad_fg_gallery_img_link">url</field>
             </fields-in-item>
         </widget>
@@ -230,9 +226,6 @@
             </fields>
         </widget>
         <widget name="exad-list-group">
-            <conditions>
-                <condition key="widgetType">exad-list-group</condition>
-            </conditions>
             <fields-in-item items_of="exad_list_group">
                 <field type="List Group : Number" editor_type="LINE">exad_list_icon_number</field>
                 <field type="List Group : Text" editor_type="LINE">exad_list_text</field>
@@ -248,9 +241,6 @@
             </fields>
         </widget>
         <widget name="exad-modal-popup">
-            <conditions>
-                <condition key="widgetType">exad-modal-popup</condition>
-            </conditions>
             <fields>
                 <field type="Modal Popup : Youtube Video URL" editor_type="LINE">exad_modal_youtube_video_url</field>
                 <field type="Modal Popup : Vimeo Video URL" editor_type="LINE">exad_modal_vimeo_video_url</field>
@@ -264,9 +254,6 @@
             </fields-in-item>
         </widget>
         <widget name="exad-news-ticker">
-            <conditions>
-                <condition key="widgetType">exad-news-ticker</condition>
-            </conditions>
             <fields>
                 <field type="News Ticker : Label" editor_type="LINE">exad_news_ticker_label</field>
             </fields>
@@ -287,9 +274,6 @@
             </fields>
         </widget>
          <widget name="exad-pricing-menu">
-            <conditions>
-                <condition key="widgetType">exad-pricing-menu</condition>
-            </conditions>
             <fields-in-item items_of="pricing_menu_repeater">
                 <field type="Pricing Menu : Title" editor_type="LINE">exad_pricing_menu_title</field>
                 <field type="Pricing Menu : Description" editor_type="AREA">exad_pricing_menu_description</field>
@@ -299,9 +283,6 @@
             </fields-in-item>
         </widget>
          <widget name="exad-pricing-table">
-            <conditions>
-                <condition key="widgetType">exad-pricing-table</condition>
-            </conditions>
             <fields>
                 <field type="Pricing Table : Promo Title" editor_type="LINE">exad_pricing_table_promo_title</field>
                 <field type="Pricing Table : Title" editor_type="LINE">exad_pricing_table_title</field>
@@ -331,9 +312,6 @@
             </fields>
         </widget>  
         <widget name="exad-exclusive-tabs">
-            <conditions>
-                <condition key="widgetType">exad-exclusive-tabs</condition>
-            </conditions>
             <fields-in-item items_of="exad_exclusive_tabs">
                 <field type="Tabs : Enter your shortcode" editor_type="LINE">exad_tab_content_shortcode</field>
                 <field type="Tabs : Title" editor_type="LINE">exad_exclusive_tab_title</field>
@@ -343,9 +321,6 @@
             </fields-in-item>
         </widget>
         <widget name="exad-team-member">
-            <conditions>
-                <condition key="widgetType">exad-team-member</condition>
-            </conditions>
             <fields>
                 <field type="Team Member : Name" editor_type="LINE">exad_team_member_name</field>
                 <field type="Team Member : Designation" editor_type="LINE">exad_team_member_designation</field>
