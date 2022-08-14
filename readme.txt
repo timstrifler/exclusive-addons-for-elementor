@@ -276,7 +276,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 = 2.5.7 - 14/08/2022 =
 - Tweak: Added WPML Compatibility.
 - Fix: Icon issues fixed in Heading widget.
-- Fix: Bugs with Elementor 3.7.1 compatibility.
+- Fix: Elementor 3.7.1 compatibility.
 - Tweak: Overall Bug fixes and improvements.
 
 = 2.5.6 - 3/07/2022 =
