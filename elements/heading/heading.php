@@ -782,9 +782,11 @@ class Heading extends Widget_Base {
 
         <div class="exad-exclusive-heading">
             <div <?php echo $this->get_render_attribute_string( 'exad_exclusive_heading_wrapper' ); ?>>
-			<?php 
+			<?php
 				if ( 'yes' === $settings['exad_heading_icon_show'] && !empty( $settings['exad_heading_icon']['value'] ) ) : ?>
-          		
+          			<span class="exad-heading-icon">
+          				<?php Icons_Manager::render_icon( $settings['exad_heading_icon'] ); ?>
+          			</span>
 				<?php 	  
 				endif;
 
