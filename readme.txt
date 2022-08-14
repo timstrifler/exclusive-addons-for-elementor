@@ -2,8 +2,8 @@
 Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
-Tested up to: 6.0
-Stable tag: 2.5.6
+Tested up to: 6.0.1
+Stable tag: 2.5.7
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -272,6 +272,12 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+
+= 2.5.7 - 14/08/2022 =
+- Tweak: Added WPML Compatibility.
+- Fix: Icon issues fixed in Heading widget.
+- Fix: Bugs with Elementor 3.7.1 compatibility.
+- Tweak: Overall Bug fixes and improvements.
 
 = 2.5.6 - 3/07/2022 =
 - Tweak: Added image position and size option in Filterable Gallery widget.
