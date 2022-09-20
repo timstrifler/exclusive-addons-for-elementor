@@ -73,7 +73,7 @@ class Addons_Manager {
         self::widget_manager();
         self::extension_manager();
         self::activated_features();
-        add_action( 'elementor/widgets/widgets_registered', [ __CLASS__, 'initiate_widgets' ] );
+        add_action( 'elementor/widgets/register', [ __CLASS__, 'initiate_widgets' ] );
         self::initiate_extensions();
     }
 
@@ -136,7 +136,7 @@ class Addons_Manager {
                 }
 
                 if ( class_exists( $widget['class'] ) ) {
-                    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new $widget['class'] );
+                    \Elementor\Plugin::instance()->widgets_manager->register( new $widget['class'] );
                 }
             }
         }

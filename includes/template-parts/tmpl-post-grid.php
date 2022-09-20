@@ -88,16 +88,16 @@ if( 'yes' != $settings['exad_post_grid_show_title_parmalink'] ){
                 <?php     
                 endif;
             endif;
-
+            
             if('yes' === $settings['exad_post_grid_show_title']) :
                 if('yes' === $settings['exad_post_grid_title_full']) : ?>
-                    <h3>
+                    <<?php echo $settings['exad_post_grid_title_tag']; ?>>
                         <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?> class="exad-post-grid-title"><?php echo get_the_title(); ?></a>
-                    </h3>
+                    </<?php echo $settings['exad_post_grid_title_tag']; ?>>
                 <?php else : ?>
-                    <h3>
+                    <<?php echo $settings['exad_post_grid_title_tag']; ?>>
                         <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?> class="exad-post-grid-title"><?php echo wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ); ?></a>
-                    </h3>
+                    </<?php echo $settings['exad_post_grid_title_tag']; ?>>
                 <?php
                 endif;
             endif;

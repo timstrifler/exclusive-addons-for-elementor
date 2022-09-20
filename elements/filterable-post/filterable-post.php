@@ -313,6 +313,16 @@ class Filterable_Post extends Widget_Base {
 		);
 
 		$this->add_control(
+            'exad_post_grid_title_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
+		);
+
+		$this->add_control(
             'exad_grid_title_length',
             [
 				'label'     => __( 'Title Words Length', 'exclusive-addons-elementor' ),
@@ -942,6 +952,27 @@ class Filterable_Post extends Widget_Base {
 					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-left .exad-filterable-menu-container .exad-filterable-menu .filter-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-right .exad-filterable-menu-container .exad-filterable-menu .filter-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_fg_control_item_bottom_spacing',
+			[
+				'label'       => __( 'Items Bottom Margin', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 100
+					],
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-top .filter-item' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+                ],
+				'condition' => [
+                    'exad_fg_control_container_alignment' => 'exad-filterable-menu-container-align-top'
+				],
 			]
 		);
 

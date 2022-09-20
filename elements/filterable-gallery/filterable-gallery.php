@@ -576,6 +576,24 @@ class Filterable_Gallery extends Widget_Base
 			]
 		);
 
+        $this->add_responsive_control(
+			'exad_fg_control_item_bottom_spacing',
+			[
+				'label'       => __( 'Items Bottom Margin', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 100
+					],
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-gallery-menu .filter-item' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+                ],
+			]
+		);
+
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [

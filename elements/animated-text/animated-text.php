@@ -599,7 +599,7 @@ class Animated_Text extends Widget_Base {
 				do_action( 'exad_animated_text_content_after' );
 			?>
 
-			</ <?php echo esc_attr($heading_tag);?>>
+			</<?php echo esc_attr($heading_tag);?>>
 
 			<?php do_action( 'exad_animated_text_wrapper_after' ); ?>
 

@@ -490,7 +490,7 @@ final class Base {
     public function register_controls() {
 
 		$controls_manager = \Elementor\Plugin::$instance->controls_manager;
-		$controls_manager->register_control( 'svg-selector', new Image_Mask_SVG_Control() );
+		$controls_manager->register( new Image_Mask_SVG_Control() );
 
 	}
 

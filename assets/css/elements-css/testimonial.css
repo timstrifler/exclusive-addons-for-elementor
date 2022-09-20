@@ -69,8 +69,8 @@
 
 .exad-testimonial-name{
   margin: 0;
-  font-size: 22px;
-  font-weight: 600;
+  /* font-size: 22px; */
+  /* font-weight: 600; */
   transition: all .3s ease;
 }
 

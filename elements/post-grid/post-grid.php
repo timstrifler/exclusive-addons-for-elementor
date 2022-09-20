@@ -302,6 +302,16 @@ class Post_Grid extends Widget_Base {
 		);
 
 		$this->add_control(
+            'exad_post_grid_title_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
+		);
+
+		$this->add_control(
             'exad_grid_title_length',
             [
 				'label'     => __( 'Title Words Length', 'exclusive-addons-elementor' ),
@@ -1931,7 +1941,7 @@ class Post_Grid extends Widget_Base {
 			</div>
 			<div class="exad-post-grid-load-btn">
 				<?php if( 'yes' === $settings['exad_post_grid_enable_load_more_btn'] ) { ?>
-					<a class="exad-post-grid-paginate-btn" <?php echo $this->get_render_attribute_string( 'exad_post_grid_load_more_button' ); ?> href="#">
+					<a class="exad-post-grid-paginate-btn" <?php echo $this->get_render_attribute_string( 'exad_post_grid_load_more_button' ); ?> href="#" role="button">
 						<?php echo esc_html( $settings['exad_post_grid_enable_load_more_btn_text'] ); ?>
 					</a>
 				<?php 
