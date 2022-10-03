@@ -126,6 +126,8 @@ class Assets_Manager {
         // CSS Load for slick slider
         wp_enqueue_style( 'exad-slick', EXAD_ASSETS_URL . 'vendor/css/slick.min.css' );
         wp_enqueue_style( 'exad-slick-theme', EXAD_ASSETS_URL . 'vendor/css/slick-theme.min.css' );
+
+        wp_enqueue_style( 'exad-image-hover', EXAD_ASSETS_URL . 'vendor/css/imagehover.css' );
         
 
         // Main Plugin Styles

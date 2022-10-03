@@ -54,13 +54,13 @@ echo '<article class="exad-post-grid-three exad-col">';
                         do_action('exad_post_grid_meta_after');      
                     echo '</ul>'; 
 
-                    echo '<h3>';
+                    echo '<'.$settings['exad_post_grid_title_tag'].'>';
                         echo '<a href="'.esc_url( $parmalink ).'" '.$style_par.' class="exad-post-grid-title">'.get_the_title().'</a>';
-                    echo '</h3>';
+                    echo '</'.$settings['exad_post_grid_title_tag'].'>';
                 
-                    echo '<h3>';
+                    echo '<'.$settings['exad_post_grid_title_tag'].'>';
                         echo '<a href="'.esc_url( $parmalink ).'" '.$style_par.' class="exad-post-grid-title">'.wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ).'</a>';
-                    echo '</h3>';
+                    echo '</'.$settings['exad_post_grid_title_tag'].'>';
                 
                 echo '<ul class="exad-post-grid-time-comment">';
                     

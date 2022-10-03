@@ -383,6 +383,7 @@ final class Base {
         $settings['exad_post_grid_show_title'] = $_POST['show_title'];
         $settings['exad_post_grid_show_title_parmalink'] = $_POST['show_title_parmalink'];
         $settings['exad_post_grid_title_full'] = $_POST['title_full'];
+        $settings['exad_post_grid_title_tag'] = $_POST['title_tag'];
         $settings['exad_grid_title_length'] = $_POST['title_length'];
         $settings['exad_post_grid_show_read_time'] = $_POST['show_read_time'];
         $settings['exad_post_grid_show_comment'] = $_POST['show_comment'];

@@ -1913,6 +1913,7 @@ class Post_Grid extends Widget_Base {
 				'data-show_title' => $settings['exad_post_grid_show_title'],
 				'data-show_title_parmalink' => $settings['exad_post_grid_show_title_parmalink'],
 				'data-title_full' => $settings['exad_post_grid_title_full'],
+				'data-title_tag' => $settings['exad_post_grid_title_tag'],
 				'data-show_read_time' => $settings['exad_post_grid_show_read_time'],
 				'data-show_comment' => $settings['exad_post_grid_show_comment'],
 				'data-show_excerpt' => $settings['exad_post_grid_show_excerpt'],

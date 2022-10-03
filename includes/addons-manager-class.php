@@ -304,6 +304,13 @@ class Addons_Manager {
                 'tags'   => 'free',
                 'is_pro' => false
             ],
+            'image-hover-effect'  => [
+                'title'  => __( 'Image Hover Effect', 'exclusive-addons-elementor' ),
+                'class'  => '\ExclusiveAddons\Elements\Image_Hover_Effect',
+                'demo_link' => 'https://exclusiveaddons.com/image-magnifier-demo/',
+                'tags'   => 'free',
+                'is_pro' => false
+            ],
             'infobox'  => [
                 'title'  => __( 'Info Box', 'exclusive-addons-elementor' ),
                 'class'  => '\ExclusiveAddons\Elements\Infobox',
