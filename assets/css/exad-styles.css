@@ -9,6 +9,9 @@
   height: auto;
   margin: 0;
 }
+.elementor-widget-exad-image-hover-effect .elementor-widget-container{
+  min-height: 1px;
+}
 
 /* Exclusive Accordion Start */ 
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title {

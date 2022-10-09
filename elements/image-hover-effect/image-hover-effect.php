@@ -119,7 +119,7 @@ class Image_Hover_Effect extends Widget_Base {
 			[
 				'label' => esc_html__( 'Hover Effect', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'lily',
+				'default' => 'imghvr-fade',
 				'options' => [
 					'imghvr-fade'  => esc_html__( 'Fade Effect', 'exclusive-addons-elementor' ),
 					'imghvr-push-up'  => esc_html__( 'Push Up Effect', 'exclusive-addons-elementor' ),
@@ -365,10 +365,6 @@ class Image_Hover_Effect extends Widget_Base {
 						'max' => 1000,
 						'step' => 5,
 					],
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' =>400,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-ihe-wrapper .exad-ihe-figure' => 'max-height: {{SIZE}}{{UNIT}};',
