@@ -7,6 +7,12 @@ if( 'yes' != $settings['exad_post_grid_show_title_parmalink'] ){
     $style_par = 'style= "pointer-events: none;"';
 }
 
+if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
+    $target = "_blank";
+} else{
+    $target = "_self";
+}
+
 echo '<article class="exad-post-grid-three exad-col">';
     echo '<div class="exad-post-grid-container image-position-'.esc_attr( $settings['exad_post_grid_image_align'] ).' exad-post-grid-equal-height-'.esc_attr($settings['exad_post_grid_equal_height']).'">';
         do_action('exad_post_grid_each_item_wrapper_before');
@@ -82,7 +88,7 @@ echo '<article class="exad-post-grid-three exad-col">';
             do_action('exad_post_grid_excerpt_wrapper_after');
 
             if( !empty($settings['exad_post_grid_read_more_btn_text']) && 'yes' === $settings['exad_post_grid_show_read_more_btn'] ) :
-                echo '<div class="exad-post-footer"><a href="'.esc_url( get_the_permalink() ).'" class="read-more">'.esc_html( $settings['exad_post_grid_read_more_btn_text'] ).'</a></div>';
+                echo '<div class="exad-post-footer"><a href="'.esc_url( get_the_permalink() ).'" target='. $target .' class="read-more">'.esc_html( $settings['exad_post_grid_read_more_btn_text'] ).'</a></div>';
             endif;
 
             if( 'post_data_bottom' === $settings['exad_post_grid_post_data_position'] ) :

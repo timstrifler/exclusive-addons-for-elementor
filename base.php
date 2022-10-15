@@ -391,6 +391,7 @@ final class Base {
         $settings['exad_grid_excerpt_length'] = $_POST['excerpt_length'];
         $settings['exad_post_grid_read_more_btn_text'] = $_POST['details_btn_text'];
         $settings['exad_post_grid_show_read_more_btn'] = $_POST['enable_details_btn'];
+        $settings['exad_post_grid_show_read_more_btn_new_tab'] = $_POST['details_btn_text_tab'];
         $settings['exad_post_grid_post_data_position'] = $_POST['post_data_position'];
         $settings['exad_post_grid_offset'] = (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] );
 

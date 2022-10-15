@@ -755,6 +755,7 @@ var exclusivePostGrid = function( $scope, $ ) {
                 equal_height: $(this).data('equal_height'),
                 enable_details_btn: $(this).data('enable_details_btn'),
                 details_btn_text: $(this).data('details_btn_text'),
+                details_btn_text_tab: $(this).data('details_btn_text_tab'),
                 show_user_avatar: $(this).data('show-user-avatar'),
                 show_user_name: $(this).data('show_user_name'),
                 post_data_position: $(this).data('post_data_position'),

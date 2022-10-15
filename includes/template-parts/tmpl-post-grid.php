@@ -18,6 +18,12 @@ if( 'yes' != $settings['exad_post_grid_show_title_parmalink'] ){
     $parmalink = '';
     $style_par = 'style= "pointer-events: none;"';
 }
+
+if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
+    $target = "_blank";
+} else{
+    $target = "_self";
+}
 ?>
 
 <article class="exad-post-grid-three exad-col <?php echo ('exad-filterable-post' === $settings['template_type'] ) ? ' exad-filterable-item ' . esc_attr( Helper::exad_get_categories_name_for_class()) : ' ' ;?>">
@@ -129,7 +135,7 @@ if( 'yes' != $settings['exad_post_grid_show_title_parmalink'] ){
             do_action('exad_post_grid_excerpt_wrapper_after');
 
             if( ! empty( $settings['exad_post_grid_read_more_btn_text'] ) && 'yes' === $settings[ 'exad_post_grid_show_read_more_btn' ] ) : ?>
-                <div class="exad-post-footer"><a href="<?php echo esc_url( get_the_permalink() ); ?>" class="read-more"><?php echo esc_html( $settings['exad_post_grid_read_more_btn_text'] ); ?></a></div>
+                <div class="exad-post-footer"><a href="<?php echo esc_url( get_the_permalink() ); ?>" target=<?php echo $target; ?> class="read-more"><?php echo esc_html( $settings['exad_post_grid_read_more_btn_text'] ); ?></a></div>
             <?php
             endif;
 

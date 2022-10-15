@@ -351,6 +351,21 @@ class Post_Grid extends Widget_Base {
             ]
         );
 
+		$this->add_control(
+            'exad_post_grid_show_read_more_btn_new_tab',
+            [
+                'label'        => esc_html__( 'Enable New Tab', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'yes',
+                'return_value' => 'yes',
+				'condition'     => [
+                    'exad_post_grid_show_read_more_btn' => 'yes'
+				],
+            ]
+        );  
+
         $this->add_control(
             'exad_post_grid_enable_load_more_btn',
             [
@@ -1907,6 +1922,7 @@ class Post_Grid extends Widget_Base {
 				'data-equal_height' => $settings['exad_post_grid_equal_height'],
 				'data-enable_details_btn' => $settings['exad_post_grid_show_read_more_btn'],
 				'data-details_btn_text' => $settings['exad_post_grid_read_more_btn_text'],
+				'data-details_btn_text_tab' => $settings['exad_post_grid_show_read_more_btn_new_tab'],
 				'data-show-user-avatar' => $settings['exad_post_grid_show_user_avatar'],
 				'data-show_user_name' => $settings['exad_post_grid_show_user_name'],
 				'data-post_data_position' => $settings['exad_post_grid_post_data_position'],
