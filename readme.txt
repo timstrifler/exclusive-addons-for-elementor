@@ -65,9 +65,9 @@ We have an extraordinary support team ready to help you. Ask your questions in t
 
 ### **What You will Get in ExclusiveAddons Free Version**
 
-We have packed our Elementor Addons with the most Useful 39+ free Elementor widgets for you in the bundle. We have 23+ exclusively designed templates and over 800 readymade blocks for Elementor page builders. The fully functional templates and blocks will surely help you create unique designs for your website. Let’s have a look what you will get in our free version and check out our demos where we demonstrated some interesting use cases for all of our Elements:
+We have packed our Elementor Addons with the most Useful 40+ free Elementor widgets for you in the bundle. We have 23+ exclusively designed templates and over 800 readymade blocks for Elementor page builders. The fully functional templates and blocks will surely help you create unique designs for your website. Let’s have a look what you will get in our free version and check out our demos where we demonstrated some interesting use cases for all of our Elements:
 
-### 39+ FREE WIDGETS & EXTENSIONS and counting...
+### 40+ FREE WIDGETS & EXTENSIONS and counting...
 
 
 1. **[Card](https://exclusiveaddons.com/card-demo/)** - Showcase your products, services, offers, and loads of other items with a stylish Demo Card Widget on your WordPress website.
@@ -105,6 +105,7 @@ We have packed our Elementor Addons with the most Useful 39+ free Elementor widg
 33. **[List Group](https://exclusiveaddons.com/list-group/)** - Exclusive Addons List Group widget lets you present essential information smartly with beautiful icons, numbers, or images with the highest number of customization options you have ever seen.
 34. **[Filterable Post](https://exclusiveaddons.com/filterable-post-demo/)** - Explore all the posts you have on a relevant topic using a category filter and make your post grid more lively, user-interactive with an Elementor post filter widget.
 35. **[Google Reviews](https://exclusiveaddons.com/google-reviews-demo/)** - Embed Google reviews into your WordPress website and enhance the trustworthiness of your business with a few clicks. 
+36. **[Image Hover Effect](https://exclusiveaddons.com/image-hover-effect/)** - Apply beautiful hover animations and effects for your images throughout the site from our sets of presets. You can add text and heading as well.
 
 
 FREE EXTENSIONS:
