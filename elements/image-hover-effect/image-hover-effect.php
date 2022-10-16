@@ -25,7 +25,7 @@ class Image_Hover_Effect extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'exad exad-logo exad-alert';
+        return 'exad-logo icon-Image-Hover';
     }
 
     public function get_categories() {
