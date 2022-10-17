@@ -8,6 +8,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Image_Size;
 use \Elementor\Group_Control_Background;
 use \Elementor\Widget_Base;
 use \Elementor\Utils;
@@ -49,14 +50,6 @@ class Image_Hover_Effect extends Widget_Base {
               'label' => esc_html__( 'Content', 'exclusive-addons-elementor' )
             ]
         );
-
-        // $this->add_control(
-        //     'exad_ihe_update',
-        //     [
-        //         'label' => '<div class="elementor-update-preview" style="display: block;"><div class="elementor-update-preview-button-wrapper" style="display:block;"><button class="elementor-update-preview-button elementor-button elementor-button-success" style="background: #d30c5c; margin: 0 auto; display:block;">Apply Changes</button></div><div class="elementor-update-preview-title" style="display:block;text-align:center;margin-top: 10px;">'. __( 'Hit the button to apply changes if it hasn\'t already.', 'exclusive-addons-elementor-pro' ) .'</div></div>',
-        //         'type' => Controls_Manager::RAW_HTML
-        //     ]
-        // );
 
         $this->add_control(
 			'exad_ihe_hover_style',
@@ -151,6 +144,14 @@ class Image_Hover_Effect extends Widget_Base {
                 'dynamic' => [
 					'active' => true,
 				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'      => 'exad_ihe_image_size',
+				'default'   => 'large',
 			]
 		);
 
@@ -383,7 +384,7 @@ class Image_Hover_Effect extends Widget_Base {
             <?php if( $settings['exad_ihe_hover_style'] === 'style_1' ){ ?>
             <div class="exad-ihe-grid">
                 <figure class="exad-ihe-figure effect-<?php echo $settings['exad_ihe_effect']; ?>">
-                    <img src="<?php echo $settings['exad_ihe_image']['url'] ?>" alt="img01"/>
+					<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_ihe_image_size', 'exad_ihe_image' ); ?>
                     <figcaption class="exad-ihe-figcaption">
                         <<?php echo Utils::validate_html_tag( $settings['exad_ihe_title_html_tag'] ); ?> class="exad-ihe-title">
                             <?php echo wp_kses_post( $settings['exad_ihe_title'] ); ?>
