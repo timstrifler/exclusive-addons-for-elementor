@@ -105,7 +105,7 @@ We have packed our Elementor Addons with the most Useful 40+ free Elementor widg
 33. **[List Group](https://exclusiveaddons.com/list-group/)** - Exclusive Addons List Group widget lets you present essential information smartly with beautiful icons, numbers, or images with the highest number of customization options you have ever seen.
 34. **[Filterable Post](https://exclusiveaddons.com/filterable-post-demo/)** - Explore all the posts you have on a relevant topic using a category filter and make your post grid more lively, user-interactive with an Elementor post filter widget.
 35. **[Google Reviews](https://exclusiveaddons.com/google-reviews-demo/)** - Embed Google reviews into your WordPress website and enhance the trustworthiness of your business with a few clicks. 
-36. **[Image Hover Effect](https://exclusiveaddons.com/image-hover-effect/)** - Apply beautiful hover animations and effects for your images throughout the site from our sets of presets. You can add text and heading as well.
+36. **[Image Hover Effect](https://exclusiveaddons.com/image-hover-effect/)** - Apply Beautiful hover animation and effects for your images throughout the site from our sets of presets. You can add text and heading as well.
 
 
 FREE EXTENSIONS:
@@ -274,7 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 
-= 2.6.0 - 15/10/2022 =
+= 2.6.0 - 17/10/2022 =
 - New: Added Image Hover Effect Widget.
 - Tweak: Fix Post Grid Widget Read More Button Issue.
 - Tweak: Overall Bug fixes and improvements.
