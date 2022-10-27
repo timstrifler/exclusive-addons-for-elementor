@@ -19,12 +19,12 @@
   display: flex;
   overflow: hidden;
 }
-.exad-accordion-items .exad-accordion-single-item .exad-accordion-title h3 {
+.exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-accordion-heading {
   width: 100%;
   font-size: 15px;
 }
 
-.exad-accordion-single-item h3 {
+.exad-accordion-single-item .exad-accordion-heading {
   font-weight: 600;  
 }
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title:hover {
