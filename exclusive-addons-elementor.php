@@ -6,7 +6,7 @@
  * Version: 2.6.1
  * Author: DevsCred.com
  * Author URI: https://devscred.com/
- * Elementor tested up to: 3.7.8
+ * Elementor tested up to: 3.8.0
  * Elementor Pro tested up to: 3.7.7
  * Text Domain: exclusive-addons-elementor
  * Domain Path: /languages

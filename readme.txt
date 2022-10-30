@@ -275,7 +275,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 == Changelog ==
 
 = 2.6.1 - 30/10/2022 =
-- Tweak: Changes "H" Tag for Accordion widgets.
+- Tweak: Changed "H" Tag for Accordion widget.
 - Tweak: Overall Bug fixes and improvements.
 
 = 2.6.0 - 17/10/2022 =
