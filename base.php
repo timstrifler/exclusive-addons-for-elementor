@@ -81,7 +81,7 @@ final class Base {
         self::$is_pro_active = apply_filters( 'exad/pro_activated', false );
         $this->includes();
         $this->register_hooks();
-        $this->exclusive_addons_appsero_init();
+        // $this->exclusive_addons_appsero_init();
         $this->exad_wpml_free_compatiblity()->init();
     }
 
@@ -338,18 +338,19 @@ final class Base {
      *
      * @return void
      */
-    protected function exclusive_addons_appsero_init() {
+    // protected function exclusive_addons_appsero_init() {
 
-        if ( ! class_exists( '\Appsero\Client' ) ) {
-            require_once __DIR__ . '/vendor/appsero/src/Client.php';
-        }
+    //     if ( ! class_exists( 'Exclusive_Addons\Appsero\Client' ) ) {
+    //         require_once __DIR__ . '/vendor/appsero/src/Client.php';
+    //     }
 
-        $client = new \Appsero\Client( 'c3e3c997-fabf-42ad-bbd9-15cba7ab18ca', 'Exclusive Addons for Elementor', __FILE__ );
+    //     $this->appsero = new \Exclusive_Addons\Appsero\Client( 'c3e3c997-fabf-42ad-bbd9-15cba7ab18ca', 'Exclusive Addons for Elementor', __FILE__ );
 
-        // Active insights
-        $client->insights()->init();
+    //     // Active insights
+    //     $this->appsero->insights()->init();
+    //     //var_dump($this->appsero);
 
-    }
+    // }
 
 
     /**
