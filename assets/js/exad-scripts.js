@@ -946,7 +946,7 @@ var exclusiveTabs   = function( $scope, $ ) {
         var tab         = $scope.find( '.exad-tabs-'+ $scope.data("id") ),
         isTabActive     = false,
         isContentActive = false;
-        tab.find( ' > [data-tab]' ).each( function (){
+        tab.children().find( ' > [data-tab]' ).each( function (){
             if( $(this).hasClass( 'active' ) ){
                 isTabActive = true;
             }

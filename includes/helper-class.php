@@ -185,6 +185,7 @@ class Helper {
         $the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
         $words = explode(' ', $the_excerpt, intval( $length ) + 1);
 
+        
         if(count($words) > $length) :
             array_pop($words);
             array_push($words, '…');

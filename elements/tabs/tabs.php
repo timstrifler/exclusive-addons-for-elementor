@@ -268,7 +268,10 @@ class Tabs extends Widget_Base {
 				'fields'  => $tabs_repeater->get_controls(),
 				'seperator' => 'before',
 				'default'   => [
-					[ 'exad_exclusive_tab_title' => esc_html__( 'Tab Title 1', 'exclusive-addons-elementor' ) ],
+					[ 
+						'exad_exclusive_tab_title' => esc_html__( 'Tab Title 1', 'exclusive-addons-elementor' ),
+						'exad_exclusive_tab_show_as_default' => 'active' 
+					],
 					[ 
 						'exad_exclusive_tab_title'   => esc_html__( 'Tab Title 2', 'exclusive-addons-elementor' ),
 						'exad_exclusive_tab_content' => esc_html__( 'A quick brown fox jumps over the lazy dog. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' )
