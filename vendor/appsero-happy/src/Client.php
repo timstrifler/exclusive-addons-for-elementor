@@ -74,27 +74,6 @@ class Client {
      */
     public $textdomain;
 
-    /**
-     * The Object of Insights Class
-     *
-     * @var object
-     */
-    private $insights;
-
-    /**
-     * The Object of Updater Class
-     *
-     * @var object
-     */
-    private $updater;
-
-    /**
-     * The Object of License Class
-     *
-     * @var object
-     */
-    private $license;
-
 	/**
      * Initialize the class
      *
@@ -113,7 +92,7 @@ class Client {
     /**
      * Initialize insights class
      *
-     * @return Appsero\Insights
+     * @param Exclusive_Addons\Appsero\Insights
      */
     public function insights() {
 
@@ -121,20 +100,13 @@ class Client {
             require_once __DIR__ . '/Insights.php';
         }
 
-        // if already instantiated, return the cached one
-        if ( $this->insights ) {
-            return $this->insights;
-        }
-
-        $this->insights = new Insights( $this );
-
-        return $this->insights;
+        return new Insights( $this );
     }
 
     /**
      * Initialize plugin/theme updater
      *
-     * @return Appsero\Updater
+     * @param Exclusive_Addons\Appsero\Updater
      */
     public function updater() {
 
@@ -142,20 +114,13 @@ class Client {
             require_once __DIR__ . '/Updater.php';
         }
 
-        // if already instantiated, return the cached one
-        if ( $this->updater ) {
-            return $this->updater;
-        }
-
-        $this->updater = new Updater( $this );
-
-        return $this->updater;
+        return new Updater( $this );
     }
 
     /**
      * Initialize license checker
      *
-     * @return Appsero\License
+     * @param Exclusive_Addons\Appsero\License
      */
     public function license() {
 
@@ -163,14 +128,7 @@ class Client {
             require_once __DIR__ . '/License.php';
         }
 
-        // if already instantiated, return the cached one
-        if ( $this->license ) {
-            return $this->license;
-        }
-
-        $this->license = new License( $this );
-
-        return $this->license;
+        return new License( $this );
     }
 
     /**

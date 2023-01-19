@@ -18,7 +18,7 @@ class Updater {
     /**
      * Initialize the class
      *
-     * @param Appsero\Client
+     * @param Exclusive_Addons\Appsero\Client
      */
     public function __construct( Client $client ) {
 
@@ -143,7 +143,8 @@ class Updater {
      */
     private function get_project_latest_version() {
 
-        $license = $this->client->license()->get_license();
+        $license_option_key = 'appsero_' . md5( $this->client->slug ) . '_manage_license';
+        $license = get_option( $license_option_key, null );
 
         $params = array(
             'version'     => $this->client->project_version,
