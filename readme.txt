@@ -274,7 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 
-= 2.6.2 - 19/01/2023 =
+= 2.6.2 - 25/01/2023 =
 - Fix: Default item active issue fix for Tab widgets.
 - Fix: Elementor 3.10.1 compatibility.
 - Tweak: Overall Bug fixes and improvements.
