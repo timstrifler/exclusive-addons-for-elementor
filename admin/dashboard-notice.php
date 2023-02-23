@@ -223,30 +223,6 @@ class Exad_Plugin_Notice {
     }
 
     /**
-     * get_local_plugin_data
-     *
-     * @param  mixed $basename
-     * @return array|false
-     */
-    public function get_local_plugin_data($basename = '') {
-        if (empty($basename)) {
-            return false;
-        }
-
-        if (!function_exists('get_plugins')) {
-            include_once ABSPATH . 'wp-admin/includes/plugin.php';
-        }
-
-        $plugins = get_plugins();
-
-        if (!isset($plugins[$basename])) {
-            return false;
-        }
-
-        return $plugins[$basename];
-    }
-
-    /**
      * get_remote_plugin_data
      *
      * @param  mixed $slug
