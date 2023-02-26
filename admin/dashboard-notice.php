@@ -15,12 +15,14 @@ use \ExclusiveAddons\Elementor\Helper;
 class Exad_Plugin_Notice {
 
     public function __construct() {
-
+        
         add_action( 'wp_ajax_exad_install_plugin', array( $this, 'ajax_install_plugin' ) );
         add_action( 'wp_ajax_exad_upgrade_plugin', array( $this, 'ajax_upgrade_plugin' ) );
         add_action( 'wp_ajax_exad_activate_plugin', array( $this, 'ajax_activate_plugin' ) );
         add_action( 'wp_ajax_exad_notice_dismiss', array( $this, 'exad_notice_dismiss' ) );
+
     }
+
 
     /**
      * Admin notice
@@ -41,11 +43,8 @@ class Exad_Plugin_Notice {
         $is_exclude       				= ! empty( $_GET['post_type'] ) && in_array( $_GET['post_type'], [ 'elementor_library', 'product' ] );
         $ajax_url         				= admin_url( 'admin-ajax.php' );
         $nonce            				= wp_create_nonce( 'exad-addons-elementor' );
-        $exad_block_not_installed 		= Helper::exad_get_local_plugin_data( 'exclusive-blocks/exclusive-blocks.php' ) === false;
         $spc_not_installed 				= Helper::exad_get_local_plugin_data( 'shopcred/shopcred.php' ) === false;
-        $action_exad_block           	= $exad_block_not_installed ? 'install' : 'activate';
         $action_spc_block          		= $spc_not_installed ? 'install' : 'activate';
-        $button_exad_block_title     	= $exad_block_not_installed ? esc_html__( 'Install ShopCred', 'exclusive-addons-elementor' ) : esc_html__( 'Activate', 'exclusive-addons-elementor' );
         $button_spc_block_title     	= $spc_not_installed ? esc_html__( 'Install ShopCred', 'exclusive-addons-elementor' ) : esc_html__( 'Activate', 'exclusive-addons-elementor' );
 
         ?>
@@ -64,6 +63,7 @@ class Exad_Plugin_Notice {
 
                 .exad-notice-wrapper .wpnotice-content-wrapper {
                     display: flex;
+                    flex-direction: column;
                 }
 
                 .exad-notice-wrapper .wpnotice-content-wrapper > div {
@@ -71,13 +71,15 @@ class Exad_Plugin_Notice {
                 }
 
                 .exad-notice-wrapper .exad-notice-logo {
-                    width: 50px;
-                    text-align: center;
+                    width: 100%;
+                    padding: 15px;
+    
+                    text-align: left;
                     background: rgba(98, 0, 238, .1);
                 }
 
                 .exad-notice-wrapper .exad-notice-logo img {
-                    width: 25px;
+                    width: 10%;
                 }
 
                 .exad-notice-wrapper .exad-notice-content {
@@ -93,15 +95,13 @@ class Exad_Plugin_Notice {
         <div class="exad-notice-wrapper wpnotice-wrapper notice notice-info is-dismissible exad-blocks-promo-notice">
             <div class="wpnotice-content-wrapper">
                 <div class="exad-notice-logo">
-                    <img src="<?php echo esc_url( EXAD_ASSETS_URL . 'img/exad-admin-logo.svg' ); ?>" alt="Exclusive logo">
+                    <img src="<?php echo esc_url( EXAD_ASSETS_URL . 'img/main-logo.svg' ); ?>" alt="Exclusive logo">
                 </div>
                 <div class="exad-notice-content">
                     <h3><?php esc_html_e( 'Try ShopCred WooCommerce Blocks collection for Gutenberg', 'exclusive-addons-elementor' ); ?></h3>
                     <p><?php _e( 'Howdy 👋 Seems like you are using Gutenberg Editor on your website. Do you know you can get access to a bunch of WooCommerce Blocks for Gutenberg as well?', 'exclusive-addons-elementor' ); ?></p>
                     <p><?php _e( 'Try <strong>ShopCred WooCommerce Blocks for Gutenberg</strong> to make your Ecommerce Store even more powerful 🚀 For more info, <a href="https://exclusiveblocks.com/plugins/shopcred/" target="_blank">check out the demo</a>.', 'exclusive-addons-elementor' ); ?></p>
                     <p>
-                        <a href="#" class="button-primary exad-plugin-installer"
-                        data-action="<?php echo esc_attr( $action_exad_block ); ?>" data-slug="<?php echo esc_attr( 'shopcred' );?>" ><?php echo esc_html( $button_exad_block_title ); ?></a>
                         <a href="#" class="button-primary exad-plugin-installer"
                         data-action="<?php echo esc_attr( $action_spc_block ); ?>" data-slug="<?php echo esc_attr( 'shopcred' );?>"><?php echo esc_html( $button_spc_block_title ); ?></a>
                     </p>
@@ -167,7 +167,7 @@ class Exad_Plugin_Notice {
                             data: {
                                 action: "exad_activate_plugin",
                                 security: "<?php echo esc_html( $nonce ); ?>",
-                                basename: `"${slug}/${slug}.php"`,
+                                basename: "shopcred/shopcred.php",
                             },
                             success: function (response) {
                                 if (response.success) {
