@@ -45,12 +45,8 @@ class Exad_Plugin_Notice {
         $spc_not_installed 				= Helper::exad_get_local_plugin_data( 'shopcred/shopcred.php' ) === false;
         $action_exad_block           	= $exad_block_not_installed ? 'install' : 'activate';
         $action_spc_block          		= $spc_not_installed ? 'install' : 'activate';
-        $button_exad_block_title     	= $exad_block_not_installed ? esc_html__( 'Install Exclusive Blocks', 'exclusive-addons-elementor' ) : esc_html__( 'Activate', 'exclusive-addons-elementor' );
-        $button_spc_block_title     	= $spc_not_installed ? esc_html__( 'Install ShopCred Blocks', 'exclusive-addons-elementor' ) : esc_html__( 'Activate', 'exclusive-addons-elementor' );
-
-        // if ( $screen->parent_base !== 'edit' ) {
-        // 	return;
-        // }
+        $button_exad_block_title     	= $exad_block_not_installed ? esc_html__( 'Install ShopCred', 'exclusive-addons-elementor' ) : esc_html__( 'Activate', 'exclusive-addons-elementor' );
+        $button_spc_block_title     	= $spc_not_installed ? esc_html__( 'Install ShopCred', 'exclusive-addons-elementor' ) : esc_html__( 'Activate', 'exclusive-addons-elementor' );
 
         ?>
             <style>
@@ -100,12 +96,12 @@ class Exad_Plugin_Notice {
                     <img src="<?php echo esc_url( EXAD_ASSETS_URL . 'img/exad-admin-logo.svg' ); ?>" alt="Exclusive logo">
                 </div>
                 <div class="exad-notice-content">
-                    <h3><?php esc_html_e( 'Try Exclusive & ShopCred Blocks for Gutenberg', 'exclusive-addons-elementor' ); ?></h3>
-                    <p><?php _e( 'Howdy 👋 Seems like you are using Gutenberg Editor on your website. Do you know you can get access to all the <strong>Exclusive Blocks</strong> widgets for Gutenberg as well?', 'exclusive-addons-elementor' ); ?></p>
-                    <p><?php _e( 'Try <strong>Exclusive Blocks for Gutenberg</strong> to make your WordPress design experience even more powerful 🚀 For more info, <a href="https://exclusiveblocks.com/plugins/shopcred/" target="_blank">check out the demo</a>.', 'exclusive-addons-elementor' ); ?></p>
+                    <h3><?php esc_html_e( 'Try ShopCred WooCommerce Blocks collection for Gutenberg', 'exclusive-addons-elementor' ); ?></h3>
+                    <p><?php _e( 'Howdy 👋 Seems like you are using Gutenberg Editor on your website. Do you know you can get access to a bunch of WooCommerce Blocks for Gutenberg as well?', 'exclusive-addons-elementor' ); ?></p>
+                    <p><?php _e( 'Try <strong>ShopCred WooCommerce Blocks for Gutenberg</strong> to make your Ecommerce Store even more powerful 🚀 For more info, <a href="https://exclusiveblocks.com/plugins/shopcred/" target="_blank">check out the demo</a>.', 'exclusive-addons-elementor' ); ?></p>
                     <p>
                         <a href="#" class="button-primary exad-plugin-installer"
-                        data-action="<?php echo esc_attr( $action_exad_block ); ?>" data-slug="<?php echo esc_attr( 'exclusive-blocks' );?>" ><?php echo esc_html( $button_exad_block_title ); ?></a>
+                        data-action="<?php echo esc_attr( $action_exad_block ); ?>" data-slug="<?php echo esc_attr( 'shopcred' );?>" ><?php echo esc_html( $button_exad_block_title ); ?></a>
                         <a href="#" class="button-primary exad-plugin-installer"
                         data-action="<?php echo esc_attr( $action_spc_block ); ?>" data-slug="<?php echo esc_attr( 'shopcred' );?>"><?php echo esc_html( $button_spc_block_title ); ?></a>
                     </p>
