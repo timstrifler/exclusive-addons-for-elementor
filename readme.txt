@@ -3,7 +3,7 @@ Contributors: devscred, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
 Tested up to: 6.1.1
-Stable tag: 2.6.2
+Stable tag: 2.6.3
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -273,6 +273,9 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+
+= 2.6.3 - 26/02/2023 =
+- Tweak: Overall Bug fixes and improvements.
 
 = 2.6.2 - 25/01/2023 =
 - Fix: Default item active issue fix for Tab widgets.
