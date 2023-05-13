@@ -274,8 +274,8 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 
-= 2.6.5 - 11/05/2023 =
-- Fix: Elementor 3.13.1 compatibility.
+= 2.6.5 - 13/05/2023 =
+- Fix: Elementor compatibility.
 - Tweak: Overall Bug fixes and improvements.
 
 = 2.6.4 - 26/02/2023 =
