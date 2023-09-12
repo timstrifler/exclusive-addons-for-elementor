@@ -1,14 +1,14 @@
 {
   "name": "exclusive-addons-elementor",
-  "version": "2.1.3",
-  "description": "Exclusive Addons Elementor by Devscred",
+  "version": "2.6.6",
+  "description": "Exclusive Addons for Elementor",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:mmaumio/exclusive-addons-elementor.git"
+    "url": "git+git@github.com:timstrifler/exclusive-addons-for-elementor.git"
   },
   "keywords": [
     "exclusive",
