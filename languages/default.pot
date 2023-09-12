@@ -67,47 +67,27 @@ msgstr ""
 msgid "PHP"
 msgstr ""
 
-#: admin/dashboard-notice.php:48
-msgid "Install ShopCred"
-msgstr ""
-
-#: admin/dashboard-notice.php:48
-msgid "Activate"
-msgstr ""
-
-#: admin/dashboard-notice.php:101
-msgid "Try ShopCred WooCommerce Blocks collection for Gutenberg"
-msgstr ""
-
-#: admin/dashboard-notice.php:102
-msgid "Howdy 👋 Seems like you are using Gutenberg Editor on your website. Do you know you can get access to a bunch of WooCommerce Blocks for Gutenberg as well?"
-msgstr ""
-
-#: admin/dashboard-notice.php:103
-msgid "Try <strong>ShopCred WooCommerce Blocks for Gutenberg</strong> to make your Ecommerce Store even more powerful 🚀 For more info, <a href=\"https://exclusiveblocks.com/plugins/shopcred/\" target=\"_blank\">check out the demo</a>."
-msgstr ""
-
-#: admin/dashboard-notice.php:324, admin/dashboard-notice.php:341, admin/dashboard-notice.php:359
+#: admin/dashboard-notice.php:129, admin/dashboard-notice.php:146, admin/dashboard-notice.php:164
 msgid "you are not allowed to do this action"
 msgstr ""
 
-#: admin/dashboard-notice.php:334
+#: admin/dashboard-notice.php:139
 msgid "Plugin is installed successfully!"
 msgstr ""
 
-#: admin/dashboard-notice.php:351
+#: admin/dashboard-notice.php:156
 msgid "Plugin is updated successfully!"
 msgstr ""
 
-#: admin/dashboard-notice.php:370
+#: admin/dashboard-notice.php:175
 msgid "Plugin couldn't be activated."
 msgstr ""
 
-#: admin/dashboard-notice.php:372
+#: admin/dashboard-notice.php:177
 msgid "Plugin is activated successfully!"
 msgstr ""
 
-#: admin/dashboard-notice.php:379
+#: admin/dashboard-notice.php:184
 msgid "You are not allowed to do this action"
 msgstr ""
 
