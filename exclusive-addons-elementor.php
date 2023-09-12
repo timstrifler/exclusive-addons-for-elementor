@@ -6,8 +6,8 @@
  * Version: 2.6.6
  * Author: DevsCred.com
  * Author URI: https://devscred.com/
- * Elementor tested up to: 3.13.2
- * Elementor Pro tested up to: 3.13.1
+ * Elementor tested up to: 3.16.1
+ * Elementor Pro tested up to: 3.15.1
  * Text Domain: exclusive-addons-elementor
  * Domain Path: /languages
  * License: GPL3
