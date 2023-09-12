@@ -7,7 +7,7 @@
  * Author: Exclusive Addons
  * Author URI: https://exclusiveaddons.com
  * Elementor tested up to: 3.16.1
- * Elementor Pro tested up to: 3.15.1
+ * Elementor Pro tested up to: 3.16.0
  * Text Domain: exclusive-addons-elementor
  * Domain Path: /languages
  * License: GPL3
