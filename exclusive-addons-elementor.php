@@ -4,8 +4,8 @@
  * Plugin URI: https://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widgets for Elementor with all the customizations you ever imagined.
  * Version: 2.6.6
- * Author: DevsCred.com
- * Author URI: https://devscred.com/
+ * Author: Exclusive Addons
+ * Author URI: https://exclusiveaddons.com
  * Elementor tested up to: 3.16.1
  * Elementor Pro tested up to: 3.15.1
  * Text Domain: exclusive-addons-elementor
