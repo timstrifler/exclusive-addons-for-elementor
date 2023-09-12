@@ -13,6 +13,7 @@ use \Elementor\Control_Media;
 use \Elementor\Icons_Manager;
 use \Elementor\Repeater;
 use \Elementor\Widget_Base;
+use \Elementor\Utils;
 use \ExclusiveAddons\Elementor\Helper;
 
 class Accordion extends Widget_Base {
@@ -49,6 +50,17 @@ class Accordion extends Widget_Base {
   				'label' => esc_html__( 'Contents', 'exclusive-addons-elementor' )
   			]
   		);
+
+		$this->add_control(
+            'exad_accordion_title_html_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+				'separator' => 'after',
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
+		);
 
   		$repeater = new Repeater();
 
@@ -163,7 +175,10 @@ class Accordion extends Widget_Base {
         $repeater->add_control(
 			'exad_accordion_image', [
 				'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
-				'type'  => Controls_Manager::MEDIA
+				'type'  => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+				]
 			]
 		);
 
@@ -205,7 +220,7 @@ class Accordion extends Widget_Base {
 		        'label'     => __( 'Text Color', 'exclusive-addons-elementor' ),
 		        'type'      => Controls_Manager::COLOR,
 		        'selectors' => [
-		            '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title h3' => 'color: {{VALUE}};'
+		            '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title .exad-accordion-heading' => 'color: {{VALUE}};'
 		        ]
 		    ]
 		);
@@ -227,7 +242,7 @@ class Accordion extends Widget_Base {
 		        'label'     => __( 'Hover Color', 'exclusive-addons-elementor' ),
 		        'type'      => Controls_Manager::COLOR,
 		        'selectors' => [
-		            '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title:hover h3' => 'color: {{VALUE}};'
+		            '{{WRAPPER}} {{CURRENT_ITEM}}.exad-accordion-single-item .exad-accordion-title:hover .exad-accordion-heading' => 'color: {{VALUE}};'
 		        ]
 		    ]
 		);
@@ -427,7 +442,7 @@ class Accordion extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'            => 'exad_exclusive_accordion_title_typography',
-				'selector'        => '{{WRAPPER}} .exad-accordion-single-item h3',
+				'selector'        => '{{WRAPPER}} .exad-accordion-single-item .exad-accordion-heading',
                 'fields_options'  => [
                     'font_weight' => [
                         'default' => '600'
@@ -449,7 +464,7 @@ class Accordion extends Widget_Base {
 					'left'   => '20'
 				],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item h3' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-heading' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -467,7 +482,7 @@ class Accordion extends Widget_Base {
 					'left'   => '0'
 				],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title h3' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-accordion-heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -527,7 +542,7 @@ class Accordion extends Widget_Base {
 						'type'		=> Controls_Manager::COLOR,
 						'default'	=> '#000000',
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item h3' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-heading' => 'color: {{VALUE}};'
 						]
 					]
 				);
@@ -553,8 +568,8 @@ class Accordion extends Widget_Base {
 						'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title:hover h3' => 'color: {{VALUE}};',
-							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active:hover h3' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title:hover .exad-accordion-heading' => 'color: {{VALUE}};',
+							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active:hover .exad-accordion-heading' => 'color: {{VALUE}};'
 						]
 					]
 				);
@@ -580,7 +595,7 @@ class Accordion extends Widget_Base {
 						'label'		=> esc_html__( 'Text Color', 'exclusive-addons-elementor' ),
 						'type'		=> Controls_Manager::COLOR,
 						'selectors'	=> [
-							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active h3' => 'color: {{VALUE}} !important;'
+							'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active .exad-accordion-heading' => 'color: {{VALUE}} !important;'
 						]
 					]
 				);
@@ -1310,7 +1325,9 @@ class Accordion extends Widget_Base {
 							</span>
 						<?php endif; ?>
 
-                        <h3 <?php echo $this->get_render_attribute_string( 'exad_accordion_heading' ); ?>><?php echo Helper::exad_wp_kses($accordion['exad_exclusive_accordion_title']); ?></h3>
+                        <<?php echo Utils::validate_html_tag( $settings['exad_accordion_title_html_tag'] ); ?>  <?php echo $this->get_render_attribute_string( 'exad_accordion_heading' ); ?>>
+							<?php echo Helper::exad_wp_kses($accordion['exad_exclusive_accordion_title']); ?>
+						</<?php echo Utils::validate_html_tag( $settings['exad_accordion_title_html_tag'] ); ?> >
 
                         <?php if( 'yes' === $settings['exad_exclusive_accordion_tab_title_show_active_inactive_icon']) : ?>
                             <div class="exad-active-inactive-icon">

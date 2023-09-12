@@ -10,6 +10,8 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
+use \Elementor\Utils;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Call_To_Action extends Widget_Base {
 
@@ -70,6 +72,17 @@ class Call_To_Action extends Widget_Base {
 				]
 			]
 		);
+
+        $this->add_control(
+            'exad_heading_title_html_tag',
+            [
+                'label'   => __('Heading HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'separator' => 'after',
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h2',
+            ]
+        );
 
 		$this->add_control(
 			'exad_cta_description',
@@ -323,7 +336,7 @@ class Call_To_Action extends Widget_Base {
                 'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                 'default'   => '#132c47',                
                 'selectors' => [
-                    '{{WRAPPER}} h1.exad-call-to-action-title' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-call-to-action-title' => 'color: {{VALUE}};'
                 ]
             ]
         );
@@ -332,7 +345,7 @@ class Call_To_Action extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'           => 'exad_cta_heading_typography',
-                'selector'       => '{{WRAPPER}} h1.exad-call-to-action-title',
+                'selector'       => '{{WRAPPER}} .exad-call-to-action-title',
                 'fields_options' => [
                     'font_size'   => [
                         'default' => [
@@ -354,7 +367,7 @@ class Call_To_Action extends Widget_Base {
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', 'em', '%' ],                
                 'selectors'  => [
-                    '{{WRAPPER}} h1.exad-call-to-action-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-call-to-action-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
         );
@@ -931,7 +944,9 @@ class Call_To_Action extends Widget_Base {
                     <?php    
                     }
 
-                    $heading ? printf( '<h1 '.$this->get_render_attribute_string( 'exad_cta_heading' ).'>%s</h1>', wp_kses_post( $heading ) ) : '';
+                    $title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ), $this->get_render_attribute_string( 'exad_cta_heading' ), wp_kses_post( $heading ) );
+
+                    echo $title_html;
 
                     if ( $details ) : ?>
                         <div <?php echo $this->get_render_attribute_string( 'exad_cta_description' ); ?>>
@@ -1006,7 +1021,7 @@ class Call_To_Action extends Widget_Base {
 
             var secondaryBtnTarget = settings.exad_cta_secondary_btn_link.is_external ? ' target="_blank"' : '';
             var secondaryBtnNofollow = settings.exad_cta_secondary_btn_link.nofollow ? ' rel="nofollow"' : '';
-
+            var headerSizeTag = elementor.helpers.validateHTMLTag( settings.exad_heading_title_html_tag );
         #>
         <div {{{ view.getRenderAttributeString( 'exad_call_to_action_wrapper' ) }}}>
             <div class="exad-call-to-action-content">
@@ -1019,9 +1034,9 @@ class Call_To_Action extends Widget_Base {
                     <# } #>
 
                     <# if ( settings.exad_cta_heading ) { #>
-                        <h1 {{{ view.getRenderAttributeString( 'exad_cta_heading' ) }}}>
+                        <{{{headerSizeTag}}} {{{ view.getRenderAttributeString( 'exad_cta_heading' ) }}}>
                             {{{ settings.exad_cta_heading }}}
-                        </h1>
+                        </{{{headerSizeTag}}}>
                     <# } #>
 
                     <# if ( settings.exad_cta_description ) { #>

@@ -1,0 +1,357 @@
+<wpml-config>
+    <elementor-widgets>
+        <widget name="exad-exclusive-accordion">
+            <fields-in-item items_of="exad_exclusive_accordion_tab">
+                <field type="Accordion : Title" editor_type="LINE">exad_exclusive_accordion_title</field> 
+                <field type="Accordion : Content" editor_type="VISUAL">exad_exclusive_accordion_content</field>
+                <field type="Accordion : Button Text" editor_type="LINE">exad_accordion_read_more_btn_text</field>
+                <field type="Accordion : Button URL" editor_type="LINK" key_of="exad_accordion_read_more_btn_url">url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="exad-exclusive-alert">
+			<conditions>
+				<condition key="widgetType">exad-exclusive-alert</condition>
+			</conditions>
+			<fields>
+				<field type="Alert : Title" editor_type="AREA">exad_alert_content_title</field>
+				<field type="Alert : Description" editor_type="AREA">exad_alert_content_description</field>
+				<field type="Alert : Primary Button" editor_type="LINE">exad_alert_close_primary_button</field>
+				<field type="Alert : Secondary Button" editor_type="LINE">exad_alert_close_secondary_button</field>
+			</fields>
+		</widget>
+        <widget name="exad-animated-text">
+			<conditions>
+				<condition key="widgetType">exad-animated-text</condition>
+			</conditions>
+			<fields>
+				<field type="Animated Text : Before Text" editor_type="AREA">exad_animated_text_before_text</field>
+				<field type="Animated Text : Animated Text" editor_type="AREA">exad_animated_text_animated_heading</field>
+				<field type="Animated Text : After Text" editor_type="AREA">exad_animated_text_after_text</field>
+			</fields>
+		</widget>
+        <widget name="exad-exclusive-button">
+            <conditions>
+                <condition key="widgetType">exad-exclusive-button</condition>
+            </conditions>
+            <fields>
+                <field type="Button : Button Text" editor_type="LINE">exclusive_button_text</field> 
+                <field type="Button : Link URL" editor_type="LINK" key_of="exclusive_button_link_url">url</field>
+            </fields>
+        </widget>
+        <widget name="exad-call-to-action">
+            <conditions>
+                <condition key="widgetType">exad-call-to-action</condition>
+            </conditions>
+            <fields>
+                <field type="Call To Action : Heading" editor_type="LINE">exad_cta_heading</field> 
+                <field type="Call To Action : Primary Button Text" editor_type="LINE">exad_cta_primary_btn</field>
+                <field type="Call To Action : Secondary Button Text" editor_type="LINE">exad_cta_secondary_btn</field>
+                <field type="Call To Action : Primary Button URL" editor_type="LINK" key_of="exad_cta_primary_btn_link">url</field>
+                <field type="Call To Action : Secondary Button URL" editor_type="LINK" key_of="exad_cta_secondary_btn_link">url</field>
+            </fields>
+        </widget>
+        <widget name="exad-exclusive-card">
+            <conditions>
+                <condition key="widgetType">exad-exclusive-card</condition>
+            </conditions>
+            <fields>
+                <field type="Card : Badge Text" editor_type="LINE">exad_card_badge</field> 
+                <field type="Card : Title" editor_type="LINE">exad_card_title</field>
+                <field type="Card : Title Link" editor_type="LINK" key_of="exad_card_title_link">url</field>
+                <field type="Card : Tag" editor_type="LINE">exad_card_tag</field>
+                <field type="Card : Description" editor_type="AREA">exad_card_description</field>
+                <field type="Card : Button Text" editor_type="LINE">exad_card_action_text</field>
+                <field type="Card : Button URL" editor_type="LINK" key_of="exad_card_action_link">url</field>
+            </fields>
+        </widget>
+        <widget name="exad-contact-form-7">
+            <conditions>
+                <condition key="widgetType">exad-contact-form-7</condition>
+            </conditions>
+            <fields>
+                <field type="Contact Form 7 : Title" editor_type="LINE">exad_contact_form_title_text</field> 
+            </fields>
+        </widget>
+        <widget name="exad-countdown-timer">
+            <conditions>
+                <condition key="widgetType">exad-countdown-timer</condition>
+            </conditions>
+            <fields>
+                <field type="Countdown : Expired Title" editor_type="LINE">exad_countdown_expired_text</field> 
+            </fields>
+        </widget>
+        <widget name="exad-covid-19">
+            <conditions>
+                <condition key="widgetType">exad-covid-19</condition>
+            </conditions>
+            <fields>
+                <field type="Covid 19 : Updated Text" editor_type="LINE">exad_corona_update_text</field> 
+                <field type="Covid 19 : Search Placeholder Text" editor_type="LINE">exad_corona_enable_search_filter_text</field> 
+            </fields>
+        </widget>
+        <widget name="exad-dual-button">
+            <conditions>
+                <condition key="widgetType">exad-dual-button</condition>
+            </conditions>
+            <fields>
+                <field type="Dual Button : Primary Text" editor_type="LINE">exad_dual_button_primary_button_text</field>
+                <field type="Dual Button : Primary Button URL" editor_type="LINK" key_of="exad_dual_button_primary_button_url">url</field>
+                <field type="Dual Button : Button Connector Text" editor_type="LINE">exad_dual_button_connector_text</field>
+                <field type="Dual Button : Secondary Text" editor_type="LINE">exad_dual_button_secondary_button_text</field>
+                <field type="Dual Button : Secondary Button URL" editor_type="LINK" key_of="exad_dual_button_secondary_button_url">url</field>
+            </fields>
+        </widget>
+        <widget name="exad-exclusive-dual-heading">
+            <conditions>
+                <condition key="widgetType">exad-exclusive-dual-heading</condition>
+            </conditions>
+            <fields>
+                <field type="Dual Heading : First Heading" editor_type="LINE">exad_dual_first_heading</field>
+                <field type="Dual Heading : Heading URL" editor_type="LINK" key_of="exad_dual_heading_title_link">url</field>
+                <field type="Dual Heading : Second Heading" editor_type="LINE">exad_dual_second_heading</field>
+                <field type="Dual Heading : Sub Heading" editor_type="AREA">exad_dual_heading_description</field>
+            </fields>
+        </widget>
+        <widget name="exad-exclusive-dual-heading">
+            <conditions>
+                <condition key="widgetType">exad-exclusive-dual-heading</condition>
+            </conditions>
+            <fields>
+                <field type="Dual Heading : First Heading" editor_type="LINE">exad_dual_first_heading</field>
+                <field type="Dual Heading : Heading URL" editor_type="LINK" key_of="exad_dual_heading_title_link">url</field>
+                <field type="Dual Heading : Second Heading" editor_type="LINE">exad_dual_second_heading</field>
+                <field type="Dual Heading : Sub Heading" editor_type="AREA">exad_dual_heading_description</field>
+            </fields>
+        </widget>
+        <widget name="exad-facebook-feed">
+            <conditions>
+                <condition key="widgetType">exad-facebook-feed</condition>
+            </conditions>
+            <fields>
+                <field type="Facebook Feed : Page ID" editor_type="LINE">exad_facebook_page_id</field>
+                <field type="Facebook Feed : Access Token" editor_type="LINE">exad_facebook_access_token</field>
+                <field type="Facebook Feed : Read More Text" editor_type="LINE">read_more_text</field>
+                <field type="Facebook Feed : Load More Text" editor_type="LINE">load_more_text</field>
+            </fields>
+        </widget>
+        <widget name="exad-filterable-gallery">
+            <fields>
+                <field type="Filterable Gallery : Text for All Item" editor_type="LINE">exad_fg_all_items_text</field>
+            </fields>
+            <fields-in-item items_of="exad_fg_gallery_items">
+                <field type="Filterable Gallery : Title" editor_type="LINE">exad_fg_gallery_item_title</field>
+                <field type="Filterable Gallery : Details" editor_type="AREA">exad_fg_gallery_item_content</field>
+                <field type="Filterable Gallery : Control Name" editor_type="LINE">exad_fg_gallery_control_name</field>
+                <field type="Dual Button : Image Link URL" editor_type="LINK" key_of="exad_fg_gallery_img_link">url</field>
+            </fields-in-item>
+        </widget>
+         <widget name="exad-filterable-post">
+            <conditions>
+                <condition key="widgetType">exad-filterable-post</condition>
+            </conditions>
+            <fields>
+                <field type="Filterable Post : Button Text" editor_type="LINE">exad_post_grid_read_more_btn_text</field>
+                <field type="Filterable Post : Text for All Item" editor_type="LINE">exad_post_grid_all_item_text</field>
+                <field type="Filterable Post : Author Name Tag" editor_type="LINE">exad_post_grid_user_name_tag</field>
+                <field type="Filterable Post : Date Tag" editor_type="LINE">exad_post_grid_date_tag</field>
+            </fields>
+        </widget>
+        <widget name="exad-flipbox">
+            <conditions>
+                <condition key="widgetType">exad-flipbox</condition>
+            </conditions>
+            <fields>
+                <field type="Flip Box : Front Title" editor_type="LINE">exad_flipbox_front_title</field>
+                <field type="Flip Box : Front Description" editor_type="AREA">exad_flipbox_front_description</field>
+                <field type="Flip Box : Back Title" editor_type="LINE">exad_flipbox_back_title</field>
+                <field type="Flip Box : Back Description" editor_type="AREA">exad_flipbox_back_description</field>
+                <field type="Flip Box : Button Text" editor_type="LINE">exad_flipbox_button_text</field>
+                <field type="Flip Box : Button Link URL" editor_type="LINK" key_of="exad_flipbox_button_link">url</field>
+            </fields>
+        </widget>
+        <widget name="exad-google-maps">
+            <conditions>
+                <condition key="widgetType">exad-google-maps</condition>
+            </conditions>
+            <fields>
+                <field type="Google Maps : Latitude" editor_type="LINE">exad_google_map_lat</field>
+                <field type="Google Maps : Longitude" editor_type="LINE">exad_google_map_lng</field>
+            </fields>
+        </widget>
+        <widget name="exad-google-reviews">
+            <conditions>
+                <condition key="widgetType">exad-google-reviews</condition>
+            </conditions>
+            <fields>
+                <field type="Google Reviews : Place ID" editor_type="LINE">exad_google_place_id</field>
+                <field type="Google Reviews : Custom Language" editor_type="LINE">exad_google_review_language_custom</field>
+            </fields>
+        </widget>
+        <widget name="exad-google-maps">
+            <conditions>
+                <condition key="widgetType">exad-google-maps</condition>
+            </conditions>
+            <fields>
+                <field type="Google Maps : Latitude" editor_type="LINE">exad_google_map_lat</field>
+                <field type="Google Maps : Longitude" editor_type="LINE">exad_google_map_lng</field>
+            </fields>
+        </widget>
+        <widget name="exad-exclusive-heading">
+            <conditions>
+                <condition key="widgetType">exad-exclusive-heading</condition>
+            </conditions>
+            <fields>
+                <field type="Heading : Heading" editor_type="LINE">exad_heading_title</field>
+                 <field type="Heading : Link URL" editor_type="LINK" key_of="exad_heading_title_link">url</field>
+                <field type="Heading : Sub Heading" editor_type="AREA">exad_heading_subheading</field>
+            </fields>
+        </widget>
+        <widget name="exad-image-comparison">
+            <conditions>
+                <condition key="widgetType">exad-image-comparison</condition>
+            </conditions>
+            <fields>
+                <field type="Image Comparison : Overlay Before Text(On Hover)" editor_type="LINE">exad_before_label</field>
+                <field type="Image Comparison : Overlay After Text(On Hover)" editor_type="LINE">exad_after_label</field>
+            </fields>
+        </widget>
+        <widget name="exad-infobox">
+            <conditions>
+                <condition key="widgetType">exad-infobox</condition>
+            </conditions>
+            <fields>
+                <field type="Info Box : Title" editor_type="LINE">exad_infobox_title</field>
+                <field type="Info Box : Title Link URL" editor_type="LINK" key_of="exad_infobox_title_link">url</field>
+                <field type="Info Box : Description" editor_type="AREA">exad_infobox_description</field>
+            </fields>
+        </widget>
+        <widget name="exad-list-group">
+            <fields-in-item items_of="exad_list_group">
+                <field type="List Group : Number" editor_type="LINE">exad_list_icon_number</field>
+                <field type="List Group : Text" editor_type="LINE">exad_list_text</field>
+                <field type="List Group : List Link URL" editor_type="LINK" key_of="exad_list_link">url</field>
+            </fields-in-item>
+        </widget>
+         <widget name="exad-logo">
+            <conditions>
+                <condition key="widgetType">exad-logo</condition>
+            </conditions>
+            <fields>
+                <field type="Logo Box : Logo Link URL" editor_type="LINK" key_of="exad_logo_box_link">url</field>
+            </fields>
+        </widget>
+        <widget name="exad-modal-popup">
+            <fields>
+                <field type="Modal Popup : Youtube Video URL" editor_type="LINE">exad_modal_youtube_video_url</field>
+                <field type="Modal Popup : Vimeo Video URL" editor_type="LINE">exad_modal_vimeo_video_url</field>
+                <field type="Modal Popup : External Page URL" editor_type="LINE">exad_modal_external_page_url</field>
+                <field type="Modal Popup : Enter Your Shortcode" editor_type="LINE">exad_modal_shortcode</field>
+                <field type="Modal Popup : Button Text" editor_type="VISUAL">exad_modal_btn_text</field>
+                <field type="Modal Popup : Add your content here (HTML/Shortcode)" editor_type="LINE">exad_modal_html_content</field>
+            </fields>
+            <fields-in-item items_of="exad_modal_image_gallery_repeater">
+                <field type="News Ticker : Description" editor_type="AREA">exad_modal_image_gallery_text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="exad-news-ticker">
+            <fields>
+                <field type="News Ticker : Label" editor_type="LINE">exad_news_ticker_label</field>
+            </fields>
+            <fields-in-item items_of="exad_news_ticker_items">
+                <field type="News Ticker : Content" editor_type="AREA">exad_news_ticker_title</field>
+                <field type="News Ticker : Link URL" editor_type="LINK" key_of="exad_news_ticker_link">url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="exad-post-grid">
+            <conditions>
+                <condition key="widgetType">exad-post-grid</condition>
+            </conditions>
+            <fields>
+                <field type="Post Grid : Button Text" editor_type="LINE">exad_post_grid_read_more_btn_text</field>
+                <field type="Post Grid : Load More Button text" editor_type="LINE">exad_post_grid_enable_load_more_btn_text</field>
+                <field type="Post Grid : Author Name Tag" editor_type="LINE">exad_post_grid_user_name_tag</field>
+                <field type="Post Grid : Date Tag" editor_type="LINE">exad_post_grid_date_tag</field>
+            </fields>
+        </widget>
+         <widget name="exad-pricing-menu">
+            <fields-in-item items_of="pricing_menu_repeater">
+                <field type="Pricing Menu : Title" editor_type="LINE">exad_pricing_menu_title</field>
+                <field type="Pricing Menu : Description" editor_type="AREA">exad_pricing_menu_description</field>
+                <field type="Pricing Menu : Price" editor_type="LINE">exad_pricing_menu_price</field>
+                <field type="Pricing Menu : Order Action" editor_type="LINE">exad_pricing_menu_action_text</field>
+                <field type="Pricing Menu : Button Link URL" editor_type="LINK" key_of="exad_pricing_menu_btn_link">url</field>
+            </fields-in-item>
+        </widget>
+         <widget name="exad-pricing-table">
+            <fields>
+                <field type="Pricing Table : Promo Title" editor_type="LINE">exad_pricing_table_promo_title</field>
+                <field type="Pricing Table : Title" editor_type="LINE">exad_pricing_table_title</field>
+                <field type="Pricing Table : Subtitle" editor_type="AREA">exad_pricing_table_subtitle</field>
+                <field type="Pricing Table : Featured Text" editor_type="LINE">exad_pricing_table_featured_tag_text</field>
+                <field type="Pricing Table : Price" editor_type="LINE">exad_pricing_table_price</field>
+                <field type="Pricing Table : Price Currency" editor_type="LINE">exad_pricing_table_price_cur</field>
+                <field type="Pricing Table : Price By" editor_type="LINE">exad_pricing_table_price_by</field>
+                <field type="Pricing Table : Separated By" editor_type="LINE">exad_pricing_table_period_separator</field>
+                <field type="Pricing Table : Ragular Price" editor_type="LINE">exad_pricing_table_regular_price</field>
+                <field type="Pricing Table : Regular Price Currency" editor_type="LINE">exad_pricing_table_regular_price_cur</field>
+                <field type="Pricing Table : Price Subtitle" editor_type="AREA">exad_pricing_table_price_subtitle</field>
+                <field type="Pricing Table : Button Text" editor_type="AREA">exad_pricing_table_btn</field>
+                <field type="Pricing Table : Button Link URL" editor_type="LINK" key_of="exad_pricing_table_btn_link">url</field>
+                <field type="Pricing Table : Note Text" editor_type="AREA">exad_pricing_table_note_text</field>
+            </fields>
+            <fields-in-item items_of="exad_pricing_table_items">
+                <field type="Pricing Table : List Item" editor_type="LINE">exad_pricing_table_item</field>
+            </fields-in-item>
+        </widget>
+         <widget name="exad-progress-bar">
+            <conditions>
+                <condition key="widgetType">exad-progress-bar</condition>
+            </conditions>
+            <fields>
+                <field type="Progress Bar : Title" editor_type="LINE">exad_progress_bar_title</field>
+            </fields>
+        </widget>  
+        <widget name="exad-exclusive-tabs">
+            <fields-in-item items_of="exad_exclusive_tabs">
+                <field type="Tabs : Enter your shortcode" editor_type="LINE">exad_tab_content_shortcode</field>
+                <field type="Tabs : Title" editor_type="LINE">exad_exclusive_tab_title</field>
+                <field type="Tabs : Content" editor_type="VISUAL">exad_exclusive_tab_content</field>
+                <field type="Tabs : Details Button Text" editor_type="VISUAL">exad_exclusive_tab_detail_btn</field>
+                <field type="Tabs : Details Button Link" editor_type="LINK" key_of="exad_exclusive_tab_detail_btn_link">url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="exad-team-member">
+            <fields>
+                <field type="Team Member : Name" editor_type="LINE">exad_team_member_name</field>
+                <field type="Team Member : Designation" editor_type="LINE">exad_team_member_designation</field>
+                <field type="Team Member : Description" editor_type="AREA">exad_team_member_description</field>
+                <field type="Team Member : Button Text" editor_type="LINE">exad_team_members_cta_btn_text</field>
+                <field type="Team Member : Button Link URL" editor_type="LINK" key_of="exad_team_members_cta_btn_link">url</field>
+            </fields>
+            <fields-in-item items_of="exad_team_member_social_profile_links">
+                <field type="Team Member : Link URL" editor_type="LINK" key_of="link">url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="exad-testimonial">
+            <conditions>
+                <condition key="widgetType">exad-testimonial</condition>
+            </conditions>
+            <fields>
+                <field type="Testimonial : Testimonial" editor_type="AREA">exad_testimonial_description</field>
+                <field type="Testimonial : Name" editor_type="LINE">exad_testimonial_name</field>
+                <field type="Testimonial : Link URL" editor_type="LINK" key_of="exad_testimonial_url">url</field>
+                <field type="Testimonial : Designation" editor_type="LINE">exad_testimonial_designation</field>
+            </fields>
+        </widget>    
+        <widget name="exad-tooltip">
+            <conditions>
+                <condition key="widgetType">exad-tooltip</condition>
+            </conditions>
+            <fields>
+                <field type="Tooltip : Content" editor_type="AREA">exad_tooltip_content</field>
+                <field type="Tooltip : Text" editor_type="AREA">exad_tooltip_text</field>
+                <field type="Tooltip : Link URL" editor_type="LINK" key_of="exad_tooltip_link">url</field>
+            </fields>
+        </widget>
+    </elementor-widgets>
+</wpml-config>

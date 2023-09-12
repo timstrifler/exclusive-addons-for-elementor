@@ -111,6 +111,9 @@ class Tabs extends Widget_Base {
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
 				],
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition' => [
 					'exad_exclusive_tabs_icon_type' => 'image'
 				]
@@ -239,6 +242,9 @@ class Tabs extends Widget_Base {
 			[
 				'label' => esc_html__( 'Choose Image', 'exclusive-addons-elementor' ),
 				'type'  => Controls_Manager::MEDIA,
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition' => [
 					'exad_exclusive_tab_content_type' => 'content'
 				]
@@ -262,7 +268,10 @@ class Tabs extends Widget_Base {
 				'fields'  => $tabs_repeater->get_controls(),
 				'seperator' => 'before',
 				'default'   => [
-					[ 'exad_exclusive_tab_title' => esc_html__( 'Tab Title 1', 'exclusive-addons-elementor' ) ],
+					[ 
+						'exad_exclusive_tab_title' => esc_html__( 'Tab Title 1', 'exclusive-addons-elementor' ),
+						'exad_exclusive_tab_show_as_default' => 'active' 
+					],
 					[ 
 						'exad_exclusive_tab_title'   => esc_html__( 'Tab Title 2', 'exclusive-addons-elementor' ),
 						'exad_exclusive_tab_content' => esc_html__( 'A quick brown fox jumps over the lazy dog. Optio, neque qui velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'exclusive-addons-elementor' )
@@ -306,7 +315,7 @@ class Tabs extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_exclusive_tab_navigation_typography',
-				'selector' => '{{WRAPPER}} .exad-advance-tab-nav li span.exad-tab-title',
+				'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li span.exad-tab-title',
 				'fields_options'   => [
 					'font_size'    => [
 		                'default'  => [
@@ -325,7 +334,7 @@ class Tabs extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 
 				'selectors' => [
-					'{{WRAPPER}} .exad-advance-tab-nav' => 'background: {{VALUE}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav' => 'background: {{VALUE}};'
 				]
 			]
 		);
@@ -371,7 +380,7 @@ class Tabs extends Widget_Base {
 					'isLinked' => false
 				], 
 				'selectors'    => [
-					'{{WRAPPER}} .exad-advance-tab-nav li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -389,7 +398,7 @@ class Tabs extends Widget_Base {
 					'left'   => '0'
 				], 
 				'selectors'  => [
-					'{{WRAPPER}} .exad-advance-tab-nav li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -415,7 +424,7 @@ class Tabs extends Widget_Base {
 					'size'    => 200
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-tab-vertical .exad-advance-tab-nav li' => 'width: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-tab-vertical > .exad-advance-tab-nav li' => 'width: {{SIZE}}{{UNIT}};'
 				],
 				'condition'   => [
 					'exad_exclusive_tabs_oriantation' => 'exad-tab-vertical'
@@ -436,7 +445,7 @@ class Tabs extends Widget_Base {
 					'left'   => '0'
 				], 
 				'selectors'  => [
-					'{{WRAPPER}} .exad-advance-tab-nav li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -452,7 +461,7 @@ class Tabs extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#8a8d91',
 						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab-nav li' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li' => 'color: {{VALUE}};'
 						]
 					]
 				);
@@ -487,7 +496,7 @@ class Tabs extends Widget_Base {
 								'default'      => '#e5e5e5'
 							]
 						],
-						'selector'             => '{{WRAPPER}} .exad-advance-tab-nav li'
+						'selector'             => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li'
 					]
 				);
 
@@ -495,7 +504,7 @@ class Tabs extends Widget_Base {
 	                Group_Control_Box_Shadow::get_type(),
 	                [
 						'name'     => 'exad_exclusive_tabs_navigation_list_box_shadow',
-						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li'
+						'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li'
 	                ]
 	            );
 				
@@ -511,7 +520,7 @@ class Tabs extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#0a1724',
 						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li:hover' => 'color: {{VALUE}};'
 						]
 					]
 				);
@@ -521,7 +530,7 @@ class Tabs extends Widget_Base {
 					[
 						'name'     => 'exad_exclusive_tabs_navigation_list_active_background',
 						'types'    => [ 'classic', 'gradient' ],
-						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover, {{WRAPPER}} .exad-tab-triangle-right.active::before, {{WRAPPER}} .exad-tab-triangle-bottom.active::before'
+						'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li:hover, {{WRAPPER}} .exad-tab-triangle-right.active::before, {{WRAPPER}} .exad-tab-triangle-bottom.active::before'
 					]
 				);
 
@@ -546,7 +555,7 @@ class Tabs extends Widget_Base {
 								'default'      => $exad_primary_color
 							]
 						],
-						'selector'             => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover'
+						'selector'             => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li:hover'
 					]
 				);
 
@@ -554,7 +563,7 @@ class Tabs extends Widget_Base {
 	                Group_Control_Box_Shadow::get_type(),
 	                [
 						'name'     => 'exad_exclusive_tabs_navigation_list_active_box_shadow',
-						'selector' => '{{WRAPPER}} .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-advance-tab-nav li:hover'
+						'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li:hover'
 	                ]
 	            );
 
@@ -656,7 +665,7 @@ class Tabs extends Widget_Base {
 					'size'     => 100
 				],
 				'selectors'    => [
-					'{{WRAPPER}} .exad-advance-tab-nav li' => 'height: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li' => 'height: {{SIZE}}{{UNIT}};'
 				],
 				'condition'    => [
 					'exad_exclusive_tabs_icon_box_show' => 'yes'
@@ -682,7 +691,7 @@ class Tabs extends Widget_Base {
 					'size'     => 100
 				],
 				'selectors'    => [
-					'{{WRAPPER}} .exad-advance-tab-nav li' => 'width: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li' => 'width: {{SIZE}}{{UNIT}};'
 				],
 				'condition'    => [
 					'exad_exclusive_tabs_icon_box_show' => 'yes'
@@ -708,7 +717,7 @@ class Tabs extends Widget_Base {
 					'size'     => 24
 				],
 				'selectors'    => [
-					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'font-size: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li i' => 'font-size: {{SIZE}}{{UNIT}};'
 				]
 			]
 		);
@@ -731,7 +740,7 @@ class Tabs extends Widget_Base {
 					'size'     => 50
 				],
 				'selectors'    => [
-					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'line-height: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li i' => 'line-height: {{SIZE}}{{UNIT}};'
 				],
 				'condition'    => [
 					'exad_exclusive_tabs_icon_box_show' => 'yes'
@@ -753,7 +762,7 @@ class Tabs extends Widget_Base {
 					'isLinked' => false
 				], 
 				'selectors'    => [
-					'{{WRAPPER}} .exad-advance-tab-nav li i' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li i' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -769,7 +778,7 @@ class Tabs extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#0a1724',
 						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab-nav li i' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li i' => 'color: {{VALUE}};'
 						]
 					]
 				);
@@ -787,7 +796,7 @@ class Tabs extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#0a1724',
 						'selectors' => [
-							'{{WRAPPER}} .exad-advance-tab-nav li.active i, {{WRAPPER}} .exad-advance-tab-nav li:hover i' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li.active i, {{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li:hover i' => 'color: {{VALUE}};'
 						]
 					]
 				);
@@ -819,7 +828,7 @@ class Tabs extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#0a1724',
 				'selectors' => [
-					'{{WRAPPER}} .exad-advance-tab-content-description' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-advance-tab-content-description' => 'color: {{VALUE}};'
 				]
 			]
 		);
@@ -828,7 +837,7 @@ class Tabs extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_tabs_content_description_typography',
-				'selector' => '{{WRAPPER}} .exad-advance-tab-content-description'
+				'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-advance-tab-content-description'
 			]
 		);
 
@@ -837,7 +846,7 @@ class Tabs extends Widget_Base {
 			[
 				'name'     => 'exad_tab_content_background',
 				'types'    => [ 'classic', 'gradient' ],
-				'selector' => '{{WRAPPER}} .exad-advance-tab-content'
+				'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content'
 			]
 		);
 
@@ -854,7 +863,7 @@ class Tabs extends Widget_Base {
 					'left'   => '30'
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-advance-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -873,7 +882,7 @@ class Tabs extends Widget_Base {
 					'isLinked' => false
 				], 
 				'selectors'    => [
-					'{{WRAPPER}} .exad-advance-tab-content-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-advance-tab-content-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -882,7 +891,7 @@ class Tabs extends Widget_Base {
 			Group_Control_Border::get_type(),
 			[
 				'name'     => 'exad_tab_content_border',
-				'selector' => '{{WRAPPER}} .exad-advance-tab-content'
+				'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content'
 			]
 		);
 
@@ -899,7 +908,7 @@ class Tabs extends Widget_Base {
 					'left'   => '0'
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-advance-tab-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -943,7 +952,7 @@ class Tabs extends Widget_Base {
 			Group_Control_Css_Filter::get_type(),
 			[
 				'name' => 'exad_tab_image_css_filter',
-				'selector' => '{{WRAPPER}} .exad-advance-tab-content-thumb img',
+				'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-advance-tab-content-thumb img',
 			]
 		);
 		
@@ -984,7 +993,7 @@ class Tabs extends Widget_Base {
 					'isLinked' => false
 				],
 				'selectors'    => [
-					'{{WRAPPER}} .exad-tab-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -996,7 +1005,7 @@ class Tabs extends Widget_Base {
 				'type'         => Controls_Manager::DIMENSIONS,
 				'size_units'   => [ 'px', '%', 'em' ],
 				'selectors'    => [
-					'{{WRAPPER}} .exad-tab-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -1014,7 +1023,7 @@ class Tabs extends Widget_Base {
 					'left'   => '50'
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .exad-tab-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -1031,7 +1040,7 @@ class Tabs extends Widget_Base {
                     'type'      => Controls_Manager::COLOR,
                     'default'   => $exad_primary_color,
                     'selectors' => [
-                        '{{WRAPPER}} .exad-tab-btn' => 'color: {{VALUE}};'
+                        '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn' => 'color: {{VALUE}};'
                     ]
                 ]
             );
@@ -1042,7 +1051,7 @@ class Tabs extends Widget_Base {
                     'label'     => esc_html__( 'Background Color', 'exclusive-addons-elementor' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
-                        '{{WRAPPER}} .exad-tab-btn' => 'background: {{VALUE}};'
+                        '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn' => 'background: {{VALUE}};'
                     ]
                 ]
             );
@@ -1067,7 +1076,7 @@ class Tabs extends Widget_Base {
 							'default' => $exad_primary_color
 						]
 					],
-                    'selector'        => '{{WRAPPER}} .exad-tab-btn'
+                    'selector'        => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn'
                 ]
             );
 
@@ -1075,7 +1084,7 @@ class Tabs extends Widget_Base {
                 Group_Control_Box_Shadow::get_type(),
                 [
 					'name'     => 'exad_tab_details_btn_normal_box_shadow',
-					'selector' => '{{WRAPPER}} .exad-tab-btn'
+					'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn'
                 ]
             );
 
@@ -1091,7 +1100,7 @@ class Tabs extends Widget_Base {
 					'type'      => Controls_Manager::COLOR,
 					'default'   => '#ffffff',
 					'selectors' => [
-                        '{{WRAPPER}} .exad-tab-btn:hover' => 'color: {{VALUE}};'
+                        '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn:hover' => 'color: {{VALUE}};'
                     ]
                 ]
             );
@@ -1103,7 +1112,7 @@ class Tabs extends Widget_Base {
                     'type'      => Controls_Manager::COLOR,
                     'default'   => $exad_primary_color,
                     'selectors' => [
-                        '{{WRAPPER}} .exad-tab-btn:hover' => 'background: {{VALUE}};'
+                        '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn:hover' => 'background: {{VALUE}};'
                     ]
                 ]
 			);
@@ -1112,7 +1121,7 @@ class Tabs extends Widget_Base {
 				Group_Control_Border::get_type(),
 				[
 					'name'     => 'exad_tab_details_btn_hover_border',
-					'selector' => '{{WRAPPER}} .exad-tab-btn:hover'
+					'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn:hover'
 				]
 			);
 
@@ -1120,7 +1129,7 @@ class Tabs extends Widget_Base {
                 Group_Control_Box_Shadow::get_type(),
                 [
 					'name'     => 'exad_tab_details_btn_hover_box_shadow',
-					'selector' => '{{WRAPPER}} .exad-tab-btn:hover'
+					'selector' => '{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-content .exad-tab-btn:hover'
                 ]
             );
 
@@ -1197,6 +1206,7 @@ class Tabs extends Widget_Base {
 			'exad_tab_wrapper',
 			[
 				'class'	 => [ 
+					'exad-tabs-' . $this->get_id(),
 					'exad-advance-tab', 
 					esc_attr( $settings['exad_exclusive_tabs_oriantation'] ),
 					esc_attr( $settings['exad_exclusive_tabs_navigation_alignment'] )
@@ -1228,21 +1238,26 @@ class Tabs extends Widget_Base {
 				$has_image = !empty( $tab['exad_exclusive_tab_image']['url'] ) ? 'yes' : 'no';
 				$link_key  = 'link_' . $key;
 
-				$exad_tab_btn_link = $tab['exad_exclusive_tab_detail_btn_link']['url'];
-				$this->add_render_attribute( $link_key, 'class', 'exad-tab-btn' );
-				if( !empty( $exad_tab_btn_link ) ) {
-		            $this->add_render_attribute( $link_key, 'href', esc_url( $exad_tab_btn_link ) );
-					if( $tab['exad_exclusive_tab_detail_btn_link']['is_external'] ) {
-					    $this->add_render_attribute( $link_key, 'target', '_blank' );
+				if( 'content' === $tab['exad_exclusive_tab_content_type'] ) {
+					$exad_tab_btn_link = $tab['exad_exclusive_tab_detail_btn_link']['url'];
+				
+					$this->add_render_attribute( $link_key, 'class', 'exad-tab-btn' );
+					if( !empty( $exad_tab_btn_link ) ) {
+						$this->add_render_attribute( $link_key, 'href', esc_url( $exad_tab_btn_link ) );
+						if( $tab['exad_exclusive_tab_detail_btn_link']['is_external'] ) {
+							$this->add_render_attribute( $link_key, 'target', '_blank' );
+						}
+						if( $tab['exad_exclusive_tab_detail_btn_link']['nofollow'] ) {
+							$this->add_render_attribute( $link_key, 'rel', 'nofollow' );
+						}
 					}
-					if( $tab['exad_exclusive_tab_detail_btn_link']['nofollow'] ) {
-					    $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
-					}
-		        }
+				}
 			?>
 				<div class="exad-advance-tab-content exad-tab-image-has-<?php echo esc_attr($has_image); ?> <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_tab_image_align'] ); ?>">
 					<?php if( 'save_template' === $tab['exad_exclusive_tab_content_type'] ) { ?>
-                        <?php echo Plugin::$instance->frontend->get_builder_content_for_display( wp_kses_post( $tab['exad_tab_content_save_template'] ) ); ?>
+						<div class="exad-advance-tab-content-element">
+                        	<?php echo Plugin::$instance->frontend->get_builder_content_for_display( wp_kses_post( $tab['exad_tab_content_save_template'] ) ); ?>
+						</div>
                     <?php } else if( 'shortcode' === $tab['exad_exclusive_tab_content_type'] ) { ?>
                         <?php echo do_shortcode( $tab['exad_tab_content_shortcode'] ); ?>
                     <?php } else { ?>

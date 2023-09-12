@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/template" id="template-exad-templateLibrary-header-back">
 	<i class="eicon-" aria-hidden="true"></i>
-	<span><?php echo __( 'Back to Library', 'exclusive-addons-elemntor' ); ?></span>
+	<span><?php echo __( 'Back to Library', 'exclusive-addons-elementor' ); ?></span>
 </script>
 
 <script type="text/template" id="template-exad-TemplateLibrary_header-menu">
@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/template" id="template-exad-templateLibrary-header-actions">
 	<div id="exad-templateLibrary-header-sync" class="elementor-templates-modal__header__item">
-		<i class="eicon-sync" aria-hidden="true" title="<?php esc_attr_e( 'Sync Library', 'exclusive-addons-elemntor' ); ?>"></i>
-		<span class="elementor-screen-only"><?php esc_html_e( 'Sync Library', 'exclusive-addons-elemntor' ); ?></span>
+		<i class="eicon-sync" aria-hidden="true" title="<?php esc_attr_e( 'Sync Library', 'exclusive-addons-elementor' ); ?>"></i>
+		<span class="elementor-screen-only"><?php esc_html_e( 'Sync Library', 'exclusive-addons-elementor' ); ?></span>
 	</div>
 </script>
 
@@ -43,14 +43,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 <script type="text/template" id="template-exad-templateLibrary-insert-button">
 	<a class="elementor-template-library-template-action elementor-button exad-templateLibrary-insert-button">
 		<i class="eicon-file-download" aria-hidden="true"></i>
-		<span class="elementor-button-title"><?php esc_html_e( 'Insert', 'exclusive-addons-elemntor' ); ?></span>
+		<span class="elementor-button-title"><?php esc_html_e( 'Insert', 'exclusive-addons-elementor' ); ?></span>
 	</a>
 </script>
 
 <script type="text/template" id="template-exad-templateLibrary-pro-button">
 	<a class="elementor-template-library-template-action elementor-button exad-templateLibrary-pro-button" href="https://exclusiveaddons.com/pricing/" target="_blank">
 		<i class="eicon-external-link-square" aria-hidden="true"></i>
-		<span class="elementor-button-title"><?php esc_html_e( 'Get Pro', 'exclusive-addons-elemntor' ); ?></span>
+		<span class="elementor-button-title"><?php esc_html_e( 'Get Pro', 'exclusive-addons-elementor' ); ?></span>
 	</a>
 </script>
 
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="elementor-loader-box"></div>
 			</div>
 		</div>
-		<div class="elementor-loading-title"><?php esc_html_e( 'Loading', 'exclusive-addons-elemntor' ); ?></div>
+		<div class="elementor-loading-title"><?php esc_html_e( 'Loading', 'exclusive-addons-elementor' ); ?></div>
 	</div>
 </script>
 
@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<# if ( exad.library.getTypeCategory() ) { #>
 	
 				<select id="exad-templateLibrary-filter-category" class="exad-templateLibrary-filter-category">
-					<option class="exad-templateLibrary-category-filter-item active" value="" data-tag=""><?php esc_html_e( 'Filter', 'exclusive-addons-elemntor' ); ?></option>
+					<option class="exad-templateLibrary-category-filter-item active" value="" data-tag=""><?php esc_html_e( 'Filter', 'exclusive-addons-elementor' ); ?></option>
 					<# _.each( exad.library.getTypeCategory(), function( slug ) { #>
 						<option class="exad-templateLibrary-category-filter-item" value="{{ slug }}" data-tag="{{ slug }}">{{{ exad.library.getCategory()[slug] }}}</option>
 					<# } ); #>
@@ -83,8 +83,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 
 		<div id="exad-templateLibrary-toolbar-search">
-			<label for="exad-templateLibrary-search" class="elementor-screen-only"><?php esc_html_e( 'Search Templates:', 'exclusive-addons-elemntor' ); ?></label>
-			<input id="exad-templateLibrary-search" placeholder="<?php esc_attr_e( 'Search', 'exclusive-addons-elemntor' ); ?>">
+			<label for="exad-templateLibrary-search" class="elementor-screen-only"><?php esc_html_e( 'Search Templates:', 'exclusive-addons-elementor' ); ?></label>
+			<input id="exad-templateLibrary-search" placeholder="<?php esc_attr_e( 'Search', 'exclusive-addons-elementor' ); ?>">
 			<i class="eicon-search"></i>
 		</div>
 	</div>
@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		{{{ exad.library.getModal().getTemplateActionButton( obj ) }}}
 		<a href="#" class="elementor-button exad-templateLibrary-preview-button">
 			<i class="eicon-device-desktop" aria-hidden="true"></i>
-			<?php esc_html_e( 'Preview', 'exclusive-addons-elemntor' ); ?>
+			<?php esc_html_e( 'Preview', 'exclusive-addons-elementor' ); ?>
 		</a>
 	</div>
 </script>
@@ -120,7 +120,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="elementor-template-library-blank-title"></div>
 	<div class="elementor-template-library-blank-message"></div>
 	<div class="elementor-template-library-blank-footer">
-		<?php esc_html_e( 'Want to learn more about the Exclusive Addons?', 'exclusive-addons-elemntor' ); ?>
+		<?php esc_html_e( 'Want to learn more about the Exclusive Addons?', 'exclusive-addons-elementor' ); ?>
 		<a class="elementor-template-library-blank-footer-link" href="https://exclusiveaddons.com/" target="_blank"><?php echo __( 'Click here', 'exclusive-addons-elementor' ); ?></a>
 	</div>
 </script>

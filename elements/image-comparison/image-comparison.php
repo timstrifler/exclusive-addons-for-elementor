@@ -56,7 +56,10 @@ class Image_Comparison extends Widget_Base {
                 'type'    => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src()
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
 
@@ -79,7 +82,10 @@ class Image_Comparison extends Widget_Base {
                 'type'    => Controls_Manager::MEDIA,
                 'default' => [
                     'url'     => Utils::get_placeholder_image_src()
-                ]
+                ],
+                'dynamic' => [
+					'active' => true,
+				]
             ]
         );
         $this->add_group_control(
@@ -113,8 +119,8 @@ class Image_Comparison extends Widget_Base {
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'vertical',
                 'options' => [
-                    'vertical'   => esc_html__( 'Horizontal', 'exclusive-addons-elementor' ),
-                    'horizontal' => esc_html__( 'Vertical', 'exclusive-addons-elementor' )
+                    'vertical'   => esc_html__( 'Vertical', 'exclusive-addons-elementor' ),
+                    'horizontal' => esc_html__( 'Horizontal', 'exclusive-addons-elementor' )
                 ]
             ]
         );
@@ -269,7 +275,10 @@ class Image_Comparison extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $handel_bar = is_rtl() ? 'right' : 'left';
+        $handel_revers = is_rtl() ? 'left' : 'right';
+
+        $this->add_responsive_control(
 			'exad_image_comparison_handler_width',
 			[
 				'label' => __( 'Width', 'exclusive-addons-elementor' ),
@@ -287,13 +296,39 @@ class Image_Comparison extends Widget_Base {
 				],
 				'selectors' => [
                     '{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'width: {{SIZE}}{{UNIT}}; margin-left: calc( -{{SIZE}}{{UNIT}} / 2 - {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} )',
-                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:before' => 'margin-left: calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
-					'{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:after' => 'margin-right: calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+                    '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:before' => 'margin-'. $handel_bar .': calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+					'{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:after' => 'margin-'. $handel_revers .': calc( calc( {{SIZE}}{{UNIT}} ) / 2  + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
 				],
 			]
         );
+
+        if( is_rtl() ){
+            $this->add_responsive_control(
+                'exad_image_comparison_handler_width_rtl',
+                [
+                    'label' => __( 'Width', 'exclusive-addons-elementor' ),
+                    'type' => Controls_Manager::SLIDER,
+                    'size_units' => [ 'px', '%' ],
+                    'range' => [
+                        'px' => [
+                            'min' => 0,
+                            'max' => 100,
+                        ],
+                    ],
+                    'default' => [
+                        'unit' => 'px',
+                        'size' => 38,
+                    ],
+                    'selectors' => [
+                        '{{WRAPPER}} .exad-image-comparision .twentytwenty-handle' => 'width: {{SIZE}}{{UNIT}}; margin-left: calc( -{{SIZE}}{{UNIT}} / 2 - {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} )',
+                        '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:before' => 'margin-'. $handel_bar .': calc( {{SIZE}}{{UNIT}} / 2 + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+                        '{{WRAPPER}} .exad-image-comparision .twentytwenty-vertical .twentytwenty-handle:after' => 'margin-'. $handel_revers .': calc( calc( {{SIZE}}{{UNIT}} * 2 ) / 2  + {{exad_image_comparison_handler_border.size}}{{exad_image_comparison_handler_border.unit}} );',
+                    ],
+                ]
+            );
+        }
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_handler_height',
 			[
 				'label' => __( 'Height', 'exclusive-addons-elementor' ),
@@ -364,7 +399,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_handler_border',
 			[
 				'label' => __( 'Handler Border', 'exclusive-addons-elementor' ),
@@ -390,7 +425,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
         
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_handler_radius',
 			[
 				'label' => __( 'Radius', 'exclusive-addons-elementor' ),
@@ -451,7 +486,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_label_padding',
 			[
 				'label' => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -464,7 +499,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_label_x_position',
 			[
 				'label' => __( 'X Offset', 'exclusive-addons-elementor' ),
@@ -489,7 +524,7 @@ class Image_Comparison extends Widget_Base {
 			]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_label_y_position',
 			[
 				'label' => __( 'Y Offset', 'exclusive-addons-elementor' ),
@@ -523,7 +558,7 @@ class Image_Comparison extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_image_comparison_label_border_radius',
 			[
 				'label' => __( 'Border radius', 'exclusive-addons-elementor' ),

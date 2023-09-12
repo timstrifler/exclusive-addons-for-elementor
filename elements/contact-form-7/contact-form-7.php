@@ -8,6 +8,7 @@ use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use \Elementor\Utils;
 use \Elementor\Group_Control_Background;
 use \ExclusiveAddons\Elementor\Helper;
 
@@ -130,6 +131,16 @@ class Contact_Form_7 extends Widget_Base {
 					'active' => true,
 				]
 			]
+		);
+
+        $this->add_control(
+            'exad_contact_form_title_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
 		);
         
         $this->end_controls_section();
@@ -1078,9 +1089,9 @@ class Contact_Form_7 extends Widget_Base {
             <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
                     
                 <?php if ( '' != $settings['exad_contact_form_title_text'] ) { ?>
-                    <h3 class="exad-contact-form-title exad-contact-form-7-title">
+                    <<?php echo Utils::validate_html_tag( $settings['exad_contact_form_title_tag'] ); ?> class="exad-contact-form-title exad-contact-form-7-title">
                         <?php echo esc_html( $settings['exad_contact_form_title_text'] ); ?>
-                    </h3>
+                    </<?php echo Utils::validate_html_tag( $settings['exad_contact_form_title_tag'] ); ?>>
                 <?php } ?>
                         
                 <?php echo do_shortcode( '[contact-form-7 id="' . $settings['exad_contact_form_list'] . '" ]' ); ?>

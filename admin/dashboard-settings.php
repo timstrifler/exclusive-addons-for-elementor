@@ -99,6 +99,8 @@ class Admin_Settings {
 			$exad_updated_settings = array_merge( $this->get_dashboard_settings, $exad_new_settings );
 			update_option( 'exad_save_settings', $exad_updated_settings );
 		}
+
+		$this->get_dashboard_settings = get_option( 'exad_save_settings', Addons_Manager::$all_feature_settings );
         
         ?>
         <div class="exad-elements-dashboard-wrapper">
@@ -185,7 +187,7 @@ class Admin_Settings {
 							<p class="exad-dashboard-popup-message-discription">
 								<?php _e( 'We\'re working real hard to deliver the smoothest Elementor page building experience for you. <br> Consider this as a contribution to the team to keep up the pace.', 'exclusive-addons-elementor' ); ?>
 							</p>
-							<a href="https://exclusiveaddons.com/pricing/" target="_blank" class="exad-dashboard-popup-message-action"><?php _e( 'Upgrade to Pro', 'excluseve-addons-elementor'); ?></a>
+							<a href="https://exclusiveaddons.com/pricing/" target="_blank" class="exad-dashboard-popup-message-action"><?php _e( 'Upgrade to Pro', 'exclusive-addons-elementor'); ?></a>
 						</div>
 						<div class="exad-dashboard-popup-overlay"></div>
 					<?php endif; ?>

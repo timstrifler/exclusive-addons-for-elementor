@@ -31,20 +31,25 @@ class Post_Duplicator {
      * @return void
      */
     public static function duplicate_post() {
+
         $nonce = isset( $_REQUEST['_wpnonce'] ) && ! empty( $_REQUEST['_wpnonce'] ) ? $_REQUEST['_wpnonce'] : NULL;
         $post_id = isset( $_REQUEST['post'] ) && ! empty( $_REQUEST['post'] ) ? intval( $_REQUEST['post'] ) : NULL;
         $action = isset( $_REQUEST['action'] ) && ! empty( $_REQUEST['action'] ) ? trim( $_REQUEST['action'] ) : NULL;
+
         if( is_null( $nonce ) || is_null( $post_id ) || $action !== 'exad_duplicate' ) {
             return;
         }
         if( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'exad_duplicator' ) ) {
             return;
         }
-        global $wpdb;
+
+    
         $post = sanitize_post( get_post( $post_id ), 'db' );
+
         if( is_null( $post ) ) {
             return;
         }
+
         $current_user = wp_get_current_user();
         $duplicate_post_args = array( 
             'post_author'    => $current_user->ID,
@@ -61,6 +66,7 @@ class Post_Duplicator {
             'menu_order'     => $post->menu_order,
         );
         $duplicated_id = wp_insert_post( $duplicate_post_args );
+
         if( ! is_wp_error( $duplicated_id ) ) {
             $taxonomies = get_object_taxonomies($post->post_type);
             if( ! empty( $taxonomies ) && is_array( $taxonomies ) ) {
@@ -69,17 +75,22 @@ class Post_Duplicator {
                     wp_set_object_terms( $duplicated_id, $post_terms, $taxonomy, false );
                 }
             }
-            $post_meta = $wpdb->get_results( "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = $post_id" );
+
+            global $wpdb;
+            $post_meta = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = $post_id" ) );
+            
             if( ! empty( $post_meta ) && is_array( $post_meta ) ){
-                $duplicate_insert_query = "INSERT INTO $wpdb->postmeta ( post_id, meta_key, meta_value ) VALUES ";
+                $duplicate_insert_query = $wpdb->prepare( "INSERT INTO $wpdb->postmeta ( post_id, meta_key, meta_value ) VALUES " );
                 $value_cells = array();
+
                 foreach( $post_meta as $meta_info ){
                     $meta_key = sanitize_text_field( $meta_info->meta_key );
                     $meta_value = wp_slash( $meta_info->meta_value );
-                    $value_cells[] = "($duplicated_id, '$meta_key', '$meta_value')";
+                    $value_cells[] = $wpdb->prepare( '$duplicated_id, %s, %s', $meta_key, $meta_value );
                 }
+
                 $duplicate_insert_query .= implode(', ', $value_cells) . ';';
-                $wpdb->query( $duplicate_insert_query  );            
+                $wpdb->query( $duplicate_insert_query  );
             } 
         }
         $redirect_url = admin_url( 'edit.php?post_type=' . $post->post_type );
