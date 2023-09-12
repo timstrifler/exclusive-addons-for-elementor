@@ -172,7 +172,7 @@ class Exad_Plugin_Notice {
 	    }
 
         if ($result === false) {
-            wp_send_json_error(__('Plugin couldn\'t be activated.', 'exclusive-addons-elementor'));
+            wp_send_json_error(__("Plugin couldn't be activated.", 'exclusive-addons-elementor'));
         }
         wp_send_json_success(__('Plugin is activated successfully!', 'exclusive-addons-elementor'));
     }
