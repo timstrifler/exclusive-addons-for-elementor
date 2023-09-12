@@ -59,11 +59,6 @@ function exad_initiate_plugin() {
 
 	require_once EXAD_PATH . 'base.php';
 	\ExclusiveAddons\Elementor\Base::instance();
-
-	
-	if ( is_admin() && ! class_exists( 'Classic_Editor' ) && ! class_exists( 'ShopCred\Base' ) && ( ! get_option( 'exad_blocks_notice_hide' ) ) ) {
-		add_action( 'admin_notices', array( new \ExclusiveAddons\Elementor\Exad_Plugin_Notice, 'exad_blocks_Plugins_install_notice' ) );
-	}
 } 
 add_action( 'plugins_loaded', 'exad_initiate_plugin' );
 
