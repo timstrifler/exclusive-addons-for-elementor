@@ -11,6 +11,8 @@ use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Background;
 use \Elementor\Widget_Base;
 use \Elementor\Repeater;
+use \Elementor\Utils;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Pricing_Table extends Widget_Base {
 	
@@ -188,6 +190,16 @@ class Pricing_Table extends Widget_Base {
 					'active' => true,
 				]
 			]
+		);
+
+		$this->add_control(
+            'exad_pricing_table_title_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
 		);
 
 		$this->add_control(
@@ -659,7 +671,7 @@ class Pricing_Table extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_pricing_table_promo_alignment',
 			[
 				'label'     => __( 'Alignment', 'exclusive-addons-elementor' ),
@@ -2119,7 +2131,7 @@ class Pricing_Table extends Widget_Base {
 		<div <?php echo $this->get_render_attribute_string( 'exad_pricing_table_wrapper' ); ?>>
 			<?php if( 'promo_top' === $settings['exad_pricing_table_promo_position'] ) { 
 				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) { ?>
-					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo $settings['exad_pricing_table_promo_title']; ?></span>
+					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo wp_kses_post( $settings['exad_pricing_table_promo_title'] ); ?></span>
 				<?php } ?>
 			<?php } ?>
 			<div class="exad-pricing-table-badge-wrapper">
@@ -2140,7 +2152,7 @@ class Pricing_Table extends Widget_Base {
 				<div class="exad-pricing-table-header">
 					<?php do_action( 'exad_pricing_table_header_wrapper_before' ); ?>
 
-					<?php $title ? printf( '<h4 '.$this->get_render_attribute_string( 'exad_pricing_table_title' ).'>%s</h4>', wp_kses_post( $title ) ) : '';
+					<?php $title ? printf( '<'.Utils::validate_html_tag( $settings['exad_pricing_table_title_tag'] ).' ' .$this->get_render_attribute_string( 'exad_pricing_table_title' ).'>%s</'.Utils::validate_html_tag( $settings['exad_pricing_table_title_tag'] ).'>', wp_kses_post( $title ) ) : '';
 					$sub_title ? printf( '<div '.$this->get_render_attribute_string( 'exad_pricing_table_subtitle' ).'>%s</div>', wp_kses_post( $sub_title ) ) : ''; ?>
 
 					<div <?php echo $this->get_render_attribute_string( 'exad_pricing_table_box_value' ); ?>>
@@ -2211,13 +2223,13 @@ class Pricing_Table extends Widget_Base {
 							$this->add_inline_editing_attributes( $pricing_item, 'basic' );
 							$price = $item['exad_pricing_table_item']; ?>
 
-							<li <?php $this->get_render_attribute_string( $each_pricing_item ); ?>>
+							<li <?php echo $this->get_render_attribute_string( $each_pricing_item ); ?>>
 								<?php if ( !empty( $item['exad_pricing_table_list_icon']['value'] ) ) { ?>
 									<span class="exad-pricing-li-icon">
 										<?php Icons_Manager::render_icon( $item['exad_pricing_table_list_icon'] ); ?>
 									</span>
 								<?php } ?>
-								<?php $price ? printf( '<span '.$this->get_render_attribute_string( $pricing_item ).'>%s</span>', esc_html( $price ) ) : ''; ?>
+								<?php $price ? printf( '<span '.$this->get_render_attribute_string( $pricing_item ).'>%s</span>', wp_kses_post( $price ) ) : ''; ?>
 							</li>
 
 						<?php endforeach; ?>
@@ -2304,6 +2316,8 @@ class Pricing_Table extends Widget_Base {
 
 	        var target = settings.exad_pricing_table_btn_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_pricing_table_btn_link.nofollow ? ' rel="nofollow"' : '';
+
+			var pricingTitleHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_pricing_table_title_tag );
     	#>
 
     	<div {{{ view.getRenderAttributeString( 'exad_pricing_table_wrapper' ) }}}>
@@ -2328,9 +2342,9 @@ class Pricing_Table extends Widget_Base {
 
 				<div class="exad-pricing-table-header">
 					<# if ( settings.exad_pricing_table_title ) { #>
-			    		<h4 {{{ view.getRenderAttributeString( 'exad_pricing_table_title' ) }}}>
+			    		<{{{ pricingTitleHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_pricing_table_title' ) }}}>
 			    			{{{ settings.exad_pricing_table_title }}}
-			    		</h4>
+			    		</{{{ pricingTitleHTMLTag }}}>
 			    	<# } #>
 
 					<# if ( settings.exad_pricing_table_subtitle ) { #>

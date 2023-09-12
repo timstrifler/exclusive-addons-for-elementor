@@ -3,11 +3,11 @@
  * Plugin Name: Exclusive Addons Elementor
  * Plugin URI: https://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widgets for Elementor with all the customizations you ever imagined.
- * Version: 2.4.50
+ * Version: 2.6.5
  * Author: DevsCred.com
  * Author URI: https://devscred.com/
- * Elementor tested up to: 3.3.1
- * Elementor Pro tested up to: 3.3.5
+ * Elementor tested up to: 3.13.2
+ * Elementor Pro tested up to: 3.13.1
  * Text Domain: exclusive-addons-elementor
  * Domain Path: /languages
  * License: GPL3
@@ -24,7 +24,7 @@ if ( ! defined( 'EXAD_EXTENSIONS' ) ) define( 'EXAD_EXTENSIONS', plugin_dir_path
 if ( ! defined( 'EXAD_TEMPLATES' ) ) define( 'EXAD_TEMPLATES', EXAD_PATH . 'includes/template-parts/' );
 if ( ! defined( 'EXAD_URL' ) ) define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
 if ( ! defined( 'EXAD_ASSETS_URL' ) ) define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );
-if ( ! defined( 'EXAD_PLUGIN_VERSION' ) ) define( 'EXAD_PLUGIN_VERSION', '2.4.50' );
+if ( ! defined( 'EXAD_PLUGIN_VERSION' ) ) define( 'EXAD_PLUGIN_VERSION', '2.6.5' );
 if ( ! defined( 'MINIMUM_ELEMENTOR_VERSION' ) ) define( 'MINIMUM_ELEMENTOR_VERSION', '2.0.0' );
 if ( ! defined( 'MINIMUM_PHP_VERSION' ) ) define( 'MINIMUM_PHP_VERSION', '5.4' );
 
@@ -59,6 +59,11 @@ function exad_initiate_plugin() {
 
 	require_once EXAD_PATH . 'base.php';
 	\ExclusiveAddons\Elementor\Base::instance();
+
+	
+	if ( is_admin() && ! class_exists( 'Classic_Editor' ) && ! class_exists( 'ShopCred\Base' ) && ( ! get_option( 'exad_blocks_notice_hide' ) ) ) {
+		add_action( 'admin_notices', array( new \ExclusiveAddons\Elementor\Exad_Plugin_Notice, 'exad_blocks_Plugins_install_notice' ) );
+	}
 } 
 add_action( 'plugins_loaded', 'exad_initiate_plugin' );
 
@@ -132,6 +137,25 @@ function exad_admin_notice_minimum_php_version() {
 	printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
 
 }
+
+/**
+ * Initialize the tracker
+ *
+ * @return void
+ */
+function exclusive_addons_appsero_init() {
+
+	if ( ! class_exists( 'Exclusive_Addons\Appsero\Client' ) ) {
+		require_once __DIR__ . '/vendor/appsero/src/Client.php';
+	}
+	
+	$client = new \Exclusive_Addons\Appsero\Client( '29b6ba70-4471-4cef-82a0-af727235fbe5', 'Exclusive Addons Elementor', __FILE__ );
+	
+	// Active insights
+	$client->insights()->init();
+}
+
+exclusive_addons_appsero_init();
 
 /**
  * 

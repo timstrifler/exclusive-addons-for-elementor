@@ -1,5 +1,5 @@
 <?php
-namespace Appsero;
+namespace Exclusive_Addons\Appsero;
 
 /**
  * Appsero Insights
@@ -39,9 +39,17 @@ class Insights {
     protected $client;
 
     /**
+     * @var boolean
+     */
+    private $plugin_data = false;
+
+
+    /**
      * Initialize the class
      *
-     * @param AppSero\Client
+     * @param      $client
+     * @param null $name
+     * @param null $file
      */
     public function __construct( $client, $name = null, $file = null ) {
 
@@ -49,7 +57,7 @@ class Insights {
             $client = new Client( $client, $name, $file );
         }
 
-        if ( is_object( $client ) && is_a( $client, 'Appsero\Client' ) ) {
+        if ( is_object( $client ) && is_a( $client, 'Exclusive_Addons\Appsero\Client' ) ) {
             $this->client = $client;
         }
     }
@@ -61,6 +69,17 @@ class Insights {
      */
     public function hide_notice() {
         $this->show_notice = false;
+
+        return $this;
+    }
+
+    /**
+     * Add plugin data if needed
+     *
+     * @return \self
+     */
+    public function add_plugin_data() {
+        $this->plugin_data = true;
 
         return $this;
     }
@@ -85,7 +104,7 @@ class Insights {
      *
      * @return \self
      */
-    public function notice( $text ) {
+    public function notice($text='' ) {
         $this->notice = $text;
 
         return $this;
@@ -123,10 +142,10 @@ class Insights {
      */
     public function init_plugin() {
         // plugin deactivate popup
-        if ( ! $this->is_local_server() ) {
+        //if ( ! $this->is_local_server() ) {
             add_filter( 'plugin_action_links_' . $this->client->basename, array( $this, 'plugin_action_links' ) );
             add_action( 'admin_footer', array( $this, 'deactivate_scripts' ) );
-        }
+        //}
 
         $this->init_common();
 
@@ -165,11 +184,6 @@ class Insights {
      * @return void
      */
     public function send_tracking_data( $override = false ) {
-        // skip on AJAX Requests
-        if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            return;
-        }
-
         if ( ! $this->tracking_allowed() && ! $override ) {
             return;
         }
@@ -180,7 +194,7 @@ class Insights {
         if ( $last_send && $last_send > strtotime( '-1 week' ) ) {
             return;
         }
-        
+
         $tracking_data = $this->get_tracking_data();
 
         $response = $this->client->send_request( $tracking_data, 'track' );
@@ -227,7 +241,32 @@ class Insights {
             'ip_address'       => $this->get_user_ip_address(),
             'project_version'  => $this->client->project_version,
             'tracking_skipped' => false,
+            'is_local'         => $this->is_local_server(),
         );
+
+        // Add Plugins
+        if ($this->plugin_data) {
+            
+            $plugins_data = array();
+
+            foreach ($all_plugins['active_plugins'] as $slug => $plugin) {
+                $slug = strstr($slug, '/', true);
+                if (! $slug) {
+                    continue;
+                }
+
+                $plugins_data[ $slug ] = array(
+                    'name' => isset($plugin['name']) ? $plugin['name'] : '',
+                    'version' => isset($plugin['version']) ? $plugin['version'] : '',
+                );
+            }
+
+            if (array_key_exists($this->client->slug, $plugins_data)) {
+                unset($plugins_data[$this->client->slug]);
+            }
+            
+            $data['plugins'] = $plugins_data;
+        }
 
         // Add metadata
         if ( $extra = $this->get_extra_data() ) {
@@ -274,9 +313,13 @@ class Insights {
             'Number of users in your site',
             'Site language',
             'Number of active and inactive plugins',
-            'Site name and url',
+            'Site name and URL',
             'Your name and email address',
         );
+
+        if ($this->plugin_data) { 
+            array_splice($data, 4, 0, ["active plugins' name"]);
+        }
 
         return $data;
     }
@@ -322,9 +365,17 @@ class Insights {
      * @return boolean
      */
     private function is_local_server() {
-        return false;
 
-        $is_local = in_array( $_SERVER['REMOTE_ADDR'], array( '127.0.0.1', '::1' ) );
+        $host       = isset( $_SERVER['HTTP_HOST'] ) ? $_SERVER['HTTP_HOST'] : 'localhost';
+        $ip         = isset( $_SERVER['SERVER_ADDR'] ) ? $_SERVER['SERVER_ADDR'] : '127.0.0.1';
+        $is_local   = false;
+
+        if( in_array( $ip,array( '127.0.0.1', '::1' ) )
+            || ! strpos( $host, '.' )
+            || in_array( strrchr( $host, '.' ), array( '.test', '.testing', '.local', '.localhost', '.localdomain' ) )
+        ) {
+            $is_local = true;
+        }
 
         return apply_filters( 'appsero_is_local', $is_local );
     }
@@ -388,7 +439,7 @@ class Insights {
 
         $notice .= ' (<a class="' . $this->client->slug . '-insights-data-we-collect" href="#">' . $this->client->__trans( 'what we collect' ) . '</a>)';
         $notice .= '<p class="description" style="display:none;">' . implode( ', ', $this->data_we_collect() ) . '. No sensitive data is tracked. ';
-        $notice .= 'We are using Appsero to collect your data. <a href="' . $policy_url . '">Learn more</a> about how Appsero collects and handle your data.</p>';
+        $notice .= 'We are using Appsero to collect your data. <a href="' . $policy_url . '" target="_blank">Learn more</a> about how Appsero collects and handle your data.</p>';
 
         echo '<div class="updated"><p>';
             echo $notice;
@@ -585,7 +636,7 @@ class Insights {
             if ( ! $count ) {
                 continue;
             }
-            
+
             $user_count[ $role ] = $count;
         }
 
@@ -729,11 +780,15 @@ class Insights {
         if ( ! isset( $_POST['reason_id'] ) ) {
             wp_send_json_error();
         }
-        
+
+        if ( ! wp_verify_nonce( $_POST['nonce'], 'appsero-security-nonce' ) ) {
+            wp_send_json_error( 'Nonce verification failed' );
+        }
+
         $data                = $this->get_tracking_data();
         $data['reason_id']   = sanitize_text_field( $_POST['reason_id'] );
         $data['reason_info'] = isset( $_REQUEST['reason_info'] ) ? trim( stripslashes( $_REQUEST['reason_info'] ) ) : '';
-        
+
         $this->client->send_request( $data, 'deactivate' );
 
         wp_send_json_success();
@@ -753,6 +808,7 @@ class Insights {
 
         $this->deactivation_modal_styles();
         $reasons = $this->get_uninstall_reasons();
+        $custom_reasons = apply_filters( 'appsero_custom_deactivation_reasons', array() );
         ?>
 
         <div class="wd-dr-modal" id="<?php echo $this->client->slug; ?>-wd-dr-modal">
@@ -766,21 +822,34 @@ class Insights {
                         <?php foreach ( $reasons as $reason ) { ?>
                             <li data-placeholder="<?php echo esc_attr( $reason['placeholder'] ); ?>">
                                 <label>
-                                    <input type="radio" name="selected-reason" value="<?php echo $reason['id']; ?>"> 
+                                    <input type="radio" name="selected-reason" value="<?php echo $reason['id']; ?>">
                                     <div class="wd-de-reason-icon"><?php echo $reason['icon']; ?></div>
                                     <div class="wd-de-reason-text"><?php echo $reason['text']; ?></div>
                                 </label>
                             </li>
                         <?php } ?>
                     </ul>
+                    <?php if ( $custom_reasons && is_array( $custom_reasons ) ) : ?>
+                    <ul class="wd-de-reasons wd-de-others-reasons">
+                        <?php foreach ( $custom_reasons as $reason ) { ?>
+                            <li data-placeholder="<?php echo esc_attr( $reason['placeholder'] ); ?>" data-customreason="true">
+                                <label>
+                                    <input type="radio" name="selected-reason" value="<?php echo $reason['id']; ?>">
+                                    <div class="wd-de-reason-icon"><?php echo $reason['icon']; ?></div>
+                                    <div class="wd-de-reason-text"><?php echo $reason['text']; ?></div>
+                                </label>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                    <?php endif; ?>
                     <div class="wd-dr-modal-reason-input"><textarea></textarea></div>
                     <p class="wd-dr-modal-reasons-bottom">
-                       <?php 
+                       <?php
                        echo sprintf(
 	                       $this->client->__trans( 'We share your data with <a href="%1$s" target="_blank">Appsero</a> to troubleshoot problems &amp; make product improvements. <a href="%2$s" target="_blank">Learn more</a> about how Appsero handles your data.'),
 	                       esc_url( 'https://appsero.com/' ),
                            esc_url( 'https://appsero.com/privacy-policy' )
-                       ); 
+                       );
                        ?>
                     </p>
                 </div>
@@ -817,10 +886,27 @@ class Insights {
                     // Reason change
                     modal.on('click', 'input[type="radio"]', function () {
                         var parent = $(this).parents('li');
-                        parent.siblings().removeClass('wd-de-reason-selected');
+                        var isCustomReason = parent.data('customreason');
+                        var inputValue = $(this).val();
+
+                        if ( isCustomReason ) {
+                            $('ul.wd-de-reasons.wd-de-others-reasons li').removeClass('wd-de-reason-selected');
+                        } else {
+                            $('ul.wd-de-reasons li').removeClass('wd-de-reason-selected');
+
+                            if ( "other" != inputValue ) {
+                                $('ul.wd-de-reasons.wd-de-others-reasons').css('display', 'none');
+                            }
+                        }
+
+                        // Show if has custom reasons
+                        if ( "other" == inputValue ) {
+                            $('ul.wd-de-reasons.wd-de-others-reasons').css('display', 'flex');
+                        }
+
                         parent.addClass('wd-de-reason-selected');
                         $('.wd-dr-modal-reason-input').show();
-                        
+
                         $('.wd-dr-modal-reason-input textarea').attr('placeholder', parent.data('placeholder')).focus();
                     });
 
@@ -841,6 +927,7 @@ class Insights {
                             url: ajaxurl,
                             type: 'POST',
                             data: {
+                                nonce: '<?php echo wp_create_nonce( 'appsero-security-nonce' ); ?>',
                                 action: '<?php echo $this->client->slug; ?>_submit-uninstall-reason',
                                 reason_id: ( 0 === $radio.length ) ? 'none' : $radio.val(),
                                 reason_info: ( 0 !== $input.length ) ? $input.val().trim() : ''
@@ -918,10 +1005,10 @@ class Insights {
     private function send_tracking_skipped_request() {
         $skipped = get_option( $this->client->slug . '_tracking_skipped' );
 
-        $data = [
+        $data = array(
             'hash'               => $this->client->hash,
             'previously_skipped' => false,
-        ];
+        );
 
         if ( $skipped === 'yes' ) {
             $data['previously_skipped'] = true;
@@ -992,6 +1079,10 @@ class Insights {
                 margin: 0 -5px 0 -5px;
                 padding: 15px 0 20px 0;
             }
+            ul.wd-de-reasons.wd-de-others-reasons {
+                padding-top: 0;
+                display: none;
+            }
             ul.wd-de-reasons li {
                 padding: 0 5px;
                 margin: 0;
@@ -1034,7 +1125,7 @@ class Insights {
                 background-color: #3B86FF;
                 border-color: #3B86FF;
             }
-            li.wd-de-reason-selected .wd-de-reason-icon svg, 
+            li.wd-de-reason-selected .wd-de-reason-icon svg,
             li.wd-de-reason-selected .wd-de-reason-icon svg g {
                 fill: #fff;
             }

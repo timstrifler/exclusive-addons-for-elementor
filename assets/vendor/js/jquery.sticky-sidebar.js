@@ -746,5 +746,3 @@ var jquery_stickySidebar$1 = unwrapExports(jquery_stickySidebar);
 return jquery_stickySidebar$1;
 
 })));
-
-//# sourceMappingURL=jquery.sticky-sidebar.js.map

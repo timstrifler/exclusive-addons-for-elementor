@@ -78,7 +78,7 @@ class Filterable_Post extends Widget_Base {
 				'label' => __( 'Taxonomies', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SELECT2,
 				'label_block' => true,
-				'default' => [],
+				'default' => 'category',
 				'options' => $this->get_taxonomies(),
 			]
 		);
@@ -92,7 +92,7 @@ class Filterable_Post extends Widget_Base {
             ]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
             'exad_post_grid_column_no',
             [
 				'label'   => __( 'Columns', 'exclusive-addons-elementor' ),
@@ -105,6 +105,20 @@ class Filterable_Post extends Widget_Base {
 					'4' => esc_html__( '4', 'exclusive-addons-elementor' ),
 					'5' => esc_html__( '5', 'exclusive-addons-elementor' ),
 					'6' => esc_html__( '6', 'exclusive-addons-elementor' )
+				],
+				'desktop_default' => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
+				'selectors_dictionary' => [
+					'1' => 'flex: 0 0 100%; max-width: 100%;',
+					'2' => 'flex: 0 0 50%; max-width: 50%;',
+					'3' => 'flex: 0 0 33.33%; max-width: 33.33%;',
+					'4' => 'flex: 0 0 25%; max-width: 25%;',
+					'5' => 'flex: 0 0 20%; max-width: 20%;',
+					'6' => 'flex: 0 0 16.66%; max-width: 16.66%;',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-row-wrapper .exad-col' => '{{VALUE}};'
 				]
             ]
 		);
@@ -158,7 +172,7 @@ class Filterable_Post extends Widget_Base {
         	[
 				'label'       => __( 'Categories', 'exclusive-addons-elementor' ),
 				'label_block' => true,
-				'type'        => Controls_Manager::SELECT2,
+				'type'        => Controls_Manager::HIDDEN,
 				'multiple'    => true,
 				'default'     => [],
 				'options'     => Helper::exad_get_all_categories(),
@@ -173,7 +187,7 @@ class Filterable_Post extends Widget_Base {
         	[
 				'label'       => __( 'Tags', 'exclusive-addons-elementor' ),
 				'label_block' => true,
-				'type'        => Controls_Manager::SELECT2,
+				'type'        => Controls_Manager::HIDDEN,
 				'multiple'    => true,
 				'default'     => [],
 				'options'     => Helper::exad_get_all_tags(),
@@ -199,7 +213,7 @@ class Filterable_Post extends Widget_Base {
         $this->add_control(
             'exad_post_grid_order_by',
             [
-				'label'    => __( 'Ordered By', 'exclusive-addons-elementor' ),
+				'label'    => __( 'Order By', 'exclusive-addons-elementor' ),
 				'type'     => Controls_Manager::SELECT,
                 'default'  => 'date',
 				'options'  => [
@@ -209,6 +223,7 @@ class Filterable_Post extends Widget_Base {
 					'author' => __( 'Author Name', 'exclusive-addons-elementor' ),
 					'title' => __( 'Post Title', 'exclusive-addons-elementor' ),
 					'name' => __( 'Post Name', 'exclusive-addons-elementor' ),
+					'rand' => __( 'Random', 'exclusive-addons-elementor' ),
                 ]
             ]
         );
@@ -261,6 +276,18 @@ class Filterable_Post extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'exad_post_grid_show_title_parmalink',
+			[
+				'label'        => esc_html__( 'Disable Title & Image Parmalink', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no'
+			]
+		);
+
         $this->add_control(
 			'exad_post_grid_show_title',
 			[
@@ -283,6 +310,16 @@ class Filterable_Post extends Widget_Base {
 				'return_value' => 'yes',
 				'default'      => 'yes'
 			]
+		);
+
+		$this->add_control(
+            'exad_post_grid_title_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
 		);
 
 		$this->add_control(
@@ -317,11 +354,36 @@ class Filterable_Post extends Widget_Base {
                 'placeholder'   => esc_html__('Read More', 'exclusive-addons-elementor'),
                 'default'       => esc_html__('Read More', 'exclusive-addons-elementor' ),
                 'condition'     => [
-                    '.exad_post_grid_show_read_more_btn' => 'yes'
+                    'exad_post_grid_show_read_more_btn' => 'yes'
 				],
 				'dynamic' => [
 					'active' => true,
 				]
+            ]
+        );
+
+		$this->add_control(
+            'exad_post_grid_show_read_more_btn_new_tab',
+            [
+                'label'        => esc_html__( 'Enable New Tab', 'exclusive-addons-elementor' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+                'default'      => 'yes',
+                'return_value' => 'yes',
+				'condition'     => [
+                    'exad_post_grid_show_read_more_btn' => 'yes'
+				],
+            ]
+        );  
+
+        $this->add_control(
+            'exad_post_grid_all_item_text',
+            [   
+                'label'         => esc_html__( 'Text for All Item', 'exclusive-addons-elementor' ),
+                'type'          => Controls_Manager::TEXT,
+                'placeholder'   => esc_html__('All', 'exclusive-addons-elementor'),
+                'default'       => esc_html__('All', 'exclusive-addons-elementor' ),
             ]
         );
 
@@ -560,7 +622,7 @@ class Filterable_Post extends Widget_Base {
                 ],                
                 'size_units'    => [ 'px', 'em', '%' ],
                 'selectors'     => [
-                        '{{WRAPPER}} .exad-post-grid-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                        '{{WRAPPER}} .exad-row-wrapper .exad-post-grid-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ]
             ]
 		);
@@ -596,6 +658,95 @@ class Filterable_Post extends Widget_Base {
             ]
         );
 
+		$this->add_control(
+			'exad_fg_control_container_alignment',
+			[
+				'label'   => __( 'Alignment', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::CHOOSE,
+				'toggle'  => false,
+				'default' => 'exad-filterable-menu-container-align-top',
+				'options' => [
+					'exad-filterable-menu-container-align-left'   => [
+						'title' => __( 'Left', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-arrow-left'
+					],
+					'exad-filterable-menu-container-align-top' => [
+						'title' => __( 'Top', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-arrow-up'
+					],
+					'exad-filterable-menu-container-align-right'  => [
+						'title' => __( 'Right', 'exclusive-addons-elementor' ),
+						'icon'  => 'eicon-arrow-right'
+					]
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_fg_control_container_filter_nav_width',
+			[
+				'label' => __( 'Width', 'exclusive-addons-elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ '%' ],
+				'devices' => [ 'desktop' ],
+				'range' => [
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-left .exad-filterable-menu-container' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-right .exad-filterable-menu-container' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-left .exad-filterable-controls' => 'width: calc( 100% - {{SIZE}}{{UNIT}} );',
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-right .exad-filterable-controls' => 'width: calc( 100% - {{SIZE}}{{UNIT}} );',
+                ],
+                'condition' => [
+                    'exad_fg_control_container_alignment' => ['exad-filterable-menu-container-align-left', 'exad-filterable-menu-container-align-right']
+                ]
+			]
+        );
+
+		$this->add_responsive_control(
+			'exad_fg_control_container_filter_nav_conten_spacing',
+			[
+				'label'       => __( 'Left & Right Spacing', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 100
+					],
+				],
+				'devices' => [ 'desktop', 'tablet' ],
+                'default'    => [
+                    'unit'   => 'px',
+                    'size'   => 10
+                ],
+                'tablet_default' => [
+					'size' => 10,
+					'unit' => '%',
+				],
+                'mobile_default' => [
+					'size' => 0,
+					'unit' => 'px',
+				],
+                'condition' => [
+					'exad_fg_control_container_alignment' => ['exad-filterable-menu-container-align-left', 'exad-filterable-menu-container-align-right']
+                ],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-left .exad-filterable-controls' => 'margin-left: {{SIZE}}{{UNIT}}; width: calc( ( 100% - {{exad_fg_control_container_filter_nav_width.size}}{{exad_fg_control_container_filter_nav_width.unit}} ) - {{SIZE}}{{UNIT}} );',
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-right .exad-filterable-controls' => 'margin-right: {{SIZE}}{{UNIT}}; width: calc( ( 100% - {{exad_fg_control_container_filter_nav_width.size}}{{exad_fg_control_container_filter_nav_width.unit}} ) - {{SIZE}}{{UNIT}} );',
+                ],
+			]
+		);
+        
         $this->add_responsive_control(
             'exad_fg_control_container_padding',
             [
@@ -724,10 +875,54 @@ class Filterable_Post extends Widget_Base {
                     'right'     => [
                         'title' => esc_html__('Right', 'exclusive-addons-elementor'),
                         'icon'  => 'eicon-text-align-right'
-                    ]
+                    ],
+                ],
+                'condition' => [
+                    'exad_fg_control_container_alignment!' => ['exad-filterable-menu-container-align-left', 'exad-filterable-menu-container-align-right']
+				],
+				'selectors_dictionary' => [
+                    'left'      => 'text-align: left;',
+					'center'    => 'text-align: center;',
+					'right'     => 'text-align: right;',
                 ],
                 'selectors'     => [
-                    '{{WRAPPER}} .exad-filterable-menu' => 'text-align: {{VALUE}};'
+                    '{{WRAPPER}} .exad-filterable-menu' => '{{VALUE}};'
+                ]
+            ]
+        );      
+
+		$this->add_responsive_control(
+            'exad_fg_item_control_item_alignment_left_right',
+            [
+                'label'         => esc_html__('Item Alignment', 'exclusive-addons-elementor'),
+                'type'          => Controls_Manager::CHOOSE,
+                'toggle'        => false,
+                'label_block'   => true,
+                'default'       => 'center',
+                'options'       => [
+                    'left'      => [
+                        'title' => esc_html__('Left', 'exclusive-addons-elementor'),
+                        'icon'  => 'eicon-text-align-left'
+                    ],
+                    'center'    => [
+                        'title' => esc_html__('Center', 'exclusive-addons-elementor'),
+                        'icon'  => 'eicon-text-align-center'
+                    ],
+                    'right'     => [
+                        'title' => esc_html__('Right', 'exclusive-addons-elementor'),
+                        'icon'  => 'eicon-text-align-right'
+                    ]
+                ],
+				'selectors_dictionary' => [
+                    'left'      => 'text-align: left; display: flex; justify-content: flex-start; margin-right: auto;',
+					'center'    => 'text-align: center; display: flex; justify-content: center; margin-left: auto; margin-right: auto;',
+					'right'     => 'text-align: right; display: flex; justify-content: flex-end; margin-left: auto;',
+                ],
+                'condition' => [
+                    'exad_fg_control_container_alignment' => ['exad-filterable-menu-container-align-left', 'exad-filterable-menu-container-align-right']
+				],
+                'selectors'     => [
+                    '{{WRAPPER}} .exad-filterable-menu li' => '{{VALUE}};'
                 ]
             ]
         );
@@ -751,7 +946,7 @@ class Filterable_Post extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_fg_control_item_spacing',
 			[
 				'label'       => __( 'Between Items Spacing', 'exclusive-addons-elementor' ),
@@ -768,8 +963,31 @@ class Filterable_Post extends Widget_Base {
                     'size'   => 10
                 ],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-filterable-menu .filter-item:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-top .filter-item:not(:last-child)' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-left .exad-filterable-menu-container .exad-filterable-menu .filter-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-right .exad-filterable-menu-container .exad-filterable-menu .filter-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_fg_control_item_bottom_spacing',
+			[
+				'label'       => __( 'Items Bottom Margin', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 100
+					],
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-filterable-items.exad-filterable-menu-container-align-top .filter-item' => 'margin-bottom: {{SIZE}}{{UNIT}};'
+                ],
+				'condition' => [
+                    'exad_fg_control_container_alignment' => 'exad-filterable-menu-container-align-top'
+				],
 			]
 		);
 
@@ -1086,7 +1304,7 @@ class Filterable_Post extends Widget_Base {
 		$this->add_control(
 			'exad_post_grid_image-height',
 			[
-				'label'       => __( 'Image Height', 'exclusive-addons-elementor' ),
+				'label'       => __( 'Image Min Height', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px' ],
 				'range'       => [
@@ -1100,6 +1318,39 @@ class Filterable_Post extends Widget_Base {
 				],
 				'condition' => [
 					'exad_post_grid_image_align' => 'top'
+				]
+			]
+		);
+
+		$this->add_control(
+			'exad_post_grid_image_fixed_height',
+			[
+				'label'        => esc_html__( 'Fixed Height ?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'Yes', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no'
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_post_grid_image_height',
+			[
+				'label'       => __( 'Image Height', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' , '%'],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-post-grid-container.image-position-top .exad-post-grid-thumbnail > a' => 'height: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_post_grid_image_fixed_height' => 'yes',
 				]
 			]
 		);
@@ -1992,37 +2243,26 @@ class Filterable_Post extends Widget_Base {
     public function render_filter_menu() {
 		$settings = $this->get_settings_for_display();
 
-		$filter_controler_args = array(
-			'post_type'      => $settings['exad_post_grid_type'],
-		);
-
-		$taxonomies = get_object_taxonomies($filter_controler_args);
-
-		// if ( !empty($settings['exad_post_grid_categories'] ) ) {
-		// 	$args['tax_query'][] = [
-		// 		'taxonomy' => $taxonomies,
-		// 		'field'    => 'slug',
-		// 		'terms'    => $taxonomies,
-		// 	];
-		// }
-
-		?>
+		$tex_cat = $settings['exad_control_taxonomy'];
+        $args = array(
+            'taxonomy' => $tex_cat,
+        );
+        $cats = get_categories($args);
+        ?>
 	
 		<ul class="exad-filterable-menu"  >
 			<li class="filter-item current"  data-filter="*">
-				<?php esc_html_e('All', 'exclusive-addons-elementor'); ?>
+				<?php echo esc_html__( $settings['exad_post_grid_all_item_text'] ); ?>
 			</li>
 			<?php
-				foreach ( $taxonomies as $taxonomy ) {
-					$terms = get_terms( $taxonomy );
-					foreach ( $terms as $term ) {
-					?>
-						<li class="filter-item" data-filter=".<?php echo esc_attr( $term->slug ); ?>">
-							<?php echo $term->name; ?>
-						</li>
-					<?php
-					}
-			   }?>
+				foreach ( $cats as $cat ) {
+				?>
+					<li class="filter-item" data-filter=".<?php echo esc_attr( $cat->slug ); ?>">
+						<?php echo $cat->name; ?>
+					</li>
+				<?php
+				}
+			   ?>
 		
 		</ul>
 	
@@ -2072,8 +2312,9 @@ class Filterable_Post extends Widget_Base {
     protected function render() {
 		$settings                  = $this->get_settings_for_display();
         $settings['template_type'] = $this->get_name();
-		$settings['post_args']     = Helper::exad_get_post_arguments( $settings, 'exad_post_grid' );	
+		$settings['post_args']     = Helper::exad_get_post_arguments( $settings, 'exad_post_grid' );	?>
 
+<?php
         $this->add_render_attribute(
 			'exad_post_grid_wrapper',
 			[
@@ -2082,7 +2323,7 @@ class Filterable_Post extends Widget_Base {
 		);
 		
         ?>
-		<div class="exad-filterable-items" id ="exad-filterable-filterable-id-<?php echo $this->get_id(); ?>">
+		<div class="exad-filterable-items <?php echo esc_attr( $settings['exad_fg_control_container_alignment'] );?>" id ="exad-filterable-filterable-id-<?php echo $this->get_id(); ?>">
 			<div class="exad-filterable-menu-container">
 				<?php $this->render_filter_menu(); ?>
 			</div>

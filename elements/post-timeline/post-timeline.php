@@ -10,6 +10,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
+use \Elementor\Group_Control_Css_Filter;
 use \ExclusiveAddons\Elementor\Helper;
 
 class Post_Timeline extends Widget_Base {
@@ -141,7 +142,7 @@ class Post_Timeline extends Widget_Base {
 		$this->add_control(
             'exad_post_timeline_order_by',
             [
-				'label'    => __( 'Ordered By', 'exclusive-addons-elementor' ),
+				'label'    => __( 'Order By', 'exclusive-addons-elementor' ),
 				'type'     => Controls_Manager::SELECT,
                 'default'  => 'date',
 				'options'  => [
@@ -151,6 +152,7 @@ class Post_Timeline extends Widget_Base {
 					'author' => __( 'Author Name', 'exclusive-addons-elementor' ),
 					'title' => __( 'Post Title', 'exclusive-addons-elementor' ),
 					'name' => __( 'Post Name', 'exclusive-addons-elementor' ),
+					'rand' => __( 'Random', 'exclusive-addons-elementor' ),
                 ]
             ]
         );
@@ -214,7 +216,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_timeline_post_container_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -232,7 +234,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_timeline_post_container_padding',
 			[
 				'label'      => __( 'Container Padding', 'exclusive-addons-elementor' ),
@@ -244,7 +246,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_post_timeline_post_content_padding',
 			[
 				'label'      => __( 'Content Padding', 'exclusive-addons-elementor' ),
@@ -340,6 +342,89 @@ class Post_Timeline extends Widget_Base {
 					'{{WRAPPER}} .exad-post-timeline-icon::before, {{WRAPPER}} .exad-post-timeline-icon::after' => 'border: 1px dashed {{VALUE}};'
 				]
 
+			]
+		);
+
+		$this->end_controls_section();
+
+		//image 
+		// Image Styles
+		$this->start_controls_section(
+			'exad_section_timeline_post_image_style',
+			[
+				'label'     => __( 'Image', 'exclusive-addons-elementor' ),
+				'tab'       => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_section_timeline_post_image_radius',
+			[
+				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px'],
+				'selectors'  => [
+					'{{WRAPPER}} .exad-post-timeline-content a img'=> 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+				]
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_timeline_post_image_min_height',
+			[
+				'label'       => __( 'Image Min Height', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' ],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-post-timeline-content a img' => 'min-height: {{SIZE}}{{UNIT}};'
+				],
+			]
+		);
+
+		$this->add_control(
+			'exad_timeline_post_image_fixed_height',
+			[
+				'label'        => esc_html__( 'Fixed Height ?', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'Yes', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'No', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'no'
+			]
+		);
+
+		$this->add_responsive_control(
+			'exad_timeline_post_image_height',
+			[
+				'label'       => __( 'Image Height', 'exclusive-addons-elementor' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px' , '%'],
+				'range'       => [
+					'px'      => [
+						'min' => 0,
+						'max' => 500
+					]
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .exad-post-timeline-content a img' => 'height: {{SIZE}}{{UNIT}};'
+				],
+				'condition' => [
+					'exad_timeline_post_image_fixed_height' => 'yes',
+				]
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name' => 'exad_post_grid_image_css_filter',
+				'selector' => '{{WRAPPER}} .exad-post-timeline-content a img',
 			]
 		);
 
@@ -513,7 +598,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_timeline_date_container_border_radius',
 			[
 				'label'      => __( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -531,7 +616,7 @@ class Post_Timeline extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_timeline_date_container_padding',
 			[
 				'label'      => __( 'Padding', 'exclusive-addons-elementor' ),

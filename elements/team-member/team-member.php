@@ -59,6 +59,9 @@ class Team_Member extends Widget_Base {
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -259,6 +262,16 @@ class Team_Member extends Widget_Base {
 					'active' => true,
 				]
 			]
+		);
+
+		$this->add_control(
+            'exad_team_member_name_tag',
+            [
+                'label'   => __('Name HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
 		);
 		
 		$this->add_control(
@@ -1542,7 +1555,9 @@ class Team_Member extends Widget_Base {
 				<div class="exad-team-member-content">
 					<?php do_action('exad_team_member_content_area_before'); ?>
 					<?php if ( !empty( $settings['exad_team_member_name'] ) ) : ?>
-						<h2 <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_team_member_name'] ); ?></h2>
+						<<?php echo Utils::validate_html_tag( $settings['exad_team_member_name_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>>
+							<?php echo Helper::exad_wp_kses( $settings['exad_team_member_name'] ); ?>
+						</<?php echo Utils::validate_html_tag( $settings['exad_team_member_name_tag'] ); ?>>
 					<?php endif; ?>
 
 					<?php if ( !empty( $settings['exad_team_member_designation'] ) ) : ?>
@@ -1662,6 +1677,7 @@ class Team_Member extends Widget_Base {
 
 			var target = settings.exad_team_members_cta_btn_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_team_members_cta_btn_link.nofollow ? ' rel="nofollow"' : '';
+			var nameHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_team_member_name_tag );
 		#>
 		
 		<div class="exad-team-item">
@@ -1673,9 +1689,9 @@ class Team_Member extends Widget_Base {
 				<# } #>
 		        <div class="exad-team-member-content">
 		        	<# if ( settings.exad_team_member_name ) { #>
-		            	<h2 {{{ view.getRenderAttributeString( 'exad_team_member_name' ) }}}>
+		            	<{{{ nameHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_team_member_name' ) }}}>
 		            		{{{ settings.exad_team_member_name }}}
-		            	</h2>
+		            	</{{{ nameHTMLTag }}}>
 		            <# } #>
 
 		            <# if ( settings.exad_team_member_designation ) { #>

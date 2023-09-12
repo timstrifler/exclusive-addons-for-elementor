@@ -96,6 +96,9 @@ class Flipbox extends Widget_Base {
 				],
 				'condition' => [
 					'exad_flipbox_front_icon_image' => 'img'
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -120,6 +123,16 @@ class Flipbox extends Widget_Base {
 				'default'     => __( 'Heading Front', 'exclusive-addons-elementor' ),
 				'placeholder' => __( 'Your Title', 'exclusive-addons-elementor' )
 			]
+		);
+
+		$this->add_control(
+            'exad_flipbox_front_title_html_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
 		);
 
 		$this->add_control(
@@ -216,6 +229,16 @@ class Flipbox extends Widget_Base {
 		);
 
 		$this->add_control(
+            'exad_flipbox_back_title_html_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h2',
+            ]
+		);
+
+		$this->add_control(
 			'exad_flipbox_back_description',
 			[
 				'label'       => __( 'Description', 'exclusive-addons-elementor' ),
@@ -231,10 +254,10 @@ class Flipbox extends Widget_Base {
 		$this->add_control(
 			'exad_flipbox_back_button_enable',
 			[
-				'label' => __( 'Show Button', 'plugin-domain' ),
+				'label' => __( 'Show Button', 'exclusive-addons-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'your-plugin' ),
-				'label_off' => __( 'Hide', 'your-plugin' ),
+				'label_on' => __( 'Show', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'Hide', 'exclusive-addons-elementor' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -560,7 +583,7 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_front_icon_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -893,7 +916,7 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_back_icon_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -1030,7 +1053,7 @@ class Flipbox extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_button_padding',
 			[
                 'label'      => __( 'Padding', 'exclusive-addons-elementor' ),
@@ -1050,7 +1073,7 @@ class Flipbox extends Widget_Base {
 			]
         );
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_flipbox_button_margin',
 			[
                 'label'      => __( 'Margin', 'exclusive-addons-elementor' ),
@@ -1248,7 +1271,7 @@ class Flipbox extends Widget_Base {
 							  	<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_flipbox_front_image_thumbnail', 'exad_flipbox_front_image' ); ?>
 			        		</div>
 						<?php }
-				        $front_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_front_title' ).'>%s</h2>', Helper::exad_wp_kses( $front_title ) ) : '';
+				        $front_title ? printf('<'. Utils::validate_html_tag( $settings['exad_flipbox_front_title_html_tag'] ) .' '.$this->get_render_attribute_string( 'exad_flipbox_front_title' ).'>%s</'.Utils::validate_html_tag( $settings['exad_flipbox_front_title_html_tag'] ).'>', Helper::exad_wp_kses( $front_title ) ) : '';
 				        $front_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_front_description' ).'>%s</div>', wp_kses_post( $front_desc ) ) : '';
 
 				        do_action('exad_flipbox_frontend_content_wrapper_after'); ?>
@@ -1274,7 +1297,7 @@ class Flipbox extends Widget_Base {
 							</div>
 						<?php }
 
-				        $back_title ? printf('<h2 '.$this->get_render_attribute_string( 'exad_flipbox_back_title' ).'>%s</h2>', Helper::exad_wp_kses( $back_title) ) : '';
+				        $back_title ? printf('<'. Utils::validate_html_tag( $settings['exad_flipbox_back_title_html_tag'] ) .' '.$this->get_render_attribute_string( 'exad_flipbox_back_title' ).'>%s</'.Utils::validate_html_tag( $settings['exad_flipbox_back_title_html_tag'] ).'>', Helper::exad_wp_kses( $back_title) ) : '';
 				        $back_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_back_description' ).'>%s</div>', wp_kses_post( $back_desc ) ) : '';
 
 				        do_action('exad_flipbox_backend_content_wrapper_after');
@@ -1348,6 +1371,9 @@ class Flipbox extends Widget_Base {
 			};
 			var back_image_url = elementor.imagesManager.getImageUrl( back_image );
 
+			var fontTitleHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_flipbox_front_title_html_tag );
+			var backTitleHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_flipbox_back_title_html_tag );
+
 		#>
 		<div class="exad-flip-box">
 			<div {{{ view.getRenderAttributeString( 'exad_flipbox_attribute' ) }}}>
@@ -1367,9 +1393,9 @@ class Flipbox extends Widget_Base {
 						<# } #>
 
 						<# if ( settings.exad_flipbox_front_title ) { #>
-				        	<h2 {{{ view.getRenderAttributeString( 'exad_flipbox_front_title' ) }}}>
+				        	<{{{ fontTitleHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_flipbox_front_title' ) }}}>
 				        		{{{ settings.exad_flipbox_front_title }}}
-				        	</h2>
+				        	</{{{ fontTitleHTMLTag }}}>
 				    	<# } #>
 
 						<# if ( settings.exad_flipbox_front_description ) { #>
@@ -1396,9 +1422,9 @@ class Flipbox extends Widget_Base {
 						<# } #>
 
 						<# if ( settings.exad_flipbox_back_title ) { #>
-				        	<h2 {{{ view.getRenderAttributeString( 'exad_flipbox_back_title' ) }}}>
+				        	<{{{ backTitleHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_flipbox_back_title' ) }}}>
 				        		{{{ settings.exad_flipbox_back_title }}}
-				        	</h2>
+				        	</{{{ backTitleHTMLTag }}}>
 				    	<# } #>
 
 						<# if ( settings.exad_flipbox_back_description ) { #>

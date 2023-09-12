@@ -84,6 +84,9 @@ class Infobox extends Widget_Base {
 				'default'   => [
 					'url'   => Utils::get_placeholder_image_src()
 				],
+				'dynamic' => [
+					'active' => true,
+				],
 				'condition' => [
 					'exad_infobox_img_or_icon' => 'img'
 				]
@@ -127,6 +130,16 @@ class Infobox extends Widget_Base {
 					'active' => true,
 				]
 			]
+		);
+
+		$this->add_control(
+            'exad_infobox_title_html_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h3',
+            ]
 		);
 
 		$this->add_control(
@@ -967,7 +980,7 @@ class Infobox extends Widget_Base {
 	            	<?php if( !empty( $settings['exad_infobox_title_link']['url'] ) ) { ?>
                         <a <?php echo $this->get_render_attribute_string( 'exad_infobox_title_link' ); ?>>
                     <?php } ?>
-	            	<?php $title ? printf( '<h3 '.$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</h3>', Helper::exad_wp_kses( $title ) ) : ''; ?>
+	            	<?php $title ? printf( '<'. Utils::validate_html_tag( $settings['exad_infobox_title_html_tag'] ) . ' ' .$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</'.Utils::validate_html_tag( $settings['exad_infobox_title_html_tag'] ).'>', Helper::exad_wp_kses( $title ) ) : ''; ?>
 	            	<?php if( !empty( $settings['exad_infobox_title_link']['url'] ) ) { ?>
                         </a>
                     <?php } ?>
@@ -1031,6 +1044,8 @@ class Infobox extends Widget_Base {
 			var target = settings.exad_infobox_title_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_infobox_title_link.nofollow ? ' rel="nofollow"' : '';
 
+			var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_infobox_title_html_tag );
+
 		#>
 		<div class="exad-infobox">
 			<div {{{ view.getRenderAttributeString( 'exad_infobox_transition' ) }}}>
@@ -1068,9 +1083,9 @@ class Infobox extends Widget_Base {
 					<# } #>
 
 					<# if ( settings.exad_infobox_title ) { #>
-			        	<h3 {{{ view.getRenderAttributeString( 'exad_infobox_title' ) }}}>
+			        	<{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_infobox_title' ) }}}>
 			        		{{{ settings.exad_infobox_title }}}
-			        	</h3>
+			        	</{{{ titleHTMLTag }}}>
 			    	<# } #>
 
 					<# if ( settings.exad_infobox_description ) { #>

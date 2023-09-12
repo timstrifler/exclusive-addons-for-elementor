@@ -870,7 +870,7 @@
      width: 100%;
      border: 1px solid #46D39A;
      border-radius: 10px;
-     color: #46D39A;
+     color: #3c434a;
      font-family: 'Roboto', sans-serif;
      font-size: 14px;
      padding: 11px 18px;
@@ -883,7 +883,7 @@
  }
  
  .exad-element-filter-search input::placeholder {
-     color: #46D39A;
+     color: #3c434a;
  }
  
  .exad-element-filter-search input:-ms-input-placeholder {

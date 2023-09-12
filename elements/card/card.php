@@ -58,6 +58,9 @@ class Card extends Widget_Base {
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -65,7 +68,7 @@ class Card extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
 			[
-				'name'      => 'thumbnail',
+				'name'      => 'thumbnail', 
 				'default'   => 'full',
 				'condition' => [
 					'exad_card_image[url]!' => ''
@@ -289,6 +292,17 @@ class Card extends Widget_Base {
 					'active' => true,
 				]
 			]
+		);
+
+		$this->add_control(
+            'exad_card_title_html_tag',
+            [
+                'label'   => __('Title HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+				'separator' => 'after',
+                'options' => Helper::exad_title_tags(),
+                'default' => 'span',
+            ]
 		);
 
 		$this->add_control(
@@ -1363,9 +1377,10 @@ class Card extends Widget_Base {
 			?>
 
           	<div class="exad-card-body">
-			  <?php if( $settings['exad_card_title'] ) { ?>
+			  	<?php if( $settings['exad_card_title'] ) { ?>
 	          		<a <?php echo $this->get_render_attribute_string( 'exad_card_title_link' ); ?>>
-	            		<span <?php echo $this->get_render_attribute_string( 'exad_card_title' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_card_title'] ); ?></span>
+	            		<<?php echo Utils::validate_html_tag( $settings['exad_card_title_html_tag'] );?> <?php echo $this->get_render_attribute_string( 'exad_card_title' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_card_title'] ); ?>
+						</<?php echo Utils::validate_html_tag( $settings['exad_card_title_html_tag'] );?>>
 	        		</a>
 					<?php	          			
           		}
@@ -1450,6 +1465,8 @@ class Card extends Widget_Base {
             var nofollow = settings.exad_card_action_link.nofollow ? ' rel="nofollow"' : '';
 
 			var iconHTML = elementor.helpers.renderIcon( view, settings.exad_card_action_link_icon, { 'aria-hidden': true }, 'i' , 'object' );
+
+			var titleHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_card_title_html_tag );
 		#>
 		<div {{{ view.getRenderAttributeString( 'exad_card' ) }}}>
 			<# if ( image_url ) { #>
@@ -1467,9 +1484,9 @@ class Card extends Widget_Base {
 		    <div class="exad-card-body">
 		    	<# if ( settings.exad_card_title ) { #>
 			    	<a href="{{{ settings.exad_card_title_link.url }}}" {{{ view.getRenderAttributeString( 'exad_card_title_link' ) }}}>
-			    		<span {{{ view.getRenderAttributeString( 'exad_card_title' ) }}}>
+			    		<{{{ titleHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_card_title' ) }}}>
 			    			{{{ settings.exad_card_title }}}
-			    		</span>
+			    		</{{{ titleHTMLTag }}}>
 		    		</a>
 		    	<# } #>
 

@@ -187,7 +187,7 @@ class News_Ticker extends Widget_Base {
             ]
         ); 
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_news_ticker_height',
             [   
                 'label'         => esc_html__( 'Height', 'exclusive-addons-elementor' ),
@@ -421,7 +421,7 @@ class News_Ticker extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_news_ticker_label_padding',
             [
                 'label'         => esc_html__( 'Padding(Left & Right)', 'exclusive-addons-elementor' ),
@@ -647,7 +647,7 @@ class News_Ticker extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_news_ticker_control_spacing',
 			[
 				'label' => __( 'Spacing (Left & Right)', 'exclusive-addons-elementor' ),
@@ -718,7 +718,7 @@ class News_Ticker extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'exad_news_ticker_controls_size',
             [
                 'label'      => esc_html__( 'Size', 'exclusive-addons-elementor' ),
@@ -733,7 +733,7 @@ class News_Ticker extends Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'exad_news_ticker_control_item_spacing',
 			[
 				'label' => __( 'Control Item Spacing', 'exclusive-addons-elementor' ),

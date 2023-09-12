@@ -56,6 +56,9 @@ class Testimonial extends Widget_Base {
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
 		);
@@ -92,6 +95,16 @@ class Testimonial extends Widget_Base {
 					'active' => true,
 				]
 			]
+		);
+
+		$this->add_control(
+            'exad_testimonial_name_tag',
+            [
+                'label'   => __('Name HTML Tag', 'exclusive-addons-elementor'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => Helper::exad_title_tags(),
+                'default' => 'h4',
+            ]
 		);
 
 		$this->add_control(
@@ -1072,7 +1085,9 @@ class Testimonial extends Widget_Base {
 					<?php
 						if ( !empty( $settings['exad_testimonial_name'] ) ) : ?>
 							<a href="<?php echo $settings['exad_testimonial_url']['url']; ?>" <?php echo $target; ?> <?php echo $nofollow; ?>>
-								<h4 <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_testimonial_name'] ); ?></h4>
+								<<?php echo Utils::validate_html_tag( $settings['exad_testimonial_name_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?>>
+									<?php echo Helper::exad_wp_kses( $settings['exad_testimonial_name'] ); ?>
+								</<?php echo Utils::validate_html_tag( $settings['exad_testimonial_name_tag'] ); ?>>
 							</a>
 						<?php	
 						endif;
@@ -1158,6 +1173,8 @@ class Testimonial extends Widget_Base {
 			if ( 'yes' === settings.exad_testimonial_container_transition_top ){
 				var transition_top = 'exad-testimonial-transition-top-' + settings.exad_testimonial_container_transition_top ;
 			}
+
+			var TestimonialNameHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_testimonial_name_tag );
 		#>
 
 		<div class="exad-testimonial-wrapper {{ settings.exad_testimonial_container_alignment }} {{ transition_top }}">
@@ -1201,9 +1218,9 @@ class Testimonial extends Widget_Base {
 					<div class="exad-testimonial-reviewer">
 						<# if ( settings.exad_testimonial_name ) { #>
 							<a href="{{ settings.exad_testimonial_url.url }}"{{ target }}{{ nofollow }}>
-								<h4 {{{ view.getRenderAttributeString( 'exad_testimonial_name' ) }}}>
+								<{{{ TestimonialNameHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_testimonial_name' ) }}}>
 									{{{ settings.exad_testimonial_name }}}
-								</h4>
+								</{{{ TestimonialNameHTMLTag }}}>
 							</a>
 						<# } #>
 						<# if ( settings.exad_testimonial_designation ) { #>

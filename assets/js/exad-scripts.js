@@ -541,14 +541,25 @@ $('body').on('click.onWrapperLink', '[data-exad-element-link]', function() {
 var exclusiveLogoCarousel   = function ( $scope, $ ) {
     var logoCarouselWrapper = $scope.find( '.exad-logo-carousel-element' ).eq(0),
     slidesToShow            = logoCarouselWrapper.data( 'slidestoshow' ),
+    carouselColumnTablet    = logoCarouselWrapper.data( 'slidestoshow-tablet' ),
+    carouselColumnMobile    = logoCarouselWrapper.data( 'slidestoshow-mobile' ),
     slidesToScroll          = logoCarouselWrapper.data( 'slidestoscroll' ),
     carouselNav             = logoCarouselWrapper.data( 'carousel-nav' ),
     direction               = logoCarouselWrapper.data( 'direction' ),
     loop                    = undefined !== logoCarouselWrapper.data( 'loop' ) ? logoCarouselWrapper.data( 'loop' ) : false,
     autoPlay                = undefined !== logoCarouselWrapper.data( 'autoplay' ) ? logoCarouselWrapper.data( 'autoplay' ) : false,
-    autoplaySpeed           = undefined !== logoCarouselWrapper.data( 'autoplayspeed' ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false;
+    autoplaySpeed           = undefined !== logoCarouselWrapper.data( 'autoplayspeed' ) ? logoCarouselWrapper.data( 'autoplayspeed' ) : false,
+    Smooth                  = undefined !== logoCarouselWrapper.data( 'smooth' ) ? logoCarouselWrapper.data( 'smooth' ) : false,
+    SmoothSpeed             = undefined !== logoCarouselWrapper.data( 'smooth-speed' ) ? logoCarouselWrapper.data( 'smooth-speed' ) : 300;
 
-    var arrows, dots;
+    var arrows, dots, cssEase;
+
+    if ( Smooth ){
+        cssEase = 'linear';
+        autoplaySpeed = 0;
+    } else {
+        cssEase = 'ease';
+    }
     if ( 'both' === carouselNav ) {
         arrows = true;
         dots   = true;
@@ -573,25 +584,27 @@ var exclusiveLogoCarousel   = function ( $scope, $ ) {
             dots: dots,
             rtl: direction,
             arrows: arrows,
+            speed: SmoothSpeed,
+            cssEase: cssEase,
             prevArrow: '<div class="exad-logo-carousel-prev"><i class="eicon-chevron-left"></i></div>',
             nextArrow: '<div class="exad-logo-carousel-next"><i class="eicon-chevron-right"></i></div>',
             responsive: [
                 {
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 3
+                        slidesToShow: carouselColumnTablet
                     }
                 },
                 {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: 2
+                        slidesToShow: carouselColumnTablet
                     }
                 },
                 {
                     breakpoint: 450,
                     settings: {
-                        slidesToShow: 1
+                        slidesToShow: carouselColumnMobile
                     }
                 }
             ]
@@ -742,11 +755,14 @@ var exclusivePostGrid = function( $scope, $ ) {
                 equal_height: $(this).data('equal_height'),
                 enable_details_btn: $(this).data('enable_details_btn'),
                 details_btn_text: $(this).data('details_btn_text'),
+                details_btn_text_tab: $(this).data('details_btn_text_tab'),
                 show_user_avatar: $(this).data('show-user-avatar'),
                 show_user_name: $(this).data('show_user_name'),
                 post_data_position: $(this).data('post_data_position'),
                 show_title: $(this).data('show_title'),
+                show_title_parmalink: $(this).data('show_title_parmalink'),
                 title_full: $(this).data('title_full'),
+                title_tag: $(this).data('title_tag'),
                 show_read_time: $(this).data('show_read_time'),
                 show_comment: $(this).data('show_comment'),
                 show_excerpt: $(this).data('show_excerpt'),
@@ -925,32 +941,33 @@ var exclusiveSticky = function ($scope, $) {
 // tabs script starts
 
 var exclusiveTabs   = function( $scope, $ ) {
-    var tabsWrapper = $scope.find( '[data-tabs]' ).eq(0);
+    var tabsWrapper = $scope.find( '.exad-tabs-'+ $scope.data("id") ).eq(0);
     tabsWrapper.each( function() {
-        var tab         = $(this),
+        var tab         = $scope.find( '.exad-tabs-'+ $scope.data("id") ),
         isTabActive     = false,
         isContentActive = false;
-        tab.find( '[data-tab]' ).each( function (){
+        tab.children().find( ' > [data-tab]' ).each( function (){
             if( $(this).hasClass( 'active' ) ){
                 isTabActive = true;
             }
         } );
-        tab.find( '.exad-advance-tab-content' ).each( function (){
+        tab.find( ' > .exad-advance-tab-content' ).each( function (){
             if( $(this).hasClass( 'active' ) ){
                 isContentActive = true;
             }
         } );
         if( !isContentActive ){
-            tab.find( '.exad-advance-tab-content' ).eq(0).addClass( 'active' );
+            tab.find( ' > .exad-advance-tab-content' ).eq(0).addClass( 'active' );
         }
         if( !isTabActive ){
             tab.find( '[data-tab]' ).eq(0).addClass( 'active' );
         }
-        tab.find( '[data-tab]' ).click(function() {
+        tab.children().find( ' > [data-tab]' ).click(function() {
             tab.find( '[data-tab]' ).removeClass( 'active' );
-            tab.find( '.exad-advance-tab-content' ).removeClass( 'active' );
+            tab.find( ' > .exad-advance-tab-content' ).removeClass( 'active' );
             $(this).addClass( 'active' );
-            tab.find( '.exad-advance-tab-content' ).eq($(this).index()).addClass( 'active' );
+            tab.find( ' > [data-tab]' ).eq($(this).index()).addClass( 'active' );
+            tab.find( ' > .exad-advance-tab-content' ).eq($(this).index()).addClass( 'active' );
         } );
     } );
 }

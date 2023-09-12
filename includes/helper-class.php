@@ -131,7 +131,7 @@ class Helper {
     public static function exad_get_authors() {
         $user_query = new \WP_User_Query(
             [
-                'who' => 'authors',
+                // 'who' => 'authors', //who is deprecated Use capability instead
                 'has_published_posts' => true,
                 'fields' => [
                     'ID',
@@ -185,6 +185,7 @@ class Helper {
         $the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
         $words = explode(' ', $the_excerpt, intval( $length ) + 1);
 
+        
         if(count($words) > $length) :
             array_pop($words);
             array_push($words, '…');
@@ -236,7 +237,7 @@ class Helper {
             'author'           => $author_ids,
             'author_name'      => '',
             'post_status'      => 'publish',
-            'suppress_filters' => true,
+            'suppress_filters' => false,
             'tag__in'          => $settings[ $prefix . '_tags'],
             'post__not_in'     => $settings[ $prefix . '_exclude_post' ],
         );
@@ -257,7 +258,7 @@ class Helper {
         $output = '';
         if ( ! empty( $categories ) ) {
             foreach( $categories as $category ) {
-                $output .= '<li><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></li>' . $separator;
+                $output .= '<li><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'exclusive-addons-elementor' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></li>' . $separator;
             }
             echo trim( $output, $separator );
         }
@@ -352,5 +353,222 @@ class Helper {
             return trim( $cat_name_as_class, $separator );
          
     }
+
+    /**
+     * Get Custom Post terms name and slug
+     * @param $element
+     * @return array terms name and terms links
+     */
+    public static function exad_get_terms_custom_post( ) {
+        $separator = ' ';
+        $cat_name_as_class = '';
+        $post_type = get_post_type( get_the_ID() );   
+        $taxonomies = get_object_taxonomies( $post_type );   
+        $taxonomy_terms = wp_get_object_terms( get_the_ID(), $taxonomies );
+ 
+        foreach( $taxonomy_terms as $term ) :   
+            $cat_name_as_class .= '<li><a class="' . esc_attr( $term->slug ) . '" href="' . esc_url( get_term_link( $term->term_id ) ) . '">' .  esc_html( $term->name ) . '</a></li>' ; 
+        endforeach;
+
+        echo $cat_name_as_class;
+         
+    }
+
+	/**
+	** Get Terms of Taxonomy
+	*/
+	public static function exad_get_terms_by_taxonomy( $slug ) {
+		if ( ( 'product_cat' === $slug || 'product_tag' === $slug ) && ! class_exists( 'WooCommerce' ) ) {
+			return;
+		}
+
+		$query = get_terms( $slug, [ 'hide_empty' => false, 'posts_per_page' => -1 ] );
+		$taxonomies = [];
+
+		foreach ( $query as $tax ) {
+			$taxonomies[$tax->term_id] = $tax->name;
+		}
+
+		wp_reset_postdata();
+
+		return $taxonomies;
+	}
+
+    /**
+	** Get Available Custom Post Types or Taxonomies
+	*/
+	public static function exad_get_custom_types_of( $query, $exclude_defaults = true ) {
+		// Taxonomies
+		if ( 'tax' === $query ) {
+			$custom_types = get_taxonomies( [ 'show_in_nav_menus' => true ], 'objects' );
+		
+		// Post Types
+		} else {
+			$custom_types = get_post_types( [ 'show_in_nav_menus' => true ], 'objects' );
+		}
+
+		$custom_type_list = [];
+
+		foreach ( $custom_types as $key => $value ) {
+			if ( $exclude_defaults ) {
+				if ( $key != 'post' && $key != 'page' && $key != 'category' && $key != 'post_tag' ) {
+					$custom_type_list[ $key ] = $value->label;
+				}
+			} else {
+				$custom_type_list[ $key ] = $value->label;
+			}
+		}
+
+		return $custom_type_list;
+	}
+
+    /**
+	** Get Posts of Post Type for exclude
+	*/
+	public static function exad_get_posts_by_post_type( $slug ) {
+		$query = get_posts( [ 'post_type' => $slug, 'posts_per_page' => -1 ] );
+		$posts = [];
+
+		foreach ( $query as $post ) {
+			$posts[$post->ID] = $post->post_title;
+		}
+		
+		wp_reset_postdata();
+
+		return $posts;
+	}
+
+
+    /**
+     *
+     * @return Array of Post arguments based on Post Style prefix
+     *
+     *
+     */
+
+    public static function exad_get_post_carousel_arguments( $settings, $prefix ) {
+
+        $author_ids = implode( ", ", $settings[ $prefix . '_authors'] );
+
+        if ( isset( $settings[ $prefix . '_categories'] ) ) {
+            $category_ids = implode( ", ", $settings[ $prefix . '_categories'] );
+        } else {
+            $category_ids = [];
+        }
+
+        if ( 'yes' === $settings[ $prefix . '_ignore_sticky'] ) {
+            $exad_ignore_sticky = true;
+        } else {
+            $exad_ignore_sticky = false;
+        }
+
+        if ( ! empty ( $settings[ $prefix . '_type'] && 'post' === $settings[ $prefix . '_type'] ) ) {
+            $post_not_in = $settings[ $prefix . '_exclude_post' ] ? $settings[ $prefix . '_exclude_post' ] : null;
+        } else {
+            $post_not_in = $settings[  'exad_query_exclude_' . $settings[ $prefix . '_type' ] ] ? $settings[  'exad_query_exclude_' . $settings[ $prefix . '_type' ] ] : null; 
+        }
+
+        $post_args = array(
+            'post_type'        => $settings[ $prefix . '_type'],
+            'posts_per_page'   => $settings[ $prefix .'_per_page'],
+            'tax_query'        => self::get_tax_query_args($settings),
+            'offset'           => $settings[ $prefix . '_offset'],
+            'cat'              => $category_ids,
+            'category_name'    => '',
+            'ignore_sticky_posts' => $exad_ignore_sticky,
+            'orderby'          => $settings[ $prefix . '_order_by' ],
+            'order'            => $settings[ $prefix . '_order'],
+            'include'          => '',
+            'exclude'          => '',
+            'meta_key'         => '',
+            'meta_value'       => '',
+            'post_mime_type'   => '',
+            'post_parent'      => '',
+            'author'           => $author_ids,
+            'author_name'      => '',
+            'post_status'      => 'publish',
+            'suppress_filters' => false,
+            'tag__in'          => $settings[ $prefix . '_tags'],
+            'post__not_in'     => $post_not_in,
+        );
+
+        return $post_args;
+
+    }
+
+    // Taxonomy Query Args
+	public static function get_tax_query_args( $settings ) {
+		
+		$tax_query = [];
+        $exclude_terms = [];
+
+        foreach ( get_object_taxonomies( $settings[ 'exad_post_carousel_type' ] ) as $tax ) {
+            if ( ! empty( $settings[ 'exad_query_taxonomy_'. $tax  ] ) ) {
+                array_push( $tax_query, [
+                    'taxonomy' => $tax,
+                    'field' => 'id',
+                    'terms' => $settings[ 'exad_query_taxonomy_'. $tax ]
+                ] );
+            }
+
+           
+            if ( ( 'post' !== $settings[ 'exad_post_carousel_type' ] ) && ( 'product' !== $settings[ 'exad_post_carousel_type' ] ) ) {
+        
+                $exclude_terms = $settings[ 'exad_query_exclude_terms_'. $tax ] ;
+       
+                if ( ! empty( $exclude_terms ) ) {
+                    array_push( $tax_query, [
+                        'taxonomy' => $tax,
+                        'field'    => 'term_id',
+                        'terms'    => $settings[ 'exad_query_exclude_terms_'. $tax ],
+                        'operator' => 'NOT IN',
+                    ] );
+                }
+            }
+          
+            
+        }
+
+		return $tax_query;
+	}
+
+
+    // Title Tags
+    public static function exad_title_tags() {
+        
+        $title_tags = [
+            'h1'   => 'H1',
+            'h2'   => 'H2',
+            'h3'   => 'H3',
+            'h4'   => 'H4',
+            'h5'   => 'H5',
+            'h6'   => 'H6',
+            'div'  => 'div',
+            'span' => 'span',
+            'p'    => 'p',
+        ];
+
+        return $title_tags;
+    }
+
+    // To Get the local plugin basic data
+    public static function exad_get_local_plugin_data( $basename = '' ) {
+        if ( empty( $basename ) ) {
+            return false;
+        }
+
+        if ( !function_exists( 'get_plugins' ) ) {
+            include_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+
+        $plugins = get_plugins();
+
+        if ( !isset( $plugins[ $basename ] ) ) {
+            return false;
+        }
+
+        return $plugins[ $basename ];
+    }
+
 
 }

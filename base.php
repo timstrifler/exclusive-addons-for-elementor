@@ -7,6 +7,7 @@
  */
 
 namespace ExclusiveAddons\Elementor;
+use ExclusiveAddons\Elementor\Exad_WPML_Element_Free_Compatibility;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -80,7 +81,8 @@ final class Base {
         self::$is_pro_active = apply_filters( 'exad/pro_activated', false );
         $this->includes();
         $this->register_hooks();
-        $this->exclusive_addons_appsero_init();
+        // $this->exclusive_addons_appsero_init();
+        $this->exad_wpml_free_compatiblity()->init();
     }
 
     // register hooks
@@ -296,6 +298,7 @@ final class Base {
         include_once EXAD_PATH . 'includes/addons-manager-class.php';
         include_once EXAD_PATH . 'includes/assets-manager-class.php';
         if( is_admin() ) {
+            include_once EXAD_PATH . 'admin/dashboard-notice.php';
             include_once EXAD_PATH . 'admin/dashboard-settings.php';
         }
 
@@ -305,6 +308,8 @@ final class Base {
             include_once EXAD_PATH . 'library/library-manager.class.php' ;
             include_once EXAD_PATH . 'library/library-source.class.php' ;   
         }
+
+        include_once EXAD_PATH . 'includes/multilang-compatibility/class-elements-free-wpml-compatibility.php';
     }
 
     public function i18n() {
@@ -334,18 +339,19 @@ final class Base {
      *
      * @return void
      */
-    protected function exclusive_addons_appsero_init() {
+    // protected function exclusive_addons_appsero_init() {
 
-        if ( ! class_exists( '\Appsero\Client' ) ) {
-            require_once __DIR__ . '/vendor/appsero/src/Client.php';
-        }
+    //     if ( ! class_exists( 'Exclusive_Addons\Appsero\Client' ) ) {
+    //         require_once __DIR__ . '/vendor/appsero/src/Client.php';
+    //     }
 
-        $client = new \Appsero\Client( 'c3e3c997-fabf-42ad-bbd9-15cba7ab18ca', 'Exclusive Addons for Elementor', __FILE__ );
+    //     $this->appsero = new \Exclusive_Addons\Appsero\Client( 'c3e3c997-fabf-42ad-bbd9-15cba7ab18ca', 'Exclusive Addons for Elementor', __FILE__ );
 
-        // Active insights
-        $client->insights()->init();
+    //     // Active insights
+    //     $this->appsero->insights()->init();
+    //     //var_dump($this->appsero);
 
-    }
+    // }
 
 
     /**
@@ -377,7 +383,9 @@ final class Base {
         $settings['exad_post_grid_show_date_tag'] = $_POST['show_date_tag'];
         $settings['exad_post_grid_date_tag'] = $_POST['date_tag'];
         $settings['exad_post_grid_show_title'] = $_POST['show_title'];
+        $settings['exad_post_grid_show_title_parmalink'] = $_POST['show_title_parmalink'];
         $settings['exad_post_grid_title_full'] = $_POST['title_full'];
+        $settings['exad_post_grid_title_tag'] = $_POST['title_tag'];
         $settings['exad_grid_title_length'] = $_POST['title_length'];
         $settings['exad_post_grid_show_read_time'] = $_POST['show_read_time'];
         $settings['exad_post_grid_show_comment'] = $_POST['show_comment'];
@@ -385,6 +393,7 @@ final class Base {
         $settings['exad_grid_excerpt_length'] = $_POST['excerpt_length'];
         $settings['exad_post_grid_read_more_btn_text'] = $_POST['details_btn_text'];
         $settings['exad_post_grid_show_read_more_btn'] = $_POST['enable_details_btn'];
+        $settings['exad_post_grid_show_read_more_btn_new_tab'] = $_POST['details_btn_text_tab'];
         $settings['exad_post_grid_post_data_position'] = $_POST['post_data_position'];
         $settings['exad_post_grid_offset'] = (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] );
 
@@ -398,9 +407,10 @@ final class Base {
             'post_status'      => 'publish',
             'paged'            => $paged,
             'cat'              => $cat_array,
+            'suppress_filters' => false,
             'tags__in'         => $tags_array,
             'post__not_in'     => $exclude_array,
-            'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] )
+            'offset'           => (int)$_POST['offset'] + ( ( (int)$paged - 1 ) * (int)$_POST['posts_per_page'] ),
         );
 
         $posts = new \WP_Query( $post_args );
@@ -484,8 +494,16 @@ final class Base {
     public function register_controls() {
 
 		$controls_manager = \Elementor\Plugin::$instance->controls_manager;
-		$controls_manager->register_control( 'svg-selector', new Image_Mask_SVG_Control() );
+		$controls_manager->register( new Image_Mask_SVG_Control() );
 
+	}
+
+    /**
+     * 
+     * Load WPML compatibility instance
+     */
+	public function exad_wpml_free_compatiblity() {
+		return Exad_WPML_Element_Free_Compatibility::get_instance();
 	}
 
 

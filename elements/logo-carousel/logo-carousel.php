@@ -60,6 +60,9 @@ class Logo_Carousel extends Widget_Base {
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src()
+				],
+				'dynamic' => [
+					'active' => true,
 				]
 			]
         );
@@ -75,6 +78,34 @@ class Logo_Carousel extends Widget_Base {
 			]
 		);
         
+		$logo_repeater->add_control(
+			'exad_logo_carousel_link_to_type',
+			[
+				'label'   => esc_html__( 'Link to', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SELECT,
+				'separator'  => 'before',
+				'options' => [
+					''       => esc_html__( 'None', 'exclusive-addons-elementor' ),
+					'file'   => esc_html__( 'Media File', 'exclusive-addons-elementor' ),
+					'custom' => esc_html__( 'Custom URL', 'exclusive-addons-elementor' ),
+				],
+			]
+		);
+
+		$logo_repeater->add_control(
+			'exad_logo_carousel_image_link_to',
+			[
+				'type'        => Controls_Manager::URL,
+				'placeholder' => 'http://your-link.com',
+				'dynamic'     => [ 'active' => true ],
+				'separator'  => 'none',
+				'show_label' => false,
+				'condition' => [
+					'exad_logo_carousel_link_to_type' => 'custom',
+				],
+			]
+		);
+
         $this->add_control(
 			'exad_logo_carousel_repeater',
 			[
@@ -99,12 +130,14 @@ class Logo_Carousel extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_logo_slide_to_show',
 			[
 				'label'   => esc_html__( 'Columns', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::NUMBER,
-				'default' => '3'
+				'default' => '3',
+				'tablet_default' => '2',
+				'mobile_default' => '1',
 			]
 		);
 
@@ -162,6 +195,28 @@ class Logo_Carousel extends Widget_Base {
 				'label'   => esc_html__( 'Infinite Loop', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => 'yes'
+			]
+		);
+
+		$this->add_control(
+			'exad_logo_smooth_scroll',
+			[
+				'label'   => esc_html__( 'Smooth Scroll', 'exclusive-addons-elementor' ),
+				'description' => __( '<b>Autoplay Speed option not working. This is not necessary for linear slide</b>', 'exclusive-addons-elementor' ),
+				'type'    => Controls_Manager::SWITCHER,
+				'default' => 'no'
+			]
+		);
+
+		$this->add_control(
+			'exad_logo_smooth_scroll_speed',
+			[
+				'label'     => esc_html__( 'Speed', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::NUMBER,
+				'default'   => 3000,
+				'condition' => [
+					'exad_logo_smooth_scroll' => 'yes'
+				]
 			]
 		);
 
@@ -603,7 +658,7 @@ class Logo_Carousel extends Widget_Base {
 
 		$this->end_popover();
 		
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_logo_carousel_arrows_border_radius',
 			[
 				'label'      => esc_html__( 'Border Radius', 'exclusive-addons-elementor' ),
@@ -922,8 +977,10 @@ class Logo_Carousel extends Widget_Base {
 				'class'               => ['exad-logo-carousel-element', 'exad-logo-carousel-max-height-'.esc_attr($settings['exad_logo_carousel_max_height_enable'])],
 				'data-carousel-nav'   => esc_attr( $settings['exad_logo_carousel_nav'] ),
 				'data-slidestoshow'   => esc_attr( $settings['exad_logo_slide_to_show'] ),
+				'data-slidestoshow-tablet'   => intval( esc_attr( isset( $settings['exad_logo_slide_to_show_tablet'] ) ) ? (int)$settings['exad_logo_slide_to_show_tablet'] : 2  ),
+				'data-slidestoshow-mobile'   => intval( esc_attr( isset( $settings['exad_logo_slide_to_show_mobile'] ) ) ? (int)$settings['exad_logo_slide_to_show_mobile'] : 1),
 				'data-slidestoscroll' => esc_attr( $settings['exad_logo_slide_to_scroll'] ),
-				'data-direction'      => esc_attr( $direction )
+				'data-direction'      => esc_attr( $direction ),
 			]
 		);
 
@@ -934,13 +991,43 @@ class Logo_Carousel extends Widget_Base {
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-autoplay', 'true' );
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-autoplayspeed', esc_attr( $settings['exad_logo_autoplay_speed'] ) );
 		}
+		if ( 'yes' === $settings['exad_logo_smooth_scroll'] ) {
+			$this->add_render_attribute( 'exad_logo_carousel', 'data-smooth', 'true' );
+			$this->add_render_attribute( 'exad_logo_carousel', 'data-smooth-speed', esc_attr( $settings['exad_logo_smooth_scroll_speed'] ) );
+		}
 
 		if ( is_array( $settings['exad_logo_carousel_repeater'] ) ) : ?>
 			<div class="exad-logo-carousel">
 				<div <?php echo $this->get_render_attribute_string('exad_logo_carousel') ;?> >
-					<?php foreach ( $settings['exad_logo_carousel_repeater'] as $logo ) :?>
+					<?php foreach ( $settings['exad_logo_carousel_repeater'] as $index => $logo ) :?>
+						<?php $logo_link = 'exad-logo-link-' . $index ;?>
 						<div class="exad-logo-carousel-item <?php echo esc_attr( $settings['exad_logo_carousel_alignment'] );?>">
+						<?php 
+							if ( ! empty( $logo['exad_logo_carousel_image_link_to']['url'] ) ) {
+								$this->add_render_attribute( $logo_link, 'href', $logo['exad_logo_carousel_image_link_to']['url'] );
+
+								if ( $logo['exad_logo_carousel_image_link_to']['is_external'] ) {
+									$this->add_render_attribute( $logo_link, 'target', '_blank' );
+								}
+
+								if ( $logo['exad_logo_carousel_image_link_to']['nofollow'] ) {
+									$this->add_render_attribute( $logo_link, 'rel', 'nofollow' );
+								}
+							} else if( "file" === $logo['exad_logo_carousel_link_to_type'] ) {
+								$this->add_render_attribute( $logo_link, 'href', $logo['exad_logo_carousel_image']['url'] );
+								$this->add_render_attribute( $logo_link, 'class', 'exad-logo-carousel-lightbox' );
+								$this->add_render_attribute( $logo_link, 'data-elementor-open-lightbox', 'yes' );
+							}
+							if( ! empty( $logo['exad_logo_carousel_link_to_type'] ) ){
+						?>
+						<a <?php echo $this->get_render_attribute_string( $logo_link ); ?> > <?php } ?>
+
 							<?php echo Group_Control_Image_Size::get_attachment_image_html( $logo, 'logo_image_size', 'exad_logo_carousel_image' ); ?>
+
+						<?php if( ! empty( $logo['exad_logo_carousel_link_to_type'] ) ){ ?>
+							</a>
+						<?php } ?>
+
 						</div>					
 					<?php endforeach; ?>
 				</div>

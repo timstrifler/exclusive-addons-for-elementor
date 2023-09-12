@@ -173,7 +173,7 @@ class Google_Maps extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_google_map_max_width',
 			[
 				'label'        => __( 'Max Width', 'exclusive-addons-elementor' ),
@@ -196,7 +196,7 @@ class Google_Maps extends Widget_Base {
 				]
 			]
 		);
-		$this->add_control(
+		$this->add_responsive_control(
 			'exad_google_map_max_height',
 			[
 				'label'   	   => __( 'Height', 'exclusive-addons-elementor' ),
