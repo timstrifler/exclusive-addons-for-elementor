@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * WPML Compatibility Elementor Elements.
  *
  * @package     Exclusive Addons
- * @author      DevsCred.com
+ * @author      Exclusive Addons
  * @link        https://exclusiveaddons.com/
  * @since       1.4.4
  */
