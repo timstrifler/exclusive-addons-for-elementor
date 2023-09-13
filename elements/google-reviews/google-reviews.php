@@ -18,6 +18,11 @@ use \Elementor\Widget_Base;
 class Google_Reviews extends Widget_Base {
 
     protected $google_place_url = "https://maps.googleapis.com/maps/api/place/";
+	
+	protected function get_admin_url() {
+		
+        return str_replace( 'exad-settings', 'exad-settings#apikeys', admin_url( 'admin.php?page=exad-settings' ) );
+    }
 
     public function get_name() {
         return 'exad-google-reviews';
@@ -44,7 +49,6 @@ class Google_Reviews extends Widget_Base {
     protected function register_controls() {
 
 		$api_key     = get_option('exad_google_map_api_option');
-		$admin_link = admin_url( 'admin.php?page=exad-settings' );
         $exad_primary_color = get_option( 'exad_primary_color_option', '#7a56ff' );
 
         /**
@@ -84,7 +88,7 @@ class Google_Reviews extends Widget_Base {
 				'exad_google_reviews_map_api_key',
 				[
 					'type'            => Controls_Manager::RAW_HTML,
-					'raw'             => sprintf( __( 'To display Google Reviews without an issue, you need to configure Google Map API key. Please configure API key from the "API Keys" tab <a href="%s" target="_blank" rel="noopener">here</a>.', 'exclusive-addons-elementor' ), $admin_link ),
+					'raw'             => sprintf( __( 'To display Google Reviews without an issue, you need to configure Google Map API key. Please configure API key from the "API Keys" tab <a href="%s" target="_blank" rel="noopener">here</a>.', 'exclusive-addons-elementor' ), $this->get_admin_url() ),
 					'content_classes' => 'elementor-control-raw-html exad-panel-notice'
 				]
 			);
@@ -2044,7 +2048,9 @@ class Google_Reviews extends Widget_Base {
 			]
 		);
 
-		if ( !empty( $api_key ) ):
+		if ( !empty( $api_key ) 
+			&& !isset( $reviewData["error_message"] )
+			&& !empty( $GReviews ) ) {
 
 			$this->add_render_attribute( 
 				'exad-google-reviews-carousel', 
@@ -2096,7 +2102,6 @@ class Google_Reviews extends Widget_Base {
 			);
 			$this->add_render_attribute( 'exad-google-reviews-carousel', 'data-settings',  $carousel_data_settings );
 			$this->add_render_attribute( 'exad-google-reviews-carousel', 'class', esc_attr( $settings['exad_google_reviews_carousel_nav_dot_alignment'] ) );
-		endif;
 
 		$this->add_render_attribute( 'exad_google_reviews_content_wrapper', 'class', 'exad-google_reviews-content-wrapper' );
 
@@ -2232,8 +2237,9 @@ class Google_Reviews extends Widget_Base {
 							?>
 						</div>
 					</div>
-					<?php if ( !empty( $api_key ) ):
+					<?php
 						if( $settings['exad_google_reviews_carousel_nav'] == "arrows" || $settings['exad_google_reviews_carousel_nav'] == "both" ) : ?>
+						
 							<div class="exad-carousel-nav-next"><i class="fa fa-angle-right"></i></div>
 							<div class="exad-carousel-nav-prev"><i class="fa fa-angle-left"></i></div>
 						<?php endif; ?>
@@ -2241,13 +2247,44 @@ class Google_Reviews extends Widget_Base {
 							<div class="exad-dots-container">
 								<div class="exad-swiper-pagination"></div>
 							</div>
+							
 						<?php endif; ?>
-					<?php endif; ?>
 				</div>
             </div>
         </div>
 		
     <?php 
+	
+		} else if ( current_user_can( 'manage_options' ) ) {
+			
+	?>
+		<div <?php echo $this->get_render_attribute_string( 'exad-google-reviews-wrapper' ); ?>>
+		
+			<div class="exad-panel-notice notice notice-warning">
+				
+				<h2><?php print $this->get_title() ?></h2>
+				
+				<?php if ( isset( $reviewData["error_message"] ) ) { ?>
+				
+				<strong><?php print esc_html__( 'Google Map API Key error', 'exclusive-addons-elementor' ) ?>:</strong>
+				<p><?php print esc_html( $reviewData["error_message"] ) ?></p>
+				
+				<?php } ?>
+				
+				
+				<?php if ( empty( $api_key ) ) { ?>
+				
+				<strong><?php print esc_html__( 'Google Map API Key is missing', 'exclusive-addons-elementor' ) ?>:</strong>
+				<p><?php print sprintf( __( 'To display Google Reviews without an issue, you need to configure Google Map API key. Please configure API key from the "API Keys" tab <a href="%s" target="_blank" rel="noopener">here</a>.', 'exclusive-addons-elementor' ), $this->get_admin_url() ) ?></p>
+				
+				<?php } ?>
+				
+			</div>
+			
+		</div>
+	<?php
+	
+		}
     }
         
 
