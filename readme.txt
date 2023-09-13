@@ -3,7 +3,7 @@ Contributors: exclusiveaddons, timstrifler, madjennsy, mmaumio, atiquehasan, zab
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
 Tested up to: 6.3.1
-Stable tag: 2.6.5
+Stable tag: 2.6.6
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
