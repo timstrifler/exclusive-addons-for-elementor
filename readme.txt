@@ -274,6 +274,11 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 
+= 2.6.6 - 12/09/2023 =
+- Support Elementor 3.16.1 & Elementor Pro 3.16.0
+- Google Reviews widget: Show notices related to Google MAP API
+- Update minimum required PHP version
+
 = 2.6.5 - 13/05/2023 =
 - Fix: Elementor compatibility.
 - Tweak: Overall Bug fixes and improvements.
