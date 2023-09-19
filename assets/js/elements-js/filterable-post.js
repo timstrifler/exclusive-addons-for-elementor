@@ -2,7 +2,7 @@
 // filterable post script starts
 
 var exclusiveFilterablePost = function( $scope, $ ) {
-    $( window ).load( function() {
+    $( window ).on('load', function (e) {
 
         if ( $.isFunction( $.fn.isotope ) ) {
             var exadGetGallery       = $scope.find( '.filterable-post-container' ).eq( 0 ),
