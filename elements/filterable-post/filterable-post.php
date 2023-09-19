@@ -227,6 +227,18 @@ class Filterable_Post extends Widget_Base {
                 ]
             ]
         );
+		
+        $this->add_control(
+			'exad_post_grid_filterable_menu',
+			[
+				'label'        => esc_html__( 'Enable Filterable Menu', 'exclusive-addons-elementor' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'	   => __( 'On', 'exclusive-addons-elementor' ),
+				'label_off'    => __( 'Off', 'exclusive-addons-elementor' ),
+				'return_value' => 'yes',
+				'default'      => 'yes'
+			]
+		);
 
         $this->add_control(
 			'exad_post_grid_ignore_sticky',
@@ -2324,9 +2336,11 @@ class Filterable_Post extends Widget_Base {
 		
         ?>
 		<div class="exad-filterable-items <?php echo esc_attr( $settings['exad_fg_control_container_alignment'] );?>" id ="exad-filterable-filterable-id-<?php echo $this->get_id(); ?>">
+			<?php if ( $settings['exad_post_grid_filterable_menu'] === 'yes' ) { ?>
 			<div class="exad-filterable-menu-container">
 				<?php $this->render_filter_menu(); ?>
 			</div>
+			<?php } ?>
 			<div class="exad-filterable-controls">
 				<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?> id="filters-<?php echo $this->get_id(); ?>">
 					<?php Helper::exad_get_posts( $settings ); ?>
