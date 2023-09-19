@@ -154,15 +154,26 @@ class Helper {
      * @return array
      */
     public static function exad_get_all_posts() {
-        $post_array = array(
-            'posts_per_page' => -1
+		
+		$posts = [];
+        $args = array(
+            'posts_per_page' => -1,
+			'fields' => [
+				'ID',
+				'post_title'
+			]
         );
-        $posts = get_posts( $post_array );
-        foreach ( $posts as $post ) {
-            $post_array[$post->ID] = $post->post_title;
+		
+        $query = get_posts( $args );
+		
+        foreach ( $query as $post ) {
+			
+            $posts[$post->ID] = $post->post_title;
         }
+		
+		wp_reset_postdata();
 
-        return $post_array;
+        return $posts;
     } 
 
     /**
@@ -426,15 +437,25 @@ class Helper {
 	** Get Posts of Post Type for exclude
 	*/
 	public static function exad_get_posts_by_post_type( $slug ) {
-		$query = get_posts( [ 'post_type' => $slug, 'posts_per_page' => -1 ] );
+		
+		$query = get_posts( 
+			[ 
+				'post_type' => $slug,
+				'posts_per_page' => -1,
+				'fields' => [
+                    'ID',
+					'post_title'
+                ]
+			] 
+		);
 		$posts = [];
-
+		
 		foreach ( $query as $post ) {
 			$posts[$post->ID] = $post->post_title;
 		}
 		
 		wp_reset_postdata();
-
+		
 		return $posts;
 	}
 
