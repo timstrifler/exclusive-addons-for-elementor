@@ -275,6 +275,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 == Changelog ==
 = 2.6.7 - 19/09/2023 =
 - Optimize database queries
+- Feature: New option in Filterable Post to Enable/Disable categories menu
+- Fix: PHP warnings in flipfox widget
+- Fix: Filterable Post categories buttons not working
+- Fix: Filterable Gallery controls not working
 
 = 2.6.6 - 12/09/2023 =
 - Support Elementor 3.16.1 & Elementor Pro 3.16.0
