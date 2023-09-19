@@ -237,8 +237,7 @@ var exadFacebookFeed = function($scope) {
 // filterable post script starts
 
 var exclusiveFilterablePost = function( $scope, $ ) {
-    $( window ).load( function() {
-
+	
         if ( $.isFunction( $.fn.isotope ) ) {
             var exadGetGallery       = $scope.find( '.filterable-post-container' ).eq( 0 ),
             currentFilteredId         = '#' + exadGetGallery.attr( 'id' ),
@@ -286,7 +285,6 @@ var exclusiveFilterablePost = function( $scope, $ ) {
                 $container.isotope('layout');
             });
         }
-    } ); 
 }
 
 // filterable post script ends
@@ -295,7 +293,6 @@ var exclusiveFilterablePost = function( $scope, $ ) {
 // filterable gallery script starts
 
 var exclusiveFilterableGallery = function( $scope, $ ) {
-    $( window ).load( function() {
 
         if ( $.isFunction( $.fn.isotope ) ) {
             var exadGetGallery       = $scope.find( '.exad-gallery-element' ).eq( 0 ),
@@ -337,7 +334,6 @@ var exclusiveFilterableGallery = function( $scope, $ ) {
                  return false;
             } ); 
         }
-    } ); 
 }
 
 // filterable gallery script ends
