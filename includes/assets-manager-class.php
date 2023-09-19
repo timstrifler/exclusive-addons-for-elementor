@@ -137,9 +137,17 @@ class Assets_Manager {
             // Main Plugin RTL Styles
             wp_enqueue_style( 'exad-rtl-style', EXAD_ASSETS_URL . 'css/exad-rtl-styles.min.css' );            
         }
-
-        // Main Plugin Scripts
-        wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.min.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
+		
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			
+			// Main Plugin Scripts
+			wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
+		}
+		else {
+			
+			// Main Plugin Scripts
+			wp_enqueue_script( 'exad-main-script', EXAD_ASSETS_URL . 'js/exad-scripts.min.js', array('jquery'), EXAD_PLUGIN_VERSION, true );
+		}
 
         wp_localize_script( 'exad-main-script', 'exad_ajax_object', array(
             'ajax_url' => admin_url( 'admin-ajax.php' ),
