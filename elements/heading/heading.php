@@ -172,6 +172,9 @@ class Heading extends Widget_Base {
 						'icon'  => 'eicon-text-align-right'
 					]
 				],
+				'desktop_default' => 'exad-heading-center',
+				'tablet_default' => 'exad-heading-left',
+				'mobile_default' => 'exad-heading-left',
 				'selectors_dictionary' => [
 					'exad-heading-left' => 'text-align: left; margin-right: auto; margin-left: unset;',
 					'exad-heading-center' => 'text-align: center; margin-left: auto; margin-right: auto;',

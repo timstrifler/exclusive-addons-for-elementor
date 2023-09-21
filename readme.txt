@@ -273,6 +273,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.6.8 - 21/09/2023 =
+- Allow mobile options in Heading Widget Style
+
+
 = 2.6.7 - 19/09/2023 =
 - Optimize database queries
 - Feature: New option in Filterable Post to Enable/Disable categories menu
