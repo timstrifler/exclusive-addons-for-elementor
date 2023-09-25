@@ -276,6 +276,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 = 2.6.8 - 21/09/2023 =
 - Support Elementor 3.16.4 & Elementor Pro 3.16.2
 - Feature: Allow mobile options in Heading Widget Style
+- Improve functionality on Exclusive Sticky extension
 
 = 2.6.7 - 19/09/2023 =
 - Optimize database queries

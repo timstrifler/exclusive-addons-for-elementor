@@ -918,15 +918,34 @@ var exclusiveSticky = function ($scope, $) {
 	var dataId = columnClass.data('id');
 	var dataType = columnClass.data('type');
 	var topSpacing = columnClass.data('top_spacing');
-
-	if( dataType === 'column' ){
-		var $target  = $scope;
-		var wrapClass = columnClass.find( '.elementor-widget-wrap' );
 	
+	if( dataType === 'column' ){
+		var $target  = $scope
+		, wrapClass = columnClass.find( '.elementor-widget-wrap' )
+		, containerSelector = '.elementor-row'
+		, containers = document.querySelectorAll( containerSelector );
+		
+		if ( containers.length === 0 ) {
+			
+			containerSelector = 'body #content .container:first-child'
+			containers = document.querySelectorAll( containerSelector );
+		}
+		
+		if ( containers.length === 0 ) {
+			
+			containerSelector = '.content-wrapper.container .row'
+			containers = document.querySelectorAll( containerSelector );
+		}
+		
+		if ( containers.length === 0 ) {
+			
+			containerSelector = false;
+		}
+		
 		wrapClass.stickySidebar({
 			topSpacing: topSpacing,
 			bottomSpacing: 60,
-			containerSelector: '.elementor-row',
+			containerSelector: containerSelector,
         	innerWrapperSelector: '.elementor-column-wrap',
 		});
 	}
