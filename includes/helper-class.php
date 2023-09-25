@@ -438,23 +438,25 @@ class Helper {
 	*/
 	public static function exad_get_posts_by_post_type( $slug ) {
 		
-		$query = get_posts( 
-			[ 
-				'post_type' => $slug,
-				'posts_per_page' => -1,
-				'fields' => [
-                    'ID',
-					'post_title'
-                ]
-			] 
-		);
+		$query_args = [
+			'post_type' => $slug,
+			'post_status' => [ 'publish', 'private' ],
+			'posts_per_page' => -1,
+			'orderby' => 'title',
+			'order' => 'ASC'
+		];
+		
+		$posts_query = new \WP_Query( $query_args );
+		
 		$posts = [];
 		
-		foreach ( $query as $post ) {
-			$posts[$post->ID] = $post->post_title;
+		if ( $posts_query->have_posts() ) {
+			
+			foreach ( $posts_query->get_posts() as $post ) {
+				
+				$posts[$post->ID] = $post->post_title;
+			}
 		}
-		
-		wp_reset_postdata();
 		
 		return $posts;
 	}
