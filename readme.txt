@@ -278,6 +278,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 - Feature: Allow mobile options in Heading Widget Style
 - Improve functionality on Exclusive Sticky extension
 - Fix: full width images in type of modal "HTML Content" and "Shortcode"
+- Default Z-index and Position styles changes in Modal Popup widget
 
 = 2.6.7 - 19/09/2023 =
 - Optimize database queries

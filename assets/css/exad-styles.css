@@ -4230,7 +4230,7 @@ ul.exad-call-to-action-buttons {
   }
   
   .exad-modal-item {
-	position: fixed;
+	position: fixed !important;
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translateX(-50%) translateY(-50%);
@@ -4284,7 +4284,7 @@ ul.exad-call-to-action-buttons {
   
   .exad-modal-item.active.modal-vimeo {
 	opacity: 1;
-	z-index: 2000;
+	z-index: 16777221 !important;
 	-webkit-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
 	visibility: visible;
