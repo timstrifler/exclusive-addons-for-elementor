@@ -280,6 +280,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 - Fix: full width images in type of modal "HTML Content" and "Shortcode"
 - Default Z-index and Position styles changes in Modal Popup widget
 - Optimize database queries for Post Carousel widget
+- Fix: Render empty title tags in Post Grid widget
 
 = 2.6.7 - 19/09/2023 =
 - Optimize database queries

@@ -97,13 +97,37 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
             
             if('yes' === $settings['exad_post_grid_show_title']) :
                 if('yes' === $settings['exad_post_grid_title_full']) : ?>
+				
+			<?php if ( $settings['exad_post_grid_title_tag'] !== '' ) { ?>
+				
                     <<?php echo $settings['exad_post_grid_title_tag']; ?>>
+					
+			<?php } ?>
+				
                         <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?> class="exad-post-grid-title"><?php echo get_the_title(); ?></a>
+				
+			<?php if ( $settings['exad_post_grid_title_tag'] !== '' ) { ?>
+						
                     </<?php echo $settings['exad_post_grid_title_tag']; ?>>
+					
+			<?php } ?>
+					
                 <?php else : ?>
+				
+			<?php if ( $settings['exad_post_grid_title_tag'] !== '' ) { ?>
+				
                     <<?php echo $settings['exad_post_grid_title_tag']; ?>>
+					
+			<?php } ?>
+					
                         <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?> class="exad-post-grid-title"><?php echo wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ); ?></a>
+						
+			<?php if ( $settings['exad_post_grid_title_tag'] !== '' ) { ?>
+			
                     </<?php echo $settings['exad_post_grid_title_tag']; ?>>
+					
+			<?php } ?>
+					
                 <?php
                 endif;
             endif;
