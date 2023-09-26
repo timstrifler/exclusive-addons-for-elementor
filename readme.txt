@@ -277,6 +277,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 - Support Elementor 3.16.4 & Elementor Pro 3.16.2
 - Feature: Allow mobile options in Heading Widget Style
 - Improve functionality on Exclusive Sticky extension
+- Fix: full width images in type of modal "HTML Content" and "Shortcode"
 
 = 2.6.7 - 19/09/2023 =
 - Optimize database queries

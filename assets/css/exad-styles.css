@@ -4258,13 +4258,15 @@ ul.exad-call-to-action-buttons {
 
   .exad-modal-item.modal-vimeo .exad-modal-content .exad-modal-element img{
     display: block;
-    width: 100%;
+	max-width: 100%;
+	height: auto;
   }
 
   .exad-modal-item.modal-vimeo .exad-modal-content .exad-modal-element .exad-modal-element-card .exad-modal-element-card-body p{
     margin: 0;
   }
 
+  .exad-modal-item.modal-vimeo-img-fluid .exad-modal-content .exad-modal-element img,
   .exad-modal-item.modal-vimeo .exad-modal-content .exad-modal-element .exad-modal-element-card img{
     display: block;
     width: 100%;

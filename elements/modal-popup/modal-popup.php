@@ -1164,6 +1164,13 @@ class Modal_Popup extends Widget_Base {
 
 		$this->add_render_attribute( 'exad_modal_item', 'class', 'exad-modal-item' );
 		$this->add_render_attribute( 'exad_modal_item', 'class', 'modal-vimeo' );
+		
+		if ( $settings['exad_modal_content'] !== 'html_content'
+			&& $settings['exad_modal_content'] !== 'shortcode' ) {
+			
+			$this->add_render_attribute( 'exad_modal_item', 'class', 'modal-vimeo-img-fluid' );
+		}
+		
 		$this->add_render_attribute( 'exad_modal_item', 'class', $settings['exad_modal_transition'] );
 		$this->add_render_attribute( 'exad_modal_item', 'class', $settings['exad_modal_content'] );
 		$this->add_render_attribute( 'exad_modal_item', 'class', esc_attr('exad-content-overflow-x-' . $settings['exad_modal_overlay_overflow_x'] ) );
