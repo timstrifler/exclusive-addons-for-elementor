@@ -469,10 +469,15 @@ var exclusiveImageMagnifier = function($scope, $) {
 		return;
 	}
     
-
+    if ( $large.hasClass('exad-image-magnified') ) {
+		
+		return;
+    }
+	
     var native_width  = 0;
     var native_height = 0;
     $large.css("background","url('" + $small.attr("src") + "') no-repeat");
+    $large.addClass('exad-image-magnified');
     
     //Now the mousemove function
     $magnify.mousemove( function(e){
