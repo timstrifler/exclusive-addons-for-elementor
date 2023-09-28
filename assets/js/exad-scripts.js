@@ -457,6 +457,17 @@ var exclusiveImageMagnifier = function($scope, $) {
     var $magnify = $scope.find( '.exad-image-magnify' ).eq(0),
     $large       = $magnify.find( '.exad-magnify-large' ),
     $small       = $magnify.find( '.exad-magnify-small > img' );
+	
+	// Support lazysizes JS library (used by Wordpress plugins like EWWW Image Optimizer)
+	if ( $small.hasClass('lazyload') ) {
+		
+		document.addEventListener('lazyloaded', function(e){
+			
+			exclusiveImageMagnifier( $scope, $ );
+		});
+		
+		return;
+	}
     
 
     var native_width  = 0;
