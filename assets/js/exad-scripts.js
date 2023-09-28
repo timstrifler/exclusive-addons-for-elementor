@@ -480,7 +480,7 @@ var exclusiveImageMagnifier = function($scope, $) {
     $large.addClass('exad-image-magnified');
     
     //Now the mousemove function
-    $magnify.mousemove( function(e){
+    $magnify.on( "mousemove", function( e ) {
         
         if(!native_width && !native_height) {
             var image_object = new Image();
