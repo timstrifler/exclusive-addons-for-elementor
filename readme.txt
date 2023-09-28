@@ -3,7 +3,7 @@ Contributors: exclusiveaddons, timstrifler, madjennsy, mmaumio, atiquehasan, zab
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
 Tested up to: 6.3.1
-Stable tag: 2.6.8
+Stable tag: 2.6.9
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -273,6 +273,9 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.6.9 - 02/10/2023 =
+
+
 = 2.6.8 - 25/09/2023 =
 - Support Elementor 3.16.4 & Elementor Pro 3.16.2
 - Feature: Allow mobile options in Heading Widget Style
