@@ -459,7 +459,8 @@ var exclusiveImageMagnifier = function($scope, $) {
     $small       = $magnify.find( '.exad-magnify-small > img' );
 	
 	// Support lazysizes JS library (used by Wordpress plugins like EWWW Image Optimizer)
-	if ( $small.hasClass('lazyload') ) {
+	if ( $small.hasClass('lazyload') 
+		&& typeof window.lazySizesConfig !== 'undefined' ) {
 		
 		document.addEventListener('lazyloaded', function(e){
 			
