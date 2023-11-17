@@ -275,6 +275,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 == Changelog ==
 = 2.6.9 - 02/10/2023 =
 - On Image Magnifier widget, add support to lazysizes JS library (used by Wordpress plugins like EWWW Image Optimizer)
+- Increase support for Elementor and Elementor Pro
 
 = 2.6.8 - 25/09/2023 =
 - Support Elementor 3.16.4 & Elementor Pro 3.16.2
