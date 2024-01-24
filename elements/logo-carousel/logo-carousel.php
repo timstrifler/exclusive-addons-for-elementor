@@ -1004,6 +1004,9 @@ class Logo_Carousel extends Widget_Base {
 						<div class="exad-logo-carousel-item <?php echo esc_attr( $settings['exad_logo_carousel_alignment'] );?>">
 						<?php 
 							if ( ! empty( $logo['exad_logo_carousel_image_link_to']['url'] ) ) {
+								
+								$logo['exad_logo_carousel_image_link_to']['url'] = esc_url( $logo['exad_logo_carousel_image_link_to']['url'] );
+								
 								$this->add_render_attribute( $logo_link, 'href', $logo['exad_logo_carousel_image_link_to']['url'] );
 
 								if ( $logo['exad_logo_carousel_image_link_to']['is_external'] ) {
@@ -1014,6 +1017,9 @@ class Logo_Carousel extends Widget_Base {
 									$this->add_render_attribute( $logo_link, 'rel', 'nofollow' );
 								}
 							} else if( "file" === $logo['exad_logo_carousel_link_to_type'] ) {
+								
+								$logo['exad_logo_carousel_image']['url'] = esc_url( $logo['exad_logo_carousel_image']['url'] );
+								
 								$this->add_render_attribute( $logo_link, 'href', $logo['exad_logo_carousel_image']['url'] );
 								$this->add_render_attribute( $logo_link, 'class', 'exad-logo-carousel-lightbox' );
 								$this->add_render_attribute( $logo_link, 'data-elementor-open-lightbox', 'yes' );
