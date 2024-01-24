@@ -98,6 +98,9 @@ class Link_Anything {
 		$link_settings = $element->get_settings_for_display( 'exad_container_link' );
 
 		if ( $link_settings && ! empty( $link_settings['url'] ) ) {
+			
+			$link_settings['url'] = esc_url( $link_settings['url'] );
+			
 			$element->add_render_attribute(
 				'_wrapper',
 				[
