@@ -1370,7 +1370,7 @@ class Card extends Widget_Base {
 
 			if( $settings['exad_card_badge_switcher'] === 'yes' ) : ?>
 				<div class="exad-card-badge">
-					<?php echo $settings['exad_card_badge']; ?>
+					<?php echo esc_html__( $settings['exad_card_badge'] ); ?>
 				</div>
 				<?php
 			endif;
@@ -1477,7 +1477,7 @@ class Card extends Widget_Base {
 
 			<# if( settings.exad_card_badge_switcher === 'yes' ) { #>
 				<div class="exad-card-badge">
-					{{{ settings.exad_card_badge }}}
+					{{{ _.escape( settings.exad_card_badge ) }}}
 				</div>
 			<# } #>
 
