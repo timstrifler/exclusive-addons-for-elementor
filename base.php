@@ -35,12 +35,6 @@ final class Base {
     private static $_instance = null;
 
     /**
-     * Appsero 
-     * 
-     */
-    public $appsero = null;
-
-    /**
      * 
      * Check to See if Pro version is enabled
      */
@@ -81,7 +75,6 @@ final class Base {
         self::$is_pro_active = apply_filters( 'exad/pro_activated', false );
         $this->includes();
         $this->register_hooks();
-        // $this->exclusive_addons_appsero_init();
         $this->exad_wpml_free_compatiblity()->init();
     }
 
@@ -332,26 +325,6 @@ final class Base {
             ]
         );
     }
-
-
-    /**
-     * Initialize the tracker
-     *
-     * @return void
-     */
-    // protected function exclusive_addons_appsero_init() {
-
-    //     if ( ! class_exists( 'Exclusive_Addons\Appsero\Client' ) ) {
-    //         require_once __DIR__ . '/vendor/appsero/src/Client.php';
-    //     }
-
-    //     $this->appsero = new \Exclusive_Addons\Appsero\Client( 'c3e3c997-fabf-42ad-bbd9-15cba7ab18ca', 'Exclusive Addons for Elementor', __FILE__ );
-
-    //     // Active insights
-    //     $this->appsero->insights()->init();
-    //     //var_dump($this->appsero);
-
-    // }
 
 
     /**

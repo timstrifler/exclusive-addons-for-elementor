@@ -134,25 +134,6 @@ function exad_admin_notice_minimum_php_version() {
 }
 
 /**
- * Initialize the tracker
- *
- * @return void
- */
-function exclusive_addons_appsero_init() {
-
-	if ( ! class_exists( 'Exclusive_Addons\Appsero\Client' ) ) {
-		require_once __DIR__ . '/vendor/appsero/src/Client.php';
-	}
-	
-	$client = new \Exclusive_Addons\Appsero\Client( '29b6ba70-4471-4cef-82a0-af727235fbe5', 'Exclusive Addons Elementor', __FILE__ );
-	
-	// Active insights
-	$client->insights()->init();
-}
-
-exclusive_addons_appsero_init();
-
-/**
  * 
  * Plugin Redirect Option Added by register_activation_hook
  * 
