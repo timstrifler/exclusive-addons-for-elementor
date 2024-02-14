@@ -1074,7 +1074,7 @@ class Call_To_Action extends Widget_Base {
                 </div>
 
                 <div class="exad-call-to-action-footer">
-                    <ul class="exad-call-to-action-buttons {{ settings.exad_section_cta_btn_effect }}">
+                    <ul class="exad-call-to-action-buttons {{ _.escape( settings.exad_section_cta_btn_effect ) }}">
                         <# if ( settings.exad_cta_primary_btn ) { #>
                             <li>
                                 <a href="{{{ settings.exad_cta_primary_btn_link.url }}}" {{{ view.getRenderAttributeString( 'exad_cta_primary_btn_link' ) }}}{{{ primaryBtnTarget }}}{{{ primaryBtnNofollow }}}>
