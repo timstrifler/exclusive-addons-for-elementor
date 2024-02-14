@@ -548,9 +548,11 @@ class Countdown_Timer extends Widget_Base {
 				]
 			);
 		}
+		
+		$showbox = ( $settings['exad_section_countdown_show_box'] === 'yes' ? 'yes' : '' );
 		?>
 
-		<div class="exad-countdown-content-container <?php echo $settings['exad_section_countdown_show_box']; ?>">
+		<div class="exad-countdown-content-container <?php echo $showbox ?>">
 			<div <?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute'); ?>></div>
 		</div>
 		
@@ -581,9 +583,15 @@ class Countdown_Timer extends Widget_Base {
 				'data-countdown': settings.exad_countdown_time,
 				'data-expired-text': settings.exad_countdown_expired_text
 			} );
+			
+			var exad_section_countdown_show_box = '';
+			if ( 'yes' === settings.exad_section_countdown_show_box ) {
+				
+				exad_section_countdown_show_box = 'yes';
+			}
 		#>
 
-		<div class="exad-countdown-content-container {{ settings.exad_section_countdown_show_box }}">
+		<div class="exad-countdown-content-container {{ exad_section_countdown_show_box }}">
 			<div {{{ view.getRenderAttributeString( 'exad_countdown_timer_attribute' ) }}}>
 			</div>
 		</div>
