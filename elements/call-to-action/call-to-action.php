@@ -868,7 +868,28 @@ class Call_To_Action extends Widget_Base {
 
         $this->end_controls_section();  
 	}
-
+	
+	private function isEffect( $effect ) {
+		
+		$c = 0;
+		while ( ++$c ) {
+			
+			if ( $effect === 'effect-' . $c ) {
+				
+				$effect = 'effect-' . $c;
+				
+				break;
+			}
+			
+			if ( $c === 100 ) {
+				
+				break;
+			}
+		}
+		
+		return $effect;
+	}
+	
     private function primary_btn() {
         $settings = $this->get_settings_for_display();
 
@@ -954,9 +975,15 @@ class Call_To_Action extends Widget_Base {
                         </div>
                     <?php endif; ?>
 			    </div>
+				
+				<?php
+				
+				$cta_btn_effect = $this->isEffect( $settings['exad_section_cta_btn_effect'] );
+				
+				?>
 
 			    <div class="exad-call-to-action-footer">
-                    <ul class="exad-call-to-action-buttons <?php echo $settings['exad_section_cta_btn_effect']; ?>">
+                    <ul class="exad-call-to-action-buttons <?php echo $cta_btn_effect; ?>">
                     <?php    
                         if ( ! empty( $settings['exad_cta_primary_btn'] ) ) : ?>
                             <li>
