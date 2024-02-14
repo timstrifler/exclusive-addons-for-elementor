@@ -520,18 +520,37 @@ var exclusiveImageMagnifier = function($scope, $) {
 // image magnifier script ends
 
 
+function eae_isValidHttpUrl(string) {
+  try {
+    const newUrl = new URL(string);
+    return newUrl.protocol === 'http:' || newUrl.protocol === 'https:' || newUrl.protocol === 'mailto:';
+  } catch (err) {
+    return false;
+  }
+}
+
+
 // Container Link JS started
 
-$('body').on('click.onWrapperLink', '[data-exad-element-link]', function() {
+$('body').on('click.onWrapperLink', '[data-exad-element-link]', function(e) {
     var $wrapper = $(this),
         data     = $wrapper.data('exad-element-link'),
         id       = $wrapper.data('id'),
         anchor   = document.createElement('a'),
         anchorReal,
-        timeout;
-
+        timeout,
+		url = data.url;
+		
+	if ( eae_isValidHttpUrl( url ) === false ) {
+		
+		e.preventDefault();
+		e.stopPropagation();
+		
+		return false;
+	}
+	
     anchor.id            = 'exad-link-anything-' + id;
-    anchor.href          = data.url;
+    anchor.href          = url;
     anchor.target        = data.is_external ? '_blank' : '_self';
     anchor.rel           = data.nofollow ? 'nofollow noreferer' : '';
     anchor.style.display = 'none';
