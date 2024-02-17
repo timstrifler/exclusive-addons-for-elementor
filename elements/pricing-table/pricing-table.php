@@ -2158,8 +2158,8 @@ class Pricing_Table extends Widget_Base {
 					<div <?php echo $this->get_render_attribute_string( 'exad_pricing_table_box_value' ); ?>>
 						<?php if( 'yes' === $settings['exad_pricing_table_discount_price'] ) { ?>
 							<p class="exad-pricing-table-regular-price">				
-								<span class="exad-pricing-table-regular-price-cur"><?php echo $settings['exad_pricing_table_regular_price_cur']; ?></span>
-								<span class="exad-pricing-table-regular-price-text"><?php echo $settings['exad_pricing_table_regular_price']; ?></span>
+								<span class="exad-pricing-table-regular-price-cur"><?php echo esc_attr( $settings['exad_pricing_table_regular_price_cur'] ); ?></span>
+								<span class="exad-pricing-table-regular-price-text"><?php echo esc_attr( $settings['exad_pricing_table_regular_price'] ); ?></span>
 							</p>
 						<?php } ?>
 						<p class="exad-pricing-table-new-price">							
@@ -2183,7 +2183,7 @@ class Pricing_Table extends Widget_Base {
 					</div>
 
 					<?php if( !empty( $settings['exad_pricing_table_price_subtitle'] ) ){ ?>
-						<span class="exad-pricing-table-price-subtitle"><?php echo $settings['exad_pricing_table_price_subtitle']; ?></span>
+						<span class="exad-pricing-table-price-subtitle"><?php echo esc_attr( $settings['exad_pricing_table_price_subtitle'] ); ?></span>
 					<?php } ?>
 
 					<?php if ( 'yes' === $settings['exad_pricing_table_price_box_separator'] ) : ?>
@@ -2242,12 +2242,12 @@ class Pricing_Table extends Widget_Base {
 					<?php $this->pricing_table_btn(); ?>
 				<?php } ?> 
 				<?php if( !empty( $settings['exad_pricing_table_note_text'] ) ){ ?>
-					<div class="exad-pricing-table-note"><?php echo $settings['exad_pricing_table_note_text']; ?></div>
+					<div class="exad-pricing-table-note"><?php echo esc_attr($settings['exad_pricing_table_note_text'] ); ?></div>
 				<?php } ?>
 			</div>
 			<?php if( 'promo_bottom' === $settings['exad_pricing_table_promo_position'] ) {
 				if( 'yes' === $settings['exad_pricing_table_promo_enable'] ) { ?>
-					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo $settings['exad_pricing_table_promo_title']; ?></span>
+					<span <?php echo $this->get_render_attribute_string( 'exad_pricing_table_promo_title' ); ?>><?php echo esc_attr( $settings['exad_pricing_table_promo_title'] ); ?></span>
 				<?php } ?>
 			<?php } ?>
 		</div>
@@ -2323,7 +2323,7 @@ class Pricing_Table extends Widget_Base {
     	<div {{{ view.getRenderAttributeString( 'exad_pricing_table_wrapper' ) }}}>
 			<# if( 'promo_top' === settings.exad_pricing_table_promo_position ) { #>
 				<# if( 'yes' === settings.exad_pricing_table_promo_enable ) { #>
-					<span class="exad-pricing-table-promo-label">{{{ settings.exad_pricing_table_promo_title }}}</span>
+					<span class="exad-pricing-table-promo-label">{{{ _.escape( settings.exad_pricing_table_promo_title ) }}}</span>
 				<# } #>
 			<# } #>
     		<div class="exad-pricing-table-badge-wrapper">
@@ -2356,8 +2356,8 @@ class Pricing_Table extends Widget_Base {
 			    	<div {{{ view.getRenderAttributeString( 'exad_pricing_table_box_value' ) }}}>
 						<# if( 'yes' === settings.exad_pricing_table_discount_price ) { #>
 							<p class="exad-pricing-table-regular-price">					
-								<span class="exad-pricing-table-regular-price-cur">{{{ settings.exad_pricing_table_regular_price_cur }}}</span>
-								<span class="exad-pricing-table-regular-price-text">{{{ settings.exad_pricing_table_regular_price }}}</span>
+								<span class="exad-pricing-table-regular-price-cur">{{{ _.escape( settings.exad_pricing_table_regular_price_cur ) }}}</span>
+								<span class="exad-pricing-table-regular-price-text">{{{ _.escape( settings.exad_pricing_table_regular_price ) }}}</span>
 							</p>
 						<# } #>
 			    		<p class="exad-pricing-table-new-price">	
@@ -2396,7 +2396,7 @@ class Pricing_Table extends Widget_Base {
 					</div>
 
 					<# if( settings.exad_pricing_table_price_subtitle ){ #>
-						<span class="exad-pricing-table-price-subtitle">{{{ settings.exad_pricing_table_price_subtitle }}}</span>
+						<span class="exad-pricing-table-price-subtitle">{{{ _.escape( settings.exad_pricing_table_price_subtitle ) }}}</span>
 					<# } #>
 
 					<# if ( 'yes' === settings.exad_pricing_table_price_box_separator ) { #>
@@ -2460,7 +2460,7 @@ class Pricing_Table extends Widget_Base {
 						</span>
 					</a>
 				<# } #>
-				<div class="exad-pricing-table-note">{{{ settings.exad_pricing_table_note_text }}}</div>
+				<div class="exad-pricing-table-note">{{{ _.escape( settings.exad_pricing_table_note_text ) }}}</div>
     		
     		</div>
 			<# if( 'promo_bottom' === settings.exad_pricing_table_promo_position ) { #>
