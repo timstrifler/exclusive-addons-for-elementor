@@ -1827,9 +1827,13 @@ class Covid_19_Stats extends Widget_Base {
                             <button class="exad-covid-continent-btn" id="asia">Asia</button>
                             <button class="exad-covid-continent-btn" id="australia-oceania">Australia/Oceania</button>
                         </div>
-                    <?php } ?>
+                    <?php } 
+					
+					$exad_corona_enable_data_table_heading_sticky = ( $settings['exad_corona_enable_data_table_heading_sticky'] === 'yes' ? 'yes' : '' );
+					
+					?>
                     <table id="data_table" class="exad-data-table">
-                        <tr class="exad-corona-table-heading <?php echo $settings['exad_corona_enable_data_table_heading_sticky'] ?>">
+                        <tr class="exad-corona-table-heading <?php echo $exad_corona_enable_data_table_heading_sticky ?>">
                             <th class="flag-row"><?php _e( 'Flag', 'exclusive-addons-elementor' ); ?></th>
                             <?php foreach ( $settings['exad_corona_data_table_column'] as $option ) { ?>
                                 <th>
