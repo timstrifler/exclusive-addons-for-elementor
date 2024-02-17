@@ -360,8 +360,8 @@ class Logo_Box extends Widget_Base {
         }
         ?>
 
-        <div class="exad-logo-box one <?php echo $settings['exad_section_logo_alignment']; ?>">
-            <div class="exad-logo-item exad-logo-item-max-height-<?php echo $settings['exad_logo_box_max_height_enable']; ?>">
+        <div class="exad-logo-box one <?php echo esc_attr( $settings['exad_section_logo_alignment'] ); ?>">
+            <div class="exad-logo-item exad-logo-item-max-height-<?php echo esc_attr( $settings['exad_logo_box_max_height_enable'] ); ?>">
             <?php
                 if( ! empty( $settings['exad_logo_image'] ) ) :
 
@@ -406,11 +406,11 @@ class Logo_Box extends Widget_Base {
             var target   = settings.exad_logo_box_link.is_external ? ' target="_blank"' : '';
             var nofollow = settings.exad_logo_box_link.nofollow ? ' rel="nofollow"' : '';
         #>
-        <div class="exad-logo-box one {{ settings.exad_section_logo_alignment }}">
-            <div class="exad-logo-item exad-logo-item-max-height-{{ settings.exad_logo_box_max_height_enable }}">
+        <div class="exad-logo-box one {{ _.escape( settings.exad_section_logo_alignment ) }}">
+            <div class="exad-logo-item exad-logo-item-max-height-{{ _.escape( settings.exad_logo_box_max_height_enable ) }}">
                 <# if ( image_url ) { #>
                     <# if ( settings.exad_logo_box_link && 'yes' === settings.exad_logo_box_enable_link ) { #>
-                        <a href="{{{ settings.exad_logo_box_link.url }}}"{{{ target }}}{{{ nofollow }}}>
+                        <a href="{{{ _.escape( settings.exad_logo_box_link.url ) }}}"{{{ target }}}{{{ nofollow }}}>
                     <# } #>
                     <img src="{{{ image_url }}}">
                     <# if ( settings.exad_logo_box_link && 'yes' === settings.exad_logo_box_enable_link ) { #>
