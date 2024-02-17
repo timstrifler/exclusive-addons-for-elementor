@@ -1054,7 +1054,7 @@ class Testimonial extends Widget_Base {
 		?>
 
 		<div class="exad-testimonial-wrapper <?php echo esc_attr( $settings['exad_testimonial_container_alignment'] ).' '.$transition_top; ?>">
-			<div class="exad-testimonial-wrapper-inner <?php echo $settings['exad_testimonial_layout']; ?>">
+			<div class="exad-testimonial-wrapper-inner <?php echo esc_attr($settings['exad_testimonial_layout'] ); ?>">
 			<?php
 				if( 'layout-1' === $settings['exad_testimonial_layout'] ) { ?>
 
@@ -1084,7 +1084,7 @@ class Testimonial extends Widget_Base {
 					<div class="exad-testimonial-reviewer">
 					<?php
 						if ( !empty( $settings['exad_testimonial_name'] ) ) : ?>
-							<a href="<?php echo $settings['exad_testimonial_url']['url']; ?>" <?php echo $target; ?> <?php echo $nofollow; ?>>
+							<a href="<?php echo esc_url( $settings['exad_testimonial_url']['url'] ); ?>" <?php echo $target; ?> <?php echo $nofollow; ?>>
 								<<?php echo Utils::validate_html_tag( $settings['exad_testimonial_name_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'exad_testimonial_name' ); ?>>
 									<?php echo Helper::exad_wp_kses( $settings['exad_testimonial_name'] ); ?>
 								</<?php echo Utils::validate_html_tag( $settings['exad_testimonial_name_tag'] ); ?>>
@@ -1178,7 +1178,7 @@ class Testimonial extends Widget_Base {
 		#>
 
 		<div class="exad-testimonial-wrapper {{ settings.exad_testimonial_container_alignment }} {{ transition_top }}">
-	        <div class="exad-testimonial-wrapper-inner {{ settings.exad_testimonial_layout }}">
+	        <div class="exad-testimonial-wrapper-inner {{ _.escape( settings.exad_testimonial_layout ) }}">
 				<# if( 'layout-1' === settings.exad_testimonial_layout ){ #>
 					<div {{{ view.getRenderAttributeString( 'exad_testimonial_content_wrapper' ) }}}>
 						<# if ( settings.exad_testimonial_description ) { #>
@@ -1217,7 +1217,7 @@ class Testimonial extends Widget_Base {
 
 					<div class="exad-testimonial-reviewer">
 						<# if ( settings.exad_testimonial_name ) { #>
-							<a href="{{ settings.exad_testimonial_url.url }}"{{ target }}{{ nofollow }}>
+							<a href="{{ _.escape( settings.exad_testimonial_url.url ) }}"{{ target }}{{ nofollow }}>
 								<{{{ TestimonialNameHTMLTag }}} {{{ view.getRenderAttributeString( 'exad_testimonial_name' ) }}}>
 									{{{ settings.exad_testimonial_name }}}
 								</{{{ TestimonialNameHTMLTag }}}>
