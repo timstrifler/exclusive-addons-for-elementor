@@ -943,17 +943,17 @@ class List_group extends Widget_Base {
 
 		?>
 		<div class="exad-list-group">
-			<ul class="exad-list-group-wrapper <?php echo $settings['exad_section_list_layout']; ?>">
+			<ul class="exad-list-group-wrapper <?php echo esc_attr( $settings['exad_section_list_layout'] ); ?>">
 				<?php foreach( $settings['exad_list_group'] as $list ) : ?>
 				<?php
 					$target = $list['exad_list_link']['is_external'] ? ' target="_blank"' : '';
 					$nofollow = $list['exad_list_link']['nofollow'] ? ' rel="nofollow"' : '';
 				?>
-					<li class="exad-list-group-item <?php echo $settings['exad_list_icon_position']?>">
+					<li class="exad-list-group-item <?php echo esc_attr( $settings['exad_list_icon_position'] ) ?>">
 						<?php if ( !empty( $list['exad_list_link']['url'] ) ) { ?>
-						<a href="<?php echo $list['exad_list_link']['url']; ?>" <?php echo $target; ?> <?php echo $nofollow; ?> >
+						<a href="<?php echo esc_url( $list['exad_list_link']['url'] ); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> >
 						<?php } ?>
-							<span class="exad-list-group-icon <?php echo $settings['exad_list_item_icon_box_enable']; ?>">
+							<span class="exad-list-group-icon <?php echo esc_attr( $settings['exad_list_item_icon_box_enable'] ); ?>">
 								<?php if ( $list['exad_list_icon_type'] === 'icon' && !empty($list['exad_list_icon']) ){ ?>
 									<?php Icons_Manager::render_icon( $list['exad_list_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 								<?php } ?>
@@ -994,7 +994,7 @@ class List_group extends Widget_Base {
 	protected function content_template() {
 		?>
 		<div class="exad-list-group">
-			<ul class="exad-list-group-wrapper {{ settings.exad_section_list_layout }}">
+			<ul class="exad-list-group-wrapper {{ _.escape( settings.exad_section_list_layout ) }}">
 				<#
 					_.each( settings.exad_list_group, function( list, index ) { 
 						var target = list.exad_list_link.is_external ? ' target="_blank"' : '';
@@ -1002,11 +1002,11 @@ class List_group extends Widget_Base {
 
 						var iconHTML     = elementor.helpers.renderIcon( view, list.exad_list_icon, { 'aria-hidden': true }, 'i' , 'object' );
 				#>
-					<li class="exad-list-group-item {{ settings.exad_list_icon_position }}">
+					<li class="exad-list-group-item {{ _.escape( settings.exad_list_icon_position ) }}">
 						<# if ( list.exad_list_link.url ){ #>
-						<a href="{{ list.exad_list_link.url }}" {{{ target }}} {{{ nofollow }}} >
+						<a href="{{ _.escape( list.exad_list_link.url ) }}" {{{ target }}} {{{ nofollow }}} >
 						<# } #>
-							<span class="exad-list-group-icon {{ settings.exad_list_item_icon_box_enable }}">
+							<span class="exad-list-group-icon {{ _.escape( settings.exad_list_item_icon_box_enable ) }}">
 								<# if ( list.exad_list_icon_type === 'icon' && list.exad_list_icon ){ #>
 									{{{ iconHTML.value }}}
 								<# } #>
