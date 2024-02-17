@@ -1812,8 +1812,11 @@ class Covid_19_Stats extends Widget_Base {
                     <input class="exad-corona-search-input" type="text" name="search" id="exad_search_data" placeholder="<?php echo esc_attr($settings['exad_corona_enable_search_filter_text']); ?>">
                 </div>
             <?php } ?>
-            <?php if( 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
-                <div class="exad-corona-table <?php echo $settings['exad_corona_enable_data_table_box'] ?>">
+            <?php if( 'yes' === $settings['exad_corona_enable_data_table'] ) { 
+			
+				$exad_corona_enable_data_table_box = ( $settings['exad_corona_enable_data_table_box'] === 'yes' ? 'yes' : '' );
+			?>
+                <div class="exad-corona-table <?php echo $exad_corona_enable_data_table_box ?>">
                     <?php if( 'yes' === $settings['exad_corona_enable_continent_menu'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
                         <div id="exad-covid-filters" class="exed-covid-data-continent">
                             <button class="exad-covid-continent-btn active" id="all">All</button>
