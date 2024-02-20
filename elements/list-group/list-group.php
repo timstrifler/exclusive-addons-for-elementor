@@ -964,7 +964,7 @@ class List_group extends Widget_Base {
 								<?php } ?>
 								<?php if ( $list['exad_list_icon_type'] === 'image' && !empty($list['exad_list_icon_type']) ){ ?>
 									<div class="exad-list-group-icon-image">
-										<img src="<?php echo $list['exad_list_icon_number_image']['url'] ?>" alt="<?php echo $list['exad_list_text']; ?>">
+										<img src="<?php echo esc_url( $list['exad_list_icon_number_image']['url'] ) ?>" alt="<?php echo $list['exad_list_text']; ?>">
 									</div>
 								<?php } ?>
 							</span>
