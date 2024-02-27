@@ -274,7 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.6.9.1 - 27/02/2024 =
-- Improve security on the plugin
+- Improve security
 
 = 2.6.9 - 23/01/2024 =
 - On Image Magnifier widget, add support to lazysizes JS library (used by Wordpress plugins like EWWW Image Optimizer)
