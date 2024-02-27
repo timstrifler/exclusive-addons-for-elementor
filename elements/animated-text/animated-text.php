@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use \Elementor\Utils;
 
 class Animated_Text extends Widget_Base {
 
@@ -527,7 +528,7 @@ class Animated_Text extends Widget_Base {
 		$before_text   = $settings['exad_animated_text_before_text'];
 		$heading_text  = $settings['exad_animated_text_animated_heading'];
 		$after_text    = $settings['exad_animated_text_after_text'];
-		$heading_tag   = $settings['exad_animated_text_animated_heading_tag'];
+		$heading_tag   = Utils::validate_html_tag( $settings['exad_animated_text_animated_heading_tag'] );
 		$heading_align = $settings['exad_animated_text_animated_heading_alignment'];
 
 		$this->add_render_attribute( 'exad_typed_animated_string', 'class', 'exad-typed-strings' );
