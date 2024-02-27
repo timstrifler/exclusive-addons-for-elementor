@@ -3,7 +3,7 @@ Contributors: exclusiveaddons, timstrifler, madjennsy, mmaumio, atiquehasan, zab
 Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
 Requires at least: 4.6
 Tested up to: 6.3.1
-Stable tag: 2.6.9
+Stable tag: 2.6.9.1
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -273,6 +273,9 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.6.9.1 - 27/02/2024 =
+- Improve security on the plugin
+
 = 2.6.9 - 23/01/2024 =
 - On Image Magnifier widget, add support to lazysizes JS library (used by Wordpress plugins like EWWW Image Optimizer)
 - Increase support for Elementor and Elementor Pro
