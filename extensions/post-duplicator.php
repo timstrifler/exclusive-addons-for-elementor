@@ -49,6 +49,11 @@ class Post_Duplicator {
         if( is_null( $post ) ) {
             return;
         }
+		
+        if ( ! current_user_can( 'edit_post', $post->ID ) ) {
+			
+            wp_die( __( 'Sorry, you are not allowed to duplicate this post.' ) );
+        }
 
         $current_user = wp_get_current_user();
         $duplicate_post_args = array( 
