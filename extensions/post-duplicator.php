@@ -31,15 +31,23 @@ class Post_Duplicator {
      * @return void
      */
     public static function duplicate_post() {
+		
+		if ( ! isset( $_REQUEST['_wpnonce'] ) && empty( $_REQUEST['_wpnonce'] ) ) {
+		
+			return;
+		}
+		
+		$nonce = sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) );
 
-        $nonce = isset( $_REQUEST['_wpnonce'] ) && ! empty( $_REQUEST['_wpnonce'] ) ? $_REQUEST['_wpnonce'] : NULL;
-        $post_id = isset( $_REQUEST['post'] ) && ! empty( $_REQUEST['post'] ) ? intval( $_REQUEST['post'] ) : NULL;
-        $action = isset( $_REQUEST['action'] ) && ! empty( $_REQUEST['action'] ) ? trim( $_REQUEST['action'] ) : NULL;
-
-        if( is_null( $nonce ) || is_null( $post_id ) || $action !== 'exad_duplicate' ) {
+        if ( ! wp_verify_nonce( $nonce, 'exad_duplicator' ) ) {
             return;
         }
-        if( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'exad_duplicator' ) ) {
+		
+        $post_id = isset( $_REQUEST['post'] ) && ! empty( $_REQUEST['post'] ) ? intval( sanitize_text_field( wp_unslash( $_REQUEST['post'] ) ) ) : NULL;
+		
+        $action = isset( $_REQUEST['action'] ) && ! empty( $_REQUEST['action'] ) ? trim( sanitize_text_field( wp_unslash( $_REQUEST['action'] ) ) ) : NULL;
+
+        if( is_null( $nonce ) || is_null( $post_id ) || $action !== 'exad_duplicate' ) {
             return;
         }
 
@@ -52,15 +60,20 @@ class Post_Duplicator {
 		
         if ( ! current_user_can( 'edit_post', $post->ID ) ) {
 			
-            wp_die( __( 'Sorry, you are not allowed to duplicate this post.' ) );
+            wp_die( esc_html__( 'Sorry, you are not allowed to duplicate this post.' ) );
         }
 
         $current_user = wp_get_current_user();
+		
+		/*
+		 * new post data array
+		 */
         $duplicate_post_args = array( 
             'post_author'    => $current_user->ID,
             'post_title'     => $post->post_title,
             'post_content'   => $post->post_content,
             'post_excerpt'   => $post->post_excerpt,
+			'post_name'      => $post->post_name,
             'post_parent'    => $post->post_parent,
             'post_status'    => 'draft',
             'ping_status'    => $post->ping_status,
@@ -70,6 +83,10 @@ class Post_Duplicator {
             'to_ping'        => $post->to_ping,
             'menu_order'     => $post->menu_order,
         );
+		
+		/*
+		 * insert the post by wp_insert_post() function
+		 */
         $duplicated_id = wp_insert_post( $duplicate_post_args );
 
         if( ! is_wp_error( $duplicated_id ) ) {
@@ -81,22 +98,40 @@ class Post_Duplicator {
                 }
             }
 
-            global $wpdb;
-            $post_meta = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = $post_id" ) );
-            
+            $post_meta = get_post_meta( $post_id );
+			
             if( ! empty( $post_meta ) && is_array( $post_meta ) ){
-                $duplicate_insert_query = $wpdb->prepare( "INSERT INTO $wpdb->postmeta ( post_id, meta_key, meta_value ) VALUES " );
-                $value_cells = array();
 
-                foreach( $post_meta as $meta_info ){
-                    $meta_key = sanitize_text_field( $meta_info->meta_key );
-                    $meta_value = wp_slash( $meta_info->meta_value );
-                    $value_cells[] = $wpdb->prepare( '$duplicated_id, %s, %s', $meta_key, $meta_value );
+                foreach( $post_meta as $meta_key => $meta_value ) {
+					
+					update_post_meta( $duplicated_id, $meta_key, $meta_value );
                 }
-
-                $duplicate_insert_query .= implode(', ', $value_cells) . ';';
-                $wpdb->query( $duplicate_insert_query  );
             } 
+			
+			
+			update_post_meta( $duplicated_id, '_wp_page_template', 'elementor_canvas' );
+
+			update_post_meta( $duplicated_id, '_elementor_edit_mode', 'builder' );
+
+			update_post_meta( $duplicated_id, '_elementor_template_type', 'wp-page');
+			update_post_meta( $duplicated_id, '_elementor_version', ELEMENTOR_VERSION);
+			
+			if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
+				
+				update_post_meta( $duplicated_id, '_elementor_pro_version', ELEMENTOR_PRO_VERSION );
+			}
+			
+			update_post_meta( $duplicated_id, '_elementor_css', '' );
+			
+			$settings = get_post_meta( $post_id, '_elementor_page_settings', true );
+			$data = json_decode(get_post_meta( $post_id, '_elementor_data', true), true );
+			$assets = get_post_meta( $post_id, '_elementor_page_assets', true );
+			$controls = get_post_meta( $post_id, '_elementor_controls_usage', true );
+			
+			update_post_meta( $duplicated_id, '_elementor_page_settings', $settings );
+			update_post_meta( $duplicated_id, '_elementor_data', $data );
+			update_post_meta( $duplicated_id, '_elementor_page_assets', $assets );
+			update_post_meta( $duplicated_id, '_elementor_controls_usage', $controls );
         }
         $redirect_url = admin_url( 'edit.php?post_type=' . $post->post_type );
         wp_safe_redirect( $redirect_url );
