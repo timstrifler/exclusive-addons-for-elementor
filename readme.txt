@@ -275,6 +275,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 == Changelog ==
 = 2.6.9.2 - 07/03/2024 =
 - Improve security in "Post Duplicator" extension
+- Post Duplicator: Support cloning Elementor post
 
 = 2.6.9.1 - 27/02/2024 =
 - Improve security
