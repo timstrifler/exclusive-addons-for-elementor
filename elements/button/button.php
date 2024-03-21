@@ -480,6 +480,9 @@ class Button extends Widget_Base {
 	}
 
 	protected function render() {
+		
+		$output = '';
+		
 		$settings = $this->get_settings_for_display();
 		
 		$this->add_render_attribute( 
@@ -506,13 +509,15 @@ class Button extends Widget_Base {
 			
 			$this->add_render_attribute( 'url', 'class', 'exad-button-action' );
 		}
+		
+		ob_start();
 		?>
 
-		<div <?php echo $this->get_render_attribute_string( 'exad_exclusive_button' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'exad_exclusive_button' ); ?>>
 
 			<?php do_action( 'exad_button_wrapper_before' ); ?>
 
-			<a <?php echo $this->get_render_attribute_string( 'url' ); ?>>
+			<a <?php $this->print_render_attribute_string( 'url' ); ?>>
 				<?php do_action( 'exad_button_begin_anchor_tag' );
 
 				if ( ! empty( $settings['exad_exclusive_button_icon']['value'] ) ) :
@@ -525,7 +530,7 @@ class Button extends Widget_Base {
 				endif;
 				?>
 
-				<span <?php echo $this->get_render_attribute_string( 'exclusive_button_text' ); ?>>
+				<span <?php $this->print_render_attribute_string( 'exclusive_button_text' ); ?>>
 					<?php echo esc_html( $settings['exclusive_button_text'] ); ?>
 				</span>
 
@@ -549,6 +554,28 @@ class Button extends Widget_Base {
 			<?php do_action( 'exad_button_wrapper_after' ); ?>
 		</div>
 		<?php	
+		
+		$output = ob_get_clean();;
+		
+		print wp_kses( $output, 
+			array(
+				'div' => array(
+					'class' => array()
+				),
+				'span' => array(
+					'class' => array()
+				),
+				'i' => array(
+					'class' => array()
+				),
+				'a' => array(
+					'href' => array(), 
+					'target' => array(), 
+					'rel' => array(), 
+					'class' => array()
+				)
+			)
+		);
 	}
 
 	/**
