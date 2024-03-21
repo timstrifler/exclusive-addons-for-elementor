@@ -555,7 +555,7 @@ class Button extends Widget_Base {
 		</div>
 		<?php	
 		
-		$output = ob_get_clean();;
+		$output = ob_get_clean();
 		
 		print wp_kses( $output, 
 			array(
