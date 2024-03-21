@@ -919,9 +919,11 @@ class Infobox extends Widget_Base {
 	}
 
 	protected function render() {
+		
+		$output = '';
+		
 		$settings                  = $this->get_settings_for_display();		
 		$title                     = $settings['exad_infobox_title'];
-		$details                   = $settings['exad_infobox_description'];
 
 		if ( $settings['exad_infobox_img_or_icon'] == 'img' ) {
 
@@ -944,16 +946,11 @@ class Infobox extends Widget_Base {
 		if( 'yes' === $settings['exad_infobox_transition_zoom'] ){
 			$this->add_render_attribute( 'exad_infobox_transition', 'class', 'zoom-transition' );
 		}
-
-		if( isset( $settings['exad_infobox_title_link']['url'] ) ) {
-            $this->add_render_attribute( 'exad_infobox_title_link', 'href', esc_url( $settings['exad_infobox_title_link']['url'] ) );
-		    if( $settings['exad_infobox_title_link']['is_external'] ) {
-		        $this->add_render_attribute( 'exad_infobox_title_link', 'target', '_blank' );
-		    }
-		    if( $settings['exad_infobox_title_link']['nofollow'] ) {
-		        $this->add_render_attribute( 'exad_infobox_title_link', 'rel', 'nofollow' );
-		    }
-        }
+		
+		if ( ! empty( $settings['exad_infobox_title_link']['url'] ) ) {
+			
+			$this->add_link_attributes( 'exad_infobox_url', $settings['exad_infobox_title_link'] );
+		}
 
         $this->add_render_attribute( 'exad_infobox_title', 'class', 'exad-infobox-content-title' );
 		$this->add_inline_editing_attributes( 'exad_infobox_title', 'none' );
@@ -961,35 +958,44 @@ class Infobox extends Widget_Base {
         $this->add_render_attribute( 'exad_infobox_description', 'class', 'exad-infobox-content-description' );
 		$this->add_inline_editing_attributes( 'exad_infobox_description' );
 
+		ob_start();
 		?>
-
+		
 		<div class="exad-infobox">
-			<div <?php echo $this->get_render_attribute_string( 'exad_infobox_transition' ); ?>>
+			<div <?php $this->print_render_attribute_string( 'exad_infobox_transition' ); ?>>
 			  	<?php if( 'none' !== $settings['exad_infobox_img_or_icon'] ) { ?>
-					<div class="exad-infobox-icon<?php echo ( 'yes' === $settings['exad_infobox_animating_mask_switcher'] ) ? ' '.$settings['exad_infobox_animating_mask_style'] : ''; ?>">
+					<div class="exad-infobox-icon <?php ( 'yes' === $settings['exad_infobox_animating_mask_switcher'] ) ? $this->print_unescaped_setting('exad_infobox_animating_mask_style') : ''; ?>">
 						<?php if( 'icon' === $settings['exad_infobox_img_or_icon'] && $settings['exad_infobox_icon']['value'] ) : ?>
 							<?php Icons_Manager::render_icon( $settings['exad_infobox_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 						<?php endif; ?>
 
 						<?php if( 'img' === $settings['exad_infobox_img_or_icon'] ) :
-							echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_infobox_image' );
+							echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_infobox_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						endif; ?>	
 					</div>
 			  	<?php } ?>
 	            <div class="exad-infobox-content">
 	            	<?php if( !empty( $settings['exad_infobox_title_link']['url'] ) ) { ?>
-                        <a <?php echo $this->get_render_attribute_string( 'exad_infobox_title_link' ); ?>>
+                        <a <?php $this->print_render_attribute_string( 'exad_infobox_url' ); ?>>
                     <?php } ?>
-	            	<?php $title ? printf( '<'. Utils::validate_html_tag( $settings['exad_infobox_title_html_tag'] ) . ' ' .$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</'.Utils::validate_html_tag( $settings['exad_infobox_title_html_tag'] ).'>', Helper::exad_wp_kses( $title ) ) : ''; ?>
+					
+	            	<?php $title ? printf( '<'. Utils::validate_html_tag( $settings['exad_infobox_title_html_tag'] ) . ' ' .$this->get_render_attribute_string( 'exad_infobox_title' ).'>%s</'.Utils::validate_html_tag( $settings['exad_infobox_title_html_tag'] ).'>', $title ) : '';  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					
 	            	<?php if( !empty( $settings['exad_infobox_title_link']['url'] ) ) { ?>
                         </a>
                     <?php } ?>
-
-	            	<?php $details ? printf( '<div '.$this->get_render_attribute_string( 'exad_infobox_description' ).'>%s</div>', wp_kses_post( $details ) ) : ''; ?>
+					
+					<div <?php $this->print_render_attribute_string( 'exad_infobox_description' ); ?>>
+						<?php $this->print_unescaped_setting( 'exad_infobox_description' ) ?>
+					</div>
 	            </div>
           	</div>
         </div>
 		<?php
+		
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
 	}
 
 	/**
