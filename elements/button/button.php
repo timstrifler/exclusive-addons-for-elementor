@@ -499,16 +499,12 @@ class Button extends Widget_Base {
 		}
 
 		$this->add_inline_editing_attributes( 'exclusive_button_text', 'none' );
-		$this->add_render_attribute( 'exclusive_button_link_url', 'class', 'exad-button-action' );
 
-		if( $settings['exclusive_button_link_url']['url'] ) {
-			$this->add_render_attribute( 'exclusive_button_link_url', 'href', esc_url( $settings['exclusive_button_link_url']['url'] ) );
-			if( $settings['exclusive_button_link_url']['is_external'] ) {
-				$this->add_render_attribute( 'exclusive_button_link_url', 'target', '_blank' );
-			}
-			if( $settings['exclusive_button_link_url']['nofollow'] ) {
-				$this->add_render_attribute( 'exclusive_button_link_url', 'rel', 'nofollow' );
-			}
+		if ( ! empty( $settings['exclusive_button_link_url']['url'] ) ) {
+			
+			$this->add_link_attributes( 'url', $settings['exclusive_button_link_url'] );
+			
+			$this->add_render_attribute( 'url', 'class', 'exad-button-action' );
 		}
 		?>
 
@@ -516,7 +512,7 @@ class Button extends Widget_Base {
 
 			<?php do_action( 'exad_button_wrapper_before' ); ?>
 
-			<a <?php echo $this->get_render_attribute_string( 'exclusive_button_link_url' ); ?>>
+			<a <?php echo $this->get_render_attribute_string( 'url' ); ?>>
 				<?php do_action( 'exad_button_begin_anchor_tag' );
 
 				if ( ! empty( $settings['exad_exclusive_button_icon']['value'] ) ) :
