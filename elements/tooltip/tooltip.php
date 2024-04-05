@@ -583,25 +583,28 @@ class Tooltip extends Widget_Base {
 
         $this->add_inline_editing_attributes( 'exad_tooltip_content', 'basic' );
 
+		ob_start();
         ?>
        
-        <div <?php echo $this->get_render_attribute_string( 'exad_tooltip_wrapper' ); ?>>
+        <div <?php $this->print_render_attribute_string( 'exad_tooltip_wrapper' ); ?>>
             <div class="exad-tooltip-item <?php echo esc_attr( $settings['exad_tooltip_direction'] ); ?>">
                 <div class="exad-tooltip-content">
 
                     <?php if( 'yes' === $settings['exad_tooltip_enable_link'] && !empty( $settings['exad_tooltip_link']['url'] ) ) : ?>
-                        <a <?php echo $this->get_render_attribute_string( 'exad_tooltip_link' ); ?>>
+                        <a <?php $this->print_render_attribute_string( 'exad_tooltip_link' ); ?>>
                     <?php endif; ?>
 
                     <?php if( 'text' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_content'] ) ) : ?>
-                        <span <?php echo $this->get_render_attribute_string( 'exad_tooltip_content' ); ?>><?php echo wp_kses_post( $settings['exad_tooltip_content'] ); ?></span>
+                        <span <?php $this->print_render_attribute_string( 'exad_tooltip_content' ); ?>>
+						<?php echo $settings['exad_tooltip_content']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</span>
 
                     <?php elseif( 'icon' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_icon_content']['value'] ) ) : ?>
                         <?php Icons_Manager::render_icon( $settings['exad_tooltip_icon_content'] ); ?>
 
                     <?php elseif( 'image' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_img_content']['url'] ) ) : ?>
                         <?php if ( $settings['exad_tooltip_img_content']['url'] || $settings['exad_tooltip_img_content']['id'] ) { ?>
-                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_tooltip_image_size', 'exad_tooltip_img_content' ); ?>
+                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_tooltip_image_size', 'exad_tooltip_img_content' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         <?php } ?>
                     <?php endif; ?>
 
@@ -611,10 +614,14 @@ class Tooltip extends Widget_Base {
 
                 </div>
 
-                <?php $settings['exad_tooltip_text'] ? printf( '<div class="exad-tooltip-text">%s</div>', wp_kses_post( $settings['exad_tooltip_text'] ) ) : ''; ?>
+                <?php $settings['exad_tooltip_text'] ? printf( '<div class="exad-tooltip-text">%s</div>', $settings['exad_tooltip_text'] ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </div>
         </div>
         <?php
+		
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
     }
 
     /**
