@@ -81,8 +81,8 @@ class Image_Mask_SVG_Control extends Base_Data_Control {
 			<label class="elementor-control-title">{{{ data.label }}}</label>
 			<div class="exad-selector-wrapper">
 				<# _.each( data.options, function( options, value ) { #>
-				<input id="<?php echo $control_uid; ?>" type="radio" name="exad-selector-{{ data.name }}-{{ data._cid }}" value="{{ value }}" data-setting="{{ data.name }}">
-				<label class="exad-selector-label tooltip-target" for="<?php echo $control_uid; ?>" data-tooltip="{{ options.title }}" title="{{ options.title }}">
+				<input id="<?php echo esc_attr( $control_uid ); ?>" type="radio" name="exad-selector-{{ data.name }}-{{ data._cid }}" value="{{ value }}" data-setting="{{ data.name }}">
+				<label class="exad-selector-label tooltip-target" for="<?php echo esc_attr( $control_uid ); ?>" data-tooltip="{{ options.title }}" title="{{ options.title }}">
 					<img src="{{ options.url }}" alt="{{ options.title }}">
 					<span class="elementor-screen-only">{{{ options.title }}}</span>
 				</label>
