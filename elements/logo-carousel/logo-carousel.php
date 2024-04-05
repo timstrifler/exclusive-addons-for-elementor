@@ -995,10 +995,12 @@ class Logo_Carousel extends Widget_Base {
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-smooth', 'true' );
 			$this->add_render_attribute( 'exad_logo_carousel', 'data-smooth-speed', esc_attr( $settings['exad_logo_smooth_scroll_speed'] ) );
 		}
+		
+		ob_start();
 
 		if ( is_array( $settings['exad_logo_carousel_repeater'] ) ) : ?>
 			<div class="exad-logo-carousel">
-				<div <?php echo $this->get_render_attribute_string('exad_logo_carousel') ;?> >
+				<div <?php $this->print_render_attribute_string('exad_logo_carousel') ;?> >
 					<?php foreach ( $settings['exad_logo_carousel_repeater'] as $index => $logo ) :?>
 						<?php $logo_link = 'exad-logo-link-' . $index ;?>
 						<div class="exad-logo-carousel-item <?php echo esc_attr( $settings['exad_logo_carousel_alignment'] );?>">
@@ -1026,9 +1028,9 @@ class Logo_Carousel extends Widget_Base {
 							}
 							if( ! empty( $logo['exad_logo_carousel_link_to_type'] ) ){
 						?>
-						<a <?php echo $this->get_render_attribute_string( $logo_link ); ?> > <?php } ?>
+						<a <?php $this->print_render_attribute_string( $logo_link ); ?> > <?php } ?>
 
-							<?php echo Group_Control_Image_Size::get_attachment_image_html( $logo, 'logo_image_size', 'exad_logo_carousel_image' ); ?>
+							<?php echo Group_Control_Image_Size::get_attachment_image_html( $logo, 'logo_image_size', 'exad_logo_carousel_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
 						<?php if( ! empty( $logo['exad_logo_carousel_link_to_type'] ) ){ ?>
 							</a>
@@ -1040,5 +1042,9 @@ class Logo_Carousel extends Widget_Base {
 			</div>
 		<?php
 		endif;
+		
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
 	}
 }
