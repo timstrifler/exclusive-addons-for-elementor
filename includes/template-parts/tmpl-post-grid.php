@@ -16,7 +16,7 @@ if( 'yes' != $settings['exad_post_grid_show_title_parmalink'] ){
     $style_par = '';
 } else{
     $parmalink = '';
-    $style_par = 'style= "pointer-events: none;"';
+    $style_par = 'style="pointer-events: none;"';
 }
 
 if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
@@ -24,6 +24,8 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
 } else{
     $target = "_self";
 }
+
+ob_start();
 ?>
 
 <article class="exad-post-grid-three exad-col <?php echo ('exad-filterable-post' === $settings['template_type'] ) ? ' exad-filterable-item ' . esc_attr( Helper::exad_get_categories_name_for_class()) : ' ' ;?>">
@@ -31,7 +33,7 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
         <?php do_action('exad_post_grid_each_item_wrapper_before');
         if( 'yes' === $settings['exad_post_grid_show_image'] && has_post_thumbnail() ) : ?>
             <figure class="exad-post-grid-thumbnail">
-                <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?>>
+                <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                     <?php the_post_thumbnail( $settings['post_grid_image_size_size'] ); ?>
                 </a>
                 
@@ -100,15 +102,15 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
 				
 			<?php if ( $settings['exad_post_grid_title_tag'] !== '' ) { ?>
 				
-                    <<?php echo $settings['exad_post_grid_title_tag']; ?>>
+                    <<?php echo esc_attr( $settings['exad_post_grid_title_tag'] ); ?>>
 					
 			<?php } ?>
 				
-                        <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?> class="exad-post-grid-title"><?php echo get_the_title(); ?></a>
+                        <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> class="exad-post-grid-title"><?php echo get_the_title(); ?></a>
 				
 			<?php if ( $settings['exad_post_grid_title_tag'] !== '' ) { ?>
 						
-                    </<?php echo $settings['exad_post_grid_title_tag']; ?>>
+                    </<?php echo esc_attr( $settings['exad_post_grid_title_tag'] ); ?>>
 					
 			<?php } ?>
 					
@@ -116,15 +118,15 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
 				
 			<?php if ( $settings['exad_post_grid_title_tag'] !== '' ) { ?>
 				
-                    <<?php echo $settings['exad_post_grid_title_tag']; ?>>
+                    <<?php echo esc_attr( $settings['exad_post_grid_title_tag'] ); ?>>
 					
 			<?php } ?>
 					
-                        <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; ?> class="exad-post-grid-title"><?php echo wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ); ?></a>
+                        <a href="<?php echo esc_url( $parmalink ); ?>" <?php echo $style_par; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> class="exad-post-grid-title"><?php echo wp_trim_words( get_the_title(), $settings['exad_grid_title_length'], '...' ); ?></a>
 						
 			<?php if ( $settings['exad_post_grid_title_tag'] !== '' ) { ?>
 			
-                    </<?php echo $settings['exad_post_grid_title_tag']; ?>>
+                    </<?php echo esc_attr( $settings['exad_post_grid_title_tag'] ); ?>>
 					
 			<?php } ?>
 					
@@ -136,13 +138,13 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
                 <ul class="exad-post-grid-time-comment">
                 <?php 
                     if( 'yes' === $settings['exad_post_grid_show_read_time'] ) : ?>
-                        <li class="exad-post-grid-read-time"><?php echo Helper::exad_reading_time( get_the_content() ); ?></li>
+                        <li class="exad-post-grid-read-time"><?php echo Helper::exad_reading_time( get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></li>
                     <?php
                     endif;
 
                     if( 'yes' === $settings['exad_post_grid_show_comment'] ) : ?>
                     <li>
-                        <a class="exad-post-grid-comment" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number().get_comments_number_text( ' comment', ' comment', ' comments' ); ?></a>
+                        <a class="exad-post-grid-comment" href="<?php echo get_comments_link(); ?>"><?php echo get_comments_number().get_comments_number_text( ' comment', ' comment', ' comments' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
                     </li>
                     <?php endif; ?>
                 </ul>
@@ -152,14 +154,14 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
             do_action('exad_post_grid_excerpt_wrapper_before');
             if('yes' === $settings['exad_post_grid_show_excerpt']) : ?>
                 <div class="exad-post-grid-description">
-                    <?php echo wp_trim_words( get_the_excerpt(), $settings['exad_grid_excerpt_length'], '...' ); ?>
+                    <?php echo wp_trim_words( get_the_excerpt(), $settings['exad_grid_excerpt_length'], '...' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 </div>
             <?php
             endif;
             do_action('exad_post_grid_excerpt_wrapper_after');
 
             if( ! empty( $settings['exad_post_grid_read_more_btn_text'] ) && 'yes' === $settings[ 'exad_post_grid_show_read_more_btn' ] ) : ?>
-                <div class="exad-post-footer"><a href="<?php echo esc_url( get_the_permalink() ); ?>" target=<?php echo $target; ?> class="read-more"><?php echo esc_html( $settings['exad_post_grid_read_more_btn_text'] ); ?></a></div>
+                <div class="exad-post-footer"><a href="<?php echo esc_url( get_the_permalink() ); ?>" target=<?php echo $target; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> class="read-more"><?php echo esc_html( $settings['exad_post_grid_read_more_btn_text'] ); ?></a></div>
             <?php
             endif;
 
@@ -205,3 +207,10 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
         <?php do_action('exad_post_grid_each_item_wrapper_after'); ?>
     </div>
 </article>
+<?php
+
+$output = ob_get_clean();
+
+print wp_kses_post( $output );
+
+?>
