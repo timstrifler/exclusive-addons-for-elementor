@@ -1501,7 +1501,7 @@ class Team_Member extends Widget_Base {
 		$this->add_render_attribute( 'exad_team_members_cta_btn_text', 'class', 'exad-team-cta-button-text' );
 		$this->add_inline_editing_attributes( 'exad_team_members_cta_btn_text', 'none' );
 		?>
-		<span <?php echo $this->get_render_attribute_string( 'exad_team_members_cta_btn_text' ); ?>>
+		<span <?php $this->print_render_attribute_string( 'exad_team_members_cta_btn_text' ); ?>>
 			<?php echo esc_html( $settings['exad_team_members_cta_btn_text'] );	?>
 		</span>
 		<?php
@@ -1538,15 +1538,16 @@ class Team_Member extends Widget_Base {
 	        }
         }
 
+		ob_start();
 		?>
 
 		<div class="exad-team-item">
-			<div <?php echo $this->get_render_attribute_string( 'exad_team_member_item' ); ?>>
+			<div <?php $this->print_render_attribute_string( 'exad_team_member_item' ); ?>>
 				<?php do_action('exad_team_member_wrapper_before'); ?>
 				<?php 
 					if ( $settings['exad_team_member_image']['url'] || $settings['exad_team_member_image']['id'] ) { ?>
-						<div class="exad-team-member-thumb<?php echo ( 'yes' === $settings['exad_team_member_animating_mask_switcher'] ) ? ' '.$settings['exad_team_member_animating_mask_style'] : ''; ?>">
-							<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'team_member_image_size', 'exad_team_member_image' ); ?>
+						<div class="exad-team-member-thumb<?php echo esc_attr( ( 'yes' === $settings['exad_team_member_animating_mask_switcher'] ) ? ' ' . $settings['exad_team_member_animating_mask_style'] : '' ); ?>">
+							<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'team_member_image_size', 'exad_team_member_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</div>
 					<?php
 					}
@@ -1555,24 +1556,28 @@ class Team_Member extends Widget_Base {
 				<div class="exad-team-member-content">
 					<?php do_action('exad_team_member_content_area_before'); ?>
 					<?php if ( !empty( $settings['exad_team_member_name'] ) ) : ?>
-						<<?php echo Utils::validate_html_tag( $settings['exad_team_member_name_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'exad_team_member_name' ); ?>>
-							<?php echo Helper::exad_wp_kses( $settings['exad_team_member_name'] ); ?>
-						</<?php echo Utils::validate_html_tag( $settings['exad_team_member_name_tag'] ); ?>>
+						<<?php Utils::print_validated_html_tag( $settings['exad_team_member_name_tag'] ); ?> <?php $this->print_render_attribute_string( 'exad_team_member_name' ); ?>>
+							<?php echo esc_attr( $settings['exad_team_member_name'] ); ?>
+						</<?php Utils::print_validated_html_tag( $settings['exad_team_member_name_tag'] ); ?>>
 					<?php endif; ?>
 
 					<?php if ( !empty( $settings['exad_team_member_designation'] ) ) : ?>
-						<span <?php echo $this->get_render_attribute_string( 'exad_team_member_designation' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_team_member_designation'] ); ?></span>
+						<span <?php $this->print_render_attribute_string( 'exad_team_member_designation' ); ?>>
+						<?php echo esc_attr( $settings['exad_team_member_designation'] ); ?>
+						</span>
 					<?php endif; ?>
 
 					<?php do_action('exad_team_member_description_before'); ?>
 					<?php if ( !empty( $settings['exad_team_member_description'] ) ) : ?>
-						<div <?php echo $this->get_render_attribute_string( 'exad_team_member_description' ); ?>><?php echo wp_kses_post( $settings['exad_team_member_description'] ); ?></div>
+						<div <?php $this->print_render_attribute_string( 'exad_team_member_description' ); ?>>
+						<?php echo $settings['exad_team_member_description']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</div>
 					<?php endif; ?>
 					<?php do_action('exad_team_member_description_after'); ?>
 
 					<?php if ( 'yes' === $settings['exad_section_team_members_cta_btn'] && !empty( $settings['exad_team_members_cta_btn_text'] ) ) : ?>
-						<a <?php echo $this->get_render_attribute_string( 'exad_team_members_cta_btn_link' ); ?>>
-							<?php echo $this->team_member_cta(); ?>
+						<a <?php $this->print_render_attribute_string( 'exad_team_members_cta_btn_link' ); ?>>
+							<?php echo $this->team_member_cta(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</a>
 					<?php	
 					endif;
@@ -1612,7 +1617,7 @@ class Team_Member extends Widget_Base {
 								] );
 								?>	
 								<li>
-									<a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
+									<a <?php $this->print_render_attribute_string( $link_key ); ?>>
 										<?php Icons_Manager::render_icon( $item['social_icon'], [ 'aria-hidden' => 'true' ] ); ?>
 									</a>
 								</li>	
@@ -1628,6 +1633,10 @@ class Team_Member extends Widget_Base {
 			</div>
 		</div>	
 		<?php
+		
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
 	}
 
 	/**
