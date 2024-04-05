@@ -895,7 +895,7 @@ class News_Ticker extends Widget_Base {
 
         $this->add_inline_editing_attributes( 'exad_news_ticker_label', 'basic' );
         ?>
-        <div <?php echo $this->get_render_attribute_string( 'exad-news-ticker-wrapper' );?>>
+        <div <?php $this->print_render_attribute_string( 'exad-news-ticker-wrapper' );?>>
             <?php do_action( 'exad_news_ticker_wrapper_before' );
             if( 'yes' === $show_label ): ?>
                 <div class="exad-bn-label <?php  echo esc_attr( $arrow ) ?>" >
@@ -907,7 +907,7 @@ class News_Ticker extends Widget_Base {
                     <?php 
                     }
                     if( !empty( $label ) ) { ?>
-                        <span <?php echo $this->get_render_attribute_string( 'exad_news_ticker_label' );?> ><?php echo wp_kses_post( $label ) ;?></span>
+                        <span <?php $this->print_render_attribute_string( 'exad_news_ticker_label' );?> ><?php echo wp_kses_post( $label ) ;?></span>
                     <?php } ?>
                     </div>
                 </div>
@@ -931,13 +931,13 @@ class News_Ticker extends Widget_Base {
                                 $this->add_render_attribute( $link_key, 'rel', 'nofollow' );
                             } ?>
                             <li>
-                                <a <?php echo $this->get_render_attribute_string( $link_key );?> >
-                                    <span <?php echo $this->get_render_attribute_string( $title );?> ><?php echo wp_kses_post( $list['exad_news_ticker_title'] );?></span>
+                                <a <?php $this->print_render_attribute_string( $link_key );?> >
+                                    <span <?php $this->print_render_attribute_string( $title );?> ><?php echo wp_kses_post( $list['exad_news_ticker_title'] );?></span>
                                 </a>
                             </li>
                         <?php else : ?>
                             <li>
-                                <span <?php echo $this->get_render_attribute_string( $title );?>><?php echo wp_kses_post( $list['exad_news_ticker_title'] );?></span>
+                                <span <?php $this->print_render_attribute_string( $title );?>><?php echo wp_kses_post( $list['exad_news_ticker_title'] );?></span>
                             </li>
                         <?php endif;
                     endforeach ;?>
