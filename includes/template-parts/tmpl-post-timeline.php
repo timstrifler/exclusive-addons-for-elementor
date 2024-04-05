@@ -16,8 +16,8 @@ use \ExclusiveAddons\Elementor\Helper;
 			</a>
 		<?php endif;?>
         <div class="exad-post-timeline-content-text">
-            <h4><a href="<?php echo esc_url( get_permalink() );?>" ><?php echo get_the_title();?></a></h4>
-            <p><?php echo Helper::exad_get_post_excerpt( get_the_ID(), esc_html( $settings['exad_timeline_excerpt_length'] ) );?></p>
+            <h4><a href="<?php echo esc_url( get_permalink() );?>" ><?php echo esc_html( get_the_title() );?></a></h4>
+            <p><?php echo esc_html( Helper::exad_get_post_excerpt( get_the_ID(), $settings['exad_timeline_excerpt_length'] ) );?></p>
         </div>
     </div>
 
