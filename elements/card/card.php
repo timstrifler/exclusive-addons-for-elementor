@@ -1358,12 +1358,14 @@ class Card extends Widget_Base {
 	            $this->add_render_attribute( 'exad_card_action_link', 'rel', 'nofollow' );
 	        }
         }
+		
+		ob_start();
 		?>
 
-		<div <?php echo $this->get_render_attribute_string( 'exad_card' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'exad_card' ); ?>>
 			<?php if ( $settings['exad_card_image']['url'] || $settings['exad_card_image']['id'] ) : ?>
 	        	<div class="exad-card-thumb">
-					<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_card_image' ); ?>
+					<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_card_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</div>
 			<?php	
 			endif;
@@ -1378,19 +1380,19 @@ class Card extends Widget_Base {
 
           	<div class="exad-card-body">
 			  	<?php if( $settings['exad_card_title'] ) { ?>
-	          		<a <?php echo $this->get_render_attribute_string( 'exad_card_title_link' ); ?>>
-	            		<<?php echo Utils::validate_html_tag( $settings['exad_card_title_html_tag'] );?> <?php echo $this->get_render_attribute_string( 'exad_card_title' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_card_title'] ); ?>
-						</<?php echo Utils::validate_html_tag( $settings['exad_card_title_html_tag'] );?>>
+	          		<a <?php $this->print_render_attribute_string( 'exad_card_title_link' ); ?>>
+	            		<<?php Utils::print_validated_html_tag( $settings['exad_card_title_html_tag'] ); ?> <?php $this->print_render_attribute_string( 'exad_card_title' ); ?>><?php echo $settings['exad_card_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</<?php Utils::print_validated_html_tag( $settings['exad_card_title_html_tag'] ); ?>>
 	        		</a>
 					<?php	          			
           		}
 
-        		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', Helper::exad_wp_kses( $settings['exad_card_tag'] ) ) : '';
+        		$settings['exad_card_tag'] ? printf( '<p '.$this->get_render_attribute_string( 'exad_card_tag' ).'>%s</p>', $settings['exad_card_tag'] ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-        		$settings['exad_card_description'] ? printf( '<div '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</div>', wp_kses_post( $settings['exad_card_description'] ) ) : '';
+        		$settings['exad_card_description'] ? printf( '<div '.$this->get_render_attribute_string( 'exad_card_description' ).'>%s</div>', $settings['exad_card_description'] ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
         		if ( !empty( $settings['exad_card_action_text'] ) ) : ?>
-					<a <?php echo $this->get_render_attribute_string( 'exad_card_action_link' ); ?>>
+					<a <?php $this->print_render_attribute_string( 'exad_card_action_link' ); ?>>
 						<?php if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
 							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
 								<?php Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
@@ -1399,7 +1401,7 @@ class Card extends Widget_Base {
 						}
 						?>
 
-						<span <?php echo $this->get_render_attribute_string( 'exad_card_action_text' ); ?>>
+						<span <?php $this->print_render_attribute_string( 'exad_card_action_text' ); ?>>
 							<?php echo esc_html( $settings['exad_card_action_text'] ); ?>
 						</span>
 
@@ -1414,6 +1416,10 @@ class Card extends Widget_Base {
           	</div>
         </div>
 	<?php	
+	
+		$output = ob_get_clean();
+		
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
