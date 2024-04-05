@@ -1086,12 +1086,12 @@ class Contact_Form_7 extends Widget_Base {
 		);
         
         if ( ! empty( $settings['exad_contact_form_list'] ) ) { ?>
-            <div <?php echo $this->get_render_attribute_string( 'exad-contact-form' ); ?>>
+            <div <?php $this->print_render_attribute_string( 'exad-contact-form' ); ?>>
                     
                 <?php if ( '' != $settings['exad_contact_form_title_text'] ) { ?>
-                    <<?php echo Utils::validate_html_tag( $settings['exad_contact_form_title_tag'] ); ?> class="exad-contact-form-title exad-contact-form-7-title">
+                    <<?php Utils::print_validated_html_tag( $settings['exad_contact_form_title_tag'] ); ?> class="exad-contact-form-title exad-contact-form-7-title">
                         <?php echo esc_html( $settings['exad_contact_form_title_text'] ); ?>
-                    </<?php echo Utils::validate_html_tag( $settings['exad_contact_form_title_tag'] ); ?>>
+                    </<?php Utils::print_validated_html_tag( $settings['exad_contact_form_title_tag'] ); ?>>
                 <?php } ?>
                         
                 <?php echo do_shortcode( '[contact-form-7 id="' . $settings['exad_contact_form_list'] . '" ]' ); ?>
