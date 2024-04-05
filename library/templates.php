@@ -9,12 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <script type="text/template" id="template-exad-templateLibrary-header-logo">
-	<img src="<?php echo EXAD_ASSETS_URL . 'img/main-logo.svg'; ?>" alt="Main Logo">
+	<img src="<?php echo EXAD_ASSETS_URL . 'img/main-logo.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt="Main Logo">
 </script>
 
 <script type="text/template" id="template-exad-templateLibrary-header-back">
 	<i class="eicon-" aria-hidden="true"></i>
-	<span><?php echo __( 'Back to Library', 'exclusive-addons-elementor' ); ?></span>
+	<span><?php echo esc_html__( 'Back to Library', 'exclusive-addons-elementor' ); ?></span>
 </script>
 
 <script type="text/template" id="template-exad-TemplateLibrary_header-menu">
@@ -121,6 +121,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="elementor-template-library-blank-message"></div>
 	<div class="elementor-template-library-blank-footer">
 		<?php esc_html_e( 'Want to learn more about the Exclusive Addons?', 'exclusive-addons-elementor' ); ?>
-		<a class="elementor-template-library-blank-footer-link" href="https://exclusiveaddons.com/" target="_blank"><?php echo __( 'Click here', 'exclusive-addons-elementor' ); ?></a>
+		<a class="elementor-template-library-blank-footer-link" href="https://exclusiveaddons.com/" target="_blank"><?php echo esc_html__( 'Click here', 'exclusive-addons-elementor' ); ?></a>
 	</div>
 </script>
