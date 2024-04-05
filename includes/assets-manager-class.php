@@ -112,7 +112,7 @@ class Assets_Manager {
             wp_enqueue_script( 'exad-sticky-jquery', EXAD_ASSETS_URL . 'vendor/js/jquery.sticky-sidebar.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         }
         
-        wp_register_script( 'swiper', EXAD_ASSETS_URL . 'vendor/js/swiper.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
+        wp_register_script( 'swiperv5', EXAD_ASSETS_URL . 'vendor/js/swiper.min.js', array( 'jquery' ), EXAD_PLUGIN_VERSION, true );
         
     }
 
@@ -128,6 +128,8 @@ class Assets_Manager {
         wp_enqueue_style( 'exad-slick-theme', EXAD_ASSETS_URL . 'vendor/css/slick-theme.min.css' );
 
         wp_enqueue_style( 'exad-image-hover', EXAD_ASSETS_URL . 'vendor/css/imagehover.css' );
+		
+		wp_enqueue_style( 'exad-swiperv5', EXAD_ASSETS_URL . 'vendor/css/swiper.min.css', array(), EXAD_PLUGIN_VERSION );
         
 
         // Main Plugin Styles
