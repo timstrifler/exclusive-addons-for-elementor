@@ -10,6 +10,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Icons_Manager;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Button extends Widget_Base {
 
@@ -557,25 +558,7 @@ class Button extends Widget_Base {
 		
 		$output = ob_get_clean();
 		
-		print wp_kses( $output, 
-			array(
-				'div' => array(
-					'class' => array()
-				),
-				'span' => array(
-					'class' => array()
-				),
-				'i' => array(
-					'class' => array()
-				),
-				'a' => array(
-					'href' => array(), 
-					'target' => array(), 
-					'rel' => array(), 
-					'class' => array()
-				)
-			)
-		);
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
