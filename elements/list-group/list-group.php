@@ -14,6 +14,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Utils;
 use \Elementor\Repeater;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class List_group extends Widget_Base {
 	
@@ -951,7 +952,7 @@ class List_group extends Widget_Base {
 				?>
 					<li class="exad-list-group-item <?php echo esc_attr( $settings['exad_list_icon_position'] ) ?>">
 						<?php if ( !empty( $list['exad_list_link']['url'] ) ) { ?>
-						<a href="<?php echo esc_url( $list['exad_list_link']['url'] ); ?>" <?php echo $target; ?> <?php echo $nofollow; ?> >
+						<a href="<?php echo esc_url( $list['exad_list_link']['url'] ); ?>" <?php echo $target; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> <?php echo $nofollow; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> >
 						<?php } ?>
 							<span class="exad-list-group-icon <?php echo esc_attr( $settings['exad_list_item_icon_box_enable'] ); ?>">
 								<?php if ( $list['exad_list_icon_type'] === 'icon' && !empty($list['exad_list_icon']) ){ ?>
@@ -959,18 +960,18 @@ class List_group extends Widget_Base {
 								<?php } ?>
 								<?php if ( $list['exad_list_icon_type'] === 'number' && !empty($list['exad_list_icon_type']) ){ ?>
 									<div class="exad-list-group-icon-number">
-										<?php echo $list['exad_list_icon_number']; ?>
+										<?php echo esc_html( $list['exad_list_icon_number'] ); ?>
 									</div>
 								<?php } ?>
 								<?php if ( $list['exad_list_icon_type'] === 'image' && !empty($list['exad_list_icon_type']) ){ ?>
 									<div class="exad-list-group-icon-image">
-										<img src="<?php echo esc_url( $list['exad_list_icon_number_image']['url'] ) ?>" alt="<?php echo $list['exad_list_text']; ?>">
+										<img src="<?php echo esc_url( $list['exad_list_icon_number_image']['url'] ) ?>" alt="<?php echo esc_attr( $list['exad_list_text'] ); ?>">
 									</div>
 								<?php } ?>
 							</span>
 							<?php if ( !empty( $list['exad_list_text'] ) ) { ?>
 								<span class="exad-list-group-text">
-									<?php echo $list['exad_list_text']; ?>
+									<?php echo esc_html( $list['exad_list_text'] ); ?>
 								</span>
 							<?php } ?>
 						<?php if ( !empty( $list['exad_list_link']['url'] ) ) { ?>
