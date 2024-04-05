@@ -513,22 +513,22 @@ class Dual_Heading extends Widget_Base {
                     </span>
                 <?php endif; ?>
 
-                <<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?> class="exad-dual-heading-title">
+                <<?php Utils::print_validated_html_tag( $settings['exad_heading_title_html_tag'] ); ?> class="exad-dual-heading-title">
                 <?php 
                     if( !empty( $settings['exad_dual_heading_title_link']['url'] ) ) : ?>
-                        <a <?php echo $this->get_render_attribute_string( 'exad_dual_heading_title_link' ); ?>>
+                        <a <?php $this->print_render_attribute_string( 'exad_dual_heading_title_link' ); ?>>
                     <?php endif; ?>
-                    <span <?php echo $this->get_render_attribute_string( 'exad_dual_first_heading' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_dual_first_heading'] ); ?></span>
-                    <span <?php echo $this->get_render_attribute_string( 'exad_dual_second_heading' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_dual_second_heading'] ); ?></span>
+                    <span <?php $this->print_render_attribute_string( 'exad_dual_first_heading' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_dual_first_heading'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+                    <span <?php $this->print_render_attribute_string( 'exad_dual_second_heading' ); ?>><?php echo Helper::exad_wp_kses( $settings['exad_dual_second_heading'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
                     <?php 
                     if( !empty( $settings['exad_dual_heading_title_link']['url'] ) ) { ?>
                         </a>
                     <?php } ?>
-                </<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
+                </<?php Utils::print_validated_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
 
                 <?php         
                 if ( !empty($settings['exad_dual_heading_description'] ) ) : ?>
-                    <p <?php echo $this->get_render_attribute_string( 'exad_dual_heading_description' ); ?>><?php echo wp_kses_post( $settings['exad_dual_heading_description'] ); ?></p>
+                    <p <?php $this->print_render_attribute_string( 'exad_dual_heading_description' ); ?>><?php echo wp_kses_post( $settings['exad_dual_heading_description'] ); ?></p>
                 <?php endif; ?>  
 
             </div>
