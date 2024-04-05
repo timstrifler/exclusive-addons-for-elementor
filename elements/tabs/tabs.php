@@ -1213,8 +1213,10 @@ class Tabs extends Widget_Base {
 				]
 			]
 		);
+		
+		ob_start();
 		?>
-		<div <?php echo $this->get_render_attribute_string('exad_tab_wrapper'); ?> data-tabs>
+		<div <?php $this->print_render_attribute_string('exad_tab_wrapper'); ?> data-tabs>
 			
 			<ul class="exad-advance-tab-nav">
 				<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : ?>
@@ -1224,11 +1226,13 @@ class Tabs extends Widget_Base {
 								Icons_Manager::render_icon( $tab['exad_exclusive_tab_title_icon'] );
 							elseif( $tab['exad_exclusive_tabs_icon_type'] === 'image' ) : 
 								if ( $tab['exad_exclusive_tab_title_image']['url'] || $tab['exad_exclusive_tab_title_image']['id'] ) { ?>
-									<?php echo Group_Control_Image_Size::get_attachment_image_html( $tab, 'exad_tab_navigation_image_size', 'exad_exclusive_tab_title_image' ); ?>
+									<?php echo Group_Control_Image_Size::get_attachment_image_html( $tab, 'exad_tab_navigation_image_size', 'exad_exclusive_tab_title_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								<?php }
 							endif; 
 						?>
-						<span class="exad-tab-title"><?php echo Helper::exad_wp_kses( $tab['exad_exclusive_tab_title'] ); ?></span>
+						<span class="exad-tab-title">
+						<?php echo esc_html( $tab['exad_exclusive_tab_title'] ); ?>
+						</span>
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -1256,24 +1260,29 @@ class Tabs extends Widget_Base {
 				<div class="exad-advance-tab-content exad-tab-image-has-<?php echo esc_attr($has_image); ?> <?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_tab_image_align'] ); ?>">
 					<?php if( 'save_template' === $tab['exad_exclusive_tab_content_type'] ) { ?>
 						<div class="exad-advance-tab-content-element">
-                        	<?php echo Plugin::$instance->frontend->get_builder_content_for_display( wp_kses_post( $tab['exad_tab_content_save_template'] ) ); ?>
+                        	<?php echo Plugin::$instance->frontend->get_builder_content_for_display( $tab['exad_tab_content_save_template'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</div>
                     <?php } else if( 'shortcode' === $tab['exad_exclusive_tab_content_type'] ) { ?>
                         <?php echo do_shortcode( $tab['exad_tab_content_shortcode'] ); ?>
                     <?php } else { ?>
 						<div class="exad-advance-tab-content-element">
-							<div class="exad-advance-tab-content-description"><?php echo wp_kses_post( $tab['exad_exclusive_tab_content'] ); ?></div>
+							<div class="exad-advance-tab-content-description">
+							<?php echo $tab['exad_exclusive_tab_content']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							</div>
 							<?php 
-								if ( 'yes' === $tab['exad_exclusive_tab_detail_btn_switcher'] ) {
-									echo '<a '.$this->get_render_attribute_string( $link_key ).'>';
-										echo esc_html( $tab['exad_exclusive_tab_detail_btn'] );
-									echo '</a>';
+								if ( 'yes' === $tab['exad_exclusive_tab_detail_btn_switcher'] ) { ?>
+								
+								<a <?php $this->print_render_attribute_string( $link_key ) ?>>
+								<?php echo esc_html( $tab['exad_exclusive_tab_detail_btn'] ); ?>
+								</a>
+								
+							<?php
 								} 
 							?>
 						</div>
 						<?php if ( ! empty( $tab['exad_exclusive_tab_image']['url'] ) ) { ?>
 							<div class="exad-advance-tab-content-thumb">
-								<?php echo Group_Control_Image_Size::get_attachment_image_html( $tab, 'exad_tab_image_size', 'exad_exclusive_tab_image' ); ?>
+								<?php echo Group_Control_Image_Size::get_attachment_image_html( $tab, 'exad_tab_image_size', 'exad_exclusive_tab_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</div>
 						<?php } ?>
 					<?php } ?>
@@ -1281,5 +1290,9 @@ class Tabs extends Widget_Base {
 			<?php endforeach; ?>
 		</div>
 	<?php
+	
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
 	}
 }
