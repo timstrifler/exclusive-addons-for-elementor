@@ -1255,7 +1255,7 @@ class Flipbox extends Widget_Base {
 		?>
 
 		<div class="exad-flip-box">
-	      	<div <?php echo $this->get_render_attribute_string( 'exad_flipbox_attribute' ); ?>>
+	      	<div <?php $this->print_render_attribute_string( 'exad_flipbox_attribute' ); ?>>
 	        	<div class="exad-flip-box-front <?php echo esc_attr( $settings['exad_flipbox_front_content_alignment'] ); ?>">
 					<div class="exad-flip-box-front-overlay"></div>
 	        		<div class="exad-flip-box-front-content">
@@ -1268,12 +1268,26 @@ class Flipbox extends Widget_Base {
 						<?php }
 		        		if ( 'img' === $settings['exad_flipbox_front_icon_image'] ) { ?>
 			          		<div class="exad-flip-box-front-image">
-							  	<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_flipbox_front_image_thumbnail', 'exad_flipbox_front_image' ); ?>
+							  	<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_flipbox_front_image_thumbnail', 'exad_flipbox_front_image' ) ); ?>
 			        		</div>
 						<?php }
-				        $front_title ? printf('<'. Utils::validate_html_tag( $settings['exad_flipbox_front_title_html_tag'] ) .' '.$this->get_render_attribute_string( 'exad_flipbox_front_title' ).'>%s</'.Utils::validate_html_tag( $settings['exad_flipbox_front_title_html_tag'] ).'>', Helper::exad_wp_kses( $front_title ) ) : '';
-				        $front_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_front_description' ).'>%s</div>', wp_kses_post( $front_desc ) ) : '';
-
+						
+						if ( !empty( $front_title ) ) { ?>
+						
+				        <<?php Utils::print_validated_html_tag( $settings['exad_flipbox_front_title_html_tag'] ); ?> <?php $this->print_render_attribute_string( 'exad_flipbox_front_title' ) ?>>
+							<?php print Helper::exad_wp_kses( $front_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</<?php Utils::print_validated_html_tag( $settings['exad_flipbox_front_title_html_tag'] ); ?>>
+						
+						<?php }
+						
+						if ( !empty( $front_desc ) ) { ?>
+						
+				        <div <?php $this->print_render_attribute_string( 'exad_flipbox_front_description' ) ?>>
+						<?php print wp_kses_post( $front_desc ) ?>
+						</div>
+						
+						<?php }
+						
 				        do_action('exad_flipbox_frontend_content_wrapper_after'); ?>
 	        		</div>
 	        	</div>
@@ -1293,18 +1307,31 @@ class Flipbox extends Widget_Base {
 
 						if ( 'img' === $settings['exad_flipbox_back_icon_image'] ) { ?>
 							<div class="exad-flip-box-back-image">
-								<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_flipbox_back_image_thumbnail', 'exad_flipbox_back_image' ); ?>
+								<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_flipbox_back_image_thumbnail', 'exad_flipbox_back_image' ) ); ?>
 							</div>
 						<?php }
-
-				        $back_title ? printf('<'. Utils::validate_html_tag( $settings['exad_flipbox_back_title_html_tag'] ) .' '.$this->get_render_attribute_string( 'exad_flipbox_back_title' ).'>%s</'.Utils::validate_html_tag( $settings['exad_flipbox_back_title_html_tag'] ).'>', Helper::exad_wp_kses( $back_title) ) : '';
-				        $back_desc ? printf('<div '.$this->get_render_attribute_string( 'exad_flipbox_back_description' ).'>%s</div>', wp_kses_post( $back_desc ) ) : '';
+						
+						if ( !empty( $back_title ) ) { ?>
+						
+				        <<?php Utils::print_validated_html_tag( $settings['exad_flipbox_back_title_html_tag'] ); ?> <?php $this->print_render_attribute_string( 'exad_flipbox_back_title' ) ?>>
+							<?php print Helper::exad_wp_kses( $back_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						</<?php Utils::print_validated_html_tag( $settings['exad_flipbox_back_title_html_tag'] ); ?>>
+						
+						<?php }
+						
+						if ( !empty( $back_desc ) ) { ?>
+						
+				        <div <?php $this->print_render_attribute_string( 'exad_flipbox_back_description' ) ?>>
+						<?php print wp_kses_post( $back_desc ) ?>
+						</div>
+						
+						<?php }
 
 				        do_action('exad_flipbox_backend_content_wrapper_after');
 
 						if ( $settings['exad_flipbox_back_button_enable'] === 'yes' ) { ?>
-							<a <?php echo $this->get_render_attribute_string( 'exad_flipbox_button_link' ); ?>>
-								<span <?php echo $this->get_render_attribute_string( 'exad_flipbox_button_text' ); ?>><?php echo esc_html( $settings['exad_flipbox_button_text'] ); ?></span>
+							<a <?php $this->print_render_attribute_string( 'exad_flipbox_button_link' ); ?>>
+								<span <?php $this->print_render_attribute_string( 'exad_flipbox_button_text' ); ?>><?php echo esc_html( $settings['exad_flipbox_button_text'] ); ?></span>
 							</a>
 						<?php } ?>
 			        </div>
