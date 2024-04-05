@@ -1717,7 +1717,7 @@ class Covid_19_Stats extends Widget_Base {
             $last_updated_time = $settings['exad_corona_date_format'];
             $last_updated_text = $settings['exad_corona_update_text'];
             $dateformat1 = intval( $info_block_data['updated']/1000 );
-            $dateformat2 = date( $last_updated_time, $dateformat1 );
+            $dateformat2 = gmdate( $last_updated_time, $dateformat1 );
         ?>
         
         <div class="exad-corona">
@@ -1729,7 +1729,7 @@ class Covid_19_Stats extends Widget_Base {
                     </div>
                 <?php } ?>
                 <?php if( 'yes' === $settings['exad_corona_enable_country'] ) { ?>
-                    <<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?> class="selected-country"><?php echo esc_html( $settings['exad_section_corona_country_base'] ); ?></<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
+                    <<?php Utils::print_validated_html_tag( $settings['exad_heading_title_html_tag'] ); ?> class="selected-country"><?php echo esc_html( $settings['exad_section_corona_country_base'] ); ?></<?php Utils::print_validated_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
                 <?php } ?>
             </div>
         
@@ -1737,7 +1737,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_total_cases'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Cases: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-label"><?php esc_html_e( 'Cases: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $info_block_data['cases'] ); ?></span>
                     </div>
                 </div>
@@ -1746,7 +1746,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_total_deaths'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Deaths: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-label"><?php esc_html_e( 'Deaths: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $info_block_data['deaths'] ); ?></span>
                     </div>
                 </div>
@@ -1755,7 +1755,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_total_recovered'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Recovered: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-label"><?php esc_html_e( 'Recovered: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $info_block_data['recovered'] ); ?></span>
                     </div>
                 </div>
@@ -1764,7 +1764,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_total_active'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Active: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-label"><?php esc_html_e( 'Active: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $info_block_data['active'] ); ?></span>
                     </div>
                 </div>
@@ -1773,7 +1773,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_today_cases'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Cases Today: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-label"><?php esc_html_e( 'Cases Today: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $info_block_data['todayCases'] ); ?></span>
                     </div>
                 </div>
@@ -1782,7 +1782,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_today_deaths'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Deaths Today: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-label"><?php esc_html_e( 'Deaths Today: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $info_block_data['todayDeaths'] ); ?></span>
                     </div>
                 </div>
@@ -1791,7 +1791,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_critical'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Critical: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-label"><?php esc_html_e( 'Critical: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $info_block_data['critical'] ); ?></span>
                     </div>
                 </div>
@@ -1800,7 +1800,7 @@ class Covid_19_Stats extends Widget_Base {
             <?php if( 'yes' === $settings['exad_corona_enable_total_tests'] ) : ?>
                 <div class="exad-corona-each-item exad-corona-col">
                     <div class="exad-corona-item-inner exad-corona-content-<?php echo esc_attr( $settings['exad_corona_content_type'] );?>">
-                        <span class="exad-corona-label"><?php _e( 'Tests: ', 'exclusive-addons-elementor' ); ?></span>
+                        <span class="exad-corona-label"><?php esc_html_e( 'Tests: ', 'exclusive-addons-elementor' ); ?></span>
                         <span class="exad-corona-data"><?php echo esc_html( $info_block_data['tests'] ); ?></span>
                     </div>
                 </div>
@@ -1816,7 +1816,7 @@ class Covid_19_Stats extends Widget_Base {
 			
 				$exad_corona_enable_data_table_box = ( $settings['exad_corona_enable_data_table_box'] === 'yes' ? 'yes' : '' );
 			?>
-                <div class="exad-corona-table <?php echo $exad_corona_enable_data_table_box ?>">
+                <div class="exad-corona-table <?php echo $exad_corona_enable_data_table_box; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
                     <?php if( 'yes' === $settings['exad_corona_enable_continent_menu'] && 'yes' === $settings['exad_corona_enable_data_table'] ) { ?>
                         <div id="exad-covid-filters" class="exed-covid-data-continent">
                             <button class="exad-covid-continent-btn active" id="all">All</button>
@@ -1833,8 +1833,8 @@ class Covid_19_Stats extends Widget_Base {
 					
 					?>
                     <table id="data_table" class="exad-data-table">
-                        <tr class="exad-corona-table-heading <?php echo $exad_corona_enable_data_table_heading_sticky ?>">
-                            <th class="flag-row"><?php _e( 'Flag', 'exclusive-addons-elementor' ); ?></th>
+                        <tr class="exad-corona-table-heading <?php echo $exad_corona_enable_data_table_heading_sticky; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+                            <th class="flag-row"><?php esc_html_e( 'Flag', 'exclusive-addons-elementor' ); ?></th>
                             <?php foreach ( $settings['exad_corona_data_table_column'] as $option ) { ?>
                                 <th>
                                 <?php 
@@ -1884,12 +1884,12 @@ class Covid_19_Stats extends Widget_Base {
                             $continent = $info_table['continent'];
                             $low_continent = strtolower($continent);
                             $rep_continent = str_replace( array(' ', '/'), "-",$low_continent);
-                            echo $rep_continent; 
+                            esc_html_e( $rep_continent ); 
                         }
                         ?>">
-                            <td class="flag"><img src="<?php echo $info_table['countryInfo']["flag"]; ?>" alt="<?php echo $info_table['country']; ?>"></td>
+                            <td class="flag"><img src="<?php esc_html_e( $info_table['countryInfo']["flag"] ); ?>" alt="<?php esc_html_e( $info_table['country'] ); ?>"></td>
                             <?php foreach ( $settings['exad_corona_data_table_column'] as $value ) { ?>
-                                <td><?php echo $info_table[$value]; ?></td>
+                                <td><?php esc_html_e( $info_table[$value] ); ?></td>
                             <?php } ?>
                         </tr>
                         <?php } ?>
