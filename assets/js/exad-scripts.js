@@ -520,13 +520,21 @@ var exclusiveImageMagnifier = function($scope, $) {
 // image magnifier script ends
 
 
-function eae_isValidHttpUrl(string) {
-  try {
-    const newUrl = new URL(string);
-    return newUrl.protocol === 'http:' || newUrl.protocol === 'https:' || newUrl.protocol === 'mailto:';
-  } catch (err) {
-    return false;
-  }
+function eae_isValidHttpUrl( string ) {
+	
+	try {
+		
+		let elm = document.createElement('input');
+		elm.setAttribute('type', 'url');
+		elm.setAttribute('required', 'true');
+		elm.value = string;
+		
+		return elm.validity.valid;
+		
+	} catch ( err ) {
+
+		return false;
+	}
 }
 
 
