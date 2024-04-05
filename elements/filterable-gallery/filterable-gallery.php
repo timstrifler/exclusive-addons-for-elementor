@@ -1186,10 +1186,10 @@ class Filterable_Gallery extends Widget_Base
         $output = '<div class="exad-gallery-item-content'.esc_attr( $content_position ).'">';
             $output .= do_action( 'exad_fg_content_wrapper_before' );
             if( 'yes' === $show_title && !empty( $title ) ):
-                $output .= '<h2>'.Helper::exad_wp_kses( $title ).'</h2>';
+                $output .= '<h2>'.$title.'</h2>';
             endif;
             if( 'yes' === $show_details && !empty( $content ) ):
-                $output .= '<p>'.wp_kses_post( $content ).'</p>';
+                $output .= '<p>'.$content.'</p>';
             endif;
             $output .= do_action('exad_fg_content_wrapper_after');
         $output .= '</div>';
@@ -1242,7 +1242,7 @@ class Filterable_Gallery extends Widget_Base
 
         do_action('exad_fg_wrapper_before'); ?>
 
-        <div id ="exad-filterable-gallery-id-<?php echo $this->get_id(); ?>" class="exad-gallery-items">
+        <div id ="exad-filterable-gallery-id-<?php echo esc_attr( $this->get_id() ); ?>" class="exad-gallery-items">
             <div class="exad-gallery-one exad-gallery-wrapper">
             <?php
                 if( 'yes' === $settings['exad_fg_show_constrols'] ): ?>
@@ -1271,7 +1271,7 @@ class Filterable_Gallery extends Widget_Base
                 endif;
                 ?>
 
-                <div id="filters-<?php echo $this->get_id(); ?>" class="exad-gallery-element">
+                <div id="filters-<?php echo esc_attr( $this->get_id() ); ?>" class="exad-gallery-element">
                 <?php
                     foreach( $settings['exad_fg_gallery_items'] as $index => $gallery ) :
                         $exad_controls                = $gallery['exad_fg_gallery_control_name'];
@@ -1321,7 +1321,7 @@ class Filterable_Gallery extends Widget_Base
                                                         }
                                                         ?>
 
-                                                        <a <?php echo $this->get_render_attribute_string( $link_key ); ?>>
+                                                        <a <?php $this->print_render_attribute_string( $link_key ); ?>>
                                                             <?php Icons_Manager::render_icon( $settings['exad_section_fg_zoom_icon'], [ 'aria-hidden' => 'true' ] ); ?>
                                                         </a>
                                                     <?php     
@@ -1339,7 +1339,7 @@ class Filterable_Gallery extends Widget_Base
                                                             $target .= ' rel= nofollow ';
                                                         }
                                                         ?>
-                                                        <a <?php echo $href.$target; ?>>
+                                                        <a <?php echo $href.$target; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
                                                             <?php Icons_Manager::render_icon( $settings['exad_section_fg_link_icon'], [ 'aria-hidden' => 'true' ] ); ?>
                                                         </a>
                                                     <?php endif; ?>
@@ -1348,7 +1348,7 @@ class Filterable_Gallery extends Widget_Base
                                             endif; 
 
                                             if( 'over-image' === $position && ( 'yes' === $show_title || $show_details ) ) :
-                                                echo $this->filterable_gallery_content( $position, $show_title, $show_details, $title, $content );
+                                                echo wp_kses_post( $this->filterable_gallery_content( $position, $show_title, $show_details, $title, $content ) );
                                             endif;
                                             ?>
                                         </div>
@@ -1356,7 +1356,7 @@ class Filterable_Gallery extends Widget_Base
                                 </div>
                                 <?php             
                                 if( 'below-image' === $position && ( 'yes' === $show_title || $show_details ) ) :
-                                    echo $this->filterable_gallery_content( $position, $show_title, $show_details, $title, $content );
+                                    echo wp_kses_post( $this->filterable_gallery_content( $position, $show_title, $show_details, $title, $content ) );
                                 endif;
                                 ?>
                             </div>
