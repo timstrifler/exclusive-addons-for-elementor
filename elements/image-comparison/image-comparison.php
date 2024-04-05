@@ -602,9 +602,9 @@ class Image_Comparison extends Widget_Base {
         ?>
 
         <div class="exad-image-comparision">
-            <div <?php echo $this->get_render_attribute_string('exad_image_comparison_wrapper'); ?>>
-                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_comparison_image_one' ); ?>
-                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail_two', 'exad_comparison_image_two' ); ?>
+            <div <?php $this->print_render_attribute_string('exad_image_comparison_wrapper'); ?>>
+                <?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_comparison_image_one' ) ); ?>
+                <?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail_two', 'exad_comparison_image_two' ) ); ?>
             </div>
         </div>
 
