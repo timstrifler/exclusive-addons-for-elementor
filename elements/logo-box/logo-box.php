@@ -11,6 +11,7 @@ use \Elementor\Group_Control_Background;
 use \Elementor\Control_Media;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Logo_Box extends Widget_Base {
 	
@@ -358,6 +359,8 @@ class Logo_Box extends Widget_Base {
                 $this->add_render_attribute( 'exad_logo_box_link', 'rel', 'nofollow' );
             }
         }
+		
+		ob_start();
         ?>
 
         <div class="exad-logo-box one <?php echo esc_attr( $settings['exad_section_logo_alignment'] ); ?>">
@@ -365,10 +368,13 @@ class Logo_Box extends Widget_Base {
             <?php
                 if( ! empty( $settings['exad_logo_image'] ) ) :
 
-                    if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) :
-                        echo '<a '.$this->get_render_attribute_string( 'exad_logo_box_link' ).'>';
+                    if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) : ?>
+					
+					<a <?php $this->print_render_attribute_string( 'exad_logo_box_link' ) ?>>
+					
+					<?php
                     endif;
-                    echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_logo_image' );
+                    echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_logo_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     if( !empty( $exad_logo_link ) && 'yes' === $settings['exad_logo_box_enable_link'] ) :
                         echo '</a>';
                     endif;
@@ -376,7 +382,11 @@ class Logo_Box extends Widget_Base {
             ?>    
             </div>
         </div>
-    <?php    
+    <?php
+	
+		$output = ob_get_clean();
+		
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
     /**
