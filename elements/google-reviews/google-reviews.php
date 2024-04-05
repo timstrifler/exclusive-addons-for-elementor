@@ -40,10 +40,10 @@ class Google_Reviews extends Widget_Base {
         return [ 'google reviews', 'reviews', 'google' ];
     }
 	public function get_style_depends() {
-		return [ 'font-awesome' ];
+		return [ 'font-awesome', 'exad-swiperv5' ];
 	}
     public function get_script_depends() {
-		return [ 'exad-google-map-api', 'exad-gmap3', 'swiper' ];
+		return [ 'exad-google-map-api', 'exad-gmap3', 'swiperv5' ];
 	} 
 
     protected function register_controls() {
@@ -1072,7 +1072,7 @@ class Google_Reviews extends Widget_Base {
 		$this->start_controls_section(
 			'exad_google_reviews_carousel_reviewer_style',
 			[
-				'label' => esc_html__( 'Rivewer', 'exclusive-addons-elementor' ),
+				'label' => esc_html__( 'Reviewer', 'exclusive-addons-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -2007,7 +2007,7 @@ class Google_Reviews extends Widget_Base {
 				$content_output .= '</h4>';
 			endif;
 			if ( $settings['exad_google_reviews_show_date'] == 'yes' ) :
-				$content_output .= '<div class="exad-google-reviews-date">' . esc_html( date("M d Y", strtotime( $human_time ) ) ) . '</div>';
+				$content_output .= '<div class="exad-google-reviews-date">' . esc_html( gmdate("M d Y", strtotime( $human_time ) ) ) . '</div>';
 			endif;
 		if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'below-author-name' == $settings['exad_google_reviews_rating_layout']) :
 			$content_output .=  $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating );
@@ -2111,9 +2111,9 @@ class Google_Reviews extends Widget_Base {
 
         ?>
 
-        <div <?php echo $this->get_render_attribute_string( 'exad-google-reviews-wrapper' ); ?>>
+        <div <?php $this->print_render_attribute_string( 'exad-google-reviews-wrapper' ); ?>>
             <div class="exad-google-reviews-items">
-				<div <?php echo $this->get_render_attribute_string( 'exad-google-reviews-carousel' ); ?>>
+				<div <?php $this->print_render_attribute_string( 'exad-google-reviews-carousel' ); ?>>
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
 							<?php
@@ -2140,21 +2140,21 @@ class Google_Reviews extends Widget_Base {
 										if ( $client_rating >= $load_rating ) {
 											?>
 									
-											<div class="swiper-slide exad-google-reviews-item exad-google-reviews-wrapper <?php echo esc_attr( $settings['exad_google_reviews_carousel_container_alignment'] ) .' '. $transition_top ;?>">
+											<div class="swiper-slide exad-google-reviews-item exad-google-reviews-wrapper <?php echo esc_attr( $settings['exad_google_reviews_carousel_container_alignment'] ) .' '. esc_attr( $transition_top ) ;?>">
 												<?php if( 'layout-2' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
 													<div class="exad-google-reviews-reviewer-wrapper">
 														<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
 
-															<?php echo $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ); ?>
+															<?php echo wp_kses_post( $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ) ); ?>
 
 														<?php endif ?>
 
-														<?php echo $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ); ?>
+														<?php echo wp_kses_post( $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ) ); ?>
 
 													</div>
 												<?php }; ?>
 												<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'above-description' == $settings['exad_google_reviews_rating_layout']) : ?>
-													<?php echo $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ); ?>
+													<?php echo wp_kses_post($this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ) ); ?>
 												<?php endif;?>
 												<div class="exad-google-reviews-wrapper-inner">
 													<div class="exad-google-reviews-content-wrapper">
@@ -2166,18 +2166,18 @@ class Google_Reviews extends Widget_Base {
 													</div>
 													
 													<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'below-description' == $settings['exad_google_reviews_rating_layout']) : ?>
-														<?php echo $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ); ?>
+														<?php echo wp_kses_post($this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ) ); ?>
 													<?php endif;?>
 													
 													<?php if( 'layout-1' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
 														<div class="exad-google-reviews-reviewer-wrapper">
 															<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
 
-																<?php echo $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ); ?>
+																<?php echo wp_kses_post( $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ) ); ?>
 
 															<?php endif ?>
 
-															<?php echo $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ); ?>
+															<?php echo wp_kses_post( $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ) ); ?>
 
 														</div>
 													<?php }; ?>
@@ -2189,21 +2189,21 @@ class Google_Reviews extends Widget_Base {
 									
 									?>
 
-									<div class="swiper-slide exad-google-reviews-item exad-google-reviews-wrapper <?php echo esc_attr( $settings['exad_google_reviews_carousel_container_alignment'] ) .' '. $transition_top ;?>">
+									<div class="swiper-slide exad-google-reviews-item exad-google-reviews-wrapper <?php echo esc_attr( $settings['exad_google_reviews_carousel_container_alignment'] ) .' '. esc_attr( $transition_top ) ;?>">
 										<?php if( 'layout-2' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
 											<div class="exad-google-reviews-reviewer-wrapper">
 												<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
 
-													<?php echo $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ); ?>
+													<?php echo wp_kses_post( $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ) ); ?>
 
 												<?php endif ?>
 
-												<?php echo $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ); ?>
+												<?php echo wp_kses_post( $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ) ); ?>
 
 											</div>
 										<?php }; ?>
 										<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'above-description' == $settings['exad_google_reviews_rating_layout']) : ?>
-											<?php echo $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ); ?>
+											<?php echo wp_kses_post( $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ) ); ?>
 										<?php endif;?>
 										<div class="exad-google-reviews-wrapper-inner">
 											<div class="exad-google-reviews-content-wrapper">
@@ -2215,18 +2215,18 @@ class Google_Reviews extends Widget_Base {
 											</div>
 											
 											<?php if ( 'yes' === $settings['exad_google_reviews_show_rating'] && 'below-description' == $settings['exad_google_reviews_rating_layout']) : ?>
-												<?php echo $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ); ?>
+												<?php echo wp_kses_post( $this->render_google_reviews_rating( $settings['exad_google_reviews_rating_icon'], $client_rating ) ); ?>
 											<?php endif;?>
 											
 											<?php if( 'layout-1' === $settings['exad_google_reviews_carousel_layout'] ){ ?>
 												<div class="exad-google-reviews-reviewer-wrapper">
 													<?php if ( $settings['exad_google_reviews_show_user_image'] == 'yes' && 'exad-google-reviews-align-bottom' !== $settings['exad_google_reviews_carousel_container_alignment'] ) : ?>
 
-														<?php echo $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ); ?>
+														<?php echo wp_kses_post( $this->render_google_reviews_thumb( $settings, $client_name, $client_url, $client_photoUrl ) ); ?>
 
 													<?php endif ?>
 
-													<?php echo $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ); ?>
+													<?php echo wp_kses_post( $this->render_google_reviews_content( $settings, $client_name, $client_rating, $client_url, $client_photoUrl, $human_time ) ); ?>
 
 												</div>
 											<?php }; ?>
@@ -2258,24 +2258,24 @@ class Google_Reviews extends Widget_Base {
 		} else if ( current_user_can( 'manage_options' ) ) {
 			
 	?>
-		<div <?php echo $this->get_render_attribute_string( 'exad-google-reviews-wrapper' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'exad-google-reviews-wrapper' ); ?>>
 		
 			<div class="exad-panel-notice notice notice-warning">
 				
-				<h2><?php print $this->get_title() ?></h2>
+				<h2><?php esc_html_e( $this->get_title() ) ?></h2>
 				
 				<?php if ( isset( $reviewData["error_message"] ) ) { ?>
 				
-				<strong><?php print esc_html__( 'Google Map API Key error', 'exclusive-addons-elementor' ) ?>:</strong>
-				<p><?php print esc_html( $reviewData["error_message"] ) ?></p>
+				<strong><?php esc_html_e( 'Google Map API Key error', 'exclusive-addons-elementor' ) ?>:</strong>
+				<p><?php esc_html_e( $reviewData["error_message"] ) ?></p>
 				
 				<?php } ?>
 				
 				
 				<?php if ( empty( $api_key ) ) { ?>
 				
-				<strong><?php print esc_html__( 'Google Map API Key is missing', 'exclusive-addons-elementor' ) ?>:</strong>
-				<p><?php print sprintf( __( 'To display Google Reviews without an issue, you need to configure Google Map API key. Please configure API key from the "API Keys" tab <a href="%s" target="_blank" rel="noopener">here</a>.', 'exclusive-addons-elementor' ), $this->get_admin_url() ) ?></p>
+				<strong><?php esc_html_e( 'Google Map API Key is missing', 'exclusive-addons-elementor' ) ?>:</strong>
+				<p><?php print sprintf( esc_html__( 'To display Google Reviews without an issue, you need to configure Google Map API key. Please configure API key from the "API Keys" tab <a href="%s" target="_blank" rel="noopener">here</a>.', 'exclusive-addons-elementor' ), esc_url( $this->get_admin_url() ) ) ?></p>
 				
 				<?php } ?>
 				
