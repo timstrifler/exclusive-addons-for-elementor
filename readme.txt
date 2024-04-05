@@ -1,13 +1,13 @@
 === Exclusive Addons for Elementor ===
 Contributors: exclusiveaddons, timstrifler, madjennsy, mmaumio, atiquehasan, zabid, fahimahmmed100
-Tags: elementor, elements, addons, elementor addons, elementor widget, elementor form, woocommerce elementor, page builder, builder, visual editor, wordpress page builder
+Tags: elementor, elementor Addons, elementor widgets, woocommerce builder, ultimate Addons
 Requires at least: 4.6
-Tested up to: 6.3.1
+Tested up to: 6.5
 Stable tag: 2.6.9.2
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
-Exclusive Addons is one of the Best Elementor Addons That Comes With 90+ Elementor Free & Pro Widgets with all the customizations options you ever imagined.
+Exclusive Addons is one of the Best Elementor Addons With 90+ Elementor Free & Pro Widgets with all the customizations options you ever imagined.
 
 == Description ==
 
@@ -273,6 +273,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.6.9.3 - 05/04/2024 =
+- Full security improvement
+- Link Anything: fix issue on URL validation
+
 = 2.6.9.2 - 07/03/2024 =
 - Improve security in "Post Duplicator" extension
 - Post Duplicator: Support cloning Elementor post
