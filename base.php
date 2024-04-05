@@ -237,7 +237,7 @@ final class Base {
                                             <?php echo esc_html( $item['reactions']['summary']['total_count'] ); ?>
                                             <i class="far fa-thumbs-up"></i>
                                             <?php if( $settings['exad_facebook_show_likes_text'] == 'yes' ) { ?>
-												<?php _e( 'Like', 'exclusive-addons-elementor' ); ?>
+												<?php esc_attr_e( 'Like', 'exclusive-addons-elementor' ); ?>
 											<?php } ?>
                                         </div>
                                     <?php endif; ?>
@@ -247,11 +247,11 @@ final class Base {
 											<?php if( isset( $item['shares']['count'] ) && ( $item['shares']['count'] != '' ) ){ 
 												echo esc_html( $item['shares']['count'] );
 											} else {
-												_e( '0', 'exclusive-addons-elementor' );
+												esc_attr_e( '0', 'exclusive-addons-elementor' );
 											} ?>
 											<i class="far fa-share-square"></i>
 											<?php if( 'yes' === $settings['exad_facebook_show_share_text'] ) { ?>
-												<?php _e( 'Share', 'exclusive-addons-elementor' ); ?>
+												<?php esc_attr_e( 'Share', 'exclusive-addons-elementor' ); ?>
 											<?php } ?>
 										</div>
 									<?php endif; ?>
@@ -261,7 +261,7 @@ final class Base {
                                             <?php echo esc_html( $item['comments']['summary']['total_count'] ); ?>
                                             <i class="far fa-comment"></i>
                                             <?php if( $settings['exad_facebook_show_comment_text'] =='yes' ) { ?>
-												<?php _e( 'Comment', 'exclusive-addons-elementor' ); ?>
+												<?php esc_attr_e( 'Comment', 'exclusive-addons-elementor' ); ?>
 											<?php } ?>
                                         </div>
                                     <?php endif; ?>
