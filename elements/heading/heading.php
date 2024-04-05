@@ -784,7 +784,7 @@ class Heading extends Widget_Base {
 		?>
 
         <div class="exad-exclusive-heading">
-            <div <?php echo $this->get_render_attribute_string( 'exad_exclusive_heading_wrapper' ); ?>>
+            <div <?php $this->print_render_attribute_string( 'exad_exclusive_heading_wrapper' ); ?>>
 			<?php
 				if ( 'yes' === $settings['exad_heading_icon_show'] && !empty( $settings['exad_heading_icon']['value'] ) ) : ?>
           			<span class="exad-heading-icon">
@@ -794,12 +794,12 @@ class Heading extends Widget_Base {
 				endif;
 
             	if( !empty( $settings['exad_heading_title_link']['url'] ) ) : ?>
-            		<a <?php echo $this->get_render_attribute_string( 'exad_heading_title_link' ); ?>>
+            		<a <?php $this->print_render_attribute_string( 'exad_heading_title_link' ); ?>>
 				<?php endif; ?>
 
-                <<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?> <?php echo $this->get_render_attribute_string( 'exad_heading_title' ); ?>>
+                <<?php Utils::print_validated_html_tag( $settings['exad_heading_title_html_tag'] ); ?> <?php $this->print_render_attribute_string( 'exad_heading_title' ); ?>>
 					<?php echo wp_kses_post( $settings['exad_heading_title'] ); ?>
-				</<?php echo Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
+				</<?php Utils::print_validated_html_tag( $settings['exad_heading_title_html_tag'] ); ?>>
 	
                 <?php if( !empty( $settings['exad_heading_title_link']['url'] ) ) { ?>
                     </a>
@@ -812,7 +812,7 @@ class Heading extends Widget_Base {
 				endif;
                 
                 if ( !empty( $settings['exad_heading_subheading'] ) ) : ?>
-                    <p <?php echo $this->get_render_attribute_string( 'exad_heading_subheading' ); ?>>
+                    <p <?php $this->print_render_attribute_string( 'exad_heading_subheading' ); ?>>
 						<?php echo wp_kses_post( $settings['exad_heading_subheading'] ); ?>
                     </p>
 				<?php endif; ?>
