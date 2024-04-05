@@ -718,7 +718,7 @@ class Alert extends Widget_Base {
         $title        = $settings['exad_alert_content_title'];
         $description  = $settings['exad_alert_content_description'];
         $primary_btn  = $settings['exad_alert_close_primary_button'];
-        $seconday_btn = $settings['exad_alert_close_secondary_button'];
+        $secondary_btn = $settings['exad_alert_close_secondary_button'];
 
         $this->add_render_attribute( 'exad_alert_content_title', 'class', 'exad-alert-title' );
         $this->add_inline_editing_attributes( 'exad_alert_content_title', 'basic' );
@@ -755,10 +755,22 @@ class Alert extends Widget_Base {
                     <div class="exad-alert-element-content">
                         <?php                    
                             if ( !empty( $title ) && 'yes' === $settings['exad_alert_content_title_show'] ) {
-                                printf( '<h5 '.$this->get_render_attribute_string( 'exad_alert_content_title' ).'>%s</h5>', wp_kses_post( $title ) );
-                            } 
-                            $description ? printf( '<div '.$this->get_render_attribute_string( 'exad_alert_content_description' ).'>%s</div>', wp_kses_post( $description ) ) : '';
-                        ?>    
+								?>
+								<h5 <?php $this->print_render_attribute_string( 'exad_alert_content_title' ) ?>>
+								<?php print wp_kses_post( $title ) ?>
+								</h5>
+							<?php
+                            }
+							
+							if ( !empty( $description ) ) { ?>
+							<div <?php $this->print_render_attribute_string( 'exad_alert_content_description' ) ?>>
+							
+							<?php print wp_kses_post( $description ) ?>
+							
+							</div>
+							<?php
+							}
+							?>
                     </div>
 
                     <?php        
@@ -777,10 +789,18 @@ class Alert extends Widget_Base {
                 <?php    
                 if( 'button' === $settings['exad_alert_close_button'] ) { ?>
                     <div class="exad-alert-element-dismiss-button">
-                    <?php
-                        $primary_btn ? printf( '<button '.$this->get_render_attribute_string( 'exad_alert_close_primary_button' ).'>%s</button>', esc_html( $primary_btn ) ) : '';
-                        $seconday_btn ? printf( '<button '.$this->get_render_attribute_string( 'exad_alert_close_secondary_button' ).'>%s</button>', esc_html( $seconday_btn ) ) : '';
-                    ?>
+					<?php if ( !empty( $primary_btn ) ) { ?>
+					<button <?php $this->print_render_attribute_string( 'exad_alert_close_primary_button' ) ?>>
+						<?php print esc_html( $primary_btn ) ?>
+					</button>
+					<?php } ?>
+					
+					<?php if ( !empty( $secondary_btn ) ) { ?>
+                    <button <?php $this->print_render_attribute_string( 'exad_alert_close_secondary_button' ) ?>>
+						<?php print esc_html( $secondary_btn ) ?>
+					</button>
+					<?php } ?>
+					
                     </div>
                 <?php } ?>
             </div>
