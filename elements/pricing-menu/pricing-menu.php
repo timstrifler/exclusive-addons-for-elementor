@@ -920,6 +920,8 @@ class Pricing_Menu extends Widget_Base {
 
     protected function render() {
     $settings = $this->get_settings_for_display();
+	
+	ob_start();
     ?>
         <div class="exad-pricing-list">
             <div class="exad-pricing-list-wrapper <?php echo esc_attr( $settings['exad_pricing_menu_list_item_border_bottom'] ) ?>" >
@@ -944,10 +946,10 @@ class Pricing_Menu extends Widget_Base {
                 $exad_pricing_menu_price = $this->get_repeater_setting_key( 'exad_pricing_menu_price', 'pricing_menu_repeater', $index );
                 $this->add_inline_editing_attributes( $exad_pricing_menu_price, 'basic' );
                 ?>
-                <div <?php echo $this->get_render_attribute_string( $each_pricing_menu );?> >
+                <div <?php $this->print_render_attribute_string( $each_pricing_menu );?> >
                     <?php if ( $list['exad_pricing_menu_image']['url'] || $list['exad_pricing_menu_image']['id'] ) : ?>
                         <div class="exad-pricing-list-item-thumbnail">
-                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $list, 'exad_pricing_menu_image_size', 'exad_pricing_menu_image' ); ?>
+                            <?php echo Group_Control_Image_Size::get_attachment_image_html( $list, 'exad_pricing_menu_image_size', 'exad_pricing_menu_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </div>
                     <?php endif;?>
 
@@ -955,7 +957,7 @@ class Pricing_Menu extends Widget_Base {
                         <div class="exad-pricing-list-item-content-inner">
                             <div class="exad-pricing-title">
                                 <?php if ( !empty( $list['exad_pricing_menu_title'] ) ) : ?>
-                                        <h5 <?php echo $this->get_render_attribute_string( $pricing_title_key );?> ><?php echo Helper::exad_wp_kses( $list['exad_pricing_menu_title'] );?></h5>
+                                        <h5 <?php $this->print_render_attribute_string( $pricing_title_key );?> ><?php echo $list['exad_pricing_menu_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h5>
                                 <?php endif;?>
 
                                 <?php if( 'yes' === $settings['exad_pricing_menu_title_connector'] ) : ?>
@@ -963,13 +965,13 @@ class Pricing_Menu extends Widget_Base {
                                 <?php endif;
 
                                 if( 'price_pos_right' === $settings['exad_pricing_menu_price_position'] ) :
-                                    echo $this->pricing( wp_kses_post( $list['exad_pricing_menu_price'] ), $index );
+                                    echo $this->pricing( $list['exad_pricing_menu_price'], $index );  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 endif; ?>
                             </div>
 
                             <?php if ( !empty( $list['exad_pricing_menu_description'] ) ) : ?>
-                                <p <?php echo $this->get_render_attribute_string( $pricing_description_key );?> >
-                                    <?php echo wp_kses_post( $list['exad_pricing_menu_description'] );?>
+                                <p <?php $this->print_render_attribute_string( $pricing_description_key );?> >
+                                    <?php echo $list['exad_pricing_menu_description'];  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </p>
                             <?php endif;
                             
@@ -989,8 +991,8 @@ class Pricing_Menu extends Widget_Base {
                                 $pricing_btn_key = $this->get_repeater_setting_key( 'exad_pricing_menu_action_text', 'pricing_menu_repeater', $index );
                                 $this->add_inline_editing_attributes( $pricing_btn_key, 'none' );?>
 
-                                    <a <?php echo $this->get_render_attribute_string( $link_key ) ;?>>
-                                        <span <?php $this->get_render_attribute_string( $pricing_btn_key );?> >
+                                    <a <?php $this->print_render_attribute_string( $link_key ) ;?>>
+                                        <span <?php $this->print_render_attribute_string( $pricing_btn_key );?> >
                                             <?php echo esc_html( $list['exad_pricing_menu_action_text'] );?>
                                         </span>
                                     </a>
@@ -998,7 +1000,7 @@ class Pricing_Menu extends Widget_Base {
                             <?php } ?>
                             </div>
                         <?php if( 'price_pos_down' === $settings['exad_pricing_menu_price_position'] ) {
-                            echo $this->pricing( wp_kses_post( $list['exad_pricing_menu_price'] ), $index );
+                            echo $this->pricing( $list['exad_pricing_menu_price'] , $index ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         } ?>
                     </div>
                 </div>
@@ -1006,6 +1008,10 @@ class Pricing_Menu extends Widget_Base {
             </div>
         </div>
     <?php
+	
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
     }
 
     /**
