@@ -111,15 +111,15 @@ class Admin_Settings {
                 <div class="exad-dashboard-header-wrapper">
                     <div class="exad-dashboard-header-left">
                         <div class="exad-admin-logo-inline">
-                            <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/exad-admin-logo.svg'; ?>">
+                            <img src="<?php echo EXAD_ADMIN_URL . 'assets/img/exad-admin-logo.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
                         </div>
                         <h2 class="title">
-                            <?php _e( 'Exclusive Addons Settings', 'exclusive-addons-elementor' ); ?>
+                            <?php esc_html_e( 'Exclusive Addons Settings', 'exclusive-addons-elementor' ); ?>
                         </h2>
                     </div>
                     <div class="exad-dashboard-header-right">
                         <button type="submit" class="exad-btn exad-js-element-save-setting">
-                            <?php _e('Save Settings', 'exclusive-addons-elementor'); ?>
+                            <?php esc_html_e('Save Settings', 'exclusive-addons-elementor'); ?>
                         </button>
                     </div>
                 </div>
@@ -128,44 +128,44 @@ class Admin_Settings {
                     <ul class="exad-dashboard-tabs">
                         <li class="exad-tab-btn">
 							<a href="#general" class="active">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/general-normal.svg'; ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/general-active.svg'; ?>">
-								<span><?php _e( 'General', 'exclusive-addons-elementor' ); ?></span>
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/general-normal.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/general-active.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<span><?php esc_html_e( 'General', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
                         <li class="exad-tab-btn">
 							<a href="#elements">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements-normal.svg'; ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements-active.svg'; ?>">
-								<span><?php _e( 'Elements', 'exclusive-addons-elementor' ); ?></span>
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements-normal.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/elements-active.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<span><?php esc_html_e( 'Elements', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
                         <li class="exad-tab-btn">
 							<a href="#extensions">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-normal.svg'; ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-active.svg'; ?>">
-								<span><?php _e( 'Extensions', 'exclusive-addons-elementor' ); ?></span>
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-normal.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-active.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<span><?php esc_html_e( 'Extensions', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
 						<li class="exad-tab-btn">
 							<a href="#style-settings">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/style-normal.svg'; ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/style-active.svg'; ?>">
-								<span><?php _e( 'Style', 'exclusive-addons-elementor' ); ?></span>
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/style-normal.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/style-active.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<span><?php esc_html_e( 'Style', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
                         <li class="exad-tab-btn">
 							<a href="#apikeys">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-normal.svg'; ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-active.svg'; ?>">
-								<span><?php _e( 'API Keys', 'exclusive-addons-elementor' ); ?></span>
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-normal.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/api-active.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<span><?php esc_html_e( 'API Keys', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
 						<?php if ( !Base::$is_pro_active ) : ?>
 						<li class="exad-get-pro">
 							<a href="https://exclusiveaddons.com/pricing/" target="_blank">
-								<img src="<?php echo EXAD_ADMIN_URL . 'assets/img/get-pro-icon.svg'; ?>">
-								<span><?php _e( 'Get Pro', 'exclusive-addons-elementor' ); ?></span>
+								<img src="<?php echo EXAD_ADMIN_URL . 'assets/img/get-pro-icon.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<span><?php esc_html_e( 'Get Pro', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
 						<?php endif; ?>
@@ -179,15 +179,15 @@ class Admin_Settings {
 					<?php if ( !Base::$is_pro_active ) : ?>
 						<div class="exad-dashboard-popup-message">
 							<div class="exad-dashboard-popup-message-img">
-								<img src="<?php echo EXAD_ADMIN_URL . 'assets/img/download-popup.svg'; ?>">
+								<img src="<?php echo EXAD_ADMIN_URL . 'assets/img/download-popup.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
 							</div>
 							<h1 class="exad-dashboard-popup-message-title">
-								<?php _e( 'Your contribution to our enormous effort means a lot', 'exclusive-addons-elementor' ); ?>
+								<?php esc_html_e( 'Your contribution to our enormous effort means a lot', 'exclusive-addons-elementor' ); ?>
 							</h1>
 							<p class="exad-dashboard-popup-message-discription">
-								<?php _e( 'We\'re working real hard to deliver the smoothest Elementor page building experience for you. <br> Consider this as a contribution to the team to keep up the pace.', 'exclusive-addons-elementor' ); ?>
+								<?php esc_html_e( 'We\'re working real hard to deliver the smoothest Elementor page building experience for you. <br> Consider this as a contribution to the team to keep up the pace.', 'exclusive-addons-elementor' ); ?>
 							</p>
-							<a href="https://exclusiveaddons.com/pricing/" target="_blank" class="exad-dashboard-popup-message-action"><?php _e( 'Upgrade to Pro', 'exclusive-addons-elementor'); ?></a>
+							<a href="https://exclusiveaddons.com/pricing/" target="_blank" class="exad-dashboard-popup-message-action"><?php esc_html_e( 'Upgrade to Pro', 'exclusive-addons-elementor'); ?></a>
 						</div>
 						<div class="exad-dashboard-popup-overlay"></div>
 					<?php endif; ?>
