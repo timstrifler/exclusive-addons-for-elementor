@@ -384,11 +384,11 @@ class Image_Hover_Effect extends Widget_Base {
             <?php if( $settings['exad_ihe_hover_style'] === 'style_1' ){ ?>
             <div class="exad-ihe-grid">
                 <figure class="exad-ihe-figure effect-<?php echo esc_attr( $settings['exad_ihe_effect'] ); ?>">
-					<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_ihe_image_size', 'exad_ihe_image' ); ?>
+					<?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'exad_ihe_image_size', 'exad_ihe_image' ) ); ?>
                     <figcaption class="exad-ihe-figcaption">
-                        <<?php echo Utils::validate_html_tag( $settings['exad_ihe_title_html_tag'] ); ?> class="exad-ihe-title">
+                        <<?php Utils::print_validated_html_tag( $settings['exad_ihe_title_html_tag'] ); ?> class="exad-ihe-title">
                             <?php echo wp_kses_post( $settings['exad_ihe_title'] ); ?>
-                        </<?php echo Utils::validate_html_tag( $settings['exad_ihe_title_html_tag'] ); ?>>
+                        </<?php Utils::print_validated_html_tag( $settings['exad_ihe_title_html_tag'] ); ?>>
                         <p class="exad-ihe-description"><?php echo wp_kses_post( $settings['exad_ihe_description']); ?></p>
                     </figcaption>
                 </figure>
@@ -399,9 +399,9 @@ class Image_Hover_Effect extends Widget_Base {
                     <figure class="exad-ihe-figure <?php echo esc_attr( $settings['exad_ihe_hover_effect_2'] ); ?>">
                         <img src="<?php echo esc_url( $settings['exad_ihe_image']['url'] ) ?>" alt="img01"/>
                         <figcaption class="exad-ihe-figcaption">
-                            <<?php echo Utils::validate_html_tag( $settings['exad_ihe_title_html_tag'] ); ?> class="exad-ihe-title">
+                            <<?php Utils::print_validated_html_tag( $settings['exad_ihe_title_html_tag'] ); ?> class="exad-ihe-title">
                                 <?php echo wp_kses_post( $settings['exad_ihe_title'] ); ?>
-                            </<?php echo Utils::validate_html_tag( $settings['exad_ihe_title_html_tag'] ); ?>>
+                            </<?php Utils::print_validated_html_tag( $settings['exad_ihe_title_html_tag'] ); ?>>
                             <p class="exad-ihe-description"><?php echo wp_kses_post( $settings['exad_ihe_description']); ?></p>
                         </figcaption>
                     </figure>
