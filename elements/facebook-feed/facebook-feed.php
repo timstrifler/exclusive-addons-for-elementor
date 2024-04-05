@@ -1549,7 +1549,7 @@ class Facebook_Feed extends Widget_Base {
 			'read_more'	=> $settings['read_more'],
 			'read_more_text'	=> $settings['read_more_text']
 		];
-		$query_settings = json_encode($query_settings, true);
+		$query_settings = wp_json_encode($query_settings, true);
 
 		switch ($settings['exad_facebook_sort_by']) {
 			case 'old-posts':
@@ -1583,7 +1583,7 @@ class Facebook_Feed extends Widget_Base {
 
 		?>
 
-		<div <?php echo $this->get_render_attribute_string( 'exad_facebook_feed_wrapper' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'exad_facebook_feed_wrapper' ); ?>>
 			<?php foreach ( $items as $item ) :
 				$page_url = "https://facebook.com/{$item['from']['id']}";
 				$avatar_url = "https://graph.facebook.com/{{$item['from']['id']}/picture";
@@ -1624,7 +1624,7 @@ class Facebook_Feed extends Widget_Base {
 
 								<?php if ( $settings['show_date'] == 'yes' ) : ?>
 									<div class="exad-facebook-date">
-										<?php echo esc_html( date("M d Y", strtotime( $item['created_time'] ) ) ); ?>
+										<?php echo esc_html( gmdate("M d Y", strtotime( $item['created_time'] ) ) ); ?>
 									</div>
 								<?php endif; ?>
 							</div>
@@ -1655,7 +1655,7 @@ class Facebook_Feed extends Widget_Base {
 											<?php echo esc_html( $item['reactions']['summary']['total_count'] ); ?>
 											<i class="far fa-thumbs-up"></i>
 											<?php if( 'yes' === $settings['exad_facebook_show_likes_text'] ) { ?>
-												<?php _e( 'Like', 'exclusive-addons-elementor' ); ?>
+												<?php esc_html_e( 'Like', 'exclusive-addons-elementor' ); ?>
 											<?php } ?>
 										</div>
 									<?php endif; ?>
@@ -1665,11 +1665,11 @@ class Facebook_Feed extends Widget_Base {
 											<?php if( isset( $item['shares']['count'] ) && ( $item['shares']['count'] != '' ) ){ 
 												echo esc_html( $item['shares']['count'] );
 											} else {
-												_e( '0', 'exclusive-addons-elementor' );
+												esc_html_e( '0', 'exclusive-addons-elementor' );
 											} ?>
 											<i class="far fa-share-square"></i>
 											<?php if( 'yes' === $settings['exad_facebook_show_share_text'] ) { ?>
-												<?php _e( 'Share', 'exclusive-addons-elementor' ); ?>
+												<?php esc_html_e( 'Share', 'exclusive-addons-elementor' ); ?>
 											<?php } ?>
 										</div>
 									<?php endif; ?>
@@ -1680,7 +1680,7 @@ class Facebook_Feed extends Widget_Base {
 											<?php echo esc_html( $item['comments']['summary']['total_count'] ); ?>
 											<i class="far fa-comment"></i>
 											<?php if( 'yes' === $settings['exad_facebook_show_comment_text'] ) { ?>
-												<?php _e( 'Comment', 'exclusive-addons-elementor' ); ?>
+												<?php esc_html_e( 'Comment', 'exclusive-addons-elementor' ); ?>
 											<?php } ?>
 										</div>
 									<?php endif; ?>
