@@ -9,6 +9,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Dual_Button extends Widget_Base {
 	
@@ -1001,18 +1002,20 @@ class Dual_Button extends Widget_Base {
         $this->add_inline_editing_attributes( 'exad_dual_button_primary_button_text', 'none' );
         $this->add_inline_editing_attributes( 'exad_dual_button_connector_text', 'none' );
         $this->add_inline_editing_attributes( 'exad_dual_button_secondary_button_text', 'none' );
+		
+		ob_start();
         ?>
 
-        <div <?php echo $this->get_render_attribute_string( 'exad_dual_button' ); ?>>
+        <div <?php $this->print_render_attribute_string( 'exad_dual_button' ); ?>>
             <div class="exad-dual-button-wrapper">
-                <a <?php echo $this->get_render_attribute_string( 'exad_dual_button_primary_button_url' ); ?>>
+                <a <?php $this->print_render_attribute_string( 'exad_dual_button_primary_button_url' ); ?>>
                     <span class="<?php echo esc_attr( $primary_btn_icon_pos ); ?>">
                     <?php 
                         if ( 'exad-icon-pos-left' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] );
                         }
                     ?>
-                        <span <?php echo $this->get_render_attribute_string( 'exad_dual_button_primary_button_text' ); ?>>
+                        <span <?php $this->print_render_attribute_string( 'exad_dual_button_primary_button_text' ); ?>>
                             <?php echo esc_html( $settings['exad_dual_button_primary_button_text'] ); ?>
                         </span>
                         <?php 
@@ -1026,7 +1029,7 @@ class Dual_Button extends Widget_Base {
                     if ( 'yes' === $settings['exad_dual_button_connector_switch'] ) { ?>
                         <div class="exad-dual-button-connector">
                         <?php if ( 'text' === $settings['exad_dual_button_connector_type'] ) { ?>
-                            <span <?php echo $this->get_render_attribute_string( 'exad_dual_button_connector_text' ); ?>>
+                            <span <?php $this->print_render_attribute_string( 'exad_dual_button_connector_text' ); ?>>
                                 <?php echo esc_html( $settings['exad_dual_button_connector_text'] ); ?>
                             </span>
                             <?php 
@@ -1040,14 +1043,14 @@ class Dual_Button extends Widget_Base {
                     <?php } ?>
                 </a>
                 
-                <a <?php echo $this->get_render_attribute_string( 'exad_dual_button_secondary_button_url' ); ?>>
+                <a <?php $this->print_render_attribute_string( 'exad_dual_button_secondary_button_url' ); ?>>
                     <span class="<?php echo esc_attr( $secondary_btn_icon_pos ); ?>">
                     <?php 
                         if ( 'exad-icon-pos-left' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
                             Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );
                         }
                         ?>
-                        <span <?php echo $this->get_render_attribute_string( 'exad_dual_button_secondary_button_text' ); ?>>
+                        <span <?php $this->print_render_attribute_string( 'exad_dual_button_secondary_button_text' ); ?>>
                             <?php echo esc_html( $settings['exad_dual_button_secondary_button_text'] ); ?>
                         </span>
                         <?php 
@@ -1060,6 +1063,10 @@ class Dual_Button extends Widget_Base {
             </div>
         </div>
         <?php 
+		
+		$output = ob_get_clean();
+		
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
     /**
