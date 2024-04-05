@@ -23,47 +23,82 @@ class Helper {
     }
 
     /**
-     * Custom wp_ksese function
+     * Custom wp_kses function
      * 
      * @param string
      * @return array
      */
     public static function exad_wp_kses( $string ) {
-        $allowed_html = [
-            'b' => [],
-            's' => [],
-            'strong' => [],
-            'i' => [],
-            'u' => [],
-            'br' => [],
-            'em' => [],
-            'del' => [],
-            'ins' => [],
-            'sup' => [],
-            'sub' => [],
-            'code' => [],
-            'small' => [],
-            'strike' => [],
-            'abbr' => [
-                'title' => [],
-            ],
-            'span' => [
-                'class' => [],
-            ],
-            'a' => [
-				'href' => [],
-				'title' => [],
-				'class' => [],
-				'id' => [],
-			],
-			'img' => [
-				'src' => [],
-				'alt' => [],
-				'height' => [],
-				'width' => [],
-			],
-			'hr' => [],
-        ];
+		
+        $allowed_html = array(
+            'b' => array(),
+            's' => array(),
+            'strong' => array(),
+			'i' => array(
+				'class' => array()
+			),
+            'u' => array(),
+            'br' => array(),
+            'em' => array(),
+            'del' => array(),
+            'ins' => array(),
+            'sup' => array(
+				'class' => array()
+			),
+            'sub' => array(
+				'class' => array()
+			),
+            'code' => array(),
+            'small' => array(),
+            'strike' => array(),
+            'abbr' => array(
+                'title' => array()
+            ),
+			'div' => array(
+				'class' => array()
+			),
+			'h1' => array(
+				'class' => array()
+			),
+			'h2' => array(
+				'class' => array()
+			),
+			'h3' => array(
+				'class' => array()
+			),
+			'h4' => array(
+				'class' => array()
+			),
+			'h5' => array(
+				'class' => array()
+			),
+			'h6' => array(
+				'class' => array()
+			),
+			'p' => array(
+				'class' => array()
+			),
+			'span' => array(
+				'class' => array()
+			),
+            'a' => array(
+				'href' => array(), 
+				'target' => array(), 
+				'rel' => array(), 
+				'class' => array(),
+				'title' => array(), 
+				'id' => array()
+			),
+			'img' => array(
+				'class' => array(),
+				'src' => array(),
+				'alt' => array(),
+				'height' => array(),
+				'width' => array()
+			),
+			'hr' => array()
+        );
+		
         return wp_kses( $string, $allowed_html );
     }
 
@@ -193,7 +228,7 @@ class Helper {
             $the_excerpt = $the_post->post_excerpt ? $the_post->post_excerpt : $the_post->post_content;
         }
 
-        $the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+        $the_excerpt = wp_strip_all_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
         $words = explode(' ', $the_excerpt, intval( $length ) + 1);
 
         
@@ -271,7 +306,7 @@ class Helper {
             foreach( $categories as $category ) {
                 $output .= '<li><a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'exclusive-addons-elementor' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a></li>' . $separator;
             }
-            echo trim( $output, $separator );
+            echo wp_kses_post( trim( $output, $separator ) );
         }
     }
 
@@ -285,7 +320,7 @@ class Helper {
      */
     public static function exad_reading_time( $content ) {
         
-        $word_count = str_word_count( strip_tags( $content ) );
+        $word_count = str_word_count( wp_strip_all_tags( $content ) );
         $readingtime = ceil($word_count / 200);
     
         $timer = __( ' min read', 'exclusive-addons-elementor' );
@@ -314,7 +349,7 @@ class Helper {
             } elseif ( 'exad-post-grid' === $settings['template_type'] || 'exad-filterable-post' === $settings['template_type']) { 
                 include EXAD_TEMPLATES . 'tmpl-post-grid.php';
             } else {
-                _e( 'No Contents Found', 'exclusive-addons-elementor' );
+                esc_html_e( 'No Contents Found', 'exclusive-addons-elementor' );
             }
 
         endwhile;
@@ -381,7 +416,7 @@ class Helper {
             $cat_name_as_class .= '<li><a class="' . esc_attr( $term->slug ) . '" href="' . esc_url( get_term_link( $term->term_id ) ) . '">' .  esc_html( $term->name ) . '</a></li>' ; 
         endforeach;
 
-        echo $cat_name_as_class;
+        echo wp_kses_post( $cat_name_as_class );
          
     }
 
