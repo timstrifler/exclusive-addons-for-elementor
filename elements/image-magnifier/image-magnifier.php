@@ -249,7 +249,7 @@ class Image_Magnifier extends Widget_Base {
         <div class="exad-image-magnify">
             <div class="exad-magnify-large"></div>
             <div class="exad-magnify-small">
-                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'magnify_image_size', 'exad_magnify_image' ); ?>
+                <?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'magnify_image_size', 'exad_magnify_image' ) ); ?>
             </div>
         </div>
         
