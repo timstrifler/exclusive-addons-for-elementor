@@ -54,7 +54,7 @@ class Countdown_Timer extends Widget_Base {
 			[
 				'label'       => esc_html__( 'Countdown Date', 'exclusive-addons-elementor' ),
 				'type'        => Controls_Manager::DATE_TIME,
-				'default'     => date("Y/m/d", strtotime("+ 1 week")),
+				'default'     => gmdate("Y/m/d", strtotime("+ 1 week")),
 				'description' => esc_html__( 'Set the date and time here', 'exclusive-addons-elementor' )
 			]
 		);
@@ -549,11 +549,13 @@ class Countdown_Timer extends Widget_Base {
 			);
 		}
 		
-		$showbox = ( $settings['exad_section_countdown_show_box'] === 'yes' ? 'yes' : '' );
+		if ( $settings['exad_section_countdown_show_box'] === 'yes' ) {
 		?>
-
-		<div class="exad-countdown-content-container <?php echo $showbox ?>">
-			<div <?php echo $this->get_render_attribute_string('exad-countdown-timer-attribute'); ?>></div>
+		<div class="exad-countdown-content-container yes">
+		<?php } else { ?>
+		<div class="exad-countdown-content-container">
+		<?php } ?>
+			<div <?php $this->print_render_attribute_string('exad-countdown-timer-attribute'); ?>></div>
 		</div>
 		
 		<?php
