@@ -2270,7 +2270,7 @@ class Filterable_Post extends Widget_Base {
 				foreach ( $cats as $cat ) {
 				?>
 					<li class="filter-item" data-filter=".<?php echo esc_attr( $cat->slug ); ?>">
-						<?php echo $cat->name; ?>
+						<?php esc_attr_e( $cat->name ); ?>
 					</li>
 				<?php
 				}
@@ -2335,14 +2335,14 @@ class Filterable_Post extends Widget_Base {
 		);
 		
         ?>
-		<div class="exad-filterable-items <?php echo esc_attr( $settings['exad_fg_control_container_alignment'] );?>" id ="exad-filterable-filterable-id-<?php echo $this->get_id(); ?>">
+		<div class="exad-filterable-items <?php echo esc_attr( $settings['exad_fg_control_container_alignment'] );?>" id ="exad-filterable-filterable-id-<?php echo esc_attr( $this->get_id() ); ?>">
 			<?php if ( $settings['exad_post_grid_filterable_menu'] === 'yes' ) { ?>
 			<div class="exad-filterable-menu-container">
 				<?php $this->render_filter_menu(); ?>
 			</div>
 			<?php } ?>
 			<div class="exad-filterable-controls">
-				<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?> id="filters-<?php echo $this->get_id(); ?>">
+				<div <?php $this->print_render_attribute_string( 'exad_post_grid_wrapper' ); ?> id="filters-<?php echo esc_attr( $this->get_id() ); ?>">
 					<?php Helper::exad_get_posts( $settings ); ?>
 				</div>
 			</div>
