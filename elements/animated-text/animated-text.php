@@ -29,6 +29,10 @@ class Animated_Text extends Widget_Base {
 	public function get_keywords() {
         return [ 'exclusive', 'fancy', 'heading', 'animate', 'animation' ];
     } 
+	
+	public function get_style_depends() {
+		return [ 'e-animations' ];
+	}
     
  	public function get_script_depends() {
 		return [ 'exad-animated-text' ];
@@ -534,7 +538,7 @@ class Animated_Text extends Widget_Base {
 		$this->add_render_attribute( 'exad_typed_animated_string', 'class', 'exad-typed-strings' );
 		$this->add_render_attribute( 'exad_typed_animated_string',
 			[
-				'data-type_string'       => esc_attr(json_encode($type_heading)),
+				'data-type_string'       => esc_attr( wp_json_encode($type_heading)),
 				'data-heading_animation' => esc_attr( $settings['exad_animated_text_animated_heading_animated_type'] )
 			]
 		);
@@ -581,22 +585,35 @@ class Animated_Text extends Widget_Base {
 
 			<?php do_action( 'exad_animated_text_wrapper_before' ); ?>
 
-			<<?php echo esc_attr($heading_tag).' '.$this->get_render_attribute_string( 'exad_typed_animated_string' );?>>
+			<<?php echo esc_attr($heading_tag).' '; $this->print_render_attribute_string( 'exad_typed_animated_string' );?>>
 
-				<?php do_action( 'exad_animated_text_content_before' );
-
-				$before_text ? printf( '<span '.$this->get_render_attribute_string( 'exad_animated_text_before_text' ).'>%s</span>', wp_kses_post($before_text) ) : '';
-
+				<?php do_action( 'exad_animated_text_content_before' ); ?>
+				
+				<span <?php $this->print_render_attribute_string( 'exad_animated_text_before_text' ) ?>>
+					<?php print wp_kses_post($before_text); ?>
+				</span>
+				
+				<?php
 				if( 'exad-typed-animation' === $settings['exad_animated_text_animated_heading_animated_type'] ) {
 					echo '<span id="exad-animated-text-'.esc_attr($id).'" class="exad-animated-text-animated-heading"></span>';
 				}
 
 				if( 'exad-morphed-animation' === $settings['exad_animated_text_animated_heading_animated_type'] ) {
-					echo '<span '.$this->get_render_attribute_string( 'exad_animated_text_animated_heading' ).'>'.wp_kses_post($heading_text).'</span>';
+				?>
+				<span <?php $this->print_render_attribute_string( 'exad_animated_text_animated_heading' ) ?>>
+					<?php print wp_kses_post($heading_text); ?>
+				</span>
+				<?php
 				}
 
-				$after_text ? printf( '<span '.$this->get_render_attribute_string( 'exad_animated_text_after_text' ).'>%s</span>', wp_kses_post($after_text) ) : '';
-
+				if ( !empty( $after_text ) ) { ?>
+				
+				<span <?php $this->print_render_attribute_string( 'exad_animated_text_after_text' ) ?>>
+					<?php print wp_kses_post($after_text); ?>
+				</span>
+				<?php
+				}
+				
 				do_action( 'exad_animated_text_content_after' );
 			?>
 
