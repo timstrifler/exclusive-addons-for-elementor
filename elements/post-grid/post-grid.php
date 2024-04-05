@@ -1952,13 +1952,13 @@ class Post_Grid extends Widget_Base {
 		);
 		?>		
 
-		<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_featured_post' ); ?>>
-			<div <?php echo $this->get_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
+		<div <?php $this->print_render_attribute_string( 'exad_post_grid_featured_post' ); ?>>
+			<div <?php $this->print_render_attribute_string( 'exad_post_grid_wrapper' ); ?>>
 				<?php Helper::exad_get_posts( $settings ); ?>    
 			</div>
 			<div class="exad-post-grid-load-btn">
 				<?php if( 'yes' === $settings['exad_post_grid_enable_load_more_btn'] ) { ?>
-					<a class="exad-post-grid-paginate-btn" <?php echo $this->get_render_attribute_string( 'exad_post_grid_load_more_button' ); ?> href="#" role="button">
+					<a class="exad-post-grid-paginate-btn" <?php $this->print_render_attribute_string( 'exad_post_grid_load_more_button' ); ?> href="#" role="button">
 						<?php echo esc_html( $settings['exad_post_grid_enable_load_more_btn_text'] ); ?>
 					</a>
 				<?php 
