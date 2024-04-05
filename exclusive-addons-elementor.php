@@ -79,7 +79,7 @@ function exad_admin_notice_missing_elementor() {
         '<a href="' . esc_url( admin_url( 'plugin-install.php?s=Elementor&tab=search&type=term' ) ) . '">' . __( 'Please click here to install/activate Elementor', 'exclusive-addons-elementor' ) . '</a>'
     );
 
-    printf( '<div class="notice notice-warning is-dismissible"><p style="padding: 5px 0">%1$s</p></div>', $message );
+    printf( '<div class="notice notice-warning is-dismissible"><p style="padding: 5px 0">%1$s</p></div>', wp_kses_post( $message ) );
 
 }
 
@@ -104,7 +104,7 @@ function exad_admin_notice_minimum_elementor_version() {
 		MINIMUM_ELEMENTOR_VERSION
 	);
 
-	printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+	printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
 
 }
 
@@ -129,7 +129,7 @@ function exad_admin_notice_minimum_php_version() {
 		MINIMUM_PHP_VERSION
 	);
 
-	printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+	printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
 
 }
 
