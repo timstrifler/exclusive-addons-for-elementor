@@ -240,7 +240,7 @@ class Google_Maps extends Widget_Base {
 			'data-exad-scroll-zoom'        => $settings['exad_map_scroll_zoom'] ? 'true': 'false'
 		]); ?>
 
-		<div <?php echo $this->get_render_attribute_string('exad_google_map_wrapper'); ?>></div>
+		<div <?php $this->print_render_attribute_string('exad_google_map_wrapper'); ?>></div>
 	<?php 	
 	}
 
