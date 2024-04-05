@@ -474,8 +474,16 @@ class Progress_Bar extends Widget_Base {
 
 		?>
 		
-		<div <?php echo $this->get_render_attribute_string('exad-progress-bar'); ?> data-progress-bar>
-			<?php echo $title ? '<h6 '.$this->get_render_attribute_string( 'exad_progress_bar_title' ).'>'.Helper::exad_wp_kses( $title ).'</h6>' : ''; ?>
+		<div <?php $this->print_render_attribute_string('exad-progress-bar'); ?> data-progress-bar>
+		
+			<?php if ( !empty( $title ) ) { ?>
+			<h6 <?php $this->print_render_attribute_string( 'exad_progress_bar_title' ) ?>>
+			
+			<?php print Helper::exad_wp_kses( $title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			
+			</h6>
+			<?php } ?>
+			
 		</div>
 		<?php
 	}
