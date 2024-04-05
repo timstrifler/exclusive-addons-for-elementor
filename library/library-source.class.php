@@ -195,7 +195,7 @@ class Template_Library_Source extends Source_Base {
 		$data = json_decode( $data, true );
 
 		if ( empty( $data ) || empty( $data['content'] ) ) {
-			throw new \Exception( __( 'Template does not have any content', 'exclusive-addons-elementor' ) );
+			throw new \Exception( esc_html__( 'Template does not have any content', 'exclusive-addons-elementor' ) );
 		}
 
 		$data['content'] = $this->replace_elements_ids( $data['content'] );
