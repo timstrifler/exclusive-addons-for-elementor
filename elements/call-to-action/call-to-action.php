@@ -896,7 +896,7 @@ class Call_To_Action extends Widget_Base {
         $this->add_render_attribute( 'exad_cta_primary_btn', 'class', 'exad-cta-primary-btn-class' );
         $this->add_inline_editing_attributes( 'exad_cta_primary_btn', 'none' );
         ?>
-        <span <?php echo $this->get_render_attribute_string( 'exad_cta_primary_btn' ); ?>>
+        <span <?php $this->print_render_attribute_string( 'exad_cta_primary_btn' ); ?>>
             <?php echo esc_html( $settings['exad_cta_primary_btn'] ); ?>
         </span>
     <?php    
@@ -908,7 +908,7 @@ class Call_To_Action extends Widget_Base {
         $this->add_render_attribute( 'exad_cta_secondary_btn', 'class', 'exad-cta-secondary-btn-class' );
         $this->add_inline_editing_attributes( 'exad_cta_secondary_btn', 'none' );
         ?>
-        <span <?php echo $this->get_render_attribute_string( 'exad_cta_secondary_btn' ); ?>>
+        <span <?php $this->print_render_attribute_string( 'exad_cta_secondary_btn' ); ?>>
             <?php echo esc_html( $settings['exad_cta_secondary_btn'] ); ?>
         </span>
     <?php     
@@ -953,7 +953,7 @@ class Call_To_Action extends Widget_Base {
         }
         ?>
 
-        <div <?php echo $this->get_render_attribute_string( 'exad_call_to_action_wrapper' ); ?>>
+        <div <?php $this->print_render_attribute_string( 'exad_call_to_action_wrapper' ); ?>>
             <?php do_action('exad_cta_wrapper_before'); ?>
 		    <div class="exad-call-to-action-content">
                 <div class="exad-call-to-action-header">
@@ -965,12 +965,12 @@ class Call_To_Action extends Widget_Base {
                     <?php    
                     }
 
-                    $title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ), $this->get_render_attribute_string( 'exad_cta_heading' ), wp_kses_post( $heading ) );
+                    $title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ), $this->get_render_attribute_string( 'exad_cta_heading' ), $heading );
 
-                    echo $title_html;
+                    echo wp_kses_post( $title_html );
 
                     if ( $details ) : ?>
-                        <div <?php echo $this->get_render_attribute_string( 'exad_cta_description' ); ?>>
+                        <div <?php $this->print_render_attribute_string( 'exad_cta_description' ); ?>>
                             <?php echo wp_kses_post( $settings['exad_cta_description'] ); ?>
                         </div>
                     <?php endif; ?>
@@ -983,11 +983,11 @@ class Call_To_Action extends Widget_Base {
 				?>
 
 			    <div class="exad-call-to-action-footer">
-                    <ul class="exad-call-to-action-buttons <?php echo $cta_btn_effect; ?>">
+                    <ul class="exad-call-to-action-buttons <?php echo $cta_btn_effect;  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
                     <?php    
                         if ( ! empty( $settings['exad_cta_primary_btn'] ) ) : ?>
                             <li>
-                                <a <?php echo $this->get_render_attribute_string( 'exad_cta_primary_btn_link' ); ?>>
+                                <a <?php $this->print_render_attribute_string( 'exad_cta_primary_btn_link' ); ?>>
                                     <?php $this->primary_btn(); ?>
                                 </a>
                             </li>
@@ -996,7 +996,7 @@ class Call_To_Action extends Widget_Base {
 
                         if( 'vertical' === $settings['exad_cta_skin_type'] && !empty( $settings['exad_cta_secondary_btn'] ) ) : ?>
                             <li>
-                                <a <?php echo $this->get_render_attribute_string( 'exad_cta_secondary_btn_link' ); ?>>
+                                <a <?php $this->print_render_attribute_string( 'exad_cta_secondary_btn_link' ); ?>>
                                     <?php $this->seconday_btn(); ?>
                                 </a>
                             </li>
