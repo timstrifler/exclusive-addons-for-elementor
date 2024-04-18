@@ -1119,7 +1119,7 @@ class Dual_Button extends Widget_Base {
             <div {{{ view.getRenderAttributeString( 'exad_dual_button' ) }}}>
                 <div class="exad-dual-button-wrapper">
                     <a href="{{{ settings.exad_dual_button_primary_button_url.url }}}" {{{ view.getRenderAttributeString( 'exad_dual_button_primary_button_url' ) }}}{{{ primaryBtnTarget }}}{{{ primaryBtnNofollow }}}>
-                        <span class="{{{ settings.exad_dual_button_primary_button_icon_position }}}">
+                        <span class="{{{ _.escape( settings.exad_dual_button_primary_button_icon_position ) }}}">
                             <# if ( 'exad-icon-pos-left' === settings.exad_dual_button_primary_button_icon_position && primaryIcon.value ) { #>
                                 {{{ primaryIcon.value }}}
                             <# } #>
@@ -1151,7 +1151,7 @@ class Dual_Button extends Widget_Base {
                     </a>
 
                     <a href="{{{ settings.exad_dual_button_secondary_button_url.url }}}" {{{ view.getRenderAttributeString( 'exad_dual_button_secondary_button_url' ) }}}{{{ secondaryBtnTarget }}}{{{ secondaryBtnNofollow }}}>
-                        <span class="{{{ settings.exad_dual_button_secondary_button_icon_position }}}">
+                        <span class="{{{ _.escape( settings.exad_dual_button_secondary_button_icon_position ) }}}">
                             <# if ( 'exad-icon-pos-left' === settings.exad_dual_button_secondary_button_icon_position && secondaryIcon.value ) { #>
                                 {{{ secondaryIcon.value }}}
                             <# } #>
