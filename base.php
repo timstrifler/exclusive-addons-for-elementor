@@ -7,6 +7,8 @@
  */
 
 namespace ExclusiveAddons\Elementor;
+
+use Elementor\Plugin;
 use ExclusiveAddons\Elementor\Exad_WPML_Element_Free_Compatibility;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -104,7 +106,121 @@ final class Base {
         add_action( 'wp_ajax_exad_facebook_feed_action', [ $this, 'exad_facebook_feed_ajax' ] );
         add_action( 'wp_ajax_nopriv_exad_facebook_feed_action', [ $this, 'exad_facebook_feed_ajax' ] );
 
+        add_filter( 'elementor/document/save/data', [ $this, 'before_document_save' ], 10, 2 );
     }
+	
+	
+	/**
+	 * Before document Save.
+	 *
+	 * @param array $data The document data.
+	 * @param \Elementor\Core\Base\Document $this The document instance.
+	 */
+	public function before_document_save( $data, $document ) {
+		
+		if ( isset( $data['elements'] ) 
+			&& is_array( $data['elements'] )
+			&& ! empty( $data['settings'] ) ) {
+			
+			if ( is_object( Plugin::$instance->db ) ) {
+				
+				$data['elements'] = Plugin::$instance->db->iterate_data( $data['elements'], function ( $element ) {
+					
+					$element = $this->sanitize_url_fields( $element );
+					
+					$element = $this->escape_attr_fields( $element );
+					
+					return $element;
+				});
+			}
+		}
+		
+		return $data;
+	}
+	
+	
+	private function escape_attr_fields( $element ) {
+		
+		if ( isset( $element[ 'settings' ]['exad_infobox_animating_mask_style'] ) ) {
+			
+			$element[ 'settings' ]['exad_infobox_animating_mask_style'] = esc_attr( $element[ 'settings' ][ 'exad_infobox_animating_mask_style' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_post_grid_title_tag'] ) ) {
+			
+			$element[ 'settings' ]['exad_post_grid_title_tag'] = esc_attr( $element[ 'settings' ][ 'exad_post_grid_title_tag' ] );
+		}
+		
+		
+		return $element;
+	}
+	
+	
+	private function sanitize_url_fields( $element ) {
+		
+		if ( isset( $element[ 'settings' ]['exclusive_button_link_url'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exclusive_button_link_url'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exclusive_button_link_url'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_cta_primary_btn_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_cta_primary_btn_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_cta_primary_btn_link'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_cta_secondary_btn_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_cta_secondary_btn_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_cta_secondary_btn_link'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_card_title_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_card_title_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_card_title_link'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_card_action_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_card_action_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_card_action_link'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_dual_button_primary_button_url'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_dual_button_primary_button_url'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_dual_button_primary_button_url'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_dual_button_secondary_button_url'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_dual_button_secondary_button_url'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_dual_button_secondary_button_url'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_dual_heading_title_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_dual_heading_title_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_dual_heading_title_link'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_flipbox_button_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_flipbox_button_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_flipbox_button_link'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_heading_title_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_heading_title_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_heading_title_link'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_infobox_title_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_infobox_title_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_infobox_title_link'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_team_members_cta_btn_link'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_team_members_cta_btn_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_team_members_cta_btn_link'][ 'url' ] );
+		}
+		
+		return $element;
+	}
+	
 
     /**
      * Facebook Feed ajax call
