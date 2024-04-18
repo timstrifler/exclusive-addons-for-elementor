@@ -1404,7 +1404,7 @@ class Flipbox extends Widget_Base {
 		#>
 		<div class="exad-flip-box">
 			<div {{{ view.getRenderAttributeString( 'exad_flipbox_attribute' ) }}}>
-				<div class="exad-flip-box-front {{{ settings.exad_flipbox_front_content_alignment }}}">
+				<div class="exad-flip-box-front {{{ _.escape( settings.exad_flipbox_front_content_alignment ) }}}">
 					<div class="exad-flip-box-front-overlay"></div>
 					<div class="exad-flip-box-front-content">
 						<# if ( 'icon' === settings.exad_flipbox_front_icon_image && iconHTML.value ) { #>
@@ -1433,7 +1433,7 @@ class Flipbox extends Widget_Base {
 					</div>
 				</div>
 
-				<div class="exad-flip-box-back {{{ settings.exad_flipbox_back_content_alignment }}}">
+				<div class="exad-flip-box-back {{{ _.escape( settings.exad_flipbox_back_content_alignment ) }}}">
 					<div class="exad-flip-box-back-overlay"></div>
 					<div class="exad-flip-box-back-content">
 						<# if ( 'icon' === settings.exad_flipbox_back_icon_image && backIconHTML.value ) { #>
