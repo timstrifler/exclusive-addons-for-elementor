@@ -3,7 +3,7 @@
  * Plugin Name: Exclusive Addons Elementor
  * Plugin URI: https://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widgets for Elementor with all the customizations you ever imagined.
- * Version: 2.6.9.3
+ * Version: 2.6.9.4
  * Author: Exclusive Addons
  * Author URI: https://exclusiveaddons.com
  * Elementor tested up to: 99
