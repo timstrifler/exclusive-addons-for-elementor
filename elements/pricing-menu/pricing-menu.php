@@ -1026,7 +1026,7 @@ class Pricing_Menu extends Widget_Base {
     protected function content_template() {
         ?>
         <div class="exad-pricing-list">
-            <div class="exad-pricing-list-wrapper {{{ settings.exad_pricing_menu_list_item_border_bottom }}}">
+            <div class="exad-pricing-list-wrapper {{{ _.escape( settings.exad_pricing_menu_list_item_border_bottom ) }}}">
                 <# if ( settings.pricing_menu_repeater.length ) {
                     _.each( settings.pricing_menu_repeater, function( list, index ) {
 
@@ -1072,7 +1072,7 @@ class Pricing_Menu extends Widget_Base {
                                     <img src="{{ image_url }}">
                                 </div>
                             <# } #>
-                            <div class="exad-pricing-list-item-content {{{ settings.exad_pricing_menu_price_position }}}">
+                            <div class="exad-pricing-list-item-content {{{ _.escape( settings.exad_pricing_menu_price_position ) }}}">
                                 <div class="exad-pricing-list-item-content-inner">
                                     <div class="exad-pricing-title">
                                         <# if ( '' !== list.exad_pricing_menu_title ) { #>
