@@ -103,7 +103,11 @@ class Post_Duplicator {
 			
             add_post_meta( $duplicated_id, '_edit_last', $current_user->ID );
 			
-            wp_set_post_lock( $duplicated_id );
+            $user_id = $current_user->ID;
+            $now  = time();
+            $lock = "$now:$user_id";
+			
+            update_post_meta( $duplicated_id, '_edit_lock', $lock );
 			
             $taxonomies = get_object_taxonomies($post->post_type);
             if( ! empty( $taxonomies ) && is_array( $taxonomies ) ) {
