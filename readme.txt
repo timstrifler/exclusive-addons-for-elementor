@@ -273,6 +273,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.6.9.4 - 18/04/2024 =
+- Security improvements
+- Link Anything: improve URL validation
+
 = 2.6.9.3 - 05/04/2024 =
 - Full security improvement
 - Link Anything: fix issue on URL validation
