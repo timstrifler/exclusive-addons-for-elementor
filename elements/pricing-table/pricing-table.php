@@ -2382,7 +2382,7 @@ class Pricing_Table extends Widget_Base {
 			<# } #>
     		<div class="exad-pricing-table-badge-wrapper">
 				<# if ( 'yes' === settings.exad_pricing_table_featured ) { #>
-					<span class="exad-pricing-table-badge {{{ settings.exad_pricing_table_featured_type }}}">
+					<span class="exad-pricing-table-badge {{{ _.escape( settings.exad_pricing_table_featured_type ) }}}">
 						<# if( 'text-badge' === settings.exad_pricing_table_featured_type && settings.exad_pricing_table_featured_tag_text ) { #>
 							<span {{{ view.getRenderAttributeString( 'exad_pricing_table_featured_tag_text' ) }}}>
 								{{{ settings.exad_pricing_table_featured_tag_text }}}
