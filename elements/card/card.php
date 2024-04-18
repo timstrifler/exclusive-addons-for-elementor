@@ -1511,7 +1511,7 @@ class Card extends Widget_Base {
 		        <# if ( settings.exad_card_action_text ) { #>
 		            <a href="{{{ settings.exad_card_action_link.url }}}" {{{ view.getRenderAttributeString( 'exad_card_action_link' ) }}}{{{ target }}}{{{ nofollow }}}>
 		            	<# if ( 'icon_pos_left' === settings.exad_card_action_link_icon_position && iconHTML.value ) { #>
-							<span class="{{{ settings.exad_card_action_link_icon_position }}}">
+							<span class="{{{ _.escape( settings.exad_card_action_link_icon_position ) }}}">
 								{{{ iconHTML.value }}}
 							</span>
 						<# } #>
@@ -1519,7 +1519,7 @@ class Card extends Widget_Base {
 							{{{ settings.exad_card_action_text }}}
 						</span>
 						<# if ( 'icon_pos_right' === settings.exad_card_action_link_icon_position && iconHTML.value ) { #>
-							<span class="{{{ settings.exad_card_action_link_icon_position }}}">
+							<span class="{{{ _.escape( settings.exad_card_action_link_icon_position ) }}}">
 								{{{ iconHTML.value }}}
 							</span>
 						<# } #>
