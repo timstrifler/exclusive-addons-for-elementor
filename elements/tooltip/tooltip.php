@@ -658,7 +658,7 @@ class Tooltip extends Widget_Base {
         #>
 
         <div {{{ view.getRenderAttributeString( 'exad_tooltip_wrapper' ) }}}>
-            <div class="exad-tooltip-item {{{ settings.exad_tooltip_direction }}}">
+            <div class="exad-tooltip-item {{{ _.escape( settings.exad_tooltip_direction ) }}}">
                 <div class="exad-tooltip-content">
                     <# if ( 'yes' === settings.exad_tooltip_enable_link && settings.exad_tooltip_link.url ) { #>
                         <a href="{{ settings.exad_tooltip_link.url }}"{{ target }}{{ nofollow }}>
