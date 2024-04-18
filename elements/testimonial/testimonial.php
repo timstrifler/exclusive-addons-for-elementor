@@ -1187,7 +1187,7 @@ class Testimonial extends Widget_Base {
 			var TestimonialNameHTMLTag = elementor.helpers.validateHTMLTag( settings.exad_testimonial_name_tag );
 		#>
 
-		<div class="exad-testimonial-wrapper {{ settings.exad_testimonial_container_alignment }} {{ transition_top }}">
+		<div class="exad-testimonial-wrapper {{ _.escape( settings.exad_testimonial_container_alignment ) }} {{ transition_top }}">
 	        <div class="exad-testimonial-wrapper-inner {{ _.escape( settings.exad_testimonial_layout ) }}">
 				<# if( 'layout-1' === settings.exad_testimonial_layout ){ #>
 					<div {{{ view.getRenderAttributeString( 'exad_testimonial_content_wrapper' ) }}}>
@@ -1203,9 +1203,9 @@ class Testimonial extends Widget_Base {
 										var $rating_active_class = '';
 										for( var $i = 1; $i <= 5; $i++ ) {
 											if( $ratings >= $i ) { #>
-											<li class="exad-testimonial-ratings-active"><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
+											<li class="exad-testimonial-ratings-active"><i class="{{ _.escape( settings.exad_testimonial_rating_icon.value ) }}"></i></li>
 											<# } else { #>
-											<li><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
+											<li><i class="{{ _.escape( settings.exad_testimonial_rating_icon.value ) }}"></i></li>
 											<# }
 										} 
 									#>
@@ -1262,9 +1262,9 @@ class Testimonial extends Widget_Base {
 										var $rating_active_class = '';
 										for( var $i = 1; $i <= 5; $i++ ) {
 											if( $ratings >= $i ) { #>
-											<li class="exad-testimonial-ratings-active"><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
+											<li class="exad-testimonial-ratings-active"><i class="{{ _.escape( settings.exad_testimonial_rating_icon.value ) }}"></i></li>
 											<# } else { #>
-											<li><i class="{{ settings.exad_testimonial_rating_icon.value }}"></i></li>
+											<li><i class="{{ _.escape( settings.exad_testimonial_rating_icon.value ) }}"></i></li>
 											<# }
 										}
 									#>
