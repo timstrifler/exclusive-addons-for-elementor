@@ -529,7 +529,20 @@ function eae_isValidHttpUrl( string ) {
 		elm.setAttribute('required', 'true');
 		elm.value = string;
 		
-		return elm.validity.valid;
+		return elm.validity;
+		
+	} catch ( err ) {
+
+		return false;
+	}
+}
+
+function eae_decodeURI( string ) {
+	
+	try {
+		
+		return string
+		.replace(/%2F/g, "/");
 		
 	} catch ( err ) {
 
@@ -546,16 +559,42 @@ $('body').on('click.onWrapperLink', '[data-exad-element-link]', function(e) {
         id       = $wrapper.data('id'),
         anchor   = document.createElement('a'),
         anchorReal,
-        timeout,
-		url = data.url;
+        timeout;
 		
-	if ( eae_isValidHttpUrl( url ) === false ) {
+    if ( 'undefined' === typeof data.url ) {
+		
+        return false;
+    }
+
+    let url = encodeURIComponent( data.url )
+    , validUrl = eae_isValidHttpUrl( url );
+	
+    if ( validUrl.badInput === false
+        && validUrl.customError === false
+        && validUrl.patternMismatch === false
+        && validUrl.rangeOverflow === false
+        && validUrl.rangeUnderflow === false
+        && validUrl.stepMismatch === false
+        && validUrl.tooLong === false
+        && validUrl.tooShort === false
+        && validUrl.typeMismatch === true
+        && validUrl.valid === false
+        && validUrl.valueMissing === false ) {
+		
+        url = document.location + url;
+		
+        validUrl = eae_isValidHttpUrl( url );
+    }
+	
+    if ( validUrl.valid === false ) {
 		
 		e.preventDefault();
 		e.stopPropagation();
 		
 		return false;
-	}
+    }
+	
+    url = eae_decodeURI( url );
 	
     anchor.id            = 'exad-link-anything-' + id;
     anchor.href          = url;
