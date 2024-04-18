@@ -1950,6 +1950,8 @@ class Post_Grid extends Widget_Base {
 				'data-exclude_post' => $settings['exad_post_grid_exclude_post']
 			]
 		);
+		
+		ob_start();
 		?>		
 
 		<div <?php $this->print_render_attribute_string( 'exad_post_grid_featured_post' ); ?>>
@@ -1968,6 +1970,11 @@ class Post_Grid extends Widget_Base {
 		</div>
 
 	<?php
+	
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
+	
 	}
 
 }
