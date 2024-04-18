@@ -1057,7 +1057,7 @@ class Infobox extends Widget_Base {
 			<div {{{ view.getRenderAttributeString( 'exad_infobox_transition' ) }}}>
 				<# if( 'none' !== settings.exad_infobox_img_or_icon ) { #>
 					<# if( 'yes' === settings.exad_infobox_animating_mask_switcher ) { #>
-						<div class="exad-infobox-icon {{ settings.exad_infobox_animating_mask_style }}">
+						<div class="exad-infobox-icon {{ _.escape( settings.exad_infobox_animating_mask_style ) }}">
 							<# if ( 'icon' === settings.exad_infobox_img_or_icon && iconHTML.value ) { #>
 								<div class="exad-flip-box-front-image">
 									{{{ iconHTML.value }}}
