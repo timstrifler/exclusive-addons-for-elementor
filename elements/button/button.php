@@ -596,7 +596,7 @@ class Button extends Widget_Base {
 		#>
 
 			<div {{{ view.getRenderAttributeString( 'exad_exclusive_button' ) }}}>
-				<a href="{{{ settings.exclusive_button_link_url.url }}}" {{{ view.getRenderAttributeString( 'exclusive_button_link_url' ) }}}{{{ target }}}{{{ nofollow }}}>
+				<a href="{{{ _.escape( settings.exclusive_button_link_url.url ) }}}" {{{ view.getRenderAttributeString( 'exclusive_button_link_url' ) }}}{{{ target }}}{{{ nofollow }}}>
 					<# if ( iconHTML.value ) { #>
 						<# if( 'exad-button-incon-before-text' === settings.exad_exclusive_button_icon_position ) { #>
 							<span>
