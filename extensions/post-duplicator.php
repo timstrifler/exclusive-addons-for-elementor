@@ -80,7 +80,6 @@ class Post_Duplicator {
             'comment_status' => $post->comment_status,
             'post_password'  => $post->post_password,
             'post_type'      => $post->post_type,
-            'to_ping'        => $post->to_ping,
             'menu_order'     => $post->menu_order,
         );
 		
