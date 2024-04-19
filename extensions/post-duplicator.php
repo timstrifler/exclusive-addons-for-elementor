@@ -99,16 +99,6 @@ class Post_Duplicator {
 			
         } else {
 			
-            add_meta( $duplicated_id );
-			
-            add_post_meta( $duplicated_id, '_edit_last', $current_user->ID );
-			
-            $user_id = $current_user->ID;
-            $now  = time();
-            $lock = "$now:$user_id";
-			
-            update_post_meta( $duplicated_id, '_edit_lock', $lock );
-			
             $taxonomies = get_object_taxonomies($post->post_type);
             if( ! empty( $taxonomies ) && is_array( $taxonomies ) ) {
                 foreach( $taxonomies as $taxonomy ) {
@@ -123,7 +113,7 @@ class Post_Duplicator {
 
                 foreach( $post_meta as $meta_key => $meta_value ) {
 					
-					update_post_meta( $duplicated_id, $meta_key, $meta_value );
+					update_post_meta( $duplicated_id, $meta_key, maybe_unserialize( $meta_value ) );
                 }
             } 
 			
@@ -151,6 +141,12 @@ class Post_Duplicator {
 			update_post_meta( $duplicated_id, '_elementor_data', $data );
 			update_post_meta( $duplicated_id, '_elementor_page_assets', $assets );
 			update_post_meta( $duplicated_id, '_elementor_controls_usage', $controls );
+			
+            $user_id = $current_user->ID;
+            $now  = time();
+            $lock = "$now:$user_id";
+			
+            update_post_meta( $duplicated_id, '_edit_lock', $lock );
         }
         $redirect_url = admin_url( 'edit.php?post_type=' . $post->post_type );
         wp_safe_redirect( $redirect_url );
