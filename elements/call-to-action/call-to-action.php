@@ -878,6 +878,8 @@ class Call_To_Action extends Widget_Base {
 				
 				$effect = 'effect-' . $c;
 				
+				return $effect;
+				
 				break;
 			}
 			
@@ -887,7 +889,7 @@ class Call_To_Action extends Widget_Base {
 			}
 		}
 		
-		return $effect;
+		return '';
 	}
 	
     private function primary_btn() {
