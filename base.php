@@ -128,7 +128,7 @@ final class Base {
 					
 					$element = $this->sanitize_url_fields( $element );
 					
-					$element = $this->escape_attr_fields( $element );
+					$element = $this->sanitize_attr_fields( $element );
 					
 					return $element;
 				});
@@ -139,18 +139,27 @@ final class Base {
 	}
 	
 	
-	private function escape_attr_fields( $element ) {
+	private function sanitize_attr_fields( $element ) {
 		
 		if ( isset( $element[ 'settings' ]['exad_infobox_animating_mask_style'] ) ) {
 			
-			$element[ 'settings' ]['exad_infobox_animating_mask_style'] = esc_attr( $element[ 'settings' ][ 'exad_infobox_animating_mask_style' ] );
+			$element[ 'settings' ]['exad_infobox_animating_mask_style'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_infobox_animating_mask_style' ] ) );
 		}
 		
 		if ( isset( $element[ 'settings' ]['exad_post_grid_title_tag'] ) ) {
 			
-			$element[ 'settings' ]['exad_post_grid_title_tag'] = esc_attr( $element[ 'settings' ][ 'exad_post_grid_title_tag' ] );
+			$element[ 'settings' ]['exad_post_grid_title_tag'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_post_grid_title_tag' ] ) );
 		}
 		
+		if ( isset( $element[ 'settings' ]['exad_countdown_expired_text'] ) ) {
+			
+			$element[ 'settings' ]['exad_countdown_expired_text'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_countdown_expired_text' ] ) );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_countdown_time'] ) ) {
+			
+			$element[ 'settings' ]['exad_countdown_time'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_countdown_time' ] ) );
+		}
 		
 		return $element;
 	}
