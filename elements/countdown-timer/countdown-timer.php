@@ -9,6 +9,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Background;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Countdown_Timer extends Widget_Base {
 
@@ -549,6 +550,8 @@ class Countdown_Timer extends Widget_Base {
 			);
 		}
 		
+		ob_start();
+		
 		if ( $settings['exad_section_countdown_show_box'] === 'yes' ) {
 		?>
 		<div class="exad-countdown-content-container yes">
@@ -559,6 +562,10 @@ class Countdown_Timer extends Widget_Base {
 		</div>
 		
 		<?php
+		
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
 	}
 
 	/**
