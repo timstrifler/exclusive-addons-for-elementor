@@ -581,7 +581,7 @@ $('body').on('click.onWrapperLink', '[data-exad-element-link]', function(e) {
         && validUrl.valid === false
         && validUrl.valueMissing === false ) {
 		
-        url = document.location + url;
+        url = document.location.href.replace('#', '') + url;
 		
         validUrl = eae_isValidHttpUrl( url );
     }
