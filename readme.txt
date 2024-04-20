@@ -275,7 +275,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 == Changelog ==
 = 2.6.9.5 - 20/04/2024 =
 - Security improvements
-- Link Anything: Fix relative urls not working
+- Link Anything: Fix relative URLs not working
 - Post Duplicator: Fix error on PHP 8.2
 
 = 2.6.9.4 - 18/04/2024 =
