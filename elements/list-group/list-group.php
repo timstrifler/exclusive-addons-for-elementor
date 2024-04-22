@@ -971,7 +971,7 @@ class List_group extends Widget_Base {
 							</span>
 							<?php if ( !empty( $list['exad_list_text'] ) ) { ?>
 								<span class="exad-list-group-text">
-									<?php echo esc_html( $list['exad_list_text'] ); ?>
+									<?php echo wp_kses_post( $list['exad_list_text'] ); ?>
 								</span>
 							<?php } ?>
 						<?php if ( !empty( $list['exad_list_link']['url'] ) ) { ?>
