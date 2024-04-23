@@ -520,7 +520,21 @@ var exclusiveImageMagnifier = function($scope, $) {
 // image magnifier script ends
 
 
-function eae_isValidHttpUrl( string ) {
+function eae_isValidAbsoluteURL( string ) {
+	
+	try {
+		
+		const newUrl = new URL( string );
+		
+		return newUrl.protocol !== 'javascript:';
+		
+	} catch (err) {
+		
+		return false;
+	}
+}
+
+function eae_isValidURL( string ) {
 	
 	try {
 		
@@ -530,19 +544,6 @@ function eae_isValidHttpUrl( string ) {
 		elm.value = string;
 		
 		return elm.validity;
-		
-	} catch ( err ) {
-
-		return false;
-	}
-}
-
-function eae_decodeURI( string ) {
-	
-	try {
-		
-		return string
-		.replace(/%2F/g, "/");
 		
 	} catch ( err ) {
 
@@ -566,8 +567,8 @@ $('body').on('click.onWrapperLink', '[data-exad-element-link]', function(e) {
         return false;
     }
 
-    let url = encodeURIComponent( data.url )
-    , validUrl = eae_isValidHttpUrl( url );
+    let url = encodeURI( data.url )
+    , validUrl = eae_isValidURL( url );
 	
     if ( validUrl.badInput === false
         && validUrl.customError === false
@@ -583,18 +584,21 @@ $('body').on('click.onWrapperLink', '[data-exad-element-link]', function(e) {
 		
         url = document.location.href.replace('#', '') + url;
 		
-        validUrl = eae_isValidHttpUrl( url );
+        validUrl = eae_isValidURL( url );
     }
+	else {
+		
+		validUrl = eae_isValidAbsoluteURL( url );
+	}
 	
-    if ( validUrl.valid === false ) {
+    if ( ( 'undefined' !== typeof validUrl.valid 
+		&& validUrl.valid === false ) || validUrl === false ) {
 		
 		e.preventDefault();
 		e.stopPropagation();
 		
 		return false;
     }
-	
-    url = eae_decodeURI( url );
 	
     anchor.id            = 'exad-link-anything-' + id;
     anchor.href          = url;
