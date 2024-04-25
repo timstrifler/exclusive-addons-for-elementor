@@ -273,6 +273,11 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.6.9.6 - 24/04/2024 =
+- Security improvements
+- Link Anything: Fix absolute URLs not working
+- List Group: Allow permitted HTML on List Text field
+
 = 2.6.9.5 - 20/04/2024 =
 - Security improvements
 - Link Anything: Fix relative URLs not working
