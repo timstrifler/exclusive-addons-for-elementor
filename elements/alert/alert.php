@@ -733,6 +733,8 @@ class Alert extends Widget_Base {
         $this->add_inline_editing_attributes( 'exad_alert_close_secondary_button', 'none' );
 
         do_action( 'exad_alert_wrapper_before' );
+		
+		ob_start();
         ?>
 
         <div class="exad-alert">
@@ -757,7 +759,7 @@ class Alert extends Widget_Base {
                             if ( !empty( $title ) && 'yes' === $settings['exad_alert_content_title_show'] ) {
 								?>
 								<h5 <?php $this->print_render_attribute_string( 'exad_alert_content_title' ) ?>>
-								<?php print wp_kses_post( $title ) ?>
+								<?php print $title // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 								</h5>
 							<?php
                             }
@@ -765,7 +767,7 @@ class Alert extends Widget_Base {
 							if ( !empty( $description ) ) { ?>
 							<div <?php $this->print_render_attribute_string( 'exad_alert_content_description' ) ?>>
 							
-							<?php print wp_kses_post( $description ) ?>
+							<?php print $description // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							
 							</div>
 							<?php
@@ -807,6 +809,10 @@ class Alert extends Widget_Base {
         </div>
 
         <?php do_action( 'exad_alert_wrapper_after' );
+		
+        $output = ob_get_clean();
+		
+        print wp_kses_post( $output );
     }
 
     /**
