@@ -579,6 +579,8 @@ class Animated_Text extends Widget_Base {
 
 		$this->add_render_attribute( 'exad_animated_text_after_text', 'class', 'exad-animated-text-post-heading' );
         $this->add_inline_editing_attributes( 'exad_animated_text_after_text', 'basic' );
+		
+		ob_start();
 		?>
 
 		<div class="exad-animated-text <?php echo esc_attr($heading_align); ?>">
@@ -590,7 +592,7 @@ class Animated_Text extends Widget_Base {
 				<?php do_action( 'exad_animated_text_content_before' ); ?>
 				
 				<span <?php $this->print_render_attribute_string( 'exad_animated_text_before_text' ) ?>>
-					<?php print wp_kses_post($before_text); ?>
+					<?php print $before_text; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</span>
 				
 				<?php
@@ -601,7 +603,7 @@ class Animated_Text extends Widget_Base {
 				if( 'exad-morphed-animation' === $settings['exad_animated_text_animated_heading_animated_type'] ) {
 				?>
 				<span <?php $this->print_render_attribute_string( 'exad_animated_text_animated_heading' ) ?>>
-					<?php print wp_kses_post($heading_text); ?>
+					<?php print $heading_text; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</span>
 				<?php
 				}
@@ -609,7 +611,7 @@ class Animated_Text extends Widget_Base {
 				if ( !empty( $after_text ) ) { ?>
 				
 				<span <?php $this->print_render_attribute_string( 'exad_animated_text_after_text' ) ?>>
-					<?php print wp_kses_post($after_text); ?>
+					<?php print $after_text; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</span>
 				<?php
 				}
@@ -623,5 +625,10 @@ class Animated_Text extends Widget_Base {
 
 		</div>
 	<?php 	
+	
+		$output = ob_get_clean();
+		
+		print wp_kses_post( $output );
+	
 	}
 }
