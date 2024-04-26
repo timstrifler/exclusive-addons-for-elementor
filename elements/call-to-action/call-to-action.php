@@ -953,6 +953,8 @@ class Call_To_Action extends Widget_Base {
                 $this->add_render_attribute( 'exad_cta_secondary_btn_link', 'rel', 'nofollow' );
             }
         }
+		
+        ob_start();
         ?>
 
         <div <?php $this->print_render_attribute_string( 'exad_call_to_action_wrapper' ); ?>>
@@ -969,11 +971,11 @@ class Call_To_Action extends Widget_Base {
 
                     $title_html = sprintf( '<%1$s %2$s>%3$s</%1$s>', Utils::validate_html_tag( $settings['exad_heading_title_html_tag'] ), $this->get_render_attribute_string( 'exad_cta_heading' ), $heading );
 
-                    echo wp_kses_post( $title_html );
+                    echo $title_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
                     if ( $details ) : ?>
                         <div <?php $this->print_render_attribute_string( 'exad_cta_description' ); ?>>
-                            <?php echo wp_kses_post( $settings['exad_cta_description'] ); ?>
+                            <?php echo $settings['exad_cta_description'] ; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </div>
                     <?php endif; ?>
 			    </div>
@@ -1009,6 +1011,10 @@ class Call_To_Action extends Widget_Base {
             <?php do_action('exad_cta_wrapper_after'); ?>
 		</div>
     <?php     
+	
+        $output = ob_get_clean();
+		
+        print wp_kses_post( $output );
 	}
 
     /**
