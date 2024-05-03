@@ -273,6 +273,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.6.9.7 - 03/05/2024 =
+- Security improvements
+- Tabs: Allow HTML in Tab Title field
+
 = 2.6.9.6 - 25/04/2024 =
 - Security improvements
 - Link Anything: Fix absolute URLs not working
