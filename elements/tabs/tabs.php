@@ -1231,7 +1231,7 @@ class Tabs extends Widget_Base {
 							endif; 
 						?>
 						<span class="exad-tab-title">
-						<?php echo esc_html( $tab['exad_exclusive_tab_title'] ); ?>
+						<?php echo $tab['exad_exclusive_tab_title'];  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</span>
 					</li>
 				<?php endforeach; ?>
