@@ -1681,7 +1681,7 @@ class Team_Member extends Widget_Base {
 					model: view.getEditModel()
 				};
 
-				var imageURL = elementor.imagesManager.getImageUrl( image );
+				var imageURL = _.escape( elementor.imagesManager.getImageUrl( image ) );
 			}
 
 			var target = settings.exad_team_members_cta_btn_link.is_external ? ' target="_blank"' : '';
