@@ -273,9 +273,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
-= 2.6.9.7 - 03/05/2024 =
+= 2.6.9.7 - 08/05/2024 =
 - Security improvements
 - Tabs: Allow HTML in Tab Title field
+- Accordion: Allow more permitted HTML
 
 = 2.6.9.6 - 25/04/2024 =
 - Security improvements
