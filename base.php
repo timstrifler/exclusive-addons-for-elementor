@@ -227,6 +227,32 @@ final class Base {
 			$element[ 'settings' ]['exad_team_members_cta_btn_link'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_team_members_cta_btn_link'][ 'url' ] );
 		}
 		
+		if ( isset( $element[ 'settings' ]['exad_team_member_image'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_team_member_image'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_team_member_image'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_magnify_image'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_magnify_image'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_magnify_image'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_magnify_image'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_magnify_image'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_magnify_image'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_testimonial_image'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_testimonial_image'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_testimonial_image'][ 'url' ] );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_tooltip_img_content'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_tooltip_img_content'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_tooltip_img_content'][ 'url' ] );
+		}
+		
+		
 		return $element;
 	}
 	
