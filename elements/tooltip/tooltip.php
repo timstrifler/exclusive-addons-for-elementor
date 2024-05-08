@@ -653,7 +653,7 @@ class Tooltip extends Widget_Base {
                     model: view.getEditModel()
                 };
 
-                var imageURL = elementor.imagesManager.getImageUrl( image );
+                var imageURL = _.escape( elementor.imagesManager.getImageUrl( image ) );
             }
         #>
 
