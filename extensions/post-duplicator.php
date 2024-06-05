@@ -99,6 +99,9 @@ class Post_Duplicator {
 			
         } else {
 			
+            $format = get_post_format( $post->ID );
+            set_post_format( $duplicated_id, $format );
+			
             $taxonomies = get_object_taxonomies($post->post_type);
             if( ! empty( $taxonomies ) && is_array( $taxonomies ) ) {
                 foreach( $taxonomies as $taxonomy ) {
