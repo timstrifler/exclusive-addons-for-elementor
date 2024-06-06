@@ -90,6 +90,11 @@ class Post_Duplicator {
             'post_password'  => $post->post_password,
             'post_type'      => $post->post_type,
             'menu_order'     => $post->menu_order,
+            'post_content_filtered' => $post->post_content_filtered,
+            'post_category'         => $post->post_category,
+            'tags_input'            => $post->tags_input,
+            'tax_input'             => $post->tax_input,
+            'page_template'         => $post->page_template
         );
 		
 		/*
