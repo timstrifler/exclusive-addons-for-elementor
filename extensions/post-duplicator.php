@@ -124,51 +124,43 @@ class Post_Duplicator {
                     wp_set_object_terms( $duplicated_id, $post_terms, $taxonomy, false );
                 }
             }
-
-            $post_meta = get_post_meta( $post_id );
 			
-            if( ! empty( $post_meta ) && is_array( $post_meta ) ){
-
-                foreach( $post_meta as $meta_key => $meta_value ) {
-					
-					update_post_meta( $duplicated_id, $meta_key, maybe_unserialize( $meta_value ) );
-                }
-            } 
-			
-			
-			update_post_meta( $duplicated_id, '_wp_page_template', 'elementor_canvas' );
-
-			update_post_meta( $duplicated_id, '_elementor_edit_mode', 'builder' );
-
-			update_post_meta( $duplicated_id, '_elementor_template_type', 'wp-page');
-			update_post_meta( $duplicated_id, '_elementor_version', ELEMENTOR_VERSION);
-			
-			if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
-				
-				update_post_meta( $duplicated_id, '_elementor_pro_version', ELEMENTOR_PRO_VERSION );
-			}
-			
-			update_post_meta( $duplicated_id, '_elementor_css', '' );
-			
-			$settings = get_post_meta( $post_id, '_elementor_page_settings', true );
-			$data = json_decode(get_post_meta( $post_id, '_elementor_data', true), true );
-			$assets = get_post_meta( $post_id, '_elementor_page_assets', true );
-			$controls = get_post_meta( $post_id, '_elementor_controls_usage', true );
-			
-			update_post_meta( $duplicated_id, '_elementor_page_settings', $settings );
-			update_post_meta( $duplicated_id, '_elementor_data', $data );
-			update_post_meta( $duplicated_id, '_elementor_page_assets', $assets );
-			update_post_meta( $duplicated_id, '_elementor_controls_usage', $controls );
-			
-            $user_id = $current_user->ID;
-            $now  = time();
-            $lock = "$now:$user_id";
-			
-            update_post_meta( $duplicated_id, '_edit_lock', $lock );
+            self::duplicate_post_meta( $duplicated_id, $post->ID );	
         }
+		
         $redirect_url = admin_url( 'edit.php?post_type=' . $post->post_type );
+		
         wp_safe_redirect( $redirect_url );
     }
-
+	
+	
+	protected static function duplicate_post_meta( $duplicated_id, $post_id ) {
+		
+		$post_custom_keys = get_post_custom_keys( $post_id );
+		
+		if ( empty( $post_custom_keys ) || !is_array( $post_custom_keys ) ) {
+			
+			return;
+		}
+		
+		$avoid_keys = array(
+			'_edit_lock',
+			'_edit_last'
+		);
+		
+		$meta_keys = array_diff( $post_custom_keys, $avoid_keys );
+		
+		foreach ( $meta_keys as $meta_key ) {
+			
+			$meta_values = get_post_custom_values( $meta_key, $post_id );
+			
+			delete_post_meta( $duplicated_id, $meta_key );
+			
+			foreach ( $meta_values as $meta_value ) {
+				
+				add_post_meta( $duplicated_id, $meta_key, maybe_unserialize( $meta_value ) );
+			}
+		}
+	}
 }
 Post_Duplicator::init();
