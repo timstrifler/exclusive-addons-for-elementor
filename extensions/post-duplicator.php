@@ -20,6 +20,7 @@ class Post_Duplicator {
 
         if( current_user_can('edit_posts') ) {
 			
+            $duplicate_url = admin_url('admin.php?action=exad_duplicate&post=' . $post->ID );
             $duplicate_url = wp_nonce_url( $duplicate_url, 'exad_duplicator' );
 			
             // Support WooCommerce Product
