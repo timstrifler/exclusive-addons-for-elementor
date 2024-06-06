@@ -273,9 +273,8 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
-= 2.6.9.8 - 09/05/2024 =
-
-
+= 2.6.9.8 - 06/06/2024 =
+- Post Duplicator: Improve functionality and support WooCommerce Product
 
 = 2.6.9.7 - 08/05/2024 =
 - Security improvements
