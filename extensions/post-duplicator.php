@@ -20,15 +20,14 @@ class Post_Duplicator {
 
         if( current_user_can('edit_posts') ) {
 			
+            $duplicate_url = wp_nonce_url( $duplicate_url, 'exad_duplicator' );
+			
             // Support WooCommerce Product
             if ( $post->post_type === 'product' 
                 && has_action( 'admin_action_duplicate_product' ) ) {
 				
                 $duplicate_url = wp_nonce_url( admin_url( 'edit.php?post_type=product&action=duplicate_product&amp;post=' . $post->ID ), 'woocommerce-duplicate-product_' . $post->ID );
 				
-            } else {
-				
-                $duplicate_url = wp_nonce_url( $duplicate_url, 'exad_duplicator' );
             }
 			
             $actions['exad_duplicate'] = sprintf( '<a href="%s" title="%s">%s</a>', $duplicate_url,  __( $post->post_title, 'exclusive-addons-elementor'), __( 'Ex Duplicator', 'exclusive-addons-elementor') );
