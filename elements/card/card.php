@@ -1452,7 +1452,7 @@ class Card extends Widget_Base {
 					model: view.getEditModel()
 				};
 
-				var image_url = elementor.imagesManager.getImageUrl( image );
+				var image_url = _.escape( elementor.imagesManager.getImageUrl( image ) );
 			}
 
 			view.addRenderAttribute( 'exad_card_title_link', 'class', 'exad-card-title' );

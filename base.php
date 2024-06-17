@@ -252,6 +252,10 @@ final class Base {
 			$element[ 'settings' ]['exad_tooltip_img_content'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_tooltip_img_content'][ 'url' ] );
 		}
 		
+		if ( isset( $element[ 'settings' ]['exad_card_image'][ 'url' ] ) ) {
+			
+			$element[ 'settings' ]['exad_card_image'][ 'url' ] = sanitize_url( $element[ 'settings' ]['exad_card_image'][ 'url' ] );
+		}
 		
 		return $element;
 	}
