@@ -1293,6 +1293,10 @@ class Tabs extends Widget_Base {
 	
 		$output = ob_get_clean();
 		
-		print wp_kses_post( $output );
+		$allowed_tags = wp_kses_allowed_html('post');
+		
+		$allowed_tags['style'] = array();
+		
+		print wp_kses( $output, $allowed_tags );
 	}
 }
