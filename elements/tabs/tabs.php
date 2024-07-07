@@ -1297,6 +1297,8 @@ class Tabs extends Widget_Base {
 		
 		$allowed_tags['style'] = array();
 		
-		print wp_kses( $output, $allowed_tags );
+		$kses_output = wp_kses( $output, $allowed_tags );
+		
+		print Helper::fix_elementor_styletag( $kses_output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }

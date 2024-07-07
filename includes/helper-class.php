@@ -104,6 +104,21 @@ class Helper {
 
 
     /**
+     * Restore symbol ">" in elementor STYLE tag
+     * 
+     * @param string $text
+     * @return string
+     */
+    public static function fix_elementor_styletag( $text ) {
+		
+		$text = str_replace( '&gt; .elementor', '> .elementor', $text );
+		$text = str_replace( '&gt;.elementor', '>.elementor', $text );
+		
+		return $text;
+    }
+	
+	
+    /**
      * Retrive the list of Contact Form 7 Forms [ if plugin activated ]
      */
     
