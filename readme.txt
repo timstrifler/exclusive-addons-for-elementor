@@ -273,7 +273,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
-= 2.7.1 - 06/07/2024 =
+= 2.7.1 - 18/07/2024 =
 - Tabs: Fix elementor styles in Tab content
 
 = 2.7.0 - 06/07/2024 =
