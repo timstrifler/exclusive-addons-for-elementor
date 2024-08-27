@@ -190,7 +190,9 @@ var exclusiveCountdownTimer = function ( $scope, $ ) {
                     '<div class="exad-countdown-container"><div class="exad-countdown-timer-wrapper"><span class="exad-countdown-count">%M </span><span class="exad-countdown-title">' + minutes + '</span></div></div>' +
                     '<div class="exad-countdown-container"><div class="exad-countdown-timer-wrapper"><span class="exad-countdown-count">%S </span><span class="exad-countdown-title">' + seconds + '</span></div></div>'));
             } ).on( 'finish.countdown', function (event) {
-                $(this).html( '<p class="message">'+ expiredText +'</p>' );
+                let tagP = $( '<p>' ).addClass('message');
+                tagP.text( expiredText );
+                $(this).html( tagP );
             } );
         }
     }

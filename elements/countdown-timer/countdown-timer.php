@@ -589,8 +589,8 @@ class Countdown_Timer extends Widget_Base {
 				'data-minutes': 'Minutes',
 				'data-hours': 'Hours',
 				'data-seconds': 'Seconds',
-				'data-countdown': settings.exad_countdown_time,
-				'data-expired-text': settings.exad_countdown_expired_text
+				'data-countdown': _.escape( settings.exad_countdown_time ),
+				'data-expired-text': _.escape( settings.exad_countdown_expired_text )
 			} );
 			
 			var exad_section_countdown_show_box = '';
