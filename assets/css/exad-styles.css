@@ -4205,6 +4205,10 @@ ul.exad-call-to-action-buttons {
     display: block;
 	transition: all 0.3s ease;
   }
+  
+  .exad-modal-prevent-page-scroll {
+    overflow:hidden !important;
+  }
 
   .exad-modal-item.image-gallery .exad-modal-element {
   display: flex;

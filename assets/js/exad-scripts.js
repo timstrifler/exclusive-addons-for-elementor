@@ -556,7 +556,8 @@ function eae_isValidURL( string ) {
 
 // Container Link JS started
 
-$('body').on('click.onWrapperLink', '[data-exad-element-link]', function(e) {
+var exadPageBody = $('body');
+exadPageBody.on('click.onWrapperLink', '[data-exad-element-link]', function(e) {
     var $wrapper = $(this),
         data     = $wrapper.data('exad-element-link'),
         id       = $wrapper.data('id'),
@@ -707,7 +708,49 @@ var exclusiveModalPopup = function ($scope, $) {
     modalOverlayWrapper = $scope.find( '.exad-modal-overlay' ),
     modalItem           = $scope.find( '.exad-modal-item' ),
     modalAction         = modalWrapper.find( '.exad-modal-image-action' ),
-    closeButton         = modalWrapper.find( '.exad-close-btn' );
+    closeButton         = modalWrapper.find( '.exad-close-btn' ),
+	getBodyWidth = function() {
+      // https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth#usage_notes
+      const documentWidth = document.documentElement.clientWidth;
+      return Math.abs(window.innerWidth - documentWidth);
+    },
+    preventPageScroll = function( modalStatus ) {
+		
+        const pageBody = exadPageBody[ 0 ]
+        , cssClass = 'exad-modal-prevent-page-scroll'
+        , styleProperty = 'padding-right'
+        , exadSavedPaddingAttr = 'data-exad_saved_paddingright_value'
+        , scrollbarWidth = getBodyWidth()
+        , calculatedValue = Number.parseFloat( window.getComputedStyle( pageBody ).getPropertyValue( styleProperty ) ) + scrollbarWidth
+        , preventPageScrollval = modalItem.attr( 'data-exad_modal_prevent_page_scroll' );
+		
+        if ( 'yes' === preventPageScrollval ) {
+			
+            if ( 'show' === modalStatus ) {
+				
+                exadPageBody.addClass( cssClass );
+				
+                exadPageBody.attr( exadSavedPaddingAttr, pageBody.style.getPropertyValue(styleProperty) );
+                exadPageBody.css( styleProperty, `${Number.parseFloat(calculatedValue)}px` );
+            }
+			
+            if ( 'hide' === modalStatus ) {
+				
+                exadPageBody.removeClass( cssClass );
+				
+                let exad_saved_paddingright_value = exadPageBody.attr(  exadSavedPaddingAttr );
+				
+                exadPageBody.css( styleProperty, '' );
+                if ( null !== exad_saved_paddingright_value 
+                    && 0 !== exad_saved_paddingright_value
+                    && '' !== exad_saved_paddingright_value ) {
+						
+                    exadPageBody.css( styleProperty, exad_saved_paddingright_value );
+                }
+                pageBody.removeAttribute( exadSavedPaddingAttr );
+            }
+        }
+    };
 
     modalAction.on( 'click', function(e) {
         e.preventDefault();
@@ -722,6 +765,7 @@ var exclusiveModalPopup = function ($scope, $) {
         if ( 'yes' === overlay ) {
             modalOverlay.addClass( 'active' );
         }
+        preventPageScroll( 'show' );
         
     } );
 
@@ -743,6 +787,7 @@ var exclusiveModalPopup = function ($scope, $) {
             $modal_video_tag[0].pause();
             $modal_video_tag[0].currentTime = 0;
         }
+        preventPageScroll( 'hide' );
         
     } );
 
@@ -764,6 +809,7 @@ var exclusiveModalPopup = function ($scope, $) {
                 $modal_video_tag[0].pause();
                 $modal_video_tag[0].currentTime = 0;
             }
+            preventPageScroll( 'hide' );
         }
     } );
 }

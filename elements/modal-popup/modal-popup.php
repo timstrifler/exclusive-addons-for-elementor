@@ -426,6 +426,17 @@ class Modal_Popup extends Widget_Base {
 				]
 			]
 		);
+		
+		$this->add_control(
+			'exad_modal_prevent_page_scroll',
+			[
+				'label'     => __( 'Prevent Page Scroll', 'exclusive-addons-elementor' ),
+				'type'      => Controls_Manager::SWITCHER,
+				'label_on'  => __( 'ON', 'exclusive-addons-elementor' ),
+				'label_off' => __( 'OFF', 'exclusive-addons-elementor' ),
+				'default'   => 'no'
+			]
+		);
         
 		$this->end_controls_section();
 
@@ -1170,6 +1181,8 @@ class Modal_Popup extends Widget_Base {
 			
 			$this->add_render_attribute( 'exad_modal_item', 'class', 'modal-vimeo-img-fluid' );
 		}
+		
+		$this->add_render_attribute( 'exad_modal_item', 'data-exad_modal_prevent_page_scroll', esc_attr( $settings['exad_modal_prevent_page_scroll'] ) );
 		
 		$this->add_render_attribute( 'exad_modal_item', 'class', $settings['exad_modal_transition'] );
 		$this->add_render_attribute( 'exad_modal_item', 'class', $settings['exad_modal_content'] );

@@ -274,6 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.7.3 - 17/09/2024 =
+- Modal Popup: New feature "Prevent Page Scroll"
 
 = 2.7.2 - 26/08/2024 =
 - Security improvements
