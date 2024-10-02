@@ -1246,10 +1246,13 @@ class Flipbox extends Widget_Base {
 		if( isset( $settings['exad_flipbox_button_link']['url'] ) ) {
             $this->add_render_attribute( 'exad_flipbox_button_link', 'href', esc_url( $settings['exad_flipbox_button_link']['url'] ) );
         }
-        if( isset( $settings['exad_flipbox_button_link']['is_external'] ) ) {
+		
+        if( isset( $settings['exad_flipbox_button_link']['is_external'] ) 
+			&& $settings['exad_flipbox_button_link']['is_external'] !== '' ) {
             $this->add_render_attribute( 'exad_flipbox_button_link', 'target', '_blank' );
         }
-        if( isset( $settings['exad_flipbox_button_link']['nofollow'] ) ) {
+        if( isset( $settings['exad_flipbox_button_link']['nofollow'] ) 
+			&& $settings['exad_flipbox_button_link']['nofollow'] !== '' ) {
             $this->add_render_attribute( 'exad_flipbox_button_link', 'rel', 'nofollow' );
         }
 		?>

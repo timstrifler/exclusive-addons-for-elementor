@@ -273,8 +273,8 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
-= 2.7.4 - 18/09/2024 =
-
+= 2.7.4 - 02/10/2024 =
+- Flip Box: Fix "Show Button" Link attributes: "Open in new window" and "Add nofollow"
 
 = 2.7.3 - 17/09/2024 =
 - Modal Popup: New feature "Prevent Page Scroll"
