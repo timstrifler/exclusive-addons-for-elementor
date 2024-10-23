@@ -274,6 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.7.5 - 23/10/2024 =
+- Tabs: Only allow 'publish' content templates
 
 = 2.7.4 - 02/10/2024 =
 - Flip Box: Fix "Show Button" Link attributes: "Open in new window" and "Add nofollow"
