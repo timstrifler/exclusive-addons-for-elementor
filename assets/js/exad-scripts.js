@@ -250,6 +250,7 @@ var exclusiveFilterablePost = function( $scope, $ ) {
 
             $container.isotope({
                 filter: '*',
+                layoutMode: 'fitRows',
                 animationOptions: {
                     queue: true
                 }
