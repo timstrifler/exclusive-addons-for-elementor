@@ -274,7 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.7.6 - 29/10/2024 =
-
+- FilterablePost: Adjust post grid thumbnail
 
 = 2.7.5 - 23/10/2024 =
 - Tabs: Only allow 'publish' content templates
