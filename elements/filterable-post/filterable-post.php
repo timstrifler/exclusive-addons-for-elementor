@@ -2324,7 +2324,14 @@ class Filterable_Post extends Widget_Base {
     protected function render() {
 		$settings                  = $this->get_settings_for_display();
         $settings['template_type'] = $this->get_name();
-		$settings['post_args']     = Helper::exad_get_post_arguments( $settings, 'exad_post_grid' );	?>
+		$settings['post_args']     = Helper::exad_get_post_arguments( $settings, 'exad_post_grid' );
+		
+		if ( !isset( $settings['exad_post_grid_column_no'] ) ) {
+			
+			$settings['exad_post_grid_column_no'] = 3;
+		}
+		
+		?>
 
 <?php
         $this->add_render_attribute(
