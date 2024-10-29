@@ -25,7 +25,6 @@ if( 'yes' == $settings['exad_post_grid_show_read_more_btn_new_tab'] ){
     $target = "_self";
 }
 
-ob_start();
 ?>
 
 <article class="exad-post-grid-three exad-col <?php echo ('exad-filterable-post' === $settings['template_type'] ) ? ' exad-filterable-item ' . esc_attr( Helper::exad_get_categories_name_for_class()) : ' ' ;?>">
@@ -49,7 +48,8 @@ ob_start();
                 ?>
             </figure>
         <?php endif; ?>
-
+		
+		<?php ob_start(); ?>
         <div class="exad-post-grid-body">
             <?php    
             if( 'yes' === $settings['exad_post_grid_show_category'] && ( 'yes' === $settings['exad_post_grid_category_default_position'] || '-bottom-left' === $cat_position_over_image ) ) : ?>
@@ -205,12 +205,14 @@ ob_start();
 
         </div>
         <?php do_action('exad_post_grid_each_item_wrapper_after'); ?>
+		
+		<?php
+
+		$output = ob_get_clean();
+
+		print wp_kses_post( $output );
+
+		?>
+		
     </div>
 </article>
-<?php
-
-$output = ob_get_clean();
-
-print wp_kses_post( $output );
-
-?>
