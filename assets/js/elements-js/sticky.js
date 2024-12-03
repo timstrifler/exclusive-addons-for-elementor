@@ -42,9 +42,7 @@ var exclusiveSticky = function ($scope, $) {
 	
 		wrapClass.stickySidebar({
 			topSpacing: topSpacing,
-			bottomSpacing: 60,
-			containerSelector: '.elementor-row',
-        	innerWrapperSelector: '.elementor-column-wrap',
+			bottomSpacing: 60
 		});
 	}
 
