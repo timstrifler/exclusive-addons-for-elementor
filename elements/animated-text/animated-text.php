@@ -7,6 +7,7 @@ use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
 use \Elementor\Utils;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Animated_Text extends Widget_Base {
 
@@ -628,7 +629,7 @@ class Animated_Text extends Widget_Base {
 	
 		$output = ob_get_clean();
 		
-		print wp_kses_post( $output );
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	
 	}
 }
