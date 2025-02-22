@@ -28,7 +28,7 @@ class Helper {
      * @param string
      * @return array
      */
-    public static function exad_wp_kses( $string ) {
+    public static function exad_wp_kses( $string, $extra_allowed_html = array() ) {
 		
         $allowed_html = array(
             'b' => array(),
@@ -98,6 +98,8 @@ class Helper {
 			),
 			'hr' => array()
         );
+		
+        $allowed_html = array_merge_recursive( $allowed_html, $extra_allowed_html );
 		
         return wp_kses( $string, $allowed_html );
     }
