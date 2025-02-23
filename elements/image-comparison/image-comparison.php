@@ -11,6 +11,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Control_Media;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Image_Comparison extends Widget_Base {
 	
@@ -599,16 +600,32 @@ class Image_Comparison extends Widget_Base {
         if( 'click_to_move' == $settings['exad_move_slider'] ) {
             $this->add_render_attribute( 'exad_image_comparison_wrapper', 'data-exad-click_to_move', true );
         }
-        ?>
+		
+		ob_start();
+		?>
 
         <div class="exad-image-comparision">
             <div <?php $this->print_render_attribute_string('exad_image_comparison_wrapper'); ?>>
-                <?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_comparison_image_one' ) ); ?>
-                <?php echo wp_kses_post( Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail_two', 'exad_comparison_image_two' ) ); ?>
+                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'exad_comparison_image_one' ); ?>
+                <?php echo Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail_two', 'exad_comparison_image_two' ); ?>
             </div>
         </div>
 
     <?php    
+	
+		$output = ob_get_clean();
+		
+		$extra_allowed_html = array( 
+			'div' => array(
+				'data-exad-before_label' => array(),
+				'data-exad-after_label' => array(),
+				'data-exad-default_offset_pct' => array(),
+				'data-exad-oriantation' => array()
+			)
+		);
+		
+		print Helper::exad_wp_kses( $output, $extra_allowed_html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	
 	}
 
     /**
@@ -648,10 +665,10 @@ class Image_Comparison extends Widget_Base {
 
             view.addRenderAttribute( 'exad_image_comparison_wrapper', {
                 'class'                       : [ 'exad-image-comparision-element' ],
-                'data-exad-before_label'      : settings.exad_before_label,
-                'data-exad-after_label'       : settings.exad_after_label,
-                'data-exad-default_offset_pct': settings.exad_default_offset_pct,
-                'data-exad-oriantation'       : settings.exad_image_comparison_handle_type
+                'data-exad-before_label'      : _.escape( settings.exad_before_label ),
+                'data-exad-after_label'       : _.escape( settings.exad_after_label ),
+                'data-exad-default_offset_pct': _.escape( settings.exad_default_offset_pct ),
+                'data-exad-oriantation'       : _.escape( settings.exad_image_comparison_handle_type )
             } );
 
             if ( 'on' !== settings.exad_overlay_enable ) {

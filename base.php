@@ -161,6 +161,27 @@ final class Base {
 			$element[ 'settings' ]['exad_countdown_time'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_countdown_time' ] ) );
 		}
 		
+		if ( isset( $element[ 'settings' ]['exad_before_label'] ) ) {
+			
+			$element[ 'settings' ]['exad_before_label'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_before_label' ] ) );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_after_label'] ) ) {
+			
+			$element[ 'settings' ]['exad_after_label'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_after_label' ] ) );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_default_offset_pct'] ) ) {
+			
+			$element[ 'settings' ]['exad_default_offset_pct'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_default_offset_pct' ] ) );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_image_comparison_handle_type'] ) ) {
+			
+			$element[ 'settings' ]['exad_image_comparison_handle_type'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_image_comparison_handle_type' ] ) );
+		}
+		
+		
 		return $element;
 	}
 	
