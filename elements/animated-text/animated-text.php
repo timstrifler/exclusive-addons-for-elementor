@@ -533,6 +533,11 @@ class Animated_Text extends Widget_Base {
 		$before_text   = $settings['exad_animated_text_before_text'];
 		$heading_text  = $settings['exad_animated_text_animated_heading'];
 		$after_text    = $settings['exad_animated_text_after_text'];
+		
+		$before_text = esc_attr( sanitize_text_field( $before_text ) );
+		$heading_text = esc_attr( sanitize_text_field( $heading_text ) );
+		$after_text = esc_attr( sanitize_text_field( $after_text ) );
+		
 		$heading_tag   = Utils::validate_html_tag( $settings['exad_animated_text_animated_heading_tag'] );
 		$heading_align = $settings['exad_animated_text_animated_heading_alignment'];
 
@@ -629,7 +634,7 @@ class Animated_Text extends Widget_Base {
 	
 		$output = ob_get_clean();
 		
-		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		print wp_kses_post( $output );
 	
 	}
 }

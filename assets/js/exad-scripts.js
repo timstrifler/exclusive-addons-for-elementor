@@ -85,7 +85,8 @@ var exclusiveAnimatedText = function( $scope, $ ) {
 				fadeOut : fadeOut,
 				smartBackspace : smartBackspace,
 				startDelay : startDelay,
-				backDelay : backDelay
+				backDelay : backDelay,
+				contentType: 'null'
 			});
 		}
 	}
