@@ -743,6 +743,11 @@ class Heading extends Widget_Base {
 	
 	protected function render() {
 		$settings          = $this->get_settings_for_display();
+		
+		if ( !isset( $settings['exad_heading_title_alignment'] ) ) {
+			
+			$settings['exad_heading_title_alignment'] = 'exad-heading-center';
+		}
 
 		$this->add_render_attribute( 
 			'exad_exclusive_heading_wrapper', 
