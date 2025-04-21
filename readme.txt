@@ -3,7 +3,7 @@ Contributors: exclusiveaddons, timstrifler, devjenndivilife, mmaumio, atiquehasa
 Tags: elementor, elementor Addons, elementor widgets, woocommerce builder, ultimate Addons
 Requires at least: 4.6
 Tested up to: 6.8
-Stable tag: 2.7.8
+Stable tag: 2.7.9
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
