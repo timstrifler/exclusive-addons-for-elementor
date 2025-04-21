@@ -2,7 +2,7 @@
 Contributors: exclusiveaddons, timstrifler, devjenndivilife, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor Addons, elementor widgets, woocommerce builder, ultimate Addons
 Requires at least: 4.6
-Tested up to: 6.7.2
+Tested up to: 6.8
 Stable tag: 2.7.8
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
@@ -273,6 +273,9 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.7.9 - 21/04/2025 =
+
+
 = 2.7.8 - 04/03/2025 =
 - Fix frontend PHP notice issue using Heading widget
 

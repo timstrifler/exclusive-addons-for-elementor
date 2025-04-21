@@ -3,7 +3,7 @@
  * Plugin Name: Exclusive Addons Elementor
  * Plugin URI: https://exclusiveaddons.com/
  * Description: Packed with a bunch of Exclusively designed widgets for Elementor with all the customizations you ever imagined.
- * Version: 2.7.8
+ * Version: 2.7.9
  * Author: Exclusive Addons
  * Author URI: https://exclusiveaddons.com
  * Elementor tested up to: 99
@@ -24,7 +24,7 @@ if ( ! defined( 'EXAD_EXTENSIONS' ) ) define( 'EXAD_EXTENSIONS', plugin_dir_path
 if ( ! defined( 'EXAD_TEMPLATES' ) ) define( 'EXAD_TEMPLATES', EXAD_PATH . 'includes/template-parts/' );
 if ( ! defined( 'EXAD_URL' ) ) define( 'EXAD_URL', plugins_url( '/', __FILE__ ) );
 if ( ! defined( 'EXAD_ASSETS_URL' ) ) define( 'EXAD_ASSETS_URL', EXAD_URL . 'assets/' );
-if ( ! defined( 'EXAD_PLUGIN_VERSION' ) ) define( 'EXAD_PLUGIN_VERSION', '2.7.8' );
+if ( ! defined( 'EXAD_PLUGIN_VERSION' ) ) define( 'EXAD_PLUGIN_VERSION', '2.7.9' );
 if ( ! defined( 'MINIMUM_ELEMENTOR_VERSION' ) ) define( 'MINIMUM_ELEMENTOR_VERSION', '2.0.0' );
 if ( ! defined( 'MINIMUM_PHP_VERSION' ) ) define( 'MINIMUM_PHP_VERSION', '7.0' );
 
