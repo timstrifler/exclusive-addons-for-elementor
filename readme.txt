@@ -274,7 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.7.9 - 21/04/2025 =
-
+- FlipBox: Improve touch support
 
 = 2.7.8 - 04/03/2025 =
 - Fix frontend PHP notice issue using Heading widget

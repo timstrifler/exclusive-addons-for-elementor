@@ -1126,6 +1126,25 @@ var exclusiveTabs   = function( $scope, $ ) {
 
 // tabs script ends
 
+// Flip Box script starts
+
+var exclusiveFlipBox = function( $scope, $ ) {
+	
+    let flipBox = $scope.find( '.exad-flip-box' )
+	, $flipBox = $( flipBox )
+	, cssHoverSelector = 'efb-hovered';
+	
+    $flipBox.on("click", function(e) {
+		
+        e.preventDefault();
+		
+        $( this ).toggleClass( cssHoverSelector );
+    });   
+}
+
+// Flip Box script ends
+
+
 $(window).on('elementor/frontend/init', function () {
     if( elementorFrontend.isEditMode() ) {
         editMode = true;
@@ -1150,6 +1169,7 @@ $(window).on('elementor/frontend/init', function () {
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-facebook-feed.default', exadFacebookFeed );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-google-reviews.default', exclusiveGoogleReviews );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-filterable-post.default', exclusiveFilterablePost);
+    elementorFrontend.hooks.addAction( 'frontend/element_ready/exad-flipbox.default', exclusiveFlipBox );
     elementorFrontend.hooks.addAction( 'frontend/element_ready/section', exclusiveSticky);
 });	
 
