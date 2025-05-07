@@ -245,10 +245,10 @@ class Admin_Settings {
 		}
 
         update_option( 'exad_save_settings', $this->save_dashboard_settings );        
-        update_option( 'exad_google_map_api_option', $settings['google_map_api_key'] );
-        update_option( 'exad_save_mailchimp_api', $settings['mailchimp_api_key'] );
-        update_option( 'exad_primary_color_option', $settings['exad_primary_color'] );
-        update_option( 'exad_secondary_color_option', $settings['exad_secondary_color'] );
+        update_option( 'exad_google_map_api_option', esc_attr( $settings['google_map_api_key'] ) );
+        update_option( 'exad_save_mailchimp_api', esc_attr( $settings['mailchimp_api_key'] ) );
+        update_option( 'exad_primary_color_option', esc_attr( $settings['exad_primary_color'] ) );
+        update_option( 'exad_secondary_color_option', esc_attr( $settings['exad_secondary_color'] ) );
         
 		wp_die();
 			
