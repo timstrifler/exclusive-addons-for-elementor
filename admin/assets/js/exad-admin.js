@@ -6,7 +6,6 @@ jQuery(document).ready(function($) {
 
 	// Dashboard Tabs
 	$( '.exad-dashboard-tabs li.exad-tab-btn a' ).on( 'click', function(e) {
-		console.log("Hello There");
 		e.preventDefault();
 		$( '.exad-dashboard-tabs li.exad-tab-btn a' ).removeClass( 'active' );
 		$(this).addClass( 'active' );
