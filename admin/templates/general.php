@@ -69,7 +69,7 @@ use \ExclusiveAddons\Elementor\Base;
                     </div>
                     <div class="exad-admin-block-header">
                         <h4 class="exad-admin-title"><?php _e( 'Show your Love', 'exclusive-addons-elementor' ); ?></h4>
-                        <p><?php _e( 'We are continiously working to make "Exclusive Addons" better, everyday. Your kind feedback will surely encourage us to move forward with the development.', 'exclusive-addons-elementor' ); ?></p>
+                        <p><?php _e( 'We are continuously working to make "Exclusive Addons" better, everyday. Your kind feedback will surely encourage us to move forward with the development.', 'exclusive-addons-elementor' ); ?></p>
                         <a href="https://wordpress.org/plugins/exclusive-addons-for-elementor/#reviews" class="exad-admin-block-header-button" target="_blank"><?php _e( 'Leave a Review', 'exclusive-addons-elementor' ); ?></a>
                     </div>
                 </div>
