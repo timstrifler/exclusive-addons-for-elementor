@@ -274,7 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.7.9.2 - 15/05/2025 =
-
+- Security improvements
 
 = 2.7.9.1 - 07/05/2025 =
 - Security improvements
