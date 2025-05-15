@@ -644,6 +644,14 @@ class Helper {
 
         return $plugins[ $basename ];
     }
+	
+    public static function validateDate( $dateStr, $format ) {
+		
+        $date = new \DateTime;
+        $date = $date::createFromFormat($format, $dateStr);
+		
+        return $date && ($date->format($format) === $dateStr);
+    }
 
 
 }

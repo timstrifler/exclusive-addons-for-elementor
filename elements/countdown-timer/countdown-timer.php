@@ -528,6 +528,15 @@ class Countdown_Timer extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 
+		$countdown_time = esc_attr( $settings['exad_countdown_time'] );
+		$expired_text = esc_attr( $settings['exad_countdown_expired_text'] );
+		
+		$format_date = 'Y-m-d H:i';
+		if ( ! Helper::validateDate( $countdown_time, $format_date ) ) {
+			
+			$countdown_time = '';
+		}
+		
 		$this->add_render_attribute(
 			'exad-countdown-timer-attribute',
 			[
@@ -536,8 +545,8 @@ class Countdown_Timer extends Widget_Base {
 				'data-minutes'      => esc_attr__( 'Minutes', 'exclusive-addons-elementor' ),
 				'data-hours'        => esc_attr__( 'Hours', 'exclusive-addons-elementor' ),
 				'data-seconds'      => esc_attr__( 'Seconds', 'exclusive-addons-elementor' ),
-				'data-countdown'    => esc_attr( $settings['exad_countdown_time'] ),
-				'data-expired-text' => esc_attr( $settings['exad_countdown_expired_text'] )
+				'data-countdown'    => $countdown_time,
+				'data-expired-text' => $expired_text
 			]
 		);
 		
@@ -549,8 +558,6 @@ class Countdown_Timer extends Widget_Base {
 				]
 			);
 		}
-		
-		ob_start();
 		
 		if ( $settings['exad_section_countdown_show_box'] === 'yes' ) {
 		?>
@@ -565,7 +572,18 @@ class Countdown_Timer extends Widget_Base {
 		
 		$output = ob_get_clean();
 		
-		print wp_kses_post( $output );
+		$extra_allowed_html = array( 
+			'div' => array(
+				'data-day' => array(),
+				'data-minutes' => array(),
+				'data-hours' => array(),
+				'data-seconds' => array(),
+				'data-countdown' => array(),
+				'data-expired-text' => array()
+			)
+		);
+		
+		print Helper::exad_wp_kses( $output, $extra_allowed_html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -583,14 +601,23 @@ class Countdown_Timer extends Widget_Base {
 			if ( 'yes' === settings.exad_countdown_divider_enable ) {
 				view.addRenderAttribute( 'exad_countdown_timer_attribute', 'class', 'exad-countdown-divider' );
 			}
+			
+			let exad_countdown_time = _.escape( settings.exad_countdown_time )
+			, exad_countdown_expired_text = _.escape( settings.exad_countdown_expired_text )
+			, formatted_date = new Date( exad_countdown_time );
+			
+			if ( ! _.isDate( formatted_date ) ) {
+				
+				exad_countdown_time = '';
+			}
 
 			view.addRenderAttribute( 'exad_countdown_timer_attribute', {
 				'data-day': 'Days',
 				'data-minutes': 'Minutes',
 				'data-hours': 'Hours',
 				'data-seconds': 'Seconds',
-				'data-countdown': _.escape( settings.exad_countdown_time ),
-				'data-expired-text': _.escape( settings.exad_countdown_expired_text )
+				'data-countdown': exad_countdown_time,
+				'data-expired-text': exad_countdown_expired_text
 			} );
 			
 			var exad_section_countdown_show_box = '';

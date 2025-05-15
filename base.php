@@ -231,6 +231,15 @@ final class Base {
 			$element[ 'settings' ]['exad_animated_text_back_delay'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_animated_text_back_delay' ] ) );
 		}
 		
+		if ( isset( $element[ 'settings' ]['exad_countdown_time'] ) ) {
+			
+			$element[ 'settings' ]['exad_countdown_time'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_countdown_time' ] ) );
+		}
+		
+		if ( isset( $element[ 'settings' ]['exad_countdown_expired_text'] ) ) {
+			
+			$element[ 'settings' ]['exad_countdown_expired_text'] = esc_attr( sanitize_text_field( $element[ 'settings' ][ 'exad_countdown_expired_text' ] ) );
+		}
 		
 		return $element;
 	}
