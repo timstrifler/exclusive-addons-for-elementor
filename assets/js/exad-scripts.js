@@ -1136,8 +1136,6 @@ var exclusiveFlipBox = function( $scope, $ ) {
 	
     $flipBox.on("click", function(e) {
 		
-        e.preventDefault();
-		
         $( this ).toggleClass( cssHoverSelector );
     });   
 }
