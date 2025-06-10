@@ -274,7 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.7.9.4 - 10/06/2025 =
-- 
+- Fix textdomain issue
 
 = 2.7.9.3 - 02/06/2025 =
 - FlipBox: Fix Button Link
