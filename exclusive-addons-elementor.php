@@ -60,7 +60,7 @@ function exad_initiate_plugin() {
 	require_once EXAD_PATH . 'base.php';
 	\ExclusiveAddons\Elementor\Base::instance();
 } 
-add_action( 'plugins_loaded', 'exad_initiate_plugin' );
+add_action( 'init', 'exad_initiate_plugin' );
 
 /**
  * Admin notice
