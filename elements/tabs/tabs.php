@@ -1243,7 +1243,7 @@ class Tabs extends Widget_Base {
 				$link_key  = 'link_' . $key;
 
 				if( 'content' === $tab['exad_exclusive_tab_content_type'] ) {
-					$exad_tab_btn_link = $tab['exad_exclusive_tab_detail_btn_link']['url'];
+					$exad_tab_btn_link = ( isset( $tab['exad_exclusive_tab_detail_btn_link'] ) && isset( $tab['exad_exclusive_tab_detail_btn_link']['url'] ) ) ? $tab['exad_exclusive_tab_detail_btn_link']['url'] : '';
 				
 					$this->add_render_attribute( $link_key, 'class', 'exad-tab-btn' );
 					if( !empty( $exad_tab_btn_link ) ) {
