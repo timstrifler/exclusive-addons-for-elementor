@@ -182,6 +182,13 @@ var exclusiveCountdownTimer = function ( $scope, $ ) {
         minutes     = $this.data( 'minutes' ),
         seconds     = $this.data( 'seconds' ),
         expiredText = $this.data( 'expired-text' );
+		
+        let rnsc = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
+		
+        day = day.replace( rnsc, '' );
+        hours = hours.replace( rnsc, '' );
+        minutes = minutes.replace( rnsc, '' );
+        seconds = seconds.replace( rnsc, '' );
 
         if ( $.isFunction( $.fn.countdown ) ) {
             $this.countdown( finalDate, function ( event ) {
