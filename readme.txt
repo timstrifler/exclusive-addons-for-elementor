@@ -273,7 +273,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
-= 2.7.9.5 - 11/07/2025 =
+= 2.7.9.5 - 12/07/2025 =
 - Fix frontend PHP notice issue using Tabs widget
 - Security improvements
 
