@@ -142,8 +142,8 @@ class Admin_Settings {
 						</li>
                         <li class="exad-tab-btn">
 							<a href="#extensions">
-								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-normal.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
-								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-extensions-active.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<img class="exad-tab-image-normal" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-tab-extensions-normal.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
+								<img class="exad-tab-image-active" src="<?php echo EXAD_ADMIN_URL . 'assets/img/ex-tab-extensions-active.svg'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
 								<span><?php esc_html_e( 'Extensions', 'exclusive-addons-elementor' ); ?></span>
 							</a>
 						</li>
