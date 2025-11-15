@@ -96,7 +96,15 @@ class Helper {
 				'height' => array(),
 				'width' => array()
 			),
-			'hr' => array()
+			'hr' => array(),
+			'svg' => array(
+				'class' => array(),
+				'viewbox' => array(),
+				'viewBox' => array()
+			),
+			'path' => array(
+				'd' => array(),
+			)
         );
 		
         $allowed_html = array_merge_recursive( $allowed_html, $extra_allowed_html );
