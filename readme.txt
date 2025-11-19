@@ -274,7 +274,8 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.7.9.6 - 11/18/2025 =
-- Improve Icon Styling in all widgets
+- Support Icon Font "Font Awesome 5" in all widgets
+- Improve Icon styling on all widgets
 
 = 2.7.9.5 - 12/07/2025 =
 - Fix frontend PHP notice issue using Tabs widget
