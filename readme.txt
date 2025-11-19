@@ -274,6 +274,7 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 == Changelog ==
 = 2.7.9.7 - 11/19/2025 =
+- Improve shortcode support in all widgets
 
 = 2.7.9.6 - 11/18/2025 =
 - Support Icon Font "Font Awesome 5" in all widgets

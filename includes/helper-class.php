@@ -30,6 +30,8 @@ class Helper {
      */
     public static function exad_wp_kses( $string, $extra_allowed_html = array() ) {
 		
+        $allowed_tags = wp_kses_allowed_html('post');
+		
         $allowed_html = array(
             'b' => array(),
             's' => array(),
@@ -117,6 +119,8 @@ class Helper {
 				'd' => array(),
 			)
         );
+		
+        $allowed_html = array_merge_recursive( $allowed_html, $allowed_tags );
 		
         $allowed_html = array_merge_recursive( $allowed_html, $extra_allowed_html );
 		
