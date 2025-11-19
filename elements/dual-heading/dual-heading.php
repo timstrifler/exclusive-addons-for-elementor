@@ -183,6 +183,7 @@ class Dual_Heading extends Widget_Base {
                     'exad_dual_heading_icon[value]!' => ''
                 ],
                 'selectors' => [
+					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon' => 'fill: {{VALUE}};',
                     '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon i' => 'color: {{VALUE}};'
                 ]
             ]
@@ -205,6 +206,7 @@ class Dual_Heading extends Widget_Base {
                     'size'     => 36
                 ],
                 'selectors'    => [
+					'{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .exad-dual-heading .exad-dual-heading-wrapper .exad-dual-heading-icon i' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'    => [

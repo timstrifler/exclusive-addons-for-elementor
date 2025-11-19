@@ -640,6 +640,8 @@ class Accordion extends Widget_Base {
                     'size'     => 20
                 ],
                 'selectors'    => [
+					'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
                     '{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon i' => 'font-size: {{SIZE}}{{UNIT}};'
                 ]
             ]
@@ -707,7 +709,7 @@ class Accordion extends Widget_Base {
 					'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
 					'type'		=> Controls_Manager::COLOR,
 					'selectors'	=> [
-						'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon' => 'color: {{VALUE}};'
+						'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon' => 'color: {{VALUE}}; fill: {{VALUE}};'
 					]
 				]
 			);
@@ -734,6 +736,7 @@ class Accordion extends Widget_Base {
 					'label'		=> esc_html__( 'Color', 'exclusive-addons-elementor' ),
 					'type'		=> Controls_Manager::COLOR,
 					'selectors'	=> [
+						'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active span.exad-tab-title-icon' => 'fill: {{VALUE}};',
 						'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active span.exad-tab-title-icon i' => 'color: {{VALUE}};'
 					]
 				]
@@ -784,6 +787,8 @@ class Accordion extends Widget_Base {
                     'size'     => 20
                 ],
 				'selectors'    => [
+					'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-inactive-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-inactive-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
 		          	'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-inactive-icon i' => 'font-size: {{SIZE}}px;'
 		        ]
 	      	]
@@ -828,6 +833,7 @@ class Accordion extends Widget_Base {
 					'type'		=> Controls_Manager::COLOR,
 					'default'	=> '#000000',
 					'selectors'	=> [
+						'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-inactive-icon' => 'fill: {{VALUE}};',
 						'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-inactive-icon i' => 'color: {{VALUE}};'
 					]
 				]
@@ -856,6 +862,7 @@ class Accordion extends Widget_Base {
 					'type'		=> Controls_Manager::COLOR,
 					'default'	=> '#000000',
 					'selectors'	=> [
+						'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active .exad-active-inactive-icon' => 'fill: {{VALUE}};',
 						'{{WRAPPER}} .exad-accordion-items .exad-accordion-single-item .exad-accordion-title.active .exad-active-inactive-icon i' => 'color: {{VALUE}};'
 					]
 				]

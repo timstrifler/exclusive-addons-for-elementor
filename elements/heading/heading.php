@@ -342,7 +342,7 @@ class Heading extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .exad-heading-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-heading-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}'
+					'{{WRAPPER}} .exad-heading-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};'
 				]
 			]
 		);

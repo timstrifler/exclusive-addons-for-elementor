@@ -717,6 +717,7 @@ class Tabs extends Widget_Base {
 					'size'     => 24
 				],
 				'selectors'    => [
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li i' => 'font-size: {{SIZE}}{{UNIT}};'
 				]
 			]
@@ -762,7 +763,7 @@ class Tabs extends Widget_Base {
 					'isLinked' => false
 				], 
 				'selectors'    => [
-					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li i' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+					'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li .exad-button-icon-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
 				]
 			]
 		);
@@ -778,6 +779,7 @@ class Tabs extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#0a1724',
 						'selectors' => [
+							'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li' => 'fill: {{VALUE}};',
 							'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li i' => 'color: {{VALUE}};'
 						]
 					]
@@ -796,6 +798,7 @@ class Tabs extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#0a1724',
 						'selectors' => [
+							'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li.active, {{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li:hover' => 'fill: {{VALUE}};',
 							'{{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li.active i, {{WRAPPER}} .exad-tabs-{{ID}}.exad-advance-tab > .exad-advance-tab-nav li:hover i' => 'color: {{VALUE}};'
 						]
 					]
@@ -1222,8 +1225,8 @@ class Tabs extends Widget_Base {
 				<?php foreach( $settings['exad_exclusive_tabs'] as $tab ) : ?>
 					<li class="<?php echo esc_attr( $tab['exad_exclusive_tab_show_as_default'] ); ?> <?php echo esc_attr( $settings['exad_exclusive_tabs_list_triangle_position'] ); ?>" data-tab>
 						<?php 
-							if( 'icon' === $tab['exad_exclusive_tabs_icon_type'] &&  !empty( $tab['exad_exclusive_tab_title_icon']['value'] ) ) :
-								Icons_Manager::render_icon( $tab['exad_exclusive_tab_title_icon'] );
+							if( 'icon' === $tab['exad_exclusive_tabs_icon_type'] &&  !empty( $tab['exad_exclusive_tab_title_icon']['value'] ) ) : ?><span class="exad-button-icon-wrapper"><?php
+								Icons_Manager::render_icon( $tab['exad_exclusive_tab_title_icon'] );?></span><?php
 							elseif( $tab['exad_exclusive_tabs_icon_type'] === 'image' ) : 
 								if ( $tab['exad_exclusive_tab_title_image']['url'] || $tab['exad_exclusive_tab_title_image']['id'] ) { ?>
 									<?php echo Group_Control_Image_Size::get_attachment_image_html( $tab, 'exad_tab_navigation_image_size', 'exad_exclusive_tab_title_image' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -1301,11 +1304,7 @@ class Tabs extends Widget_Base {
 	
 		$output = ob_get_clean();
 		
-		$allowed_tags = wp_kses_allowed_html('post');
-		
-		$allowed_tags['style'] = array();
-		
-		$kses_output = wp_kses( $output, $allowed_tags );
+		$kses_output = Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		
 		print Helper::fix_elementor_styletag( $kses_output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}

@@ -9,6 +9,7 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 
 class Alert extends Widget_Base {
@@ -260,6 +261,8 @@ class Alert extends Widget_Base {
                     'size'     => 24
                 ],
                 'selectors'    => [
+					'{{WRAPPER}} .exad-alert .exad-alert-element .exad-alert-element-icon span' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-alert .exad-alert-element .exad-alert-element-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
                     '{{WRAPPER}} .exad-alert .exad-alert-element .exad-alert-element-icon i' => 'font-size: {{SIZE}}px;'
                 ]
             ]
@@ -294,7 +297,7 @@ class Alert extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#272727',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-icon span' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-alert-element .exad-alert-element-icon span' => 'color: {{VALUE}}; fill: {{VALUE}};'
                 ]
             ]
         );
@@ -812,7 +815,7 @@ class Alert extends Widget_Base {
 		
         $output = ob_get_clean();
 		
-        print wp_kses_post( $output );
+        print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
     /**

@@ -1318,6 +1318,7 @@ class Team_Member extends Widget_Base {
 					'size'     => 14
 				],
 				'selectors'    => [
+					'{{WRAPPER}} .exad-team-member-social li a svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-team-member-social li a i' => 'font-size: {{SIZE}}{{UNIT}};'
 				]
 			]
@@ -1384,6 +1385,7 @@ class Team_Member extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#a4a7aa',
 						'selectors' => [
+							'{{WRAPPER}} .exad-team-member-social li a' => 'fill: {{VALUE}};',
 							'{{WRAPPER}} .exad-team-member-social li a i' => 'color: {{VALUE}};'
 						]
 					]
@@ -1420,6 +1422,7 @@ class Team_Member extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#8a8d91',
 						'selectors' => [
+							'{{WRAPPER}} .exad-team-member-social li a:hover' => 'fill: {{VALUE}};',
 							'{{WRAPPER}} .exad-team-member-social li a:hover i' => 'color: {{VALUE}};'
 						]
 					]
@@ -1636,7 +1639,7 @@ class Team_Member extends Widget_Base {
 		
 		$output = ob_get_clean();
 		
-		print wp_kses_post( $output );
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

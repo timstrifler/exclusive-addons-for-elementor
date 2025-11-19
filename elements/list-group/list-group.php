@@ -705,6 +705,7 @@ class List_group extends Widget_Base {
 					'size' => 16,
 				],
 				'selectors' => [
+					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon .exad-list-group-icon-image' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
@@ -719,7 +720,7 @@ class List_group extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon i' => 'color: {{VALUE}}',
-					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon' => 'color: {{VALUE}}; fill: {{VALUE}}',
 				],
 			]
 		);

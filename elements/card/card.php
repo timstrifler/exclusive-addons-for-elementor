@@ -1134,7 +1134,55 @@ class Card extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'exad_card_button_typography',
-				'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action'
+				'selector' => '{{WRAPPER}} .exad-card-body .exad-card-action',
+				'fields_options' => [
+					'font_family' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-family: "{{VALUE}}"',
+						],
+					],
+					'font_size' => [
+						'selectors' => [
+							'{{SELECTOR}} svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+							'{{SELECTOR}}' => 'font-size: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'font_weight' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-weight: {{VALUE}}',
+						],
+					],
+					'text_transform' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-transform: {{VALUE}}',
+						],
+					],
+					'font_style' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-style: {{VALUE}}',
+						],
+					],
+					'text_decoration' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-decoration: {{VALUE}}',
+						],
+					],
+					'line_height' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'line-height: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'letter_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'letter-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'word_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'word-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+				]
 			]
 		);
 
@@ -1212,7 +1260,7 @@ class Card extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#222222',
 						'selectors' => [
-							'{{WRAPPER}} .exad-card-body .exad-card-action' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-card-body .exad-card-action' => 'color: {{VALUE}}; fill: {{VALUE}};'
 						]
 					]
 				);
@@ -1272,7 +1320,7 @@ class Card extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#ffffff',
 						'selectors' => [
-							'{{WRAPPER}} .exad-card-body .exad-card-action:hover' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-card-body .exad-card-action:hover' => 'color: {{VALUE}}; fill: {{VALUE}};'
 						]
 					]
 				);
@@ -1394,7 +1442,7 @@ class Card extends Widget_Base {
         		if ( !empty( $settings['exad_card_action_text'] ) ) : ?>
 					<a <?php $this->print_render_attribute_string( 'exad_card_action_link' ); ?>>
 						<?php if( 'icon_pos_left' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
-							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
+							<span class="exad-button-icon-wrapper <?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
 								<?php Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
 							</span>
 						<?php	
@@ -1407,7 +1455,7 @@ class Card extends Widget_Base {
 
 						<?php
 						if( 'icon_pos_right' === $settings['exad_card_action_link_icon_position'] &&  !empty( $settings['exad_card_action_link_icon']['value'] ) ) { ?>
-							<span class="<?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
+							<span class="exad-button-icon-wrapper <?php echo esc_attr( $settings['exad_card_action_link_icon_position'] ); ?>">
 								<?php Icons_Manager::render_icon( $settings['exad_card_action_link_icon'] ); ?>
 							</span>
 						<?php } ?>

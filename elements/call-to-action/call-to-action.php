@@ -439,6 +439,7 @@ class Call_To_Action extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'default'   => $exad_secondary_color,
                 'selectors' => [
+					'{{WRAPPER}} .exad-call-to-action-icon' => 'fill: {{VALUE}};',
                     '{{WRAPPER}} .exad-call-to-action-icon i' => 'color: {{VALUE}};'
                 ],
                 'condition' => [
@@ -464,6 +465,7 @@ class Call_To_Action extends Widget_Base {
                     'size'     => 40
                 ],
                 'selectors'    => [
+					'{{WRAPPER}} .exad-call-to-action-icon svg' => 'height: {{SIZE}}px; width: {{SIZE}}px;',
                     '{{WRAPPER}} .exad-call-to-action-icon i' => 'font-size: {{SIZE}}px;'
                 ],
                 'condition' => [
@@ -486,7 +488,7 @@ class Call_To_Action extends Widget_Base {
                     'unit'   => 'px'
                 ],
                 'selectors'  => [
-                    '{{WRAPPER}} .exad-call-to-action-icon i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-call-to-action-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
                 'condition'  => [
                     'exad_cta_icon[value]!' => ''
@@ -1014,7 +1016,7 @@ class Call_To_Action extends Widget_Base {
 	
         $output = ob_get_clean();
 		
-        print wp_kses_post( $output );
+        print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
     /**

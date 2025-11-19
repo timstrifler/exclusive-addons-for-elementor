@@ -396,7 +396,55 @@ class News_Ticker extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name'     => 'exad_news_ticker_label_typography',
-                'selector' => '{{WRAPPER}} .exad-news-ticker .exad-bn-label'
+                'selector' => '{{WRAPPER}} .exad-news-ticker .exad-bn-label',
+				'fields_options' => [
+					'font_family' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-family: "{{VALUE}}"',
+						],
+					],
+					'font_size' => [
+						'selectors' => [
+							'{{SELECTOR}} svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+							'{{SELECTOR}}' => 'font-size: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'font_weight' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-weight: {{VALUE}}',
+						],
+					],
+					'text_transform' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-transform: {{VALUE}}',
+						],
+					],
+					'font_style' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-style: {{VALUE}}',
+						],
+					],
+					'text_decoration' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-decoration: {{VALUE}}',
+						],
+					],
+					'line_height' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'line-height: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'letter_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'letter-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'word_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'word-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+				]
             ]
         );
 
@@ -407,7 +455,7 @@ class News_Ticker extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#000000',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-news-ticker .exad-bn-label' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-news-ticker .exad-bn-label' => 'color: {{VALUE}}; fill: {{VALUE}};'
                 ]              
             ]
         );
@@ -498,6 +546,7 @@ class News_Ticker extends Widget_Base {
                     ]
                 ],
                 'selectors'    => [
+                    '{{WRAPPER}} .exad-news-ticker-icon svg' => 'height: {{SIZE}}px !important; width: {{SIZE}}px !important;',
                     '{{WRAPPER}} .exad-news-ticker-icon i' => 'font-size: {{SIZE}}px;'
                 ],
                 'condition' => [
@@ -513,6 +562,7 @@ class News_Ticker extends Widget_Base {
                 'label'     => esc_html__( 'Color', 'exclusive-addons-elementor' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
+                    '{{WRAPPER}} .exad-news-ticker-icon' => 'fill: {{VALUE}};',
                     '{{WRAPPER}} .exad-news-ticker-icon i' => 'color: {{VALUE}};'
                 ],
                 'condition' => [
@@ -536,7 +586,7 @@ class News_Ticker extends Widget_Base {
                     'isLinked' => false
                 ],
                 'selectors'    => [
-                    '{{WRAPPER}} .exad-news-ticker-icon i' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-news-ticker-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};'
                 ],
                 'condition'    => [
                     'exad_news_ticker_show_label_icon'    => 'yes',

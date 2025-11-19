@@ -387,7 +387,55 @@ class Dual_Button extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
                 'name'     => 'exad_container_primary_button_typography',
-                'selector' => '{{WRAPPER}} .exad-dual-button-primary span'
+                'selector' => '{{WRAPPER}} .exad-dual-button-primary span',
+				'fields_options' => [
+					'font_family' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-family: "{{VALUE}}"',
+						],
+					],
+					'font_size' => [
+						'selectors' => [
+							'{{SELECTOR}} svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+							'{{SELECTOR}}' => 'font-size: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'font_weight' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-weight: {{VALUE}}',
+						],
+					],
+					'text_transform' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-transform: {{VALUE}}',
+						],
+					],
+					'font_style' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-style: {{VALUE}}',
+						],
+					],
+					'text_decoration' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-decoration: {{VALUE}}',
+						],
+					],
+					'line_height' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'line-height: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'letter_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'letter-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'word_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'word-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+				]
 			]
         );
         
@@ -432,8 +480,8 @@ class Dual_Button extends Widget_Base {
                     'size'    => 10
                 ],
 				'selectors'   => [
-                    '{{WRAPPER}} .exad-dual-button-primary .exad-icon-pos-left i'  => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .exad-dual-button-primary .exad-icon-pos-right i' => 'margin-left: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-dual-button-primary .exad-icon-pos-left .exad-button-icon-wrapper'  => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-dual-button-primary .exad-icon-pos-right .exad-button-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};'
 				],
                 'condition'   => [
                     'exad_dual_button_primary_button_icon[value]!' => ''
@@ -469,7 +517,7 @@ class Dual_Button extends Widget_Base {
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#ffffff',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-dual-button-primary' => 'color: {{VALUE}};'
+                            '{{WRAPPER}} .exad-dual-button-primary' => 'color: {{VALUE}}; fill:{{VALUE}};'
                         ]
                     ]
                 );
@@ -518,7 +566,7 @@ class Dual_Button extends Widget_Base {
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#ffffff',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-dual-button-primary:hover' => 'color: {{VALUE}};'
+                            '{{WRAPPER}} .exad-dual-button-primary:hover' => 'color: {{VALUE}}; fill:{{VALUE}};'
                         ]
                     ]
                 );
@@ -676,7 +724,7 @@ class Dual_Button extends Widget_Base {
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#ffffff',
                 'selectors' => [
-                    '{{WRAPPER}} .exad-dual-button-connector span' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .exad-dual-button-connector span' => 'color: {{VALUE}};  fill:{{VALUE}};'
                 ]
             ]
         );
@@ -773,7 +821,55 @@ class Dual_Button extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
                 'name'     => 'exad_container_secondary_button_typography',
-                'selector' => '{{WRAPPER}} .exad-dual-button-secondary span'
+                'selector' => '{{WRAPPER}} .exad-dual-button-secondary span',
+				'fields_options' => [
+					'font_family' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-family: "{{VALUE}}"',
+						],
+					],
+					'font_size' => [
+						'selectors' => [
+							'{{SELECTOR}} svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+							'{{SELECTOR}}' => 'font-size: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'font_weight' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-weight: {{VALUE}}',
+						],
+					],
+					'text_transform' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-transform: {{VALUE}}',
+						],
+					],
+					'font_style' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-style: {{VALUE}}',
+						],
+					],
+					'text_decoration' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-decoration: {{VALUE}}',
+						],
+					],
+					'line_height' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'line-height: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'letter_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'letter-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'word_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'word-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+				]
 			]
         );
         
@@ -813,8 +909,8 @@ class Dual_Button extends Widget_Base {
                     'size'    => 10
                 ],
 				'selectors'   => [
-                    '{{WRAPPER}} .exad-dual-button-secondary .exad-icon-pos-left i'  => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .exad-dual-button-secondary .exad-icon-pos-right i' => 'margin-left: {{SIZE}}{{UNIT}};'
+                    '{{WRAPPER}} .exad-dual-button-secondary .exad-icon-pos-left .exad-button-icon-wrapper'  => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .exad-dual-button-secondary .exad-icon-pos-right .exad-button-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};'
 				],
                 'condition'   => [
                     'exad_dual_button_secondary_button_icon[value]!' => ''
@@ -850,7 +946,7 @@ class Dual_Button extends Widget_Base {
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#ffffff',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-dual-button-secondary' => 'color: {{VALUE}};'
+                            '{{WRAPPER}} .exad-dual-button-secondary' => 'color: {{VALUE}}; fill:{{VALUE}};'
                         ]
                     ]
                 );
@@ -899,7 +995,7 @@ class Dual_Button extends Widget_Base {
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#ffffff',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-dual-button-secondary:hover' => 'color: {{VALUE}};'
+                            '{{WRAPPER}} .exad-dual-button-secondary:hover' => 'color: {{VALUE}}; fill:{{VALUE}};'
                         ]
                     ]
                 );
@@ -1011,16 +1107,13 @@ class Dual_Button extends Widget_Base {
                 <a <?php $this->print_render_attribute_string( 'exad_dual_button_primary_button_url' ); ?>>
                     <span class="<?php echo esc_attr( $primary_btn_icon_pos ); ?>">
                     <?php 
-                        if ( 'exad-icon-pos-left' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
-                            Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] );
+                        if ( 'exad-icon-pos-left' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) { ?><span class="exad-button-icon-wrapper"><?php 
+                            Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] );?></span><?php
                         }
-                    ?>
-                        <span <?php $this->print_render_attribute_string( 'exad_dual_button_primary_button_text' ); ?>>
-                            <?php echo esc_html( $settings['exad_dual_button_primary_button_text'] ); ?>
-                        </span>
-                        <?php 
-                        if ( 'exad-icon-pos-right' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) {
-                            Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon'] );
+                    ?><span <?php $this->print_render_attribute_string( 'exad_dual_button_primary_button_text' ); ?>><?php echo esc_html( $settings['exad_dual_button_primary_button_text'] ); ?></span><?php 
+                        if ( 'exad-icon-pos-right' === $primary_btn_icon_pos && !empty( $settings['exad_dual_button_primary_button_icon']['value'] ) ) { ?><span class="exad-button-icon-wrapper"><?php 
+                            Icons_Manager::render_icon( $settings['exad_dual_button_primary_button_icon']
+							);?></span><?php
                         }
                         ?>
                     </span>
@@ -1046,16 +1139,13 @@ class Dual_Button extends Widget_Base {
                 <a <?php $this->print_render_attribute_string( 'exad_dual_button_secondary_button_url' ); ?>>
                     <span class="<?php echo esc_attr( $secondary_btn_icon_pos ); ?>">
                     <?php 
-                        if ( 'exad-icon-pos-left' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
-                            Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );
+                        if ( 'exad-icon-pos-left' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) { ?><span class="exad-button-icon-wrapper"><?php
+                            Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );?></span><?php
                         }
-                        ?>
-                        <span <?php $this->print_render_attribute_string( 'exad_dual_button_secondary_button_text' ); ?>>
-                            <?php echo esc_html( $settings['exad_dual_button_secondary_button_text'] ); ?>
-                        </span>
-                        <?php 
-                        if ( 'exad-icon-pos-right' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) {
-                            Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );
+                        ?><span <?php $this->print_render_attribute_string( 'exad_dual_button_secondary_button_text' ); ?>><?php echo esc_html( $settings['exad_dual_button_secondary_button_text'] ); ?>
+                        </span><?php 
+                        if ( 'exad-icon-pos-right' === $secondary_btn_icon_pos && !empty( $settings['exad_dual_button_secondary_button_icon']['value'] ) ) { ?><span class="exad-button-icon-wrapper"><?php
+                            Icons_Manager::render_icon( $settings['exad_dual_button_secondary_button_icon'] );?></span><?php
                         }
                         ?>
                     </span>

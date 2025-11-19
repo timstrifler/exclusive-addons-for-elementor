@@ -55,7 +55,8 @@ class Helper {
                 'title' => array()
             ),
 			'div' => array(
-				'class' => array()
+				'class' => array(),
+				'data-tabs' => array()
 			),
 			'h1' => array(
 				'class' => array()
@@ -80,6 +81,16 @@ class Helper {
 			),
 			'span' => array(
 				'class' => array()
+			),
+			'ul' => array(
+				'class' => array()
+			),
+			'ol' => array(
+				'class' => array()
+			),
+			'li' => array(
+				'class' => array(),
+				'data-tab' => array()
 			),
             'a' => array(
 				'href' => array(), 

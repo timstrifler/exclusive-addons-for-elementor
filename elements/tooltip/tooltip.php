@@ -12,6 +12,7 @@ use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
+use \ExclusiveAddons\Elementor\Helper;
 
 class Tooltip extends Widget_Base {
 
@@ -270,6 +271,8 @@ class Tooltip extends Widget_Base {
                     'size'     => 18
                 ],
                 'selectors'    => [
+					'{{WRAPPER}} .exad-tooltip .exad-tooltip-content .exad-button-icon-wrapper' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-tooltip .exad-tooltip-content svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .exad-tooltip .exad-tooltip-content i' => 'font-size: {{SIZE}}{{UNIT}};'
                 ],
                 'condition'    => [
@@ -365,7 +368,7 @@ class Tooltip extends Widget_Base {
                             'exad_tooltip_type!' => [ 'image' ]
                         ],
                         'selectors' => [
-                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content, {{WRAPPER}} .exad-tooltip .exad-tooltip-content a' => 'color: {{VALUE}};'
+                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content, {{WRAPPER}} .exad-tooltip .exad-tooltip-content a' => 'color: {{VALUE}}; fill: {{VALUE}};'
 						]
 					]
                 );
@@ -405,8 +408,8 @@ class Tooltip extends Widget_Base {
                         ],
                         'default'   => '#212121',
                         'selectors' => [
-                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content:hover'   => 'color: {{VALUE}};',
-                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content a:hover' => 'color: {{VALUE}};'
+                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content:hover' => 'color: {{VALUE}};  fill: {{VALUE}};',
+                            '{{WRAPPER}} .exad-tooltip .exad-tooltip-content a:hover' => 'color: {{VALUE}}; fill: {{VALUE}};'
 						]
 					]
                 );
@@ -599,8 +602,8 @@ class Tooltip extends Widget_Base {
 						<?php echo $settings['exad_tooltip_content']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</span>
 
-                    <?php elseif( 'icon' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_icon_content']['value'] ) ) : ?>
-                        <?php Icons_Manager::render_icon( $settings['exad_tooltip_icon_content'] ); ?>
+                    <?php elseif( 'icon' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_icon_content']['value'] ) ) : ?><span class="exad-button-icon-wrapper">
+                        <?php Icons_Manager::render_icon( $settings['exad_tooltip_icon_content'] ); ?></span>
 
                     <?php elseif( 'image' === $settings['exad_tooltip_type'] && !empty( $settings['exad_tooltip_img_content']['url'] ) ) : ?>
                         <?php if ( $settings['exad_tooltip_img_content']['url'] || $settings['exad_tooltip_img_content']['id'] ) { ?>
@@ -621,7 +624,7 @@ class Tooltip extends Widget_Base {
 		
 		$output = ob_get_clean();
 		
-		print wp_kses_post( $output );
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
     /**

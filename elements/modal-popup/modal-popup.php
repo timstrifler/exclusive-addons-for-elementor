@@ -606,7 +606,55 @@ class Modal_Popup extends Widget_Base {
 			[
 				'name'      => 'exad_modal_btn_typhography',
 				'label'     => __( 'Button Typography', 'exclusive-addons-elementor' ),
-				'selector'  => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action span'
+				'selector'  => '{{WRAPPER}} .exad-modal-button .exad-modal-image-action span',
+				'fields_options' => [
+					'font_family' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-family: "{{VALUE}}"',
+						],
+					],
+					'font_size' => [
+						'selectors' => [
+							'{{SELECTOR}} svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+							'{{SELECTOR}}' => 'font-size: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'font_weight' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-weight: {{VALUE}}',
+						],
+					],
+					'text_transform' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-transform: {{VALUE}}',
+						],
+					],
+					'font_style' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'font-style: {{VALUE}}',
+						],
+					],
+					'text_decoration' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'text-decoration: {{VALUE}}',
+						],
+					],
+					'line_height' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'line-height: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'letter_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'letter-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+					'word_spacing' => [
+						'selectors' => [
+							'{{SELECTOR}}' => 'word-spacing: {{SIZE}}{{UNIT}}',
+						],
+					],
+				]
 			]
 		);
 
@@ -663,7 +711,7 @@ class Modal_Popup extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#ffffff',
 						'selectors' => [
-							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span' => 'color: {{VALUE}}; fill: {{VALUE}};'
 						]
 					]
 				);
@@ -715,7 +763,7 @@ class Modal_Popup extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => $exad_primary_color,
 						'selectors' => [
-							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover span' => 'color: {{VALUE}};'
+							'{{WRAPPER}} .exad-modal-button .exad-modal-image-action:hover span' => 'color: {{VALUE}}; fill: {{VALUE}};'
 						]
 					]
 				);
@@ -774,8 +822,8 @@ class Modal_Popup extends Widget_Base {
 					'size'    => 6
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span.exad-modal-action-icon-left i' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span.exad-modal-action-icon-right i' => 'margin-left: {{SIZE}}{{UNIT}};'
+					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span.exad-modal-action-icon-left .exad-button-icon-wrapper' => 'margin-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .exad-modal-button .exad-modal-image-action span.exad-modal-action-icon-right .exad-button-icon-wrapper' => 'margin-left: {{SIZE}}{{UNIT}};'
 				],
 				'condition'   => [
                     'exad_modal_btn_icon[value]!' => ''
@@ -1196,12 +1244,12 @@ class Modal_Popup extends Widget_Base {
 				<div class="exad-modal-button exad-modal-btn-fixed-width-<?php echo esc_attr($settings['exad_modal_btn_enable_fixed_width_height']);?>">
 					<a href="#" <?php $this->print_render_attribute_string('exad_modal_action');?> >
 						<span class="exad-modal-action-icon-<?php echo esc_attr($settings['exad_modal_btn_icon_align']);?>">
-							<?php if( 'left' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
-								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true' ] );
+							<?php if( 'left' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) { ?><span class="exad-button-icon-wrapper"><?php 
+								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true' ] );?></span><?php
 							}
 							echo esc_html( $settings['exad_modal_btn_text'] );
-							if( 'right' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) {
-								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true' ] );
+							if( 'right' === $settings['exad_modal_btn_icon_align'] && !empty( $settings['exad_modal_btn_icon']['value'] ) ) { ?><span class="exad-button-icon-wrapper"><?php 
+								Icons_Manager::render_icon( $settings['exad_modal_btn_icon'], [ 'aria-hidden' => 'true' ] );?></span><?php
 							} ;?>
 						</span>
 					</a>

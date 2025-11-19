@@ -1502,7 +1502,8 @@ class Pricing_Table extends Widget_Base {
 					]
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .exad-pricing-li-icon' => 'font-size: {{SIZE}}px;'
+					'{{WRAPPER}} .exad-pricing-li-icon svg' => 'height: {{SIZE}}px; width: {{SIZE}}px',
+					'{{WRAPPER}} .exad-pricing-li-icon' => 'font-size: {{SIZE}}px; width: {{SIZE}}{{UNIT}}'
 				]
 			]
 		);
@@ -1535,7 +1536,7 @@ class Pricing_Table extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => $exad_secondary_color,
 				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-table-features li span.exad-pricing-li-icon' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-pricing-table-features li span.exad-pricing-li-icon' => 'color: {{VALUE}}; fill: {{VALUE}};'
 				]
 			]
 		);
@@ -1614,7 +1615,7 @@ class Pricing_Table extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#a6a9ad',
 				'selectors' => [
-					'{{WRAPPER}} .exad-pricing-table-features li.exad-pricing-table-features-disable span.exad-pricing-li-icon' => 'color: {{VALUE}};'
+					'{{WRAPPER}} .exad-pricing-table-features li.exad-pricing-table-features-disable span.exad-pricing-li-icon' => 'color: {{VALUE}}; fill: {{VALUE}};'
 				]
 			]
 		);
@@ -1664,6 +1665,7 @@ class Pricing_Table extends Widget_Base {
 				],
 				'selectors'   => [
 					'{{WRAPPER}} .text-badge'   => 'font-size: {{SIZE}}px;',
+					'{{WRAPPER}} .icon-badge svg' => 'height: {{SIZE}}px; width: {{SIZE}}px',
 					'{{WRAPPER}} .icon-badge i' => 'font-size: {{SIZE}}px;'
 				]
 			]
@@ -1677,6 +1679,7 @@ class Pricing_Table extends Widget_Base {
 				'default'   => '#ffffff',
 				'selectors' => [
 					'{{WRAPPER}} .text-badge'   => 'color: {{VALUE}};',
+					'{{WRAPPER}} .icon-badge' => 'fill: {{VALUE}};',
 					'{{WRAPPER}} .icon-badge i' => 'color: {{VALUE}};'
 				]
 			]
@@ -2305,7 +2308,7 @@ class Pricing_Table extends Widget_Base {
 		
 		$output = ob_get_clean();
 		
-		print wp_kses_post( $output );
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

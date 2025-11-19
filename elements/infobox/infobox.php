@@ -674,6 +674,7 @@ class Infobox extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => '#ffffff',
 						'selectors' => [
+							'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon' => 'fill: {{VALUE}}',
 							'{{WRAPPER}} .exad-infobox-item .exad-infobox-icon i' => 'color: {{VALUE}}'
 						],
 						'condition' => [
@@ -715,6 +716,7 @@ class Infobox extends Widget_Base {
 						'type'      => Controls_Manager::COLOR,
 						'default'   => $exad_primary_color,
 						'selectors' => [
+							'{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon' => 'fill: {{VALUE}}',
 							'{{WRAPPER}} .exad-infobox-item:hover .exad-infobox-icon i' => 'color: {{VALUE}}'
 						],
 						'condition' => [
@@ -995,7 +997,7 @@ class Infobox extends Widget_Base {
 		
 		$output = ob_get_clean();
 		
-		print wp_kses_post( $output );
+		print Helper::exad_wp_kses( $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

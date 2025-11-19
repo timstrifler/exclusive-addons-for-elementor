@@ -37,6 +37,9 @@
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon {
   position: relative;
 }
+.exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-icon svg,
+.exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-inactive-icon svg,
+.exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon svg,
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-active-icon i,
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title .exad-inactive-icon i,
 .exad-accordion-items .exad-accordion-single-item .exad-accordion-title span.exad-tab-title-icon i {
@@ -226,8 +229,25 @@
   z-index: 1;
 }
 
-.exad-button-wrapper.effect-1 .exad-button-action i {
-  margin-right: 5px;
+.exad-button-wrapper .exad-button-action svg {
+	height:20px;
+	width:20px;
+}
+
+.exad-button-icon-wrapper {
+  display: inline-block;
+  vertical-align:middle;
+}
+
+.exad-button-icon-wrapper i {
+  display: block;
+}
+
+.exad-button-wrapper.exad-button-incon-before-text .exad-button-action .exad-button-icon-wrapper {
+  margin-right: 10px;
+}
+.exad-button-wrapper.exad-button-incon-after-text .exad-button-action .exad-button-icon-wrapper {
+  margin-left: 10px;
 }
 
 .exad-button-wrapper.effect-1 .exad-button-action::before {
@@ -246,11 +266,6 @@
 .exad-button-wrapper.effect-1 .exad-button-action:hover::before {
   width: 100%;
 }
-
-
-/* .exad-button-wrapper.effect-2 .exad-button-action i {
-  margin-right: 10px;
-} */
 
 .exad-button-wrapper.effect-2 .exad-button-action:before, .exad-button-wrapper.effect-2 .exad-button-action:after {
   content: '';
@@ -283,10 +298,6 @@
   width: 100%;
 }
 
-.exad-button-wrapper.effect-3 .exad-button-action i {
-  margin-right: 10px;
-}
-
 .exad-button-wrapper.effect-3 .exad-button-action::before {
   position: absolute;
   content: '';
@@ -315,10 +326,6 @@
 
 .exad-button-wrapper.effect-4 .exad-button-action {
   transition: all .5s ease;
-}
-
-.exad-button-wrapper.effect-4 .exad-button-action i {
-  margin-right: 10px;
 }
 
 .exad-button-wrapper.effect-4 .exad-button-action::before, .exad-button-wrapper.effect-4 .exad-button-action::after {
@@ -357,10 +364,6 @@
           transform: translate(0, 0);
 }
 
-.exad-button-wrapper.effect-5 .exad-button-action i {
-  margin-right: 10px;
-}
-
 .exad-button-wrapper.effect-5 .exad-button-action::before {
   position: absolute;
   content: '';
@@ -391,10 +394,6 @@
   border: 1px solid #8868fe;
 }
 
-.exad-button-wrapper.effect-6 .exad-button-action i {
-  margin-right: 10px;
-}
-
 .exad-button-wrapper.effect-6 .exad-button-action:hover {
   -webkit-animation: pulse 0.5s cubic-bezier(0.66, 0, 0, 1);
           animation: pulse 0.5s cubic-bezier(0.66, 0, 0, 1);
@@ -423,20 +422,6 @@
   height: 100%;
   width: 100%;
   z-index: -1;
-}
-
-.exad-button-wrapper.effect-7 .exad-button-action span {
-  display: inline-block;
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
-}
-
-.exad-button-wrapper.effect-7 .exad-button-action span i {
-  position: relative;
-  font-size: 20px;
-  -webkit-transform: translate(0, 4em);
-          transform: translate(0, 4em);
-  transition: all 0.3s ease;
 }
 
 .exad-button-wrapper.effect-7 .exad-button-action:hover {
@@ -470,7 +455,7 @@
   color: #fff;
 }
 
-.exad-button-wrapper.effect-8 .exad-button-action:hover span {
+.exad-button-wrapper.effect-8 .exad-button-action:hover span.effect-8-position {
   height: 350%;
   width: 350%;
 }
@@ -2711,6 +2696,7 @@ ul.exad-call-to-action-buttons {
   margin: 10px 0px 10px 0px;
 }
 
+.exad-gallery-items .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a svg,
 .exad-gallery-items .exad-gallery-element .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i {
   position: absolute;
   top: 50%;
@@ -3768,6 +3754,7 @@ ul.exad-call-to-action-buttons {
 .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes{
     position: relative;
 }
+.exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes svg,
 .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes i,
 .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-image,
 .exad-list-group .exad-list-group-wrapper .exad-list-group-item .exad-list-group-icon.yes .exad-list-group-icon-number {

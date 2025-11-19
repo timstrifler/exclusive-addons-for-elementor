@@ -864,6 +864,7 @@ class Filterable_Gallery extends Widget_Base
                     ]
                 ],
                 'selectors'      => [
+					'{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a svg' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
                     '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i' => 'font-size: {{SIZE}}{{UNIT}};'
                 ] 
             ]
@@ -882,6 +883,7 @@ class Filterable_Gallery extends Widget_Base
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#222222',
                         'selectors' => [
+							'{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a' => 'fill: {{VALUE}};',
                             '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a i' => 'color: {{VALUE}};'
                         ]
                     ]
@@ -911,6 +913,7 @@ class Filterable_Gallery extends Widget_Base
                         'type'      => Controls_Manager::COLOR,
                         'default'   => '#ffffff',
                         'selectors' => [
+							'{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a:hover' => 'fill: {{VALUE}};',
                             '{{WRAPPER}} .exad-gallery-item .exad-gallery-item-overlay .exad-gallery-item-overlay-content a:hover i' => 'color: {{VALUE}};'
                         ]
                     ]
