@@ -273,7 +273,8 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
-= 2.7.9.6 - 24/09/2025 =
+= 2.7.9.6 - 11/18/2025 =
+- Improve Icon Styling in all widgets
 
 = 2.7.9.5 - 12/07/2025 =
 - Fix frontend PHP notice issue using Tabs widget
