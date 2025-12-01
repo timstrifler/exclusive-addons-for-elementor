@@ -3,7 +3,7 @@ Contributors: exclusiveaddons, timstrifler, devjenndivilife, mmaumio, atiquehasa
 Tags: elementor, elementor Addons, elementor widgets, woocommerce builder, ultimate Addons
 Requires at least: 4.6
 Tested up to: 6.8
-Stable tag: 2.7.9.7
+Stable tag: 2.7.9.8
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -273,10 +273,12 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
-= 2.7.9.7 - 11/19/2025 =
+= 2.7.9.8 - 01/12/2025 =
+
+= 2.7.9.7 - 19/11/2025 =
 - Improve shortcode support in all widgets
 
-= 2.7.9.6 - 11/18/2025 =
+= 2.7.9.6 - 18/11/2025 =
 - Support Icon Font "Font Awesome 5" in all widgets
 - Improve Icon styling on all widgets
 
