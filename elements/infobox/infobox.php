@@ -1030,7 +1030,7 @@ class Infobox extends Widget_Base {
 					model: view.getEditModel()
 				};
 
-				var image_url = elementor.imagesManager.getImageUrl( image );
+				var image_url = _.escape( elementor.imagesManager.getImageUrl( image ) );
 			}
 
 			if ( 'yes' === settings.exad_infobox_transition_top ){

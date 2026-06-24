@@ -1039,7 +1039,7 @@ class Pricing_Menu extends Widget_Base {
                                 model: view.getEditModel()
                             };
 
-                            var image_url = elementor.imagesManager.getImageUrl( image );
+                            var image_url = _.escape( elementor.imagesManager.getImageUrl( image ) );
                         } 
                         var imgURL = image_url ? ' yes' : '';
 

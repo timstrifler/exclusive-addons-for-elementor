@@ -648,7 +648,7 @@ class Image_Comparison extends Widget_Base {
                     model: view.getEditModel()
                 };
 
-                var imageOneURL = elementor.imagesManager.getImageUrl( image );
+                var imageOneURL = _.escape( elementor.imagesManager.getImageUrl( image ) );
             }
 
             if ( settings.exad_comparison_image_two.url || settings.exad_comparison_image_two.id ) {
@@ -660,7 +660,7 @@ class Image_Comparison extends Widget_Base {
                     model: view.getEditModel()
                 };
 
-                var imageTwoURL = elementor.imagesManager.getImageUrl( image );
+                var imageTwoURL = _.escape( elementor.imagesManager.getImageUrl( image ) );
             }
 
             view.addRenderAttribute( 'exad_image_comparison_wrapper', {

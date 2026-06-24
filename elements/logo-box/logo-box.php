@@ -410,7 +410,7 @@ class Logo_Box extends Widget_Base {
                     model: view.getEditModel()
                 };
 
-                var image_url = elementor.imagesManager.getImageUrl( image );
+                var image_url = _.escape( elementor.imagesManager.getImageUrl( image ) );
             }
 
             var target   = settings.exad_logo_box_link.is_external ? ' target="_blank"' : '';
