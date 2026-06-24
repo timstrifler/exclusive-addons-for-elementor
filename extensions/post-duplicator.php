@@ -31,7 +31,9 @@ class Post_Duplicator {
 				
             }
 			
-            $actions['exad_duplicate'] = sprintf( '<a href="%s" title="%s">%s</a>', $duplicate_url,  __( $post->post_title, 'exclusive-addons-elementor'), __( 'Ex Duplicator', 'exclusive-addons-elementor') );
+			$title = esc_attr( sanitize_text_field( $post->post_title ) );
+			
+            $actions['exad_duplicate'] = sprintf( '<a href="%s" title="%s">%s</a>', $duplicate_url,  __( $title, 'exclusive-addons-elementor'), __( 'Ex Duplicator', 'exclusive-addons-elementor') );
         }
         return $actions;
     }
