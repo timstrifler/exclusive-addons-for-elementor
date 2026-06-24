@@ -273,7 +273,8 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
-= 2.7.9.9 - 06/24/2026 =
+= 2.7.9.9 - 06/23/2026 =
+- Security improvements
 - Support Elementor 4
 - Plugin tested with WordPress 7.0
 
