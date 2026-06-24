@@ -2,8 +2,8 @@
 Contributors: exclusiveaddons, timstrifler, devjenndivilife, mmaumio, atiquehasan, zabid, fahimahmmed100
 Tags: elementor, elementor Addons, elementor widgets, woocommerce builder, ultimate Addons
 Requires at least: 4.6
-Tested up to: 6.9
-Stable tag: 2.7.9.8
+Tested up to: 7.0
+Stable tag: 2.7.9.9
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -273,6 +273,10 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.7.9.9 - 06/24/2026 =
+- Support Elementor 4
+- Plugin tested with WordPress 7.0
+
 = 2.7.9.8 - 01/12/2025 =
 - Plugin tested with WordPress 6.9
 
