@@ -10,6 +10,7 @@ namespace ExclusiveAddons\Elementor;
 
 use Elementor\Plugin;
 use ExclusiveAddons\Elementor\Exad_WPML_Element_Free_Compatibility;
+use \Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -340,6 +341,11 @@ final class Base {
 		return $element;
 	}
 	
+	protected function is_widget_id_valid( $widget_id ) {
+		return preg_match( '/^[a-zA-Z0-9]+$/', $widget_id )
+			&& strlen( $widget_id ) === 7;
+	}
+	
 
     /**
      * Facebook Feed ajax call
@@ -351,16 +357,56 @@ final class Base {
         $security = check_ajax_referer('exclusive_addons_nonce', 'security');
 
         if ( true == $security && isset( $_POST['query_settings'] ) ) :
-            $settings = $_POST['query_settings'];
-            $loaded_item = $_POST['loaded_item'];
-
+			$error_message = esc_html__( 'Something went wrong, please refresh the page.', 'exclusive-addons-elementor' );
+		
+			if ( ! is_array( $_POST[ 'query_settings' ] ) ) {
+				
+				return $error_message;
+			}
+			
+			$settings = wp_kses_post_deep( wp_unslash( $_POST[ 'query_settings' ] ) );
+            $loaded_item = wp_kses_post( wp_unslash( $_POST[ 'loaded_item' ] ) );
+			
+			$post_id = absint( $settings['post_id'] );
+			$widget_id = esc_attr( $settings['widget_id'] );
+			
+			if ( ! $post_id || ! $this->is_widget_id_valid( $widget_id ) ) {
+				
+				return $error_message;
+			}
+			
+			Plugin::$instance->db->switch_to_post( $post_id );
+			$document = Plugin::$instance->documents->get( $post_id );
+			
+			// Bail if not Elementor page.
+			if ( ! $document ) {
+				
+				return $error_message;
+			}
+			
+			// Setup $post_id as the WP global $post
+			$post = get_post( $post_id, OBJECT );
+			setup_postdata( $post );
+			
+			$elements_data = $document->get_elements_data();
+			$widget_data = Utils::find_element_recursive( $elements_data, $widget_id );
+			$widget_instance = Plugin::$instance->elements_manager->create_element_instance( $widget_data );
+			$widget_settings = $widget_instance->get_settings_for_display();
+			
+			if ( ! isset( $widget_settings['exad_facebook_access_token'] ) ) {
+				
+				return $error_message;
+			}
+			
+			$settings['access_token'] = $widget_settings['exad_facebook_access_token'];
+			
             $exad_facebook_feed_cache = '_' . $settings['widget_id'] . '_facebook_cache';
             $transient_key = $settings['exad_facebook_page_id'] . $exad_facebook_feed_cache;
             $facebook_feed_data = get_transient($transient_key);
 
             if ( false === $facebook_feed_data ) {
                 $url_queries = 'fields=status_type,created_time,from,message,story,full_picture,permalink_url,attachments.limit(1){type,media_type,title,description,unshimmed_url},comments.summary(total_count),reactions.summary(total_count)';
-                $url = "https://graph.facebook.com/{$settings['page_id']}/posts?{$url_queries}&access_token={$settings['access_token']}";
+                $url = "https://graph.facebook.com/{$settings['exad_facebook_page_id']}/posts?{$url_queries}&access_token={$settings['access_token']}";
                 $data = wp_remote_get( $url );
                 $facebook_feed_data = json_decode( wp_remote_retrieve_body( $data ), true );
                 set_transient( $transient_key, $facebook_feed_data, 0 );
@@ -368,6 +414,17 @@ final class Base {
             if ( $settings['clear_cache'] == 'yes' ) {
                 delete_transient( $transient_key );
             }
+			
+			if ( !empty( $facebook_feed_data ) && array_key_exists( 'error', $facebook_feed_data ) ) {
+				$messages['error'] = $facebook_feed_data['error']['message'];
+			}
+
+			if ( !empty( $messages ) ) {
+				foreach ($messages as $key => $message) {
+					printf('<div class="exad-facebook-error-message">%1$s</div>', esc_html( $message ) );
+				}
+				return;
+			}
 
             switch ($settings['exad_facebook_sort_by']) {
                 case 'old-posts':

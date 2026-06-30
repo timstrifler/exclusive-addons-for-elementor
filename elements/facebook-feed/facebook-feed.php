@@ -125,6 +125,7 @@ class Facebook_Feed extends Widget_Base {
             [
 				'label'   => __( 'Columns', 'exclusive-addons-elementor' ),
 				'type'    => Controls_Manager::SELECT,
+				'default' => 3,
 				'desktop_default' => '3',
 				'tablet_default' => '2',
 				'mobile_default' => '1',
@@ -1489,6 +1490,8 @@ class Facebook_Feed extends Widget_Base {
 		if ( empty( $page_id ) || empty( $access_token ) ) {
 			return;
 		}
+		
+		$current_post_id = get_the_ID();
 
 		$this->add_render_attribute(
 			'exad_facebook_feed_wrapper',
@@ -1529,9 +1532,9 @@ class Facebook_Feed extends Widget_Base {
 
 
 		$query_settings = [
+			'post_id'			=> $current_post_id,
 			'widget_id' 		=> $id,
-			'page_id' 			=> $page_id,
-			'access_token' 		=> $access_token,
+			'exad_facebook_page_id' => $page_id,
 			'clear_cache' 		=> $settings['clear_cache'],
 			'exad_facebook_sort_by' => $settings['exad_facebook_sort_by'],
 			'post_limit' 		=> $settings['post_limit'],
