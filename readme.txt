@@ -3,7 +3,7 @@ Contributors: exclusiveaddons, timstrifler, devjenndivilife, mmaumio, atiquehasa
 Tags: elementor, elementor Addons, elementor widgets, woocommerce builder, ultimate Addons
 Requires at least: 4.6
 Tested up to: 7.0
-Stable tag: 2.8.0
+Stable tag: 2.8.1
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -230,15 +230,6 @@ Note : This plugin works with Elementor. Make sure you have [Elementor](https://
 5. You can type "Ex" on your element tabs within Elementor editor and all the avalable elements of Exclusive Addons will appear.
 6. Also you can find them under the category "Exclusive Addons" on your element/widget list.
 
-### Privacy Policy 
-Exclusive Addons for Elementor uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
-
-Appsero SDK **does not gather any data by default.** The SDK only starts gathering basic telemetry data **when a user allows it via the admin notice**. We collect the data to ensure a great user experience for all our users. 
-
-Integrating Appsero SDK **DOES NOT IMMEDIATELY** start gathering data, **without confirmation from users in any case.**
-
-Learn more about how [Appsero collects and uses this data](https://appsero.com/privacy-policy/).
-
 
 == Frequently Asked Questions ==
 
@@ -273,6 +264,9 @@ No, It won't break your existing elements. We put most of our efforts into ensur
 
 
 == Changelog ==
+= 2.8.1 - 07/23/2026 =
+- Security improvements
+
 = 2.8.0 - 06/30/2026 =
 - Security improvements
 
