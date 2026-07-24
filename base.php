@@ -353,7 +353,7 @@ final class Base {
      * @return array
      */
     public function exad_facebook_feed_ajax() {
-
+		
         $security = check_ajax_referer('exclusive_addons_nonce', 'security');
 
         if ( true == $security && isset( $_POST['query_settings'] ) ) :
@@ -361,7 +361,8 @@ final class Base {
 		
 			if ( ! is_array( $_POST[ 'query_settings' ] ) ) {
 				
-				return $error_message;
+				print $error_message;
+				return;
 			}
 			
 			$settings = wp_kses_post_deep( wp_unslash( $_POST[ 'query_settings' ] ) );
@@ -372,7 +373,16 @@ final class Base {
 			
 			if ( ! $post_id || ! $this->is_widget_id_valid( $widget_id ) ) {
 				
-				return $error_message;
+				print $error_message;
+				return;
+			}
+			
+			$post_status = get_post_status( $post_id );
+			
+			if ( 'publish' !== $post_status ) {
+				
+				print $error_message;
+				return;
 			}
 			
 			Plugin::$instance->db->switch_to_post( $post_id );
@@ -381,7 +391,8 @@ final class Base {
 			// Bail if not Elementor page.
 			if ( ! $document ) {
 				
-				return $error_message;
+				print $error_message;
+				return;
 			}
 			
 			// Setup $post_id as the WP global $post
@@ -395,7 +406,14 @@ final class Base {
 			
 			if ( ! isset( $widget_settings['exad_facebook_access_token'] ) ) {
 				
-				return $error_message;
+				print $error_message;
+				return;
+			}
+			
+			if ( ! isset( $settings['exad_facebook_page_id'] ) ) {
+				
+				print $error_message;
+				return;
 			}
 			
 			$settings['access_token'] = $widget_settings['exad_facebook_access_token'];
@@ -403,11 +421,20 @@ final class Base {
             $exad_facebook_feed_cache = '_' . $settings['widget_id'] . '_facebook_cache';
             $transient_key = $settings['exad_facebook_page_id'] . $exad_facebook_feed_cache;
             $facebook_feed_data = get_transient($transient_key);
+			$messages = [];
 
             if ( false === $facebook_feed_data ) {
                 $url_queries = 'fields=status_type,created_time,from,message,story,full_picture,permalink_url,attachments.limit(1){type,media_type,title,description,unshimmed_url},comments.summary(total_count),reactions.summary(total_count)';
                 $url = "https://graph.facebook.com/{$settings['exad_facebook_page_id']}/posts?{$url_queries}&access_token={$settings['access_token']}";
                 $data = wp_remote_get( $url );
+				
+				if ( is_wp_error( $data ) 
+					|| 200 !== (int) wp_remote_retrieve_response_code( $data ) ) {
+					
+					print esc_html__( 'Facebook App ID is not valid', 'exclusive-addons-elementor' );
+					return;
+				}
+				
                 $facebook_feed_data = json_decode( wp_remote_retrieve_body( $data ), true );
                 set_transient( $transient_key, $facebook_feed_data, 0 );
             }

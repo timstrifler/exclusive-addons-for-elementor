@@ -1510,6 +1510,13 @@ class Facebook_Feed extends Widget_Base {
 			$url_queries = 'fields=status_type,created_time,shares,from,message,story,full_picture,permalink_url,attachments.limit(1){type,media_type,title,description,unshimmed_url},comments.summary(total_count),reactions.summary(total_count)';
 			$url = "https://graph.facebook.com/{$page_id}/posts?{$url_queries}&access_token={$access_token}";
 			$data = wp_remote_get( $url ); 
+			
+			if ( is_wp_error( $data ) 
+				|| 200 !== (int) wp_remote_retrieve_response_code( $data ) ) {
+				
+				$messages['error'] = __( 'Facebook App ID is not valid', 'exclusive-addons-elementor' );
+			}
+			
 			$facebook_feed_data = json_decode( wp_remote_retrieve_body( $data ), true );
 
 			set_transient( $transient_key, $facebook_feed_data, 0 );
